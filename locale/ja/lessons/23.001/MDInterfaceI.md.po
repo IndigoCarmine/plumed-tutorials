@@ -9,7 +9,7 @@ msgstr ""
 
 #: MDInterfaceI.md:1
 msgid "Passing data to/from PLUMED"
-msgstr ""
+msgstr "PLUMED とのデータ受け渡し"
 
 #: MDInterfaceI.md:3
 msgid ""
@@ -22,6 +22,8 @@ msgid ""
 "called GET and PUT. This article gives a brief introduction to these "
 "Actions."
 msgstr ""
+"MD とは Void Pointer、Action 間は [こちら](Passing.md) の PLMD::Value で受け渡します。両者を変換する"
+" Action が GET・PUT です。簡単に紹介します。"
 
 # Literal notation or identifier intentionally preserved.
 #: MDInterfaceI.md:8
@@ -38,6 +40,8 @@ msgid ""
 "and shape. The following Python snippet illustrates how this works in "
 "practice:"
 msgstr ""
+"GET は ActionWithArguments を継承し、1 Value の `data` Vector を呼び出し側の Void Pointer "
+"に移します。形状は事前に不明なので Rank・Shape を取得できます。Python 例は、"
 
 #: MDInterfaceI.md:40
 msgid ""
@@ -50,6 +54,8 @@ msgid ""
 "(old) mechanism means that additional lines in PLMD::PlumedMain were "
 "required to fetch variables. These additional lines are no longer needed."
 msgstr ""
+"GET は何個でも作れ、`calculate` 時に転送するので計算 Cycle に自然に統合されます。旧 DataFetchingObject は "
+"Action を継承せず PlumedMain の追加処理が必要でしたが、不要になりました。"
 
 # Literal notation or identifier intentionally preserved.
 #: MDInterfaceI.md:45
@@ -64,6 +70,8 @@ msgid ""
 "passing, so if you want to pass a 3x3 matrix from the MD code to PLUMED, you"
 " create the space to do so as follows:"
 msgstr ""
+"PUT は ActionWithValue を継承し、呼び出し側の Void Pointer から Value "
+"に移します。呼び出し側は形状を知るので、3x3 Matrix なら、"
 
 #: MDInterfaceI.md:54
 msgid ""
@@ -71,14 +79,14 @@ msgid ""
 "later in your PLUMED input file. To transfer data from the void pointer "
 "called val into the PLMD::Value called `n`, you would then use the following"
 " command:"
-msgstr ""
+msgstr "`n` という Value を生成し、後で参照できます。Void Pointer val から `n` に移すには、"
 
 #: MDInterfaceI.md:61
 msgid ""
 "Notice also that if you expect PLUMED to try to apply forces on `n`, you can"
 " pass a void pointer called `force` to get the forces that PLUMED has "
 "applied on the elements of n as follows:"
-msgstr ""
+msgstr "`n` に力を加えるなら `force` の Void Pointer で取得できます。"
 
 #: MDInterfaceI.md:67
 msgid ""
@@ -89,6 +97,8 @@ msgid ""
 "you to transfer variables such as the value of the timestep that is set only"
 " once during the simulation (i.e. during startup)."
 msgstr ""
+"Value `n` の `inputForce` に力を保存します。PUT 由来は `storedata` が true です。CONSTANT なら "
+"Time Step など初期に1回だけの値も渡せます。"
 
 #: MDInterfaceI.md:71
 msgid ""
@@ -98,3 +108,5 @@ msgid ""
 " the DOMAIN_DECOMPOSITION action are called. However, I will write more "
 "about that in another post."
 msgstr ""
+"`share`・`wait` で転送します。Domain に分かれた位置などは DOMAIN_DECOMPOSITION の share・wait "
+"で扱います。詳細は別稿です。"

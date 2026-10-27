@@ -9,7 +9,7 @@ msgstr ""
 
 #: contactMatrix.md:1
 msgid "Contact matices and coordination numbers"
-msgstr ""
+msgstr "Contact Matrix と Coordination Number"
 
 #: contactMatrix.md:3
 msgid ""
@@ -21,6 +21,9 @@ msgid ""
 "coordination numbers of the atoms can be calculated from the contact matrix "
 "by doing matrix vector multiplication."
 msgstr ""
+"Contact Matrix の $i$・$j$ 要素 $\\mathbf{C}_{ij}$ は、原子 $i$・$j$ が $r_c$ "
+"内なら1、ほかは0です。$\\mathbf{C}$ に全1 Vector を掛けた $i$ 番目は原子 $i$ の $r_c$ 内の原子数、すなわち "
+"Coordination です。"
 
 #: contactMatrix.md:7
 msgid ""
@@ -29,32 +32,32 @@ msgid ""
 "example, to calculate and print the coordination numbers of the first 7 "
 "atoms in the system with themselves you would use an input something like "
 "this:"
-msgstr ""
+msgstr "新版はこの関係を多用します。最初の7原子同士の Coordination は、"
 
 #: contactMatrix.md:17
 msgid ""
 "Implmenting the coordination number this way is useful as there are many "
 "different ways to define whether two atoms/molecules and to construct a "
 "\"contact\" matrix based on the result. For example:"
-msgstr ""
+msgstr "Contact の定義を多様にできる利点があります。例えば、"
 
 #: contactMatrix.md:20
 msgid ""
 "You could say that two molecules are connected if they are within a certain "
 "distance of each other and if they have the same orientation."
-msgstr ""
+msgstr "分子間が近く、同じ配向なら接続。"
 
 #: contactMatrix.md:21
 msgid ""
 "You could say that two water molecules are connected if they are hydrogen "
 "bonded to each other."
-msgstr ""
+msgstr "水が Hydrogen Bond を作れば接続。"
 
 #: contactMatrix.md:22
 msgid ""
 "You could say that two atoms are connected if they are within a certain "
 "distance of each other and if they have similar values for a CV."
-msgstr ""
+msgstr "原子間が近く、CV 値が似ていれば接続。"
 
 #: contactMatrix.md:24
 msgid ""
@@ -63,11 +66,11 @@ msgid ""
 "the contact matrix that is used in the multiplication in whatever way you "
 "choose. In other words, the newer implementation of the coordination number "
 "is much more flexible."
-msgstr ""
+msgstr "Matrix-Vector 積なら任意の Contact 定義が使え、柔軟になります。"
 
 #: contactMatrix.md:27
 msgid "Contact map chains"
-msgstr ""
+msgstr "Contact Map の Chain"
 
 #: contactMatrix.md:29
 msgid ""
@@ -77,28 +80,30 @@ msgid ""
 "working with matrices that are passed between action. When we compute the CV"
 " defined by the input below:"
 msgstr ""
+"[こちら](MultiColvar.md) のように Backward apply で再計算し微分保存を避けます。Matrix でも同様です。次の CV"
+" なら、"
 
 #: contactMatrix.md:46
 msgid ""
 "for example, the diagram showing how data passes through the PLUMED actions "
 "as the values calculated is as follows:"
-msgstr ""
+msgstr "Forward のデータは、"
 
 #: contactMatrix.md:63
 msgid ""
 "When the forces from the biasvalue are applied on s they are passed through "
 "the actions as shown below:"
-msgstr ""
+msgstr "biasvalue の力を s に加える際は、"
 
 #: contactMatrix.md:80
 msgid ""
 "During this backwards pass through the actions the elements of the contact "
 "matrix are recalculated so we can accumulate the derivatives."
-msgstr ""
+msgstr "Backward で Contact Matrix を再計算し微分を蓄積します。"
 
 #: contactMatrix.md:82
 msgid "Optimisation details"
-msgstr ""
+msgstr "最適化の詳細"
 
 #: contactMatrix.md:84
 msgid ""
@@ -108,7 +113,7 @@ msgid ""
 "have thus implemented sparse matrix storage. If you do calculate and store a"
 " contact matrix only the elements of the matrix that are non-zero are "
 "stored."
-msgstr ""
+msgstr "Contact は疎で、各原子は少数の Neighbor だけに接続します。Memory を減らすため非0要素だけを保存します。"
 
 #: contactMatrix.md:88
 msgid ""
@@ -127,10 +132,14 @@ msgid ""
 "diagrams that I have shown previously the blue subgraphs illustrate how data"
 " is passed through actions as the elements of the matrix row are evaluated."
 msgstr ""
+"疎性で時間も原子数の二乗から線形にできます。要素 $i,j$ が非0なのは距離 $r_c$ 内だけなので、Linked List・Neighbor "
+"List の Divide-and-conquer で $r_c$ 外の多くを距離計算なしで除外します。AgencyMatrixBase "
+"がこの最適化を担い、非0だけを計算します。全1 Vector の積も非0だけを後続に渡します。Flow Chart の青い Subgraph "
+"は行の要素評価時の伝達を示します。"
 
 #: contactMatrix.md:95
 msgid "A complicated CV"
-msgstr ""
+msgstr "複雑な CV"
 
 #: contactMatrix.md:97
 msgid ""
@@ -141,12 +150,15 @@ msgid ""
 "11 ionide ions. We can calculate something akin to this CV and apply a "
 "restraint on the resulting quantity by using the following input file:"
 msgstr ""
+"[この論文](https://pubs.acs.org/doi/abs/10.1021/acs.chemmater.9b04259) の "
+"Perovskite Nucleation CV は、少なくとも5つの Methylammonium、7 Lead、11 Iodide に結び付く "
+"Methylammonium 数です。類似 CV と Restraint は、"
 
 #: contactMatrix.md:143
 msgid ""
 "When the forward loop through the actions in the above input file is "
 "performed data is passed as follows:"
-msgstr ""
+msgstr "Forward のデータは、"
 
 #: contactMatrix.md:188
 msgid ""
@@ -154,7 +166,7 @@ msgid ""
 "positions by passing backwards through the actions as follows and "
 "recalculating the elements of the various matrices are vectors that are used"
 " in the calculation:"
-msgstr ""
+msgstr "Backward で Matrix・Vector を再計算し、ff の原子位置微分を求めます。"
 
 #: contactMatrix.md:235
 msgid ""
@@ -162,4 +174,4 @@ msgid ""
 "directly from the input file. Furthermore, because this complicated CV is "
 "constructed from simpler pieces it is hopefully easier for other researchers"
 " to quickly understand what the CV is calculating."
-msgstr ""
+msgstr "複雑 CV を入力だけで迅速に試作し、単純部品から組むことで他者にも理解しやすくします。"

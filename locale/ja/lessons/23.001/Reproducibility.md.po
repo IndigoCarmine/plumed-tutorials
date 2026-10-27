@@ -9,7 +9,7 @@ msgstr ""
 
 #: Reproducibility.md:1
 msgid "Reproducibility and extendibility"
-msgstr ""
+msgstr "再現性と拡張性"
 
 #: Reproducibility.md:3
 msgid ""
@@ -22,6 +22,8 @@ msgid ""
 "then, are we trying to ensure others can reproduce the work that we have "
 "done?"
 msgstr ""
+"論文の再現性が議論され、私たちは PLUMED NEST を作りました。ただし __他者の研究を再現する試みはまれ__ "
+"で、単なる再現論文は有力誌に通らないでしょう。なぜ再現性を求めるのでしょうか？"
 
 #: Reproducibility.md:9
 msgid ""
@@ -35,6 +37,7 @@ msgid ""
 "not stop to reflect on the steps that were taken and will be unable to work "
 "out how to apply the ideas from that earlier work in their own context."
 msgstr ""
+"以前の結果を基に新研究をするためですが、手順の理由を理解しないと応用できません。手順だけの説明は、批判的に考えず踏襲し、自分の文脈へ適用できない危険があります。"
 
 #: Reproducibility.md:15
 msgid ""
@@ -47,6 +50,8 @@ msgid ""
 "form that allows learners to start to understand how PLUMED works starting "
 "from any input, as I think this is how students learn to use the code."
 msgstr ""
+"NEST を豊富な利用モデルとして文書に活かすべきです。各 Keyword に Tooltip "
+"を付け、任意入力から仕組みを学べるようにしました。これが学生の学び方だと思います。"
 
 #: Reproducibility.md:21
 msgid ""
@@ -56,7 +61,7 @@ msgid ""
 "offer a mechanism for helping them through that process by providing tools "
 "(like the tooltips) for exploring the documentation in the context of the "
 "inputs in the nest."
-msgstr ""
+msgstr "研究室で渡された例をマニュアルで理解する学生を、NEST の入力に即した Tooltip などで支援したいのです。"
 
 #: Reproducibility.md:24
 msgid ""
@@ -70,6 +75,8 @@ msgid ""
 "will help them write code that runs on the particular architecture they are "
 "using."
 msgstr ""
+"改良では速度より明確な文書に注目し、起動時に単純 Action へ展開する Shortcut を使います。Q6 などの仕組みと拡張を理解し、必要なら "
+"Architecture に合う高速コードを書く助けになります。"
 
 #: Reproducibility.md:29
 msgid ""
@@ -77,4 +84,4 @@ msgid ""
 "rather than reproducibility. In the grand scheme of things ensuring users "
 "can use PLUMED to do new things is far more important than ensuring they can"
 " use it to reproduce work that others have already done."
-msgstr ""
+msgstr "NEST と文書は、再現性以上に拡張性を確保したいと考えます。新しいことができる方が、他者の再現以上に重要です。"

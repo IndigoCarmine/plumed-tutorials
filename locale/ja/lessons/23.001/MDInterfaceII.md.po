@@ -9,7 +9,7 @@ msgstr ""
 
 #: MDInterfaceII.md:1
 msgid "Passing atoms to/from PLUMED"
-msgstr ""
+msgstr "原子情報の受け渡し"
 
 #: MDInterfaceII.md:3
 msgid ""
@@ -25,16 +25,19 @@ msgid ""
 "quantities to make sense of the information in the void pointers that the MD"
 " code passes."
 msgstr ""
+"[こちら](MDInterfaceI.md) の PUT は Void Pointer を Value に変換し、位置・質量・電荷にも使います。ただし "
+"MD は Domain Decomposition で原子情報を分散するため、DOMAIN_DECOMPOSITION で Pointer "
+"情報を解釈します。"
 
 #: MDInterfaceII.md:11
 msgid "Creating a DOMAIN_DECOMPOSITION action"
-msgstr ""
+msgstr "DOMAIN_DECOMPOSITION の作成"
 
 #: MDInterfaceII.md:13
 msgid ""
 "A DOMAIN_DECOMPOSITION can be created by using a call to plumed.cmd as "
 "follows:"
-msgstr ""
+msgstr "plumed.cmd で次のように作ります。"
 
 #: MDInterfaceII.md:19
 msgid ""
@@ -42,20 +45,20 @@ msgid ""
 "vv. The pointer to the data that needs to be transferred to the PLMD::Value "
 "object that is created by the PUT action is then set by using the command "
 "below:"
-msgstr ""
+msgstr "上はラベル vv の PUT を作ります。転送元 Pointer は、"
 
 #: MDInterfaceII.md:26
 msgid ""
 "Meanwhile, the pointer to the forces that should be modified is passed as "
 "follows:"
-msgstr ""
+msgstr "変更する力の Pointer は、"
 
 #: MDInterfaceII.md:32
 msgid ""
 "In other words, pointers to values and forces in the MD code are passed to "
 "PUT actions that are created by the DOMAIN_DECOMPOSION in [the way you pass "
 "data to other PUT actions](MDInterfaceI.md)."
-msgstr ""
+msgstr "つまり、[他の PUT と同様](MDInterfaceI.md)、生成した PUT に MD の値・力の Pointer を渡します。"
 
 #: MDInterfaceII.md:35
 msgid ""
@@ -65,6 +68,7 @@ msgid ""
 "DOMAIN_DECOMPOSITION action. To see why this is useful, consider the "
 "following DOMAIN_DECOMPOSITION command:"
 msgstr ""
+"Value は常に系の原子数と同じ長さの Vector です。1 DOMAIN_DECOMPOSITION から複数 PUT も作れます。例は、"
 
 #: MDInterfaceII.md:50
 msgid ""
@@ -74,6 +78,8 @@ msgid ""
 " atoms and the masses and charges of the atoms. It is important to note that"
 " this command will also, create a PBC_ACTION to hold the cell."
 msgstr ""
+"GROMACS の `plumed.cmd(\"setNatoms\",&natoms)` "
+"で呼ばれ、posx・posy・posz・Masses・Charges の5 Value と、Cell を保持する PBC_ACTION を作ります。"
 
 #: MDInterfaceII.md:54
 msgid ""
@@ -84,23 +90,25 @@ msgid ""
 " that have these five particular roles and for ActionWithVirtualAtom "
 "objects."
 msgstr ""
+"ROLE はこの5量の特別な役割用で、他の量には不要です。ActionAtomistic はその ROLE の PUT と "
+"ActionWithVirtualAtom から位置・質量・電荷を探します。"
 
 #: MDInterfaceII.md:58
 msgid "Differences from regular PUT actions"
-msgstr ""
+msgstr "通常 PUT との違い"
 
 #: MDInterfaceII.md:60
 msgid ""
 "PUT actions created from a DOMAIN_DECOMPOSITION action behave differently "
 "from other PUT actions. In particular:"
-msgstr ""
+msgstr "DOMAIN_DECOMPOSITION 由来の PUT は次が異なります。"
 
 #: MDInterfaceII.md:62
 msgid ""
 "If a DOMAIN_DECOMPOSITION action creates a PUT action, then the PUT action "
 "depends on the DOMAIN_DECOMPOSITION action. ActionToPutData::apply thus does"
 " nothing for these PUT actions."
-msgstr ""
+msgstr "元の DOMAIN_DECOMPOSITION に依存し、ActionToPutData::apply は何もしない。"
 
 #: MDInterfaceII.md:63
 msgid ""
@@ -109,13 +117,14 @@ msgid ""
 "DOMAIN_DECOMPOSITION action. When ActionToPutData::wait is called for these "
 "PUT Actions `wasset=true`, ActionToPutData::wait does nothing."
 msgstr ""
+"元が Pointer から Value を移すため、ActionToPutData::wait は `wasset=true` で何もしない。"
 
 #: MDInterfaceII.md:64
 msgid ""
 "Lastly, if a constant PUT action is created by DOMAIN_DECOMPOSITION, the "
 "values in the vector are set during the first step of MD rather than during "
 "initialisation."
-msgstr ""
+msgstr "Constant でも初期化時ではなく MD の最初の Step に設定する。"
 
 #: MDInterfaceII.md:66
 msgid ""
@@ -131,3 +140,7 @@ msgid ""
 "and `DomainDecomposition::wait().` The forces on the PUT actions created by "
 "the DOMAIN_DECOMPOSITION action are added in `DomainDecomposition::apply()`."
 msgstr ""
+"PUT だけでは各 Processor の原子配置がわからず Pointer を解釈できないためです。その情報を受ける "
+"DOMAIN_DECOMPOSITION が変換します。全 PUT への Pointer "
+"を保持し、`DomainDecomposition::share(const std::vector<AtomNumber>& unique)` と "
+"`DomainDecomposition::wait().` で値、`DomainDecomposition::apply()` で力を設定します。"

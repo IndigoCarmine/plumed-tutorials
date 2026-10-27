@@ -9,7 +9,7 @@ msgstr ""
 
 #: Clusters.md:1
 msgid "Clustering"
-msgstr ""
+msgstr "Clustering"
 
 #: Clusters.md:3
 msgid ""
@@ -20,6 +20,9 @@ msgid ""
 "input in that paper for calcluating the number of atoms in the largest "
 "cluster is shown below:"
 msgstr ""
+"Nucleation では最大結晶 Nucleus の原子数を Clustering "
+"で求めると有用です。[この論文](https://pubs.acs.org/doi/abs/10.1021/acs.jctc.6b01073) "
+"の典型入力は、"
 
 #: Clusters.md:18
 msgid ""
@@ -28,7 +31,7 @@ msgid ""
 "the atoms in order to do the clustering and (unless you have a deep "
 "understanding of the way the code is implemented) it is not clear why. With "
 "the new sytax you can achieve the same result as follows:"
-msgstr ""
+msgstr "動きますが煩雑です。全原子の Coordination を先に計算する理由が実装を詳しく知らないと不明です。新構文なら、"
 
 #: Clusters.md:44
 msgid ""
@@ -40,3 +43,5 @@ msgid ""
 "numbers. If you simply want to calculate the number of atoms in the largest "
 "cluster you can use the following input:"
 msgstr ""
+"CONTACT_MATRIX を直接 Clustering するので明確です。DFSCLUSTERING の Vector が各原子の Cluster "
+"を示し、論理操作で各 Cluster の性質を求められます。最大原子数だけなら Coordination も不要で、次を使います。"

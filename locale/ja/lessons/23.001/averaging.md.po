@@ -9,7 +9,7 @@ msgstr ""
 
 #: averaging.md:1
 msgid "Calculating averages"
-msgstr ""
+msgstr "平均の計算"
 
 #: averaging.md:3
 msgid ""
@@ -20,32 +20,34 @@ msgid ""
 "observable, which should really be calculated by computing the ensemble "
 "average."
 msgstr ""
+"MD の最終結果は平均です。Monte Carlo 同様、Random Variable の多数 Sample を作って、物理 Observable "
+"の本来の Ensemble Average を推定します。"
 
 #: averaging.md:6
 msgid ""
 "When we run molecular dynamics simulations there are three methods that we "
 "can use to generate the multiple samples that are used to calculate these "
 "averages:"
-msgstr ""
+msgstr "Sample の生成には3方法があります。"
 
 #: averaging.md:8
 msgid ""
 "We can calculate observables for each of the microstates in the trajectory "
 "and take a time average."
-msgstr ""
+msgstr "各 Microstate の Observable の時間平均。"
 
 #: averaging.md:9
 msgid ""
 "We can have multiple indistinguishable representations of the quantity of "
 "interest in each microstate we generate. We can thus perform a spatial "
 "average over these indistinguishable entities."
-msgstr ""
+msgstr "各 Microstate の区別不能な等価量の空間平均。"
 
 #: averaging.md:10
 msgid ""
 "We can run multiple trajectories in parallel and then average over these "
 "distinct replicas of the whole physical system."
-msgstr ""
+msgstr "並列 Trajectory による全系 Replica の平均。"
 
 #: averaging.md:12
 msgid ""
@@ -65,30 +67,33 @@ msgid ""
 "they are employing and encourage cross-fertilisation of ideas between "
 "developers of different methods."
 msgstr ""
+"PLUMED "
+"の各手法はこれらを多様に組み合わせます。収集方法を分離して透明性と再利用性を高め、手法間の違いと類似を明確にしたいと考えました。Shortcut "
+"が複雑な入力を正しく生成し、展開すれば平均を作る過程がわかります。理論の理解と異なる開発者間のアイデア交換につながれば幸いです。"
 
 #: averaging.md:19
 msgid ""
 "With all that in mind, allow me to explain here how the three forms of "
 "averaging described above are implemented in PLUMED."
-msgstr ""
+msgstr "3方法の実装を説明します。"
 
 #: averaging.md:21
 msgid "Unbiased time averages"
-msgstr ""
+msgstr "Unbiased 時間平均"
 
 #: averaging.md:23
 msgid ""
 "Lets start with simple PLUMED input. The input below calculates and prints "
 "the time average of the distance between atom 1 and 2 to a file called "
 "average."
-msgstr ""
+msgstr "原子1・2の距離平均を average に出す例です。"
 
 #: averaging.md:31
 msgid ""
 "As the stride is set equal to one on the AVERAGE line samples are taken from"
 " every microstate that is visited in the trajectory. If we had used the "
 "following input:"
-msgstr ""
+msgstr "AVERAGE の Stride=1 は全 Microstate を使います。次なら、"
 
 #: averaging.md:39
 msgid ""
@@ -96,14 +101,14 @@ msgid ""
 "a1 on every step, however. We would thus find that the values of a1 that are"
 " printed out on steps 10,11,12,13,14,15,16,17,18 and 19 were all the same. "
 "No additional samples were added on these steps so the average is unchanged."
-msgstr ""
+msgstr "10 Step ごとに蓄積します。a1 の出力は毎 Step でも、10〜19は同じです。新 Sample がないため平均が変わりません。"
 
 #: averaging.md:42
 msgid ""
 "The input for the AVERAGE action is the same as it was before we merged all "
 "the new code I have been working on. This action is now a shortcut, however."
 " The full input for the first of the two inputs above is:"
-msgstr ""
+msgstr "AVERAGE の構文は同じですが Shortcut になりました。最初の展開は、"
 
 #: averaging.md:55
 msgid ""
@@ -116,35 +121,37 @@ msgid ""
 "need to modify the input for the a1_weight command in a way that accounts "
 "for the reweighting that must be done on the biased simulation."
 msgstr ""
+"ACCUMULATE が瞬時値を足し、CUSTOM が残りの平均を行います。a1_weight を Reweighting に合わせて変更すれば "
+"Bias 付き平均も容易です。"
 
 #: averaging.md:59
 msgid ""
 "Notice that it is also easier to explain how block averages are computed "
 "with this input. When describing an input like this one:"
-msgstr ""
+msgstr "Block Average も説明しやすく、例えば、"
 
 #: averaging.md:71
 msgid ""
 "You simply state that the CLEAR=100 keywords ensure that a1_denom and "
 "a1_numer are set equal to zero on every hundreth step."
-msgstr ""
+msgstr "CLEAR=100 が100 Step ごとに a1_denom・a1_numer を0にします。"
 
 #: averaging.md:73
 msgid ""
 "Lastly, note that, because we are using shortcuts, we can show users what is"
 " done for special cases. To see what I mean consider the following input:"
-msgstr ""
+msgstr "特殊な場合も Shortcut で示せます。例えば、"
 
 #: averaging.md:81
 msgid "When this is expanded you have the following:"
-msgstr ""
+msgstr "展開すると、"
 
 #: averaging.md:95
 msgid ""
 "Readers of the manual can thus see how the average is calculated in a way "
 "that takes the periodicity of the variable into account without having to "
 "look inside the PLUMED source code."
-msgstr ""
+msgstr "周期性を考慮する平均が、Source を見ずに理解できます。"
 
 #: averaging.md:97
 msgid "Spatial averages"
@@ -154,7 +161,7 @@ msgstr "Spatial Averages"
 msgid ""
 "Suppose that you have an input file that calculates the coordination numbers"
 " of 100 atoms like the one shown below:"
-msgstr ""
+msgstr "100原子の Coordination を計算する次の入力なら、"
 
 #: averaging.md:106
 msgid ""
@@ -165,6 +172,8 @@ msgid ""
 " wants to accumulate individual averages for each of the 100 coordination "
 "numbers?"
 msgstr ""
+"ACCUMULATE の `a1` は Scalar と Vector "
+"のどちらでしょうか？100値を一緒に足すか、各原子の平均を別々に蓄積するかという問いです。"
 
 #: averaging.md:109
 msgid ""
@@ -175,7 +184,7 @@ msgid ""
 "atom 2 took and so on. If the user had wanted us to convert the vector "
 "computed by the COORINDATIONNUMBER action to a scalar they would have told "
 "us they were doing this by using an input like this:"
-msgstr ""
+msgstr "Vector が明確だと思います。`a1` の第1要素は原子1の時間和、第2は原子2です。Scalar 化したければ明示するはずです。"
 
 #: averaging.md:119
 msgid ""
@@ -183,17 +192,17 @@ msgid ""
 "shortcuts around for this sort of functionality. I think that the "
 "flexibility provided here for folks doing a mixture of time and spatial "
 "averaging makes things pretty straightforward and transparent."
-msgstr ""
+msgstr "時間・空間平均の混合を柔軟で透明にし、このための Shortcut さえ不要だと思います。"
 
 #: averaging.md:122
 msgid "Averages over replicas"
-msgstr ""
+msgstr "Replica 平均"
 
 #: averaging.md:124
 msgid ""
 "The example input file below shows how you can gather all the data from all "
 "replicas in one place using the GATHER_REPLICAS command:"
-msgstr ""
+msgstr "GATHER_REPLICAS で全 Replica データを集める例です。"
 
 #: averaging.md:134
 msgid ""
@@ -204,6 +213,8 @@ msgid ""
 "Consequently, if you can run a four replica simulation to compute the "
 "average distance between atom 1 and atom 2 you can get the average by doing:"
 msgstr ""
+"各 Replica の Value を作り、$N$ 出力が $N$ Replica の値を保持して、全 Replica から参照できます。4 "
+"Replica の原子1・2の平均距離なら、"
 
 #: averaging.md:149
 msgid ""
@@ -216,3 +227,4 @@ msgid ""
 "flexibility hopefully also helps users to understand how the averages that "
 "they are computing are being constructed."
 msgstr ""
+"収集と加算を分けて柔軟にします。入力が Vector・Matrix・Grid なら出力も同型です。3種の収集を分離し、平均の構築を理解しやすくします。"

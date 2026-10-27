@@ -9,7 +9,7 @@ msgstr ""
 
 #: Community.md:1
 msgid "Community and hierarchy"
-msgstr ""
+msgstr "Community と階層"
 
 #: Community.md:3
 msgid ""
@@ -17,7 +17,7 @@ msgid ""
 " the documentation for that action should appear in the manual. Should their"
 " new PLMD::Action be listed as a collective variable, function, bias, or "
 "something else?"
-msgstr ""
+msgstr "開発者は新 PLMD::Action を CV、Function、Bias などマニュアルのどこに置くか決めます。"
 
 #: Community.md:6
 msgid ""
@@ -25,7 +25,7 @@ msgid ""
 "categorisations are not that useful. They force developers to think in terms"
 " of a particular application domain. As the code grows, this limitation "
 "makes less and less sense."
-msgstr ""
+msgstr "この便宜的で抽象的な分類は有用性が薄いと感じます。特定の応用分野を強制し、拡大するコードにはますます合いません。"
 
 #: Community.md:9
 msgid ""
@@ -33,7 +33,7 @@ msgid ""
 " in PLUMED is more beneficial. They can do this by submitting tutorials and,"
 " if they so wish, they can even come up with their own categorisations for "
 "the PLMD::Action objects in the code."
-msgstr ""
+msgstr "何ができるかを文書化するツールの方が有益です。Tutorial を投稿し、必要なら独自の PLMD::Action 分類も使えます。"
 
 #: Community.md:13
 msgid ""
@@ -45,10 +45,11 @@ msgid ""
 "documentation should be flexible enough to incorporate these different "
 "views."
 msgstr ""
+"異なる分野の開発者が、分野に適した分類・説明をできる柔軟性が必要です。Community で開発するコードなので、多様な見方を文書に反映すべきです。"
 
 #: Community.md:17
 msgid ""
 "Rather than thinking the code must have one manual, we should move to a "
 "model of having many manuals. These manuals can then explain how the code is"
 " used in practice."
-msgstr ""
+msgstr "単一マニュアルではなく、実際の使い方を説明する複数マニュアルのモデルに移るべきです。"

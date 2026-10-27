@@ -9,7 +9,7 @@ msgstr ""
 
 #: PassingEnergy.md:1
 msgid "Passing energy to PLUMED"
-msgstr ""
+msgstr "Energy の受け渡し"
 
 #: PassingEnergy.md:3
 msgid ""
@@ -19,6 +19,8 @@ msgid ""
 " is $f_e$, then the corresponding forces on position component $j$ of atom "
 "$i$ can be calculated as:"
 msgstr ""
+"MD の Potential Energy に Bias を加える手法があります。入力 Energy を $V$、その Bias の力を $f_e$ "
+"とすると、原子 $i$ の位置成分 $j$ の力は、"
 
 #: PassingEnergy.md:10
 msgid ""
@@ -28,13 +30,15 @@ msgid ""
 "the potential $E$ and the bias potential that is acting upon the potential "
 "energy as:"
 msgstr ""
+"$\\frac{\\partial V}{\\partial x_{ij} }$ は Potential $E$ による原子 $i$ の成分 $j$ "
+"の力の符号反転です。$E$ と Energy Bias による原子 $i$ の成分 $j$ の全力は、"
 
 #: PassingEnergy.md:17
 msgid ""
 "In other words, we need to multiply the forces passed from the MD code to "
 "PLUMED by $\\left( 1 - f_e \\right)$ to calculate the total force on the "
 "atoms."
-msgstr ""
+msgstr "つまり MD からの力に $\\left( 1 - f_e \\right)$ を掛けます。"
 
 #: PassingEnergy.md:19
 msgid ""
@@ -46,3 +50,5 @@ msgid ""
 "could you then use something like this to gather the forces on the sum of "
 "the individual atomic properties?"
 msgstr ""
+"`colvar/Energy.cpp.` に実装があります。同様に MD で計算した各原子特性を DOMAIN_DECOMPOSITION "
+"で渡し、その和に働く力を集めるなど、Interface の他部分にも応用できるでしょうか？"

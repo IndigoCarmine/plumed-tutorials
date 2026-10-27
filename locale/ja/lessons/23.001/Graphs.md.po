@@ -9,7 +9,7 @@ msgstr ""
 
 #: Graphs.md:1
 msgid "Representing PLUMED inputs using flowcharts"
-msgstr ""
+msgstr "Flow Chart による入力の表示"
 
 #: Graphs.md:3
 msgid ""
@@ -21,6 +21,8 @@ msgid ""
 "could also have these diagrams for the example inputs in the tutorials and "
 "manuals."
 msgstr ""
+"2014年の論文以来、Value と力が Action 間を流れる図の自動生成を考えていました。可能なら NEST の全入力や "
+"Tutorial・マニュアル例にも付けられます。"
 
 #: Graphs.md:8
 msgid ""
@@ -30,14 +32,16 @@ msgid ""
 "allows one to generate a graph from a plumed input. Consequentially, if I "
 "take the contents of the file plumed.dat below:"
 msgstr ""
+"[こちら](Passing.md) のように Vector・Scalar・Grid を渡せる改良をした今こそ実装時です。入力から Graph "
+"を作るツールを書きました。次の plumed.dat に、"
 
 #: Graphs.md:21
 msgid "And run the command:"
-msgstr ""
+msgstr "次を実行すると、"
 
 #: Graphs.md:27
 msgid "I can generate the graph shown below:"
-msgstr ""
+msgstr "下の Graph が生成されます。"
 
 #: Graphs.md:39
 msgid ""
@@ -54,59 +58,63 @@ msgid ""
 "the one above or the comment `#MERMAID=force` if you want a graph that shows"
 " how the chain rule is applied to calculate the forces."
 msgstr ""
+"`graph.md` は [Mermaid](https://mermaid.js.org/syntax/flowchart.html) "
+"で表示でき、[こちら](https://mermaid.live/) に貼れます。GitHub Markdown "
+"でも描画できるため採用しました。マニュアル・NEST・Tutorial の Renderer は入力から直接生成します。`#MERMAID=value`"
+" で値、`#MERMAID=force` で Chain Rule による力の流れを表示します。"
 
 #: Graphs.md:45
 msgid ""
 "Each node in the diagram above represents one of the actions from the PLUMED"
 " input file. The arrows then indicate how PLMD::Value objects are passed "
 "between the actions."
-msgstr ""
+msgstr "Node は各 Action、矢印は PLMD::Value の受け渡しです。"
 
 #: Graphs.md:48
 msgid "The shape of the node tells you about the type of action:"
-msgstr ""
+msgstr "形は Action の種類を示します。"
 
 #: Graphs.md:50
 msgid ""
 "Rectangular nodes with only outwards arrows are PUT actions containing data "
 "passed from the MD code. These nodes cannot take PLMD::Value objects created"
 " in PLUMED as input."
-msgstr ""
+msgstr "外向き矢印だけの矩形は MD データの PUT で、PLUMED 内の Value を入力にできません。"
 
 #: Graphs.md:51
 msgid ""
 "Rectangular nodes with only inward arrows are actions like PRINT that only "
 "take PLMD::Value as arguments. These nodes cannot create PLMD::Value objects"
 " and pass them to other actions."
-msgstr ""
+msgstr "内向きだけの矩形は PRINT などで、Value を受けるだけで生成・伝達しません。"
 
 #: Graphs.md:52
 msgid ""
 "Rounded nodes are actions that can take PLMD::Value objects created within "
 "PLUMED as input and pass on such objects as output."
-msgstr ""
+msgstr "角丸は Value を入出力できます。"
 
 #: Graphs.md:54
 msgid ""
 "The arrows connecting the actions provide information about the PLMD::Value "
 "object being passed."
-msgstr ""
+msgstr "矢印は渡される Value の種類を示します。"
 
 #: Graphs.md:56
 msgid "Passing of __scalars__ is indicated using __black arrows__"
-msgstr ""
+msgstr "__Scalar__ は __黒__。"
 
 #: Graphs.md:57
 msgid "Passing of __vectors__ is indicated using __blue arrows__"
-msgstr ""
+msgstr "__Vector__ は __青__。"
 
 #: Graphs.md:58
 msgid "Passing of __matrices__ is indicated using __red arrows__"
-msgstr ""
+msgstr "__Matrix__ は __赤__。"
 
 #: Graphs.md:59
 msgid "Passing of __grids__ is indicated using __greeen arrows__"
-msgstr ""
+msgstr "__Grid__ は __緑__。"
 
 #: Graphs.md:60
 msgid ""
@@ -114,25 +122,25 @@ msgid ""
 "atomic position is just five PLMD::Value objects that are all vectors. These"
 " five vectors contain the x, y and z positions of the atoms and the masses "
 "and charges of the atoms."
-msgstr ""
+msgstr "__原子位置__ は __紫__。x・y・z・質量・電荷の5 Vector の PLMD::Value です。"
 
 #: Graphs.md:62
 msgid ""
 "You can also show how forces are passed between actions by using the "
 "command:"
-msgstr ""
+msgstr "力の流れも次で表示できます。"
 
 #: Graphs.md:68
 msgid ""
 "When I run the command above on the plumed input above, I obtain the "
 "following flowchart:"
-msgstr ""
+msgstr "上の入力では次の Flow Chart になります。"
 
 #: Graphs.md:80
 msgid ""
 "Notice that fewer actions are shown in this new graph. This is because the "
 "graph above only shows actions that play some role in the force calculation."
-msgstr ""
+msgstr "力の計算に関わるものだけなので Action が減っています。"
 
 #: Graphs.md:82
 msgid ""
@@ -140,4 +148,4 @@ msgid ""
 "enormously beneficial when dealing with complicated PLUMED input files. I "
 "will thus use them extensively in these notes about the work that I have "
 "done in refining PLUMED."
-msgstr ""
+msgstr "複雑な入力に非常に役立つため、改良作業のこのノートでも多用します。"

@@ -9,7 +9,7 @@ msgstr ""
 
 #: Behler.md:1
 msgid "Implementing Behler-Parinello symmetry functions"
-msgstr ""
+msgstr "Behler-Parinello Symmetry Functions の実装"
 
 #: Behler.md:3
 msgid ""
@@ -23,16 +23,21 @@ msgid ""
 " be quickly prototyped in the modified version of PLUMED that I have "
 "described in these pages."
 msgstr ""
+"[Behler-Parinello Symmetry "
+"Functions](https://pubs.aip.org/aip/jcp/article/134/7/074106/954787/Atom-"
+"centered-symmetry-functions-for-constructing) は他のコードにもあり、私の知る限り Metadynamics"
+" CV には使われていません。PLUMED "
+"に必要かという問いは妥当ですが、以下は比較的短時間で実装できました。改良版で新機能を迅速に試作できることを示したいと思います。"
 
 #: Behler.md:8
 msgid "Implementing $G^1$ symmetry functions"
-msgstr ""
+msgstr "$G^1$ Symmetry Function の実装"
 
 #: Behler.md:10
 msgid ""
 "The $G^1$ symmetry function that Behler introduces in the paper that I have "
 "linked above is:"
-msgstr ""
+msgstr "上の論文の $G^1$ は、"
 
 #: Behler.md:16
 msgid ""
@@ -41,21 +46,23 @@ msgid ""
 "however, it is just the coordination number. To calculate it using PLUMED we"
 " can use the following input."
 msgstr ""
+"$f_c$ は Switching Function、$R_{ij}$ は原子 $i$・$j$ 間距離です。既に見た Coordination "
+"Number で、PLUMED では次を使います。"
 
 #: Behler.md:27
 msgid ""
 "We have thus already implemented the first of Behler's symmetry functions."
-msgstr ""
+msgstr "これで最初の Symmetry Function は実装済みです。"
 
 #: Behler.md:29
 msgid "Implmenting radial symmetry functions"
-msgstr ""
+msgstr "Radial Symmetry Function の実装"
 
 #: Behler.md:31
 msgid ""
 "The $G^2$ and $G^3$ symmetry functions that Behler introduces in his paper "
 "are:"
-msgstr ""
+msgstr "$G^2$ と $G^3$ は、"
 
 #: Behler.md:37
 msgid ""
@@ -67,6 +74,9 @@ msgid ""
 " the following code to compute $G^2$ and $G^3$ with $\\nu=1$, $r_s=3$ and "
 "$\\kappa=1$:"
 msgstr ""
+"$\\nu$、$R_s$、$\\kappa$ はパラメータ、$f_c$ は原子 $i$・$j$ 間の $R_{ij}$ に作用します。全 "
+"$R_{ij}$ の関数の和なので、新実装は不要です。$G^2$・$G^3$ を $\\nu=1$、$r_s=3$、$\\kappa=1$ "
+"で求めるには、"
 
 #: Behler.md:66
 msgid ""
@@ -75,21 +85,23 @@ msgid ""
 " in the first coordination sphere using an input like this one. A similar "
 "input (see below) could be used to calculate the FCC cubic parameter:"
 msgstr ""
+"この柔軟な実装で第1 Coordination Sphere の Bond Vector の任意の重み付き関数を計算できます。同様の入力で FCC "
+"Cubic Parameter も求められます。"
 
 #: Behler.md:99
 msgid ""
 "The code is faster if the calculations that are done with CUSTOM keywords in"
 " the input above are implemented directly in C++. Even so the fact that you "
 "can so quickly prototype complicated CVs like these is (I hope) useful."
-msgstr ""
+msgstr "CUSTOM 部分を直接 C++ にすれば速くなりますが、複雑な CV の迅速な試作も有用だと思います。"
 
 #: Behler.md:102
 msgid "Implementing angular symmetry functionsa"
-msgstr ""
+msgstr "Angular Symmetry Function の実装"
 
 #: Behler.md:104
 msgid "One of the angular symmetry functions that Behler introduces is:"
-msgstr ""
+msgstr "Behler の Angular Function の1つは、"
 
 #: Behler.md:110
 msgid ""
@@ -99,13 +111,16 @@ msgid ""
 " $\\theta_{ijk}$ is then the angle between the vector that points from atom "
 "$i$ to atom $j$ and the vector that points from atom $i$ to atom $k$."
 msgstr ""
+"$\\zeta$、$\\nu$、$\\lambda$ はパラメータです。$f_c$ は原子 $i$・$j$ の距離 $R_{ij}$ と、原子 "
+"$i$・$k$ の距離 $R_{ik}$ に作用します。$\\theta_{ijk}$ は原子 $i$ から $j$、原子 $i$ から $k$ の "
+"Vector 間角です。"
 
 #: Behler.md:114
 msgid ""
 "Even this complicated function can be calculated directly in PLUMED. The "
 "input below caluclates the $G^5_i$ value for atom 1 with $\\zeta=3$, "
 "$\\lambda=3$ and $\\nu=0.1$."
-msgstr ""
+msgstr "これも直接計算できます。次は原子1の $G^5_i$ を $\\zeta=3$、$\\lambda=3$、$\\nu=0.1$ で求めます。"
 
 #: Behler.md:153
 msgid ""
@@ -118,6 +133,8 @@ msgid ""
 "implementation of the $G^5$ function. The input for this alternative "
 "implementation is as follows:"
 msgstr ""
+"単一原子の $G^5$ には煩雑で、全原子との距離を計算し、Link Cells・Neighbor List も使わないため本計算には不向きです。別の "
+"$G^5$ 実装を用意しました。$G^5$ の別版の入力は、"
 
 #: Behler.md:177
 msgid ""
@@ -125,37 +142,39 @@ msgid ""
 "that are identified in the contact matrix. This action auses lepton and can "
 "thus compute any function of the following four quantities:"
 msgstr ""
+"GSYMFUNC_THREEBODY は Contact Matrix 内の異なる全3原子組を足し合わせます。Lepton "
+"で次の4量の任意関数を計算できます。"
 
 #: Behler.md:180
 msgid "`rij` - the distance between atom $i$ and atom $j$"
-msgstr ""
+msgstr "`rij`：原子 $i$ と $j$ の距離。"
 
 #: Behler.md:181
 msgid "`rik` - the distance between atom $i$ and atom $k$"
-msgstr ""
+msgstr "`rik`：原子 $i$ と $k$ の距離。"
 
 #: Behler.md:182
 msgid "`rjk` - the distance between atom $j$ and atom $k$"
-msgstr ""
+msgstr "`rjk`：原子 $j$ と $k$ の距離。"
 
 #: Behler.md:183
 msgid ""
 "`ajik` - the angle between the vector connecting atom $i$ to atom $j$ and "
 "the vector connecting atom $i$ to atom $k$."
-msgstr ""
+msgstr "`ajik`：原子 $i$ から $j$ と、原子 $i$ から $k$ の Vector 間角。"
 
 #: Behler.md:185
 msgid ""
 "Furthermore we can calculate more than one function of these four quantities"
 " at a time as illustrated by the input below:"
-msgstr ""
+msgstr "同時に複数の関数も計算できます。"
 
 #: Behler.md:209
 msgid ""
 "As we saw for the radial symmetry function, we thus again have an "
 "implementation of these angular symmetry functions that can be quickly used "
 "to prototype new function types."
-msgstr ""
+msgstr "Radial の場合と同様、新しい Angular Function を迅速に試作できます。"
 
 #: Behler.md:211
 msgid "Conclusions"
@@ -170,6 +189,8 @@ msgid ""
 "convinced that this matters. I think our objective should always be to have "
 "less code as this makes PLUMED easier to maintain."
 msgstr ""
+"入力だけで非常に複雑な CV を試作できる柔軟性が伝われば幸いです。CUSTOM "
+"は性能上最適とは限りませんが、それほど重要とは思いません。コードを減らし保守を容易にすることを目指すべきだと考えます。"
 
 #: Behler.md:217
 msgid ""
@@ -180,6 +201,8 @@ msgid ""
 "transparency allows allows other to understand what has been done in the "
 "past and reduces the requirements to write large amounts of documentation."
 msgstr ""
+"多くの CV は利用者が少なく、何をする Action "
+"かの理解が時間とともに失われます。この方式なら処理の系列が透明で、過去の実装を理解しやすく、膨大な文書の必要性も減ります。"
 
 #: Behler.md:221
 msgid ""
@@ -187,4 +210,4 @@ msgid ""
 "expensive CVs that are implemented in PLUMED. Furthermore, in any effort to "
 "reimplement CVs they are helped by the fact that PLUMED offers reference "
 "values that they can test their new code against."
-msgstr ""
+msgstr "高速化が必要なら高コスト CV を再実装できます。PLUMED の参照値で新コードを検証できることも助けになります。"

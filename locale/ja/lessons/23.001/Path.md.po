@@ -23,17 +23,19 @@ msgid ""
 "of PATH CVs that use different metrics for measuring the distances between "
 "the waymarks and the reference configurations."
 msgstr ""
+"Path も PCA 同様、CV 空間や RMSD 空間など多様に定義できます。PATH を複雑な入力を生成する Shortcut にし、熟練者が参照と"
+" Waymark の距離 Metric を変更して拡張できるようにしました。"
 
 #: Path.md:8
 msgid ""
 "The following input shows an example of the simple input that you can use "
 "for the PATH command:"
-msgstr ""
+msgstr "単純な PATH 入力は、"
 
 #: Path.md:14
 msgid ""
 "The actual input that plumed uses to run this calculation is as follows:"
-msgstr ""
+msgstr "実際に使う入力は、"
 
 #: Path.md:37
 msgid ""
@@ -45,10 +47,12 @@ msgid ""
 "for an action that calculates EUCLIDEAN_DISTANCES between the instantaneous "
 "and reference values of the various CVs."
 msgstr ""
+"CV 空間なら RMSD を置き換えるだけで後続は同じです。PATH は CV 空間も扱い、瞬時 CV と参照の EUCLIDEAN_DISTANCES"
+" に置き換えます。"
 
 #: Path.md:41
 msgid "Geometric and adaptive paths"
-msgstr ""
+msgstr "Geometric・Adaptive Path"
 
 #: Path.md:43
 msgid ""
@@ -60,10 +64,12 @@ msgid ""
 "actions have been used in the implementation as you can see by exploring the"
 " input below:"
 msgstr ""
+"上は Branduardi・Gervasio・Parrinello の原法です。Leines・Ensing の進行度・Path 距離も、同様に柔軟な "
+"Shortcut で実装しています。"
 
 #: Path.md:58
 msgid ""
 "This type of path is used in the adaptive path method that was developed by "
 "Leines and Ensing. This too is available in PLUMED as a shortcut action. The"
 " appropriate command is ADAPTIVE_PATH"
-msgstr ""
+msgstr "Leines・Ensing の Adaptive Path も Shortcut の ADAPTIVE_PATH で使えます。"

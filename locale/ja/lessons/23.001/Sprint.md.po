@@ -9,7 +9,7 @@ msgstr ""
 
 #: Sprint.md:1
 msgid "Implementing SPRINT collective variables"
-msgstr ""
+msgstr "SPRINT CV の実装"
 
 #: Sprint.md:3
 msgid ""
@@ -23,12 +23,14 @@ msgid ""
 " SPRINT is implemented as a shortcut. This means calculating and printing "
 "the SPRINT CVs is straightforward. You just use the following input file:"
 msgstr ""
+"Fabio Pietrucci と Wanda Andreoni "
+"が2011年に提案し、私がすぐ実装しました。利用は多くないので高速化より原著を理解しやすくするため Shortcut にしました。計算・出力は、"
 
 #: Sprint.md:15
 msgid ""
 "When PLUMED reads this it creates the more complicated input file shown "
 "below for calculating the SPRINT CVs."
-msgstr ""
+msgstr "PLUMED は次へ展開します。"
 
 #: Sprint.md:28
 msgid ""
@@ -43,12 +45,14 @@ msgid ""
 "used in the manual, tutorials and nest and use this option to expand "
 "shortcuts."
 msgstr ""
+"Log で各段階がわかります。さらに例の SPRINT Tooltip から展開でき、Log を見ずにマニュアル・Tutorial・NEST "
+"で仕組みを学べます。"
 
 #: Sprint.md:35
 msgid ""
 "To get a sense of just how much PLUMED input can be hidden in these short "
 "inputs consider the following input for calculating SPRINT coordinates:"
-msgstr ""
+msgstr "短い入力に隠れる処理量の例として、"
 
 #: Sprint.md:48
 msgid ""
@@ -63,3 +67,5 @@ msgid ""
 "that readers can make sense of the way CVs are constructed from shortcut in "
 "PLUMED by reading the original paper and the PLUMED input files together."
 msgstr ""
+"原子種 A・B があり、AA・AB・BB に異なる Switching Function を使います。展開すると各 Contact Matrix "
+"の構築・連結や、区別可能性に応じた Eigenvector の Sort がわかります。原著と入力を併読して理解してほしいと思います。"

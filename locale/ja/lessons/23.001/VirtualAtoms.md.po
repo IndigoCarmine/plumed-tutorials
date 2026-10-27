@@ -9,14 +9,14 @@ msgstr ""
 
 #: VirtualAtoms.md:1
 msgid "Dealing with virtual atoms"
-msgstr ""
+msgstr "Virtual Atom の扱い"
 
 #: VirtualAtoms.md:3
 msgid ""
 "Virtual atoms are used to refer to the positions used in calculating CVs but"
 " where no atoms can be found. The most commonly used example of a virtual "
 "atom is a centre of mass."
-msgstr ""
+msgstr "原子は存在しないものの CV 計算に使う位置で、代表例は Center of Mass です。"
 
 #: VirtualAtoms.md:6
 msgid ""
@@ -25,6 +25,7 @@ msgid ""
 " and PLUMED went on to define $k$ virtual atom positions; you could choose "
 "from amongst $n+k$ positions when deciding how to calculate your CVs."
 msgstr ""
+"旧版は Atoms Class に位置を返し、MD の $n$ 原子と $k$ Virtual Atom から $n+k$ 位置を選べました。"
 
 #: VirtualAtoms.md:10
 msgid ""
@@ -34,6 +35,8 @@ msgid ""
 "possible PLMD::ActionWithValue contains the following code in its "
 "constructor:"
 msgstr ""
+"新版も同様ですが、[こちら](Passing.md) と整合するよう3 Value に保存します。ActionWithValue Constructor"
+" は、"
 
 #: VirtualAtoms.md:38
 msgid ""
@@ -43,16 +46,19 @@ msgid ""
 "pointers to the PLMD::Value objects that contain information about the atoms"
 " passed from the MD code and the positions of the virtual atoms."
 msgstr ""
+"ActionAtomistic は Value Pointer の5 "
+"std::vector、`xpos`、`ypos`、`zpos`、`masv`、`chargev` を持ち、MD 原子と Virtual Atom "
+"の情報を参照します。"
 
 #: VirtualAtoms.md:42
 msgid ""
 "PLUMED works out the dependencies for this new ActionAtomistic object in "
 "`requestAtoms` by using the following code:"
-msgstr ""
+msgstr "`requestAtoms` で依存を決めます。"
 
 #: VirtualAtoms.md:66
 msgid ""
 "The advantage of this new arrangement over the old one is that the code for "
 "applying forces on virtual atom positions is the same as the code for "
 "applying forces on CVs."
-msgstr ""
+msgstr "Virtual Atom の力も CV と同じコードで扱える利点があります。"

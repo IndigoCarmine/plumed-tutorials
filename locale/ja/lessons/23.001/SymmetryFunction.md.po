@@ -9,36 +9,36 @@ msgstr ""
 
 #: SymmetryFunction.md:1
 msgid "Calculating symmetry functions"
-msgstr ""
+msgstr "Symmetry Function の計算"
 
 #: SymmetryFunction.md:3
 msgid ""
 "In the other blog articles on these pages I have written a great deal about "
 "how you can calculate coordination numbers using inputs such as the one "
 "below:"
-msgstr ""
+msgstr "他の記事では Coordination Number を次で計算しました。"
 
 #: SymmetryFunction.md:16
 msgid ""
 "In this article I want to explain how we can use PLUMED input files that are"
 " similar to the one above to calculate other input files."
-msgstr ""
+msgstr "この記事では同様の入力で他の入力ファイルを計算する方法を説明します。"
 
 #: SymmetryFunction.md:19
 msgid "CONTACT_MATRIX and the COMPONENTS flag"
-msgstr ""
+msgstr "CONTACT_MATRIX と COMPONENTS"
 
 #: SymmetryFunction.md:21
 msgid ""
 "In the input at the top of this file I used a CONTACT_MATRIX. This command "
 "outputs a matrix, $\\mathbf{A}$, in which element $i,j$ is given by:"
-msgstr ""
+msgstr "冒頭の CONTACT_MATRIX は $\\mathbf{A}$ を出力し、要素 $i,j$ は、"
 
 #: SymmetryFunction.md:27
 msgid ""
 "where $\\sigma$ is a switching function and $r_{ij}$ is the distance between"
 " atom $i$ and atom $j$."
-msgstr ""
+msgstr "$\\sigma$ は Switching Function、$r_{ij}$ は原子 $i$・$j$ 間距離です。"
 
 #: SymmetryFunction.md:29
 msgid ""
@@ -46,6 +46,8 @@ msgid ""
 "symmetry functions such as those used in the FCCUBIC, TETRAHEDRAL and "
 "SIMPLECUBIC actions. These functions have the following general form:"
 msgstr ""
+"$\\sigma(r_{ij})$ は FCCUBIC、TETRAHEDRAL、SIMPLECUBIC などの Symmetry Function "
+"に使います。一般形は、"
 
 #: SymmetryFunction.md:35
 msgid ""
@@ -54,13 +56,15 @@ msgid ""
 "implement such functions I have introduced a COMPONENTS flag on the "
 "CONTACT_MATRIX command that can be used as shown below:"
 msgstr ""
+"$f$ は原子 $i$ から $j$ への Vector 成分 $x_{ij}$、$y_{ij}$、$z_{ij}$ の関数です。実装しやすくするため "
+"CONTACT_MATRIX に COMPONENTS を加えました。"
 
 #: SymmetryFunction.md:46
 msgid ""
 "The COMPONENTS flag for the CONTACT_MATRIX action is specfically designed to"
 " make calculating symmetry functions such as $s_i$ striaghforward. The "
 "elements of the matrix `c1.x` are thus calculated as:"
-msgstr ""
+msgstr "COMPONENTS は $s_i$ の計算用で、`c1.x` の要素は、"
 
 #: SymmetryFunction.md:56
 msgid ""
@@ -68,34 +72,36 @@ msgid ""
 "__In other words, the $i,j$ element of these three matrices are only non-"
 "zero if atom $j$ is within the first coordination sphere of atom $i$.__"
 msgstr ""
+"`c1.y` と `c1.z` も同様です。__3 Matrix の $i,j$ は、原子 $j$ が原子 $i$ の第1 Coordination "
+"Sphere 内のときだけ非0です。__"
 
 #: SymmetryFunction.md:59
 msgid "Combining CONTACT_MATRIX and CUSTOM"
-msgstr ""
+msgstr "CONTACT_MATRIX と CUSTOM の組み合わせ"
 
 #: SymmetryFunction.md:61
 msgid ""
 "We can use the CONTACT_MATRIX command with the COMPONENTS keyword to "
 "calculate a function similar to $s_i$ above as follows:"
-msgstr ""
+msgstr "COMPONENTS で上の $s_i$ に似た関数を求められます。"
 
 #: SymmetryFunction.md:81
 msgid "The graph for this input is shown below:"
-msgstr ""
+msgstr "Graph は、"
 
 #: SymmetryFunction.md:99
 msgid "The way forces are passed through the code is illustrated below."
-msgstr ""
+msgstr "力の流れは、"
 
 #: SymmetryFunction.md:117
 msgid ""
 "Once again the elements of any matrices and vectors are recomputed during "
 "the backward loop when we apply the chain rule."
-msgstr ""
+msgstr "Backward の Chain Rule で各 Matrix・Vector 要素を再計算します。"
 
 #: SymmetryFunction.md:119
 msgid "Extending these symmetry functions"
-msgstr ""
+msgstr "Symmetry Function の拡張"
 
 #: SymmetryFunction.md:121
 msgid ""
@@ -115,3 +121,7 @@ msgid ""
 "quite flexible and allows users to try many things without modifying the "
 "code."
 msgstr ""
+"原子 $i$ の Neighbor は CONTACT_MATRIX 以外でも定義できます。要素 $i,j$ を、原子 $i$・$j$ の "
+"Hydrogen Bond がある場合だけ非0にするなら HBOND_MATRIX/HBPAMM_MATRIX、分子 $i$・$j$ "
+"なら距離と配向を条件にできます。どれも COMPONENTS で第1 Sphere の Bond 方向を得られます。$\\sigma(r_{ij})$ "
+"を通常の Switching Function に限定せず、原子 $i$・$j$ の隣接を別法で判定できます。コードを変えず多くを試せる柔軟な実装です。"

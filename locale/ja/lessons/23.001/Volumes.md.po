@@ -9,7 +9,7 @@ msgstr ""
 
 #: Volumes.md:1
 msgid "Calculating the number of atoms/average CV in a part of the cell"
-msgstr ""
+msgstr "Cell の一部の原子数・CV 平均"
 
 #: Volumes.md:3
 msgid ""
@@ -22,36 +22,38 @@ msgid ""
 "within a sphere with radius 1.0 nm around atom 1 you can use an input "
 "something like this:"
 msgstr ""
+"Zeolite 孔の Gas 原子や Membrane 内に入った Ion の数などを調べる場合があります。原子1の周囲1.0 nm 球の数なら、"
 
 #: Volumes.md:21
 msgid ""
 "This input is relatively simple and illustrates the procedure that PLUMED "
 "follows in calculating this quantity pretty clearly."
-msgstr ""
+msgstr "単純で、計算手順も明確です。"
 
 #: Volumes.md:23
 msgid ""
 "A vector `sp` is calculated. Each element in this vector is between 0 and 1 "
 "and the $i$th element is one if atom $i$ is in the region of interest."
-msgstr ""
+msgstr "`sp` Vector を計算する。0〜1で、$i$ 番目は原子 $i$ が領域内なら1。"
 
 #: Volumes.md:24
 msgid "The elements of the vector are all added together."
-msgstr ""
+msgstr "全成分を足す。"
 
 #: Volumes.md:26
 msgid ""
 "Step 2 in this procedure is fixed but there are a variety of differnt ways "
 "of completing step 1 as there are a variety of ways of defining the region "
 "of interest. The particular methods that are currently available are:"
-msgstr ""
+msgstr "2は固定ですが、領域定義の1には複数の方法があります。"
 
 #: Volumes.md:29
 msgid ""
 "INSPHERE - calculate whether atoms are within a spherical region centered on"
 " a particular atom."
-msgstr ""
+msgstr "INSPHERE：特定原子を中心とする球内か判定する。"
 
+# 原文の y_u の終了ドル記号欠落を補った。座標と数式の内容は保持した。
 #: Volumes.md:30
 msgid ""
 "AROUND - calcualte the vector $(x,y,x)$ connecting each atom to a user-"
@@ -59,19 +61,21 @@ msgid ""
 "$y_l < y < y_u$ and $z_l < z < z_u$, where $x_l$, $x_u$, $y_l$, $y_u, $z_l$ "
 "and $z_u$ are user specified parameters."
 msgstr ""
+"AROUND：指定原子を原点に各原子への $(x,y,x)$ を求め、$x_l < x < x_u$、$y_l < y < y_u$、$z_l < z "
+"< z_u$ を判定する。$x_l$、$x_u$、$y_l$、$y_u$、$z_l$、$z_u$ は指定パラメータ。"
 
 #: Volumes.md:31
 msgid ""
 "INCYLINDER - calculate whether atoms are within a cylindrical region that "
 "has its long axis aligned with the $x$, $y$ or $z$ axis of the lab frame and"
 " that is centerd on a particular atom."
-msgstr ""
+msgstr "INCYLINDER：特定原子を中心、Lab の $x$・$y$・$z$ 軸方向の円柱内か判定する。"
 
 #: Volumes.md:32
 msgid ""
 "CAVITY - calculate whether atoms are within a orthrhombic box whose "
 "orientation and size is determined based on the position of four atoms."
-msgstr ""
+msgstr "CAVITY：4原子から配向・大きさを定める直方体内か判定する。"
 
 #: Volumes.md:33
 msgid ""
@@ -79,7 +83,7 @@ msgid ""
 "orientation and size is determined based on the position of four atoms (the "
 "calculation of the box is done differently to the way it is done with "
 "CAVITY)."
-msgstr ""
+msgstr "TETRAPORE：4原子から別の方法で直方体を定める。"
 
 #: Volumes.md:34
 msgid ""
@@ -89,10 +93,12 @@ msgid ""
 "if they are in a region where the density of the first atom type is large. "
 "This action could be used to determine whether ions are in a membrane."
 msgstr ""
+"INENVELOPE：ある原子種の密度を KDE で求め、別集合の各原子 $i$ が高密度領域にあるか判定する。Membrane 内の Ion "
+"などに使える。"
 
 #: Volumes.md:36
 msgid "Using FIXEDATOM"
-msgstr ""
+msgstr "FIXEDATOM の使用"
 
 #: Volumes.md:38
 msgid ""
@@ -107,6 +113,8 @@ msgid ""
 "MD code when the position of the center of mass of the atoms changes the "
 "values of the CV changes."
 msgstr ""
+"必ず少なくとも1原子を原点にし、MD の絶対位置でなく原子間 Vector を使います。そうしなければ並進不変でなく、系の Center of Mass"
+" が移るだけで CV が変わります。"
 
 #: Volumes.md:43
 msgid ""
@@ -114,18 +122,18 @@ msgid ""
 "might be useful in some cases. If you want to look at what is going on in a "
 "particular part of the cell it is usually simpler to define a virtual atom "
 "at the origin using FIXEDATOM like this:"
-msgstr ""
+msgstr "原子1を原点にしてもよいですが、Cell の特定領域なら FIXEDATOM で原点を作る方が簡単です。"
 
 #: Volumes.md:53
 msgid ""
 "As PBCs are applied on the distances calculated in the action `sp` using the"
 " FIXEDATOM `f` at (0,0,0) ensures that the sphere is centered on the center "
 "of the simulation cell."
-msgstr ""
+msgstr "`sp` の距離には PBC が働くので、(0,0,0) の FIXEDATOM `f` で Cell 中心に球を置けます。"
 
 #: Volumes.md:56
 msgid "Calculating the average value of a CV in a region"
-msgstr ""
+msgstr "領域内 CV の平均"
 
 #: Volumes.md:58
 msgid ""
@@ -135,6 +143,8 @@ msgid ""
 "paper](https://pubs.acs.org/doi/10.1021/acs.jpcb.5c07562). The paper also "
 "discusses how to ensure that such calculations run quickly."
 msgstr ""
+"[この Tutorial 論文](https://pubs.acs.org/doi/10.1021/acs.jpcb.5c07562) が Order "
+"Parameter の領域平均と高速化を詳しく扱います。"
 
 #: Volumes.md:61
 msgid "Conclusions"
@@ -148,3 +158,5 @@ msgid ""
 "these cases the task list is optimised so that CVs that do not contribute to"
 " the final CV value are not computed."
 msgstr ""
+"任意量、LOCAL_Q6、Symmetry Function の LOCAL_AVERAGE にも使えます。寄与しない CV を計算しないよう Task"
+" List も最適化します。"
