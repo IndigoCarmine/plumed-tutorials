@@ -9,7 +9,7 @@ msgstr ""
 
 #: 01.md:1
 msgid "Tutorial 1:<br>Determining a scattering profile with hySAS"
-msgstr ""
+msgstr "Tutorial 1：<br>hySAS による Scattering Profile の決定"
 
 #: 01.md:3
 msgid ""
@@ -19,6 +19,8 @@ msgid ""
 "create and open the `plumed.dat` file, which will contain all the "
 "instructions:"
 msgstr ""
+"次の例では、原子1〜11558の構造の Scattering Profile を ONEBEAD "
+"で計算します。タンパク質、DNA、RNA、複合体のいずれでもかまいません。まず全指示を入れる `plumed.dat` を作って開きます。"
 
 #: 01.md:8
 msgid ""
@@ -26,13 +28,15 @@ msgid ""
 " this case `template_AA.pdb`. Detailed information about the input file can "
 "be found in the technical support section."
 msgstr ""
+"MOLINFO に構造の PDB、ここでは `template_AA.pdb` を指定します。入力の詳細は Technical Support "
+"を参照してください。"
 
 #: 01.md:12
 msgid ""
 "The SAS instructions need the corresponding action option, which can be "
 "either SAXS or SANS. In the following example, we proceed by opening the "
 "SAXS action:"
-msgstr ""
+msgstr "SAS には SAXS または SANS の Action が必要です。ここでは SAXS を開きます。"
 
 #: 01.md:18
 msgid ""
@@ -50,6 +54,12 @@ msgid ""
 "and SOLVATION_STRIDE are not required. Further examples are given at the end"
 " of this page."
 msgstr ""
+"SAXS のオプションは任意の順で Flag を並べます。原子1〜11878を含め、ONEBEAD（1アミノ酸に1 Bead、1 Nucleotide "
+"に3 Bead）を指定します。MOLINFO と TEMPLATE は同じ `template_AA.pdb` です。GPU Flag は GPU "
+"計算を有効にし、ArrayFire 対応でビルドした PLUMED が必要です。詳細は Technical Support "
+"を参照してください。SOLVDENS は Bulk Water の電子密度0.334 "
+"electrons/Å³です。SOLVATION_CORRECTION=0.00 で Solvation Layer "
+"を無視するため、SASA_CUTOFF や SOLVATION_STRIDE は不要です。ページ末尾にも例があります。"
 
 #: 01.md:32
 msgid ""
@@ -65,6 +75,10 @@ msgid ""
 "brackets have been added to prevent a readability issue, they are optional "
 "to run the code. Save and close the file."
 msgstr ""
+"次に SAS Intensity を計算する q 値を列挙します。ここではほぼ0から ONEBEAD の最大 Momentum Transfer 0.3"
+" Å<sup>-1</sup> まで、0.0025 Å<sup>-1</sup> 刻みの121点です。点が多いほど計算量が増えます。その後 SAXS "
+"を閉じ、Intensity を出力します。Trajectory の出力頻度も選べ、ここでは STRIDE=1 で全 Step に出します。追加の "
+"`{}` は表示の読みやすさのためで、実行には任意です。保存して閉じます。"
 
 #: 01.md:172
 msgid ""
@@ -84,24 +98,30 @@ msgid ""
 " to the deuterium concentration in the solvent (60% in this case), an "
 "exposed bead is considered deuterated."
 msgstr ""
+"別設定の SANS の例も示します。Solvent Layer の寄与は80 electrons/nm<sup>3</sup> で、SANS "
+"では電子密度から水分子密度に自動変換します。今回は Solvation 補正を有効にし、SASA_CUTOFF で露出判定の閾値を1 "
+"nm<sup>2</sup> とします。LCPO による露出判定は高コストなので、SOLVATION_STRIDE で SASA "
+"計算間隔を設定でき、既定は10 Step です。DEUTER_CONC は Deuterated Solvent の割合です。同じ情報を暗黙的な "
+"Hydrogen-Deuterium Exchange に使い、溶媒中の Deuterium 濃度（ここでは60%）と等しい確率で、露出 Bead を "
+"Deuterated とみなします。"
 
 #: 01.md:192
 msgid ""
 "In the following table, a list of the possible flags accepted by the "
 "SAXS/SANS action:"
-msgstr ""
+msgstr "SAXS/SANS が受け付ける Flag を示します。"
 
 #: 01.md:194
 msgid "**Flag**"
-msgstr ""
+msgstr "**Flag**"
 
 #: 01.md:194
 msgid "**Default value**"
-msgstr ""
+msgstr "**既定値**"
 
 #: 01.md:194
 msgid "**Description**"
-msgstr ""
+msgstr "**説明**"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:196
@@ -110,11 +130,11 @@ msgstr "NOPBC"
 
 #: 01.md:196 01.md:197 01.md:199 01.md:200 01.md:201 01.md:202 01.md:203
 msgid "false"
-msgstr ""
+msgstr "false"
 
 #: 01.md:196
 msgid "Ignore the periodic boundary conditions when calculating distances"
-msgstr ""
+msgstr "距離計算で Periodic Boundary Conditions を無視する。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:197
@@ -123,7 +143,7 @@ msgstr "SERIAL"
 
 #: 01.md:197
 msgid "Perform the calculation in serial - for debug purpose"
-msgstr ""
+msgstr "Debug 用に逐次計算する。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:198
@@ -132,7 +152,7 @@ msgstr "DEVICEID"
 
 #: 01.md:198
 msgid "Identifier of the GPU to be used"
-msgstr ""
+msgstr "使用する GPU の識別子。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:199
@@ -141,7 +161,7 @@ msgstr "GPU"
 
 #: 01.md:199
 msgid "Calculate SAXS/SANS using ARRAYFIRE on a GPU"
-msgstr ""
+msgstr "GPU 上の ARRAYFIRE で SAXS/SANS を計算する。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:200
@@ -152,7 +172,7 @@ msgstr "ABSOLUTE"
 msgid ""
 "Absolute intensity: the intensities for each q-value are not normalized for "
 "the intensity at q=0."
-msgstr ""
+msgstr "Absolute Intensity：各 q の Intensity を q=0 の値で正規化しない。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:201
@@ -161,7 +181,7 @@ msgstr "ATOMISTIC"
 
 #: 01.md:201
 msgid "Calculate SAXS/SANS using the atomistic model"
-msgstr ""
+msgstr "Atomistic Model で SAXS/SANS を計算する。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:202
@@ -170,7 +190,7 @@ msgstr "MARTINI"
 
 #: 01.md:202
 msgid "Calculate SAXS using the Martini model"
-msgstr ""
+msgstr "Martini Model で SAXS を計算する。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:203
@@ -179,7 +199,7 @@ msgstr "ONEBEAD"
 
 #: 01.md:203
 msgid "Calculate SAXS/SANS for a single bead model"
-msgstr ""
+msgstr "Single-bead Model で SAXS/SANS を計算する。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:204
@@ -193,7 +213,7 @@ msgstr "template.pdb"
 
 #: 01.md:204
 msgid "A PDB file is required for ONEBEAD mapping"
-msgstr ""
+msgstr "ONEBEAD Mapping 用の PDB。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:205
@@ -202,7 +222,7 @@ msgstr "ATOMS"
 
 #: 01.md:205
 msgid "The atoms to be included in the calculation"
-msgstr ""
+msgstr "計算対象の原子。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:206
@@ -213,7 +233,7 @@ msgstr "QVALUE"
 msgid ""
 "Selected scattering lengths in inverse angstroms are given as QVALUE1, "
 "QVALUE2, ..."
-msgstr ""
+msgstr "逆 Å 単位の選択した Scattering Length を QVALUE1、QVALUE2、…で指定する。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:207
@@ -225,6 +245,8 @@ msgid ""
 "Used parameter Keywords like PARAMETERS1, PARAMETERS2. These are used to "
 "calculate the form factor for the *i* <sup>th</sup> atom/bead"
 msgstr ""
+"PARAMETERS1、PARAMETERS2 などの Keyword。*i* <sup>番目</sup>の原子・Bead の Form Factor "
+"計算に使う。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:208
@@ -233,7 +255,7 @@ msgstr "PARAMETERSFILE"
 
 #: 01.md:208
 msgid "Read the PARAMETERS from a file"
-msgstr ""
+msgstr "PARAMETERS をファイルから読む。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:209
@@ -242,7 +264,7 @@ msgstr "DEUTER_CONC"
 
 #: 01.md:209
 msgid "Fraction of deuterated solvent. For SANS only."
-msgstr ""
+msgstr "Deuterated Solvent の割合。SANS のみ。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:210
@@ -251,7 +273,7 @@ msgstr "SOLVDENS"
 
 #: 01.md:210
 msgid "Density of the solvent"
-msgstr ""
+msgstr "溶媒密度。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:211
@@ -260,7 +282,7 @@ msgstr "SOLVATION_CORRECTION"
 
 #: 01.md:211
 msgid "Solvation layer electron density correction (ONEBEAD only)"
-msgstr ""
+msgstr "Solvation Layer の電子密度補正。ONEBEAD のみ。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:212
@@ -270,7 +292,7 @@ msgstr "SASA_CUTOFF"
 #: 01.md:212
 msgid ""
 "SASA value to consider a residue as exposed to the solvent (ONEBEAD only)"
-msgstr ""
+msgstr "残基を溶媒に露出とみなす SASA 閾値。ONEBEAD のみ。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:213
@@ -279,7 +301,7 @@ msgstr "EXPINT"
 
 #: 01.md:213
 msgid "Experimental intensity for a specific q value"
-msgstr ""
+msgstr "特定 q の実験 Intensity。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:214
@@ -290,7 +312,7 @@ msgstr "SOLVATION_STRIDE"
 msgid ""
 "Number of steps between every new residues solvation estimation via LCPO "
 "(ONEBEAD only)"
-msgstr ""
+msgstr "LCPO で残基の Solvation を再推定する Step 間隔。ONEBEAD のみ。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:215
@@ -301,7 +323,7 @@ msgstr "SCALE_EXPINT"
 msgid ""
 "Scaling value for experimental data normalization. Cannot be used with "
 "ABSOLUTE."
-msgstr ""
+msgstr "実験データ正規化の Scale 値。ABSOLUTE と併用不可。"
 
 #: 01.md:218
 msgid ""
@@ -309,11 +331,11 @@ msgid ""
 "be used for the analysis as an environment variable in the terminal where "
 "the PLUMED driver will be launched. In the following example 8 cores are "
 "used:"
-msgstr ""
+msgstr "driver の起動前に、同じ Terminal の環境変数で CPU Core 数を設定できます。次は8 Core の例です。"
 
 #: 01.md:223
 msgid "Finally, run the driver to analyse a:"
-msgstr ""
+msgstr "最後に driver で次を解析します。"
 
 # Literal notation or identifier intentionally preserved.
 #: 01.md:224
@@ -324,11 +346,11 @@ msgstr "PDB"
 msgid ""
 "In this case the PDB is the same that is provided to MOLINFO, TEMPLATE and "
 "analysed."
-msgstr ""
+msgstr "この場合、解析する PDB は MOLINFO、TEMPLATE と同じです。"
 
 #: 01.md:229
 msgid "Trajectory"
-msgstr ""
+msgstr "Trajectory"
 
 #: 01.md:234
 msgid "[Back to hySAS home](NAVIGATION.md)"

@@ -20,40 +20,43 @@ msgid ""
 "[manuscript](https://pubs.acs.org/doi/full/10.1021/acs.jctc.3c00864). The "
 "guide is divided into several sections:"
 msgstr ""
+"hySAS の実践的な使い方を説明します。理論は関連 "
+"[論文](https://pubs.acs.org/doi/full/10.1021/acs.jctc.3c00864) "
+"を参照してください。次の節があります。"
 
 #: README.md:4
 msgid "hySAS Intro & Overview"
-msgstr ""
+msgstr "hySAS の導入と概要"
 
 #: README.md:5
 msgid ""
 "A brief introduction to the method, basic concepts, and an overview of the "
 "analyses that can be performed."
-msgstr ""
+msgstr "手法、基本概念、可能な解析の簡単な紹介。"
 
 #: README.md:7
 msgid "Determining the Scattering Profile with hySAS"
-msgstr ""
+msgstr "hySAS による Scattering Profile の決定"
 
 #: README.md:8
 msgid ""
 "From coordinates to a SAS curve: steps and examples to analyse a PDB file or"
 " a trajectory."
-msgstr ""
+msgstr "座標から SAS Curve へ：PDB・Trajectory 解析の手順と例。"
 
 #: README.md:10
 msgid "Generating a Conformational Ensemble with GMX and hySAS"
-msgstr ""
+msgstr "GMX と hySAS による Conformational Ensemble の生成"
 
 #: README.md:11
 msgid ""
 "Combining GROMACS and PLUMED to generate conformational ensembles restrained"
 " by SAS data using different coupling methods."
-msgstr ""
+msgstr "GROMACS と PLUMED を組み合わせ、異なる Coupling 法で SAS データに拘束された Ensemble を生成する。"
 
 #: README.md:13
 msgid "Preparing the Input Files"
-msgstr ""
+msgstr "入力ファイルの準備"
 
 #: README.md:14
 msgid "Guidelines and tips for preparing the input files."
@@ -61,10 +64,10 @@ msgstr "入力ファイルを準備するための指針とヒント。"
 
 #: README.md:16
 msgid "Compiling PLUMED with ARRAYFIRE Support"
-msgstr ""
+msgstr "ARRAYFIRE 対応 PLUMED のコンパイル"
 
 #: README.md:17
 msgid ""
 "Technical suggestions and a real-case example for installing PLUMED with "
 "ARRAYFIRE support on a SLURM-based HPC."
-msgstr ""
+msgstr "SLURM の HPC に ARRAYFIRE 対応 PLUMED を入れる助言と実例。"

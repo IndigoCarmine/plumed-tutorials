@@ -20,10 +20,13 @@ msgid ""
 "calculation, while the TEMPLATE PDB must contain only the residues that are "
 "used for the ONEBEAD conversion. Some general rules:"
 msgstr ""
+"hySAS ONEBEAD（1アミノ酸に1 Bead、1 Nucleotide に3 Bead）には MOLINFO と TEMPLATE 用の2 "
+"PDB が必要です。SAXS と SAS の両 Module に当てはまります。MOLINFO は対象外の原子・残基・Chain "
+"を含められますが、TEMPLATE は変換対象の残基だけにします。一般規則は次です。"
 
 #: input.md:4
 msgid "1. Consistency between MOLINFO and TEMPLATE PDBs"
-msgstr ""
+msgstr "1. MOLINFO と TEMPLATE の PDB の整合性"
 
 #: input.md:5
 msgid ""
@@ -38,41 +41,44 @@ msgid ""
 "SAS calculation, all corresponding atoms must be present in the PDB. Missing"
 " atoms from a residue will cause the bead mapping step to fail."
 msgstr ""
+"Atom・Residue Number を一致させます。MOLINFO が100残基、SAS が20〜80だけなら、TEMPLATE "
+"は番号を保持して20〜80だけにします。20が Atom 319から、80が1325までなら、ATOM 319・残基20から ATOM "
+"1325・残基80までです。注意：対象残基の全原子が必要で、欠けると Bead Mapping が失敗します。"
 
 #: input.md:7
 msgid "2. Consistency between MOLINFO and the molfile"
-msgstr ""
+msgstr "2. MOLINFO と Molfile の整合性"
 
 #: input.md:8
 msgid ""
 "When using the plumed driver, the supplied molfile (PDB, XTC, ...) to be "
 "analysed must be consistent with the PDB provided in MOLINFO. Specifically, "
 "there must be the same number of atoms in the same order."
-msgstr ""
+msgstr "driver の解析対象 Molfile (PDB、XTC など) は、MOLINFO と原子数・順序を一致させます。"
 
 #: input.md:9
 msgid "3. MOLINFO PDB numbering"
-msgstr ""
+msgstr "3. MOLINFO PDB の番号"
 
 #: input.md:10
 msgid ""
 "The MOLINFO PDB must start with ATOM number 1. The residue number can start "
 "with a positive number other than 1."
-msgstr ""
+msgstr "ATOM は1から始めます。Residue Number は1以外の正整数からでもかまいません。"
 
 #: input.md:11
 msgid "4. Providing the same file to MOLINFO and TEMPLATE"
-msgstr ""
+msgstr "4. MOLINFO と TEMPLATE に同じファイルを渡す"
 
 #: input.md:12
 msgid ""
 "It is possible to provide MOLINFO and TEMPLATE with the same PDB, taking "
 "into account all three points above."
-msgstr ""
+msgstr "上の3点を満たせば、同じ PDB を使えます。"
 
 #: input.md:13
 msgid "5. PDB format"
-msgstr ""
+msgstr "5. PDB 形式"
 
 #: input.md:14
 msgid ""
@@ -82,45 +88,51 @@ msgid ""
 " the residue type and analysing the atoms belonging to a bead is essential "
 "to:"
 msgstr ""
+"原子・残基名は Force Field・ソフトウェアで異なり、特に核酸では hySAS Mapping の大きな制約です。残基種と各 Bead "
+"の原子を特定する必要がある理由は、"
 
 #: input.md:15
 msgid ""
 "calculate the Solvent-Accessible Surface Area, required to introduce the "
 "solvation layer contribution or the hydrogen-deuterium exchange (SANS only);"
 msgstr ""
+"Solvation Layer や Hydrogen-Deuterium Exchange（SANS のみ）に必要な Solvent-"
+"Accessible Surface Area を求めるため。"
 
 #: input.md:16
 msgid ""
 "calculate the bead centre of mass, used to define the centre of the bead, a "
 "feature which has a major influence on the final SAS profile calculation."
-msgstr ""
+msgstr "最終 SAS Profile に大きく影響する Bead Center of Mass を求めるため。"
 
 #: input.md:18
 msgid ""
 "For these reasons, as a preliminary step, each bead type and atom "
 "composition is verified. In order to perform this process, it is not "
 "feasible to consider all possible atom and residue names."
-msgstr ""
+msgstr "そのため最初に Bead の型と構成原子を検証します。すべての命名を扱うことは現実的ではありません。"
 
 #: input.md:20
 msgid "Amino acids"
-msgstr ""
+msgstr "アミノ酸"
 
 #: input.md:22
 msgid ""
 "Several histidine residue names in different protonation states are "
 "accepted: HIS, HIE/HID/HIP (AMBER), HSE/HSD/HSP (CHARMM)."
 msgstr ""
+"Histidine の Protonation に応じた HIS、HIE/HID/HIP (AMBER)、HSE/HSD/HSP (CHARMM) "
+"に対応します。"
 
 #: input.md:24
 msgid ""
 "Besides CYS, the cysteine involved in disulfide bridge is also allowed. In "
 "the latter case, the residue name must be CYX."
-msgstr ""
+msgstr "CYS に加え、Disulfide Bridge の Cysteine にも対応し、後者は CYX とします。"
 
 #: input.md:26
 msgid "Nucleic acids"
-msgstr ""
+msgstr "核酸"
 
 #: input.md:27
 msgid ""
@@ -130,6 +142,8 @@ msgid ""
 " which is part of the free [AmberTools](https://ambermd.org/AmberTools.php) "
 "suite. This is the command:"
 msgstr ""
+"RNA は AMBER OL3、DNA は AMBER OL15 の命名のみ対応します。無料の "
+"[AmberTools](https://ambermd.org/AmberTools.php) の pdb4amber で簡単に変換できます。"
 
 #: input.md:32
 msgid ""
@@ -141,12 +155,15 @@ msgid ""
 " of the atoms in the MOLINFO and TEMPLATE PDBs, as well as in a previously "
 "generated trajectory to be analysed with the driver, must be consistent."
 msgstr ""
+"注意：`-d` と `--add-missing-atoms` "
+"は、異なる名前の水素が既にあっても追加するため、原子数が倍になる場合があります。元の水素を除き、正しい命名で追加させる方法があります。MOLINFO、TEMPLATE、既存"
+" Trajectory の原子順序を一致させてください。"
 
 #: input.md:34
 msgid ""
 "Alternatively, the LEaP script, also part of the AmberTools suite, can "
 "convert the PDB. Here is a quick step-by-step guide:"
-msgstr ""
+msgstr "AmberTools の LEaP でも変換できます。手順を示します。"
 
 # Literal notation or identifier intentionally preserved.
 #: input.md:35
@@ -155,15 +172,15 @@ msgstr "RNA"
 
 #: input.md:36
 msgid "create a `leapRNA.in` file:"
-msgstr ""
+msgstr "`leapRNA.in` を作る。"
 
 #: input.md:40 input.md:65
 msgid "copy the following instructions and save the file:"
-msgstr ""
+msgstr "次を Copy して保存する。"
 
 #: input.md:50
 msgid "Command details:"
-msgstr ""
+msgstr "コマンドの詳細："
 
 #: input.md:52
 msgid ""
@@ -178,10 +195,14 @@ msgid ""
 "conventions used by the AMBER software suite. Replace \"RNA_amber.pdb` with "
 "your preferred PDB name."
 msgstr ""
+"`source leaprc.RNA.OL3`：RNA の OL3 パラメータを読む。`rna_molecule = loadpdb "
+"original_RNA.pdb`：original_RNA.pdb を読み、rna_molecule に代入する。original_RNA.pdb "
+"は対象名に置き換える。`savepdb rna_molecule RNA_amber.pdb`：AMBER 形式の RNA_amber.pdb "
+"に保存する。RNA_amber.pdb は希望の出力名に変える。"
 
 #: input.md:56 input.md:75
 msgid "Run LEaP:"
-msgstr ""
+msgstr "LEaP を実行する。"
 
 # Literal notation or identifier intentionally preserved.
 #: input.md:60
@@ -190,21 +211,21 @@ msgstr "DNA"
 
 #: input.md:61
 msgid "create a `leapDNA.in` file:"
-msgstr ""
+msgstr "`leapDNA.in` を作る。"
 
 #: input.md:79
 msgid "6. Special beads"
-msgstr ""
+msgstr "6. 特殊な Bead"
 
 #: input.md:80
 msgid "DNA and RNA"
-msgstr ""
+msgstr "DNA と RNA"
 
 #: input.md:81
 msgid ""
 "Three additional bead types are available for DNA and RNA besides phosphate "
 "group, pentose sugar, and nucleobase:"
-msgstr ""
+msgstr "Phosphate、Pentose Sugar、Nucleobase に加え、3つの型があります。"
 
 #: input.md:82
 msgid ""
@@ -213,6 +234,8 @@ msgid ""
 "case of cytosine, the corresponding residue must be edited to DC5 or to C5 "
 "in DNA and RNA, respectively."
 msgstr ""
+"C5' に Hydroxyl を持つ5'末端 Pentose Sugar。残基名に「5」を加えます。Cytosine なら DNA は DC5、RNA "
+"は C5 です。"
 
 #: input.md:83
 msgid ""
@@ -221,6 +244,8 @@ msgid ""
 "case of cytosine, the corresponding residue must be edited to DC3 or to C3 "
 "in DNA and RNA, respectively."
 msgstr ""
+"C3' に Hydroxyl を持つ3'末端 Pentose Sugar。残基名に「3」を加えます。Cytosine なら DNA は DC3、RNA "
+"は C3 です。"
 
 #: input.md:84
 msgid ""
@@ -230,24 +255,26 @@ msgid ""
 " CT in DNA and RNA, respectively. The additional O atom can be named in the "
 "PDB as OP3 or O3P, while the additional H can be named HOP3."
 msgstr ""
+"P に Hydroxyl を持つ5'-Phosphorylated 末端。残基名に「T」を加えます。Cytosine なら DNA は DCT、RNA "
+"は CT です。追加酸素は OP3 または O3P、水素は HOP3 とします。"
 
 #: input.md:87
 msgid "Proteins"
-msgstr ""
+msgstr "タンパク質"
 
 #: input.md:88
 msgid "An additional bead type is available for proteins:"
-msgstr ""
+msgstr "追加の型は、"
 
 #: input.md:89
 msgid ""
 "Cysteine residue involved in disulfide bridge (the residue in the PDB must "
 "be named CYX)."
-msgstr ""
+msgstr "Disulfide Bridge の Cysteine（PDB 残基名 CYX）。"
 
 #: input.md:91
 msgid "7. Atom names"
-msgstr ""
+msgstr "7. 原子名"
 
 #: input.md:92
 msgid ""
@@ -257,34 +284,40 @@ msgid ""
 "nucleotidee bead type. For example, if an O2' atom name is detected in a "
 "thymine bead, an error message is triggered."
 msgstr ""
+"次表は各 DNA/RNA Bead が受け付ける原子名です。正しい原子が正しい Nucleotide Bead に対応するか追加確認します。例えば "
+"Thymine に O2' があるとエラーです。"
 
 #: input.md:94
 msgid "Pentose Bead Atoms"
-msgstr ""
+msgstr "Pentose Bead の原子"
 
 #: input.md:94
 msgid "Nucleobase Bead Atoms"
-msgstr ""
+msgstr "Nucleobase Bead の原子"
 
 #: input.md:94
 msgid "PO Bead Atoms"
-msgstr ""
+msgstr "PO Bead の原子"
 
 #: input.md:96
 msgid ""
 "O5', C5', O4', C4', O3', C3', O2', C2', C1', H5', H5'', H4', H3', H2', H2'',"
 " H2'2, H1', HO5', HO3', HO2', H5'1, H5'2, HO'2, H2'1, H5T, H3T."
 msgstr ""
+"O5', C5', O4', C4', O3', C3', O2', C2', C1', H5', H5'', H4', H3', H2', H2'',"
+" H2'2, H1', HO5', HO3', HO2', H5'1, H5'2, HO'2, H2'1, H5T, H3T."
 
 #: input.md:96
 msgid ""
 "N1, N2, N3, N4, N6, N7, N9, C2, C4, C5, C6, C7, C8, O2, O4, O6, H1, H2, H3, "
 "H5, H6, H8, H21, H22, H41, H42, H61, H62, H71, H72, H73."
 msgstr ""
+"N1, N2, N3, N4, N6, N7, N9, C2, C4, C5, C6, C7, C8, O2, O4, O6, H1, H2, H3, "
+"H5, H6, H8, H21, H22, H41, H42, H61, H62, H71, H72, H73."
 
 #: input.md:96
 msgid "P, OP1, OP2, OP3, O1P, O2P, O3P, HP, HOP3."
-msgstr ""
+msgstr "P, OP1, OP2, OP3, O1P, O2P, O3P, HP, HOP3."
 
 #: input.md:98
 msgid "[Back to hySAS home](NAVIGATION.md)"

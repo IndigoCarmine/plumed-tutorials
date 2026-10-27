@@ -10,7 +10,7 @@ msgstr ""
 #: 02.md:1
 msgid ""
 "Tutorial 2:<br> Generating a conformational ensemble with GMX and hySAS"
-msgstr ""
+msgstr "Tutorial 2：<br>GMX と hySAS による Conformational Ensemble の生成"
 
 #: 02.md:2
 msgid ""
@@ -21,6 +21,9 @@ msgid ""
 "propose two examples of coupling methods to introduce this energy penalty "
 "during the MD simulation."
 msgstr ""
+"hySAS の主な目的は、Force Field によらず MD エンジンで実験に整合する Conformational Ensemble "
+"を生成することです。測定 Signal と合わない Conformation を抑える Potential を加えます。この Energy "
+"Penalty を MD に導入する2つの Coupling 法を示します。"
 
 #: 02.md:4
 msgid ""
@@ -33,16 +36,19 @@ msgid ""
 "SCALE_EXPINT, which allows to provide the intensity at q = 0. In this way, "
 "each EXPINT is divided by SCALE_EXPINT."
 msgstr ""
+"多くの SAS オプションは Tutorial 1で扱いました。ここでは EXPINT と SCALE_EXPINT を追加します。各 QVALUE "
+"に、その Momentum Transfer での実験 Intensity を EXPINT として渡します。全 EXPINT は q=0 の SAXS"
+" Intensity で Rescale する必要があります。SCALE_EXPINT に q=0 を渡すと自動的に各 EXPINT を割ってくれます。"
 
 #: 02.md:6
 msgid ""
 "In general, the more the q-values and the corresponding experimental "
 "intensities, the more intensive the calculation."
-msgstr ""
+msgstr "一般に q 値と実験 Intensity の数が多いほど計算量が増えます。"
 
 #: 02.md:8
 msgid "HARMONIC / LINEAR RESTRAINT"
-msgstr ""
+msgstr "Harmonic / Linear Restraint"
 
 #: 02.md:10
 msgid ""
@@ -56,6 +62,9 @@ msgid ""
 "QVALUE is reported by EXPINT. All the EXPINT values are rescaled by the "
 "SCALE_EXPINT value."
 msgstr ""
+"ONEBEAD で SAXS を計算し、溶媒電子密度を334 electrons/nm<sup>3</sup>、露出 Bead の補正を80 "
+"electrons/nm<sup>3</sup> とします。SASA は10 Step ごとに計算します。q=0 の理論 Intensity は "
+"SCALE_EXPINT、各 QVALUE の実験値は EXPINT で指定し、すべて SCALE_EXPINT で割ります。"
 
 #: 02.md:12
 msgid ""
@@ -71,12 +80,15 @@ msgid ""
 " are used, ensure that the entire list of arguments is enclosed within one "
 "set of curly brackets."
 msgstr ""
+"STATS は、座標から計算した各 QVALUE の Intensity と EXPINT の実験参照値との統計量を求めます。ここでは *In "
+"silico* と実験の相関を、BIAS Module の RESTRAINT の引数にします。また、挙動確認に役立つ Radius of "
+"Gyration を100 Step ごとに出力します。追加の `{}` は読みやすさのためで任意です。使う場合、引数の一覧全体を1組で囲んでください。"
 
 #: 02.md:14
 msgid ""
 "Detailed information on STATS, RESTRAINT and GYRATION can be found in the "
 "PLUMED manual."
-msgstr ""
+msgstr "STATS、RESTRAINT、GYRATION の詳細はマニュアルを参照してください。"
 
 # Literal notation or identifier intentionally preserved.
 #: 02.md:60
@@ -94,6 +106,10 @@ msgid ""
 "see the PLUMED manual and the "
 "[manuscript](https://doi.org/10.1126/sciadv.1501177) for full details."
 msgstr ""
+"Coupling 法を変えても SAXS/SANS 自体は同じです。ここでは Bayesian Replica-averaging の "
+"Metainference を使い、座標から予測した平均 SAXS Signal を実験 Observable の近くに拘束して、Maximum "
+"Entropy 原理に従う Ensemble を生成します。METAINFERENCE は ISDB Module にあります。詳細はマニュアルと "
+"[論文](https://doi.org/10.1126/sciadv.1501177) を参照してください。"
 
 #: 02.md:63
 msgid ""
@@ -101,6 +117,8 @@ msgid ""
 " EXPINT values have already been rescaled. In both the examples the maximum "
 "momentum transfer accepted for the ONEBEAD mapping is 0.3 Å<sup>-1</sup>."
 msgstr ""
+"EXPINT は Rescale 済みなので、今回は SCALE_EXPINT を使いません。両例とも ONEBEAD の最大 Momentum "
+"Transfer は0.3 Å<sup>-1</sup> です。"
 
 #: 02.md:123
 msgid "[Back to hySAS home](NAVIGATION.md)"

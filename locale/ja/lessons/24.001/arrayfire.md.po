@@ -9,7 +9,7 @@ msgstr ""
 
 #: arrayfire.md:1
 msgid "Installing PLUMED2 with ARRAYFIRE support"
-msgstr ""
+msgstr "ARRAYFIRE 対応 PLUMED2 のインストール"
 
 #: arrayfire.md:2
 msgid ""
@@ -18,6 +18,8 @@ msgid ""
 "library that supports a wide range of hardware accelerators for parallel "
 "computing."
 msgstr ""
+"並列計算用の多様な Hardware Accelerator に対応する Open-source ライブラリ ARRAYFIRE とともに、PLUMED"
+" をビルド・インストールする手順です。"
 
 #: arrayfire.md:4
 msgid ""
@@ -27,6 +29,8 @@ msgid ""
 " case, this installation example is performed on Leonardo, an HPC hosted by "
 "CINECA and managed by the SLURM scheduler."
 msgstr ""
+"ここでは CUDA GPU で SAS（ATOMISTIC / MARTINI / PARAMETERS / "
+"ONEBEAD）を高速化します。実際の難しい条件の例として、CINECA の SLURM 管理 HPC、Leonardo で行います。"
 
 #: arrayfire.md:6
 msgid ""
@@ -36,10 +40,12 @@ msgid ""
 "installation and then managed via the SLURM batch script used to submit jobs"
 " to the HPC."
 msgstr ""
+"ほかの設定との互換性と整理のため、Module を .bashrc などで自動ロードせず、インストール時と投入用 SLURM Script "
+"で管理します。"
 
 #: arrayfire.md:8
 msgid "1. Loading essential modules"
-msgstr ""
+msgstr "1. 必要な Module の読み込み"
 
 #: arrayfire.md:10
 msgid ""
@@ -49,6 +55,8 @@ msgid ""
 "dependencies, such as compilers or essential libraries. In general, to view "
 "the available modules on a SLURM-based HPC, you can use the command:"
 msgstr ""
+"ArrayFire の依存は HPC に用意され、Module でロードできることが多いです。Compiler "
+"や基本ライブラリなど、依存自体の依存にも注意してください。通常、利用可能な Module は次で調べます。"
 
 #: arrayfire.md:14
 msgid ""
@@ -58,6 +66,9 @@ msgid ""
 "Linux). Continuing with the Leonardo example, here is the list of basic "
 "modules that can be loaded directly from the shell:"
 msgstr ""
+"全要件と助言は [ARRAYFIRE 公式 "
+"GitHub](https://github.com/arrayfire/arrayfire/wiki/Build-Instructions-for-"
+"Linux) を参照してください。Leonardo で Shell からロードする基本 Module は次です。"
 
 #: arrayfire.md:28
 msgid ""
@@ -65,16 +76,16 @@ msgid ""
 " and to provide useful examples, the other dependencies will be installed "
 "manually in the next steps. It is assumed that the downloads are stored in "
 "the home folder."
-msgstr ""
+msgstr "ほかの依存も Leonardo にありますが、汎用的な例として次で手動インストールします。ダウンロード先は Home とします。"
 
 #: arrayfire.md:30
 msgid "2. Building dependencies from source"
-msgstr ""
+msgstr "2. 依存の Source ビルド"
 
 #: arrayfire.md:31
 msgid ""
 "Let's start by creating a folder where all the codes will be installed:"
-msgstr ""
+msgstr "コードのインストール先を作ります。"
 
 # Literal notation or identifier intentionally preserved.
 #: arrayfire.md:35
@@ -85,105 +96,105 @@ msgstr "FFTW"
 msgid ""
 "Download the \"Fastest Fourier Transform in the West\" package version "
 "3.3.10:"
-msgstr ""
+msgstr "Fastest Fourier Transform in the West 3.3.10 をダウンロードします。"
 
 #: arrayfire.md:41 arrayfire.md:87
 msgid "Extract the archive:"
-msgstr ""
+msgstr "Archive を展開します。"
 
 #: arrayfire.md:45
 msgid "Copy the extracted folder to fftw-3.3.10_f and move into it:"
-msgstr ""
+msgstr "展開先を fftw-3.3.10_f に Copy して移動します。"
 
 #: arrayfire.md:49
 msgid ""
 "The FFTW libraries must be built separately with single and double precision"
 " support. The next command configures the installation with 32-bit floating "
 "point support:"
-msgstr ""
+msgstr "FFTW は単精度と倍精度を別々にビルドします。次は32-bit Float 用です。"
 
 #: arrayfire.md:53 arrayfire.md:174 arrayfire.md:215
 msgid "Configuration details:"
-msgstr ""
+msgstr "設定の詳細："
 
 #: arrayfire.md:61 arrayfire.md:74 arrayfire.md:126
 msgid "Compile and install the source code:"
-msgstr ""
+msgstr "コンパイルしてインストールします。"
 
 #: arrayfire.md:65
 msgid ""
 "In case of slowdowns, specify the number of processors to use, in this case "
 "8:"
-msgstr ""
+msgstr "遅い場合は Processor 数を指定します。ここでは8です。"
 
 #: arrayfire.md:69
 msgid ""
 "Move to the fftw-3.3.10 folder and configure new instructions with the "
 "64-bit floating point support:"
-msgstr ""
+msgstr "fftw-3.3.10 に移り、64-bit Float 用に設定します。"
 
 #: arrayfire.md:78
 msgid "Set the LD_LIBRARY_PATH environment variable directly in the shell:"
-msgstr ""
+msgstr "Shell で LD_LIBRARY_PATH を設定します。"
 
 #: arrayfire.md:82
 msgid "Boost"
-msgstr ""
+msgstr "Boost"
 
 #: arrayfire.md:83
 msgid ""
 "Return to the download folder. Download the \"Boost C++\" libraries version "
 "1.85.0:"
-msgstr ""
+msgstr "ダウンロード先に戻り、Boost C++ 1.85.0 を取得します。"
 
 #: arrayfire.md:91
 msgid "Move into the boost folder:"
-msgstr ""
+msgstr "boost に移ります。"
 
 #: arrayfire.md:95
 msgid "Initialise the Boost build system:"
-msgstr ""
+msgstr "Boost のビルドシステムを初期化します。"
 
 #: arrayfire.md:99
 msgid ""
 "Install Boost libraries specifying the directory where Boost will be "
 "installed:"
-msgstr ""
+msgstr "インストール先を指定して Boost を入れます。"
 
 #: arrayfire.md:103
 msgid ""
 "Add the Boost library path to the LD_LIBRARY_PATH and the include path to "
 "the PATH:"
-msgstr ""
+msgstr "Boost の Library Path を LD_LIBRARY_PATH、Include Path を PATH に加えます。"
 
 #: arrayfire.md:108
 msgid "Spdlog"
-msgstr ""
+msgstr "Spdlog"
 
 #: arrayfire.md:109
 msgid ""
 "Return to the download folder. Clone and move into the spdlog repository:"
-msgstr ""
+msgstr "ダウンロード先に戻り、spdlog を Clone して移ります。"
 
 #: arrayfire.md:114
 msgid "Checkout the specific version 1.9.2:"
-msgstr ""
+msgstr "1.9.2 を Checkout します。"
 
 #: arrayfire.md:118
 msgid "Create build directory and navigate into it:"
-msgstr ""
+msgstr "build を作って移ります。"
 
 #: arrayfire.md:122
 msgid "Run CMake to configure the build:"
-msgstr ""
+msgstr "CMake で設定します。"
 
 #: arrayfire.md:130
 msgid "Set the environment variables:"
-msgstr ""
+msgstr "環境変数を設定します。"
 
 #: arrayfire.md:135
 msgid "Link to libcuda library"
-msgstr ""
+msgstr "libcuda への Link"
 
 #: arrayfire.md:136
 msgid ""
@@ -194,80 +205,82 @@ msgid ""
 "library `libcuda.so` must be found on the HPC system. If the location is not"
 " clear, use the following command to find it:"
 msgstr ""
+"Cluster 内の CUDA Library を特定して Home に Link するため、注意が必要です。Login Node ではビルド時に "
+"CUDA Driver を利用できない場合があります。代わりに Stub `libcuda.so` を探します。場所が不明なら次を使います。"
 
 #: arrayfire.md:140
 msgid ""
 "For Leonardo, the `libcuda.so` compatible with toolkit version 11.8 is "
 "located at:"
-msgstr ""
+msgstr "Leonardo の Toolkit 11.8 対応 `libcuda.so` は次にあります。"
 
 #: arrayfire.md:144
 msgid "Create a folder in your home directory to link the library:"
-msgstr ""
+msgstr "Home に Link 用フォルダを作ります。"
 
 #: arrayfire.md:148
 msgid "Link the library:"
-msgstr ""
+msgstr "Library を Link します。"
 
 #: arrayfire.md:152 arrayfire.md:198
 msgid "Update the LD_LIBRARY_PATH environment variable:"
-msgstr ""
+msgstr "LD_LIBRARY_PATH を更新します。"
 
 #: arrayfire.md:156
 msgid "3. Building and installing ArrayFire from source"
-msgstr ""
+msgstr "3. ArrayFire の Source ビルドとインストール"
 
 #: arrayfire.md:157
 msgid "Return to the download folder. Clone the ArrayFire repository:"
-msgstr ""
+msgstr "ダウンロード先に戻り、ArrayFire を Clone します。"
 
 #: arrayfire.md:161
 msgid ""
 "Move into the arrayfire directory and checkout the specific version "
 "(v3.9.0):"
-msgstr ""
+msgstr "arrayfire に移り、v3.9.0 を Checkout します。"
 
 #: arrayfire.md:166
 msgid "Create a build directory and navigate into it:"
-msgstr ""
+msgstr "build を作って移ります。"
 
 #: arrayfire.md:170
 msgid "Configure the build system with CMake:"
-msgstr ""
+msgstr "CMake で設定します。"
 
 #: arrayfire.md:190
 msgid "Build and install ArrayFire:"
-msgstr ""
+msgstr "ArrayFire をビルド・インストールします。"
 
 #: arrayfire.md:194
 msgid ""
 "Check that `libafcuda.so` is correctly built, all the required shared "
 "libraries must be resolved:"
-msgstr ""
+msgstr "`libafcuda.so` が正しくでき、全 Shared Library が解決されることを確認します。"
 
 #: arrayfire.md:202
 msgid "4. Installing PLUMED2 with ArrayFire support"
-msgstr ""
+msgstr "4. ArrayFire 対応 PLUMED2 のインストール"
 
 #: arrayfire.md:203
 msgid "Clone the PLUMED repository:"
-msgstr ""
+msgstr "PLUMED を Clone します。"
 
 #: arrayfire.md:207
 msgid "Navigate to the PLUMED directory:"
-msgstr ""
+msgstr "PLUMED に移ります。"
 
 #: arrayfire.md:211
 msgid "Configure the build system:"
-msgstr ""
+msgstr "ビルドシステムを設定します。"
 
 #: arrayfire.md:232
 msgid "Build and install PLUMED:"
-msgstr ""
+msgstr "PLUMED をビルド・インストールします。"
 
 #: arrayfire.md:236
 msgid "5. Logout & login"
-msgstr ""
+msgstr "5. Logout と Login"
 
 #: arrayfire.md:237
 msgid ""
@@ -275,20 +288,22 @@ msgid ""
 "completely logout of the HPC shell and perform a clean login. Avoiding this "
 "step could result in \"CUDA device native identification\" errors."
 msgstr ""
+"Stub Library の Export による互換性問題を防ぐため、HPC Shell から完全に Logout し、Login "
+"し直します。省くと「CUDA device native identification」エラーが出る場合があります。"
 
 #: arrayfire.md:239
 msgid "6. Write & run the SLURM batch script"
-msgstr ""
+msgstr "6. SLURM Batch Script の作成と実行"
 
 #: arrayfire.md:240
 msgid "Create a SLURM batch file, e.g. `RUN.sh`, using a text editor:"
-msgstr ""
+msgstr "Text Editor で `RUN.sh` などを作ります。"
 
 #: arrayfire.md:244
 msgid ""
 "Set the job configuration, the modules, the environment variables and run "
 "the PLUMED driver command:"
-msgstr ""
+msgstr "Job、Module、環境変数を設定し、PLUMED driver を実行します。"
 
 #: arrayfire.md:291
 msgid ""
@@ -297,14 +312,16 @@ msgid ""
 "For the details regarding the `plumed.dat`instructions, refer to the "
 "Tutorial 1 of this guide."
 msgstr ""
+"この例は `plumed.dat` に従って `trj.xtc` を解析します。`plumed.dat` の詳細は Tutorial "
+"1を参照してください。"
 
 #: arrayfire.md:293
 msgid "Run the SLURM script file:"
-msgstr ""
+msgstr "SLURM Script を実行します。"
 
 #: arrayfire.md:298
 msgid "7. Running GROMACS with PLUMED support"
-msgstr ""
+msgstr "7. PLUMED 対応 GROMACS の実行"
 
 #: arrayfire.md:299
 msgid ""
@@ -315,16 +332,19 @@ msgid ""
 "example of a SLURM script that, after loading dependencies and environment "
 "variables, launches GROMACS with PLUMED support:"
 msgstr ""
+"driver による PDB・Trajectory 解析だけでなく、MD エンジンで SAS と一致する Ensemble "
+"を生成できます。GROMACS は plumed-patch で Patch し、MPI 対応でビルドします。依存と環境変数を設定後に起動する "
+"SLURM の例です。"
 
 #: arrayfire.md:359
 msgid ""
 "In this example a single node is dedicated to perform a multidir simulation "
 "of 4 replicas, one for each GPU."
-msgstr ""
+msgstr "1 Node で4 Replica の multidir を行い、各 GPU に1 Replica を割り当てます。"
 
 #: arrayfire.md:361
 msgid "8. Final notes"
-msgstr ""
+msgstr "8. 最後の注意"
 
 #: arrayfire.md:362
 msgid ""
@@ -335,6 +355,8 @@ msgid ""
 "examples should offer a broad logic to customize and adapt the installation "
 "on local machines or other HPC systems."
 msgstr ""
+"この手順は2024年6月に当時の最新 PLUMED で検証しました。Module の名前・Path・バージョンは HPC により異なり、Leonardo"
+" でも更新で一部合わなくなる場合があります。例の基本的な考え方を使い、ローカルやほかの HPC に調整してください。"
 
 #: arrayfire.md:364
 msgid "[Back to hySAS home](NAVIGATION.md)"

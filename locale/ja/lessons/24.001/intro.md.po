@@ -21,6 +21,9 @@ msgid ""
 "experimental data to drive the simulations and generate conformational "
 "ensembles in agreement with the SAS data."
 msgstr ""
+"Small-Angle X-ray / Neutron Scattering (SAXS/SANS、SAS) と Molecular Dynamics "
+"(MD) の統合は、溶液中の生体分子の解析に有効です。MD は SAS の限られた解像度を補い、実験で MD を誘導して SAS に一致する "
+"Ensemble を生成することで、MD の不正確さも軽減できます。"
 
 #: intro.md:5
 msgid ""
@@ -30,12 +33,14 @@ msgid ""
 " retrieved from the ongoing simulation. In this way, all the conformations "
 "that are not in agreement with the experimental data are discouraged."
 msgstr ""
+"系の Potential に Energy Penalty を加えます。Bias は実験 SAS と、進行中の MD 座標からリアルタイム計算する "
+"SAS Profile の差に依存し、不一致の Conformation を抑制します。"
 
 #: intro.md:7
 msgid ""
 "The predictor used to calculate the SAS intensity from the coordinates of "
 "the molecule is called the \"forward model\"."
-msgstr ""
+msgstr "座標から SAS Intensity を予測するものを Forward Model と呼びます。"
 
 #: intro.md:9
 msgid ""
@@ -47,12 +52,16 @@ msgid ""
 " that the SAS signal is calculated at a lower resolution: the simulation "
 "retains all the atomistic details!"
 msgstr ""
+"有望ですが高コストです。Coarse-grained Model で原子群の散乱を単粒子にまとめると軽減できます。MD 自体を Coarse-"
+"grained にするのではなく、SAS の計算解像度だけを下げ、原子の詳細は維持します。"
 
 #: intro.md:11
 msgid ""
 "Previously, we presented a hybrid resolution method that combines atomistic "
 "MD simulations with a Martini coarse-grained SAXS forward model."
 msgstr ""
+"以前は Atomistic MD と Martini Coarse-grained SAXS Forward Model を組み合わせた Hybrid "
+"Resolution 法を示しました。"
 
 #: intro.md:13
 msgid ""
@@ -65,6 +74,9 @@ msgid ""
 " at the centre of mass of the atoms belonging to the bead itself. Protein-"
 "nucleic acid complexes are also compatible with the method."
 msgstr ""
+"さらに高速・高精度で SANS にも対応し、タンパク質・核酸を扱う Hybrid-SAS を開発しました。hySAS は1アミノ酸を1 Bead、1 "
+"Nucleotide を Base・Sugar・Phosphate の3 Bead にします。各中心は構成原子の Center of Mass "
+"です。Protein-Nucleic Acid 複合体にも対応します。"
 
 #: intro.md:15
 msgid ""
@@ -78,6 +90,9 @@ msgid ""
 "surface area of a bead is calculated from the coordinates of the heavy atoms"
 " belonging to that bead using the LCPO algorithm."
 msgstr ""
+"溶液中の散乱をより現実的にするため、ユーザー指定の暗黙的な Solvation Layer 寄与も含めます。Solvent-Solute "
+"相互作用に依存し、通常 Bulk より電子・中性子密度が高いため Signal に寄与します。露出 Bead だけに電子密度補正を加え、各 Heavy "
+"Atom 座標から LCPO で SASA を求めます。"
 
 #: intro.md:17
 msgid ""
@@ -86,6 +101,7 @@ msgid ""
 "account for hydrogen-deuterium exchange for the bead that are exposed to the"
 " solvent."
 msgstr ""
+"SANS ではさらに溶液中 Deuterium 割合と、露出 Bead の暗黙的な Hydrogen-Deuterium Exchange を扱えます。"
 
 #: intro.md:19
 msgid ""
@@ -93,12 +109,16 @@ msgid ""
 "is possible to use the forward model to calculate the SAS profile from a PDB"
 " or a trajectory using the PLUMED driver."
 msgstr ""
+"Ensemble 生成や構造 Refinement に加え、Forward Model と PLUMED driver で PDB・Trajectory"
+" の SAS Profile を計算できます。"
 
 #: intro.md:21
 msgid ""
 "For additional information, please refer to the related "
 "[manuscript](https://pubs.acs.org/doi/full/10.1021/acs.jctc.3c00864)."
 msgstr ""
+"詳細は関連 [論文](https://pubs.acs.org/doi/full/10.1021/acs.jctc.3c00864) "
+"を参照してください。"
 
 #: intro.md:23
 msgid "[Back to hySAS home](NAVIGATION.md)"
