@@ -17,20 +17,22 @@ msgid ""
 "simulations with PLUMED. This lesson was given as part of the PLUMED "
 "masterclass series in 2022."
 msgstr ""
+"この Masterclass では PLUMED で Variationally Enhanced Sampling "
+"を実行する方法を扱います。2022年の PLUMED Masterclass シリーズの一環として行われた Lesson です。"
 
 #: NAVIGATION.md:5
 msgid "It includes:"
-msgstr ""
+msgstr "次の内容を含みます。"
 
 #: NAVIGATION.md:7
 msgid ""
 "A video lecture that explains the background and theory behind Variationally"
 " Enhanced Sampling (Lecture 1)."
-msgstr ""
+msgstr "Variationally Enhanced Sampling の背景と理論を説明する動画講義（Lecture 1）。"
 
 #: NAVIGATION.md:8
 msgid "The lecture slides covered in Lecture 1."
-msgstr ""
+msgstr "Lecture 1 で使用した Slide。"
 
 #: NAVIGATION.md:9
 msgid "A series of exercises that you should try to complete yourself."
@@ -40,11 +42,11 @@ msgstr "自分で取り組む一連の演習。"
 msgid ""
 "A Video lecture going over how the exercises should be completed (Lecture "
 "2)."
-msgstr ""
+msgstr "演習の進め方を説明する動画講義（Lecture 2）。"
 
 #: NAVIGATION.md:11
 msgid "A python notebook with the solution that was used in Lecture 2."
-msgstr ""
+msgstr "Lecture 2 で使用した解答付き Python Notebook。"
 
 #: NAVIGATION.md:13
 msgid ""
@@ -98,12 +100,12 @@ msgstr "この演習に必要なバージョンの PLUMED のインストール�
 msgid ""
 "A video lecture that was given on July 4st 2022 to cover the background "
 "behind Variationally Enhanced Sampling"
-msgstr ""
+msgstr "2022年7月4日に行われた、Variationally Enhanced Sampling の背景を説明する動画講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:26
 msgid "The slides from the first video lecture"
-msgstr ""
+msgstr "最初の動画講義の Slide"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:27
@@ -123,4 +125,4 @@ msgid ""
 "A python notebook that contains a full set of solutions to the exercises "
 "that are discussed in the masterclass. This notebook is the one that was "
 "edited during the second video lecture of the masterclass"
-msgstr ""
+msgstr "Masterclass で扱う演習の完全な解答を含む Python Notebook。2回目の動画講義中に編集したものです。"

@@ -12,6 +12,8 @@ msgid ""
 "Masterclass 22.03: Rethinking Metadynamics: the On-the-fly Probability "
 "Enhanced Sampling (OPES) method"
 msgstr ""
+"Masterclass 22.03：Metadynamics の再考：On-the-fly Probability Enhanced Sampling "
+"(OPES) 法"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -21,7 +23,7 @@ msgstr "このレッスンは、2022年の PLUMED Masterclass シリーズの一
 
 #: NAVIGATION.md:5
 msgid "Two videos, one about the theory and one about the exercises."
-msgstr ""
+msgstr "理論と演習についての2本の動画。"
 
 #: NAVIGATION.md:6
 msgid "A series of exercises for you to complete."
@@ -29,7 +31,7 @@ msgstr "取り組むための一連の演習。"
 
 #: NAVIGATION.md:7
 msgid "Two python notebooks that contain the full solutions to the exercises."
-msgstr ""
+msgstr "演習の完全な解答を含む2つの Python Notebook。"
 
 #: NAVIGATION.md:9
 msgid ""
@@ -78,12 +80,12 @@ msgstr "理論"
 #. mermaid node label
 #: NAVIGATION.md:20
 msgid "Solutions OPES_EXPANDED"
-msgstr ""
+msgstr "OPES_EXPANDED の解答"
 
 #. mermaid node label
 #: NAVIGATION.md:21
 msgid "Solutions OPES_METAD"
-msgstr ""
+msgstr "OPES_METAD の解答"
 
 #. mermaid node label
 #: NAVIGATION.md:22 NAVIGATION.md:23
@@ -93,12 +95,12 @@ msgstr "講義 II"
 #. mermaid click tooltip
 #: NAVIGATION.md:24
 msgid "A previous tutorial that introduces umbrella sampling"
-msgstr ""
+msgstr "Umbrella Sampling を紹介する以前の Tutorial"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:25
 msgid "A previous tutorial that introduces metadynamics"
-msgstr ""
+msgstr "Metadynamics を紹介する以前の Tutorial"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:26
@@ -115,26 +117,26 @@ msgstr "取り組む演習の手順"
 #. mermaid click tooltip
 #: NAVIGATION.md:28
 msgid "The slides that were used in the lecture"
-msgstr ""
+msgstr "講義で使用した Slide"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:29
 msgid "An introduction to the OPES theory"
-msgstr ""
+msgstr "OPES 理論の入門"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:30
 msgid ""
 "A python notebook that presents the OPES method for replica-exchange-like "
 "sampling"
-msgstr ""
+msgstr "Replica Exchange 型 Sampling のための OPES を紹介する Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:31
 msgid ""
 "A python notebook that presents the OPES method for metadynamics-like "
 "sampling"
-msgstr ""
+msgstr "Metadynamics 型 Sampling のための OPES を紹介する Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:32
@@ -153,6 +155,9 @@ msgid ""
 "Sampling](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041034),"
 " PRX (2020)"
 msgstr ""
+"Invernizzi, Piaggi, and Parrinello, [Unified Approach to Enhanced "
+"Sampling](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041034),"
+" PRX (2020)"
 
 #: NAVIGATION.md:37
 msgid ""
@@ -161,6 +166,10 @@ msgid ""
 "Distributions](https://pubs.acs.org/doi/10.1021/acs.jpclett.0c00497), JPCL "
 "(2020)"
 msgstr ""
+"Invernizzi and Parrinello, [Rethinking Metadynamics: From Bias Potentials to"
+" Probability "
+"Distributions](https://pubs.acs.org/doi/10.1021/acs.jpclett.0c00497), JPCL "
+"(2020)"
 
 #: NAVIGATION.md:38
 msgid ""
@@ -168,3 +177,6 @@ msgid ""
 "Bias Enhanced Sampling](https://pubs.acs.org/doi/10.1021/acs.jctc.2c00152), "
 "JCTC (2022)"
 msgstr ""
+"Invernizzi and Parrinello, [Exploration vs Convergence Speed in Adaptive-"
+"Bias Enhanced Sampling](https://pubs.acs.org/doi/10.1021/acs.jctc.2c00152), "
+"JCTC (2022)"

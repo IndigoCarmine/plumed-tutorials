@@ -235,7 +235,7 @@ msgstr ""
 #: INSTRUCTIONS.md:101
 msgid ""
 "If you have random crashes on MacOS, try to set this environemnt variable:"
-msgstr ""
+msgstr "macOS で不規則に Crash する場合は、次の環境変数を設定してみる。"
 
 #: INSTRUCTIONS.md:107
 msgid "Exercise 1: Multiple-windows umbrella sampling with replica exchange"

@@ -9,7 +9,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:1
 msgid "PLUMED Masterclass 22.3: OPES method"
-msgstr ""
+msgstr "PLUMED Masterclass 22.3：OPES 法"
 
 #: INSTRUCTIONS.md:3
 msgid "Origin"
@@ -30,6 +30,8 @@ msgid ""
 "[OPES](https://www.plumed.org/doc-master/user-doc/html/_o_p_e_s.html) method"
 " and its PLUMED implementation."
 msgstr ""
+"この Masterclass では、[OPES](https://www.plumed.org/doc-master/user-"
+"doc/html/_o_p_e_s.html) 法と PLUMED での実装を紹介します。"
 
 #: INSTRUCTIONS.md:11
 msgid "Objectives"
@@ -37,11 +39,11 @@ msgstr "到達目標"
 
 #: INSTRUCTIONS.md:13
 msgid "Once this Masterclass is completed, you will be able to:"
-msgstr ""
+msgstr "この Masterclass を終えると、次のことができるようになります。"
 
 #: INSTRUCTIONS.md:15
 msgid "Perform OPES simulations and analyse the results."
-msgstr ""
+msgstr "OPES シミュレーションを実行し、結果を解析する。"
 
 #: INSTRUCTIONS.md:16
 msgid ""
@@ -49,12 +51,17 @@ msgid ""
 "doc/html/_o_p_e_s__e_x_p_a_n_d_e_d.html) to sample different generalized "
 "ensembles"
 msgstr ""
+"[OPES_EXPANDED](https://www.plumed.org/doc-master/user-"
+"doc/html/_o_p_e_s__e_x_p_a_n_d_e_d.html) でさまざまな Generalized Ensemble を "
+"Sampling する。"
 
 #: INSTRUCTIONS.md:17
 msgid ""
 "Test the effect of various [OPES_METAD](https://www.plumed.org/doc-"
 "master/user-doc/html/_o_p_e_s__m_e_t_a_d.html) input options"
 msgstr ""
+"[OPES_METAD](https://www.plumed.org/doc-master/user-"
+"doc/html/_o_p_e_s__m_e_t_a_d.html) の入力オプションを変え、その影響を調べる。"
 
 #: INSTRUCTIONS.md:18
 msgid ""
@@ -62,6 +69,8 @@ msgid ""
 "[OPES_METAD_EXPLORE](https://www.plumed.org/doc-master/user-"
 "doc/html/_o_p_e_s__m_e_t_a_d__e_x_p_l_o_r_e.html)"
 msgstr ""
+"[OPES_METAD_EXPLORE](https://www.plumed.org/doc-master/user-"
+"doc/html/_o_p_e_s__m_e_t_a_d__e_x_p_l_o_r_e.html) の典型的な用途を理解する。"
 
 #: INSTRUCTIONS.md:20
 msgid "Prerequisites"
@@ -74,6 +83,9 @@ msgid ""
 "from the graph is a good place to start. We would also recommend reading the"
 " papers that are linked in the graph."
 msgstr ""
+"PLUMED、Metadynamics、Umbrella Sampling、Replica Exchange "
+"に慣れていることを前提とします。慣れていない場合は、Graph 内の2021年 PLUMED Masterclass "
+"から始めるとよいでしょう。Graph からリンクされた論文も読むことを推奨します。"
 
 #: INSTRUCTIONS.md:26
 msgid "Overview of the theory"
@@ -88,6 +100,10 @@ msgid ""
 "metadynamics, it is faster in converging to a quasi-static bias and it "
 "handles multi-dimensional collective variables more efficiently."
 msgstr ""
+"OPES は Metadynamics を発展させ、[VES](https://www.plumed.org/doc-master/user-"
+"doc/html/_v_e_s.html) 法の考え方も一部取り入れた方法です。使いやすく、最適でない Collective Variables "
+"に対しても頑健になるよう設計されています。Metadynamics より速く準静的な Bias に収束し、多次元の Collective "
+"Variables を効率よく扱えます。"
 
 #: INSTRUCTIONS.md:32
 msgid ""
@@ -101,6 +117,15 @@ msgid ""
 "[OPES_METAD_EXPLORE](https://www.plumed.org/doc-master/user-"
 "doc/html/_o_p_e_s__m_e_t_a_d__e_x_p_l_o_r_e.html)."
 msgstr ""
+"OPES の理論は、この Tutorial の Graph に示す論文で説明されています。PLUMED の "
+"[OPES](https://www.plumed.org/doc-master/user-"
+"doc/html/_o_p_e_s.html)、[OPES_EXPANDED](https://www.plumed.org/doc-"
+"master/user-"
+"doc/html/_o_p_e_s__e_x_p_a_n_d_e_d.html)、[OPES_METAD](https://www.plumed.org/doc-"
+"master/user-"
+"doc/html/_o_p_e_s__m_e_t_a_d.html)、[OPES_METAD_EXPLORE](https://www.plumed.org/doc-"
+"master/user-doc/html/_o_p_e_s__m_e_t_a_d__e_x_p_l_o_r_e.html) "
+"のドキュメントにも簡単な概要があります。"
 
 #: INSTRUCTIONS.md:35
 msgid "Setting up the software"
@@ -113,6 +138,10 @@ msgid ""
 "software needed is to use the `plumed-masterclass-2022` conda environment, "
 "as described [here](https://github.com/plumed/masterclass-2022)."
 msgstr ""
+"この Masterclass では、OPES Module と MPI を有効にした PLUMED 2.8 で Patch した GROMACS "
+"2020.6 "
+"を使います。必要なソフトウェアを最も簡単にインストールする方法は、[こちら](https://github.com/plumed/masterclass-2022)"
+" に従って `plumed-masterclass-2022` conda 環境を使うことです。"
 
 #: INSTRUCTIONS.md:40
 msgid "Resources"
@@ -124,6 +153,8 @@ msgid ""
 "on [GitHub](https://github.com/invemichele/masterclass-22-03). You can clone"
 " this repository locally on your machine with the usual command:"
 msgstr ""
+"演習に必要なデータは [GitHub](https://github.com/invemichele/masterclass-22-03) "
+"にあります。通常の次のコマンドで、リポジトリを自分のマシンに Clone できます。"
 
 #: INSTRUCTIONS.md:49
 msgid ""
@@ -134,6 +165,9 @@ msgid ""
 "found there, and this page is mainly meant as an overview of the content of "
 "the notebooks."
 msgstr ""
+"リポジトリには、シミュレーション実行用の全データと解析スクリプトがあります。説明付きの [Jupyter "
+"Notebook](https://github.com/invemichele/masterclass-22-03/tree/master/notebooks)"
+" もあり、この Tutorial を進める手引きになります。大部分の情報は Notebook にあり、このページでは主にその内容を概観します。"
 
 #: INSTRUCTIONS.md:53
 msgid ""
@@ -147,22 +181,30 @@ msgid ""
 "$\\phi$ torsional angle. Here is its free energy surface (FES) as a function"
 " of the $\\phi$ and $\\psi$ angles:"
 msgstr ""
+"過去の Masterclass と同様に、簡単なモデル系として真空中の小分子 Alanine Dipeptide (ala2) "
+"を使います。よく知られた系で、計算コストが小さく、別の [OPES_METAD](https://www.plumed.org/doc-"
+"master/user-doc/html/_o_p_e_s__m_e_t_a_d.html) で使う2次元 Model Potential "
+"より複雑という利点があります。ala2 には主に2つの Metastable Basin があり、非常に効率的な Collective Variable"
+" (CV) である Torsional Angle $\\phi$ で区別できます。$\\phi$、$\\psi$ 角の関数としての自由エネルギー表面 "
+"(FES) は次のとおりです。"
 
 #: INSTRUCTIONS.md:58
 msgid ""
 "![Alanine dipeptide free energy surface along the Ramachandran "
 "angles](figures/masterclass-22-03-ala2_FES.png)"
 msgstr ""
+"![Ramachandran Angle に沿う Alanine Dipeptide "
+"の自由エネルギー表面](figures/masterclass-22-03-ala2_FES.png)"
 
 #: INSTRUCTIONS.md:60
 msgid ""
 "_All the exercises have been tested with PLUMED version 2.8.0 and GROMACS "
 "2020.6_"
-msgstr ""
+msgstr "_すべての演習は PLUMED 2.8.0 と GROMACS 2020.6 でテストされています。_"
 
 #: INSTRUCTIONS.md:62
 msgid "Exercise 1: Sampling expanded ensembles with OPES"
-msgstr ""
+msgstr "演習1：OPES による Expanded Ensemble の Sampling"
 
 #: INSTRUCTIONS.md:64
 msgid ""
@@ -170,10 +212,12 @@ msgid ""
 "familiar application of adaptive-bias enhanced sampling for most of PLUMED "
 "users, so we will first introduce some theory background."
 msgstr ""
+"まず OPES で Expanded Ensemble を Sampling します。多くの PLUMED ユーザーには、Adaptive Bias "
+"を用いる Enhanced Sampling のこの用途はなじみが薄いと思われるため、先に理論的背景を紹介します。"
 
 #: INSTRUCTIONS.md:67
 msgid "1.1 Multithermal simulations"
-msgstr ""
+msgstr "1.1 Multithermal シミュレーション"
 
 #: INSTRUCTIONS.md:69
 msgid ""
@@ -185,10 +229,14 @@ msgid ""
 "potential to a single simulation. You can find details on the relevant "
 "theory by searching through the graph for this tutorial."
 msgstr ""
+"最初の例は Alanine Dipeptide の Multithermal シミュレーションです。Replica Exchange による "
+"Parallel Tempering で、Alanine Dipeptide の2つの準安定状態を Sampling "
+"できます。ここでは、異なる温度のシミュレーションを組み合わせる代わりに、単一のシミュレーションに BiasPotential を加えて同じ "
+"Multithermal 分布を Sampling します。理論の詳細は、この Tutorial の Graph をたどって確認してください。"
 
 #: INSTRUCTIONS.md:75
 msgid "<u>Click to expand</u>"
-msgstr ""
+msgstr "<u>クリックして展開</u>"
 
 #: INSTRUCTIONS.md:77
 msgid ""
@@ -196,20 +244,24 @@ msgid ""
 "setup our GROMACS simulation to run at $T_0=300$ K. Our target distribution "
 "is then:"
 msgstr ""
+"300 K から1000 K の範囲で3つの温度 $T_0, T_1, T_2$ を選び、GROMACS を $T_0=300$ K "
+"で実行するよう設定します。Target Distribution は次のようになります。"
 
 #: INSTRUCTIONS.md:82
 msgid "This can be rewritten highlighting $P(\\mathbf{x})$"
-msgstr ""
+msgstr "$P(\\mathbf{x})$ を明示すると、次のように書き換えられます。"
 
 #: INSTRUCTIONS.md:86
 msgid "and then using $\\Delta F_i = -k_B T_0 \\log \\frac{Z_i}{Z_0}$:"
-msgstr ""
+msgstr "さらに $\\Delta F_i = -k_B T_0 \\log \\frac{Z_i}{Z_0}$ を使うと、次のようになります。"
 
 #: INSTRUCTIONS.md:90
 msgid ""
 "So we just need to know $\\Delta F_1$ and $\\Delta F_2$, and we can sample "
 "the target multithermal distribution by using the following bias:"
 msgstr ""
+"したがって、$\\Delta F_1$ と $\\Delta F_2$ がわかれば、次の Bias で Target の Multithermal "
+"分布を Sampling できます。"
 
 #: INSTRUCTIONS.md:94
 msgid ""
@@ -217,6 +269,8 @@ msgid ""
 "OPES spirit, we estimate on-the-fly these free energy differences using a "
 "simple reweighting, and iteratively reach the target distribution."
 msgstr ""
+"これは Potential Energy $U=U(\\mathbf{x})$ だけの関数です。OPES の考え方に従い、簡単な Reweighting"
+" でこれらの自由エネルギー差を On-the-fly に推定し、反復的に Target Distribution に到達します。"
 
 #: INSTRUCTIONS.md:97
 msgid ""
@@ -229,12 +283,18 @@ msgid ""
 "sample the same expanded ensemble with replica exchange, one has to run a "
 "different replica of the system for each of the ECVs."
 msgstr ""
+"最終的な Bias の式は、[expansion_cv](https://www.plumed.org/doc-master/user-"
+"doc/html/expansion__c_v.html) (ECVs) と呼ぶ量 "
+"$\\frac{1-T_0/T_i}{k_BT_0}U(\\mathbf{x})$ によって決まります。対象となる Expanded Ensemble "
+"にはさまざまな種類がありますが、対応する ECV の明示的な形を求めれば OPES で Sampling できます。同じ Expanded "
+"Ensemble を Replica Exchange で Sampling する場合は、各 ECV に対して系の別々の Replica "
+"を実行する必要があります。"
 
 #: INSTRUCTIONS.md:102
 msgid ""
 "Enough equations, here is the plumed input file we need to run this "
 "multithermal simulation:"
-msgstr ""
+msgstr "数式の説明はここまでとして、この Multithermal シミュレーションに必要な plumed 入力ファイルを示します。"
 
 #: INSTRUCTIONS.md:110
 msgid ""
@@ -245,6 +305,11 @@ msgid ""
 "resulting bias is a function of the potential energy, and is updated every "
 "500 MD steps."
 msgstr ""
+"[OPES_EXPANDED](https://www.plumed.org/doc-master/user-"
+"doc/html/_o_p_e_s__e_x_p_a_n_d_e_d.html) Bias Action "
+"と、[ECV_MULTITHERMAL](https://www.plumed.org/doc-master/user-"
+"doc/html/_e_c_v__m_u_l_t_i_t_h_e_r_m_a_l.html) Action で定義する Multithermal "
+"Expansion を使います。得られる Bias は Potential Energy の関数で、500 MD Step ごとに更新されます。"
 
 #: INSTRUCTIONS.md:113
 msgid ""
@@ -254,10 +319,12 @@ msgid ""
 "automatically set a reasonable number of temperature steps, if TEMP_STEPS is"
 " not provided."
 msgstr ""
+"Notebook では、得られる Bias の形、収束の確認方法、各温度で自由エネルギーを推定するための Reweighting "
+"方法を示します。また、TEMP_STEPS を指定しない場合に、妥当な温度 Step 数を自動設定する簡単な手順を説明します。"
 
 #: INSTRUCTIONS.md:116
 msgid "Multiumbrella simulations"
-msgstr ""
+msgstr "Multiumbrella シミュレーション"
 
 #: INSTRUCTIONS.md:118
 msgid ""
@@ -269,6 +336,11 @@ msgid ""
 "CV location. We can use OPES to sample an expanded target distribution that "
 "is composed of all of these combined."
 msgstr ""
+"次に、Replica Exchange でも Sampling できる別の Expanded Ensemble を紹介します。これを "
+"Multiumbrella と呼びます。典型的な Multiple Window Umbrella Sampling が Sampling "
+"するすべての分布から構成されます。この種の Umbrella Sampling では CV を選び、CV 上の異なる位置に放物線型 "
+"BiasPotential を置いた複数のシミュレーションを実行します。OPES を使うと、それらをすべて組み合わせた Expanded Target "
+"Distribution を Sampling できます。"
 
 #: INSTRUCTIONS.md:123
 msgid ""
@@ -279,12 +351,15 @@ msgid ""
 " a single longer simulation can also help with sampling orthogonal slow "
 "degrees of freedom."
 msgstr ""
+"Multiple Window Umbrella Sampling では、Window 間の自由エネルギー差を後処理（WHAM "
+"など）で推定しますが、OPES ではシミュレーション中に On-the-fly に推定します。主な利点は、Umbrella "
+"の数と位置を選びやすくなることと、単一の長いシミュレーションによって直交方向の遅い自由度も Sampling しやすくなることです。"
 
 #: INSTRUCTIONS.md:126
 msgid ""
 "We choose as CV the $\\phi$ angle. The ECVs we need for this type of "
 "expansion are the following:"
-msgstr ""
+msgstr "CV として $\\phi$ 角を選びます。この Expansion に必要な ECV は次のとおりです。"
 
 #: INSTRUCTIONS.md:131
 msgid ""
@@ -293,10 +368,12 @@ msgid ""
 "used, $k=1/\\sqrt{\\sigma}$, but we will see in the notebook why we made a "
 "different choice."
 msgstr ""
+"$\\phi_i$ は固定した Umbrella 中心、$\\sigma$ はその幅を決めます。Umbrella Sampling "
+"では通常、別のパラメータ $k=1/\\sqrt{\\sigma}$ を使いますが、異なる選択をした理由は Notebook で説明します。"
 
 #: INSTRUCTIONS.md:134
 msgid "The plumed input we need might look like this:"
-msgstr ""
+msgstr "必要な plumed 入力は、例えば次のようになります。"
 
 #: INSTRUCTIONS.md:142
 msgid ""
@@ -305,6 +382,8 @@ msgid ""
 "keyword SPACING. We can also provide a guess of the maximum free energy "
 "BARRIER we need to overcome, it can help speed up convergence."
 msgstr ""
+"これにより $\\phi$ に沿って、$\\sigma$ だけ離れた Umbrella が等間隔に配置されます。Keyword SPACING "
+"で間隔を広げられます。また、越える必要のある最大自由エネルギー BARRIER の推定値を与えると、収束が速くなる場合があります。"
 
 #: INSTRUCTIONS.md:146
 msgid ""
@@ -316,10 +395,15 @@ msgid ""
 "doc/html/_h_i_s_t_o_g_r_a_m.html) function), and is interesting to see the "
 "effect of changing the bandwidth parameter."
 msgstr ""
+"Notebook で、この入力による Sampling "
+"を示します。各オプションの働きを把握するため、パラメータを変えてみてください。また、Reweighting により FES を推定します。この "
+"Reweighting には Kernel Density Estimation（plumed の "
+"[HISTOGRAM](https://www.plumed.org/doc-master/user-"
+"doc/html/_h_i_s_t_o_g_r_a_m.html) に類似）を使うので、Bandwidth パラメータを変えた影響も調べてみましょう。"
 
 #: INSTRUCTIONS.md:151
 msgid "1.3 Combined multithermal and multiumbrella simulations"
-msgstr ""
+msgstr "1.3 Multithermal と Multiumbrella を組み合わせたシミュレーション"
 
 #: INSTRUCTIONS.md:153
 msgid ""
@@ -327,6 +411,8 @@ msgid ""
 "makes it very easy to combine them. We show this by running a combined "
 "multithermal and multiumbrella simulation of alanine dipeptide."
 msgstr ""
+"OPES で Expanded Ensemble を Sampling するもう1つの利点は、簡単に組み合わせられることです。Alanine "
+"Dipeptide の Multithermal と Multiumbrella を組み合わせて示します。"
 
 #: INSTRUCTIONS.md:156
 msgid ""
@@ -336,6 +422,10 @@ msgid ""
 "two expansions we obtain the best of both, with frequent transitions and an "
 "efficient reweighting over a whole range of temperatures."
 msgstr ""
+"Multithermal Expansion では2つの準安定状態を Sampling "
+"できましたが、効率は高くありませんでした。Multiumbrella Target Distribution "
+"では遷移が頻繁に起きますが、Sampling は300 K のみです。2つの Expansion "
+"を組み合わせると両方の利点が得られ、頻繁な遷移と、温度範囲全体にわたる効率的な Reweighting が可能になります。"
 
 #: INSTRUCTIONS.md:160
 msgid ""
@@ -344,6 +434,8 @@ msgid ""
 "free to use just one, or choose any number of parallel replica, in a "
 "multiple walkers scheme."
 msgstr ""
+"欠点は、多数の ECV を扱う場合があることです。ただし Replica Exchange では各 ECV に独自の Replica "
+"が必要ですが、OPES では1つだけでも、Multiple Walkers として任意の数の並列 Replica を使ってもかまいません。"
 
 #: INSTRUCTIONS.md:163
 msgid ""
@@ -353,13 +445,16 @@ msgid ""
 "with 200 combined ECVs. This will become clearer once we look at the "
 "notebook and the simulation output."
 msgstr ""
+"Expansion の組み合わせでは、温度 ECV と Umbrella ECV のすべての組み合わせからなる Grid を作ります。例えば温度 "
+"Expansion が10 ECV、Multiumbrella が20 ECV なら、組み合わせは200 ECV です。Notebook "
+"とシミュレーション出力を見ると、より明確になります。"
 
 #: INSTRUCTIONS.md:167
 msgid ""
 "From the point of view of the plumed input things are quite straightforward."
 " For a combined multithermal-multiumbrella simulation it should look similar"
 " to this one:"
-msgstr ""
+msgstr "plumed 入力での設定は単純です。Multithermal-Multiumbrella を組み合わせる場合は、次のようになります。"
 
 #: INSTRUCTIONS.md:181
 msgid ""
@@ -367,10 +462,12 @@ msgid ""
 "expansions, one can run the same simulations but using the $\\psi$ angle "
 "instead of $\\phi$, and see what happens."
 msgstr ""
+"この2つの異なる Expansion を組み合わせる強みを十分に理解するため、$\\phi$ の代わりに $\\psi$ "
+"角を使って同じシミュレーションを実行し、結果を比較してください。"
 
 #: INSTRUCTIONS.md:183
 msgid "Exercise 2: OPES for metadynamics-like simulations"
-msgstr ""
+msgstr "演習2：Metadynamics 型シミュレーションへの OPES の適用"
 
 #: INSTRUCTIONS.md:185
 msgid ""
@@ -378,22 +475,28 @@ msgid ""
 "metadynamics. We will sample a well-tempered distribution along a chosen set"
 " of collective variables."
 msgstr ""
+"次に、Metadynamics に非常によく似た Bias 付きシミュレーションを OPES で実行します。選んだ Collective "
+"Variables に沿う Well-tempered Distribution を Sampling します。"
 
 #: INSTRUCTIONS.md:188
 msgid "2.1 Biasing a good CV"
-msgstr ""
+msgstr "2.1 適切な CV に Bias を加える"
 
 #: INSTRUCTIONS.md:190
 msgid ""
 "We start by biasing the $\\phi$ angle, which is known to be a good CV for "
 "alanine dipeptide. Here is how the FES along this CV looks like:"
 msgstr ""
+"まず、Alanine Dipeptide の適切な CV として知られる $\\phi$ 角に Bias を加えます。この CV に沿う FES "
+"は次のとおりです。"
 
 #: INSTRUCTIONS.md:193
 msgid ""
 "![Alanine dipeptide free energy surface along one of its torsional "
 "angles](figures/masterclass-22-03-ala2_FESphi.png)"
 msgstr ""
+"![Torsional Angle の1つに沿う Alanine Dipeptide "
+"の自由エネルギー表面](figures/masterclass-22-03-ala2_FESphi.png)"
 
 #: INSTRUCTIONS.md:195
 msgid ""
@@ -403,6 +506,9 @@ msgid ""
 "quantities. We also compare it with well-tempered metadynamics, and we start"
 " to see how this two methods differ."
 msgstr ""
+"この簡単な例で、[OPES_METAD](https://www.plumed.org/doc-master/user-"
+"doc/html/_o_p_e_s__m_e_t_a_d.html) の入力パラメータと出力量に慣れます。Well-tempered "
+"Metadynamics とも比較し、2つの方法の違いを見ていきます。"
 
 #: INSTRUCTIONS.md:198
 msgid ""
@@ -414,16 +520,20 @@ msgid ""
 "file contains the compressed kernels used by OPES at a given time to "
 "represent the probability distribution, and thus the bias."
 msgstr ""
+"ここでは OPES の後処理スクリプトも使います。OPES にはまだ [sum_hills](https://www.plumed.org/doc-"
+"master/user-doc/html/sum_hills.html) に相当するツールはありませんが、STATE_WFILE Keyword "
+"でシミュレーションの状態を出力し、簡単な Python スクリプトで同じ結果を得られます。この STATE ファイルには、OPES "
+"がある時点で確率分布、したがって Bias を表すために使う圧縮済み Kernel が含まれます。"
 
 #: INSTRUCTIONS.md:202
 msgid "Biasing two good CVs"
-msgstr ""
+msgstr "2つの適切な CV に Bias を加える"
 
 #: INSTRUCTIONS.md:204
 msgid ""
 "Next, we move to biasing both the Ramachandran angles of ala2. A minimal "
 "plumed input to do this is the following:"
-msgstr ""
+msgstr "次に、ala2 の両方の Ramachandran Angle に Bias を加えます。最小限の plumed 入力は次のとおりです。"
 
 #: INSTRUCTIONS.md:213
 msgid ""
@@ -435,6 +545,11 @@ msgid ""
 "doc/html/_o_p_e_s__m_e_t_a_d__e_x_p_l_o_r_e.html) methods. The plumed inputs"
 " are identical:"
 msgstr ""
+"この例では、Kernel Compression "
+"アルゴリズムの動作を可視化できます。また、[OPES_METAD](https://www.plumed.org/doc-master/user-"
+"doc/html/_o_p_e_s__m_e_t_a_d.html) と "
+"[OPES_METAD_EXPLORE](https://www.plumed.org/doc-master/user-"
+"doc/html/_o_p_e_s__m_e_t_a_d__e_x_p_l_o_r_e.html) の違いも把握できます。plumed 入力は同じです。"
 
 #: INSTRUCTIONS.md:223
 msgid ""
@@ -443,10 +558,12 @@ msgid ""
 " converges by focusing on the estimate of the free energy difference between"
 " the basins."
 msgstr ""
+"ここから、例えば長めのシミュレーションを実行して、両方の OPES 版を Metadynamics と容易に比較できます。Basin "
+"間の自由エネルギー差の推定に着目すれば、Bias の収束過程も確認できます。"
 
 #: INSTRUCTIONS.md:226
 msgid "Biasing more CVs: alanine tetrapeptide"
-msgstr ""
+msgstr "より多くの CV に Bias を加える：Alanine Tetrapeptide"
 
 #: INSTRUCTIONS.md:228
 msgid ""
@@ -455,6 +572,9 @@ msgid ""
 "ala2, with not one but three $\\phi$ and $\\psi$ torsional angles, that can "
 "be used to sample its 8 metastable basins."
 msgstr ""
+"3つ以上の CV を試すため、新しい系として真空中の Alanine Tetrapeptide (ala4) を導入します。ala2 "
+"より大きく、$\\phi$ と $\\psi$ の Torsional Angle が1組ではなく3組あり、8つの Metastable Basin の"
+" Sampling に使えます。"
 
 #: INSTRUCTIONS.md:231
 msgid ""
@@ -466,6 +586,12 @@ msgid ""
 "doc/html/_o_p_e_s__m_e_t_a_d__e_x_p_l_o_r_e.html). How will the respective "
 "input files look like?"
 msgstr ""
+"[METAD](https://www.plumed.org/doc-master/user-"
+"doc/html/_m_e_t_a_d.html)、[OPES_METAD](https://www.plumed.org/doc-"
+"master/user-"
+"doc/html/_o_p_e_s__m_e_t_a_d.html)、[OPES_METAD_EXPLORE](https://www.plumed.org/doc-"
+"master/user-doc/html/_o_p_e_s__m_e_t_a_d__e_x_p_l_o_r_e.html) の3つの方法で ala4 の"
+" Sampling を試せます。それぞれの入力ファイルはどうなるでしょうか？"
 
 #: INSTRUCTIONS.md:234
 msgid ""
@@ -476,16 +602,20 @@ msgid ""
 "doc/html/_o_p_e_s__m_e_t_a_d.html). In fact, the more CVs there are, the "
 "more it plays an important role in speeding up exploration."
 msgstr ""
+"FES の収束を目的とせず、各手法が CV 空間をどれほど速く Sampling するかを見るため、短いシミュレーションだけを実行します。この例では "
+"[OPES_METAD](https://www.plumed.org/doc-master/user-"
+"doc/html/_o_p_e_s__m_e_t_a_d.html) の $Z$ 項の効果を理解できます。CV "
+"が多いほど、この項が探索の高速化に重要な役割を果たします。"
 
 #: INSTRUCTIONS.md:238
 msgid ""
 "We can also see the effect of changing the bias factor $\\gamma$ on the "
 "sampling efficiency."
-msgstr ""
+msgstr "Bias Factor $\\gamma$ の変更が Sampling 効率に与える影響も確認できます。"
 
 #: INSTRUCTIONS.md:241
 msgid "2.4 Biasing a suboptimal CV"
-msgstr ""
+msgstr "2.4 最適でない CV に Bias を加える"
 
 #: INSTRUCTIONS.md:243
 msgid ""
@@ -496,12 +626,15 @@ msgid ""
 "How should the plumed input files look like? Here it would be nice to also "
 "have some error bars to our estimates."
 msgstr ""
+"最後は、おそらく最も興味深い状況です。再び ala2 に Bias を加えますが、今回は最適でない Collective Variable "
+"を使います。この CV について詳しいことはわからず、例えば Machine Learning の出力かもしれません。この CV の関数として FES "
+"を計算できるでしょうか？plumed 入力ファイルはどうするべきでしょうか？推定値に Error Bar も付けられるとよいでしょう。"
 
 #: INSTRUCTIONS.md:249
 msgid ""
 "We will discuss together the results of these simulations, and also reveal "
 "how this CV was constructed."
-msgstr ""
+msgstr "これらのシミュレーション結果を一緒に議論し、この CV の作成方法も明かします。"
 
 #: INSTRUCTIONS.md:251
 msgid ""
@@ -509,6 +642,9 @@ msgid ""
 " out this other [OPES_METAD tutorial](https://www.plumed.org/doc-"
 "master/user-doc/html/opes-metad.html)."
 msgstr ""
+"最適でない CV のよりわかりやすい例が必要なら、別の [OPES_METAD "
+"Tutorial](https://www.plumed.org/doc-master/user-doc/html/opes-metad.html) "
+"を参照してください。"
 
 #: INSTRUCTIONS.md:253
 msgid "Conclusion"
@@ -524,3 +660,6 @@ msgid ""
 "method, together with all the input files necessary to reproduce their "
 "simulations."
 msgstr ""
+"この Masterclass を通じて OPES を試し始め、用途の感覚をつかめたことを願います。さらに試し、理解を深めたい場合は [PLUMED-"
+"NEST](https://www.plumed-nest.org/browse.html) "
+"を確認してください。「opes」で検索すると、この方法を使う論文と、シミュレーションを再現するための入力ファイルが見つかります。"
