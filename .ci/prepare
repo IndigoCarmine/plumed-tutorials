@@ -31,18 +31,9 @@ if [[ "${GITHUB_REF##*/}" = main ]]; then
   # create README.md
   {
     cat <<EOF
-<div class="lang-en" markdown="1">
 
 Welcome to PLUMED-TUTORIALS!
 -----------------------------
-
-</div>
-<div class="lang-ja" markdown="1">
-
-PLUMED-TUTORIALS へようこそ！
------------------------------
-
-</div>
 
 EOF
 
@@ -53,16 +44,8 @@ else
   # create README.md
   {
     cat <<EOF
-<div class="lang-en" markdown="1">
 
 # Welcome to the test site for PLUMED-TUTORIALS! (commit $hash)
-
-</div>
-<div class="lang-ja" markdown="1">
-
-# PLUMED-TUTORIALS テストサイトへようこそ！（コミット $hash）
-
-</div>
 
 EOF
     # add general informations
@@ -73,3 +56,6 @@ EOF
 
   echo "branch ${GITHUB_REF##*/}, skipping push"
 fi
+
+# insert the translations (see i18n.py and locale/)
+python "${root}/i18n.py" build-site .

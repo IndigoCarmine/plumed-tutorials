@@ -13,6 +13,7 @@ import nbformat
 from nbconvert import HTMLExporter 
 from contextlib import contextmanager
 from PlumedToHTML import processMarkdown, get_javascript, get_css
+import i18n
 import time
 
 if not (sys.version_info > (3, 0)):
@@ -59,7 +60,9 @@ def get_short_name_ini(lname, length):
     else: sname = lname
     return sname
 
-def processNavigation( lessonname, actions, embeds, plumeds_to_use,plumed_version_names):
+def processNavigation( lessonname, actions, embeds, plumeds_to_use,plumed_version_names, tr=None):
+    # tr is the i18n.Catalog with the translations of the lesson
+    if tr is None : tr = i18n.Catalog()
     # Print the js for plumedToHTML to a file
     with open( "data/plumedtohtml.js", "w+") as jf : jf.write( get_javascript() )
     # Print the css for plumed to html to a file
@@ -93,8 +96,8 @@ def processNavigation( lessonname, actions, embeds, plumeds_to_use,plumed_versio
            if name in embeds :
               if "title" in embeds[name] :
                  efile = open( "data/" + name + ".md", "w+" ) 
-                 efile.write( "# " + lessonname + ": " + embeds[name]["title"] + "\n\n")
-                 efile.write( line.split('"')[3] + "\n\n" )
+                 efile.write( "# " + tr.spans(lessonname) + ": " + tr.spans(embeds[name]["title"]) + "\n\n")
+                 efile.write( tr.spans(line.split('"')[3]) + "\n\n" )
                  efile.write("{% raw %}\n")
                  efile.write('<p align="center"><iframe width="630" height="472" src="' + embeds[name]["location"] + '" frameborder="0" allowfullscreen></iframe></p>\n')
                  efile.write("{% endraw %}\n")
@@ -149,8 +152,8 @@ def processNavigation( lessonname, actions, embeds, plumeds_to_use,plumed_versio
            elif "pdf" in name_extension:
               pdfname = name.split("/")[-1]
               efile = open( "data/" + name.split(".")[0] + ".md", "w+" )
-              efile.write( "# " + lessonname + " \n\n")
-              efile.write( line.split('"')[3] + "\n\n" )
+              efile.write( "# " + tr.spans(lessonname) + " \n\n")
+              efile.write( tr.spans(line.split('"')[3]) + "\n\n" )
               efile.write("{% raw %}\n")
               efile.write('<p align="center"><iframe width="630" height="472" src="' + pdfname + '" allowfullscreen></iframe></p>\n')
               efile.write("{% endraw %}\n")
@@ -160,9 +163,9 @@ def processNavigation( lessonname, actions, embeds, plumeds_to_use,plumed_versio
               raise RuntimeError(f"cannot process filname called {name} use md, pdf or ipynb extension")   
            # And write out the updated click line with the proper link 
            if islesson :
-              ofile.write( line.split('"')[0] + '"' + name + '" "' + line.split('"')[3] + '"\n' )
+              ofile.write( line.split('"')[0] + '"' + name + '" "' + tr.both(line.split('"')[3]) + '"\n' )
            else :
-              ofile.write( line.split('"')[0] + '"' + name.split(".")[0] + '.html" "' + line.split('"')[3] + '"\n' ) 
+              ofile.write( line.split('"')[0] + '"' + name.split(".")[0] + '.html" "' + tr.both(line.split('"')[3]) + '"\n' ) 
         else :
            ofile.write( line + "\n" )
     first, manlink = True, "https://www.plumed.org/doc-master/user-doc/html/actionlist/?actions="
@@ -173,10 +176,45 @@ def processNavigation( lessonname, actions, embeds, plumeds_to_use,plumed_versio
         else : 
            manlink += "," + a
     ofile.write("{% raw %}\n")
-    ofile.write("<b><a href=\"" + manlink + "\" target=\"_blank\">Click here</a> to open manual pages for actions discussed in this tutorial.</b>\n")
+    ofile.write("<b>" + i18n.site_spans("<a href=\"{url}\" target=\"_blank\">Click here</a> to open manual pages for actions discussed in this tutorial.", url=manlink) + "</b>\n")
     ofile.write("{% endraw %}\n")
     ofile.close()
     return ninputs, nfail
+
+def fetch_lesson_data(config, path):
+    # Download the zip file of a lesson and extract it in the directory data of the current directory
+    #if re.match("^.*\.zip$",config["url"]):
+    if os.path.exists("download"):
+       shutil.rmtree("download")
+    os.mkdir("download")
+    # try to download
+    try:
+     urllib.request.urlretrieve(config["url"], 'file.zip')
+    except urllib.error.URLError:
+      raise RuntimeError("Bad URL for path " + path )
+    # try to open the zip file
+    try:
+      zf = zipfile.ZipFile("file.zip", "r")
+    except zipfile.BadZipFile:
+      raise RuntimeError("Bad zip file for path " + path )
+    zf_namelist = zf.namelist()
+    root=list(set([ x.split("/")[0] for x in zf_namelist]))
+    # there is a main root directory
+    if(len(root)==1 and len(zf_namelist)!=1): root="download/" + root[0]
+    # there is not (or special case of one single file)
+    else:        root="download/"
+    zf.extractall(path="download")
+    if os.path.exists("data"):
+       shutil.rmtree("data")
+    shutil.move(root,"data")
+    # Check if there is a command to run in the config and run it if there is
+    if "command" in config : 
+       with cd("data") : 
+         print("RUNNING COMMAND: " + config["command"] + " in " + os.getcwd() )
+         result = subprocess.run(["python", config["command"]], capture_output=True)
+         print( result )
+         #subprocess.run(config["command"])
+
 
 def process_lesson(path,action_counts,plumed_syntax,eggdb=None,plumeds_to_use=(PLUMED_STABLE,PLUMED_MASTER),plumed_version_names=("stable","master")):
     if not eggdb:
@@ -196,38 +234,10 @@ def process_lesson(path,action_counts,plumed_syntax,eggdb=None,plumeds_to_use=(P
                raise RuntimeError(field+" not found")
         print(path,config)
 
-        #if re.match("^.*\.zip$",config["url"]):
-        if os.path.exists("download"):
-           shutil.rmtree("download")
-        os.mkdir("download")
-        # try to download
-        try:
-         urllib.request.urlretrieve(config["url"], 'file.zip')
-        except urllib.error.URLError:
-          raise RuntimeError("Bad URL for path " + path )
-        # try to open the zip file
-        try:
-          zf = zipfile.ZipFile("file.zip", "r")
-        except zipfile.BadZipFile:
-          raise RuntimeError("Bad zip file for path " + path )
-        zf_namelist = zf.namelist()
-        root=list(set([ x.split("/")[0] for x in zf_namelist]))
-        # there is a main root directory
-        if(len(root)==1 and len(zf_namelist)!=1): root="download/" + root[0]
-        # there is not (or special case of one single file)
-        else:        root="download/"
-        zf.extractall(path="download")
-        if os.path.exists("data"):
-           shutil.rmtree("data")
-        shutil.move(root,"data")
-        # Check if there is a command to run in the config and run it if there is
-        if "command" in config : 
-           with cd("data") : 
-             print("RUNNING COMMAND: " + config["command"] + " in " + os.getcwd() )
-             result = subprocess.run(["python", config["command"]], capture_output=True)
-             print( result )
-             #subprocess.run(config["command"])
-
+        fetch_lesson_data(config, path)
+        # Insert the translations in the markdown files of the lesson
+        lesson_id = path[8:10] + "." + path[11:14]
+        tr = i18n.translate_lesson(lesson_id, "data")
         # Check for the existence of a NAVIGATION file
         if os.path.exists("data/navigation.md") : os.rename("data/navigation.md","data/NAVIGATION.md")
         if not os.path.exists("data/NAVIGATION.md") : raise RuntimeError("No NAVIGATION.md file found in lesson")
@@ -246,14 +256,13 @@ def process_lesson(path,action_counts,plumed_syntax,eggdb=None,plumeds_to_use=(P
         actions = set({})  # This holds the list of actions used in all the plumed input files in the markdown
         ninputs, nfail = processNavigation( config["title"], actions, embeds,
                                                    plumeds_to_use=plumeds_to_use,
-                                                   plumed_version_names=plumed_version_names )
+                                                   plumed_version_names=plumed_version_names,
+                                                   tr=tr )
 
         dependlist = []
         for key, data in embeds.items() :
             if "type" in data and data["type"]=="internal" : dependlist.append( data["location"] )
 
-        # Get the lesson id from the path
-        lesson_id = path[8:10] + "." + path[11:14]
         # Get the reference
         ref,ref_url = get_reference(config["doi"])
         # Get the modules and the actions
@@ -281,6 +290,9 @@ def process_lesson(path,action_counts,plumed_syntax,eggdb=None,plumeds_to_use=(P
          "ref_url":ref_url,
          "description":config["description"],
         }
+        for key in ("title","description") :
+          if key in config and tr.get(config[key]) :
+            datadict.update({key + "_ja":tr.get(config[key])})
         if "tags" in config:
           datadict.update({"tags":config["tags"]})
         faildict = {"ninputs":ninputs,}
@@ -306,6 +318,7 @@ def process_lesson(path,action_counts,plumed_syntax,eggdb=None,plumeds_to_use=(P
                   stream=eggdb,
                   #to not break lines
                   width=256,
+                  allow_unicode=True,
                   sort_keys=False)
 
     except Exception as e:

@@ -1,0 +1,6 @@
+{%- comment -%}
+  Show the string include.s in the language selected by the reader.
+  The translations are read from _data/i18n.yml, which is created from locale/ja/site.po by i18n.py.
+{%- endcomment -%}
+{%- assign ja = site.data.i18n[include.s] -%}
+{%- if ja -%}<span class="lang-en">{{ include.s }}</span><span class="lang-ja">{{ ja }}</span>{%- else -%}{{ include.s }}{%- endif -%}

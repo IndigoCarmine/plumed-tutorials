@@ -1,0 +1,48 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: browse.md:1
+msgid "Browse the lessons"
+msgstr "レッスン一覧"
+
+#: browse.md:3
+msgid "The lessons that have been submitted to the PLUMED-TUTORIALS are listed below. PLUMED-TUTORIALS monitors whether PLUMED input files in these lessons are compatible with the current and development versions of the code and integrates links from these files to the PLUMED manual. Inputs in the tutorials listed below were last tested on {{ site.data.date.date }}."
+msgstr "PLUMED-TUTORIALS に投稿されたレッスンを以下に示します。PLUMED-TUTORIALS は、これらのレッスン内の PLUMED 入力ファイルがコードの現行版および開発版と 互換性があるかを監視し、それらのファイルから PLUMED マニュアルへのリンクを統合しています。以下のチュートリアルの入力ファイルは {{ site.data.date.date }} に最終テストされました。"
+
+#: browse.md:6
+msgid "Suggestions for an order to work through the tutorials can be found [here](summarygraph.md). A complete bibliography of papers connected to these lessons can be found [here](bibliography.md)."
+msgstr "チュートリアルに取り組む順序の提案は[こちら](summarygraph.md)にあります。 これらのレッスンに関連する論文の完全な文献リストは[こちら](bibliography.md)にあります。"
+
+#: browse.md:14
+msgid "ID"
+msgstr ""
+
+#: browse.md:14
+msgid "Name"
+msgstr "タイトル"
+
+#: browse.md:14
+msgid "Instructors"
+msgstr "講師"
+
+#: browse.md:14
+msgid "Description"
+msgstr "説明"
+
+#: browse.md:14
+msgid "Tags"
+msgstr ""
+
+#: browse.md:14
+msgid "Actions"
+msgstr ""
+
+#: browse.md:14
+msgid "Modules"
+msgstr ""

@@ -101,26 +101,18 @@ PRINT ARG=d1,f,f2 FILE=colvar
 
 Students reading this input will only see the last two lines of the input file along with a link above them that students can click on to view the parts of the input from the hidden section.  Most importantly, however, the plumed input is complete and so will be given a green badge on the site.
 
-### Providing your lesson in English and Japanese
+### Translations of your lesson
 
-The PLUMED-TUTORIALS website has a button in the header that switches between English and Japanese.  If you would like to provide a Japanese version of (parts of) your
-markdown files, you can wrap the English and Japanese text in `div` elements with the classes `lang-en` and `lang-ja` as shown below.  Only the block that corresponds to the language selected by the reader will be shown.
-Text that is not wrapped in such a block (e.g. PLUMED inputs that are the same in both languages) is always shown.
+The PLUMED-TUTORIALS website has a button in the header that switches between English and Japanese.  You do not need to change your markdown files to have your lesson translated.
+Translations are stored in [gettext](https://www.gnu.org/software/gettext/) `.po` files, in which each heading, paragraph, list item and table cell of your markdown files (and each label in the flowchart in your NAVIGATION.md file) is paired with its translation.
+PLUMED inputs and other code blocks are never translated.  When you change a paragraph, its old translation is no longer used, so readers will see the new English text until the translation is updated.
 
-````
-<div class="lang-en" markdown="1">
+The `.po` files for your lesson can be either:
 
-This text is shown when English is selected.
+* added to the folder `locale/ja/lessons/<lesson ID>/` of the [PLUMED-TUTORIALS repository](https://github.com/plumed-tutorials/plumed-tutorials) with a pull request, or
+* included in the zip archive of your lesson in a folder called `locale/ja/` (e.g. `locale/ja/README.md.po` for the file `README.md`).
 
-</div>
-<div class="lang-ja" markdown="1">
-
-この文章は日本語が選択されているときに表示されます。
-
-</div>
-````
-
-Notice that the blank lines and the `markdown="1"` attribute are required for the markdown inside the `div` to be rendered.
+The files can be created with the command `python i18n.py update-lesson lessons/<year>/<number>` and edited with any `.po` editor (e.g. [Poedit](https://poedit.net)).  More details can be found in the file `locale/README.md` of the PLUMED-TUTORIALS repository.
 
 ### On cheating 
 

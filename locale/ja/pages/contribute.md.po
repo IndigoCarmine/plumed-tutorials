@@ -1,0 +1,128 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contribute.md:1
+msgid "How to contribute a new lesson to PLUMED-TUTORIALS"
+msgstr "PLUMED-TUTORIALS に新しいレッスンを投稿する方法"
+
+#: contribute.md:3
+msgid "Adding a lesson to PLUMED-TUTORIALS is free and easy. To do so you must:"
+msgstr "PLUMED-TUTORIALS へのレッスンの追加は無料で簡単です。次の手順に従ってください："
+
+#: contribute.md:5
+msgid "Collect the input files that the students will need to run the calculations that they will perform as they complete the exercise."
+msgstr "学生が演習を進める際に実行する計算に必要な入力ファイルを集めます。"
+
+#: contribute.md:6
+msgid "Write instructions in [markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) that explain the tasks that the students should work through during the lesson and how they should use the input files you provide. More detailed information on how to do this is provided [here](instructions.md). Notice that you can divide your instructions inbetween as many markdown files as you feel is appropriate."
+msgstr "レッスン中に学生が取り組むべき課題と、提供する入力ファイルの使い方を説明する手順書を [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) で書きます。書き方の詳細は[こちら](instructions.md)にあります。手順書は、適切と思う数の Markdown ファイルに分けてもかまいません。"
+
+#: contribute.md:7
+msgid "Identify embedable objects (e.g. YouTube videos) and jupyter notebook files that you think it would be useful to share with students in order to help them complete your lesson."
+msgstr "学生がレッスンを終えるのに役立つと思われる埋め込み可能なオブジェクト（YouTube 動画など）や Jupyter Notebook ファイルを選びます。"
+
+#: contribute.md:8
+msgid "Write a file called EMBED.yml that contains information about the location of the videos that you would like students to have access to. See instructions [here](instructions.md)."
+msgstr "学生に見てほしい動画の場所の情報を記した EMBED.yml というファイルを作成します。手順は[こちら](instructions.md)をご覧ください。"
+
+#: contribute.md:9
+msgid "Write a file called NAVIGATION.md that contains a flowchart that shows students the order they should work through your exercises. See instructions [here](instructions.md)."
+msgstr "学生が演習に取り組むべき順序を示すフローチャートを含む NAVIGATION.md というファイルを作成します。手順は[こちら](instructions.md)をご覧ください。"
+
+#: contribute.md:10
+msgid "Create and upload a zip file containing the input files, the jupyter notebooks, your markdown files, the EMBED.yml file and the NAVIGATION.md to your favorite repository. Popular solutions are [Zenodo](https://zenodo.org) and [GitHub](http://github.com) (we would recommend creating a git repository and using the second of these tools). Additional info about where to host your zip file can be found [here](https://github.com/plumed-nest/plumed-nest/blob/master/README.md#zip-info)."
+msgstr "入力ファイル、Jupyter Notebook、Markdown ファイル、EMBED.yml、NAVIGATION.md を含む zip ファイルを作成し、お好みのリポジトリにアップロードします。よく使われるのは [Zenodo](https://zenodo.org) と [GitHub](http://github.com) です（git リポジトリを作成して後者を使うことをお勧めします）。zip ファイルのホスト先についての追加情報は[こちら](https://github.com/plumed-nest/plumed-nest/blob/master/README.md#zip-info)にあります。"
+
+#: contribute.md:11
+msgid "Please keep you zip file around 100 MB."
+msgstr "zip ファイルのサイズは 100 MB 程度に抑えてください。"
+
+#: contribute.md:12
+msgid "Fill in the sections of the form below. All fields are required, unless otherwise specified."
+msgstr "下のフォームの各項目を記入してください。特に記載がない限り、すべての項目が必須です。"
+
+#: contribute.md:14
+msgid "The fields you must fill are:"
+msgstr "記入する項目は次のとおりです："
+
+#: contribute.md:16
+msgid "__ID:__ please select *\"new\"* for a new submission, or your ID in case of resubmission/update of an existing lesson"
+msgstr "__ID:__ 新規投稿の場合は *\"new\"* を、既存レッスンの再投稿・更新の場合はそのレッスンの ID を選択してください"
+
+#: contribute.md:17
+msgid "__Title:__ the title of your lesson"
+msgstr "__Title:__ レッスンのタイトル"
+
+#: contribute.md:18
+msgid "__URL:__ the location of the zipped archive containing your lesson"
+msgstr "__URL:__ レッスンを含む zip アーカイブの場所"
+
+#: contribute.md:19
+msgid "__Keywords:__ keywords describing the lesson"
+msgstr "__Keywords:__ レッスンを表すキーワード"
+
+#: contribute.md:20
+msgid "__Instructors:__ your name/s"
+msgstr "__Instructors:__ 講師の氏名"
+
+#: contribute.md:21
+msgid "__Publication:__ the DOI identifying the paper related to this lesson. If the work is not published or available on a preprint server, please type *\"unpublished\"*"
+msgstr "__Publication:__ このレッスンに関連する論文の DOI。論文が未発表でプレプリントサーバーにもない場合は *\"unpublished\"* と入力してください"
+
+#: contribute.md:22
+msgid "__Contact:__ the name of a contact person to communicate with the coordinators of the PLUMED consortium"
+msgstr "__Contact:__ PLUMED コンソーシアムのコーディネーターとの連絡担当者の氏名"
+
+#: contribute.md:23
+msgid "__Contact email:__ the email of the contact person"
+msgstr "__Contact email:__ 連絡担当者のメールアドレス"
+
+#: contribute.md:24
+msgid "__Comments (optional):__ comments related to the submission or feedback on existing tutorials"
+msgstr "__Comments（任意）:__ 投稿に関するコメントや、既存のチュートリアルへのフィードバック"
+
+#: contribute.md:26
+msgid "__Please note that:__"
+msgstr "__ご注意ください：__"
+
+#: contribute.md:28
+msgid "<b> All contributions are curated and manually uploaded by the coordinators of the PLUMED consortium. Therefore, a delay between submission and online publication should be expected.</b>"
+msgstr "<b>すべての投稿は PLUMED コンソーシアムのコーディネーターによって確認され、手作業でアップロードされます。そのため、投稿から公開までには時間がかかります。</b>"
+
+#: contribute.md:29
+msgid "The name and email of the contact person will not appear on the PLUMED-TUTORIALS website."
+msgstr "連絡担当者の氏名とメールアドレスは PLUMED-TUTORIALS のウェブサイトには掲載されません。"
+
+#: contribute.md:30
+msgid "If necessary, you will be able to edit the information on [GitHub](https://github.com/plumed-school/plumed-school) later or send us a revised version of the form. In the latter case, please specify a list of changes in the \"Comments\" field."
+msgstr "必要に応じて、後から [GitHub](https://github.com/plumed-school/plumed-school) 上で情報を編集するか、修正版のフォームを送ることができます。後者の場合は \"Comments\" 欄に変更点を記載してください。"
+
+#: contribute.md:31
+msgid "PLUMED-TUTORIALS will not host your archive, so make sure the indicated URL remains accessible. More info about where to host your contribution can be found [here](https://github.com/plumed-nest/plumed-nest/blob/master/README.md#zip-info)."
+msgstr "PLUMED-TUTORIALS はアーカイブをホストしないため、指定した URL にアクセスし続けられるようにしてください。投稿のホスト先についての詳細は[こちら](https://github.com/plumed-nest/plumed-nest/blob/master/README.md#zip-info)にあります。"
+
+#: contribute.md:32
+msgid "PLUMED-TUTORIALS does not test whether the exercises in your lesson are executed correctly. It only tests whether the PLUMED can parse the input files you provided in the README instructions."
+msgstr "PLUMED-TUTORIALS は、レッスンの演習が正しく実行されるかどうかはテストしません。README の手順に含まれる入力ファイルを PLUMED が解釈できるかどうかのみをテストします。"
+
+#: contribute.md:34
+msgid "Lastly, note that if you want to a a link to content that you have contributed to PLUMED-TUTORIALS to your personal website you can use a url like the one below:"
+msgstr "最後に、PLUMED-TUTORIALS に投稿したコンテンツへのリンクを個人のウェブサイトに追加したい場合は、次のような URL を使用できます："
+
+#: contribute.md:41
+msgid "<b>Questions related to the submission to PLUMED-TUTORIALS can be directed to:</b>"
+msgstr "<b>PLUMED-TUTORIALS への投稿に関するご質問は次のアドレスまでお寄せください：</b>"
+
+#: contribute.md:42
+msgid "<b><a href=\"mailto:plumed.tutorials@gmail.com\">plumed.tutorials@gmail.com</a></b>"
+msgstr ""
+
+#: contribute.md:45
+msgid "Fields marked with \"<sup>*</sup>\" are optional"
+msgstr "\"<sup>*</sup>\" の付いた項目は任意です"
