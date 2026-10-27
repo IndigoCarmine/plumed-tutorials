@@ -1,3 +1,5 @@
+<div class="lang-en" markdown="1">
+
 How to contribute a new lesson to PLUMED-TUTORIALS
 ---------------------------------------------------
 Adding a lesson to PLUMED-TUTORIALS is free and easy. To do so you must:
@@ -44,6 +46,57 @@ https://www.plumed-tutorials.org/browse.html?search=yourname
 
 Fields marked with "<sup>*</sup>" are optional
 
+</div>
+<div class="lang-ja" markdown="1">
+
+PLUMED-TUTORIALS に新しいレッスンを投稿する方法
+---------------------------------------------------
+PLUMED-TUTORIALS へのレッスンの追加は無料で簡単です。次の手順に従ってください：
+
+* 学生が演習を進める際に実行する計算に必要な入力ファイルを集めます。
+* レッスン中に学生が取り組むべき課題と、提供する入力ファイルの使い方を説明する手順書を [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) で書きます。書き方の詳細は[こちら](instructions.md)にあります。手順書は、適切と思う数の Markdown ファイルに分けてもかまいません。
+* 学生がレッスンを終えるのに役立つと思われる埋め込み可能なオブジェクト（YouTube 動画など）や Jupyter Notebook ファイルを選びます。
+* 学生に見てほしい動画の場所の情報を記した EMBED.yml というファイルを作成します。手順は[こちら](instructions.md)をご覧ください。
+* 学生が演習に取り組むべき順序を示すフローチャートを含む NAVIGATION.md というファイルを作成します。手順は[こちら](instructions.md)をご覧ください。
+* 入力ファイル、Jupyter Notebook、Markdown ファイル、EMBED.yml、NAVIGATION.md を含む zip ファイルを作成し、お好みのリポジトリにアップロードします。よく使われるのは [Zenodo](https://zenodo.org) と [GitHub](http://github.com) です（git リポジトリを作成して後者を使うことをお勧めします）。zip ファイルのホスト先についての追加情報は[こちら](https://github.com/plumed-nest/plumed-nest/blob/master/README.md#zip-info)にあります。
+* zip ファイルのサイズは 100 MB 程度に抑えてください。
+* 下のフォームの各項目を記入してください。特に記載がない限り、すべての項目が必須です。
+
+記入する項目は次のとおりです：
+
+* __ID:__ 新規投稿の場合は *"new"* を、既存レッスンの再投稿・更新の場合はそのレッスンの ID を選択してください
+* __Title:__ レッスンのタイトル
+* __URL:__ レッスンを含む zip アーカイブの場所
+* __Keywords:__ レッスンを表すキーワード
+* __Instructors:__ 講師の氏名
+* __Publication:__ このレッスンに関連する論文の DOI。論文が未発表でプレプリントサーバーにもない場合は *"unpublished"* と入力してください
+* __Contact:__ PLUMED コンソーシアムのコーディネーターとの連絡担当者の氏名
+* __Contact email:__ 連絡担当者のメールアドレス
+* __Comments（任意）:__ 投稿に関するコメントや、既存のチュートリアルへのフィードバック
+
+__ご注意ください：__
+
+* <b>すべての投稿は PLUMED コンソーシアムのコーディネーターによって確認され、手作業でアップロードされます。そのため、投稿から公開までには時間がかかります。</b>
+* 連絡担当者の氏名とメールアドレスは PLUMED-TUTORIALS のウェブサイトには掲載されません。
+* 必要に応じて、後から [GitHub](https://github.com/plumed-school/plumed-school) 上で情報を編集するか、修正版のフォームを送ることができます。後者の場合は "Comments" 欄に変更点を記載してください。
+* PLUMED-TUTORIALS はアーカイブをホストしないため、指定した URL にアクセスし続けられるようにしてください。投稿のホスト先についての詳細は[こちら](https://github.com/plumed-nest/plumed-nest/blob/master/README.md#zip-info)にあります。
+* PLUMED-TUTORIALS は、レッスンの演習が正しく実行されるかどうかはテストしません。README の手順に含まれる入力ファイルを PLUMED が解釈できるかどうかのみをテストします。
+
+最後に、PLUMED-TUTORIALS に投稿したコンテンツへのリンクを個人のウェブサイトに追加したい場合は、次のような URL を使用できます：
+
+````
+https://www.plumed-tutorials.org/browse.html?search=yourname
+````
+
+<center>
+<p><b>PLUMED-TUTORIALS への投稿に関するご質問は次のアドレスまでお寄せください：</b></p>
+<p><b><a href="mailto:plumed.tutorials@gmail.com">plumed.tutorials@gmail.com</a></b></p>
+</center>
+
+"<sup>*</sup>" の付いた項目は任意です
+
+</div>
+
 {% assign sorted_less = site.data.lessons | sort: "id" | reverse %}
 <form class="wj-contact" method="POST" action="https://formspree.io/f/xyzgopbq">
   <table>
@@ -52,40 +105,40 @@ Fields marked with "<sup>*</sup>" are optional
       <td width="600"><select id="id" type="texy" name="ID"><option>new (ID to be assigned)</option>{% for item in sorted_less %}<option>{{ item.id }}:{{ item.shortitle }}</option>{% endfor %} required</select> </td>
     </tr>
     <tr>  
-      <td><label for="title">Title</label></td>
+      <td><label for="title"><span class="lang-en">Title</span><span class="lang-ja">タイトル</span></label></td>
       <td width="600"><input id="title" type="text" name="title" required> </td>
     </tr>
     <tr>
-      <td><label for="url">URL</label></td>
+      <td><label for="url"><span class="lang-en">URL</span><span class="lang-ja">URL</span></label></td>
       <td width="600"><input id="url" type="text" name="url" required> </td>
     </tr>  
     <tr>
-      <td><label for="keywords">Keywords</label></td>
+      <td><label for="keywords"><span class="lang-en">Keywords</span><span class="lang-ja">キーワード</span></label></td>
       <td width="600"><input id="keywords" type="text" name="keywords" placeholder="examples: metadynamics, RNA, protein folding, small molecules, ..." required></td>
     </tr>
     <tr>
-      <td><label for="instructor">Instructors</label></td>
+      <td><label for="instructor"><span class="lang-en">Instructors</span><span class="lang-ja">講師</span></label></td>
       <td width="600"><input id="instructor" type="text" name="instructor" required></td>
     </tr>
     <tr>
-      <td><label for="publication">Publication</label></td>
+      <td><label for="publication"><span class="lang-en">Publication</span><span class="lang-ja">論文</span></label></td>
       <td width="600"><input id="publication" type="text" name="publication" placeholder="examples: 10.1016/j.cpc.2013.09.018, unpublished" required></td>
     </tr>
     <tr>
-      <td><label for="contact">Contact</label></td>
+      <td><label for="contact"><span class="lang-en">Contact</span><span class="lang-ja">連絡担当者</span></label></td>
       <td width="600"><input id="contact" type="text" name="contact" required></td>
     </tr>
     <tr>
-      <td><label for="email">Contact email</label></td>
+      <td><label for="email"><span class="lang-en">Contact email</span><span class="lang-ja">連絡先メールアドレス</span></label></td>
       <td width="600"><input id="email" type="text" name="_replyto" required></td>
     </tr>  
     <tr>
-      <td><label for="comments">Comments<sup>*</sup></label></td>
+      <td><label for="comments"><span class="lang-en">Comments</span><span class="lang-ja">コメント</span><sup>*</sup></label></td>
       <td width="600"><input id="comments" type="text" name="comments"></td>
     </tr>
   </table>
   <input type="text" name="_gotcha" style="display:none"> <br>
-  <button type="submit">Submit</button>
+  <button type="submit"><span class="lang-en">Submit</span><span class="lang-ja">送信</span></button>
   <input type="hidden" name="_subject" id="_subject" value="PLUMED-TUTORIALS submission"> <br>
 </form>
 
