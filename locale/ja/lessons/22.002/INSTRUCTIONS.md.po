@@ -9,7 +9,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:1
 msgid "PLUMED Masterclass 22.2: Analysis of Plumed output by Metadynminer"
-msgstr ""
+msgstr "PLUMED Masterclass 22.2：Metadynminer による Plumed 出力の解析"
 
 #: INSTRUCTIONS.md:3
 msgid "Origin"
@@ -28,6 +28,8 @@ msgid ""
 "The aim of this Masterclass is to introduce users to the R package "
 "Metadynminer for analysis of results from metadynamics in Plumed."
 msgstr ""
+"この Masterclass では、Plumed の Metadynamics の結果を解析する R Package、Metadynminer "
+"を紹介します。"
 
 #: INSTRUCTIONS.md:12
 msgid "Objectives"
@@ -39,29 +41,29 @@ msgstr "この Masterclass を終えると、次のことができるように�
 
 #: INSTRUCTIONS.md:16
 msgid "Install R and its packages."
-msgstr ""
+msgstr "R と Package をインストールする。"
 
 #: INSTRUCTIONS.md:17
 msgid "Load metadynamics results (`HILLS` file) to Metadynminer."
-msgstr ""
+msgstr "Metadynamics の結果（`HILLS`）を Metadynminer に読み込む。"
 
 #: INSTRUCTIONS.md:18
 msgid "Calculate a free energy surface and plot it in a publication quality."
-msgstr ""
+msgstr "自由エネルギー表面を計算し、論文に使える品質で描画する。"
 
 #: INSTRUCTIONS.md:19
 msgid "Locate free energy minima and evaluate their relative free energies."
-msgstr ""
+msgstr "自由エネルギー極小を見つけ、相対自由エネルギーを評価する。"
 
 #: INSTRUCTIONS.md:20
 msgid "Make an animation of the evolution of a free energy surface."
-msgstr ""
+msgstr "自由エネルギー表面の変化を Animation にする。"
 
 #: INSTRUCTIONS.md:21
 msgid ""
 "Use data in Metadynminer objects to do advanced calculations (e.g., "
 "reweighting)."
-msgstr ""
+msgstr "Metadynminer Object のデータで、Reweighting などの高度な計算をする。"
 
 #: INSTRUCTIONS.md:23
 msgid "Setting up the software"
@@ -80,6 +82,9 @@ msgid ""
 "necessary to use a graphical user interface but it is very useful, "
 "especially for making illustrations."
 msgstr ""
+"[CRAN](https://cloud.r-project.org/) からインストールする "
+"[R](https://www.r-project.org/) を使います。[CRAN](https://cloud.r-project.org/) "
+"で、自分の OS の手順に従ってください。R は Open Source です。GUI は必須ではありませんが、特に図の作成に便利です。"
 
 #: INSTRUCTIONS.md:32
 msgid ""
@@ -88,12 +93,17 @@ msgid ""
 "Rstudio](https://www.rstudio.com/products/rstudio/) is Open Source. Follow "
 "the installation instructions for your operating system."
 msgstr ""
+"GUI を使うなら [Rstudio](https://www.rstudio.com/) が最適です。[Desktop "
+"版](https://www.rstudio.com/products/rstudio/) は Open Source です。自分の OS "
+"のインストール手順に従ってください。"
 
 #: INSTRUCTIONS.md:36
 msgid ""
 "To install metadynminer, open R (in commandline type `R` or open GUI by "
 "typing `rstudio` or using an icon) and type:"
 msgstr ""
+"Metadynminer をインストールするには、R を開き（コマンドラインで `R`、GUI なら `rstudio` "
+"またはアイコン）、次を入力します。"
 
 #: INSTRUCTIONS.md:43
 msgid ""
@@ -101,10 +111,12 @@ msgid ""
 "`installation of package metadynminer had non-zero exit status` there was a "
 "problem with installation. You may try:"
 msgstr ""
+"出力に `* DONE (metadynminer)` が含まれるはずです。`installation of package metadynminer "
+"had non-zero exit status` と出る場合はインストールに問題があります。次を試せます。"
 
 #: INSTRUCTIONS.md:46
 msgid "On MS Windows install `Rtools`."
-msgstr ""
+msgstr "MS Windows では `Rtools` をインストールする。"
 
 #: INSTRUCTIONS.md:47
 msgid ""
@@ -113,10 +125,12 @@ msgid ""
 "permission of the printed directories. You may change installation "
 "directories by corresponding `Sys.setenv(...)` commands."
 msgstr ""
+"権限の問題なら、`Sys.getenv(\"R_HOME\")` と `Sys.getenv(\"R_LIBS_USER\")` "
+"で表示されるディレクトリの権限を確認してください。対応する `Sys.setenv(...)` でインストール先を変更できます。"
 
 #: INSTRUCTIONS.md:51
 msgid "You may check whether Metadynminer was installed correctly by typing:"
-msgstr ""
+msgstr "次を入力して、正しくインストールできたか確認できます。"
 
 #: INSTRUCTIONS.md:57
 msgid ""
@@ -124,6 +138,8 @@ msgid ""
 "be repreated for version upgrades). Loading of the package by `library` "
 "command must be done in every R seance."
 msgstr ""
+"このコマンドは何も出力しないはずです。インストールは1回だけ行います（更新時には再実行できます）。`library` による読み込みは R "
+"Session ごとに必要です。"
 
 #: INSTRUCTIONS.md:60
 msgid "Resources"
@@ -135,6 +151,8 @@ msgid ""
 "[GitHub](https://github.com/plumed/masterclass-22-02). You can clone this "
 "repository using the following command:"
 msgstr ""
+"必要なデータは [GitHub](https://github.com/plumed/masterclass-22-02) にあります。次のコマンドで "
+"Clone できます。"
 
 #: INSTRUCTIONS.md:69
 msgid ""
@@ -144,32 +162,42 @@ msgid ""
 "[Zenodo](https://doi.org/10.5281/zenodo.6056060) but are not required in "
 "this tutorial. The repo contains:"
 msgstr ""
+"リポジトリには、水中の Alanine Dipeptide を Plumed で10 ns または1 ns の Metadynamics にかけた "
+"HILLS・COLVAR ファイルがあります。ほかの入力データは "
+"[Zenodo](https://doi.org/10.5281/zenodo.6056060) から入手できますが、この Tutorial "
+"には不要です。内容は次のとおりです。"
 
 #: INSTRUCTIONS.md:72
 msgid ""
 "`HILLS.cv12` and `COLVAR.cv12` - hills and collective variable + bias report"
 " from metadynamics with phi and psi dihedral angles"
 msgstr ""
+"`HILLS.cv12` と `COLVAR.cv12`：phi、psi の Dihedral Angle を使った Metadynamics の "
+"Hill と Collective Variable・Bias の記録"
 
 #: INSTRUCTIONS.md:73
 msgid ""
 "`HILLS.cv1` and `COLVAR.cv1` - hills and collective variable + bias report "
 "from metadynamics with phi dihedral angle"
 msgstr ""
+"`HILLS.cv1` と `COLVAR.cv1`：phi の Dihedral Angle を使った Metadynamics の Hill と "
+"Collective Variable・Bias の記録"
 
 #: INSTRUCTIONS.md:74
 msgid ""
 "`HILLS.cv2` and `COLVAR.cv2` - hills and collective variable + bias report "
 "from metadynamics with psi dihedral angle"
 msgstr ""
+"`HILLS.cv2` と `COLVAR.cv2`：psi の Dihedral Angle を使った Metadynamics の Hill と "
+"Collective Variable・Bias の記録"
 
 #: INSTRUCTIONS.md:76
 msgid "This data are independent of Plumed version (for version >=2.0)."
-msgstr ""
+msgstr "このデータは、2.0以降の Plumed のバージョンには依存しません。"
 
 #: INSTRUCTIONS.md:78
 msgid "Using R"
-msgstr ""
+msgstr "R の使い方"
 
 #: INSTRUCTIONS.md:80
 msgid ""
@@ -178,6 +206,8 @@ msgid ""
 "bioinformatics, and other fields. Let us quickly introduce R. Open R as "
 "described above and type:"
 msgstr ""
+"R は主に統計データ解析のために開発されたプログラム・スクリプト言語です。統計、経済、生態学、Bioinformatics "
+"などで広く使われます。簡単に紹介しましょう。上記の方法で R を開き、次を入力してください。"
 
 #: INSTRUCTIONS.md:91
 msgid ""
@@ -190,6 +220,9 @@ msgid ""
 "a normal equal sign, but we will be puristic in this. Let us show the "
 "variables in R:"
 msgstr ""
+"加算・減算・乗算・除算の例です。数値やほかの Object は変数に保存できます。既存の R "
+"関数と紛らわしい変数名は避けましょう。ここでは接頭辞「my」（例：`myhills`）を使います。変数名は大文字・小文字を区別します。代入には矢印 "
+"`<-`（小なり記号に Minus）を使います。通常の等号を使う R コードもありますが、ここではこの記法に従います。変数の例を示します。"
 
 #: INSTRUCTIONS.md:103
 msgid ""
@@ -198,6 +231,8 @@ msgid ""
 "Vector can be created by implicitly typing its elements to the function "
 "`c()`, by `:` operator and other ways:"
 msgstr ""
+"上の出力には `[1]` という文字列があります。その行の最初の要素の Index です。Vector を扱う際に便利です。Vector は `c()`"
+" に要素を直接渡す方法や、`:` などで作れます。"
 
 #: INSTRUCTIONS.md:116
 msgid ""
@@ -205,35 +240,40 @@ msgid ""
 "strings (written in quotes, e.g. \"blue\"), Booleans (`TRUE` and `FALSE`, or"
 " shortened as `T` and `F`)."
 msgstr ""
+"R は2次元・多次元 Matrix も扱えます。引用符で囲む文字列（例：「blue」）や Boolean（`TRUE`、`FALSE`、略して "
+"`T`、`F`）も扱えます。"
 
 #: INSTRUCTIONS.md:119
 msgid ""
 "R uses functions written as the name of function followed by its arguments "
 "in brackets:"
-msgstr ""
+msgstr "R の関数は、関数名に続く括弧内に引数を書きます。"
 
 #: INSTRUCTIONS.md:126
 msgid "Functions can be applied element-wise:"
-msgstr ""
+msgstr "関数は要素ごとに適用できます。"
 
 #: INSTRUCTIONS.md:133
 msgid ""
 "Functions with more variables use the specifications set by `=`, separated "
 "by `,`:"
-msgstr ""
+msgstr "複数の変数を取る関数では、`=` で指定し、`,` で区切ります。"
 
+# 原文の Python における整数除算の説明は旧版の挙動に相当する。翻訳では原文の説明を保持した。
 #: INSTRUCTIONS.md:142
 msgid ""
 "Important difference from many other programming environments is that R can "
 "freely change number types, e.g. `3/2` is evaluated as 1.5, unlike Pyhton, "
 "which gives 1, because 3 and 2 are integers, and not floats."
 msgstr ""
+"ほかの多くのプログラミング環境との重要な違いは、R が数値型を自由に変更することです。例えば `3/2` は1.5になります。3と2が Float "
+"ではなく整数なので1を返す Python とは異なります。"
 
 #: INSTRUCTIONS.md:146
 msgid ""
 "Another important difference is that R uses indexes of vector items starting"
 " with 1 (not 0 line in C/C++, Python etc.). For example:"
-msgstr ""
+msgstr "また、R の Vector 要素の Index は1から始まり、C/C++ や Python などの0始まりとは異なります。例えば、"
 
 #: INSTRUCTIONS.md:159
 msgid ""
@@ -242,6 +282,8 @@ msgid ""
 " function `prcomp` performs a principal component analysis. Its output is an"
 " object with multiple instances, for example, with a rotation matrix:"
 msgstr ""
+"さらに、R はユーザー定義を含むほかの Object 型も使えます。その構成要素は文字列の演算子で参照できます。例えば `prcomp` は "
+"Principal Component Analysis を行い、Rotation Matrix など複数の構成要素を持つ Object を出力します。"
 
 #: INSTRUCTIONS.md:169
 msgid ""
@@ -250,19 +292,21 @@ msgid ""
 "previous course of the run). We advise users to NOT save data, i.e. choose "
 "the option \"n\" or function `q(save=\"n\")`."
 msgstr ""
+"終了するには `q()` を使います。実行中に作成した変数などのデータを保存するか聞かれます。保存せず、「n」または `q(save=\"n\")` "
+"を選ぶことを推奨します。"
 
 #: INSTRUCTIONS.md:173
 msgid ""
 "Exercise 1: Calculation of the free energy surface from metadynamics hills"
-msgstr ""
+msgstr "演習1：Metadynamics の Hill から自由エネルギー表面を計算する"
 
 #: INSTRUCTIONS.md:175
 msgid "Open R (in Rstudio or command line) and load Metadynminer:"
-msgstr ""
+msgstr "Rstudio またはコマンドラインで R を開き、Metadynminer を読み込みます。"
 
 #: INSTRUCTIONS.md:181
 msgid "Now load the file `HILLS.cv12` into Metadynminer:"
-msgstr ""
+msgstr "`HILLS.cv12` を Metadynminer に読み込みます。"
 
 #: INSTRUCTIONS.md:187
 msgid ""
@@ -276,18 +320,24 @@ msgid ""
 "File menu in the right bottom frame. Alternatively, you can use `getwd()` "
 "and `setwd(\"/path/to/your/dir\")`."
 msgstr ""
+"ここで CV の周期性を設定する必要があります。Torsion Angle は周期的なので、Vector `per` に `TRUE`（略して "
+"`T`）を設定します。ファイルが見つからない場合は作業ディレクトリが正しくありません。Linux では通常、`R` "
+"で起動したディレクトリです。Rstudio では右下の File Menu で移動できます。`getwd()` と "
+"`setwd(\"/path/to/your/dir\")` も使えます。"
 
 #: INSTRUCTIONS.md:194
 msgid ""
 "Hills can be also loaded from a HILLS file posted online by replacing the "
 "file name by an URL."
-msgstr ""
+msgstr "ファイル名を URL に置き換えると、オンラインの HILLS からも読み込めます。"
 
 #: INSTRUCTIONS.md:196
 msgid ""
 "To get help to any function in R, for example, `read.hills`, you can use "
 "either `help(read.hills)` or `?read.hills)`."
 msgstr ""
+"R の任意の関数（例えば `read.hills`）の Help は、`help(read.hills)` または `?read.hills)` "
+"で表示できます。"
 
 #: INSTRUCTIONS.md:199
 msgid ""
@@ -295,6 +345,8 @@ msgid ""
 "information about the number of hills and CVs. The function `summary` "
 "(`summary(myhills12)`) returns the same information plus the ranges of CVs."
 msgstr ""
+"Hill ファイルの変数名 `myhills12` を入力すると Hill 数と CV "
+"数が表示されます。`summary`（`summary(myhills12)`）では、さらに CV の範囲も表示されます。"
 
 #: INSTRUCTIONS.md:203
 msgid ""
@@ -309,12 +361,17 @@ msgid ""
 "using the command `plot(...)`, followed by a command `points(...)` or "
 "`lines(...)`."
 msgstr ""
+"`plot`、例えば `plot(myhills12)` で描画できます。1 CV の Metadynamics なら CV の時間変化、2 CV "
+"なら横軸 CV1、縦軸 CV2 の散布図です。これは R の標準 plot "
+"の拡張で、`xlab`、`ylab`、`main`、`sub`、`xlim`、`ylim`、`pch`、`col`、`bg`、`cex`、`lwd`、`asp`"
+" を指定できます（`?plot.hillsfile` 参照）。`plot(...)` に続けて `points(...)` や `lines(...)`"
+" を使うと重ね描きできます。"
 
 #: INSTRUCTIONS.md:211
 msgid ""
 "For well-tempered metadynamics, it may be useful to check the evolution of "
 "heights of hills. This can be done by the command:"
-msgstr ""
+msgstr "Well-tempered Metadynamics では Hill の高さの変化も確認すると有用です。次で表示できます。"
 
 #: INSTRUCTIONS.md:218
 msgid ""
@@ -323,6 +380,9 @@ msgid ""
 "`ignoretime=T` used either in `read.hills` or in `plotheights` replaces time"
 " by the hill number."
 msgstr ""
+"Hill ファイルは複数回の Metadynamics "
+"から得られることがあり、その場合は時間列が実時間に対応しない場合があります。`read.hills` または `plotheights` の "
+"`ignoretime=T` は、時間を Hill 番号に置き換えます。"
 
 #: INSTRUCTIONS.md:222
 msgid ""
@@ -330,6 +390,8 @@ msgid ""
 "file as an negatve image of the sum of Gaussian hills (scaled in well-"
 "tempered metadynamics, which is pre-scaled in the Plumed output)."
 msgstr ""
+"主な処理は、Gaussian Hill の和の符号を反転して自由エネルギー表面を求めることです。Well-tempered Metadynamics "
+"では Scale 補正が必要ですが、Plumed の出力で既に補正されています。"
 
 #: INSTRUCTIONS.md:226
 msgid ""
@@ -342,10 +404,14 @@ msgid ""
 "The function `fes` cannot be used in metadynamics with variable hills widths"
 " (the user would be warned)."
 msgstr ""
+"数十万の Hill では時間がかかる場合があります。Metadynminer には `fes` と `fes2` "
+"があります。前者は高速な近似、後者は低速で高精度です。`fes` は事前計算した Gaussian Hill を CV "
+"空間上でずらし、BiasPotential を足し合わせます。`fes2` は Gaussian を明示的に評価します。Hill の幅が変わる "
+"Metadynamics には `fes` は使えず、警告が表示されます。"
 
 #: INSTRUCTIONS.md:234
 msgid "In our tutorial we can do:"
-msgstr ""
+msgstr "この Tutorial では次のようにします。"
 
 #: INSTRUCTIONS.md:240
 msgid ""
@@ -354,6 +420,8 @@ msgid ""
 "CVs, number of bins (by default 256 for one CV, and 256x256 for two CVs), "
 "free energy maximum and minimum."
 msgstr ""
+"解析や最終的な図などには `fes2` でも同様にできます。変数名 `myfes12` を入力すると CV 数、Bin 数（既定は1 CV で256、2"
+" CV で256x256）、自由エネルギーの最大・最小が表示されます。"
 
 #: INSTRUCTIONS.md:244
 msgid ""
@@ -363,24 +431,26 @@ msgid ""
 "example, you can set the free energy minimum to zero by subtracting the "
 "minimum:"
 msgstr ""
+"自由エネルギー表面の最小・最大は、それぞれ `min` と `max` "
+"で計算できます。表面に対して定数を加減乗除できます。例えば、最小値を引けば最小を0にできます。"
 
 #: INSTRUCTIONS.md:253
 msgid ""
 "Similarly, to convert the free energy surface from kJ/mol to kcal/mol you "
 "may divide it by 4.18."
-msgstr ""
+msgstr "同様に、4.18で割れば kJ/mol から kcal/mol に変換できます。"
 
 #: INSTRUCTIONS.md:256
 msgid ""
 "It is also possible to sum and subtract two free energy surfaces. This will "
 "be demonstrated later."
-msgstr ""
+msgstr "2つの自由エネルギー表面の加算・減算もできます。後で示します。"
 
 #: INSTRUCTIONS.md:259
 msgid ""
 "The important function of Metadynaminer is plotting of the free energy "
 "surface. You can use:"
-msgstr ""
+msgstr "Metadynminer の重要な機能は自由エネルギー表面の描画です。次を使えます。"
 
 #: INSTRUCTIONS.md:266
 msgid ""
@@ -390,25 +460,28 @@ msgid ""
 "heat map, `plottype=\"contour\"` plots contours, and `plottype=\"both\"` "
 "plots both."
 msgstr ""
+"ここでも `xlim`、`ylim`、`zlim`、`main`、`sub`、`xlab`、`ylab`、`labcex`、`drawlabels` "
+"を使えます（`?plot.fes` 参照）。`plottype` で図の種類を選びます。`plottype=\"image\"` は Heat "
+"Map、`plottype=\"contour\"` は等高線、`plottype=\"both\"` は両方を描きます。"
 
 #: INSTRUCTIONS.md:271
 msgid "It is possible to switch on the free energy scale by:"
-msgstr ""
+msgstr "自由エネルギーの Scale は次で表示できます。"
 
 #: INSTRUCTIONS.md:277
 msgid "You may change the title of the scale by `colscalelab=\"your label\"`."
-msgstr ""
+msgstr "Scale の見出しは `colscalelab=\"your label\"` で変更できます。"
 
 #: INSTRUCTIONS.md:279
 msgid ""
 "It is often necessary to control the levels of contours. For example, to "
 "plot the free energy surface with 20 contours by 10 kJ/mol type:"
-msgstr ""
+msgstr "等高線の Level の指定もよく必要になります。例えば10 kJ/mol 刻みで20本を描くには、"
 
 #: INSTRUCTIONS.md:287
 msgid ""
 "You may also explicitly set levels as a vector by the parameter `levels`."
-msgstr ""
+msgstr "`levels` に Vector を渡し、Level を明示することもできます。"
 
 #: INSTRUCTIONS.md:289
 msgid ""
@@ -417,12 +490,14 @@ msgid ""
 "your own color palette, you may set it as `col` paramtere. For example, this"
 " command plots the free energy surface in gray colors:"
 msgstr ""
+"2次元自由エネルギー表面の既定 Palette は `rainbow(135)[100:1]`（紫色を除いた Rainbow）です。独自の "
+"Palette は `col` に指定できます。例えば次は Gray で描きます。"
 
 #: INSTRUCTIONS.md:298
 msgid ""
 "Metadynminer can identify minima on the free energy surface. This can be "
 "done by the function:"
-msgstr ""
+msgstr "Metadynminer は自由エネルギー極小を特定できます。次を使います。"
 
 #: INSTRUCTIONS.md:306
 msgid ""
@@ -433,6 +508,9 @@ msgid ""
 "`summary` prints also populations (temperature and energy units can be "
 "controlled by `temp` and `eunit`, respectively)."
 msgstr ""
+"水中 Alanine Dipeptide では約5つの極小が見つかり、識別子（A、B、C、…、AA、AB、AC、…）、位置（Bin ID と "
+"CV）、最終表面での自由エネルギーが表示されるはずです。`summary` は Population も表示します。温度とエネルギー単位はそれぞれ "
+"`temp`、`eunit` で指定できます。"
 
 #: INSTRUCTIONS.md:314
 msgid ""
@@ -445,6 +523,10 @@ msgid ""
 "minimum is found in each section and then it is checked whether it is a "
 "local minimum of the entire free energy surface. If not, it is discarded."
 msgstr ""
+"Metadynamics "
+"では、数百の極小を持つ凹凸の多い表面になることもあります。すべてを特定するより、全体に分散した妥当な数の極小を求める方が有用です。`fesminima`"
+" は表面を区画に分割します。既定は2次元で8x8、1次元で8で、`nbins` "
+"で変更できます。各区画の大域的最小を求め、表面全体の局所的最小かを調べ、そうでなければ除外します。"
 
 #: INSTRUCTIONS.md:323
 msgid ""
@@ -454,13 +536,15 @@ msgid ""
 "`oneminimum` function and add it to the existing minima (by addition "
 "operation)."
 msgstr ""
+"`fesminima` が一部の極小を見つけられない場合や、極小でない参照点を加えたい場合があります。`oneminimum` "
+"で点を作り、加算で既存の極小に追加できます。"
 
 #: INSTRUCTIONS.md:328
 msgid ""
 "The output of `fesminima` can be plotted by `plot` function. The plot is "
 "similar to the free energy surface and it contains additional letters in the"
 " points of minima."
-msgstr ""
+msgstr "`fesminima` の出力は `plot` で描画できます。自由エネルギー表面に、極小の位置を示す文字が追加されます。"
 
 #: INSTRUCTIONS.md:336
 msgid ""
@@ -473,6 +557,10 @@ msgid ""
 "doc/html/masterclass-21-2.html) for more details. The time profile of the "
 "differences between free energy minima can be caluclated and plotted as:"
 msgstr ""
+"Metadynamics "
+"の収束は、極小間の自由エネルギー差の時間変化で評価できます。差が安定していれば、表面が収束して正確であることを示唆します。ただし必要条件の1つにすぎません。詳細は"
+" [PLUMED Masterclass 21.2：MD の統計誤差](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/masterclass-21-2.html) を参照してください。極小間の自由エネルギー差の時間変化は次のように計算・描画します。"
 
 #: INSTRUCTIONS.md:350
 msgid ""
@@ -489,14 +577,19 @@ msgid ""
 "second half of the simulation, by `imind` and `imaxd`. By default they are "
 "set to 1 and the number of hills, respectively, i.e. to whole simulation."
 msgstr ""
+"プログラムは `fesminima` の極小を使い、同じ CV "
+"座標の自由エネルギーをシミュレーション全体にわたって計算します。時間プロファイルの変数名を入力すると極小と同様の情報が得られます。`summary` "
+"は極小の要約に加え、大域的最小に対する相対自由エネルギーの最小・最大も示します。A "
+"は常に大域的最小で、相対自由エネルギーもその最小・最大も0です。`tail` 列は終了時の相対自由エネルギーです。`imind` と `imaxd` "
+"で、後半など最小・最大を計算する時間範囲を指定できます。既定はそれぞれ1と Hill 数で、全シミュレーションが対象です。"
 
 #: INSTRUCTIONS.md:363
 msgid "Finally, metadynminer provides a function for the nudged elastic band:"
-msgstr ""
+msgstr "最後に、Nudged Elastic Band の関数もあります。"
 
 #: INSTRUCTIONS.md:373
 msgid "Exercise 2: Making high resolution plots and movies"
-msgstr ""
+msgstr "演習2：高解像度の図と動画の作成"
 
 #: INSTRUCTIONS.md:375
 msgid ""
@@ -511,13 +604,18 @@ msgid ""
 "clusters, grids, and clouds without GUI. Our suggestion to make a nice "
 "publication quality figure in the size of 8x8 cm (typical half page) is:"
 msgstr ""
+"Rstudio では図をさまざまな Vector・Bitmap "
+"形式で保存し、解像度も調整できます。`png`、`bmp`、`jpeg`、`tiff`、`svg`、`pdf`、`eps` "
+"でも保存できます。ファイル名を渡すと描画先が画面からファイルに切り替わります。`dev.off()` で終了してください。基本の R "
+"だけで使えるため、GUI のない HPC Cluster、Grid、Cloud でも利用できます。論文向けに8x8 "
+"cm（典型的な半ページ）の図を作る例は次のとおりです。"
 
 #: INSTRUCTIONS.md:392
 msgid ""
 "The functions for image saving can be used with regular expressions. This is"
 " useful for making movies. A movie of free energy evolution can be simply "
 "made by:"
-msgstr ""
+msgstr "画像保存では正規表現を使え、動画作成に便利です。自由エネルギー変化の動画は次のように作れます。"
 
 #: INSTRUCTIONS.md:407
 msgid ""
@@ -528,10 +626,13 @@ msgid ""
 " `snap0001.png`, `snap0002.png`, etc can be concatenated to a movie by means"
 " of some movie editing software."
 msgstr ""
+"`imin`、`imax` で足し合わせる Hill の範囲を制限できます。第1行は最初の50 Hill の和を計算します。2回目の `fes` "
+"は51〜100の和を計算し、全自由エネルギー表面に加えます。生成される `snap0001.png`、`snap0002.png` "
+"など200ファイルは、動画編集ソフトウェアでつなげられます。"
 
 #: INSTRUCTIONS.md:414
 msgid "Exercise 3: Making a movie of flooding"
-msgstr ""
+msgstr "演習3：Flooding の動画作成"
 
 #: INSTRUCTIONS.md:416
 msgid ""
@@ -539,6 +640,8 @@ msgid ""
 "alanine dipeptide calculated in the space of two collective variables phi "
 "and psi. This can be done by typing:"
 msgstr ""
+"まず、phi、psi の2つの Collective Variables の空間で Alanine Dipeptide "
+"の自由エネルギー表面を計算します。次を入力します。"
 
 #: INSTRUCTIONS.md:427
 msgid ""
@@ -547,6 +650,8 @@ msgid ""
 "conversion back to free energy. In metadynminer you can do this by the "
 "function `fes2d21d`:"
 msgstr ""
+"2次元表面は、自由エネルギーを確率に変換し、一方の CV に沿って積分してから自由エネルギーに戻すと1次元にできます。Metadynminer では "
+"`fes2d21d` を使います。"
 
 #: INSTRUCTIONS.md:435
 msgid ""
@@ -554,6 +659,8 @@ msgid ""
 "psi). It is also possible to set the temperature and energy units by `temp` "
 "and `eunit`, respectively."
 msgstr ""
+"`remdim` は除く CV を指定します（`remdim=2` は psi を除去）。温度とエネルギー単位はそれぞれ `temp`、`eunit` "
+"で設定できます。"
 
 #: INSTRUCTIONS.md:439
 msgid ""
@@ -562,14 +669,16 @@ msgid ""
 "surface was flooded by 1 ns metadynamics with a single CV, either phi or "
 "psi."
 msgstr ""
+"10 ns の Metadynamics からのこの表面を「正解」とし、phi または psi だけを CV とする1 ns の "
+"Metadynamics が、それをどう Flooding するか試します。"
 
 #: INSTRUCTIONS.md:443
 msgid "Hills file from the other two simulations can be loaded by:"
-msgstr ""
+msgstr "ほかの2つのシミュレーションの Hill は次で読み込めます。"
 
 #: INSTRUCTIONS.md:450
 msgid "Replace `_FILL_` by the correct expression."
-msgstr ""
+msgstr "`_FILL_` を正しい式で置き換えてください。"
 
 #: INSTRUCTIONS.md:452
 msgid ""
@@ -580,6 +689,8 @@ msgid ""
 "the result (in black) together with the ground truth free energy surface in "
 "red:"
 msgstr ""
+"次に10 ps〜1 ns（Hill 10〜1000、10刻み）について表面を計算し、負の (biasfactor - 1)/biasfactor "
+"を掛けて BiasPotential に変換し、正解の表面に加えます。Bias Factor は15でした。結果を黒、正解を赤で重ねて描いてください。"
 
 #: INSTRUCTIONS.md:474
 msgid ""
@@ -587,6 +698,8 @@ msgid ""
 "is possible to compose the plot from multiple plots. The function `plot` "
 "creates the first plot and functions `lines` or `points` add to this plot."
 msgstr ""
+"各 `_FILL_` を適切な式で置き換えてください。複数の図を重ねられます。`plot` が最初の図を作り、`lines` または `points` "
+"が追加します。"
 
 #: INSTRUCTIONS.md:479
 msgid ""
@@ -603,16 +716,22 @@ msgid ""
 " to concatenate 1D and 2D hills. For this reason we erased hills from the "
 "variable `flooded`."
 msgstr ""
+"`flooded$hills <- c()` の意味を説明します。R の Object は `variable$instance` "
+"として複数の構成要素を格納できます。自由エネルギー表面の Object は、表面、軸と周期性などに加え、計算元の Hill も含みます。極小の "
+"Object も同様です。これは `feprof` が Hill を必要とするためです。表面の加算は Hill の連結に対応し、加算結果の "
+"`$hills` には連結した Hill が入ります。ただし `flooded <- flooded + _FILL_*myfes1` "
+"では1次元と2次元の Hill を連結できないため、変数 `flooded` の Hill を消しています。"
 
 #: INSTRUCTIONS.md:493
 msgid ""
 "If possible, make a movie or visually inspect the resulting files. Evaluate "
 "the flooding by the 1D potential in terms of convergence."
 msgstr ""
+"可能なら動画を作るか、出力ファイルを目視確認してください。1次元 Potential による Flooding を収束の観点から評価しましょう。"
 
 #: INSTRUCTIONS.md:496
 msgid "Exercise 4: Reweighing"
-msgstr ""
+msgstr "演習4：Reweighting"
 
 #: INSTRUCTIONS.md:498
 msgid ""
@@ -622,6 +741,8 @@ msgid ""
 "by summing hills. This can be done by reweighing. This will also demonstrate"
 " the advanced features of metadynminer."
 msgstr ""
+"psi の Torsion だけを CV とする Metadynamics の性能も興味深い点です。ただし Hill の和だけでは phi "
+"の空間の自由エネルギー表面を計算できません。Reweighting で可能になり、Metadynminer の高度な機能も学べます。"
 
 #: INSTRUCTIONS.md:504
 msgid ""
@@ -635,6 +756,11 @@ msgid ""
 "potential is divided into time-independent and the time-dependent component."
 " The time-dependent component is calculated by the following procedure:"
 msgstr ""
+"Reweighting は、Bias を加えなければ CV の分布がどうなるかを予測します。[Umbrella Sampling の "
+"Reweighting](https://doi.org/10.1016%2F0021-9991%2877%2990121-8) は、状態分布を "
+"exp(+bias/kT) で重み付けします。BiasPotential の時間依存性を補正すれば Metadynamics にも使えます。ここでは "
+"[Tiwari と Parrinello](https://doi.org/10.1021/jp504920s) "
+"の補正を使います。BiasPotential を時間非依存と時間依存の成分に分け、後者を次の手順で計算します。"
 
 #: INSTRUCTIONS.md:533
 msgid ""
@@ -647,12 +773,16 @@ msgid ""
 "`s2`, respectively. Finally, `s1` and `s2` are divided elementwise and "
 "stored to `ebetac`."
 msgstr ""
+"`bf` は Bias Factor です。R の `rep` は要素を繰り返して Vector を生成し、ここでは0が `nframes`（50）個の"
+" Vector を作ります。`step` は最初に Hill 数の1/50、次にその2倍、というように増え、その Hill "
+"数で表面を計算します。exp(-G/kT) と exp(-G/kDeltaT) をそれぞれ `s1`、`s2` に格納します。最後に `s1` を "
+"`s2` で要素ごとに割り、`ebetac` に格納します。"
 
 #: INSTRUCTIONS.md:543
 msgid ""
 "Next, we open the colvar file and calculate the probabilities of the phi "
 "torsion. This can be done by:"
-msgstr ""
+msgstr "次に COLVAR を開き、phi の Torsion の確率を計算します。"
 
 #: INSTRUCTIONS.md:563
 msgid ""
@@ -668,3 +798,8 @@ msgid ""
 " replaced by our `fes`. This free energy surface is plotted. Compare free "
 "energy surfaces calculated with phi CV and psi CV."
 msgstr ""
+"`read.table` は表形式データを読む R の標準関数です。最初の CV を取り出し、64 Bin の番号に変換します。確率 Vector "
+"`prob` を作り、COLVAR の各行について、その phi に対応する Bin に "
+"`exp(bias[i]/temp/8.314)/ebetac[step]` を加えます。確率を自由エネルギーに変換し、未 Sampling の Bin"
+" は扱いやすいよう無限大ではなく100 kJ/mol にします。最後に、最初の Hill から64 Bin の表面を作り、表面 Object を "
+"`fes` で置き換えて描画します。phi CV と psi CV で求めた表面を比較してください。"

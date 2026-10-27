@@ -9,7 +9,7 @@ msgstr ""
 
 #: NAVIGATION.md:1
 msgid "Masterclass 22.02: Analysis of Plumed output by Metadynminer"
-msgstr ""
+msgstr "Masterclass 22.02：Metadynminer による Plumed 出力の解析"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -66,7 +66,7 @@ msgstr "講義 II"
 #. mermaid click tooltip
 #: NAVIGATION.md:18
 msgid "A previous tutorial that introduces the basics of metadynamics"
-msgstr ""
+msgstr "Metadynamics の基礎を紹介する以前の Tutorial"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:19

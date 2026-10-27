@@ -30,6 +30,8 @@ msgid ""
 "potentials. We will also learn how to compute statistical errors on the "
 "computed quantities."
 msgstr ""
+"この Masterclass では、各 Replica に異なる BiasPotential を加える Multi-replica "
+"シミュレーションの実行・解析と、計算した量の統計誤差の求め方を学びます。"
 
 #: INSTRUCTIONS.md:11
 msgid "Objectives"
@@ -41,7 +43,7 @@ msgstr "この Masterclass を終えると、次のことができるように�
 
 #: INSTRUCTIONS.md:15
 msgid "Use PLUMED and GROMACS to run multiple-replica simulations."
-msgstr ""
+msgstr "PLUMED と GROMACS で Multiple-replica シミュレーションを実行する。"
 
 #: INSTRUCTIONS.md:16
 msgid ""
@@ -53,7 +55,7 @@ msgstr "WHAM を使って、異なるBiasPotentialで行った複数のシミュ
 msgid ""
 "Calculate error bars on free energies and populations, taking into account "
 "correlations induced by replica exchanges."
-msgstr ""
+msgstr "Replica Exchange が生む相関を考慮し、自由エネルギーと Population の Error Bar を計算する。"
 
 #: INSTRUCTIONS.md:19
 msgid "Setting up PLUMED"
@@ -66,6 +68,8 @@ msgid ""
 "masterclasses will thus not work properly. In order to obtain the correct "
 "versions, please use the following commands:"
 msgstr ""
+"MPI ライブラリでコンパイルした PLUMED と GROMACS が必要です。ほかの Masterclass "
+"の一部で使うバージョンでは正しく動きません。次のコマンドで適切なバージョンを入手してください。"
 
 #: INSTRUCTIONS.md:28
 msgid ""
@@ -76,6 +80,9 @@ msgid ""
 "receive a priority higher than `conda-forge`, so as to install the MPI "
 "version of PLUMED."
 msgstr ""
+"`--strict-channel-priority` は、conda が `bioconda` から Package "
+"を取得しないために必要です。`bioconda` の GROMACS は PLUMED で Patch されておらず、ここでは使えません。同様に、MPI"
+" 版 PLUMED を入れるため、`plumed/label/masterclass-mpi` を `conda-forge` より優先してください。"
 
 #: INSTRUCTIONS.md:30
 msgid "On Linux, the command above should install the following packages:"
@@ -89,12 +96,15 @@ msgid ""
 "installed GROMACS is compiled with MPI patched with PLUMED, try the "
 "following shell command:"
 msgstr ""
+"厳密なバージョンは異なる場合があります。ただし GROMACS と PLUMED は `plumed/label/masterclass-"
+"mpi`、必要なライブラリは `conda-forge` から取得します。GROMACS が MPI 対応かつ PLUMED で Patch "
+"済みか、次で確認してください。"
 
 #: INSTRUCTIONS.md:47
 msgid ""
 "It should print `ok`. To be sure that PLUMED has been compiled with MPI, try"
 " the following shell command:"
-msgstr ""
+msgstr "`ok` と表示されるはずです。PLUMED が MPI 対応かは、次で確認してください。"
 
 #: INSTRUCTIONS.md:54
 msgid "It should print `ok`."
@@ -110,6 +120,9 @@ msgid ""
 "from source. For this tutorial, the conda precompiled binaries will be "
 "sufficient."
 msgstr ""
+"演習前に PLUMED と GROMACS の設定を済ませてください。性能を上げるには、実際に実行するマシンで GROMACS を Source "
+"からコンパイルする方がよいでしょう。PLUMED のドキュメントに Patch の方法があります。この Tutorial では conda "
+"のコンパイル済み Binary で十分です。"
 
 #: INSTRUCTIONS.md:58
 msgid "Resources"
@@ -121,6 +134,8 @@ msgid ""
 " [GitHub](https://github.com/plumed/masterclass-21-5). You can clone this "
 "repository locally on your machine using the following command:"
 msgstr ""
+"演習データは [GitHub](https://github.com/plumed/masterclass-21-5) "
+"にあります。次のコマンドで自分のマシンに Clone できます。"
 
 #: INSTRUCTIONS.md:66
 msgid ""
@@ -143,6 +158,10 @@ msgid ""
 "using to know if replica exchange simulations will work correctly with "
 "PLUMED."
 msgstr ""
+"この Tutorial では GROMACS と PLUMED で真空中の Alanine Dipeptide "
+"をシミュレーションします。Enhanced Sampling 法の本格的な Benchmark には単純すぎますが、学習には十分複雑です。PLUMED "
+"の Interface は移植性がありますが、Replica Exchange 対応は限定的で、Patch した MD "
+"エンジンに依存します。正しく動くかは、使う MD コードのドキュメントを確認してください。"
 
 #: INSTRUCTIONS.md:72
 msgid ""
@@ -153,10 +172,13 @@ msgid ""
 " string `doc-v2.7/user-doc` with the string `doc-v2.6/user-doc` in the "
 "address bar._"
 msgstr ""
+"_執筆時点では PLUMED 2.7 のマニュアル表示に不具合があり、複数 Replica "
+"を必要とする例を含むページが途中で切れています。この関連機能は v2.7 で追加されていないため、v2.6 のマニュアルを推奨します。Address "
+"Bar の `doc-v2.7/user-doc` を `doc-v2.6/user-doc` に置き換えてください。_"
 
 #: INSTRUCTIONS.md:77
 msgid "Introduction to replica simulations"
-msgstr ""
+msgstr "Replica シミュレーションの導入"
 
 #: INSTRUCTIONS.md:79
 msgid ""
@@ -169,6 +191,10 @@ msgid ""
 "history for the other replicas, the potentials might, therefore, end up "
 "being different."
 msgstr ""
+"多くの方法は、複数 Replica "
+"の同時シミュレーションに基づきます。すべてに同じ入力を使う場合と、それぞれ別の入力を使う場合があります。入力が1つでも BiasPotential "
+"が同じとは限りません。PLUMED の BiasPotential は履歴に依存する場合があり、Replica ごとに履歴が違えば Potential "
+"も異なります。"
 
 #: INSTRUCTIONS.md:81
 msgid ""
@@ -186,6 +212,11 @@ msgid ""
 "where the input file is the same for all replicas and cases where specific "
 "and different input files should be used for each replica."
 msgstr ""
+"PLUMED は、全 Replica を同じディレクトリで実行できるよう設計されています。出力の衝突を避けるため、ファイル名に Replica "
+"Index の接尾辞を付けます。例えば `PRINT FILE=colvar.dat` は最初の Replica で `colvar.0.dat` "
+"を出力します。入力にも接尾辞を付け、`plumed.dat` を指定すると最初は `plumed.0.dat` "
+"を開きます。ただし接尾辞付きの入力がなければ、接尾辞なしの `plumed.dat` を探します。これにより、全 Replica "
+"共通の入力も、Replica ごとに異なる入力も柔軟に扱えます。"
 
 #: INSTRUCTIONS.md:83
 msgid ""
@@ -196,6 +227,10 @@ msgid ""
 "instance, the command `RESTRAINT ARG=d AT=@replicas:1.0,1.1,1.2 KAPPA=1.0` "
 "will apply restraints at different positions for the three replicas."
 msgstr ""
+"さらに [Special Replica Syntax](https://www.plumed.org/doc-master/user-"
+"doc/html/special-replica-syntax.html) により、同じ `plumed.dat` を共有しながら Replica "
+"ごとに異なる入力を指定できます。例えば `RESTRAINT ARG=d AT=@replicas:1.0,1.1,1.2 KAPPA=1.0` は、3"
+" Replica の異なる位置に Restraint を加えます。"
 
 #: INSTRUCTIONS.md:85
 msgid ""
@@ -207,6 +242,10 @@ msgid ""
 "PLUMED output files to be in the parent directory, just prepend their name "
 "with `../` (as in `PRINT FILE=../colvar.dat`)."
 msgstr ""
+"ただし GROMACS 2019以降では、Replica "
+"は別ディレクトリで実行する必要があります。単一の入力を使うには親ディレクトリに置き、`-plumed ../plumed.dat` "
+"で指定します。出力は既定では各ディレクトリに接尾辞付きで作られます。親ディレクトリに出したい場合は、名前に `../` を付けます（例：`PRINT "
+"FILE=../colvar.dat`）。"
 
 #: INSTRUCTIONS.md:87
 msgid ""
@@ -218,6 +257,9 @@ msgid ""
 "typically suboptimal, but we will need it in our lectures to run, e.g., "
 "simulations with 32 replicas on a computer with 4 cores."
 msgstr ""
+"Multiple-replica 法には MPI が必要です。コマンドの前に `mpiexec -np N --oversubscribe` "
+"を付けます。`N` は Process 数、`--oversubscribe` は Processor 数を超える Process を使うための "
+"OpenMPI オプションです。通常は最適ではありませんが、この講義では4 Core の計算機で32 Replica を動かす場合などに必要です。"
 
 #: INSTRUCTIONS.md:89
 msgid ""
@@ -225,12 +267,14 @@ msgid ""
 "directories names `dir0`, `dir1`, etc and the `plumed.dat` file is in the "
 "parent directory you will need a command such as"
 msgstr ""
+"各 Replica が `dir0`、`dir1` などにあり、`plumed.dat` が親にある GROMACS "
+"シミュレーションは、例えば次のコマンドで実行します。"
 
 #: INSTRUCTIONS.md:95
 msgid ""
 "To run the PLUMED driver processing a trajectory with multiple processes you"
 " will need a command such as"
-msgstr ""
+msgstr "複数 Process の PLUMED driver で Trajectory を処理するには、例えば次を使います。"
 
 #: INSTRUCTIONS.md:101
 msgid ""
@@ -239,7 +283,7 @@ msgstr "macOS で不規則に Crash する場合は、次の環境変数を設�
 
 #: INSTRUCTIONS.md:107
 msgid "Exercise 1: Multiple-windows umbrella sampling with replica exchange"
-msgstr ""
+msgstr "演習1：Replica Exchange を用いた Multiple Window Umbrella Sampling"
 
 #: INSTRUCTIONS.md:109
 msgid ""
@@ -248,22 +292,24 @@ msgid ""
 "independent simulations. Here we will run it using replica exchange. The "
 "only differences are that:"
 msgstr ""
+"以前の Umbrella Sampling の Masterclass では、複数の独立したシミュレーションで Multiple Window "
+"Umbrella Sampling を実行しました。ここでは Replica Exchange を使います。違いは次の点だけです。"
 
 #: INSTRUCTIONS.md:111
 msgid "Simulations should be run at the same time using `mpiexec`"
-msgstr ""
+msgstr "`mpiexec` で同時に実行する。"
 
 #: INSTRUCTIONS.md:112
 msgid ""
 "You will have to specify a stride for GROMACS to attempt coordinate "
 "exchanges, using the `-replex` option."
-msgstr ""
+msgstr "GROMACS が座標交換を試みる Stride を `-replex` で指定する。"
 
 #: INSTRUCTIONS.md:114
 msgid ""
 "It will be sufficient to use a single `plumed.dat` file that looks like "
 "this:"
-msgstr ""
+msgstr "次のような単一の `plumed.dat` で十分です。"
 
 #: INSTRUCTIONS.md:126
 msgid ""
@@ -271,6 +317,7 @@ msgid ""
 "(one per replica), place the tpr file (for this exercise: `topolA.tpr`) in "
 "each of them, and run the following command"
 msgstr ""
+"上の手順に従い、Replica ごとに計32ディレクトリを作り、各々に tpr（ここでは `topolA.tpr`）を置いて次を実行します。"
 
 #: INSTRUCTIONS.md:133
 msgid ""
@@ -284,26 +331,30 @@ msgid ""
 "masterclass. To understand the effect this has we would recomment running "
 "the following four simulations:"
 msgstr ""
+"`-replex` を省けば、以前の演習と同じ、交換しない Umbrella Sampling になります。[こちらの "
+"Masterclass](https://plumed-school.github.io/lessons/21/003/data/) "
+"の演習4と6を、Replica Exchange "
+"なしで実行できるはずです。演習4で扱った初期条件の違いも調べます。影響を理解するため、次の4条件を推奨します。"
 
 #: INSTRUCTIONS.md:137
 msgid ""
 "Starting from state A, without `-replex` (this is identical to what was done"
 " in exercise 4 of the previous masterclass)"
-msgstr ""
+msgstr "状態 A から、`-replex` なし（以前の Masterclass の演習4と同じ）。"
 
 #: INSTRUCTIONS.md:138
 msgid ""
 "Starting from state B, without `-replex` (this is identical to what was done"
 " in exercise 6 of the previous masterclass)"
-msgstr ""
+msgstr "状態 B から、`-replex` なし（以前の Masterclass の演習6と同じ）。"
 
 #: INSTRUCTIONS.md:139
 msgid "Starting from state A, with `-replex 200`"
-msgstr ""
+msgstr "状態 A から、`-replex 200` あり。"
 
 #: INSTRUCTIONS.md:140
 msgid "Starting from state B, with `-replex 200`"
-msgstr ""
+msgstr "状態 B から、`-replex 200` あり。"
 
 #: INSTRUCTIONS.md:142
 msgid ""
@@ -313,16 +364,21 @@ msgid ""
 " [the masterclass on umbrella sampling](https://plumed-"
 "school.github.io/lessons/21/003/data/)."
 msgstr ""
+"4条件それぞれを WHAM で解析し、各 Frame の重みを計算してください。[Umbrella Sampling の "
+"Masterclass](https://plumed-school.github.io/lessons/21/003/data/) "
+"の演習5の方法で、2つの極小の相対安定性を計算できます。"
 
 #: INSTRUCTIONS.md:145
 msgid "To compute weights you need to take the following steps:"
-msgstr ""
+msgstr "重みは次の手順で計算します。"
 
 #: INSTRUCTIONS.md:147
 msgid ""
 "Concatenate the trajectories (`gmx_mpi trjcat -cat -f dir?/traj_comp.xtc "
 "dir??/traj_comp.xtc -o traj_multi.xtc`)."
 msgstr ""
+"Trajectory を連結する（`gmx_mpi trjcat -cat -f dir?/traj_comp.xtc "
+"dir??/traj_comp.xtc -o traj_multi.xtc`）。"
 
 #: INSTRUCTIONS.md:148
 msgid ""
@@ -330,12 +386,15 @@ msgid ""
 "--oversubscribe plumed driver --ixtc traj_multi.xtc --plumed plumed.dat "
 "--multi 32 --trajectory-stride 100`)."
 msgstr ""
+"連結した Trajectory に plumed driver を実行する（`mpiexec -np 32 --oversubscribe plumed"
+" driver --ixtc traj_multi.xtc --plumed plumed.dat --multi 32 --trajectory-"
+"stride 100`）。"
 
 #: INSTRUCTIONS.md:149
 msgid ""
 "Read the resulting trajectories, perform WHAM, and compute relative "
 "population of the two states by adapting this script:"
-msgstr ""
+msgstr "次のスクリプトを変更し、結果を読み込み、WHAM を行って2状態の相対 Population を計算する。"
 
 #: INSTRUCTIONS.md:168
 msgid "Now answer the following questions:"
@@ -343,7 +402,7 @@ msgstr "次の問いに答えてほしい。"
 
 #: INSTRUCTIONS.md:169
 msgid "Is the population different in the four runs?"
-msgstr ""
+msgstr "4つの実行で Population は異なりますか？"
 
 #: INSTRUCTIONS.md:170
 msgid ""
@@ -351,17 +410,19 @@ msgid ""
 "previous masterclass](https://plumed-school.github.io/lessons/21/003/data/) "
 "when replica exchange is used?"
 msgstr ""
+"Replica Exchange を使うと、[以前の Masterclass](https://plumed-"
+"school.github.io/lessons/21/003/data/) と同じ初期条件依存性が見られますか？"
 
 #: INSTRUCTIONS.md:172
 msgid "Exercise 2: Demuxing your trajectories"
-msgstr ""
+msgstr "演習2：Trajectory の Demux"
 
 #: INSTRUCTIONS.md:174
 msgid ""
 "Close to the end of one of the `md.log` files produced by your simulation "
 "you will find a short report that tells you about the accepted exchanges. "
 "This report might look like this:"
-msgstr ""
+msgstr "出力された `md.log` の1つの末尾近くに、受理された交換の短い報告があります。例えば次のようになります。"
 
 #: INSTRUCTIONS.md:182
 msgid ""
@@ -372,6 +433,9 @@ msgid ""
 "index space of the continuous trajectories (\"demuxed\") is much more "
 "informative."
 msgstr ""
+"これは Replica 27と28の間に Bottleneck があることを示します。交換の試行の1%しか受理されていません。ただしこの表示では見えない"
+" Bottleneck もあります。連続した「Demux 済み」Trajectory が Replica Index "
+"空間で通る全経路を見る方が有用です。"
 
 #: INSTRUCTIONS.md:185
 msgid ""
@@ -386,12 +450,17 @@ msgid ""
 "script can then compute the value of time from the step number. As the step "
 "number is stored as an integer and does not suffer roundoff problems."
 msgstr ""
+"そこで Trajectory を Demux します。短い Trajectory では GROMACS の `demux.pl` を使えます。ただし長い"
+" Trajectory で交換頻度が高い場合、正しく処理できないことがあります。GROMACS "
+"が時間を有限桁で出力するため、交換時刻の判定を誤ることが原因です。[こちら](https://github.com/srnas/demux) の改訂版は"
+" Time Step を入力させ、整数で記録された Step 数から時間を求めるため、丸め誤差を避けられます。"
 
 #: INSTRUCTIONS.md:188
 msgid ""
 "The demux script can be used to produce files named `replica_temp.xvg` and "
 "`replica_index.xvg` by issuing the following command:"
 msgstr ""
+"次のコマンドで、Demux スクリプトから `replica_temp.xvg` と `replica_index.xvg` を生成します。"
 
 #: INSTRUCTIONS.md:194
 msgid ""
@@ -400,6 +469,8 @@ msgid ""
 "instance, you can follow the migration in the replica ladder of the first "
 "replica by using the following python script:"
 msgstr ""
+"`replica_temp.xvg` は、各連続シミュレーションがどの Replica にいるかを時間の関数として示します。例えば次の Python "
+"で、最初の Replica の Ladder 上の移動を追跡できます。"
 
 #: INSTRUCTIONS.md:201
 msgid ""
@@ -411,19 +482,22 @@ msgid ""
 "implemented with temperature replica exchange in mind, but here the index "
 "actually refers to the position of the restraint."
 msgstr ""
+"第1列は時間、第 i+1 列は位置 i から始まった連続シミュレーションの現在の Replica Index です。温度 Replica "
+"Exchange なら温度、Replica Exchange Umbrella Sampling なら Restraint "
+"の位置に対応します。温度交換を想定して実装されたため「replica_temp」という名前ですが、ここでは Restraint の位置です。"
 
 #: INSTRUCTIONS.md:204 INSTRUCTIONS.md:217
 msgid "Now answer the following two questions:"
-msgstr ""
+msgstr "次の2点に答えてください。"
 
 #: INSTRUCTIONS.md:205
 msgid "Does any replica explore the full range of indexes?"
-msgstr ""
+msgstr "Index の全範囲を探索する Replica はありますか？"
 
 #: INSTRUCTIONS.md:206
 msgid ""
 "Are all the continuous replicas able to explore the full range of indexes?"
-msgstr ""
+msgstr "すべての連続 Replica が Index の全範囲を探索できますか？"
 
 #: INSTRUCTIONS.md:208
 msgid ""
@@ -432,6 +506,8 @@ msgid ""
 "The `replica_index.xvg` can be used to generate the \"demuxed\" (continuous)"
 " trajectories with the following command:"
 msgstr ""
+"`replica_temp.xvg` の各行は置換で、`replica_index.xvg` はその逆置換です。`replica_index.xvg` "
+"を使い、次のコマンドで連続した Demux 済み Trajectory を生成できます。"
 
 #: INSTRUCTIONS.md:215
 msgid ""
@@ -440,20 +516,22 @@ msgid ""
 "discontinuities. They are instead continuous functions of time. You can thus"
 " use `plumed driver` to compute phi on the demuxed trajectories."
 msgstr ""
+"結果は通常どおり可視化・解析でき、元の Trajectory と違って Jump や不連続がありません。時間の連続関数なので、`plumed "
+"driver` で phi を計算できます。"
 
 #: INSTRUCTIONS.md:218
 msgid ""
 "Does any replica jump from the metastable state at negative phi to the one "
 "at positive phi (or viceversa)?"
-msgstr ""
+msgstr "負の phi の準安定状態から正の phi の状態へ（または逆へ）移る Replica はありますか？"
 
 #: INSTRUCTIONS.md:219
 msgid "Are all the continuous replicas able to do so?"
-msgstr ""
+msgstr "すべての連続 Replica が移れますか？"
 
 #: INSTRUCTIONS.md:220
 msgid "Are these two questions related to the two questions above?"
-msgstr ""
+msgstr "この2点は、上の2点と関係しますか？"
 
 #: INSTRUCTIONS.md:222
 msgid ""
@@ -466,10 +544,14 @@ msgid ""
 "flatness of the distribution on the biased CV depends on the specific "
 "parameters of the restraints (stiffness and locations)."
 msgstr ""
+"十分長く実行すれば、各 Demux 済み Trajectory は Replica Index "
+"の全範囲を一様に探索すると期待されます。Restraint の位置から、Bias を加えた CV の範囲もほぼ一様に探索するはずです。各 "
+"Trajectory は、ある程度 Metadynamics に似た挙動を示します。ただし CV 分布の平坦さは、Restraint "
+"の強さと位置に依存します。"
 
 #: INSTRUCTIONS.md:224
 msgid "Exercise 3: Block analysis from demuxed trajectories"
-msgstr ""
+msgstr "演習3：Demux 済み Trajectory の Block Analysis"
 
 #: INSTRUCTIONS.md:226
 msgid ""
@@ -481,18 +563,21 @@ msgid ""
 "number of blocks is exactly equal to the number of replicas. These blocks "
 "will be independent simulation, with only two small exceptions:"
 msgstr ""
+"WHAM は各 Frame の由来を必要としません。そのため元の Trajectory を連結しても、Demux "
+"済みを連結しても等価です。後者では、Replica 数と同じ Block 数で Block Analysis ができます。各 Block "
+"は独立したシミュレーションですが、小さな例外が2つあります。"
 
 #: INSTRUCTIONS.md:228
 msgid ""
 "the paths in replica space are partly constrained, since when a replica goes"
 " up another replica goes down."
-msgstr ""
+msgstr "1つの Replica が上がると別のものが下がるため、Replica 空間の経路には部分的な制約がある。"
 
 #: INSTRUCTIONS.md:229
 msgid ""
 "replicas might be initialized from correlated conformations (e.g., all of "
 "them in A), inducing a correlation."
-msgstr ""
+msgstr "全 Replica を A に置くなど、相関した Conformation で初期化すると相関が生じる。"
 
 #: INSTRUCTIONS.md:231
 msgid ""
@@ -502,6 +587,8 @@ msgid ""
 "bootstrap analysis of the error without incurring any underestimation due to"
 " correlations between blocks."
 msgstr ""
+"後者は初期化方法の改善で減らせます。前者の影響は通常、実際の交換による相関よりはるかに小さくなります。この Block は、Block "
+"間相関による過小評価を避けて Bootstrap で誤差を解析するのに適しています。"
 
 #: INSTRUCTIONS.md:233
 msgid ""
@@ -514,6 +601,9 @@ msgid ""
 "`traj_weight`. You can adjust the script below to perform the bootstrap "
 "analysis:"
 msgstr ""
+"少し注意が必要です。Bootstrap では各 Block を異なる回数だけ選びます。各 Block（Demux 済み Trajectory）は "
+"Replica ごとに異なる時間を過ごすため、Bootstrap Trajectory は各 Replica に同じ時間だけ滞在しません。付属の "
+"WHAM スクリプトは `traj_weight` でこの情報を渡せます。次を変更して Bootstrap 解析してください。"
 
 #: INSTRUCTIONS.md:273
 msgid ""
@@ -521,10 +611,12 @@ msgid ""
 " are a few papers in the literature discussing similar ideas, but they "
 "usually require estimating the autocorrelation time in advance."
 msgstr ""
+"この方法は標準的とはいえないため、慎重に使ってください。類似の考え方を扱う論文はありますが、通常は事前に Autocorrelation Time "
+"を推定する必要があります。"
 
 #: INSTRUCTIONS.md:275
 msgid "Exercise 4: Bias-exchange metadynamics"
-msgstr ""
+msgstr "演習4：Bias-exchange Metadynamics"
 
 #: INSTRUCTIONS.md:277
 msgid ""
@@ -536,12 +628,15 @@ msgid ""
 " in identifying a transition state will help, but the other ones will not "
 "hurt."
 msgstr ""
+"次に Alanine Dipeptide の Bias-exchange を行います。各 Replica が異なる Collective "
+"Variable に Bias を加える方法で、多数の変数（使える Replica 数まで）の Sampling を強化する実用的な方法です。各変数への"
+" Bias は一度に1つずつです。Transition State の特定に有用な変数だけが役立ちますが、ほかの変数も悪影響は与えません。"
 
 #: INSTRUCTIONS.md:279
 msgid ""
 "Prepare the input file for a simulation with 3 replicas where the following "
 "variables are biased:"
-msgstr ""
+msgstr "次の変数に Bias を加える3 Replica の入力を用意してください。"
 
 #: INSTRUCTIONS.md:280
 msgid "`phi`"
@@ -553,7 +648,7 @@ msgstr "`psi`"
 
 #: INSTRUCTIONS.md:282
 msgid "none of them"
-msgstr ""
+msgstr "どれにも加えない。"
 
 #: INSTRUCTIONS.md:284
 msgid ""
@@ -561,6 +656,8 @@ msgid ""
 "the replicas is structure B (using topolB.tpr). Notice that for plumed you "
 "can use a single input file that looks like this:"
 msgstr ""
+"2 Replica は構造 A (topolA.tpr)、1 Replica は構造 B (topolB.tpr) で初期化します。plumed "
+"は次のように単一の入力を使えます。"
 
 #: INSTRUCTIONS.md:309
 msgid ""
@@ -570,6 +667,9 @@ msgid ""
 "command line). The second run will thus be equivalent to running three "
 "simulations (free, metadynamics on phi, metadynamics on psi)."
 msgstr ""
+"各 Replica を1000000 Step 実行する2つのシミュレーションを行います。一方は200 Step "
+"ごとに交換を試み、他方は交換しません（コマンドから `-replex 200` を省略）。後者は、Bias なし、phi の "
+"Metadynamics、psi の Metadynamics の3本を実行するのと等価です。"
 
 #: INSTRUCTIONS.md:311
 msgid ""
@@ -585,25 +685,29 @@ msgid ""
 "`HEIGHT` set to zero. You can then perform WHAM in the normal way and hence "
 "compute the populations of the two metastable states."
 msgstr ""
+"WHAM で結果を統合します。上記と同様にできますが、Metadynamics では重みの計算法が少し異なります。ほかの Masterclass "
+"で説明した方法の1つは、最終 Potential を Trajectory 上で評価することです。通常の Metadynamics "
+"では追加処理が必要ですが、ここでは連結 Trajectory の処理中に計算できます。入力の `PACE` を大きく、`HEIGHT` "
+"を0にするだけです。その後は通常どおり WHAM を行い、2つの準安定状態の Population を求められます。"
 
 #: INSTRUCTIONS.md:313
 msgid ""
 "After you have calculated the relative populations in the two runs (with and"
 " without exchanges), answer the following questions:"
-msgstr ""
+msgstr "交換あり・なしの相対 Population を計算し、次に答えてください。"
 
 #: INSTRUCTIONS.md:315
 msgid ""
 "Is the relative population you obtain from the simulation with exchances "
 "consistent with what you obtained from metadynamics simulations with no "
 "exchanges?"
-msgstr ""
+msgstr "交換ありの結果は、交換なしの Metadynamics で得た結果と整合しますか？"
 
 #: INSTRUCTIONS.md:316
 msgid ""
 "Are the two simulations (with exchanges and without exchanges) consistent "
 "with each other?"
-msgstr ""
+msgstr "交換あり・なしの2つのシミュレーションは互いに整合しますか？"
 
 #: INSTRUCTIONS.md:318
 msgid ""
@@ -613,12 +717,14 @@ msgid ""
 "states directly using the populations in that replica (no post-processing "
 "needed!)."
 msgstr ""
+"3番目の Replica には Metadynamics を加えていません。Bias-exchange で使われることがある Neutral "
+"Replica です。この Replica の Population から、後処理なしで2状態の相対 Population を直接計算できます。"
 
 #: INSTRUCTIONS.md:320
 msgid ""
 "Is the result you obtain from this analysis the same as that you obtain when"
 " you use WHAM with all replicas?"
-msgstr ""
+msgstr "この解析は、全 Replica を WHAM に使う場合と同じ結果になりますか？"
 
 #: INSTRUCTIONS.md:322
 msgid ""
@@ -627,16 +733,18 @@ msgid ""
 "words, you would forget a variable on purpose that you know is very "
 "important:"
 msgstr ""
+"次に2 Replica だけで Bias-exchange を行うとします。一方は psi に Bias、他方は Bias "
+"なしです。重要だとわかっている変数を意図的に省きます。"
 
 #: INSTRUCTIONS.md:324
 msgid ""
 "What do you expect will hapen to the resulting populations from this "
 "simulation?"
-msgstr ""
+msgstr "Population はどうなると予想しますか？"
 
 #: INSTRUCTIONS.md:326
 msgid "Exercise 5: Parallel-tempering metadynamics"
-msgstr ""
+msgstr "演習5：Parallel-tempering Metadynamics"
 
 #: INSTRUCTIONS.md:328
 msgid ""
@@ -650,6 +758,10 @@ msgid ""
 "tempering side of the algorithm is sufficient to enhance sampling, it is not"
 " necessary to bias a CV that can identify the transition state."
 msgstr ""
+"最後の2つの演習では Parallel-tempering Metadynamics を学びます。全自由度を強化する Parallel "
+"Tempering と、少数の選択した CV の Histogram を平坦化する Metadynamics で Sampling を強化します。CV "
+"が重要な Bottleneck を含み、対応する Transition State をおおよそ識別できれば、その遷移も強化されます。ただし "
+"Parallel Tempering だけで十分な場合は、Transition State を識別する CV に Bias を加える必要はありません。"
 
 #: INSTRUCTIONS.md:330
 msgid ""
@@ -657,13 +769,13 @@ msgid ""
 "with temperatures taken from a geometric distribution ranging between 300 "
 "and 800K. You should be able to generate the corresponding tpr files using "
 "the following script"
-msgstr ""
+msgstr "まず入力を用意します。300〜800 K の等比間隔の温度で4 Replica を使います。次のスクリプトで tpr を生成できます。"
 
 #: INSTRUCTIONS.md:354
 msgid ""
 "You will then be able to run a parallel tempering simulation with the "
 "following command"
-msgstr ""
+msgstr "次のコマンドで Parallel Tempering を実行できます。"
 
 #: INSTRUCTIONS.md:360
 msgid ""
@@ -674,6 +786,8 @@ msgid ""
 "the number of atoms in the system. For solvated molecules, you would "
 "typically need tens of replicas at least."
 msgstr ""
+"GROMACS は温度の違いを考慮して受理率を計算します。この温度範囲で十分な受理率を得るには、系の原子数の平方根に比例する Replica "
+"数が必要です。溶媒中の分子では通常、少なくとも数十 Replica が必要です。"
 
 #: INSTRUCTIONS.md:362
 msgid ""
@@ -682,6 +796,8 @@ msgid ""
 "cases where you do not have a good CV available, we will bias `psi` rather "
 "than `phi`!"
 msgstr ""
+"適切な PLUMED 入力を作り、Metadynamics を加えます。この方法は適切な CV がない場合を想定しているので、`phi` ではなく "
+"`psi` に Bias を加えます！"
 
 #: INSTRUCTIONS.md:385
 msgid ""
@@ -690,11 +806,13 @@ msgid ""
 "simulation. Now compute the usual ratio between the populations of the two "
 "metastable minima and answer the following questions:"
 msgstr ""
+"解析は簡単です。最初の Replica（`ptmetad_0`）を通常の Metadynamics として解析します。2つの準安定極小の "
+"Population 比を計算し、次に答えてください。"
 
 #: INSTRUCTIONS.md:387
 msgid ""
 "Is the result compatible with what you obtained using umbrella sampling?"
-msgstr ""
+msgstr "Umbrella Sampling の結果と整合しますか？"
 
 #: INSTRUCTIONS.md:388
 msgid ""
@@ -702,25 +820,27 @@ msgid ""
 "populations from a parallel tempering simulation without metadynamics to "
 "answer this question)?"
 msgstr ""
+"psi に Bias を加えることは有用でしたか？Metadynamics なしの Parallel Tempering の Population "
+"も計算すると判断できます。"
 
 #: INSTRUCTIONS.md:390
 msgid "Exercise 6: Parallel-tempering: pathological case"
-msgstr ""
+msgstr "演習6：Parallel Tempering の病的な例"
 
 #: INSTRUCTIONS.md:392
 msgid ""
 "Repeat the previous exercise, but now place your replicas in the range "
 "between 300 and 310 and answer the following questions."
-msgstr ""
+msgstr "Replica の温度範囲を300〜310にして前の演習を繰り返し、次に答えてください。"
 
 #: INSTRUCTIONS.md:394
 msgid ""
 "Is the population of the two states compatible with what you obtained in the"
 " other exercises above."
-msgstr ""
+msgstr "2状態の Population は、上のほかの演習の結果と整合しますか？"
 
 #: INSTRUCTIONS.md:395
 msgid ""
 "If not, which is the correct answer? Draw some conclusion on how to detect "
 "this type of problem in a realistic situation."
-msgstr ""
+msgstr "整合しない場合、どれが正しいでしょうか？実際の状況でこの問題を検出する方法について考察してください。"
