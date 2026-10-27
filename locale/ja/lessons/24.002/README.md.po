@@ -9,97 +9,99 @@ msgstr ""
 
 #: README.md:1
 msgid "Steps to Run FEP/Plumed Simulations"
-msgstr ""
+msgstr "FEP/PLUMED シミュレーションの実行手順"
 
 #: README.md:3
 msgid "To run a FEP/Plumed simulation, you need to follow these steps:"
-msgstr ""
+msgstr "FEP/PLUMED シミュレーションを実行するには、次の手順に従う。"
 
 #: README.md:5
 msgid "**Prepare the System:**"
-msgstr ""
+msgstr "**系の準備：**"
 
 #: README.md:6
 msgid "Ensure that your molecular system is correctly prepared."
-msgstr ""
+msgstr "分子系が正しく準備されていることを確認する。"
 
 #: README.md:7
 msgid "Generate topology and coordinate files."
-msgstr ""
+msgstr "Topology と座標のファイルを生成する。"
 
 #: README.md:8
 msgid "Perform energy minimization and equilibration."
-msgstr ""
+msgstr "Energy Minimization と Equilibration を行う。"
 
 #: README.md:10
 msgid "**Set Up the Free Energy Perturbation (FEP):**"
-msgstr ""
+msgstr "**Free Energy Perturbation（FEP）の設定：**"
 
 #: README.md:11
 msgid "Define the initial and final states of the system."
-msgstr ""
+msgstr "系の初期状態と終状態を定義する。"
 
 #: README.md:12
 msgid "Prepare the necessary input files for the FEP calculation."
-msgstr ""
+msgstr "FEP 計算に必要な入力ファイルを準備する。"
 
 #: README.md:13
 msgid "Specify the lambda values and related parameters."
-msgstr ""
+msgstr "lambda の値と関連パラメータを指定する。"
 
 #: README.md:15
 msgid "**Integrate with PLUMED:**"
-msgstr ""
+msgstr "**PLUMED との連携：**"
 
 #: README.md:16
 msgid ""
 "Write the PLUMED input file using as CVs the dihedrals that undergo trans-"
 "cis isomerization for each value of lambda."
 msgstr ""
+"各 lambda の値について、Trans-Cis Isomerization を起こす Dihedral Angles を CVs として用いた "
+"PLUMED 入力ファイルを作成する。"
 
 #: README.md:17
 msgid "Define the biasing potential or metadynamics setup in PLUMED."
-msgstr ""
+msgstr "PLUMED で BiasPotential または Metadynamics の設定を定義する。"
 
 #: README.md:19
 msgid "**Run the Simulation:**"
-msgstr ""
+msgstr "**シミュレーションの実行：**"
 
 #: README.md:20
 msgid ""
 "Use your molecular dynamics software to run the simulation with the PLUMED "
 "plugin."
-msgstr ""
+msgstr "MD ソフトウェアに PLUMED プラグインを組み合わせてシミュレーションを実行する。"
 
 #: README.md:21
 msgid "Monitor the simulation to ensure it progresses correctly."
-msgstr ""
+msgstr "シミュレーションが正しく進行しているかを確認する。"
 
 #: README.md:23
 msgid "**Analyze the Results:**"
-msgstr ""
+msgstr "**結果の解析：**"
 
 #: README.md:24
 msgid ""
 "Extract and analyze the free energy differences from the FEP simulation."
-msgstr ""
+msgstr "FEP シミュレーションから自由エネルギー差を取り出し、解析する。"
 
 #: README.md:25
 msgid "Use PLUMED tools to analyze collective variables and bias potentials."
-msgstr ""
+msgstr "PLUMED のツールで Collective Variables と BiasPotentials を解析する。"
 
 #: README.md:26
 msgid "Validate the results by checking convergence and consistency."
-msgstr ""
+msgstr "収束性と整合性を確認して結果を検証する。"
 
 #: README.md:28
 msgid "**Post-Processing:**"
-msgstr ""
+msgstr "**後処理：**"
 
 #: README.md:29
 msgid "Visualize the simulation data."
-msgstr ""
+msgstr "シミュレーションデータを可視化する。"
 
 #: README.md:30
 msgid "Document and interpret the findings."
-msgstr ""
+msgstr "得られた知見を記録し、解釈する。"

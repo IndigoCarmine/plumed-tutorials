@@ -9,4 +9,4 @@ msgstr ""
 
 #: README.md:1
 msgid "oneopes-tutorial-plumed2"
-msgstr ""
+msgstr "oneopes-tutorial-plumed2"
