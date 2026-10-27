@@ -16,10 +16,14 @@ msgid ""
 "input preparation, running AF-MI, and analysis. Lets break it down and "
 "explain each part."
 msgstr ""
+"__注：__ 以下のコードは Google Colab または Jupyter Notebook "
+"で実行できます。[こちら](https://colab.research.google.com/github/vendruscolo-"
+"lab/AlphaFold-MetaInference-Tutorial/blob/main/AF-IDP_colab.ipynb) の Colab "
+"に、インストール、CALVADOS・PLUMED 入力の準備、AF-MI の実行、解析までの全手順があります。各部分を順に説明します。"
 
 #: input.md:3
 msgid "Software installation"
-msgstr ""
+msgstr "ソフトウェアのインストール"
 
 #: input.md:7
 msgid ""
@@ -27,6 +31,8 @@ msgid ""
 "essential in running conda google colab. This step is not necessary if one "
 "runs just in a jupyter-notebook locally."
 msgstr ""
+"以下のコードは Colab で実行します。まず Colab で conda を動かすために必要な condacolab をインストールします。ローカルの"
+" Jupyter Notebook だけで実行するなら、この手順は不要です。"
 
 #: input.md:16
 msgid ""
@@ -34,14 +40,17 @@ msgid ""
 "OPENMM, pandas, gromacs, biopython, pulchra. Moreover it builds the OPENMM-"
 "PLUMED-MPI patch which is necessary for running metainference in OPENMM."
 msgstr ""
+"以下で PLUMED、mpi、OPENMM、pandas、gromacs、biopython、pulchra "
+"などをインストールします。また、OPENMM で Metainference を実行するのに必要な OPENMM-PLUMED-MPI Patch "
+"をビルドします。"
 
 #: input.md:46
 msgid "Run Alpha-Fold distance map prediction"
-msgstr ""
+msgstr "AlphaFold の Distance Map 予測の実行"
 
 #: input.md:49
 msgid "__For this example (TDP-43 WtoA):__"
-msgstr ""
+msgstr "__この例（TDP-43 WtoA）の場合：__"
 
 #: input.md:51
 msgid ""
@@ -49,10 +58,12 @@ msgid ""
 "here show the AF prediction for the a) Inter-residue distances, b)PLDDT "
 "score and c)PAE per residue pair."
 msgstr ""
+"AF Distance Map は計算済みで、以下で読み込みます。a）残基間距離、b）PLDDT Score、c）残基対ごとの PAE の AF "
+"予測を示します。"
 
 #: input.md:63
 msgid "__For arbitrary protein sequences:__"
-msgstr ""
+msgstr "__任意のタンパク質配列の場合：__"
 
 #: input.md:65
 msgid ""
@@ -60,25 +71,27 @@ msgid ""
 "[this](https://github.com/zshengyu14/ColabFold_distmats/blob/main/AlphaFold2.ipynb)"
 " link and choose colab."
 msgstr ""
+"[こちら](https://github.com/zshengyu14/ColabFold_distmats/blob/main/AlphaFold2.ipynb)"
+" を開き、Colab を選びます。"
 
 #: input.md:66
 msgid "Input the protein sequence as query sequence."
-msgstr ""
+msgstr "タンパク質配列を Query Sequence に入力します。"
 
 #: input.md:67
 msgid ""
 "The rest of the options remain default and cells are run until the end."
-msgstr ""
+msgstr "ほかのオプションは既定のまま、最後まで Cell を実行します。"
 
 #: input.md:68
 msgid ""
 "Download the link with the AF data and upload it as AF_data in AlphaFold-IDP"
 " folder"
-msgstr ""
+msgstr "リンク先の AF データをダウンロードし、AlphaFold-IDP 内に AF_data として Upload します。"
 
 #: input.md:70
 msgid "Setup protein system in CALVADOS2 and OPENMM"
-msgstr ""
+msgstr "CALVADOS2 と OPENMM でのタンパク質系の設定"
 
 #: input.md:77
 msgid ""
@@ -96,14 +109,20 @@ msgid ""
 " residue pair file, per residue pair probability distribution AF prediction "
 "file, mean AF inter-residue distance map prediction file"
 msgstr ""
+"次に ```python fasta_sequence, pH, temp, ionic, PAE_cut, NR, ordered_domains, "
+"disordered_domains, pdb_af,json_af,npy_af, mean_af``` を定義します。順に、AF-MI "
+"の対象配列、pH、温度 (K)、溶液の Ionic Strength、対象残基間距離の PAE 上限（これを超える距離は Restraint "
+"から除外）、Replica 数、RMSD Wall を使う Ordered Domain（PLDDT>0.75 の3残基超の領域）、Disordered"
+" 領域（通常 PLDDT<0.75 の3残基超の領域）、AF 予測 PDB、残基対ごとの PAE を含む AF JSON、残基対距離の確率分布の AF "
+"予測、平均残基間距離 Map の AF 予測を表します。"
 
 #: input.md:109
 msgid "In the following step we create the OPENMM CALVADOS2 .xml files"
-msgstr ""
+msgstr "次に OPENMM CALVADOS2 の .xml を作成します。"
 
 #: input.md:133
 msgid "Make the AF-MI PLUMED ``` plumed.dat``` input file"
-msgstr ""
+msgstr "AF-MI の PLUMED 入力 ``` plumed.dat``` の作成"
 
 #: input.md:142
 msgid ""
@@ -120,10 +139,18 @@ msgid ""
 "[here](https://github.com/vendruscolo-lab/AlphaFold-"
 "IDP/blob/main/scripts_prep/plumed_TDP-43.dat)"
 msgstr ""
+"plumed.dat を以下に示します。```distance_rest_domains``` は拘束する AF 距離です。TDP-43 WtoA "
+"の3つの Ordered Domain は RMSD1、RMSD2、RMSD3 で拘束します。__FILL__ には系に応じた CV "
+"定義、biasfactor、sigma、PB MetaD 中の FES 保存用 Grid の Bin 数などを指定してください。PB-MetaD "
+"の詳細は [こちら](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_p_b_m_e_t_a_d.html) にあります。```biasfactor``` の目安は ```10*sqrt(number "
+"of biased CVs)``` です。TDP-43 WtoA の ```plumed.dat``` は "
+"[こちら](https://github.com/vendruscolo-lab/AlphaFold-"
+"IDP/blob/main/scripts_prep/plumed_TDP-43.dat) にあります。"
 
 #: input.md:429
 msgid "Make the PLUMED analysis file ```python plumed_analysis.dat```"
-msgstr ""
+msgstr "PLUMED 解析入力 ```python plumed_analysis.dat``` の作成"
 
 #: input.md:438
 msgid ""
@@ -134,6 +161,11 @@ msgid ""
 "[here](https://github.com/vendruscolo-lab/AlphaFold-"
 "IDP/blob/main/scripts_prep/plumed_analysis_TDP-43.dat)"
 msgstr ""
+"同様に、plumed_analysis は "
+"[こちら](https://link.springer.com/protocol/10.1007/978-1-4939-9608-7_13) の "
+"Torrie-Valeau Weight を計算するために使います。TDP-43 WtoA の plumed_analysis.dat は "
+"[こちら](https://github.com/vendruscolo-lab/AlphaFold-"
+"IDP/blob/main/scripts_prep/plumed_analysis_TDP-43.dat) にあります。"
 
 #: input.md:440
 msgid ""
@@ -144,10 +176,14 @@ msgid ""
 " and [practice](https://www.plumed.org/doc-v2.9/user-"
 "doc/html/_m_e_t_a_i_n_f_e_r_e_n_c_e.html)."
 msgstr ""
+"__注：__ [Parallel Bias Metadynamics](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_p_b_m_e_t_a_d.html) と、Metainference の "
+"[理論](https://link.springer.com/content/pdf/10.1007/978-1-4939-9608-7_13.pdf)・[実践](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_m_e_t_a_i_n_f_e_r_e_n_c_e.html) を知っていることを前提とします。"
 
 #: input.md:442
 msgid "In case you are running the TDP-43 WtoA example:"
-msgstr ""
+msgstr "TDP-43 WtoA の例を実行する場合："
 
 #: input.md:444
 msgid ""
@@ -155,14 +191,16 @@ msgid ""
 " below by executing the next shell. Otherwise you need to define your system"
 " specific parameters."
 msgstr ""
+"次の Shell を実行すれば、下記の PBMetaD・Metainference "
+"パラメータをそのまま使えます。それ以外の系では専用のパラメータを定義してください。"
 
 #: input.md:452
 msgid "Short energy minimization using OPENMM and CALVADOS2"
-msgstr ""
+msgstr "OPENMM と CALVADOS2 による短い Energy Minimization"
 
 #: input.md:459
 msgid "Run AF-MI"
-msgstr ""
+msgstr "AF-MI の実行"
 
 #: input.md:465
 msgid "[Back to AlphaFold-Metainference home](NAVIGATION.md)"

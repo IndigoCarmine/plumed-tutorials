@@ -13,21 +13,23 @@ msgstr "解析"
 
 #: postprocessing.md:4
 msgid "Copy relevant scripts in the analysis folder"
-msgstr ""
+msgstr "必要なスクリプトを解析フォルダに Copy する"
 
 #: postprocessing.md:15
 msgid "Run ```script.sh``` which:"
-msgstr ""
+msgstr "```script.sh``` を実行します。次の処理を行います。"
 
 #: postprocessing.md:16
 msgid "Convert dcds to xtc (dcd2xtc.py)"
-msgstr ""
+msgstr "dcd を xtc に変換する (dcd2xtc.py)。"
 
 #: postprocessing.md:17
 msgid ""
 "Concatenate xtcs to a single xtc ```gmx trjcat -f nosolv_*.xtc -cat -o "
 "cat_trjcat.xtc -settime```"
 msgstr ""
+"xtc を1つに連結する：```gmx trjcat -f nosolv_*.xtc -cat -o cat_trjcat.xtc "
+"-settime```"
 
 #: postprocessing.md:18
 msgid ""
@@ -35,18 +37,24 @@ msgid ""
 "plumed driver --plumed plumed_analysis.dat --mf_xtc cat_trjcat.xtc ``` which"
 " are afterwards used to calculate Free Energy Surfaces."
 msgstr ""
+"Torrie-Valeau Weight (Fullbias.dat) と CV (COLVAR) を計算し、後で自由エネルギー表面に使う：``` "
+"plumed driver --plumed plumed_analysis.dat --mf_xtc cat_trjcat.xtc ```"
 
 #: postprocessing.md:19
 msgid ""
 "Generate a structural ensemble by sampling the concatenated trajectory by "
 "weights. ``` python resample.py ```"
 msgstr ""
+"連結 Trajectory を重みに従って Sampling し、Structural Ensemble を生成する：``` python "
+"resample.py ```"
 
 #: postprocessing.md:20
 msgid ""
 "Backmap coarse grained structural ensemble by using PULCHRA ``` python "
 "backmap.py $nrep sh pulchra.sh sh keepH.sh ```"
 msgstr ""
+"PULCHRA で Coarse-grained Structural Ensemble を Backmapping する：``` python "
+"backmap.py $nrep sh pulchra.sh sh keepH.sh ```"
 
 #: postprocessing.md:32
 msgid ""
@@ -54,14 +62,16 @@ msgid ""
 "in: ``` for i in $(echo CV1 CV2 CV3 etc);do .. ``` needs to follow the order"
 " these CVs appear as columns in the ```COLVAR``` file."
 msgstr ""
+"各対象 CV の自由エネルギー表面を描画します。``` for i in $(echo CV1 CV2 CV3 etc);do .. ``` の CV "
+"順序は、```COLVAR``` の列の順序に合わせてください。"
 
 #: postprocessing.md:54
 msgid "Calculation of the Root Mean Square Fluctuations (RMSF) per residue."
-msgstr ""
+msgstr "各残基の Root Mean Square Fluctuations (RMSF) の計算。"
 
 #: postprocessing.md:77
 msgid "![png](images/AF-IDP_colab_29_1.png)"
-msgstr ""
+msgstr "![png](images/AF-IDP_colab_29_1.png)"
 
 #: postprocessing.md:79
 msgid ""
@@ -70,10 +80,13 @@ msgid ""
 "structure and AF-MI structural ensemble "
 "[Ref](https://www.biorxiv.org/content/10.1101/2023.01.19.524720v1.full)."
 msgstr ""
+"最後に AF-MI の利点を示すため、SAXS データ、単一 AF PDB 構造、AF-MI Structural Ensemble に基づく "
+"Pair-distance Distribution Function (PDDF) を示します "
+"[文献](https://www.biorxiv.org/content/10.1101/2023.01.19.524720v1.full)。"
 
 #: postprocessing.md:88
 msgid "Download files"
-msgstr ""
+msgstr "ファイルのダウンロード"
 
 #: postprocessing.md:102
 msgid "[Back to AlphaFold-Metainference home](NAVIGATION.md)"

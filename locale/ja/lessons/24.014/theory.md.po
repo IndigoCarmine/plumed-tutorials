@@ -9,11 +9,11 @@ msgstr ""
 
 #: theory.md:1
 msgid "AlphaFold-Metainference"
-msgstr ""
+msgstr "AlphaFold-Metainference"
 
 #: theory.md:2
 msgid "Context"
-msgstr ""
+msgstr "背景"
 
 #: theory.md:4
 msgid ""
@@ -33,6 +33,13 @@ msgid ""
 "AlphaFold provides information about the dynamics of proteins in addition to"
 " their structures."
 msgstr ""
+"Protein Folding 問題への Deep Learning の適用により、アミノ酸配列から Native State "
+"の正確なモデルを作る能力が大きく進歩しました。単独タンパク質の構造予測は、最近では複合体にも拡張されています。この進歩により、Folded "
+"Protein の Native State の Conformational Fluctuation や、より一般に Disordered "
+"Protein の Native State の構造特性も予測できるのではないか、という問いが生まれました。AlphaFold が最新の "
+"Disorder 予測器と同程度に機能するという観測も、この考えを支持します。また AlphaFold の Predicted Aligned "
+"Error (PAE) Map が MD の距離変動 Matrix と相関すると報告され、構造だけでなく Dynamics "
+"の情報も含むことが示唆されています。"
 
 #: theory.md:6
 msgid ""
@@ -45,6 +52,10 @@ msgid ""
 "proteins, despite having been trained on folded proteins and combining such "
 "information with molecular dynamics within the Metainference framework."
 msgstr ""
+"Disordered Protein の Native State は、Boltzmann 分布に従う統計的重みを持つ Conformation の "
+"Ensemble で表せます。そのため AlphaFold を拡張し、部分的に Disordered なタンパク質の Structural "
+"Ensemble を予測することは重要です。本研究では、Folded Protein で学習した AlphaFold が Disordered "
+"Protein の残基間距離も予測できるという観測を基に、その情報と MD を Metainference で統合する方法を提案します。"
 
 #: theory.md:9
 msgid "Theory"
@@ -55,6 +66,8 @@ msgid ""
 "More information about AlphaFold-Metainference can be found "
 "[here](https://www.biorxiv.org/content/10.1101/2024.11.09.622758v1)"
 msgstr ""
+"AlphaFold-Metainference の詳細は "
+"[こちら](https://www.biorxiv.org/content/10.1101/2024.11.09.622758v1) にあります。"
 
 #: theory.md:13
 msgid ""
@@ -75,6 +88,15 @@ msgid ""
 "${\\widehat{d}}_{ij}$ of the predicted distribution of the distances between"
 " residue $i$ and $j$ are esimated as"
 msgstr ""
+"***AlphaFold の Distance Map 予測。*** Disordered Protein の平均残基間距離は、AlphaFold の "
+"Distogram Head と、この Colab "
+"[Notebook](https://github.com/zshengyu14/ColabFold_distmats/blob/main/AlphaFold2.ipynb)"
+" で予測できます。Glycine 以外は β Carbon、Glycine は α Carbon 間の距離です。Multiple Sequence "
+"Alignment (MSA) は MMseqs2 の既定設定で BFD/MGnify と Uniclust30 に対して行います。構造 "
+"Template を使わず、既定の AlphaFold Model 1.1.1 で予測します。残基間距離は2.15625〜21.84375 Å "
+"の等幅64 Bin で表し、最後の Bin は21.84375 Å より長い距離も含みます。各残基対（$i$、$j$）について、距離が Bin $b$ "
+"に入る確率 $p_{ij}^{b}$ を予測します。残基 $i$、$j$ の距離予測分布からの予測距離 ${\\widehat{d}}_{ij}$ "
+"は次のように推定します。"
 
 # Literal notation or identifier intentionally preserved.
 #: theory.md:31
@@ -83,7 +105,7 @@ msgstr "$\\hat{d_{ij}}=\\sum_{b=1}^{64} d^{b} p_{ij}^{b} $"
 
 #: theory.md:34
 msgid "where $d^{b}$ represents the central value of bin $b$."
-msgstr ""
+msgstr "$d^{b}$ は Bin $b$ の中心値です。"
 
 #: theory.md:36
 msgid ""
@@ -101,6 +123,13 @@ msgid ""
 "constant, *T* is the temperature, and $p_{MI}$ is the metainference, "
 "maximum-entropy-compatible, posterior probability"
 msgstr ""
+"***Metainference。*** [Metainference](https://doi.org/10.1126/sciadv.1501177)"
+" は、Maximum Entropy 原理に従って事前情報と実験データを統合し、Structural Ensemble を決める Bayesian "
+"Inference 法です。AF-MI では、AlphaFold の距離 Matrix $\\mathbf{d}^{AF}$ "
+"を擬似実験データとして用います。構造の不均一性を、Force Field・Forward Model の不正確さなどの系統誤差、データの Random "
+"Error、有限 Sample 数による誤差から分離できます。シミュレーションは Metainference のエネルギー関数 $E = - "
+"k_{B}T\\log\\left( p_{MI} \\right)$ に従います。$k_{B}$ は Boltzmann 定数、*T* "
+"は温度、$p_{MI}$ は Maximum Entropy と整合する Metainference の事後確率です。"
 
 # Mathematical expression and equation number intentionally preserved.
 #: theory.md:50
@@ -130,6 +159,12 @@ msgid ""
 "the likelihood $p(\\mathbf{d}^{AF}\\|\\mathbf{X}, σ_i^{SEM} , σ_{r,i}^B)$ is"
 " a Gaussian function"
 msgstr ""
+"**X** は Structural Ensemble の原子座標の Vector で、計 $N_R$ 個の Replica $X_r$ "
+"からなります。$σ^{SEM}$ は有限 Replica 数の誤差、$σ_B$ は事前の MD Force Field・Forward "
+"Model・データの Random Error と系統誤差、$\\mathbf{d}^{AF}$ は AF Distance Matrix "
+"です。$σ^{SEM}$ はデータ点ごとに $σ_i^{SEM}$ として計算し、$σ^B$ は各データ点 *i*・Replica *r* ごとに "
+"$σ_{r,i}^B$ として求めます。尤度 $p(\\mathbf{d}^{AF}\\|\\mathbf{X}, σ_i^{SEM} , "
+"σ_{r,i}^B)$ は Gaussian 関数です。"
 
 #: theory.md:67
 msgid ""
@@ -137,10 +172,12 @@ msgid ""
 " the *i,j* distance calculated in the ensemble. For multiple replicas, the "
 "metainference energy function is"
 msgstr ""
+"$d_{i,j}(X)$ はデータ点 *i,j* の Forward Model、すなわち Ensemble で計算する *i,j* 間距離です。複数 "
+"Replica の Metainference エネルギー関数は次のようになります。"
 
 #: theory.md:73
 msgid "where $E_σ$ corresponds to the energy term associated with the errors"
-msgstr ""
+msgstr "$E_σ$ は誤差に対応するエネルギー項です。"
 
 #: theory.md:77
 msgid ""
@@ -158,28 +195,38 @@ msgid ""
 "forward model ($σ^{SEM}$) is calculated on the fly by window averaging every"
 " 200 steps of molecular dynamics."
 msgstr ""
+"$E_{MD}$ は MD Force Field の Potential Energy 関数で、ここでは CALVADOS 2 "
+"です。Conformation $X_r$ は Multi-replica で Sampling します。この Tutorial は6 Replica "
+"ですが、多いほどよいでしょう。各データ点の誤差パラメータ $σ_{r,i}^B$ は各 Time Step で Gibbs Sampling "
+"します。ここでの範囲は \\[0.0001,10\\]、Gibbs Sampling の Trial Move の誤差摂動は0.1です。選び方の詳細は "
+"[こちら](https://link.springer.com/protocol/10.1007/978-1-4939-9608-7_13) "
+"を参照してください。Forward Model の推定に使う Replica 数が有限であることによる誤差 ($σ^{SEM}$) は、MD の200 "
+"Step ごとの Window Average で On-the-fly に計算します。"
 
 #: theory.md:90
 msgid "**AF-MI advantages**"
-msgstr ""
+msgstr "**AF-MI の利点**"
 
 #: theory.md:92
 msgid ""
 "By combining AlphaFold inter-resiude distance data with the CALVADOS 2 "
 "forcefield to retrieve structural ensembles of proteins are:"
 msgstr ""
+"AlphaFold の残基間距離と CALVADOS 2 Force Field を組み合わせて Structural Ensemble "
+"を得る利点は、次のとおりです。"
 
 #: theory.md:93
 msgid ""
 "The high convergence speed due to the coarse grained model and a "
 "metadynamics bias"
-msgstr ""
+msgstr "Coarse-grained Model と Metadynamics Bias による速い収束。"
 
 #: theory.md:94
 msgid ""
 "The increased accuracy in modeling partially ordered protein interactions "
 "relyig on the introduction of AlphaFold-based distance restraints"
 msgstr ""
+"AlphaFold に基づく Distance Restraint の導入による、部分的に Ordered なタンパク質の相互作用モデルの精度向上。"
 
 #: theory.md:118
 msgid ""
@@ -201,6 +248,15 @@ msgid ""
 " that CALVADOS 2 can be assisted by AF-MI in generating ensembles that "
 "better agree with Rg data."
 msgstr ""
+"実験 Rg が得られ、CALVADOS 2 の実験値からのずれが大きい、Tesei らの Nature 2024 の6タンパク質を比較対象に、AF "
+"距離を Restraint として選ぶ体系的な方法を図 SX.4 に示します。Kyte-Doolittle Hydropathy "
+"が-1.4未満で親水的であり、plddt\\>75 が5残基以上続く場合、PAE\\<10 の距離を選ぶと実験 Rg "
+"とよく一致します（NLS、Msh6-NRT）。それ以外は PAE\\<5 を使います（AN16、CTCF-RD、Eralpha-"
+"NTD、CortactinCRH）。CALVADOS 2 は残基の Hydrophobicity に基づき学習され、AlphaFold "
+"は柔軟な残基を含む低 plddt 領域の構造予測を苦手とします。Hydropathy と plddt を組み合わせる理由は、Ensemble "
+"を改善するため CALVADOS や AlphaFold を補正すべき場所は、Hydrophobicity "
+"のみのモデルで相互作用予測が難しい場所だと考えられるためです。図 SX4 は、AF-MI によって CALVADOS 2 が Rg により一致する "
+"Ensemble を生成できることを示します。"
 
 #: theory.md:137
 msgid ""
@@ -224,6 +280,16 @@ msgid ""
 "prepare an AF-MI simulation can be found in (Github "
 "<https://github.com/vendruscolo-lab/AlphaFold-IDP>)"
 msgstr ""
+"したがって、完全な $\\mathbf{d}^{AF}$ Matrix の一部を Restraint に使います。3残基以上離れ、上記の規則による "
+"Predicted Alignment Error (PAE) が5 Å または10 Å 未満で、$p_{i,j}(r \\geq 21.84\\ "
+"Å\\ ) > 0.02$ を除外した距離を選びます。また、AF-MI の C2 Coarse-grained Model が Secondary "
+"Structure を維持することに基づき、AlphaFold の Predicted Local Distance Difference Test "
+"(pLDDT) で、高信頼度かつ Structured 領域に対応すると予測される距離を選びます。pLDDT \\>0.75 の2残基以上の領域を "
+"Structured とみなし、RMSD Upper Wall で AF 予測構造に拘束します。その領域内の残基間距離は Distance "
+"Restraint から除外します。Secondary Structure を維持できる All-atom Force Field "
+"なら、この処理は不要な場合があります。AF-MI の PLUMED 入力は "
+"(<https://zenodo.org/record/7756138>)、準備用コードは (GitHub "
+"<https://github.com/vendruscolo-lab/AlphaFold-IDP>) にあります。"
 
 #: theory.md:158
 msgid ""
@@ -231,6 +297,9 @@ msgid ""
 "efficiently the conformational space of disordered proteins using average "
 "inter-residue distances predicted by AlphaFold as structural +-->"
 msgstr ""
+"***Metainference による Structural Ensemble の生成。*** AlphaFold "
+"が予測する平均残基間距離を構造情報として使い、Disordered Protein の Conformational Space を効率よく "
+"Sampling するため +-->"
 
 #: theory.md:163
 msgid "[Back to AlphaFold-Metainference home](NAVIGATION.md)"
