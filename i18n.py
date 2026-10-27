@@ -505,8 +505,9 @@ class Catalog:
         for entry in polib.pofile(path):
             if entry.obsolete or entry.fuzzy or not entry.msgstr:
                 continue
-            if override or entry.msgid not in self.tr:
-                self.tr[entry.msgid] = entry.msgstr
+            key = normalize(entry.msgid)
+            if override or key not in self.tr:
+                self.tr[key] = entry.msgstr
 
     def __len__(self):
         return len(self.tr)
