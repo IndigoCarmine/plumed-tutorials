@@ -12,6 +12,7 @@ msgid ""
 "Masterclass 22.12: Liquid-solid chemical potential differences with the "
 "environment similarity CV"
 msgstr ""
+"Masterclass 22.12：Environment Similarity CV による液固の Chemical Potential 差"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -88,12 +89,12 @@ msgstr "PLUMED の構文の基本を紹介する過去のチュートリアル"
 #. mermaid click tooltip
 #: NAVIGATION.md:22
 msgid "A previous tutorial that introduces metadynamics simulation"
-msgstr ""
+msgstr "Metadynamics の導入 Tutorial"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:23
 msgid "A previous tutorial that introduces the OPES simulations"
-msgstr ""
+msgstr "OPES の導入 Tutorial"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:24

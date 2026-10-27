@@ -16,7 +16,7 @@ msgstr "PLUMED Masterclass 22.12"
 msgid ""
 "Liquid-solid chemical potential differences with the environment similarity "
 "CV"
-msgstr ""
+msgstr "Environment Similarity CV による液固の Chemical Potential 差"
 
 #: INSTRUCTIONS.md:4
 msgid "Author: Pablo Piaggi"
@@ -36,6 +36,8 @@ msgid ""
 " CV available in PLUMED to the calculation of liquid-solid free energy "
 "differences (chemical potentials)."
 msgstr ""
+"この Masterclass では PLUMED の Environment Similarity CV "
+"を使い、液固の自由エネルギー差（Chemical Potential）を計算します。"
 
 #: INSTRUCTIONS.md:12
 msgid "Objectives"
@@ -49,19 +51,19 @@ msgstr "この Masterclass の到達目標は次のとおりである。"
 msgid ""
 "Learn to define reference environments for a crystal structure and choose "
 "appropriate parameters"
-msgstr ""
+msgstr "結晶構造の参照 Environment と適切なパラメータを定義する。"
 
 #: INSTRUCTIONS.md:16
 msgid ""
 "Learn how to run **bulk interconversion** simulations in which the bulk "
 "liquid and the bulk solid are reversibly interconverted"
-msgstr ""
+msgstr "Bulk の液体と固体を可逆に変換する **Bulk Interconversion** を実行する。"
 
 #: INSTRUCTIONS.md:17
 msgid ""
 "Learn how to run **biased coexistence** simulations (similar to interface "
 "pinning)"
-msgstr ""
+msgstr "Interface Pinning に似た **Biased Coexistence** を実行する。"
 
 #: INSTRUCTIONS.md:18
 msgid "Learn how to perform **thermodynamic integration** along isobars"
@@ -91,6 +93,8 @@ msgid ""
 "Familiarity with at least one plotting software is required, for instance, "
 "gnuplot, xmgrace, or python with matplotlib."
 msgstr ""
+"Linux Terminal、LAMMPS、PLUMED の基本に慣れている前提です。Metadynamics などの Enhanced "
+"Sampling の知識を推奨し、gnuplot、xmgrace、Python/matplotlib など最低1つの描画ソフトウェアが必要です。"
 
 #: INSTRUCTIONS.md:29
 msgid "Setting up PLUMED"
@@ -104,6 +108,8 @@ msgid ""
 "link](https://github.com/plumed/masterclass-2022). Make sure to install the "
 "conda package for LAMMPS."
 msgstr ""
+"LAMMPS と PLUMED を使います。[こちら](https://github.com/plumed/masterclass-2022) の "
+"conda Package を入れ、LAMMPS 用も忘れないでください。"
 
 #: INSTRUCTIONS.md:35
 msgid ""
@@ -112,6 +118,8 @@ msgid ""
 " Also, LAMMPS has to be compiled with the following optional packages "
 "PLUMED, MANYBODY, EXTRA-DUMP, and EXTRA-FIX."
 msgstr ""
+"Environment Similarity は crystallization Module にあり、自分でビルドする場合は有効にします。LAMMPS"
+" は PLUMED、MANYBODY、EXTRA-DUMP、EXTRA-FIX の追加 Package が必要です。"
 
 #: INSTRUCTIONS.md:38
 msgid ""
@@ -119,12 +127,14 @@ msgid ""
 "[GitHub](https://github.com/PabloPiaggi/masterclass-22-12). You can clone "
 "this repository locally on your machine using the following command:"
 msgstr ""
+"データは [GitHub](https://github.com/PabloPiaggi/masterclass-22-12) にあり、次で Clone"
+" できます。"
 
 #: INSTRUCTIONS.md:44
 msgid ""
 "I suggest that you install the trajectory visualization software "
 "[Ovito](https://www.ovito.org/) before starting the tutorial."
-msgstr ""
+msgstr "開始前に Trajectory 可視化用 [Ovito](https://www.ovito.org/) の導入を推奨します。"
 
 #: INSTRUCTIONS.md:46
 msgid "Summary of theory"
@@ -142,6 +152,9 @@ msgid ""
 " is compatible with a given crystal structure, we will have to compare it "
 "against $M$ reference environments."
 msgstr ""
+"各原子の周囲が参照結晶の Environment とどれほど似るかを表す量を定義します。結晶は通常、原子 Basis を伴う Bravais "
+"Lattice で表されます。対称性から異なる Environment 数は Basis の原子数 $M$ に等しく、適合性には $M$ "
+"個の参照との比較が必要です。"
 
 #: INSTRUCTIONS.md:53
 msgid ""
@@ -165,22 +178,32 @@ msgid ""
 "$\\{\\mathbf{r}^0_1,...,\\mathbf{r}^0_n\\}$ that describe, for instance, the"
 " nearest neighbors in a given crystal structure."
 msgstr ""
+"Environment Similarity Kernel "
+"は環境の類似度を定量化します。[この論文](https://aip.scitation.org/doi/full/10.1063/1.5102104) "
+"で提案し、Bartok らの [SOAP "
+"Descriptor](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.87.184115)"
+" に基づきます。ただし回転不変ではなく SO(3) 対称性を破ります。原子周囲 $\\chi$ の局所密度を "
+"$\\rho_{\\chi}(\\mathbf{r})=\\sum\\limits_{i\\in\\chi} \\exp\\left(- "
+"\\frac{|\\mathbf{r}_i-\\mathbf{r}|^2} {2\\sigma^2} \\right),$ とします。$i$ は "
+"$\\chi$ の Neighbor、$\\sigma$ は Broadening、$\\mathbf{r}_i$ は中心からの相対座標です。最適 "
+"$\\sigma$ の厳密な決め方は後述します。参照 $\\chi_0$ は、最近接原子などを記述する $n$ 座標 "
+"$\\{\\mathbf{r}^0_1,...,\\mathbf{r}^0_n\\}$ を含みます。"
 
 #: INSTRUCTIONS.md:65
 msgid "The environments $\\chi$ and $\\chi_0$ are compared using the kernel,"
-msgstr ""
+msgstr "$\\chi$ と $\\chi_0$ を次の Kernel で比較します。"
 
 #: INSTRUCTIONS.md:69
 msgid ""
 "Combining the two equations above and performing the integration "
 "analytically we obtain,"
-msgstr ""
+msgstr "2式を組み合わせ解析的に積分すると、"
 
 #: INSTRUCTIONS.md:73
 msgid ""
 "The kernel is finally normalized, such that $k_{\\chi_0}(\\chi_{0})=1$, in "
 "the following way,"
-msgstr ""
+msgstr "最後に $k_{\\chi_0}(\\chi_{0})=1$ となるよう正規化します。"
 
 #: INSTRUCTIONS.md:77
 msgid ""
@@ -191,12 +214,14 @@ msgid ""
 " consider the case of $M$ environments $X = \\chi_1,\\chi_2,...,\\chi_M$ and"
 " we define the kernel through a best match strategy:"
 msgstr ""
+"この定義は原子 Environment が1種類の Bravais Lattice 用ですが、Basis が複数原子の結晶にも一般化できます。$M$ "
+"Environment $X = \\chi_1,\\chi_2,...,\\chi_M$ に対し Best Match で、"
 
 #: INSTRUCTIONS.md:84
 msgid ""
 "For a large enough $\\lambda$ this expression will select the largest "
 "$\\tilde{k}_{\\chi_l}(\\chi)$ with $\\chi_l\\in X$."
-msgstr ""
+msgstr "十分大きな $\\lambda$ は、$\\chi_l\\in X$ の最大 $\\tilde{k}_{\\chi_l}(\\chi)$ を選びます。"
 
 #: INSTRUCTIONS.md:86
 msgid ""
@@ -204,6 +229,8 @@ msgid ""
 "global functions of these quantities, for instance, the mean or the number "
 "of atoms with at $\\tilde{k}_X(\\chi)$ larger than some value."
 msgstr ""
+"$\\tilde{k}_X(\\chi)$ は各原子の量なので、平均や $\\tilde{k}_X(\\chi)$ "
+"が閾値を超える数などの全体量を計算します。"
 
 #: INSTRUCTIONS.md:88
 msgid "The system: Sodium as the alanine dipeptide of solids"
@@ -227,6 +254,11 @@ msgid ""
 "temperature is supposed to be 366 K. Let's see if we can reproduce that "
 "result."
 msgstr ""
+"Alanine Dipeptide は小さく単純ながら大きな Barrier の Isomerism を捉え、Enhanced Sampling "
+"の典型テスト系です。材料で同様なのが Sodium だと考えます。単純な bcc に結晶化し、Compact な fcc/hcp "
+"間競合もないため、液体か bcc "
+"のみを区別できます。[この論文](https://aip.scitation.org/doi/full/10.1063/1.4916741) の "
+"Embedded Atom Model (EAM) を使い、報告融点366 K を再現できるか調べます。"
 
 #: INSTRUCTIONS.md:99
 msgid "Exercises"
@@ -235,14 +267,14 @@ msgstr "演習"
 #: INSTRUCTIONS.md:100
 msgid ""
 "Exercise 1: Choosing reference environments and appropriate $\\sigma$ values"
-msgstr ""
+msgstr "演習1：参照 Environment と $\\sigma$ の選択"
 
 #: INSTRUCTIONS.md:102
 msgid ""
 "In the case of the bcc structure, the reference environment for the "
 "environment similarity CV can be chosen automatically using the following "
 "PLUMED input:"
-msgstr ""
+msgstr "bcc の参照は次の PLUMED 入力で自動生成できます。"
 
 #: INSTRUCTIONS.md:113
 msgid ""
@@ -258,6 +290,13 @@ msgid ""
 "Finder](https://mybinder.org/v2/gh/PabloPiaggi/EnvironmentFinder/master?urlpath=apps%2FApp.ipynb)"
 " app to determine the appropriate environments for your structure."
 msgstr ""
+"Sodium に適した Lattice Constant 0.423 nm の bcc を選び、最近接14原子を自動生成します。他の対応構造は "
+"[マニュアル](https://www.plumed.org/doc-master/user-"
+"doc/html/_e_n_v_i_r_o_n_m_e_n_t_s_i_m_i_l_a_r_i_t_y.html) "
+"を参照してください。CRYSTAL_STRUCTURE=CUSTOM と REFERENCE で PDB を渡すこともできます。その場合は "
+"[Environment "
+"Finder](https://mybinder.org/v2/gh/PabloPiaggi/EnvironmentFinder/master?urlpath=apps%2FApp.ipynb)"
+" を推奨します。"
 
 #: INSTRUCTIONS.md:119
 msgid ""
@@ -271,6 +310,8 @@ msgid ""
 "solid and the bulk liquid. So, first things first, let's do a simulation of "
 "the bulk liquid and the bulk bcc solid!"
 msgstr ""
+"最初は SIGMA を決めます。固液原子の誤分類確率を最小化する値を、Bulk 固液それぞれの $ \\tilde{k}_X(\\chi) $ "
+"の分布から求めます。まず両相を実行しましょう。"
 
 #: INSTRUCTIONS.md:127
 msgid ""
@@ -278,6 +319,8 @@ msgid ""
 " \\verbatim conda activate plumed-masterclass-2022 \\endverbatim Now, cd to "
 "the folder ```1-distributions/bcc``` and run the command:"
 msgstr ""
+"conda 環境なら \\verbatim conda activate plumed-masterclass-2022 \\endverbatim "
+"で有効化し、```1-distributions/bcc``` で次を実行します。"
 
 #: INSTRUCTIONS.md:135
 msgid ""
@@ -293,12 +336,17 @@ msgid ""
 " trajectory in DCD format, which is useful to postprocess directly using "
 "PLUMED's driver, as we shall see."
 msgstr ""
+"```1-distributions/liquid``` でも同じコマンドを実行します。1 bar、共存に近い375 K の Bulk "
+"固液です。start.lmp は NPT を指定する LAMMPS 入力です。```log.lammps``` は Log と "
+"Thermodynamics、```dump.na``` は [Ovito](https://www.ovito.org/) 用の Dump "
+"Trajectory、```out.dcd``` は driver で直接後処理する DCD "
+"です。```log.lammps```、```dump.na```、```out.dcd``` を後で使います。"
 
 #: INSTRUCTIONS.md:144
 msgid ""
 "Once that these simulations have completed, we will compute the "
 "distributions of the environment similarity kernel using this input"
-msgstr ""
+msgstr "終了したら次で Kernel 分布を計算します。"
 
 #: INSTRUCTIONS.md:167
 msgid ""
@@ -312,6 +360,9 @@ msgid ""
 "environment similarity kernel. Here's the command we are using inside run.sh"
 " to do this,"
 msgstr ""
+"SIGMA=replace を適切な値にします。HISTOGRAM が全原子の正規化分布を作り、DUMPGRID が histo "
+"に出します。```1-distributions``` の run.sh（```./run.sh > results.txt```）が複数 SIGMA "
+"の driver・DCD 解析を行います。内部コマンドは、"
 
 #: INSTRUCTIONS.md:175
 msgid ""
@@ -321,6 +372,8 @@ msgid ""
 "distributions $p(x)$ and $q(x)$ can be defined in a variety of ways. Here we"
 " use,"
 msgstr ""
+"run.sh が実行するので手動は不要です。固液分布の重なりも求めます。$p(x)$、$q(x)$ の Overlap $O(p,q)$ "
+"は複数の定義があり、ここでは、"
 
 #: INSTRUCTIONS.md:181
 msgid ""
@@ -331,6 +384,8 @@ msgid ""
 "case should be around 0.07 nm. Did you get that result? Great! Then, let's "
 "move to the next task."
 msgstr ""
+"出力2列は SIGMA と Overlap です。描画して Slack に共有してください。最小 Overlap は約0.07 nm "
+"のはずです。同じ結果なら次へ進みます。"
 
 #: INSTRUCTIONS.md:187
 msgid ""
@@ -343,6 +398,9 @@ msgid ""
 " equal values. We will need these values for the next exercise! Feel free to"
 " share these values and your plots on Slack as you get them."
 msgstr ""
+"```1-distributions/liquid/histo-0.07``` と "
+"```1-distributions/bcc/histo-0.07``` の第1・2列を重ねます。どんな形で、重なりますか？各 Peak "
+"と両分布が等しくなる Kernel 値を求めてください。次で使います。値と図は Slack にも共有できます。"
 
 #: INSTRUCTIONS.md:194
 msgid "Exercise 2: Bulk interconversion"
@@ -354,13 +412,13 @@ msgid ""
 "interconversion method. This method is based on simulating the reversible "
 "interconversion of the liquid to the solid and calculating the difference in"
 " chemical potential using:"
-msgstr ""
+msgstr "まず Bulk Interconversion で可逆な固液変換を行い、Chemical Potential 差を次で求めます。"
 
 #: INSTRUCTIONS.md:205
 msgid ""
 "with $Z_\\alpha$ and $Z_\\beta$ the partition functions restricted to each "
 "phase. These are computed with the formulae,"
-msgstr ""
+msgstr "$Z_\\alpha$、$Z_\\beta$ は各相に制限した Partition Function で、"
 
 #: INSTRUCTIONS.md:212
 msgid ""
@@ -368,7 +426,7 @@ msgid ""
 "threshold $s^*$. The ratio of the partition functions is easy to calculate "
 "if we have a simulation in which both phases are visited, as we shall see "
 "below."
-msgstr ""
+msgstr "CV $s$ が閾値 $s^*$ で相をよく分けると仮定します。両相を訪れる MD なら比を容易に求められます。"
 
 #: INSTRUCTIONS.md:215
 msgid ""
@@ -378,6 +436,7 @@ msgid ""
 "similarity kernels. If you prefer to use METAD or VES, you can do so, "
 "adapting the input accordingly."
 msgstr ""
+"通常 MD は一相しか見ないため、OPES で Kernel に BiasPotential を加えます。入力を変えて METAD・VES も使えます。"
 
 #: INSTRUCTIONS.md:219
 msgid ""
@@ -387,6 +446,8 @@ msgid ""
 "interconversion/250atoms/400K/plumed.dat``` we can see the input for a "
 "simulation with 250 atoms at 400 K,"
 msgstr ""
+"Kernel の閾値超の原子数を全体量とします。```2-bulk-"
+"interconversion/250atoms/400K/plumed.dat``` は250原子、400 K の例です。"
 
 #: INSTRUCTIONS.md:232
 msgid ""
@@ -398,6 +459,8 @@ msgid ""
 "chosen based on the maxima of the distributions determined in the previous "
 "exercise. Did you get those values right? I hope you did."
 msgstr ""
+"MEAN と MORE_THAN の数を求めます。厳密な閾値でなく、0.38未満で0、0.80超で1、その間を滑らかに変わる微分可能な "
+"Switching Function です。D_0・D_MAX は前の分布 Peak から決めました。同じ値になりましたか？"
 
 #: INSTRUCTIONS.md:236
 msgid "The input for OPES is very simple,"
@@ -410,20 +473,22 @@ msgid ""
 "If you are using well tempered METAD you might want to use a biasfactor of "
 "around 40. The other keywords are fairly standard."
 msgstr ""
+"morethan を CV にします。Barrier は100 kJ/mol 未満と見積もり、BARRIER を選びました。Well-tempered "
+"METAD なら Bias Factor 約40を試せます。ほかは標準的です。"
 
 #: INSTRUCTIONS.md:245
 msgid ""
 "We will also use a trick to avoid forming structures that have orientations "
 "different from the one that we are trying to form. This will be discussed "
 "during the lecture and the PLUMED input is:"
-msgstr ""
+msgstr "異なる配向の構造形成を避ける工夫も使います。講義で説明し、入力は、"
 
 #: INSTRUCTIONS.md:252
 msgid ""
 "In a nutshell, we are limiting the increase of Q6 (rotationally invariant) "
 "not followed by an increase in ENVIRONMENTSIMILARITY (non rotationally "
 "invariant)."
-msgstr ""
+msgstr "要するに、ENVIRONMENTSIMILARITY（回転非不変）が増えない Q6（回転不変）の増加を制限します。"
 
 #: INSTRUCTIONS.md:254
 msgid ""
@@ -432,13 +497,14 @@ msgid ""
 "cluster available). In order to run the simulation you have to execute on "
 "the folder ```2-bulk-interconversion/250atoms/400K``` the command:"
 msgstr ""
+"380、400、420 K など最低数温度を実行します。```2-bulk-interconversion/250atoms/400K``` で、"
 
 #: INSTRUCTIONS.md:259
 msgid ""
 "10 or 20 ns of simulation should suffice, but you may run them for (much) "
 "longer if you are using a computer cluster. To run simulations at other "
 "temperatures, copy the folder 400K, for example,"
-msgstr ""
+msgstr "10〜20 ns で十分でしょう。Cluster なら長くできます。別温度は400K を Copy し、"
 
 #: INSTRUCTIONS.md:264
 msgid ""
@@ -448,6 +514,8 @@ msgid ""
 "two are required. Each simulation should take about 2 hours to get ~10 ns if"
 " you are running on ~8 cores."
 msgstr ""
+"plumed.dat・start.lmp の強調行を400から380 K などへ変えます。最低2温度が必要です。8 Core で10 ns "
+"に約2時間です。"
 
 #: INSTRUCTIONS.md:269
 msgid ""
@@ -465,19 +533,24 @@ msgid ""
 "free energy surface (FES). I provide a simple script fes.py to do this with "
 "python, numpy and matplotlib and you can run it using,"
 msgstr ""
+"終了を待たず解析できます。```COLVAR``` の1列は時間、3は morethan、4は OPES Bias "
+"です。1対3を描き、固液遷移を確認します。```dump.na``` を Ovito の Smooth Trajectory（Window 5）と "
+"Polyhedral Template Matching で見て、bcc 形成と Box への整列を調べます。FES は "
+"Python・NumPy・matplotlib の fes.py で求められます。"
 
 #: INSTRUCTIONS.md:285
 msgid ""
 "This script is based in constructing a histogram $h(s)$ with weights "
 "$e^{\\beta V}$ where $V$ the bias potential. The FES is then obtained using,"
 msgstr ""
+"$V$ を BiasPotential とする $e^{\\beta V}$ 重みの Histogram $h(s)$ から FES を求めます。"
 
 #: INSTRUCTIONS.md:290
 msgid ""
 "You can plot the FES at all the temperatures you have run simulations at. "
 "How does the FES look like? What does each basin represent? How do they "
 "change with temperature? Don't forget to upload your plots to Slack!"
-msgstr ""
+msgstr "全温度の FES を描いてください。各 Basin は何を表し、温度でどう変わりますか？Slack にも共有してください。"
 
 #: INSTRUCTIONS.md:296
 msgid ""
@@ -494,6 +567,10 @@ msgid ""
 "melting temperature do you find? How does it compare with the reference "
 "value (366 K) that has been reported?"
 msgstr ""
+"最重要の Chemical Potential 差を ```2-bulk-"
+"interconversion/250atoms/chemical_potentials.py``` "
+"で求めます。強調行に温度を追加します。2温度以上なら直線 Fit し、差が0となる共存温度を推定します。温度依存は線形ですか？融点は何 K で、366 "
+"K とどう比較されますか？"
 
 #: INSTRUCTIONS.md:305
 msgid ""
@@ -507,6 +584,9 @@ msgid ""
 "temperature now? Which system sizes are big enough to make an error of about"
 " 1 K in the coexistence temperature?"
 msgstr ""
+"余裕があれば ```2-bulk-interconversion/1024atoms/400K``` "
+"の1024原子でも行います。同じ差・共存温度ですか？系サイズ $N$ に対して $1/N$ "
+"に線形なので、熱力学極限に外挿できます。改善しますか？共存温度の誤差1 K 程度にはどれほどのサイズが必要ですか？"
 
 #: INSTRUCTIONS.md:313
 msgid "Exercise 3: Biased coexistence"
@@ -526,13 +606,17 @@ msgid ""
 "$G(N)$. This quantity is connected to the chemical potential in the "
 "following way,"
 msgstr ""
+"別法 **Biased Coexistence** は [Interface "
+"Pinning](https://aip.scitation.org/doi/full/10.1063/1.4818747) "
+"の一般化です。固液（任意の二相）を直接共存させ、例えば1層の成長・融解を可逆に Sampling する Bias "
+"を加えます。固体的な原子数の自由エネルギー $G(N)$ と Chemical Potential の関係は、"
 
 #: INSTRUCTIONS.md:328
 msgid ""
 "This equation is an approximation and rests on several assumptions, yet it "
 "tells us that the chemical potential is the slope of the FES with respect to"
 " N."
-msgstr ""
+msgstr "仮定に基づく近似ですが、N に対する FES の傾きが Chemical Potential 差であることを示します。"
 
 #: INSTRUCTIONS.md:330
 msgid ""
@@ -540,6 +624,8 @@ msgid ""
 "found in the folder ```3-biased-coexistence/2048atoms/400K```. The LAMMPS "
 "input script start.lmp will do a lot of things automatically for us:"
 msgstr ""
+"```3-biased-coexistence/2048atoms/400K``` に2048原子の例があります。start.lmp "
+"は自動的に次を行います。"
 
 #: INSTRUCTIONS.md:332
 msgid "Create a bcc crystal and equilibrate it in NPT"
@@ -549,19 +635,19 @@ msgstr "BCC Crystal を作成し、NPT で Equilibration する。"
 msgid ""
 "Determine the equilibrium box dimensions and fix the lengths in x and y to "
 "their equilibrium value at the simulated temperature"
-msgstr ""
+msgstr "平衡 Box を求め、x・y をその温度の平衡値に固定する。"
 
 #: INSTRUCTIONS.md:334
 msgid ""
 "Replicate the crystal along the z axis and melt half of the crystal in the "
 "box"
-msgstr ""
+msgstr "z に結晶を複製し、半分を融解する。"
 
 #: INSTRUCTIONS.md:335
 msgid ""
 "Equilibrate the liquid-solid surface under the constraint of having around "
 "half the atoms with solid-like environments in the NPzT ensemble"
-msgstr ""
+msgstr "約半数が固体的になる拘束の下で、NPzT で界面を平衡化する。"
 
 #: INSTRUCTIONS.md:336
 msgid "Production run with a bias potential in the NPzT ensemble"
@@ -571,12 +657,12 @@ msgstr "NPzT Ensemble で BiasPotential を用いて本計算を行う。"
 msgid ""
 "The equilibration under a constraint is done using the following PLUMED "
 "input found on plumed.equil.dat,"
-msgstr ""
+msgstr "拘束の入力は plumed.equil.dat の、"
 
 #: INSTRUCTIONS.md:343
 msgid ""
 "And in the production run, the bias is defined in file plumed.dat and is,"
-msgstr ""
+msgstr "本計算の Bias は plumed.dat の、"
 
 #: INSTRUCTIONS.md:351
 msgid "Run the simulation at 400 K using the command,"
@@ -592,6 +678,8 @@ msgid ""
 "resources. The lines of the input scripts plumed.dat and start.lmp where the"
 " temperature has to be changed are clearly highlighted."
 msgstr ""
+"最低3 ns、8 Core で約2時間が目安です。Cluster なら長くし、360、380、400 K など複数温度を推奨します。温度変更行は "
+"plumed.dat・start.lmp で強調されています。"
 
 #: INSTRUCTIONS.md:360
 msgid ""
@@ -611,6 +699,11 @@ msgid ""
 " bias potential. Are the FES linear with the number of solid-like atoms? "
 "What melting temperature did you find?"
 msgstr ""
+"COLVAR の1対3（時間・morethan）で OPES と Wall 下の挙動を見ます。dump.na を Ovito "
+"でも確認できます。```3-biased-coexistence/2048atoms``` の "
+"```chemical_potential_bc.py``` は FES、傾きの直線 Fit、Chemical Potential "
+"の温度依存、共存温度を求めます。強調行に温度を追加してください。$V$ を Bias とし $e^{\\beta V}$ の Histogram "
+"を使います。FES は固体数に線形ですか？融点はいくつですか？"
 
 #: INSTRUCTIONS.md:372
 msgid ""
@@ -618,7 +711,7 @@ msgid ""
 "similarity kernel that we use for post-processing. This definition can't be "
 "used for biasing but it is a better way to count solid-like atoms and we use"
 " it to construct the FES. The definition of the \"strict\" version is,"
-msgstr ""
+msgstr "後処理には厳密な morethan を使います。Bias には使えませんが固体数を数えるのに適し、FES に使います。定義は、"
 
 #: INSTRUCTIONS.md:384
 msgid "and is in column 13 of the COLVAR file."
@@ -628,7 +721,7 @@ msgstr "また、COLVAR ファイルの13列目に記録されている。"
 msgid ""
 "Discuss the advantages and disadvantages of the two methods presented above."
 " Which one did you like best? Why?"
-msgstr ""
+msgstr "2手法の長短を議論してください。どちらが好みで、なぜですか？"
 
 #: INSTRUCTIONS.md:389
 msgid "Exercise 4: Thermodynamic integration along isobars"
@@ -645,6 +738,8 @@ msgid ""
 "for this exercise, but we will use the results obtained here to validate the"
 " methods described above."
 msgstr ""
+"最も簡単なのは Thermodynamic Integration かもしれません。等圧線に沿って積分し、低コストですが、ある条件での Chemical"
+" Potential 差が既知である必要があります。上記手法の補完です。PLUMED は不要ですが、結果を検証に使います。"
 
 #: INSTRUCTIONS.md:399
 msgid "The method relies on the following thermodynamic identity,"
@@ -656,6 +751,8 @@ msgid ""
 "and $\\Delta h$ is the per-atom enthalpy difference. If $T_0$ is the "
 "coexistence temperature, the first term on the RHS vanishes."
 msgstr ""
+"$T_0$ は $\\Delta\\mu$ が既知の参照温度、$\\Delta h$ は1原子当たり Enthalpy 差です。$T_0$ "
+"が共存温度なら右辺第1項は0です。"
 
 #: INSTRUCTIONS.md:406
 msgid ""
@@ -666,6 +763,8 @@ msgid ""
 " simulations at different temperatures between 330 K and 410 K in steps of "
 "10 K. It is used in the following way,"
 msgstr ""
+"複数温度・圧力で固液の Enthalpy を求めます。4-thermodynamic-integration/liquid と bcc "
+"に例があります。newtemp.sh で330〜410 K を10 K 刻みのフォルダにできます。"
 
 #: INSTRUCTIONS.md:413
 msgid ""
@@ -679,6 +778,9 @@ msgid ""
 " differences vs temperature. How do these chemical potentials compare with "
 "the ones obtained with other methods?"
 msgstr ""
+"```400K``` に400 K の入力を作ります。実行は同じコマンドで、各数分です。thermo.txt に Enthalpy "
+"が出ます。```4-thermodynamic-integration``` の ```chemical_potentials_ti.py``` が "
+"Enthalpy の温度依存、積分、Chemical Potential 差を描きます。ほかの手法とどう比較されますか？"
 
 #: INSTRUCTIONS.md:419
 msgid "Final thoughts"
@@ -695,3 +797,6 @@ msgid ""
 "extremely useful when computing phase diagrams in the temperature-pressure "
 "plane."
 msgstr ""
+"3つの固液 Chemical Potential 差の計算法を学びました。Enhanced Sampling "
+"によらない方法は省きました。Clausius-Clapeyron 式を積分して共存線を追う方法も重要な補完で、温度・圧力 Phase Diagram "
+"に非常に有用です。"
