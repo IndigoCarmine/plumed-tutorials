@@ -9,7 +9,7 @@ msgstr ""
 
 #: defsystem.md:2
 msgid "Planar 7-Atoms Cluster"
-msgstr ""
+msgstr "平面7原子 Cluster"
 
 #: defsystem.md:4
 msgid ""
@@ -21,34 +21,37 @@ msgid ""
 "the CVs second (SCM) and third (TCM) central moments of the distribution of "
 "coordinations (orange stars in Figure 2)."
 msgstr ""
+"平面の7 Lennard-Jones (LJ) 原子を考えます。[PLUMED Masterclass "
+"21.2](https://www.plumed-tutorials.org/lessons/21/002/data/NAVIGATION.html) "
+"の演習9のモデルです。複数の安定 Isomer（図1）を、Coordination 分布の SCM・TCM で区別します（図2の橙の星）。"
 
 #: defsystem.md:15
 msgid ""
 "**Figure 1.** Local minima isomers of the LJ cluster used in this tutorial."
-msgstr ""
+msgstr "**図1。** 使用する LJ Cluster の局所極小 Isomer。"
 
 #: defsystem.md:17
 msgid ""
 "The n-th central moment, $\\mu_n$, of the coordination number of an N-atoms "
 "cluster is defined as"
-msgstr ""
+msgstr "N 原子 Cluster の Coordination Number の n 次 Central Moment $\\mu_n$ は、"
 
 #: defsystem.md:29
 msgid ""
 "where $\\left< {X} \\right>$ is the mean value of $X_i$, which is the "
 "coordination of the i-th atom,"
-msgstr ""
+msgstr "$\\left< {X} \\right>$ は i 番目の Coordination $X_i$ の平均です。"
 
 #: defsystem.md:40
 msgid ""
 "with $r_{ij}$ the distance between atoms $i$ and $j$, and $d$ a reference "
 "parameter. For this example, d is fixed to 1.5 $\\sigma$, in LJ units."
-msgstr ""
+msgstr "$r_{ij}$ は原子 $i$・$j$ 間距離、$d$ は参照値です。ここでは LJ 単位で1.5 $\\sigma$ に固定します。"
 
 #: defsystem.md:44
 msgid "[&larr; Theory: CVs and MTD](theory.md)"
-msgstr ""
+msgstr "[&larr; 理論：CV と MTD](theory.md)"
 
 #: defsystem.md:45
 msgid "[Unbiased simulation and Postprocessing &rarr;](MD.md)"
-msgstr ""
+msgstr "[Unbiased MD と後処理 &rarr;](MD.md)"

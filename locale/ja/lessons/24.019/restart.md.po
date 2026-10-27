@@ -9,7 +9,7 @@ msgstr ""
 
 #: restart.md:1
 msgid "Restart Note"
-msgstr ""
+msgstr "再開の注意"
 
 #: restart.md:3
 msgid ""
@@ -18,22 +18,24 @@ msgid ""
 "steps value in the Plumed calculator. This means you would have to change "
 "the initialization of the `atoms` object as follows:"
 msgstr ""
+"追加 Step のため再開するには、`atoms` を前の最終状態にし、PLUMED Calculator の Step "
+"値を設定します。初期化を次に変えます。"
 
 #: restart.md:15
 msgid "and the definition of the calculator becomes"
-msgstr ""
+msgstr "Calculator は、"
 
 #: restart.md:22
 msgid ""
 "where the three points must be replaced by the other arguments of the "
 "calculator. Alternatively, you can initialize your calculator using the "
 "following script"
-msgstr ""
+msgstr "三点はほかの引数に置き換えます。次のスクリプトでも初期化できます。"
 
 #: restart.md:35
 msgid "[&larr; Biased simulation: Well Tempered Metadynamics](MTD.md)"
-msgstr ""
+msgstr "[&larr; Bias 付き MD：Well-Tempered Metadynamics](MTD.md)"
 
 #: restart.md:36
 msgid "[Ab-initio: Small Silver Cluster &rarr;](SC.md)"
-msgstr ""
+msgstr "[Ab-initio：小さな Silver Cluster &rarr;](SC.md)"

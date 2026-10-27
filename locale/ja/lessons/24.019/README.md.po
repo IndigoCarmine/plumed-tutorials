@@ -9,17 +9,17 @@ msgstr ""
 
 #: README.md:1
 msgid "ASE-PLUMED Calculator Tutorial"
-msgstr ""
+msgstr "ASE-PLUMED Calculator Tutorial"
 
 #: README.md:2
 msgid ""
 "Tutorial about the calculator presented in the paper: "
 "https://doi.org/10.1063/5.0082332"
-msgstr ""
+msgstr "https://doi.org/10.1063/5.0082332 で紹介した Calculator の Tutorial"
 
 #: README.md:3
 msgid "by Daniel Sucerquia, Pilar Cossio and Olga Lopez-Acevedo. March, 2022"
-msgstr ""
+msgstr "Daniel Sucerquia、Pilar Cossio、Olga Lopez-Acevedo、2022年3月。"
 
 #: README.md:5
 msgid ""
@@ -34,6 +34,10 @@ msgid ""
 "surface of a small cluster of silver atoms using Ab-initio Molecular "
 "Dynamics."
 msgstr ""
+"[ASE](https://wiki.fysik.dtu.dk/ase/) の [PLUMED "
+"Calculator](https://wiki.fysik.dtu.dk/ase/ase/calculators/plumed.html) "
+"を紹介します。モデル系で MD 中と後処理の CV 計算を示します。通常 MD では地形を十分探索できないため Well-Tempered "
+"Metadynamics を適用します。最後に Silver 原子の小 Cluster を Ab-initio MD で調べます。"
 
 #: README.md:14
 msgid ""
@@ -44,6 +48,10 @@ msgid ""
 "quantum or classical methods. In other words, this tutorial shows how to "
 "connect PLUMED to all the other codes interfaced in ASE."
 msgstr ""
+"Atomic Simulation Environment [ASE](https://wiki.fysik.dtu.dk/ase/) は "
+"Atomistic MD の設定・実行・可視化用で、量子・古典法の "
+"[各種コード](https://wiki.fysik.dtu.dk/ase/#supported-calculators) と連携します。この "
+"Tutorial は PLUMED をそれらすべてにつなぐ方法です。"
 
 #: README.md:19
 msgid ""
@@ -52,6 +60,8 @@ msgid ""
 "page](http://www.plumed.org/doc). The usage of other tools of Plumed with "
 "ASE is absolutely analogous to what is explain here."
 msgstr ""
+"PLUMED には今回以外にも多くの Action があります。[Web ページ](http://www.plumed.org/doc) "
+"を参照してください。ほかのツールも同様に ASE で使えます。"
 
 #: README.md:21
 msgid ""
@@ -66,96 +76,101 @@ msgid ""
 "available](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files)."
 msgstr ""
+"まず [Metadynamics の基本](#theory)、次にモデルの [MD](#planar-7-atoms-cluster) 中の CV "
+"計算を示し、後処理でも再現します。最後に [Well-Tempered Metadynamics](#well-tempered-"
+"metadynamics-simulation) で全体を探索して FES を再構成します。全ファイルは "
+"[公開](https://github.com/Sucerquia/ASE-PLUMED_tutorial/blob/master/files) "
+"されています。"
 
 #: README.md:23
 msgid "**CONTENT**"
-msgstr ""
+msgstr "**目次**"
 
 #: README.md:24
 msgid "[Theory](#theory)"
-msgstr ""
+msgstr "[理論](#theory)"
 
 #: README.md:25
 msgid "[Collective Variables](#collective-variables)"
-msgstr ""
+msgstr "[Collective Variables](#collective-variables)"
 
 #: README.md:26
 msgid "[Metadynamics](#metadynamics)"
-msgstr ""
+msgstr "[Metadynamics](#metadynamics)"
 
 #: README.md:27
 msgid "[Planar 7-Atoms Cluster](#planar-7-atoms-cluster)"
-msgstr ""
+msgstr "[平面7原子 Cluster](#planar-7-atoms-cluster)"
 
 #: README.md:28
 msgid "[Molecular Dynamics Simulation](#molecular-dynamics-simulation)"
-msgstr ""
+msgstr "[Molecular Dynamics](#molecular-dynamics-simulation)"
 
 #: README.md:29
 msgid "[Post Processing Analysis](#post-processing-analysis)"
-msgstr ""
+msgstr "[後処理解析](#post-processing-analysis)"
 
 #: README.md:30
 msgid ""
 "[Well-Tempered Metadynamics Simulation](#well-tempered-metadynamics-"
 "simulation)"
-msgstr ""
+msgstr "[Well-Tempered Metadynamics](#well-tempered-metadynamics-simulation)"
 
 #: README.md:31
 msgid "[Restart Note](#restart-note)"
-msgstr ""
+msgstr "[再開の注意](#restart-note)"
 
 #: README.md:32
 msgid "[Ab-initio: Small Silver Cluster](#ab-initio-small-silver-cluster)"
-msgstr ""
+msgstr "[Ab-initio：小さな Silver Cluster](#ab-initio-small-silver-cluster)"
 
 #: README.md:33
 msgid "[Collective variables](#collective-variables-1)"
-msgstr ""
+msgstr "[Collective Variables](#collective-variables-1)"
 
 #: README.md:34
 msgid "[Running the Simulation](#running-the-simulation)"
-msgstr ""
+msgstr "[実行](#running-the-simulation)"
 
 #. mermaid node label
 #: README.md:39
 msgid "ASE+PLUMED tutorial"
-msgstr ""
+msgstr "ASE+PLUMED Tutorial"
 
 #. mermaid node label
 #: README.md:39
 msgid "Install packages"
-msgstr ""
+msgstr "Package のインストール"
 
 #. mermaid node label
 #: README.md:40
 msgid "Theory: CVs and MTD"
-msgstr ""
+msgstr "理論：CV と MTD"
 
 #. mermaid node label
 #: README.md:41
 msgid "Toy model: Planar 7-Atoms Cluster"
-msgstr ""
+msgstr "モデル：平面7原子 Cluster"
 
 #. mermaid node label
 #: README.md:42
 msgid "Unbiased simulation and Postprocessing"
-msgstr ""
+msgstr "Unbiased MD と後処理"
 
 #. mermaid node label
 #: README.md:43
 msgid "Biased simulation: Well Tempered Metadynamics"
-msgstr ""
+msgstr "Bias 付き MD：Well-Tempered Metadynamics"
 
 #. mermaid node label
 #: README.md:44
 msgid "Restart a simulation"
-msgstr ""
+msgstr "シミュレーションの再開"
 
 #. mermaid node label
 #: README.md:45 README.md:478
 msgid "Ab-initio: Small Silver Cluster"
-msgstr ""
+msgstr "Ab-initio：小さな Silver Cluster"
 
 #. mermaid click tooltip
 #: README.md:47
@@ -165,37 +180,37 @@ msgstr "Tutorial の導入"
 #. mermaid click tooltip
 #: README.md:48
 msgid "Install py-plumed and ASE"
-msgstr ""
+msgstr "py-plumed と ASE のインストール"
 
 #. mermaid click tooltip
 #: README.md:49
 msgid "Theory necessary to follow completely this tutorial"
-msgstr ""
+msgstr "Tutorial に必要な理論"
 
 #. mermaid click tooltip
 #: README.md:50
 msgid "Toy model showing the usage of PLUMED in ASE"
-msgstr ""
+msgstr "ASE での PLUMED 利用を示すモデル系"
 
 #. mermaid click tooltip
 #: README.md:51
 msgid "Unbiased simulation computing CVs on the fly and by postprocessing"
-msgstr ""
+msgstr "On-the-fly・後処理で CV を求める Unbiased MD"
 
 #. mermaid click tooltip
 #: README.md:52
 msgid "Addition of the bias using metadynamics"
-msgstr ""
+msgstr "Metadynamics による Bias の追加"
 
 #. mermaid click tooltip
 #: README.md:53
 msgid "How to restart a simulation in ASE"
-msgstr ""
+msgstr "ASE の再開方法"
 
 #. mermaid click tooltip
 #: README.md:54
 msgid "Ab-initio example"
-msgstr ""
+msgstr "Ab-initio の例"
 
 #: README.md:57 README.md:257 README.md:514
 msgid "**WARNING**"
@@ -210,6 +225,11 @@ msgid ""
 "[installation instructions](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/install.md)."
 msgstr ""
+"[py-plumed](https://www.plumed.org/doc-v2.8/user-"
+"doc/html/_installation.html#installingpython) と "
+"[ASE](https://gitlab.com/ase/ase) >= 3.23.0 が必要です。詳細は "
+"[インストール手順](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/install.md) を参照してください。"
 
 #: README.md:61
 msgid "Theory"
@@ -217,7 +237,7 @@ msgstr "理論"
 
 #: README.md:63
 msgid "Collective Variables"
-msgstr ""
+msgstr "Collective Variables"
 
 #: README.md:65
 msgid ""
@@ -232,6 +252,11 @@ msgid ""
 "complete explanation of CVs implemented in Plumed, [go to this "
 "link](https://www.plumed.org/doc-v2.8/user-doc/html/colvarintro.html)."
 msgstr ""
+"全原子の Cartesian "
+"座標を直接監視して明確な情報を得るのは、特に大きな系では困難です。対象の化学的性質を記述する座標の関数、Collective Variables "
+"(CVs) を定義すれば、特定自由度への Bias や時間変化の解析が容易になります。PLUMED の多数の CV を ASE "
+"で使えます。[一覧](https://www.plumed.org/doc-v2.8/user-doc/html/colvarintro.html) "
+"を参照してください。"
 
 #: README.md:76
 msgid "Metadynamics"
@@ -245,6 +270,9 @@ msgid ""
 "$\\tau$ time lapse and usually its shape is Gaussian. In time t, the "
 "accumulated bias is defined as"
 msgstr ""
+"[Metadynamics](https://www.nature.com/articles/s42254-020-0153-0) は、CV "
+"の関数として Bias を蓄積し地形を探索する Enhanced Sampling 法です。通常 Gaussian を $\\tau$ ごとに加え、時刻"
+" t の蓄積 Bias は、"
 
 #: README.md:96
 msgid ""
@@ -257,6 +285,9 @@ msgid ""
 "towards high free energy states that are thermodynamically irrelevant. The "
 "height in time t' for Well-Tempered Metadynamics is"
 msgstr ""
+"$\\mathbf{s}$ は CV 集合、$\\sigma_i$ は i 番目の Gaussian 幅、*W(s, t')* は時刻 *t'* "
+"の高さです。通常は *W(s, t')* 一定ですが、Well-Tempered では既存 Bias "
+"のある場所で低くします。誤差を減らし、熱力学的に重要でない高自由エネルギー状態の探索を避けます。時刻 t' の高さは、"
 
 #: README.md:114
 msgid ""
@@ -268,30 +299,33 @@ msgid ""
 "metadynamics is recovered. On contrast, when $\\gamma$ approaches zero, no "
 "bias is added, which is the case of Molecular Dynamics."
 msgstr ""
+"$W$ は最大高さ、$\\beta$ は熱エネルギーの逆数 ($1/k_BT$)、$\\gamma$ は1超の Bias Factor "
+"です。大きいほど高さがゆっくり減ります。$\\gamma$ が無限大なら一定になり通常 Metadynamics に戻ります。一方 $\\gamma$ "
+"が0に近づくと Bias がなく、通常 MD になります。"
 
 #: README.md:122
 msgid ""
 "The addition of the bias potential produces an extra force in each atom, "
 "such that the resultant force for the i-th atom is"
-msgstr ""
+msgstr "BiasPotential により各原子に追加の力が働き、i 番目の合力は、"
 
 #: README.md:134
 msgid ""
 "where ${\\bf F}_i$ is the natural unbiased force, $R_i$ is the coordinate of"
 " the atom, and the second term is the additional force due to the added "
 "bias."
-msgstr ""
+msgstr "${\\bf F}_i$ は Unbiased な力、$R_i$ は座標、第2項が Bias による追加の力です。"
 
 #: README.md:137
 msgid ""
 "Part of the power of metadynamics is that it can be used for exploring "
 "conformations. Moreover, the accumulated bias converges to the free energy "
 "surface ($F({\\bf s})$),"
-msgstr ""
+msgstr "Conformation 探索に加え、蓄積 Bias から自由エネルギー表面 ($F({\\bf s})$) への収束関係を得られます。"
 
 #: README.md:149
 msgid "Planar 7-Atoms Cluster"
-msgstr ""
+msgstr "平面7原子 Cluster"
 
 #: README.md:151
 msgid ""
@@ -303,33 +337,37 @@ msgid ""
 "the CVs second (SCM) and third (TCM) central moments of the distribution of "
 "coordinations (orange stars in Figure 2)."
 msgstr ""
+"平面の7 Lennard-Jones (LJ) 原子を考えます。[PLUMED Masterclass "
+"21.2](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/masterclass-21-2.html#masterclass-21-2-ex-9) のモデルです。複数の安定 "
+"Isomer（図1）があり、Coordination Number 分布の SCM・TCM で区別できます（図2の橙の星）。"
 
 #: README.md:162
 msgid ""
 "**Figure 1.** Local minima isomers of the LJ cluster used in this tutotrial."
-msgstr ""
+msgstr "**図1。** 使用する LJ Cluster の局所極小 Isomer。"
 
 #: README.md:164
 msgid ""
 "The n-th central moment, $\\mu_n$, of the coordination number of an N-atoms "
 "cluster is defined as"
-msgstr ""
+msgstr "N 原子 Cluster の Coordination Number の n 次 Central Moment $\\mu_n$ は、"
 
 #: README.md:175
 msgid ""
 "where $\\left< {X} \\right>$ is the mean value of $X_i$, which is the "
 "coordination of the i-th atom,"
-msgstr ""
+msgstr "$\\left< {X} \\right>$ は i 番目の Coordination $X_i$ の平均です。"
 
 #: README.md:185
 msgid ""
 "with $r_{ij}$ the distance between atoms $i$ and $j$, and $d$ a reference "
 "parameter. For this example, d is fixed to 1.5 $\\sigma$, in LJ units."
-msgstr ""
+msgstr "$r_{ij}$ は原子 $i$・$j$ 間距離、$d$ は参照値です。ここでは LJ 単位で1.5 $\\sigma$ に固定します。"
 
 #: README.md:188
 msgid "Molecular Dynamics Simulation"
-msgstr ""
+msgstr "Molecular Dynamics シミュレーション"
 
 #: README.md:190
 msgid ""
@@ -339,6 +377,9 @@ msgid ""
 "a.m.u), the parameters of the simulation are $k_\\text{B}T=0.1$, friction "
 "coefficient fixed equal to 1 and a time step of 0.005."
 msgstr ""
+"Enhanced Sampling の必要性を示すため、まず Bias なし Langevin MD を行います。LJ 単位（$\\epsilon$ ="
+" 1 eV、$\\sigma$ = 1 $\\textrm Å$、m = 1 a.m.u）で、$k_\\text{B}T=0.1$、Friction "
+"Coefficient は1、Time Step は0.005です。"
 
 #: README.md:196
 msgid ""
@@ -351,6 +392,9 @@ msgid ""
 "[`MD.py`](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/MD.py):"
 msgstr ""
+"熱揺らぎで全空間を探索するはずですが、長時間でも同状態に留まります。全探索に実行可能な時間以上を要するためです。図2の青点は次の "
+"[`MD.py`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/MD.py) の Trajectory です。"
 
 #: README.md:241
 msgid ""
@@ -364,6 +408,10 @@ msgid ""
 " sampling method as an alternative to observe transitions to other "
 "configurations. In this tutorial, we implement Well-Tempered Metadynamics."
 msgstr ""
+"[`isomer.xyz`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/isomer.xyz) "
+"のエネルギー極小から始めます。図2のように同じ状態付近に留まり、別 Isomer への遷移がなく十分 Sampling "
+"できません。別構造への遷移を観測するため、Well-Tempered Metadynamics を使います。"
 
 #: README.md:250
 msgid ""
@@ -373,6 +421,9 @@ msgid ""
 " the plumed actions, you can replace the `setup` variable assignament in the"
 " previous code for:"
 msgstr ""
+"**注：** 通常の入力（この例なら [`plumedLJ.dat`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/plumedLJ.dat)）を読むには、前の `setup` "
+"の代入を次に変えられます。"
 
 #: README.md:259
 msgid ""
@@ -382,10 +433,11 @@ msgid ""
 "important to mantain the units of all plumed parameters and outputs in ASE "
 "units. You can ignore this line if you are aware of the units conversion."
 msgstr ""
+"UNITS の行で単位を合わせます。PLUMED のパラメータ・出力は内部単位なので、ASE 単位の維持に重要です。変換を理解していれば省略できます。"
 
 #: README.md:262
 msgid "Post Processing Analysis"
-msgstr ""
+msgstr "後処理解析"
 
 #: README.md:264
 msgid ""
@@ -396,13 +448,16 @@ msgid ""
 "[`postpro.py`](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/postpro.py):"
 msgstr ""
+"既存 MD Trajectory の CV は、MD を再実行せず PLUMED 出力を再作成できます。先ほどの Trajectory から "
+"[`postpro.py`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/postpro.py) で COLVAR を作り直します。"
 
 #: README.md:297
 msgid ""
 "This code, as well as the previous one, generates a file called COLVAR with "
 "the value of the CVs. All plumed files begin with a head that describes the "
 "fields that it contains. In this case, the heading looks like:"
-msgstr ""
+msgstr "前のコードと同様、CV を含む COLVAR を生成します。PLUMED 出力の先頭には列を説明する Header があり、今回は、"
 
 #: README.md:307
 msgid ""
@@ -411,13 +466,15 @@ msgid ""
 "moment (TCM). When we plot this trajectory in the space of this CVs (that "
 "is, the second and third columns) we obtain this result:"
 msgstr ""
+"第1列は時間、第2列は Second Central Moment (SCM)、第3列は Third Central Moment (TCM) "
+"です。第2・3列の CV 空間に描くと、"
 
 #: README.md:316
 msgid ""
 "**Figure 2.** Unbiased MD trajectory (blue dots) in the space of the "
 "collective variables second and third central moment. Orange stars represent"
 " the location of the local minima isomers of the LJ cluster in this space."
-msgstr ""
+msgstr "**図2。** SCM・TCM 空間の Unbiased MD（青点）。橙の星は LJ Cluster の局所極小 Isomer です。"
 
 #: README.md:320
 msgid ""
@@ -428,10 +485,12 @@ msgid ""
 "to use an enhanced sampling method. In this case, we implement Well-Tempered"
 " Metadynamics for reconstructing the Free Energy Surface (FES)."
 msgstr ""
+"同じ安定状態に留まるため、少なくともこの時間では MD だけで全 Configuration を探索して統計的に調べられません。Well-"
+"Tempered Metadynamics で FES を再構成します。"
 
 #: README.md:327
 msgid "Well-Tempered Metadynamics Simulation"
-msgstr ""
+msgstr "Well-Tempered Metadynamics シミュレーション"
 
 #: README.md:329
 msgid ""
@@ -441,6 +500,8 @@ msgid ""
 "restrain to avoid that the extra energy dissolves the atoms in vacuum. This "
 "restriction consists in a semi-harmonic potential with the form"
 msgstr ""
+"[`Theory section`](#metadynamics) の Well-Tempered Metadynamics は外部エネルギーで別 "
+"Conformation を探索させます。真空中で原子が離れるのを防ぐため、次の Semiharmonic Restraint を加えます。"
 
 #: README.md:344
 msgid ""
@@ -453,6 +514,8 @@ msgid ""
 "other atoms. This is defined with the keyword UPPER_WALLS in the plumed set "
 "up."
 msgstr ""
+"$k$ は1000、$r_w$ は LJ 単位で2、$d_i$ は Center of Mass との距離です。$r_w$ "
+"未満では作用せず、超えると原子を引き戻します。UPPER_WALLS で定義します。"
 
 #: README.md:353
 msgid ""
@@ -460,6 +523,8 @@ msgid ""
 "code [`MTD.py`](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/MTD.py):"
 msgstr ""
+"[`MTD.py`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/MTD.py) で実行できます。"
 
 #: README.md:406
 msgid ""
@@ -471,6 +536,9 @@ msgid ""
 "height of the Gaussians (W) and the $\\gamma$ factor of [equation "
 "(2)](#hills), respectively."
 msgstr ""
+"[式(2)](#hills) の温度として Calculator の kT が必要です。SIGMA は Gaussian 標準偏差、PACE "
+"は追加間隔（[式(1)](#bias) の $\\tau$）、HEIGHT は最大高さ W、BIASFACTOR は [式(2)](#hills) の "
+"$\\gamma$ です。"
 
 #: README.md:414
 msgid ""
@@ -479,6 +547,8 @@ msgid ""
 "could use your preferred ASE calculator instead of the LJ calculator used "
 "here."
 msgstr ""
+"LJ Calculator が [式(3)](#force) の ${\\bf F}_i$ を計算します。任意の ASE Calculator "
+"に変更できます。"
 
 #: README.md:418
 msgid ""
@@ -488,6 +558,9 @@ msgid ""
 "[sum_hills](https://www.plumed.org/doc-v2.7/user-doc/html/sum_hills.html). "
 "The simplest way of using it is:"
 msgstr ""
+"Metadynamics は追加した Gaussian を HILLS "
+"に保存します。自分で自由エネルギーを再構成するか、[sum_hills](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/sum_hills.html) を使えます。最も簡単には、"
 
 #: README.md:427
 msgid ""
@@ -496,24 +569,26 @@ msgid ""
 "[plotter.py](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/plotter.py), it yields:"
 msgstr ""
+"fes.dat に再構成した FES が出ます。[plotter.py](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/plotter.py) で描くと、"
 
 #: README.md:434
 msgid ""
 "**Figure 3.** Free energy surface (LJ units) in the space of the collective "
 "variables second and third central moment. Orange stars represent the "
 "location of the local minima isomers of the LJ cluster in this space."
-msgstr ""
+msgstr "**図3。** SCM・TCM 空間の自由エネルギー表面（LJ 単位）。橙の星は局所極小 Isomer です。"
 
 #: README.md:438
 msgid ""
 "Note that theere is bias added around all the states, that means that the "
 "system jumped from one state to the others and gave a complete "
 "reconstruction of the free energy surface."
-msgstr ""
+msgstr "すべての状態に Bias が加わり、系が状態間を移動して FES を全体的に再構成したことがわかります。"
 
 #: README.md:442
 msgid "Restart Note"
-msgstr ""
+msgstr "再開の注意"
 
 #: README.md:444
 msgid ""
@@ -525,17 +600,19 @@ msgid ""
 " as an example, this means you would have to change the initialization of "
 "the object atoms as follows:"
 msgstr ""
+"終了時に未探索の状態などがあり Bias が不十分なら、再開して Step を追加します。前の最終状態に atoms を設定し、PLUMED "
+"Calculator の Step を合わせます。前の例なら初期化を次に変えます。"
 
 #: README.md:459
 msgid "and the definition of the calculator becomes in"
-msgstr ""
+msgstr "Calculator の定義は、"
 
 #: README.md:466
 msgid ""
 "where the three points must be replaced by the other arguments of the "
 "calculator. Alternatively, you can initialize your calculator using the next"
 " script"
-msgstr ""
+msgstr "三点はほかの引数で置き換えます。代わりに次のスクリプトでも初期化できます。"
 
 #: README.md:480
 msgid ""
@@ -547,21 +624,24 @@ msgid ""
 " is the smallest silver cluster where entropic effects at room temperature "
 "boost the non-planar isomer probability to a competing state."
 msgstr ""
+"実系も Ab-initio Calculator で同様に調べられます。[D. Sucerquia "
+"ら、JCP、2022](https://doi.org/10.1063/5.0082332) の Ag-6 Cluster の FES "
+"を求めます。室温の Entropy 効果により Non-planar Isomer が競合する状態になる、最小の Silver Cluster です。"
 
 #: README.md:482
 msgid "Collective variables"
-msgstr ""
+msgstr "Collective Variables"
 
 #: README.md:484
 msgid ""
 "To obtain a proper exploration of the different states of the silver "
 "cluster, we can use the coordination number (C) and the radius of gyration "
 "(R) as collective variables. This Collective variables are defined as"
-msgstr ""
+msgstr "各状態の探索に Coordination Number (C) と Radius of Gyration (R) を使えます。定義は、"
 
 #: README.md:490 README.md:504
 msgid "and"
-msgstr ""
+msgstr "および、"
 
 #: README.md:496
 msgid ""
@@ -573,6 +653,8 @@ msgid ""
 "optimization, which are expected to be metastable states in the free-energy "
 "landscape."
 msgstr ""
+"$r_i$ は原子 $i$ の位置、$r_{CM}$ は Center of Mass、$N_a$ "
+"は原子数です。中心からの広がりを示します。$C$・$R$ で形を記述し、準安定状態と予想される DFT 最適化の極小を区別できます。"
 
 #: README.md:498
 msgid ""
@@ -585,6 +667,8 @@ msgid ""
 "rotation of C and R, over which we could easily apply a constraint as we did"
 " for the previous example. The rotated CVs are defined as"
 msgstr ""
+"短い WT-MTD で、対象外の結合切断 Isomer や Linear Cluster が現れました。高コストな Ab-initio "
+"で重要でない領域を強化しないため、C・R を回転した CV1・CV2 を作り、前の例と同様に拘束しやすくします。"
 
 #: README.md:510
 msgid ""
@@ -592,10 +676,12 @@ msgid ""
 " potentials that act when CV1 is lower than 8 with harmonic constant 10 eV "
 "and values of CV2 greater than 3.3 with harmonic constant 50 eV."
 msgstr ""
+"CV1 < 8で Harmonic Constant 10 eV、CV2 > 3.3で50 eV の反発 Semiharmonic Wall "
+"を置きます。"
 
 #: README.md:512
 msgid "Running the Simulation"
-msgstr ""
+msgstr "実行"
 
 #: README.md:516
 msgid ""
@@ -607,6 +693,8 @@ msgid ""
 "change the argument of the function `run` in the last line, and you might "
 "need to use High Performance Computing."
 msgstr ""
+"正しい FES 再構成には収束まで長時間が必要で、数時間かかる場合があります。ここは機能の例で、次は5 Step だけです。長くするには最後の "
+"`run` の引数を変え、HPC も検討してください。"
 
 #: README.md:518
 msgid ""
@@ -614,6 +702,8 @@ msgid ""
 "[`plumedSC.dat`](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/plumedSC.dat) containing the lines,"
 msgstr ""
+"[`plumedSC.dat`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/plumedSC.dat) を次の内容で作ります。"
 
 #: README.md:532
 msgid ""
@@ -626,15 +716,20 @@ msgid ""
 "as shown in the file [MTD-SC.py](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/MTD-SC.py):"
 msgstr ""
+"DFT 最適化した [isomerSC.xyz](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/isomerSC.xyz) などから開始します。ここでは DFT コード "
+"[GPAW](https://gpaw.readthedocs.io/) の設定が必要ですが、任意の QM コードを選べます。[MTD-"
+"SC.py](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/MTD-SC.py) の例を示します。"
 
 #: README.md:588
 msgid ""
 "After running this same code but changing the temperature and the number of "
 "time steps, you can obtain the free energy surfaces of Figure 4."
-msgstr ""
+msgstr "同じコードで温度と Step 数を変えると図4の FES を得られます。"
 
 #: README.md:594
 msgid ""
 "**Figure 4.** Free energy surface of a Ag6 cluster at three different "
 "temperatures."
-msgstr ""
+msgstr "**図4。** 3つの温度の Ag6 Cluster の FES。"

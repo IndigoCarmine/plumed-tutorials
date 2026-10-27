@@ -9,7 +9,7 @@ msgstr ""
 
 #: MTD.md:2
 msgid "Well-Tempered Metadynamics Simulation"
-msgstr ""
+msgstr "Well-Tempered Metadynamics シミュレーション"
 
 #: MTD.md:4
 msgid ""
@@ -19,6 +19,9 @@ msgid ""
 "to avoid atom dissociation, we add a restraint to the system. This "
 "restriction consists of a semi-harmonic potential with the form"
 msgstr ""
+"Well-Tempered Metadynamics は [`Theory section`](theory.md#metadynamics) の "
+"Enhanced Sampling 法です。外部エネルギーで別 Conformation の探索を促します。原子の解離を防ぐため、次の "
+"Semiharmonic Potential を加えます。"
 
 #: MTD.md:15
 msgid ""
@@ -30,6 +33,8 @@ msgid ""
 "begins to exert a force over the atoms and to avoid dissociation. This is "
 "defined with the keyword UPPER_WALLS in the plumed setup."
 msgstr ""
+"$k$ はここでは1000、$r_w$ は LJ 単位で2、$d_i$ は各原子と Center of Mass の距離です。$r_w$ "
+"未満では作用せず、超えると力を加え解離を防ぎます。UPPER_WALLS で定義します。"
 
 #: MTD.md:23
 msgid ""
@@ -38,6 +43,9 @@ msgid ""
 "LJ.dat](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/plumedMTD-LJ.dat)):"
 msgstr ""
+"Wall と Bias 対象の座標を含む入力例は [plumedMTD-"
+"LJ.dat](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/plumedMTD-LJ.dat) です。"
 
 #: MTD.md:46
 msgid ""
@@ -45,6 +53,8 @@ msgid ""
 "[`MTD.py`](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/MTD.py):"
 msgstr ""
+"[`MTD.py`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/MTD.py) で実行できます。"
 
 #: MTD.md:79
 msgid ""
@@ -56,6 +66,9 @@ msgid ""
 "HEIGHT and BIASFACTOR are the maximum height of the Gaussians (W) and the "
 "$\\gamma$ factor of [equation (2)](theory.md#hills), respectively."
 msgstr ""
+"[式(2)](theory.md#hills) の温度が必要なので Calculator の kT を定義します。SIGMA は Gaussian "
+"標準偏差、PACE は追加間隔の Step 数（[式(1)](theory.md#bias) の $\\tau$）、HEIGHT は最大高さ "
+"W、BIASFACTOR は [式(2)](theory.md#hills) の $\\gamma$ です。"
 
 #: MTD.md:87
 msgid ""
@@ -64,6 +77,8 @@ msgid ""
 "Likewise, you can use any preferred ASE calculator in place of the LJ "
 "calculator used here."
 msgstr ""
+"Lennard-Jones Calculator が [式(3)](theory.md#force) の ${\\bf F}_i$ を計算します。任意の"
+" ASE Calculator に置き換えられます。"
 
 #: MTD.md:91
 msgid ""
@@ -73,6 +88,9 @@ msgid ""
 "[sum_hills](https://www.plumed.org/doc-v2.7/user-doc/html/sum_hills.html). "
 "The simplest way of using it is:"
 msgstr ""
+"Metadynamics は追加した Gaussian を HILLS "
+"に保存します。自分で自由エネルギーを再構成するか、[sum_hills](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/sum_hills.html) を使えます。最も簡単には、"
 
 #: MTD.md:100
 msgid ""
@@ -81,29 +99,31 @@ msgid ""
 "[plotterFES.py](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/plotterFES.py):"
 msgstr ""
+"fes.dat に FES が出ます。[plotterFES.py](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/plotterFES.py) で描くと、"
 
 #: MTD.md:107
 msgid ""
 "**Figure 3.** Free energy surface (LJ units) in the space of the collective "
 "variables second and third central moment. Orange stars represent the "
 "location of the local minima isomers of the LJ cluster in this space."
-msgstr ""
+msgstr "**図3。** SCM・TCM 空間の自由エネルギー表面（LJ 単位）。橙の星は局所極小 Isomer です。"
 
 #: MTD.md:111
 msgid ""
 "Note that bias is added over all states, meaning that the system jumped from"
 " one state to another and gave a complete reconstruction of the free energy "
 "surface."
-msgstr ""
+msgstr "すべての状態に Bias が加わり、系が状態間を移動して FES を全体的に再構成したことがわかります。"
 
 #: MTD.md:115
 msgid "[&larr; Unbiased simulation and Postprocessing](MD.md)"
-msgstr ""
+msgstr "[&larr; Unbiased MD と後処理](MD.md)"
 
 #: MTD.md:116
 msgid "[Restart a simulation &rarr;](restart.md)"
-msgstr ""
+msgstr "[シミュレーションの再開 &rarr;](restart.md)"
 
 #: MTD.md:117
 msgid "[Ab-initio: Small Silver Cluster &rarr;](SC.md)"
-msgstr ""
+msgstr "[Ab-initio：小さな Silver Cluster &rarr;](SC.md)"

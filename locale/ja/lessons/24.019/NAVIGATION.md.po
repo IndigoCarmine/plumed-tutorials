@@ -9,17 +9,19 @@ msgstr ""
 
 #: NAVIGATION.md:1
 msgid "ASE-PLUMED Tutorial"
-msgstr ""
+msgstr "ASE-PLUMED Tutorial"
 
 #: NAVIGATION.md:2
 msgid ""
 "A tutorial about the ASE-PLUMED calculator presented in [Sucerquia *et. "
 "al.*, JCP, 2022](https://doi.org/10.1063/5.0082332) [[1](#cite1)]"
 msgstr ""
+"[Sucerquia ら、JCP、2022](https://doi.org/10.1063/5.0082332) [[1](#cite1)] の "
+"ASE-PLUMED Calculator の Tutorial"
 
 #: NAVIGATION.md:3
 msgid "by Daniel Sucerquia, Pilar Cossio and Olga Lopez-Acevedo."
-msgstr ""
+msgstr "著者：Daniel Sucerquia、Pilar Cossio、Olga Lopez-Acevedo。"
 
 #: NAVIGATION.md:5
 msgid ""
@@ -27,6 +29,9 @@ msgid ""
 "calculator](https://wiki.fysik.dtu.dk/ase/ase/calculators/plumed.html) in "
 "[ASE](https://wiki.fysik.dtu.dk/ase/)."
 msgstr ""
+"[ASE](https://wiki.fysik.dtu.dk/ase/) の [PLUMED "
+"Calculator](https://wiki.fysik.dtu.dk/ase/ase/calculators/plumed.html) "
+"の使い方を示します。"
 
 #: NAVIGATION.md:8
 msgid ""
@@ -40,6 +45,13 @@ msgid ""
 "PLUMED allows several actions in addition of what we show in this tutorial. "
 "For further description, visit [plumed web page](http://www.plumed.org/doc)."
 msgstr ""
+"Atomic Simulation Environment [ASE](https://wiki.fysik.dtu.dk/ase/) は "
+"Atomistic MD の設定・実行・可視化用 Package です。量子・古典法を使う "
+"[各種コード](https://wiki.fysik.dtu.dk/ase/#supported-calculators) と連携します。それらすべてを"
+" PLUMED につなぐ "
+"[Calculator](https://wiki.fysik.dtu.dk/ase/ase/calculators/plumed.html) "
+"を開発しました。PLUMED は今回以外にも多くの Action を使えます。詳細は [Web "
+"ページ](http://www.plumed.org/doc) を参照してください。"
 
 #: NAVIGATION.md:12
 msgid ""
@@ -56,6 +68,11 @@ msgid ""
 "PLUMED_tutorial/blob/master/files](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files)."
 msgstr ""
+"まず Metadynamics の基本を説明します。モデル系で MD 中の On-the-fly と Trajectory 後処理の CV "
+"計算を示し、Well-Tempered Metadynamics で FES を再構成します。最後に小さな Silver Cluster の Ab-"
+"initio Metadynamics を扱います。全ファイルは [https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files) に公開しています。"
 
 #: NAVIGATION.md:16
 msgid "**WARNING**"
@@ -69,6 +86,10 @@ msgid ""
 "[ASE](https://gitlab.com/ase/ase) >= 3.23.0. For further details, check "
 "[installation instructions](install.md)."
 msgstr ""
+"[py-plumed](https://www.plumed.org/doc-v2.8/user-"
+"doc/html/_installation.html#installingpython) と "
+"[ASE](https://gitlab.com/ase/ase) >= 3.23.0 が必要です。詳細は [インストール](install.md) "
+"を参照してください。"
 
 #. mermaid node label
 #: NAVIGATION.md:22
@@ -78,42 +99,42 @@ msgstr "PLUMED の構文"
 #. mermaid node label
 #: NAVIGATION.md:22
 msgid "ASE-PLUMED tutorial"
-msgstr ""
+msgstr "ASE-PLUMED Tutorial"
 
 #. mermaid node label
 #: NAVIGATION.md:23
 msgid "Install packages"
-msgstr ""
+msgstr "Package のインストール"
 
 #. mermaid node label
 #: NAVIGATION.md:24
 msgid "Theory: CVs and MTD"
-msgstr ""
+msgstr "理論：CV と MTD"
 
 #. mermaid node label
 #: NAVIGATION.md:25
 msgid "Toy model: Planar 7-Atoms Cluster"
-msgstr ""
+msgstr "モデル：平面7原子 Cluster"
 
 #. mermaid node label
 #: NAVIGATION.md:26
 msgid "Unbiased simulation and Postprocessing"
-msgstr ""
+msgstr "Unbiased MD と後処理"
 
 #. mermaid node label
 #: NAVIGATION.md:27
 msgid "Biased simulation: Well Tempered Metadynamics"
-msgstr ""
+msgstr "Bias 付き MD：Well-Tempered Metadynamics"
 
 #. mermaid node label
 #: NAVIGATION.md:28
 msgid "Restart a simulation"
-msgstr ""
+msgstr "シミュレーションの再開"
 
 #. mermaid node label
 #: NAVIGATION.md:29
 msgid "Ab-initio: Small Silver Cluster"
-msgstr ""
+msgstr "Ab-initio：小さな Silver Cluster"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:31
@@ -123,38 +144,38 @@ msgstr "PLUMED の構文の基本を紹介する過去のチュートリアル"
 #. mermaid click tooltip
 #: NAVIGATION.md:32
 msgid "Install py-plumed and ASE"
-msgstr ""
+msgstr "py-plumed と ASE のインストール"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:33
 msgid "Theory necessary to follow completely this tutorial"
-msgstr ""
+msgstr "Tutorial に必要な理論"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:34
 msgid "Toy model showing the usage of PLUMED in ASE"
-msgstr ""
+msgstr "ASE での PLUMED 利用を示すモデル系"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:35
 msgid "Unbiased simulation computing CVs on the fly and by postprocessing"
-msgstr ""
+msgstr "On-the-fly・後処理で CV を求める Unbiased MD"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:36
 msgid "Addition of the bias using metadynamics"
-msgstr ""
+msgstr "Metadynamics による Bias の追加"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:37
 msgid "How to restart a simulation in ASE"
-msgstr ""
+msgstr "ASE の再開方法"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:38
 msgid "Ab-initio example"
-msgstr ""
+msgstr "Ab-initio の例"
 
 #: NAVIGATION.md:41
 msgid "[Theory: CVs and MTD &rarr;](theory.md)"
-msgstr ""
+msgstr "[理論：CV と MTD &rarr;](theory.md)"

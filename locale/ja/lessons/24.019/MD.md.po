@@ -9,7 +9,7 @@ msgstr ""
 
 #: MD.md:1
 msgid "Molecular Dynamics Simulation"
-msgstr ""
+msgstr "Molecular Dynamics シミュレーション"
 
 #: MD.md:3
 msgid ""
@@ -18,6 +18,9 @@ msgid ""
 " = 1 a.m.u), the parameters of the simulation are $k_\\text{B}T=0.1$, "
 "friction coefficient fixed equal to 1 and a time step of 0.005."
 msgstr ""
+"まず Bias なしの Langevin MD から始めます。LJ の無次元 Reduced Units（$\\epsilon$ = 1 "
+"eV、$\\sigma$ = 1 $\\textrm Å$、m = 1 a.m.u）で、$k_\\text{B}T=0.1$、Friction "
+"Coefficient は1、Time Step は0.005です。"
 
 #: MD.md:8
 msgid ""
@@ -30,6 +33,10 @@ msgid ""
 "unbiased Molecular Dynamics [`MD.py`](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/MD.py):"
 msgstr ""
+"原理的には熱揺らぎで全 Configuration 空間を探索するはずですが、長時間でも同じ Conformation "
+"に留まります。局所極小に捕まり、全探索のコストが高すぎるためです。図2の青点は、次の Unbiased MD "
+"[`MD.py`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/MD.py) の Trajectory です。"
 
 #: MD.md:48
 msgid ""
@@ -37,6 +44,8 @@ msgid ""
 "PLUMED_tutorial/blob/master/files/plumedLJ.dat) contains the next "
 "information:"
 msgstr ""
+"[`plumedLJ.dat`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/plumedLJ.dat) は次の内容です。"
 
 #: MD.md:58
 msgid ""
@@ -49,6 +58,10 @@ msgid ""
 "system. It is therefore necessary to use an enhanced sampling method. In "
 "this tutorial, we implement Well-Tempered Metadynamics."
 msgstr ""
+"最小エネルギー構造 [`isomerLJ.xyz`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/isomer.xyz) から開始します。図2のように周囲に留まり、別の Isomer"
+" に移らず、全 Configuration を Sampling できません。そこで Enhanced Sampling として Well-"
+"Tempered Metadynamics を使います。"
 
 #: MD.md:68
 msgid "**WARNING**"
@@ -62,10 +75,12 @@ msgid ""
 "all plumed parameters and outputs in ASE units. You can ignore this line if "
 "you are aware of the unit conversion."
 msgstr ""
+"`UNITS` の行に注意してください。PLUMED のパラメータと出力は既定で内部単位なので、この行で ASE "
+"単位に合わせます。単位変換を理解していれば省略できます。"
 
 #: MD.md:73
 msgid "Post Processing Analysis"
-msgstr ""
+msgstr "後処理解析"
 
 #: MD.md:75
 msgid ""
@@ -76,13 +91,16 @@ msgid ""
 "[`postpro.py`](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/postpro.py):"
 msgstr ""
+"既存 MD Trajectory の CV は、MD を再実行せず PLUMED 出力を再作成できます。先ほどの Trajectory から "
+"[`postpro.py`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/postpro.py) で COLVAR を作り直します。"
 
 #: MD.md:105
 msgid ""
 "This code, as well as the previous one, generates a file called COLVAR with "
 "the value of the CVs. All PLUMED files begin with a header that describes "
 "the fields that it contains. In this case, the header looks like:"
-msgstr ""
+msgstr "前のコードと同様、CV を含む COLVAR を生成します。PLUMED 出力の先頭には列を説明する Header があり、今回は、"
 
 #: MD.md:115
 msgid ""
@@ -91,13 +109,15 @@ msgid ""
 "moment (TCM). When we plot this trajectory in the space of these CVs (that "
 "is, the second and third columns) we obtain this result:"
 msgstr ""
+"第1列は時間、第2列は Second Central Moment (SCM)、第3列は Third Central Moment (TCM) "
+"です。第2・3列の CV 空間に描くと、"
 
 #: MD.md:124
 msgid ""
 "**Figure 2.** Unbiased MD trajectory (blue dots) in the space of the "
 "collective variables second and third central moment. Orange stars represent"
 " the location of the local minima isomers of the LJ cluster in this space."
-msgstr ""
+msgstr "**図2。** SCM・TCM 空間の Unbiased MD（青点）。橙の星は LJ Cluster の局所極小 Isomer です。"
 
 #: MD.md:128
 msgid ""
@@ -108,11 +128,13 @@ msgid ""
 "method. In this case, we implement Well-Tempered Metadynamics for "
 "reconstructing the Free Energy Surface (FES)."
 msgstr ""
+"同じ安定状態に留まるため、この長さでは全 Configuration の探索や統計解析に不十分です。Well-Tempered Metadynamics"
+" で自由エネルギー表面 (FES) を再構成します。"
 
 #: MD.md:133
 msgid "[&larr; Toy model: Planar 7-Atoms Cluster](defsystem.md)"
-msgstr ""
+msgstr "[&larr; モデル：平面7原子 Cluster](defsystem.md)"
 
 #: MD.md:134
 msgid "[Biased simulation: Well Tempered Metadynamics &rarr;](MTD.md)"
-msgstr ""
+msgstr "[Bias 付き MD：Well-Tempered Metadynamics &rarr;](MTD.md)"

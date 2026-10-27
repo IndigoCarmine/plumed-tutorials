@@ -23,7 +23,12 @@ msgid ""
 "can execute the next lines in your linux terminal if you have conda already "
 "installed:"
 msgstr ""
+"Python 版 PLUMED と ASE >= 3.23.0 が必要です。詳細は [PLUMED]( "
+"https://www.plumed.org/doc-v2.8/user-"
+"doc/html/_installation.html#installingpython ) と [ASE]( "
+"https://wiki.fysik.dtu.dk/ase/install.html#installation-from-source ) "
+"の公式手順を参照してください。conda 導入済みなら、Linux Terminal で次を実行すると手早く準備できます。"
 
 #: install.md:17
 msgid "[Theory: CVs and MTD &rarr;](theory.md)"
-msgstr ""
+msgstr "[理論：CV と MTD &rarr;](theory.md)"

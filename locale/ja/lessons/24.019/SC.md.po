@@ -9,7 +9,7 @@ msgstr ""
 
 #: SC.md:1
 msgid "Ab-initio Metadynamics: Small Silver Cluster"
-msgstr ""
+msgstr "Ab-initio Metadynamics：小さな Silver Cluster"
 
 #: SC.md:3
 msgid ""
@@ -21,21 +21,24 @@ msgid ""
 " is the smallest silver cluster where entropic effects at room temperature "
 "boost the non-planar isomer probability to a competing state."
 msgstr ""
+"モデル系と同様に Ab-initio Calculator で FES を求められます。[D. Sucerquia "
+"ら、JCP、2022](https://doi.org/10.1063/5.0082332) の Ag-6 は、室温の Entropy 効果で Non-"
+"planar Isomer が競合状態となる最小の Silver Cluster です。"
 
 #: SC.md:5
 msgid "Collective variables"
-msgstr ""
+msgstr "Collective Variables"
 
 #: SC.md:7
 msgid ""
 "To obtain a proper exploration of the different states of the silver "
 "cluster, we can use the coordination number (C) and the radius of gyration "
 "(R) as collective variables. These Collective variables are defined as"
-msgstr ""
+msgstr "各状態の探索に Coordination Number (C) と Radius of Gyration (R) を使えます。定義は、"
 
 #: SC.md:13 SC.md:27
 msgid "and"
-msgstr ""
+msgstr "および、"
 
 #: SC.md:19
 msgid ""
@@ -47,6 +50,8 @@ msgid ""
 "optimization, which are expected to be metastable states in the free energy "
 "landscape."
 msgstr ""
+"$r_i$ は原子 $i$ の位置、$r_{CM}$ は Center of Mass、$N_a$ "
+"は原子数です。中心からの広がりを示します。$C$・$R$ で形を記述し、準安定状態と予想される DFT 最適化の極小を区別できます。"
 
 #: SC.md:21
 msgid ""
@@ -59,6 +64,8 @@ msgid ""
 " of C and R, which allow us to easily apply a constraint, as in the previous"
 " example. The rotated CVs are defined as"
 msgstr ""
+"短い WT-MTD で結合切断 Isomer や Linear Cluster が現れました。重要でない領域に高価な Ab-initio "
+"の探索を集中させないため、C・R の回転で CV1・CV2 を作り、前の例のように拘束しやすくします。"
 
 #: SC.md:33
 msgid ""
@@ -66,10 +73,12 @@ msgid ""
 " potentials that act when CV1 is lower than 8 with harmonic constant 10 eV "
 "and values of CV2 greater than 3.3 with harmonic constant 50 eV."
 msgstr ""
+"CV1 < 8で Harmonic Constant 10 eV、CV2 > 3.3で50 eV の反発 Semiharmonic Wall "
+"を置きます。"
 
 #: SC.md:35
 msgid "Running the Simulation"
-msgstr ""
+msgstr "実行"
 
 #: SC.md:37
 msgid "**WARNING**"
@@ -89,6 +98,10 @@ msgid ""
 " the last line, and you might need to use High Performance Computing in "
 "order to complete it in a feasible time."
 msgstr ""
+"ASE-PLUMED の機能例です。完全な FES と収束には数時間〜数日かかる場合があります。ここは1000 Step "
+"で、推定はできますが収束は保証できません。達成方法は [D. Sucerquia "
+"ら、JCP、2022](https://doi.org/10.1063/5.0082332) を参照してください。長くするには最後の `run` "
+"の引数を変え、実用的な時間で終えるため HPC が必要な場合もあります。"
 
 #: SC.md:41
 msgid ""
@@ -96,6 +109,8 @@ msgid ""
 "[`plumedSC.dat`](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/plumedSC.dat) containing the lines,"
 msgstr ""
+"[`plumedSC.dat`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/plumedSC.dat) を次の内容で作ります。"
 
 #: SC.md:55
 msgid ""
@@ -108,15 +123,20 @@ msgid ""
 "as shown in the file [MTD-SC.py](https://github.com/Sucerquia/ASE-"
 "PLUMED_tutorial/blob/master/files/MTD-SC.py):"
 msgstr ""
+"DFT 最適化した [isomerSC.xyz](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/isomerSC.xyz) などから開始します。ここでは DFT コード "
+"[GPAW](https://gpaw.readthedocs.io/) の設定が必要ですが、任意の QM コードを選べます。[MTD-"
+"SC.py](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/MTD-SC.py) の例を示します。"
 
 #: SC.md:111
 msgid ""
 "After running this same code but changing the temperature and the number of "
 "time steps, you can obtain the free energy surfaces shown in Figure 4."
-msgstr ""
+msgstr "同じコードの温度と Step 数を変えると図4の FES が得られます。"
 
 #: SC.md:117
 msgid ""
 "**Figure 4.** Free energy surface of a Ag6 cluster at three different "
 "temperatures."
-msgstr ""
+msgstr "**図4。** 3つの温度の Ag6 Cluster の FES。"
