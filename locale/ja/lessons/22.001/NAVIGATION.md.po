@@ -12,22 +12,23 @@ msgid ""
 "Masterclass 22.01: Funnel Metadynamics (FM): predicting ligand binding "
 "models, binding free energies and kinetics"
 msgstr ""
+"Masterclass 22.01：Funnel Metadynamics (FM)：Ligand 結合モデル・自由エネルギー・Kinetics の予測"
 
 #: NAVIGATION.md:3
 msgid ""
 "This lesson was given as part of the PLUMED masterclass series in 2022. It "
 "included:"
-msgstr ""
+msgstr "2022年 PLUMED Masterclass シリーズの Lesson で、次を含みます。"
 
 #: NAVIGATION.md:5
 msgid ""
 "A two video set covering the theory behind the technique and practical "
 "information to set up and analyse the results."
-msgstr ""
+msgstr "理論と、設定・解析の実践を扱う2本の動画。"
 
 #: NAVIGATION.md:6
 msgid "A set of inputs to try the code and rerun FM on a paradigmatic system."
-msgstr ""
+msgstr "代表系で FM を再実行する入力。"
 
 #: NAVIGATION.md:7
 msgid ""
@@ -47,7 +48,7 @@ msgstr ""
 
 #: NAVIGATION.md:11
 msgid "This data was presented among the masterclasses in the 2022 series."
-msgstr ""
+msgstr "2022年 Masterclass シリーズで紹介したデータ。"
 
 #. mermaid node label
 #: NAVIGATION.md:15
@@ -72,12 +73,12 @@ msgstr "演習の手順"
 #. mermaid node label
 #: NAVIGATION.md:18
 msgid "web server"
-msgstr ""
+msgstr "Web Server"
 
 #. mermaid node label
 #: NAVIGATION.md:19
 msgid "Showcase"
-msgstr ""
+msgstr "実演"
 
 #. mermaid node label
 #: NAVIGATION.md:20
@@ -101,41 +102,41 @@ msgstr "この演習に必要なバージョンの PLUMED のインストール�
 msgid ""
 "This lesson explains the basics about ligand/target binding and the scope of"
 " FM."
-msgstr ""
+msgstr "Ligand/Target 結合の基礎と FM の用途を説明する Lesson。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:25
 msgid "The slides for the theory explained in Lecture I."
-msgstr ""
+msgstr "Lecture I の理論の Slide。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:26
 msgid "A step-by-step procedure that will wlk you through the FM procedure."
-msgstr ""
+msgstr "FM を順に進める手順。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:27
 msgid ""
 "Web server to set up a FM simulation. Can be used in substitution of the tcl"
 " plug-in funnel.tcl."
-msgstr ""
+msgstr "FM 設定用 Web Server。funnel.tcl の代わりに使えます。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:28
 msgid ""
 "A lecture that goes a little more in deep in the practical phases of "
 "preparing and analysing a FM simulation"
-msgstr ""
+msgstr "FM の準備・解析の実践を詳しく扱う講義。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:29
 msgid ""
 "A python notebook that contains results and analyses of the simulation that "
 "is discussed in the masterclass."
-msgstr ""
+msgstr "Masterclass の結果・解析を含む Python Notebook。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:30
 msgid ""
 "A video showcasing Funnel Metadynamics Pre-Processing Tool functionalities"
-msgstr ""
+msgstr "Funnel Metadynamics Pre-Processing Tool の機能紹介動画。"

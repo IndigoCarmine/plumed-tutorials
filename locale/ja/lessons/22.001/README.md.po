@@ -9,8 +9,8 @@ msgstr ""
 
 #: README.md:1
 msgid "masterclass-22-1"
-msgstr ""
+msgstr "masterclass-22-1"
 
 #: README.md:2
 msgid "Data files to run FM"
-msgstr ""
+msgstr "FM 実行用データ。"

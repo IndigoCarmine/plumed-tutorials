@@ -9,11 +9,11 @@ msgstr ""
 
 #: INSTALL.md:1
 msgid "Requested installation to work with the Funnel Metadynamics (FM)"
-msgstr ""
+msgstr "Funnel Metadynamics (FM) に必要なインストール"
 
 #: INSTALL.md:3
 msgid "Plumed installation"
-msgstr ""
+msgstr "PLUMED のインストール"
 
 #: INSTALL.md:4
 msgid ""
@@ -21,6 +21,8 @@ msgid ""
 "20.001 \"Installing PLUMED\" by Tribello G., making sure to add the flag "
 "during the configure:"
 msgstr ""
+"Tribello G. の Tutorial 20.001「Installing PLUMED」に従い、configure に次の Flag "
+"を加えてください。"
 
 #: INSTALL.md:8
 msgid "or"
@@ -28,24 +30,24 @@ msgstr "または"
 
 #: INSTALL.md:13
 msgid "Third-party applications"
-msgstr ""
+msgstr "外部アプリケーション"
 
 #: INSTALL.md:14
 msgid ""
 "FM requires a set of files as input with a well-defined syntax, which might "
 "result difficult to to produce for inexperienced user. For this reason, we "
 "have created two ways to automatically create FM inputs:"
-msgstr ""
+msgstr "FM 入力は厳密な構文が必要で、初心者には難しいため、自動作成する2つの方法を用意しました。"
 
 #: INSTALL.md:16
 msgid ""
 "using a tcl plug in, to be used together with the visualization software "
 "VMD;"
-msgstr ""
+msgstr "VMD と組み合わせる Tcl Plugin。"
 
 #: INSTALL.md:17
 msgid "a software-free server called Funnel Metadynamics Pre-Processing Tool."
-msgstr ""
+msgstr "追加ソフトウェア不要の Funnel Metadynamics Pre-Processing Tool Server。"
 
 #: INSTALL.md:19
 msgid ""
@@ -58,13 +60,18 @@ msgid ""
 "the library folder of the "
 "[Github](https://github.com/h2nch2co2h/masterclass-22-1.git)."
 msgstr ""
+"前者は Tcl の tooltip Library と funnel.tcl を取得し、VMD の Tk Console で *source* "
+"します。詳細とリンクは Funnel Metadynamics Advanced Protocol "
+"(FMAP、doi:10.1038/s41596-020-0342-4) にあります。Tcl は "
+"[GitHub](https://github.com/h2nch2co2h/masterclass-22-1.git) の library "
+"にもあります。"
 
 #: INSTALL.md:22
 msgid ""
 "If you wish instead to use the server, there will be no necessity to "
 "download the tcl plug in and having a version of VMD installed in your "
 "computer."
-msgstr ""
+msgstr "Server を使うなら Tcl Plugin や VMD のインストールは不要です。"
 
 #: INSTALL.md:24
 msgid ""
@@ -73,3 +80,5 @@ msgid ""
 "(as will be shown in this tutorial) or using the second plug in for VMD "
 "ffs.tcl. In this second case, requirements are the same as for funnel.tcl."
 msgstr ""
+"ただし Server は後処理に未対応なので、手動（この Tutorial で説明）か VMD の ffs.tcl で解析します。後者の要件は "
+"funnel.tcl と同じです。"

@@ -12,6 +12,7 @@ msgid ""
 "Masterclass 22.01: Funnel Metadynamics (FM): predicting ligand binding "
 "models, binding free energies and kinetics"
 msgstr ""
+"Masterclass 22.01：Funnel Metadynamics (FM)：Ligand 結合モデル・自由エネルギー・Kinetics の予測"
 
 #: INSTRUCTIONS.md:3
 msgid "Origin"
@@ -22,6 +23,8 @@ msgid ""
 "This tutorial is a reworked version of the masterclass by Stefano Raniolo "
 "and Vittorio Limongelli from the 31st of January, 2022"
 msgstr ""
+"2022年1月31日の Stefano Raniolo と Vittorio Limongelli の Masterclass を再構成した "
+"Tutorial です。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"
@@ -36,6 +39,8 @@ msgid ""
 "[pubblication](https://www.nature.com/articles/s41596-020-0342-4) in "
 "advance."
 msgstr ""
+"FM の基礎、設定、日常的な収束確認の解析を学びます。事前に [Protocol "
+"論文](https://www.nature.com/articles/s41596-020-0342-4) を読むと役立ちます。"
 
 #: INSTRUCTIONS.md:11
 msgid "Objectives"
@@ -43,17 +48,17 @@ msgstr "到達目標"
 
 #: INSTRUCTIONS.md:13
 msgid "Once you have completed this tutorial you will be able to:"
-msgstr ""
+msgstr "完了すると次ができます。"
 
 #: INSTRUCTIONS.md:15
 msgid "Set up a FM simulation using one of the developed tools."
-msgstr ""
+msgstr "用意したツールで FM を設定する。"
 
 #: INSTRUCTIONS.md:16
 msgid ""
 "Use PLUMED and GROMACS to run FM simulations on a paradigmatic system "
 "(benzamidine/trypsin)."
-msgstr ""
+msgstr "PLUMED と GROMACS で代表系 Benzamidine/Trypsin の FM を実行する。"
 
 #: INSTRUCTIONS.md:17
 msgid ""
@@ -62,17 +67,19 @@ msgid ""
 " 2022, we will also describe a procedure to estimate kinetic constants "
 "starting from the information obtained from FM."
 msgstr ""
+"FM を解析し、収束と自由エネルギー推定を確認する。2022年 Masterclass の内容に加え、FM の情報から Kinetic Constant"
+" を推定する手順も説明します。"
 
 #: INSTRUCTIONS.md:19
 msgid "Recommended PLUMED setup"
-msgstr ""
+msgstr "推奨 PLUMED 設定"
 
 #: INSTRUCTIONS.md:21
 msgid ""
 "Although it is possible to use the most basic implementation of PLUMED + "
 "GROMACS to follow this tutorial, it is suggested for the user to compile "
 "using the MPI library and possibly run the FM simulation on a HPC system."
-msgstr ""
+msgstr "基本的な PLUMED + GROMACS でも実行できますが、MPI 対応ビルドと、可能なら HPC を推奨します。"
 
 #: INSTRUCTIONS.md:23
 msgid "Resources"
@@ -84,36 +91,38 @@ msgid ""
 "[Github](https://github.com/h2nch2co2h/masterclass-22-1.git). You can clone "
 "this repository locally in a machine using the following command:"
 msgstr ""
+"入力の一部は [GitHub](https://github.com/h2nch2co2h/masterclass-22-1.git) にあり、次で "
+"Clone できます。"
 
 #: INSTRUCTIONS.md:32
 msgid ""
 "**Simulation of the benzamidine/trypsin system has been carried out with "
 "GROMACS v5.14 and a customised version of PLUMED v2.6.**"
-msgstr ""
+msgstr "**Benzamidine/Trypsin は GROMACS v5.14 と独自版 PLUMED v2.6 で実行しました。**"
 
 #: INSTRUCTIONS.md:34
 msgid "Overview of the tutorial"
-msgstr ""
+msgstr "構成"
 
 #: INSTRUCTIONS.md:36
 msgid "This tutorial can be divided mainly in three main sectors:"
-msgstr ""
+msgstr "主に3部分です。"
 
 #: INSTRUCTIONS.md:38
 msgid ""
 "pre-processing: setup of the FM simulation and generation of necessary "
 "parameters and inputs;"
-msgstr ""
+msgstr "前処理：設定とパラメータ・入力の生成。"
 
 #: INSTRUCTIONS.md:39
 msgid "simulation: running a FM simulation;"
-msgstr ""
+msgstr "シミュレーション：FM の実行。"
 
 #: INSTRUCTIONS.md:40
 msgid ""
 "post-processing: analyse the output of a FM simulation to know "
 "thermodynamics and kinetics of a binding mechanism."
-msgstr ""
+msgstr "後処理：結合機構の Thermodynamics と Kinetics の解析。"
 
 #: INSTRUCTIONS.md:42
 msgid ""
@@ -127,6 +136,10 @@ msgid ""
 " provide few outputs in case the user would like to skip the simulation "
 "phase and directly perform the analyses."
 msgstr ""
+"前処理と後処理に注目し、実行は各自で行います。収束には Hardware により数日かかるためです。Metadynamics "
+"パラメータや起動に不安があれば [この Tutorial](https://www.plumed-"
+"tutorials.org/lessons/21/004/data/NAVIGATION.html) "
+"を参照してください。実行を省き直接解析できる出力例も用意します。"
 
 #: INSTRUCTIONS.md:46
 msgid "Exercises"
@@ -142,10 +155,12 @@ msgid ""
 "highly recommend to start the pre-processing exercise from a structure that "
 "underwent at least minimization and thermalization."
 msgstr ""
+"FM は正しく Minimization・Thermalization した系から始められ、それらの手順は既知とします。付属 tpr "
+"は本計算用です。別の複合体に適用する場合も、少なくとも Minimization・Thermalization 後の構造から前処理を始めてください。"
 
 #: INSTRUCTIONS.md:50
 msgid "Pre-processing exercise"
-msgstr ""
+msgstr "前処理演習"
 
 #: INSTRUCTIONS.md:52
 msgid ""
@@ -156,13 +171,15 @@ msgid ""
 "goinge to see examples using GROMACS. You can find coordinates and topology "
 "for the benzamidine/trypsin system inside the data folder of Github."
 msgstr ""
+"まず系に適切な Funnel を作ります。Benzamidine/Trypsin を使います。座標・Topology は任意の MD "
+"エンジンで作れますが、ここでは GROMACS を例にし、GitHub の data に用意しています。"
 
 #: INSTRUCTIONS.md:54
 msgid ""
 "At this point the user can decide to use the VMD plug-in or the Funnel "
 "Metadynamics Pre-Processing Tool web-server. We will start here with the "
 "former, if you wish to use the latter skip directly to point 18."
-msgstr ""
+msgstr "VMD Plugin または Web Server を選べます。まず前者を説明します。後者なら手順18へ進んでください。"
 
 #: INSTRUCTIONS.md:56
 msgid ""
@@ -172,12 +189,14 @@ msgid ""
 "\"Extensions\" and press \"Tk console\". Once the console has been opened "
 "you can load the necessary libraries through the following commands:"
 msgstr ""
+"VMD に start.gro を読み込みます。通常は Thermalization 後の出力ですが、必要なら Protein Data Bank の "
+"PDB も使えます。Extensions の Tk console を開き、次で必要な Library を読みます。"
 
 #: INSTRUCTIONS.md:61
 msgid ""
 "At this point the interface for the FM pre-processing should be accessible "
 "by calling in the terminal:"
-msgstr ""
+msgstr "次を Console で呼ぶと前処理 Interface が開きます。"
 
 #: INSTRUCTIONS.md:65
 msgid "or"
@@ -187,7 +206,7 @@ msgstr "または"
 msgid ""
 "At this point, the GUI should open and an orange funnel should appear in the"
 " visualization window."
-msgstr ""
+msgstr "GUI が開き、表示に橙の Funnel が現れるはずです。"
 
 #: INSTRUCTIONS.md:71
 msgid ""
@@ -212,6 +231,11 @@ msgid ""
 " 4.724, 5.369, and 4.069 nm and 4.597, 5.721, 4.343 nm (for point A and B, "
 "respectively) are good enough."
 msgstr ""
+"標準形の Funnel を系に合わせます。まず軸の2点 A（黄）・B（緑）を変えます。Interface で対象点を選び、表示をクリックして p "
+"を押し、Receptor の原子を選ぶか、Cartesian 座標を直接変更します。両点を調整し、結合 Pocket を覆い、適切な Escape "
+"Pathway を取る軸にします。座標欄は Å で入力するか、矢印で0.1 Å 刻みに変え、Enter で反映します。Invisible mode と "
+"Transparent mode も選択に便利です。ここでは A=(4.724, 5.369, 4.069) nm、B=(4.597, 5.721, "
+"4.343) nm で十分です。"
 
 #: INSTRUCTIONS.md:73
 msgid ""
@@ -220,7 +244,7 @@ msgid ""
 " suggest to always revert to the normal rotation mode of VMD after picking "
 "an atom by pressing the 'r' key. This will avoid accidental replacement of "
 "point A or B."
-msgstr ""
+msgstr "注意：p による選択中は入力を待ち続けるため、選択後は r で通常の回転に戻し、A・B の誤変更を防いでください。"
 
 #: INSTRUCTIONS.md:75
 msgid ""
@@ -231,6 +255,8 @@ msgid ""
 "value has been selected, press 'Enter' to confirm the change. A value around"
 " 1.8 nm should be enough."
 msgstr ""
+"Zcc は Cone と Cylinder の切替点です。Cone が結合部位周囲の全残基を含むよう選び、Enter で確定します。約1.8 nm "
+"で十分です。"
 
 #: INSTRUCTIONS.md:77
 msgid ""
@@ -240,6 +266,8 @@ msgid ""
 "outside the funnel without feeling any repulsion as long as their COM is "
 "within the funnel volume)."
 msgstr ""
+"注意：Potential は Ligand の Center of Mass (COM) に作用します。COM だけが橙の領域内に保たれ、大きい "
+"Ligand の一部が外に出ても COM が中なら反発はありません。"
 
 #: INSTRUCTIONS.md:79
 msgid ""
@@ -249,6 +277,7 @@ msgid ""
 "Once a value has been selected, press 'Enter' to confirm the change. In this"
 " case, a value of 0.55 is a good compromise."
 msgstr ""
+"Alpha は Cone の開きを radian で調整します。大きいほど結合部位の探索領域が広がります。Enter で確定します。0.55が妥当です。"
 
 #: INSTRUCTIONS.md:81
 msgid ""
@@ -261,6 +290,8 @@ msgid ""
 " the funnel changes increasing the cylinder radius. Always press 'Enter' to "
 "finalise the new value."
 msgstr ""
+"RCyl は非結合 Cylinder の半径で、既定1 Å "
+"は通常そのままで十分です。大きいほど非結合体積と計算時間が増えます。変更して形を見てもよいですが、ここでは既定を使えます。Enter で確定します。"
 
 #: INSTRUCTIONS.md:83
 msgid ""
@@ -276,6 +307,8 @@ msgid ""
 "ensure the full exploration of the binding site. A value of -0.3 nm should "
 "suffice."
 msgstr ""
+"次に軸方向を2つの PLUMED Wall で制限します。Low. Wall は COM の軸射影の下限です。0は A、負は Cone "
+"の深部、正は非結合側に近づきます。赤球で位置を示します。結合様式が不明なら部位全体を探索できるようにします。-0.3 nm で十分です。"
 
 #: INSTRUCTIONS.md:85
 msgid ""
@@ -290,19 +323,22 @@ msgid ""
 "3.5 nm is sufficient to have an unbound region for benzamidine outside of "
 "the trypsin influence."
 msgstr ""
+"Up. Wall は Cylinder 側の上限で、非結合領域に時間を費やしすぎず収束を速めます。通常、標的の影響外（最近原子から10〜15 Å）で "
+"Cylinder 内2〜3 Å を探索できるようにします。A からの距離で定義し、赤球で示します。ここでは約3.5 nm で Benzamidine が"
+" Trypsin の影響を離れられます。"
 
 #: INSTRUCTIONS.md:87
 msgid ""
 "The bias imposed by the FM will be constructed as a grid and, as such, "
 "requires lower and upper limits. The lower limit is called 'Min fps.lp' and "
 "should be set at least 0.5 Å lower than the value of 'Low. Wall'."
-msgstr ""
+msgstr "FM Bias は Grid なので上下限が必要です。Min fps.lp は Low. Wall より少なくとも0.5 Å 下にします。"
 
 #: INSTRUCTIONS.md:89
 msgid ""
 "Conversely, on the other side we have 'Max fps.lp', which should be set at "
 "least 0.5 Å higher than the value of 'Up. Wall'."
-msgstr ""
+msgstr "Max fps.lp は Up. Wall より少なくとも0.5 Å 上にします。"
 
 #: INSTRUCTIONS.md:91
 msgid ""
@@ -315,6 +351,9 @@ msgid ""
 "select an atom in the visualization window. For the sake of the tutorial, "
 "the user can pick whichever atom outside of the trypsin binding pocket."
 msgstr ""
+"PBC により Ligand が Funnel Grid の外へ誤配置され、停止する場合があります。防ぐため、結合時・非結合時とも Ligand "
+"にできる限り近い標的原子を Anchor とします。選択オプションを押し、p で原子を選びます。ここでは Trypsin Pocket "
+"外の任意の原子でかまいません。"
 
 #: INSTRUCTIONS.md:93
 msgid ""
@@ -323,7 +362,7 @@ msgid ""
 "Type in the box to the right of 'ID' the VMD identification number of the "
 "structure you loaded. This number can be found on the left in the VMD main "
 "menu where the structure file of the system is loaded."
-msgstr ""
+msgstr "Funnel パラメータは揃いました。ID の右欄に構造の VMD ID を入れます。Main Menu の構造一覧の左にあります。"
 
 #: INSTRUCTIONS.md:95
 msgid ""
@@ -333,6 +372,8 @@ msgid ""
 "to provide a subselection of atoms, but in our example we will just get all "
 "heavy atoms of benzamidine by typing:"
 msgstr ""
+"VMD 構文で Ligand COM の原子群を指定します。構造により部分選択がよい場合もありますが、今回は Benzamidine の全 Heavy "
+"Atom を次で選びます。"
 
 #: INSTRUCTIONS.md:100
 msgid ""
@@ -340,7 +381,7 @@ msgid ""
 "containing all parameters set up until now by the user. It is possible to "
 "see few empty variables that must be completed before launching the "
 "simulation."
-msgstr ""
+msgstr "Apply で入力案が表示されます。未記入変数は実行前に埋めます。"
 
 #: INSTRUCTIONS.md:102
 msgid ""
@@ -352,20 +393,22 @@ msgid ""
 "'<fill>' or '<?>' flag need to be specified with a user-defined value or "
 "file, respectively, before running the simulation."
 msgstr ""
+"Drop-down で残りのパラメータを選び、右欄に値を入れ、Enter・Apply で更新します。各オプションは Protocol "
+"論文を参照してください。<fill> は値、<?> はファイルをユーザーが指定する欄です。"
 
 #: INSTRUCTIONS.md:105
 msgid ""
 "The canvas where the PLUMED input is outputted can also be modified "
 "manually, however this should be done as last thing because clicking 'Apply'"
 " would reset any manual change."
-msgstr ""
+msgstr "入力欄は手動変更もできますが、Apply が消してしまうため最後に行ってください。"
 
 #: INSTRUCTIONS.md:107
 msgid ""
 "To print the file, it is possible to click on 'Export' and 'Export for "
 "Plumed' to create a text file with all the information written in the "
 "interface canvas."
-msgstr ""
+msgstr "Export、Export for Plumed で表示内容を Text File に出力します。"
 
 #: INSTRUCTIONS.md:109
 msgid ""
@@ -375,6 +418,8 @@ msgid ""
 "the COM of benzamidine and a selection of atoms in the binding pocket of "
 "trypsin should suffice."
 msgstr ""
+"注意：Metadynamics の CV はまだありません。系と問題に合う CV を加えます。ここでは Benzamidine COM と "
+"Trypsin Pocket の原子群間距離で十分です。"
 
 #: INSTRUCTIONS.md:111
 msgid ""
@@ -387,29 +432,32 @@ msgid ""
 "backbone atoms of secondary structures (i.e., alpha helix and beta sheet) be"
 " chosen."
 msgstr ""
+"最後に、Funnel 設定に使った標的の参照 PDB を作ります。Bias を加えた際の標的の重ね合わせに使い、FUNNEL_PS の "
+"REFERENCE に指定します。標的の全原子または部分集合だけを含めます。Secondary Structure（Alpha-helix、Beta-"
+"sheet）の Backbone を強く推奨します。"
 
 #: INSTRUCTIONS.md:113
 msgid ""
 "TO BE NOTED: beware when creating such a file with VMD since the final "
 "structure may have atoms renumbered, and this could create a mismatch during"
 " the simulation, causing artifacts and crashes."
-msgstr ""
+msgstr "注意：VMD の出力で原子番号が変わると、不一致により Artifact や Crash を招くため確認してください。"
 
 #: INSTRUCTIONS.md:115
 msgid ""
 "For users that opted to follow the VMD plug-in route, it is possible to skip"
 " directly to the simulation phase. Following, we are going to explain how to"
 " use the Funnel Metadynamics Pre-Processing Tool web server."
-msgstr ""
+msgstr "VMD で準備した場合は実行編へ進めます。以下は Web Server の説明です。"
 
 #: INSTRUCTIONS.md:117
 msgid "Access the server [website](https://mbuto.si.usi.ch/)."
-msgstr ""
+msgstr "Server の [Web サイト](https://mbuto.si.usi.ch/) にアクセスします。"
 
 #: INSTRUCTIONS.md:119
 msgid ""
 "Create an account to access the service and log in with the credentials."
-msgstr ""
+msgstr "Account を作成して Login します。"
 
 #: INSTRUCTIONS.md:121
 msgid ""
@@ -418,7 +466,7 @@ msgid ""
 "certain amount of time in case it is necessary to retrieve the project and "
 "change few parameters. Press 'Add' to finalize the creation of the "
 "discovery."
-msgstr ""
+msgstr "左上の Plus で新しい Discovery に名前を付け、Add で作成します。一定期間保存されるため、再取得して変更できます。"
 
 #: INSTRUCTIONS.md:123
 msgid ""
@@ -429,32 +477,34 @@ msgid ""
 "and the user can press numbers from 1 to 8 to adjust the zone to display "
 "atoms."
 msgstr ""
+"PDBID で取得するかファイルを Upload します。Secondary Structure をクリックして "
+"Zoom、Shift+左クリックで選択残基周囲の原子を表示します。選択は紫色で、1〜8キーで表示範囲を変えられます。"
 
 #: INSTRUCTIONS.md:125
 msgid ""
 "Start defining the funnel shape by clicking on the funnel icon on the left "
 "(named 'Funnel'). A set of options will be displayed on the right, which can"
 " be set interactively."
-msgstr ""
+msgstr "左の Funnel アイコンを押すと右にオプションが出ます。"
 
 #: INSTRUCTIONS.md:127
 msgid ""
 "Definition of the parameters follows the same rationale of the VMD plug in "
 "(points 1 to 17). Following, we will just specify the procedure."
-msgstr ""
+msgstr "意味は VMD の手順1〜17と同じなので、操作だけ示します。"
 
 #: INSTRUCTIONS.md:129
 msgid ""
 "Point A and B can be chosen by clicking on atoms, specifying the value of a "
 "given coordinate, or by adapting the value with the arrows in the boxes."
-msgstr ""
+msgstr "A・B は原子のクリック、座標入力、矢印で選びます。"
 
 #: INSTRUCTIONS.md:131
 msgid ""
 "Zcc is in the form of a slider, taking as a reference the point A. Alpha and"
 " Rcyl can be changed by providing directly a value or with the arrows and "
 "they are expressed in radians and Å, respectively."
-msgstr ""
+msgstr "Zcc は A を基準に Slider で指定します。Alpha は radian、Rcyl は Å で、直接入力か矢印を使います。"
 
 #: INSTRUCTIONS.md:133
 msgid ""
@@ -465,18 +515,20 @@ msgid ""
 "appear on the right of the option, signaling that an atom has been correctly"
 " provided."
 msgstr ""
+"Anchor point の左の Checkbox を入れて原子をクリックし、選択後は誤変更を防ぐため解除します。右に Serial Number "
+"が出れば設定できています。"
 
 #: INSTRUCTIONS.md:135
 msgid ""
 "It is possible to undisplay or display the Funnel by clicking on the eye on "
 "the top right of the interface."
-msgstr ""
+msgstr "右上の目で Funnel 表示を切り替えます。"
 
 #: INSTRUCTIONS.md:137
 msgid ""
 "Switch to the 'Bounds' section on the left panel to start defining the walls"
 " and upper and lower limits that will be applied in the FM simulation."
-msgstr ""
+msgstr "左の Bounds で Wall と上下限を設定します。"
 
 #: INSTRUCTIONS.md:139
 msgid ""
@@ -485,7 +537,7 @@ msgid ""
 "point A. The web server has also an internal check to warn the user if "
 "improper values of bounds have been selected. In this case, a red message "
 "will be displayed on the side of the wrong parameter."
-msgstr ""
+msgstr "Slider で指定し、A に対する境界を円盤で表示します。不適切な値は右に赤い警告が出ます。"
 
 #: INSTRUCTIONS.md:141
 msgid ""
@@ -494,6 +546,7 @@ msgid ""
 "end of the procedure. To do so, switch to the 'Collective variables' panel "
 "on the left that has a wrench as symbol."
 msgstr ""
+"Server では幾何学 CV を定義して入力に直接追加できます。左の Wrench アイコンの Collective variables を開きます。"
 
 #: INSTRUCTIONS.md:143
 msgid ""
@@ -506,6 +559,8 @@ msgid ""
 "atoms and stops the selection there by right-clicking again on the second "
 "atom, a distance will be defined."
 msgstr ""
+"右上に定義済み CV があります。距離・角・Dihedral "
+"を操作から自動判定します。原子を右クリックして順に選び、同じ原子を再度右クリックして終了します。例えば2原子を選んで2番目を再クリックすると距離です。"
 
 #: INSTRUCTIONS.md:145
 msgid ""
@@ -517,13 +572,15 @@ msgid ""
 " atoms, a click on the plus on the right of the interface finalizes the "
 "selection and stops the process to start a new COM definition."
 msgstr ""
+"COM も定義できます。CV virtual Atom の左を Check し、左クリックで原子を選ぶと赤球の COM が更新されます。右の Plus "
+"で確定し、次の COM の定義に移ります。"
 
 #: INSTRUCTIONS.md:147
 msgid ""
 "A 'History Log' is accessible on the left panel by clicking on the "
 "homonymous option (clock symbol). Here the user can revert a move or restore"
 " a previous state in the definition of parameters."
-msgstr ""
+msgstr "左の時計アイコンの History Log で操作を戻し、以前の設定を復元できます。"
 
 #: INSTRUCTIONS.md:149
 msgid ""
@@ -537,17 +594,21 @@ msgid ""
 " adapt this file to the system under study as explained in the reference "
 "[protocol](https://www.nature.com/articles/s41596-020-0342-4)."
 msgstr ""
+"全設定後、左上の Protein（原子アイコン）、右の PLUMED FILE を押します。最終値の欄と、定義した CV の選択 Menu "
+"が開きます。FUNNEL_PS の REFERENCE 用 PDB "
+"も作れますが、[Protocol](https://www.nature.com/articles/s41596-020-0342-4) "
+"に従い系に合わせて調整してください。"
 
 #: INSTRUCTIONS.md:151
 msgid "Press the 'DOWNLOAD' button to obtain a PLUMED input file."
-msgstr ""
+msgstr "DOWNLOAD で PLUMED 入力を取得します。"
 
 #: INSTRUCTIONS.md:153
 msgid ""
 "The procedure of pre-processing is now terminated and the user can progress "
 "to the Simulation phase. In case of bugs, please contact the email address "
 "andreabritesma@gmail.com."
-msgstr ""
+msgstr "前処理は終了です。実行編へ進めます。不具合は andreabritesma@gmail.com に連絡してください。"
 
 #: INSTRUCTIONS.md:156
 msgid "Simulation"
@@ -559,11 +620,11 @@ msgid ""
 "study and hardware, it could require some simulation time. For this reason, "
 "we provide files that could be used by the user to skip directly to the "
 "post-processing exercise."
-msgstr ""
+msgstr "実行は任意で、系・Hardware により時間がかかります。解析に直接進めるファイルも用意しています。"
 
 #: INSTRUCTIONS.md:161
 msgid "For the following exercise, we are going to use GROMACS."
-msgstr ""
+msgstr "次の演習は GROMACS を使います。"
 
 #: INSTRUCTIONS.md:163
 msgid ""
@@ -571,25 +632,25 @@ msgid ""
 "flag '-plumed' followed by the name of the file prepared in the pre-"
 "processing exercise. Depending on the version and configuration of GROMACS "
 "in your machine, the command input might slightly change."
-msgstr ""
+msgstr "通常の GROMACS コマンドに -plumed と前処理で作ったファイル名を加えます。バージョン・設定で多少異なります。"
 
 #: INSTRUCTIONS.md:165
 msgid "For GROMACS-5.1.4+PLUMED-2.6:"
-msgstr ""
+msgstr "GROMACS-5.1.4+PLUMED-2.6 の場合："
 
 #: INSTRUCTIONS.md:169
 msgid "For GROMACS-2020.6+PLUMED-2.7.1 (serial version):"
-msgstr ""
+msgstr "GROMACS-2020.6+PLUMED-2.7.1（逐次版）："
 
 #: INSTRUCTIONS.md:173
 msgid "For GROMACS-2020.6+PLUMED-2.7.1 (MPI version):"
-msgstr ""
+msgstr "GROMACS-2020.6+PLUMED-2.7.1（MPI 版）："
 
 #: INSTRUCTIONS.md:178
 msgid ""
 "Check that the files 'HILLS', 'COLVAR' and 'BIAS' are created. The 'BIAS' "
 "file contains the information of the funnel-shape restraint potential."
-msgstr ""
+msgstr "HILLS、COLVAR、BIAS の生成を確認します。BIAS は Funnel Restraint の情報です。"
 
 #: INSTRUCTIONS.md:180
 msgid ""
@@ -597,14 +658,14 @@ msgid ""
 " To check the convergence, compute the binding free-energy surface (BFES) as"
 " a function of the simulation time. This operation can be done while the "
 "simulation is ongoing using the command:"
-msgstr ""
+msgstr "自由エネルギーが収束したら止めます。結合自由エネルギー表面 (BFES) の時間変化を、実行中でも次で調べられます。"
 
 #: INSTRUCTIONS.md:184
 msgid ""
 "As a rule of thumb, the calculation is converged if the system continues "
 "exploring the bound and unbound state in the CV space, while the computed "
 "BFES as a function of the time does not change significantly."
-msgstr ""
+msgstr "目安は、結合・非結合の両状態を探索し続け、BFES が時間とともに大きく変わらないことです。"
 
 #: INSTRUCTIONS.md:186
 msgid ""
@@ -615,10 +676,12 @@ msgid ""
 "be done with the help of the post-processing interface if necessary (see "
 "point X in post-processing exercise)."
 msgstr ""
+"注意：収束時間は系の大きさ、CV の数・種類、パラメータに依存します。Benzamidine–Trypsin は250 ns で収束しました。後処理 "
+"GUI でも確認できます（後処理演習の手順 X）。"
 
 #: INSTRUCTIONS.md:188
 msgid "Post-processing exercise"
-msgstr ""
+msgstr "後処理演習"
 
 #: INSTRUCTIONS.md:190
 msgid ""
@@ -627,6 +690,8 @@ msgid ""
 " simulation, a number of binding free-energy surfaces (BFES), and a COLVAR "
 "file already strided."
 msgstr ""
+"未実行の場合用に、間引いた Trajectory の start.pdb・trj.trr、HILLS、複数 BFES、間引き済み COLVAR "
+"を用意しています。"
 
 #: INSTRUCTIONS.md:192
 msgid ""
@@ -634,7 +699,7 @@ msgid ""
 "the graphical user interface FFS. Additionally, a notebook (Solution.ipynb) "
 "is provided in the github folder, which contains the most important "
 "calculations inside the tool."
-msgstr ""
+msgstr "以下の手順と FFS GUI を使えます。主要計算を含む Solution.ipynb も GitHub にあります。"
 
 #: INSTRUCTIONS.md:194
 msgid ""
@@ -643,27 +708,29 @@ msgid ""
 " or dcd + pdb files for example (users will find start.pdb and trj.trr in "
 "data/post-processing)."
 msgstr ""
+"VMD に Trajectory を読みます。例えば xtc+gro、crd+prmtop、dcd+pdb です。data/post-"
+"processing に start.pdb・trj.trr があります。"
 
 #: INSTRUCTIONS.md:196
 msgid ""
 "Source the plug-in ffs.tcl to start the analysis of the FM trajectory. To do"
 " so, go to Extension->Tk console on the Main window of VMD, type"
-msgstr ""
+msgstr "Main の Extension->Tk console で ffs.tcl を Source します。"
 
 #: INSTRUCTIONS.md:200
 msgid "and then"
-msgstr ""
+msgstr "続いて、"
 
 #: INSTRUCTIONS.md:204
 msgid "The post-processing GUI should now be visible."
-msgstr ""
+msgstr "後処理 GUI が表示されます。"
 
 #: INSTRUCTIONS.md:206
 msgid ""
 "TO BE NOTED: in case the tooltip library was not loaded beforehand, please "
 "follow indications in point 1 of the pre-processing exercise before sourcing"
 " ffs.tcl."
-msgstr ""
+msgstr "注意：tooltip 未読み込みなら、ffs.tcl の前に前処理の手順1に従ってください。"
 
 #: INSTRUCTIONS.md:208
 msgid ""
@@ -676,20 +743,22 @@ msgid ""
 "simulation trajectory. We will start describing the first option. You can "
 "find the second option from point 9."
 msgstr ""
+"2つの計算があります。sum_hills は CV の BFES を再構成し、収束を確認します。driver は Trajectory の "
+"CV・Potential の Rescale などを計算します。まず前者を説明し、後者は手順9からです。"
 
 #: INSTRUCTIONS.md:212
 msgid ""
 "Click the 'Plumed (bin)' button and select the folder path to the binary "
 "file 'plumed' of PLUMED-2 on the user’s computer. The name of the selected "
 "file is shown to the right of the button."
-msgstr ""
+msgstr "Plumed (bin) で PLUMED-2 の実行ファイル plumed を選びます。右に名前が出ます。"
 
 #: INSTRUCTIONS.md:214
 msgid ""
 "Click the 'Hills' button and select the folder path to the 'HILLS' file "
 "produced in Step 1 of the 'Simulation' phase. Alternatively, the user can "
 "load the HILLS_800ns provided inside the github folder."
-msgstr ""
+msgstr "Hills で実行編の HILLS、または GitHub の HILLS_800ns を選びます。"
 
 #: INSTRUCTIONS.md:216
 msgid ""
@@ -697,19 +766,19 @@ msgid ""
 "kJ/mol state) through the ‘Min to zero?’ drop-down menu. This operation "
 "facilitates the comparison between states and has no consequence on the "
 "computation of the BFES."
-msgstr ""
+msgstr "Min to zero? で最小を0 kJ/mol にするか選びます。比較が楽になり、BFES 計算には影響しません。"
 
 #: INSTRUCTIONS.md:218
 msgid ""
 "Specify the value of the product between the Boltzmann constant and the "
 "temperature in kJ/mol (e.g., 2.479 at 298 K)."
-msgstr ""
+msgstr "Boltzmann 定数×温度を kJ/mol で指定します。298 K なら2.479です。"
 
 #: INSTRUCTIONS.md:220
 msgid ""
 "Click the ‘Output’ button and select the folder in which you prefer to save "
 "the output files. The folder name appears to the right of the button."
-msgstr ""
+msgstr "Output で保存先を選ぶと右に表示されます。"
 
 #: INSTRUCTIONS.md:222
 msgid ""
@@ -726,19 +795,22 @@ msgid ""
 "sum_hills is displayed in the VMD tk console; thus, you can check the "
 "progress of the calculation."
 msgstr ""
+"RUN Sum_hills LR は CV ごと150点の低解像度で、FMAP GUI の描画時の Cache "
+"問題を避けるため推奨します（手順16）。HR は高解像度で結合自由エネルギーの高精度推定に有用です（手順19）。stride は指定間隔で時間ごとの "
+"BFES を作り、収束確認・結合自由エネルギーに使います（手順20）。終了まで待ち、VMD Tk Console の出力で進捗を確認します。"
 
 #: INSTRUCTIONS.md:224
 msgid ""
 "Alternatively, you can use the interface to perform a driver calculation. "
 "Skip to step 16 to continue the analysis of the BFESs."
-msgstr ""
+msgstr "driver も Interface から使えます。BFES 解析の続きは手順16へ進んでください。"
 
 #: INSTRUCTIONS.md:226
 msgid ""
 "Click the ‘Plumed (bin)’ button and select the folder path to the binary "
 "file 'plumed' of PLUMED-2 on the user’s computer. The name of the selected "
 "file is shown to the right of the button."
-msgstr ""
+msgstr "Plumed (bin) で PLUMED-2 の実行ファイル plumed を選びます。右に名前が出ます。"
 
 #: INSTRUCTIONS.md:228
 msgid ""
@@ -746,19 +818,19 @@ msgid ""
 "which the statistics along the simulation should be computed. To load the "
 "file, click the 'Input (.dat)' button. The name of the selected file is "
 "shown to the right of the button."
-msgstr ""
+msgstr "Text Editor で統計を計算する CV の PLUMED-2 入力を作り、Input (.dat) で読みます。右に名前が出ます。"
 
 #: INSTRUCTIONS.md:230
 msgid ""
 "Click the 'Trajectory' button to select the trajectory on which the Driver "
 "command should run."
-msgstr ""
+msgstr "Trajectory で driver の対象を選びます。"
 
 #: INSTRUCTIONS.md:232
 msgid ""
 "TO BE NOTED: the full (not strided) trajectory of the simulation produced at"
 " Step 1 of the 'Simulation' phase should be used."
-msgstr ""
+msgstr "注意：実行編の手順1で生成した、間引いていない全 Trajectory を使います。"
 
 #: INSTRUCTIONS.md:234
 msgid ""
@@ -767,6 +839,8 @@ msgid ""
 "Amber, respectively) by using the drop-down menu to the right of 'Trajectory"
 " extension'."
 msgstr ""
+"Trajectory extension の右で形式を選びます。GROMACS は .xtc/.trr、NAMD は .dcd、Amber は .crd"
+" です。"
 
 #: INSTRUCTIONS.md:236
 msgid ""
@@ -776,19 +850,21 @@ msgid ""
 "respectively, especially if the collective variable (CV) computed employs "
 "calculations dependent on either of them."
 msgstr ""
+"Pdb file で対応する PDB を指定します。特に質量・電荷依存 CV では、occupancy と beta-factor "
+"を各原子の質量・電荷に置き換えてください。"
 
 #: INSTRUCTIONS.md:238
 msgid ""
 "Click the 'Output' button and select the folder in which you prefer to save "
 "the output files."
-msgstr ""
+msgstr "Output で保存先を選びます。"
 
 #: INSTRUCTIONS.md:240
 msgid ""
 "Click 'RUN Driver' and wait until the calculation is completed. The "
 "calculation output of driver is displayed in the VMD tk console, allowing "
 "you to check the progress of the calculation."
-msgstr ""
+msgstr "RUN Driver で実行し、終了を待ちます。Tk Console で進捗を確認できます。"
 
 #: INSTRUCTIONS.md:242
 msgid ""
@@ -798,6 +874,8 @@ msgid ""
 "creating the FES using 'RUN Sum_hills LR' to avoid computer cash memory "
 "issues."
 msgstr ""
+"Plot FES で手順8または任意の PLUMED-2 形式の1次元・2次元 BFES を表示します。Cache 問題を避けるため LR "
+"の使用を推奨します。"
 
 #: INSTRUCTIONS.md:244
 msgid ""
@@ -811,6 +889,9 @@ msgid ""
 " Otherwise, a COLVAR file with the same number of frames of trj.trr is "
 "provided in the github folder."
 msgstr ""
+"Trace で、読み込んだ Trajectory（手順11）の Frame と BFES（手順25）上の位置を同時に追えます。Output で "
+"COLVAR を選びます。Frame 数を一致させるため、必要なら手順9〜15の Driver で VMD の Trajectory "
+"から作ります。trj.trr と同数の COLVAR も GitHub にあります。"
 
 #: INSTRUCTIONS.md:247
 msgid ""
@@ -831,6 +912,11 @@ msgid ""
 "first two boxes ('min_x' and 'max_x'); in the case of 2D FESs, all four "
 "fields should be filled ('min_x', 'max_x', 'min_y' and 'max_y')."
 msgstr ""
+"BFES の指定領域（最小付近の結合 Pose など）の構造を抽出できます。Output で同じ Frame 数の COLVAR "
+"を指定し、なければ手順9で作ります。BFES 上を右 Drag して選択します（OS "
+"で操作は異なります）。抽出数の通知後、Selected_structures に Frame 番号の PDB と一覧 Log "
+"が生成されます。代わりに右の min_x・max_x、2次元なら min_y・max_y も入れ、Extract "
+"を押せます。1次元は最初の2欄だけ、2次元は4欄すべてを使います。"
 
 #: INSTRUCTIONS.md:249
 msgid ""
@@ -850,6 +936,10 @@ msgid ""
 "'Calculate!' button. This estimate already includes the entropy correction "
 "due to the presence of the funnel-shape potential."
 msgstr ""
+"絶対 Protein-Ligand 結合自由エネルギーを求めます。結合領域を1次元なら min_x・max_x、2次元なら min_y・max_y "
+"も指定します。Wref value at に、Ligand が遠く BFES が平坦な非結合参照 CV を入れます。Cylinder 半径を指定し "
+"Calculate! を押し、BFES を選びます。LR でも使えますが、HR で再計算すると精度が上がる場合があります。結果は Terminal "
+"ではなくボタン右に kcal/mol で表示し、Funnel による Entropy 補正を含みます。"
 
 #: INSTRUCTIONS.md:253
 msgid ""
@@ -868,6 +958,9 @@ msgid ""
 "the corresponding s.d. computed from each BFES is reported in the tk_console"
 " of VMD."
 msgstr ""
+"結合自由エネルギーと標準偏差の時間変化で収束を評価できます。手順8で時間加重平均の BFES を複数作り、Output "
+"で保存先を指定します。結合領域、非結合参照 CV、Cylinder 半径を入れ、Convergence を押します。BFES "
+"番号に対する差の図が開き、各差と s.d. が VMD Tk Console に出ます。"
 
 #: INSTRUCTIONS.md:255
 msgid ""
@@ -882,6 +975,8 @@ msgid ""
 "the converged part in the binding free-energy graph that shows lower "
 "fluctuations around a given value."
 msgstr ""
+"初期の未収束部分は大きく揺らぎます。Rej. Time の右に除外する Frame 数を入れ、手順20を繰り返して平均・s.d. "
+"を再計算します。一定値の周囲で揺らぎが小さくなる収束部分を図から選びます。"
 
 #: INSTRUCTIONS.md:258
 msgid ""
@@ -898,10 +993,13 @@ msgid ""
 "kcal/mol). We note that the binding free-energy value computed in the last "
 "block should be very similar to that computed in Step 21."
 msgstr ""
+"さらに Block bootstrap で確認できます。Rej. Time 後の Frame を10 Block に分け、各々 Bootstrap "
+"し、結合自由エネルギー平均・標準誤差・分布 Histogram を得ます。分布が Gaussian に似ることを確認します。最後の Block "
+"間の差が1 kcal/mol 未満なら収束とします。最後の値は手順21とほぼ同じになるはずです。"
 
 #: INSTRUCTIONS.md:261
 msgid ""
 "At this point the user should have achieved convergence and the value "
 "provided from the last point in the weighted avergae can be reported as the "
 "result of FM for the system under study."
-msgstr ""
+msgstr "収束したら、Weighted Average の最後の値を FM 結果として報告できます。"
