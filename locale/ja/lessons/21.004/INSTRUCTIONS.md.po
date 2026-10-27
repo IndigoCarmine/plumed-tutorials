@@ -27,7 +27,7 @@ msgstr "目的"
 msgid ""
 "The aim of this Masterclass is to train users to perform and analyze a "
 "metadynamics simulation with PLUMED."
-msgstr ""
+msgstr "この Masterclass では、PLUMED による Metadynamics の実行と解析を学びます。"
 
 #: INSTRUCTIONS.md:11
 msgid "Objectives"
@@ -39,30 +39,30 @@ msgstr "この Masterclass を終えると、次のことができるように�
 
 #: INSTRUCTIONS.md:15
 msgid "Write the PLUMED input file to perform metadynamics simulations."
-msgstr ""
+msgstr "Metadynamics 用の PLUMED 入力を作成する。"
 
 #: INSTRUCTIONS.md:16
 msgid ""
 "Calculate the free energy as a function of the metadynamics collective "
 "variables."
-msgstr ""
+msgstr "Metadynamics の Collective Variables の関数として自由エネルギーを計算する。"
 
 #: INSTRUCTIONS.md:17
 msgid "Unbias metadynamics simulations."
-msgstr ""
+msgstr "Metadynamics の Bias を除く。"
 
 #: INSTRUCTIONS.md:18
 msgid ""
 "Estimate the error in the reconstructed free energies using block analysis."
-msgstr ""
+msgstr "Block Analysis で再構成した自由エネルギーの誤差を推定する。"
 
 #: INSTRUCTIONS.md:19
 msgid "Assess the convergence of metadynamics simulations."
-msgstr ""
+msgstr "Metadynamics の収束を評価する。"
 
 #: INSTRUCTIONS.md:20
 msgid "Recognize good from bad collective variables."
-msgstr ""
+msgstr "よい Collective Variable と悪いものを見分ける。"
 
 #: INSTRUCTIONS.md:22
 msgid "Overview of the theory"
@@ -81,6 +81,10 @@ msgid ""
 " theory behind this method by looking at one of the many reviews on this "
 "topic that are available. Some good places to look include:"
 msgstr ""
+"PLUMED は既存 MD Trajectory の解析だけでなく、MD 中に CV に力を加え、例えば Sampling "
+"を加速することもできます。CV に作用するさまざまな Bias を実装しています。全 Biasing 法の説明は "
+"[マニュアル](https://www.plumed.org/doc-master/user-doc/html/_bias.html) "
+"にあります。ここでは Metadynamics の実行・解析を学びます。理論については多くの総説があり、例えば次を読んでください。"
 
 #: INSTRUCTIONS.md:26
 msgid ""
@@ -90,6 +94,11 @@ msgid ""
 "science.](https://iopscience.iop.org/article/10.1088/0034-4885/71/12/126601)"
 " Rep. Prog. Phys., 71:126601, 2008."
 msgstr ""
+"Alessandrio Laio and Francesco Luigi Gervasio. [Metadynamics: a method to "
+"simulate rare events and reconstruct the free energy in biophysics, "
+"chemistry and material "
+"science.](https://iopscience.iop.org/article/10.1088/0034-4885/71/12/126601)"
+" Rep. Prog. Phys., 71:126601, 2008."
 
 #: INSTRUCTIONS.md:27
 msgid ""
@@ -98,6 +107,10 @@ msgid ""
 " Wiley Interdisciplinary Reviews: Computational Molecular Science, "
 "1(5):826–843, 2011."
 msgstr ""
+"Alessandro Barducci, Massimiliano Bonomi, and Michele Parrinello. "
+"[Metadynamics.](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/wcms.31)"
+" Wiley Interdisciplinary Reviews: Computational Molecular Science, "
+"1(5):826–843, 2011."
 
 #: INSTRUCTIONS.md:28
 msgid ""
@@ -107,6 +120,11 @@ msgid ""
 "Wiley Interdisciplinary Reviews: Computational Molecular Science, "
 "2(5):771–779, 2012."
 msgstr ""
+"Ludovico Sutto, Simone Marsili, and Francesco Luigi Gervasio. [New advances "
+"in "
+"metadynamics.](https://wires.onlinelibrary.wiley.com/doi/10.1002/wcms.1103) "
+"Wiley Interdisciplinary Reviews: Computational Molecular Science, "
+"2(5):771–779, 2012."
 
 #: INSTRUCTIONS.md:29
 msgid ""
@@ -115,12 +133,16 @@ msgid ""
 "practice.](https://onlinelibrary.wiley.com/doi/10.1002/9781118889886.ch1) "
 "Rev. Comput. Chem, 28:1–49, 2015."
 msgstr ""
+"Giovanni Bussi, Davide Branduardi, and others. [Free-energy calculations "
+"with metadynamics: Theory and "
+"practice.](https://onlinelibrary.wiley.com/doi/10.1002/9781118889886.ch1) "
+"Rev. Comput. Chem, 28:1–49, 2015."
 
 #: INSTRUCTIONS.md:31
 msgid ""
 "You can find a summary of the theory in this [supplementary "
 "file](THEORY.html ).."
-msgstr ""
+msgstr "理論の要約は [補足ファイル](THEORY.html ) にあります。"
 
 #: INSTRUCTIONS.md:33
 msgid "Setting up the software"
@@ -135,6 +157,11 @@ msgid ""
 " perform the simulations ourselves, so make sure that "
 "[GROMACS](https://www.gromacs.org) code is properly installed."
 msgstr ""
+"必要なソフトウェアのインストールは [こちら](https://plumed-"
+"school.github.io/lessons/21/001/data/) と [こちら](https://plumed-"
+"school.github.io/lessons/21/003/data/) の Masterclass "
+"を参照してください。今回は自分でシミュレーションするため、[GROMACS](https://www.gromacs.org) "
+"を正しくインストールしてください。"
 
 #: INSTRUCTIONS.md:37
 msgid "Resources"
@@ -146,26 +173,28 @@ msgid ""
 "on [GitHub](https://github.com/plumed/masterclass-21-4). You can clone this "
 "repository locally on your machine using the following command:"
 msgstr ""
+"演習データは [GitHub](https://github.com/plumed/masterclass-21-4) "
+"にあります。次のコマンドで自分のマシンに Clone できます。"
 
 #: INSTRUCTIONS.md:45
 msgid "This repositoy contains 3 folders:"
-msgstr ""
+msgstr "3つのフォルダがあります。"
 
 #: INSTRUCTIONS.md:47
 msgid ""
 "`data`: GROMACS topology/PDB files for the two systems that we are going to "
 "simulate and python script for error analysis;"
-msgstr ""
+msgstr "`data`：2つの対象系の GROMACS Topology/PDB と誤差解析用 Python スクリプト。"
 
 #: INSTRUCTIONS.md:48
 msgid ""
 "`notebooks`: Jupyter notebook to be used as template for the analysis of the"
 " PLUMED output;"
-msgstr ""
+msgstr "`notebooks`：PLUMED 出力解析のひな形の Jupyter Notebook。"
 
 #: INSTRUCTIONS.md:49
 msgid "`slides`: a brief presentation of the metadynamics theory."
-msgstr ""
+msgstr "`slides`：Metadynamics 理論の短い説明。"
 
 #: INSTRUCTIONS.md:51
 msgid ""
@@ -177,18 +206,22 @@ msgid ""
 "notebook `solution.ipynb` provided in the "
 "[GitHub](https://github.com/plumed/masterclass-21-4) repository."
 msgstr ""
+"整理しやすいよう、`masterclass-21-4` 内に Exercise-1、Exercise-2 "
+"などを作り、演習を分けて実行してください。下の入力ひな形を完成させ、自力で解いてください。困った場合は "
+"[GitHub](https://github.com/plumed/masterclass-21-4) の解答 Notebook "
+"`solution.ipynb` を参考にできます。"
 
 #: INSTRUCTIONS.md:53
 msgid ""
 "In many exercises, in the following tutorial we will play with a toy system,"
 " alanine dipeptide simulated in vacuo. An image of this molecule is shown "
 "below:"
-msgstr ""
+msgstr "多くの演習では、真空中の Alanine Dipeptide をモデル系に使います。構造を以下に示します。"
 
 #: INSTRUCTIONS.md:55
 msgid ""
 "![The molecule of the day: alanine dipeptide.](figures/belfast-2-ala.png)"
-msgstr ""
+msgstr "![今回の分子：Alanine Dipeptide。](figures/belfast-2-ala.png)"
 
 #: INSTRUCTIONS.md:57
 msgid ""
@@ -199,12 +232,16 @@ msgid ""
 "dihedral angles, which are denoted with $\\phi$ (phi) and $\\psi$ (psi) in "
 "the following figure:"
 msgstr ""
+"単純なこの分子は、データ解析や自由エネルギー法の理解に有用です。高い自由エネルギー Barrier で隔てられた2つの準安定状態があります。通常、下図の"
+" Ramachandran Dihedral Angle $\\phi$ (phi)、$\\psi$ (psi) で状態を記述します。"
 
 #: INSTRUCTIONS.md:60
 msgid ""
 "![Two metastable states of alanine dipeptide are characterized by their "
 "Ramachandran dihedral angles.](figures/belfast-2-transition.png)"
 msgstr ""
+"![Alanine Dipeptide の2つの準安定状態を Ramachandran Dihedral Angle "
+"で記述。](figures/belfast-2-transition.png)"
 
 #: INSTRUCTIONS.md:62
 msgid ""
@@ -214,12 +251,14 @@ msgid ""
 "simulation starting from either one of the two metastable states of alanine "
 "dipeptide."
 msgstr ""
+"`GitHub` の `data/diala` に、2つの GROMACS "
+"`.tpr`（`topolA.tpr`、`topolB.tpr`）があります。それぞれの準安定状態からの実行に必要な情報をすべて含みます。"
 
 #: INSTRUCTIONS.md:64
 msgid ""
 "_All the exercises have been tested with PLUMED version 2.7.0 and GROMACS "
 "2019.6._"
-msgstr ""
+msgstr "_すべての演習は PLUMED 2.7.0 と GROMACS 2019.6 でテストされています。_"
 
 #: INSTRUCTIONS.md:66
 msgid "Exercises"
@@ -227,7 +266,7 @@ msgstr "演習"
 
 #: INSTRUCTIONS.md:68
 msgid "Exercise 1: Familiarizing with alanine dipeptide"
-msgstr ""
+msgstr "演習1：Alanine Dipeptide に慣れる"
 
 #: INSTRUCTIONS.md:70
 msgid ""
@@ -237,6 +276,7 @@ msgid ""
 "these two simulations in two separate sub-folders. To run these simulations "
 "with GROMACS, please use the following commands:"
 msgstr ""
+"主要な2つの準安定状態から、それぞれ20 ns の通常 MD を行います。別々のサブフォルダで実行してください。GROMACS では次を使います。"
 
 #: INSTRUCTIONS.md:79
 msgid ""
@@ -245,10 +285,12 @@ msgid ""
 "can compute and print collective variables (CVs) on a pre-calculated MD "
 "trajectory. Here, we will:"
 msgstr ""
+"終了後、PLUMED で挙動を調べます。ほかの Masterclass で学んだように、既存 MD Trajectory の Collective "
+"Variables (CVs) を計算・出力できます。次を行います。"
 
 #: INSTRUCTIONS.md:81
 msgid "create a PLUMED input file with a text editor;"
-msgstr ""
+msgstr "Text Editor で PLUMED 入力を作成する。"
 
 #: INSTRUCTIONS.md:82
 msgid "run the PLUMED driver utility;"
@@ -264,23 +306,23 @@ msgstr "次の量を計算するための PLUMED 入力ファイルを準備す�
 
 #: INSTRUCTIONS.md:86
 msgid "the value of the backbone dihedral $\\phi$;"
-msgstr ""
+msgstr "Backbone Dihedral $\\phi$ の値。"
 
 #: INSTRUCTIONS.md:87
 msgid "the value of the backbone dihedral $\\psi$."
-msgstr ""
+msgstr "Backbone Dihedral $\\psi$ の値。"
 
 #: INSTRUCTIONS.md:89
 msgid ""
 "by completing the template below (whenever you see an highlighted __FILL__ "
 "string, this is a string that you must replace!):"
-msgstr ""
+msgstr "次のひな形を完成させます。強調された __FILL__ は必ず置き換えてください。"
 
 #: INSTRUCTIONS.md:105
 msgid ""
 "Once your `plumed.dat` file is complete, you can run the PLUMED driver on "
 "the two MD trajectories as follows:"
-msgstr ""
+msgstr "`plumed.dat` が完成したら、2つの MD Trajectory に次のように PLUMED driver を実行します。"
 
 #: INSTRUCTIONS.md:111
 msgid ""
@@ -289,18 +331,20 @@ msgid ""
 "to import a `COLVAR` file produced by PLUMED and to generate the desired "
 "figures using the `matplotlib` library. The users are invited to:"
 msgstr ""
+"2つの `COLVAR` は `notebooks` 内の Jupyter Notebook `plumed-pandas.ipynb` "
+"で解析できます。PLUMED の `COLVAR` を読み込み、`matplotlib` で図を作れます。次を行ってください。"
 
 #: INSTRUCTIONS.md:113
 msgid ""
 "inspect the dynamics of the two backbone dihedrals in the two separate "
 "simulations;"
-msgstr ""
+msgstr "別々のシミュレーションにおける2つの Backbone Dihedral の Dynamics を調べる。"
 
 #: INSTRUCTIONS.md:114
 msgid ""
 "calculate the fluctuations (standard deviation) of the two CVs in the "
 "different basins visited."
-msgstr ""
+msgstr "訪れた各 Basin で両 CV の揺らぎ（標準偏差）を計算する。"
 
 #: INSTRUCTIONS.md:116
 msgid ""
@@ -308,10 +352,12 @@ msgid ""
 "or instead they remain trapped in different regions of the__ $\\phi$ / "
 "$\\psi$ **space?**"
 msgstr ""
+"__両方とも重要な全 Conformation を訪れるのに十分な長さですか？それとも異なる__ $\\phi$ / $\\psi$ "
+"**領域に閉じ込められていますか？**"
 
 #: INSTRUCTIONS.md:118
 msgid "Exercise 2: My first metadynamics simulation"
-msgstr ""
+msgstr "演習2：初めての Metadynamics"
 
 #: INSTRUCTIONS.md:120
 msgid ""
@@ -321,6 +367,8 @@ msgid ""
 "dihedral $\\psi$. Here you can find a sample `plumed.dat` file that you can "
 "use as a template."
 msgstr ""
+"Backbone Dihedral $\\phi$ を CV とする Well-tempered Metadynamics "
+"を設定・実行します。もう一方の Backbone Dihedral $\\psi$ も監視します。次の `plumed.dat` をひな形に使えます。"
 
 #: INSTRUCTIONS.md:147
 msgid ""
@@ -329,6 +377,7 @@ msgid ""
 "conformations, for example `topolA.tpr`. All you need to do is execute the "
 "following command:"
 msgstr ""
+"`plumed.dat` が完成したら、例えば `topolA.tpr` など、付属のいずれかの構造から20 ns 実行します。次のコマンドを使います。"
 
 #: INSTRUCTIONS.md:153
 msgid ""
@@ -338,13 +387,15 @@ msgid ""
 "dihedrals $\\phi$ and $\\psi$ every 10 steps of simulation. The `HILLS` file"
 " contains a list of the Gaussian kernels deposited along the simulation."
 msgstr ""
+"PLUMED は `COLVAR` と `HILLS` を作ります。`COLVAR` は PRINT の指定内容、ここでは10 Step ごとの "
+"$\\phi$ と $\\psi$ です。`HILLS` はシミュレーション中に追加した Gaussian Kernel の一覧です。"
 
 #: INSTRUCTIONS.md:155
 msgid ""
 "Let's visualize the time series of the two collective variables. Take your "
 "time to inspect the behavior of the two CVs. __What are the main differences"
 " with respect to the trajectories you produced from the first exercise?__"
-msgstr ""
+msgstr "両 CV の時系列を可視化し、挙動をよく調べてください。__演習1の Trajectory との主な違いは何ですか？__"
 
 #: INSTRUCTIONS.md:157
 msgid ""
@@ -355,6 +406,8 @@ msgid ""
 " the free energy as a function of $\\phi$, it is sufficient to use the "
 "following command:"
 msgstr ""
+"BiasPotential から Metadynamics CV の関数として自由エネルギーを直接推定できます。sum_hills は `HILLS` "
+"の Gaussian Kernel を足し合わせます。$\\phi$ の関数として求めるには、次を使います。"
 
 #: INSTRUCTIONS.md:163
 msgid ""
@@ -363,6 +416,8 @@ msgid ""
 "modify the default name for the free-energy file, as well as the boundaries "
 "and bin size of the grid, by using the following sum_hills options:"
 msgstr ""
+"`fes.dat` に $\\phi$ の自由エネルギー表面を等間隔 Grid で出力します。ファイル名、Grid の境界、Bin 幅は "
+"sum_hills の次のオプションで変えられます。"
 
 #: INSTRUCTIONS.md:173
 msgid ""
@@ -374,6 +429,8 @@ msgid ""
 "`--mintozero` can be used to align the profiles by setting the global "
 "minimum to zero. If we use the following command:"
 msgstr ""
+"収束の予備評価には、各時刻の自由エネルギー推定を比較します。収束時には Profile が似るはずです。`--stride` で `N` "
+"Gaussian ごとに計算し、`--mintozero` で大域的最小を0に揃えます。次の場合は、"
 
 #: INSTRUCTIONS.md:179
 msgid ""
@@ -384,6 +441,8 @@ msgid ""
 "long metadynamics simulation, the free-energy estimate should not change "
 "significantly."
 msgstr ""
+"200 Gaussian ごとに自由エネルギーを求め、全 Profile "
+"の最小を0にします。時間とともに推定がどう変わるか可視化・評価してください。20 ns の後半では、大きく変わらないはずです。"
 
 #: INSTRUCTIONS.md:181
 msgid ""
@@ -394,10 +453,12 @@ msgid ""
 "dipeptide, this is rather easy since there are only two major states in the "
 "free-energy profile as a function of the CV $\\phi$."
 msgstr ""
+"Profile 全体の時間発展は把握しにくいため、通常は少数の準安定状態、すなわち局所自由エネルギー極小の間の差に注目します。Alanine "
+"Dipeptide の $\\phi$ の Profile には主要状態が2つだけなので簡単です。"
 
 #: INSTRUCTIONS.md:183
 msgid "The users should now:"
-msgstr ""
+msgstr "次を行ってください。"
 
 #: INSTRUCTIONS.md:185
 msgid ""
@@ -408,40 +469,42 @@ msgid ""
 "the integral of the probability $P(\\phi)= exp(-F(\\phi)/k_BT)$ in the "
 "chosen interval;"
 msgstr ""
+"各時刻の $F(\\phi)$ から2 Basin の自由エネルギー差を計算する。各局所極小の周囲に妥当な区間を定め、状態確率はその区間での "
+"$P(\\phi)= exp(-F(\\phi)/k_BT)$ の積分であることを使う。"
 
 #: INSTRUCTIONS.md:186
 msgid ""
 "plot the estimated free-energy difference as a function of simulation time."
-msgstr ""
+msgstr "推定した自由エネルギー差を時間に対して描画する。"
 
 #: INSTRUCTIONS.md:188
 msgid "These two observations:"
-msgstr ""
+msgstr "次の2つの観測は、"
 
 #: INSTRUCTIONS.md:189
 msgid "the system is diffusing rapidly in the entire CV space"
-msgstr ""
+msgstr "系が CV 空間全体を速やかに拡散する。"
 
 #: INSTRUCTIONS.md:190
 msgid ""
 "the estimated free energy does not significantly change as a function of "
 "time"
-msgstr ""
+msgstr "推定自由エネルギーが時間とともに大きく変わらない。"
 
 #: INSTRUCTIONS.md:192
 msgid "are two indications that the simulation __might__ have converged."
-msgstr ""
+msgstr "収束した __可能性__ を示します。"
 
 #: INSTRUCTIONS.md:194
 msgid ""
 "__IMPORTANT: The two conditions listed above are necessary, but not "
 "sufficient to declare convergence. We will learn below how to perform a "
 "quantitative analysis of the convergence of a metadynamics simulation.__"
-msgstr ""
+msgstr "__重要：上の2条件は収束の必要条件ですが、十分条件ではありません。後で定量的な収束解析を学びます。__"
 
 #: INSTRUCTIONS.md:196
 msgid "Exercise 3: Reweighting (unbiasing) a metadynamics simulation"
-msgstr ""
+msgstr "演習3：Metadynamics の Reweighting（Bias の除去）"
 
 #: INSTRUCTIONS.md:198
 msgid ""
@@ -458,13 +521,18 @@ msgid ""
 "effect of this bias and thus be able to calculate properties of the system "
 "in the unbiased ensemble, you must reweight (unbias) your simulation."
 msgstr ""
+"前の演習では $\\phi$ に Bias を加え、sum_hills で同じ変数の自由エネルギーを BiasPotential "
+"から求めました。ただし解析変数を _実行後に_ 選びたいこともあります。例えば Bias を加えていない Dihedral $\\psi$ "
+"の自由エネルギーです。通常 MD と違い、Metadynamics Trajectory の別変数の Histogram "
+"をそのまま計算できません。BiasPotential が Frame の統計的重みを変えたためです。Unbiased Ensemble "
+"の性質を求めるには Reweighting で Bias を除きます。"
 
 #: INSTRUCTIONS.md:201
 msgid ""
 "There are multiple ways to calculate the correct statistical weight of each "
 "frame in your metadynamics trajectory and thus to reweight your simulation. "
 "For example:"
-msgstr ""
+msgstr "各 Frame の正しい統計的重みを求める方法は複数あります。例えば、"
 
 #: INSTRUCTIONS.md:203
 msgid ""
@@ -472,6 +540,8 @@ msgid ""
 "metadynamics bias potential as discussed in [this "
 "paper](https://pubs.acs.org/doi/10.1021/jp504920s)."
 msgstr ""
+"[この論文](https://pubs.acs.org/doi/10.1021/jp504920s) のように BiasPotential "
+"の時間依存性を考慮する。"
 
 #: INSTRUCTIONS.md:204
 msgid ""
@@ -480,6 +550,8 @@ msgid ""
 "course of the simulation as discussed in [this "
 "paper](https://pubs.acs.org/doi/10.1021/ct3002464)."
 msgstr ""
+"[この論文](https://pubs.acs.org/doi/10.1021/ct3002464) のように、終了時の BiasPotential "
+"が全期間で一定だったと仮定する。"
 
 #: INSTRUCTIONS.md:206
 msgid ""
@@ -488,13 +560,15 @@ msgid ""
 "other masterclasses. In order to compute the weights we will use the driver "
 "tool."
 msgstr ""
+"ここでは2番目を使います。ほかの Masterclass の Umbrella Sampling の Reweighting と同じです。重みは "
+"driver で計算します。"
 
 #: INSTRUCTIONS.md:208
 msgid ""
 "First of all, you need to prepare a `plumed_reweight.dat` file that is "
 "identical to the one you used for running your metadynamics simulation "
 "except for a few modifications:"
-msgstr ""
+msgstr "実行時の入力を基に `plumed_reweight.dat` を作り、次を変更します。"
 
 #: INSTRUCTIONS.md:210
 msgid ""
@@ -502,6 +576,7 @@ msgid ""
 "make this action behave as if PLUMED was restarting, i.e. PLUMED will read "
 "from the `HILLS` file the Gaussians that have previously been accumulated;"
 msgstr ""
+"METAD に `RESTART=YES` を加える。PLUMED が再開時と同様に `HILLS` の蓄積済み Gaussian を読み込む。"
 
 #: INSTRUCTIONS.md:211
 msgid ""
@@ -509,26 +584,27 @@ msgid ""
 "number. This will actually avoid adding new Gaussians (and even if they are "
 "added they will have zero height);"
 msgstr ""
+"Gaussian の `HEIGHT` を0、`PACE` を大きな数にする。新しい Gaussian をほぼ追加せず、追加されても高さは0になる。"
 
 #: INSTRUCTIONS.md:212
 msgid ""
 "you need to modify the PRINT statement so that you write every frame and "
 "that, in addition to `phi` and `psi`, you also write `metad.bias`;"
-msgstr ""
+msgstr "PRINT を変更し、全 Frame で `phi`、`psi` に加えて `metad.bias` も出力する。"
 
 #: INSTRUCTIONS.md:213
 msgid ""
 "you might also want to change the name of the output file to "
 "`COLVAR_REWEIGHT`."
-msgstr ""
+msgstr "出力名を `COLVAR_REWEIGHT` に変えてもよい。"
 
 #: INSTRUCTIONS.md:215
 msgid "Here how the `plumed_reweight.dat` should look like:"
-msgstr ""
+msgstr "`plumed_reweight.dat` は次のようになります。"
 
 #: INSTRUCTIONS.md:242
 msgid "Now you can run the driver tool using this command:"
-msgstr ""
+msgstr "次で driver を実行します。"
 
 #: INSTRUCTIONS.md:248
 msgid ""
@@ -536,6 +612,8 @@ msgid ""
 " Notice that you have to specify the value of $k_BT$ in energy units. While "
 "running your simulation this information was communicated by the MD code."
 msgstr ""
+"`traj_comp.xtc` は演習2の Trajectory です。エネルギー単位で $k_BT$ を指定する必要があります。MD "
+"実行中は、この情報は MD コードから渡されていました。"
 
 #: INSTRUCTIONS.md:250
 msgid ""
@@ -550,29 +628,34 @@ msgid ""
 " lines at the end of the `plumed_reweight.dat` file and re-run PLUMED "
 "driver:"
 msgstr ""
+"新しい `COLVAR_REWEIGHT` に、全 Gaussian から計算した BiasPotential $V(s)$ の列が追加されます。各 "
+"Frame の重み $w$ は $w\\propto\\exp\\left(\\frac{V(s)}{k_BT}\\right)$ "
+"で求められます（Umbrella Sampling 型 Reweighting）。Python Notebook で `COLVAR_REWEIGHT`"
+" を読み、Weighted Histogram を計算できます。PLUMED に計算させるなら、`plumed_reweight.dat` "
+"の末尾に次を加え、driver を再実行します。"
 
 #: INSTRUCTIONS.md:272
 msgid ""
 "You can now compare the free energies as a function of $\\phi$ calculated:"
-msgstr ""
+msgstr "$\\phi$ の自由エネルギーを、次の方法間で比較してください。"
 
 #: INSTRUCTIONS.md:274
 msgid ""
 "directly from the metadynamics bias potential using sum_hills as done in "
 "exercise 2;"
-msgstr ""
+msgstr "演習2の sum_hills による BiasPotential からの直接計算。"
 
 #: INSTRUCTIONS.md:275
 msgid "using the reweighting procedure introduced in this exercise."
-msgstr ""
+msgstr "この演習の Reweighting。"
 
 #: INSTRUCTIONS.md:277
 msgid "__Are the two free energies identical?__"
-msgstr ""
+msgstr "__2つの自由エネルギーは同じですか？__"
 
 #: INSTRUCTIONS.md:280
 msgid "Exercise 4: Estimating the error in free energies using block-analysis"
-msgstr ""
+msgstr "演習4：Block Analysis による自由エネルギー誤差の推定"
 
 #: INSTRUCTIONS.md:282
 msgid ""
@@ -583,10 +666,12 @@ msgid ""
 "information can be used to calculate the error in the reconstructed free "
 "energies and assess whether the simulation is converged or not."
 msgstr ""
+"前の演習では、_最終_ Bias $V(s)$ を全 Trajectory で評価し、Reweighting に必要な各 Frame "
+"の重みを求めました。ここでは、それを使って自由エネルギーの誤差を計算し、収束を評価します。"
 
 #: INSTRUCTIONS.md:284
 msgid "Let's first:"
-msgstr ""
+msgstr "まず次を行います。"
 
 #: INSTRUCTIONS.md:286
 msgid ""
@@ -594,13 +679,15 @@ msgid ""
 "$w\\propto\\exp\\left(\\frac{V(s)}{k_BT}\\right)$ from the `COLVAR_REWEIGHT`"
 " file obtained at the end of exercise 3;"
 msgstr ""
+"演習3の `COLVAR_REWEIGHT` から $w\\propto\\exp\\left(\\frac{V(s)}{k_BT}\\right)$ "
+"を計算する。"
 
 #: INSTRUCTIONS.md:287
 msgid ""
 "print them in a file (called for example `phi.weight`) containing the value "
 "of the dihedral $\\phi$ and the corresponding (un-normalized) weight $w$ for"
 " each frame of the metadynamics trajectory."
-msgstr ""
+msgstr "各 Frame の $\\phi$ と対応する未正規化の重み $w$ を、例えば `phi.weight` に出力する。"
 
 #: INSTRUCTIONS.md:289
 msgid ""
@@ -612,39 +699,42 @@ msgid ""
 "to read the `phi.weight` file and produce the desired output. The users "
 "should properly choose the following input parameters:"
 msgstr ""
+"Block Analysis で Block 間の平均自由エネルギーと、Block Size ごとの誤差を計算します。理論はほかの "
+"Masterclass を参照してください。`GitHub` の `data` にある Python スクリプト `do_block_fes.py` "
+"が、`phi.weight` を読み込んで必要な出力を生成します。次の入力パラメータを適切に選んでください。"
 
 #: INSTRUCTIONS.md:303
 msgid ""
 "and run the above script for different block sizes ranging from 1 to 1000. "
 "For each choice of block size, the script will produce an output file, which"
 " contains 3 colums:"
-msgstr ""
+msgstr "Block Size を1〜1000に変えて実行します。各 Size で3列の出力が生成されます。"
 
 #: INSTRUCTIONS.md:305
 msgid "the value of the $\\phi$ variable on a grid;"
-msgstr ""
+msgstr "Grid 上の $\\phi$ の値。"
 
 #: INSTRUCTIONS.md:306
 msgid "the free energy averaged across the blocks for each point of the grid;"
-msgstr ""
+msgstr "各 Grid 点の Block 間平均自由エネルギー。"
 
 #: INSTRUCTIONS.md:307
 msgid "the associated error for each point of the grid."
-msgstr ""
+msgstr "各 Grid 点の対応する誤差。"
 
 #: INSTRUCTIONS.md:309
 msgid "At this point, the users should:"
-msgstr ""
+msgstr "次を行ってください。"
 
 #: INSTRUCTIONS.md:311
 msgid ""
 "calculate the average error across the free-energy profile, i.e. the grid "
 "points, for each block size chosen;"
-msgstr ""
+msgstr "各 Block Size について、自由エネルギー Profile の全 Grid 点で平均誤差を計算する。"
 
 #: INSTRUCTIONS.md:312
 msgid "visualize this average error as a function of the block size."
-msgstr ""
+msgstr "平均誤差を Block Size に対して描画する。"
 
 #: INSTRUCTIONS.md:314
 msgid ""
@@ -653,16 +743,18 @@ msgid ""
 "correlation time between data points. If a plateau is not observed, then the"
 " simulation is not converged yet and should be run a bit longer."
 msgstr ""
+"Block Size とともに誤差が増え（なぜでしょうか？）、データの Correlation Time を超えると Plateau "
+"に達することを確認します。Plateau がなければ未収束で、長く実行する必要があります。"
 
 #: INSTRUCTIONS.md:318
 msgid ""
 "__From this analysis, what can we say about the convergence of the "
 "metadynamics simulation performed in exercise 2?__"
-msgstr ""
+msgstr "__この解析から、演習2の Metadynamics の収束について何がいえますか？__"
 
 #: INSTRUCTIONS.md:320
 msgid "Exercise 5: Recognizing good from bad CVs"
-msgstr ""
+msgstr "演習5：よい CV と悪い CV の見分け方"
 
 #: INSTRUCTIONS.md:322
 msgid ""
@@ -670,18 +762,20 @@ msgid ""
 "alanine dipeptide using the backbone dihedral $\\phi$ as CV. We have "
 "analyzed the simulation and noticed that:"
 msgstr ""
+"ここまで Alanine Dipeptide の Backbone Dihedral $\\phi$ を CV とする Metadynamics "
+"を行い、次を確認しました。"
 
 #: INSTRUCTIONS.md:324
 msgid ""
 "under the effect of the bias potential, the system rapidly diffuses in the "
 "entire CV space;"
-msgstr ""
+msgstr "BiasPotential により CV 空間全体を速く拡散する。"
 
 #: INSTRUCTIONS.md:325
 msgid ""
 "the error in the reconstructed free energy calculated with block analysis "
 "rapidly reaches a plateau."
-msgstr ""
+msgstr "Block Analysis による自由エネルギー誤差が速やかに Plateau に達する。"
 
 #: INSTRUCTIONS.md:327
 msgid ""
@@ -689,20 +783,22 @@ msgid ""
 "the dihedral $\\phi$ can be considered a _good_ CV. A good set of CVs for "
 "metadynamics should:"
 msgstr ""
+"この2点から、収束し、Dihedral $\\phi$ が _よい_ CV であるといえます。Metadynamics のよい CV "
+"集合は、次を満たします。"
 
 #: INSTRUCTIONS.md:329
 msgid "discriminate between the relevant metastable states of the system;"
-msgstr ""
+msgstr "重要な準安定状態を識別する。"
 
 #: INSTRUCTIONS.md:330
 msgid ""
 "include all the slow modes that characterize transitions between such "
 "states;"
-msgstr ""
+msgstr "状態間遷移を特徴付けるすべての Slow Mode を含む。"
 
 #: INSTRUCTIONS.md:331
 msgid "be as small as possible."
-msgstr ""
+msgstr "数ができる限り少ない。"
 
 #: INSTRUCTIONS.md:333
 msgid ""
@@ -711,64 +807,66 @@ msgid ""
 "potential problems in their choice of CV(s). Let's first perform additional "
 "1D metadynamics simulations using one of the following CVs:"
 msgstr ""
+"よい CV を事前に特定するのは容易ではありません。ここでは CV 選択の問題を検出する方法を学びます。まず次のいずれかで追加の1次元 "
+"Metadynamics を行います。"
 
 #: INSTRUCTIONS.md:335
 msgid "the dihedral $\\psi$;"
-msgstr ""
+msgstr "Dihedral $\\psi$。"
 
 #: INSTRUCTIONS.md:336
 msgid "the radius of gyration, defined on all the heavy atoms of the system;"
-msgstr ""
+msgstr "全 Heavy Atom の Radius of Gyration。"
 
 #: INSTRUCTIONS.md:337
 msgid "the distance between Oxigen atom 6 and Hydrogen atom 8."
-msgstr ""
+msgstr "酸素原子6と水素原子8の距離。"
 
 #: INSTRUCTIONS.md:339
 msgid ""
 "The users are invited to prepare, for each of the CV listed above, a PLUMED "
 "input file to perform a 1D well-tempered metadynamics simulation, execute "
 "the simulation, and analyse the results in terms of:"
-msgstr ""
+msgstr "各 CV の1次元 Well-tempered Metadynamics 用 PLUMED 入力を作成して実行し、次を解析してください。"
 
 #: INSTRUCTIONS.md:341
 msgid "diffusion of the system in the space of the dihedral $\\phi$"
-msgstr ""
+msgstr "Dihedral $\\phi$ 空間での拡散。"
 
 #: INSTRUCTIONS.md:342
 msgid "error analysis in the free energy as a function of $\\phi$"
-msgstr ""
+msgstr "$\\phi$ の関数としての自由エネルギーの誤差。"
 
 #: INSTRUCTIONS.md:344
 msgid ""
 "and compare the results with the previous simulation in which $\\phi$ was "
 "used as the metadynamics CV. __Based on this analysis, can you discriminate "
 "between _good_ from _bad_ CVs?__"
-msgstr ""
+msgstr "前の $\\phi$ を CV とする結果と比較してください。__解析から _よい_ CV と _悪い_ CV を見分けられますか？__"
 
 #: INSTRUCTIONS.md:346
 msgid ""
 "To complete this exercise, the users should define and test a new CV that is"
 " either:"
-msgstr ""
+msgstr "最後に、次のいずれかの新しい CV を定義してテストしてください。"
 
 #: INSTRUCTIONS.md:348
 msgid "as good as the dihedral $\\phi$;"
-msgstr ""
+msgstr "Dihedral $\\phi$ と同程度によい CV。"
 
 #: INSTRUCTIONS.md:349
 msgid ""
 "the worst possible CV to accelerate sampling and describe the two main "
 "conformational states of alanine dipeptide."
-msgstr ""
+msgstr "Alanine Dipeptide の主要2状態を記述し Sampling を加速する上で、最も悪い CV。"
 
 #: INSTRUCTIONS.md:351 INSTRUCTIONS.md:391
 msgid "__Please post the results of your simulations on Slack!__"
-msgstr ""
+msgstr "__シミュレーション結果を Slack に投稿してください！__"
 
 #: INSTRUCTIONS.md:353
 msgid "Exercise 6: A 'real-life' application"
-msgstr ""
+msgstr "演習6：実際の応用"
 
 #: INSTRUCTIONS.md:355
 msgid ""
@@ -780,6 +878,9 @@ msgid ""
 " conformational transformation from β-barrel to α-helical, which is "
 "stabilized by the N-terminal domain of the RfaH virulence factor."
 msgstr ""
+"最後に、複雑な生物系の Conformational Transition を調べます。系は _Escherichia coli_ の病原性因子 "
+"RfaH の C-terminal Domain (CTD)、RfaH-CTD です。下図のように β-barrel から α-helix "
+"への大きな変換を起こし、α-helix は RfaH の N-terminal Domain に安定化されます。"
 
 #: INSTRUCTIONS.md:357
 msgid ""
@@ -800,37 +901,37 @@ msgstr ""
 msgid ""
 "In the `data/RfaH-CTD` folder of the `GitHub` repository of this "
 "Masterclass, you will find:"
-msgstr ""
+msgstr "`GitHub` の `data/RfaH-CTD` に、次があります。"
 
 #: INSTRUCTIONS.md:361
 msgid "two PDB files of RfaH-CTD in the α-helical and β-barrel states;"
-msgstr ""
+msgstr "α-helix、β-barrel 状態の RfaH-CTD の2つの PDB。"
 
 #: INSTRUCTIONS.md:362
 msgid ""
 "a `topol.tpr` file, which is needed to perform a MD simulation of this sytem"
 " with GROMACS."
-msgstr ""
+msgstr "GROMACS で実行するための `topol.tpr`。"
 
 #: INSTRUCTIONS.md:364
 msgid "The objective of this exercises are to:"
-msgstr ""
+msgstr "目的は次のとおりです。"
 
 #: INSTRUCTIONS.md:366
 msgid ""
 "compute the free-energy difference between the α-helical and β-barrel states"
 " of RfaH-CTD (with error estimate);"
-msgstr ""
+msgstr "RfaH-CTD の α-helix と β-barrel の自由エネルギー差を誤差付きで求める。"
 
 #: INSTRUCTIONS.md:367
 msgid ""
 "(optional) determine the structure and population of other metastable "
 "states, if present."
-msgstr ""
+msgstr "任意：ほかの準安定状態があれば、構造と Population を求める。"
 
 #: INSTRUCTIONS.md:369
 msgid "In order to complete the exercise, the students should:"
-msgstr ""
+msgstr "次を行ってください。"
 
 #: INSTRUCTIONS.md:371
 msgid ""
@@ -841,30 +942,34 @@ msgid ""
 "[CUSTOM](https://www.plumed.org/doc-master/user-doc/html/_c_u_s_t_o_m.html))"
 " can be used;"
 msgstr ""
+"自分で最大3つの CV を選び、Well-tempered Metadynamics を行う。PLUMED に [実装済みの "
+"CV](https://www.plumed.org/doc-master/user-doc/html/colvarintro.html) "
+"も、[CUSTOM](https://www.plumed.org/doc-master/user-"
+"doc/html/_c_u_s_t_o_m.html) で入力に直接定義する CV も使える。"
 
 #: INSTRUCTIONS.md:372
 msgid ""
 "monitor the RMSD of the system from the two reference conformations during "
 "the course of the simulation;"
-msgstr ""
+msgstr "実行中、2つの参照 Conformation に対する RMSD を監視する。"
 
 #: INSTRUCTIONS.md:373
 msgid ""
 "analyze the results as done in the previous exercises (assessment of "
 "convergence and error analysis);"
-msgstr ""
+msgstr "前の演習と同様に収束と誤差を解析する。"
 
 #: INSTRUCTIONS.md:374
 msgid ""
 "report the free energies (with error bar) as a function of the two RMSD CVs "
 "calculated with respect to the reference PDBs;"
-msgstr ""
+msgstr "参照 PDB に対する2つの RMSD CV の関数として、自由エネルギーを Error Bar 付きで報告する。"
 
 #: INSTRUCTIONS.md:375
 msgid ""
 "(optional) report structure and population of the most signicant, i.e. "
 "populated, states."
-msgstr ""
+msgstr "任意：Population が大きい主要状態の構造と Population を報告する。"
 
 #: INSTRUCTIONS.md:377
 msgid "Please keep in mind that:"
@@ -878,25 +983,28 @@ msgid ""
 "However, the simulation of this system might take a few hours, so allocate "
 "enough time to complete this exercise;"
 msgstr ""
+"[SMOG](https://smog-server.org) という簡略化した Structure-based Potential "
+"を使います。All-atom Explicit Solvent Force Field "
+"より計算コストは大幅に低いですが、数時間かかる場合があるので時間を確保してください。"
 
 #: INSTRUCTIONS.md:380
 msgid ""
 "some of the CVs or PLUMED functionalities might not work as hydrogen atoms "
 "are not present in the system. However, there is always a way around this, "
 "so be creative;"
-msgstr ""
+msgstr "水素がないため一部の CV・PLUMED 機能は動かない場合がありますが、工夫して回避できます。"
 
 #: INSTRUCTIONS.md:381
 msgid ""
 "due to the nature of the force field, we are simulating at an unphysical "
 "temperature of 60K. Be ready to test large values of the `BIASFACTOR`."
-msgstr ""
+msgstr "Force Field の特性から、非物理的な60 K で実行します。`BIASFACTOR` は大きな値も試してください。"
 
 #: INSTRUCTIONS.md:383
 msgid ""
 "Finally, due to the special nature of the force field, please execute "
 "GROMACS using the following command:"
-msgstr ""
+msgstr "Force Field が特殊なので、GROMACS は次のコマンドで実行します。"
 
 #: INSTRUCTIONS.md:389
 msgid ""
@@ -905,3 +1013,4 @@ msgid ""
 "particularly big, therefore using a large number of cores might be "
 "inefficient."
 msgstr ""
+"資源に応じて CPU Core 数（ここでは4、OpenMP 並列化）を調整できます。系は大きくないため、多数の Core は非効率な場合があります。"
