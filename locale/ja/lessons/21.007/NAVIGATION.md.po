@@ -53,6 +53,9 @@ msgid ""
 "performance in metadyanmics simulations. This method was introduced in the "
 "fourth masterclass in the series."
 msgstr ""
+"このレッスンは、2021年シリーズの第7回 Masterclass である。最初の6回の演習をすべて終えていなくても取り組めるはずである。ただし、MPI"
+" で実行できる PLUMED と GROMACS のインストールが必要である。これらのインストールは第5回の Masterclass "
+"で扱っている。また、Metadynamics シミュレーションの性能最適化にも取り組む。この手法はシリーズ第4回で導入されている。"
 
 #. mermaid node label
 #: NAVIGATION.md:15
@@ -67,7 +70,7 @@ msgstr "講義 I"
 #. mermaid node label
 #: NAVIGATION.md:16
 msgid "MPI installation"
-msgstr ""
+msgstr "MPI のインストール"
 
 #. mermaid node label
 #: NAVIGATION.md:17
@@ -82,12 +85,12 @@ msgstr "講義 II"
 #. mermaid node label
 #: NAVIGATION.md:19
 msgid "exercise 1 solution"
-msgstr ""
+msgstr "演習1の解答"
 
 #. mermaid node label
 #: NAVIGATION.md:20
 msgid "exercise 2 solution"
-msgstr ""
+msgstr "演習2の解答"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:21
@@ -96,6 +99,8 @@ msgid ""
 "exercise you complete a series of exercise to improve the performance of "
 "metadynamics simulations."
 msgstr ""
+"Metadynamics シミュレーションの実行方法を学ぶレッスン。今回は、一連の演習を通して Metadynamics "
+"シミュレーションの性能を改善する。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:22
@@ -107,6 +112,9 @@ msgid ""
 "gromacs with MPI. You will need parallel versions of these two codes to "
 "complete the exercises in this lesson."
 msgstr ""
+"複数の Replicas を用いたシミュレーションの実行方法を学ぶレッスン。PLUMED の性能最適化の演習を終えるために、複数の Replicas "
+"の実行方法まで理解する必要はない。ただし、MPI に対応した PLUMED と GROMACS "
+"のインストール方法を紹介しているので、参照するとよい。今回の演習には、これら2つのコードの並列版が必要である。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:23
@@ -130,9 +138,9 @@ msgstr "2021年5月3日に PLUMED Masterclass シリーズの一環として行�
 #. mermaid click tooltip
 #: NAVIGATION.md:26
 msgid "A set of solutions for the first exercise in the instructions"
-msgstr ""
+msgstr "演習手順の第1問の解答一式"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:27
 msgid "A set of solutions for the second exercise in the instructions"
-msgstr ""
+msgstr "演習手順の第2問の解答一式"

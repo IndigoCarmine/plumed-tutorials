@@ -65,7 +65,7 @@ msgstr "演習の手順"
 #. mermaid node label
 #: NAVIGATION.md:17
 msgid "using pandas"
-msgstr ""
+msgstr "pandas の使い方"
 
 #. mermaid node label
 #: NAVIGATION.md:18
@@ -94,7 +94,7 @@ msgstr "演習の手順"
 msgid ""
 "A python notebook file that illustrates how you can use pandas to read in "
 "COLVAR files that are generated with PLUMED"
-msgstr ""
+msgstr "pandas を使って PLUMED が生成した COLVAR ファイルを読み込む方法を示す Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:24
@@ -109,7 +109,7 @@ msgstr "2021年1月25日に PLUMED Masterclass シリーズの一環として行
 msgid ""
 "A python notebook file that provides a complete set of solutions to the "
 "exercises"
-msgstr ""
+msgstr "演習の解答一式を収録した Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:26
@@ -118,3 +118,5 @@ msgid ""
 "installing PLUMED using conda. However, having a conda installation of "
 "PLUMED may not be sufficient for production applications"
 msgstr ""
+"PLUMED のインストール手順。conda によるインストール方法を含む。ただし、conda でインストールした PLUMED "
+"だけでは本計算に十分でない場合がある。"

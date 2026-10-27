@@ -44,6 +44,7 @@ msgid ""
 "through this material. The best path to follow will depend on your "
 "interests."
 msgstr ""
+"下のフローチャートは資料を参照する順序を示している。各ノードをクリックすると資料を開ける。太い黒線に沿って進めることを推奨する。破線でつながる資料は、演習に取り組む際に役立つ補足資料である。このレッスンには多くの教材があり、フローチャートには複数の学習経路を示している。適した経路は、自身の関心によって異なる。"
 
 #: NAVIGATION.md:11
 msgid ""
@@ -53,6 +54,9 @@ msgid ""
 "instructions for installing PLUMED using conda that you may need to consult "
 "if you have not installed it already."
 msgstr ""
+"このレッスンは、2021年シリーズの第6回 Masterclass "
+"である。それ以前の5回の演習をすべて終えていなくても取り組めるはずである。ただし、PLUMED をまだインストールしていない場合は、第1回の "
+"Masterclass にある conda によるインストール手順を参照してほしい。"
 
 #. mermaid node label
 #: NAVIGATION.md:15
@@ -67,7 +71,7 @@ msgstr "講義 I"
 #. mermaid node label
 #: NAVIGATION.md:16
 msgid "Getting started"
-msgstr ""
+msgstr "はじめに"
 
 #. mermaid node label
 #: NAVIGATION.md:18 NAVIGATION.md:25 NAVIGATION.md:28 NAVIGATION.md:33
@@ -82,12 +86,12 @@ msgstr "Dimensionality Reduction"
 #. mermaid node label
 #: NAVIGATION.md:21
 msgid "Path CVs"
-msgstr ""
+msgstr "Path CVs"
 
 #. mermaid node label
 #: NAVIGATION.md:22
 msgid "Indistinguishability"
-msgstr ""
+msgstr "Indistinguishability"
 
 #. mermaid node label
 #: NAVIGATION.md:23
@@ -97,12 +101,12 @@ msgstr "講義 II"
 #. mermaid node label
 #: NAVIGATION.md:29
 msgid "Generating startpoints"
-msgstr ""
+msgstr "初期点の生成"
 
 #. mermaid node label
 #: NAVIGATION.md:35
 msgid "Your research"
-msgstr ""
+msgstr "自身の研究への応用"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:38
@@ -111,6 +115,8 @@ msgid ""
 "more advanced syntax. You will only need to complete up to exercise 1 of "
 "this earlier lesson to complete these exercises on dimensionality reduction"
 msgstr ""
+"PLUMED のインストール方法と、基本的な構文から発展的な構文までを紹介する入門レッスン。今回の Dimensionality Reduction "
+"の演習に取り組むには、この過去のレッスンの演習1まで終えていれば十分である。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:39
@@ -125,39 +131,41 @@ msgid ""
 "Installation instructions followed by a discussion of how to run PLUMED from"
 " python direction and how to use chemiscope to visualize trajectories"
 msgstr ""
+"インストール手順に続き、Python から PLUMED を直接実行する方法と、chemiscope で Trajectories "
+"を可視化する方法を解説する。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:41
 msgid ""
 "This python notebook contains a full set of solutions for the exercises that"
 " show how you can call PLUMED from a jupyter notebook"
-msgstr ""
+msgstr "Jupyter Notebook から PLUMED を呼び出す方法を学ぶ演習の解答一式を収録した Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:42
 msgid ""
 "An introduction to running various different types of dimensionality "
 "reduction algorithms on trajectories"
-msgstr ""
+msgstr "Trajectories に各種の Dimensionality Reduction アルゴリズムを適用するための入門"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:43
 msgid "An introduction to path collective variables and the isocommittor"
-msgstr ""
+msgstr "Path Collective Variables と Isocommittor の入門"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:44
 msgid ""
 "An introduction to methods for dealing with systems of indistinguishable "
 "particles"
-msgstr ""
+msgstr "Indistinguishable Particles からなる系を扱う手法の入門"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:45
 msgid ""
 "Some advice on using the methods discussed in this tutorial in your own "
 "research"
-msgstr ""
+msgstr "このチュートリアルで扱う手法を、自身の研究に用いるための助言"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:46
@@ -172,21 +180,21 @@ msgstr "2021年4月19日に PLUMED Masterclass シリーズの一環として行
 msgid ""
 "This python notebook contains a full set of solutions for the exercises on "
 "dimensionality reduction techniques"
-msgstr ""
+msgstr "Dimensionality Reduction 手法に関する演習の解答一式を収録した Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:48
 msgid ""
 "This python notebook contains a full set of solutions for the exercises on "
 "path collective variables"
-msgstr ""
+msgstr "Path Collective Variables に関する演習の解答一式を収録した Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:49
 msgid ""
 "This python notebook contains a full set of solutions for the exercises on "
 "dealing with systems of indistiguishable particles"
-msgstr ""
+msgstr "Indistinguishable Particles からなる系を扱う演習の解答一式を収録した Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:50
@@ -194,3 +202,5 @@ msgid ""
 "This python notebook shows how I generated a series of random startpoints "
 "for the isocommittor simulations that were used in the exercise on path CVs"
 msgstr ""
+"Path CVs の演習で用いた Isocommittor シミュレーションについて、一連のランダムな初期点をどのように生成したかを示す Python "
+"Notebook"

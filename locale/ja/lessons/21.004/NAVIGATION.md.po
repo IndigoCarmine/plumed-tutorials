@@ -53,11 +53,15 @@ msgid ""
 "second masterclass contains more of the theory behind the block averaging "
 "methods that you will be using to complete the exercises here."
 msgstr ""
+"このレッスンは、2021年シリーズの第4回 Masterclass "
+"である。最初の3回の演習をすべて終えていなくても取り組めるはずである。ただし、第3回には conda を用いた PLUMED と GROMACS "
+"のインストール手順があるので、未導入の場合は参照してほしい。また、第2回では、今回の演習で用いる Block Averaging "
+"法の理論を詳しく扱っている。"
 
 #. mermaid node label
 #: NAVIGATION.md:15
 msgid "Umbrella sampling"
-msgstr ""
+msgstr "Umbrella Sampling"
 
 #. mermaid node label
 #: NAVIGATION.md:15
@@ -72,7 +76,7 @@ msgstr "Block Averaging の理論"
 #. mermaid node label
 #: NAVIGATION.md:17
 msgid "Metadynamics theory"
-msgstr ""
+msgstr "Metadynamics の理論"
 
 #. mermaid node label
 #: NAVIGATION.md:18
@@ -82,7 +86,7 @@ msgstr "演習の手順"
 #. mermaid node label
 #: NAVIGATION.md:19
 msgid "using pandas"
-msgstr ""
+msgstr "pandas の使い方"
 
 #. mermaid node label
 #: NAVIGATION.md:22
@@ -103,6 +107,9 @@ msgid ""
 " exercises on umbrella sampling in order to perfom these exercises on "
 "metadynamics"
 msgstr ""
+"Umbrella Sampling 計算の実行方法を学ぶレッスン。Metadynamics シミュレーションを実行するには、このレッスンの "
+"GROMACS と PLUMED のインストール手順に従う必要がある。ただし、今回の Metadynamics の演習に取り組むために、Umbrella"
+" Sampling の演習まで行う必要はない。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:25
@@ -111,6 +118,8 @@ msgid ""
 " this method here to calculate the error bars on the averages that you "
 "obtain from your metadynamics simulations"
 msgstr ""
+"Block Averaging の理論を詳しく紹介するレッスン。ここでは、Metadynamics シミュレーションから得られる平均値の Error "
+"Bars を計算するために用いる。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:26
@@ -138,13 +147,15 @@ msgid ""
 "that are discussed in the masterclass. This notebook is the one that was "
 "editted during the section video lecture of the masterclass"
 msgstr ""
+"Masterclass で扱う演習の解答一式を収録した Python Notebook。Masterclass の2本目の講義動画で編集された "
+"Notebook である。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:30
 msgid ""
 "A python notebook file that illustrates how you can use pandas to read in "
 "COLVAR files that are generated with PLUMED"
-msgstr ""
+msgstr "pandas を使って PLUMED が生成した COLVAR ファイルを読み込む方法を示す Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:31
@@ -154,3 +165,5 @@ msgid ""
 "you to read one of the many reviews on this topic. There are links to "
 "suitable reviews in the exercises."
 msgstr ""
+"Metadynamics の理論のごく簡単な入門。さらに学びたい場合は、この分野の多数の Review "
+"のうちいずれかを読むことを強く推奨する。演習には適切な Review へのリンクがある。"

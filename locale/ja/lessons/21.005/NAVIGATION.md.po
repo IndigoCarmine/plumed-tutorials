@@ -9,7 +9,7 @@ msgstr ""
 
 #: NAVIGATION.md:1
 msgid "PLUMED Masterclass 21.5: Simulations with multiple replicas"
-msgstr ""
+msgstr "PLUMED Masterclass 21.5：複数の Replicas を用いたシミュレーション"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -50,11 +50,13 @@ msgid ""
 "metadynamics that are indicated in the flow chart below before tackling this"
 " masterclass."
 msgstr ""
+"このレッスンは、2021年シリーズの第5回 Masterclass である。取り組む前に、下のフローチャートに示した Umbrella Sampling"
+" と Metadynamics の Masterclass を終えておくことを強く推奨する。"
 
 #. mermaid node label
 #: NAVIGATION.md:15
 msgid "Umbrella sampling"
-msgstr ""
+msgstr "Umbrella Sampling"
 
 #. mermaid node label
 #: NAVIGATION.md:15
@@ -91,6 +93,9 @@ msgid ""
 "replica exchange here with the result you got from the earlier exercise "
 "without replica exchange"
 msgstr ""
+"Umbrella Sampling 計算の実行方法を学ぶレッスン。Replica Exchange の演習では、この過去のレッスンの Umbrella "
+"Sampling シミュレーションを Replica Exchange を用いて再実行する。理解を深めるため、今回の Replica Exchange "
+"を用いた結果と、以前の Replica Exchange を用いない結果を比較してほしい。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:21
@@ -99,6 +104,8 @@ msgid ""
 "on running multiple replicas this method is used in tandem with replica "
 "exchange."
 msgstr ""
+"Metadynamics シミュレーションの実行方法を学ぶレッスン。複数の Replicas を使う演習では、この手法を Replica "
+"Exchange と組み合わせて用いる。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:22
@@ -127,3 +134,5 @@ msgid ""
 "that are discussed in the masterclass. This notebook is the one that was "
 "editted during the section video lecture of the masterclass"
 msgstr ""
+"Masterclass で扱う演習の解答一式を収録した Python Notebook。Masterclass の2本目の講義動画で編集された "
+"Notebook である。"

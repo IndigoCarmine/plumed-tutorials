@@ -51,6 +51,9 @@ msgid ""
 "instructions for installing PLUMED using conda that you may need to consult "
 "if you have not installed it already."
 msgstr ""
+"このレッスンは、2021年シリーズの第2回 Masterclass "
+"である。第1回の演習をすべて終えていなくても取り組めるはずである。ただし、PLUMED をまだインストールしていない場合は、前の Masterclass"
+" にある conda を用いたインストール手順を参照してほしい。"
 
 #. mermaid node label
 #: NAVIGATION.md:15
@@ -70,12 +73,12 @@ msgstr "演習の手順"
 #. mermaid node label
 #: NAVIGATION.md:17
 msgid "how data was generated"
-msgstr ""
+msgstr "データの生成方法"
 
 #. mermaid node label
 #: NAVIGATION.md:18
 msgid "template notebook"
-msgstr ""
+msgstr "テンプレートの Notebook"
 
 #. mermaid node label
 #: NAVIGATION.md:19
@@ -90,12 +93,12 @@ msgstr "解答"
 #. mermaid node label
 #: NAVIGATION.md:23
 msgid "alternative solution"
-msgstr ""
+msgstr "別の解答例"
 
 #. mermaid node label
 #: NAVIGATION.md:24
 msgid "installation advice"
-msgstr ""
+msgstr "インストールの助言"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:25
@@ -104,6 +107,8 @@ msgid ""
 "more advanced syntax. You will only need to complete up to exercise 1 of "
 "this earlier lesson to complete these exercises on statistical errors."
 msgstr ""
+"PLUMED "
+"のインストール方法と、基本的な構文から発展的な構文までを紹介する入門レッスン。この統計誤差の演習に取り組むには、前のレッスンの演習1まで終えていれば十分である。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:26
@@ -124,6 +129,8 @@ msgid ""
 "uncorrelated_data, correlated_data and weighted data that are all used in "
 "the exericses was generated"
 msgstr ""
+"演習で用いる uncorrelated_data、correlated_data、weighted data "
+"の各データセットをどのように生成したかを示す Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:29
@@ -132,6 +139,8 @@ msgid ""
 "a python notebook. Advice on running PLUMED from a notebook and on plotting "
 "the data that is generated is given."
 msgstr ""
+"Python Notebook 上で演習に取り組む方法を説明するファイル。Notebook から PLUMED "
+"を実行する方法と、生成されたデータを描画する方法についての助言を含む。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:30
@@ -146,7 +155,7 @@ msgstr "2021年2月8日に PLUMED Masterclass シリーズの一環として行�
 msgid ""
 "A python notebook file that provides a complete set of solutions to the "
 "exercises"
-msgstr ""
+msgstr "演習の解答一式を収録した Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:32
@@ -155,8 +164,9 @@ msgid ""
 "this notebook a different method has been used to generate the figures "
 "showing the final free energy surfaces."
 msgstr ""
+"演習の解答を収録した2つ目の Python Notebook。この Notebook では、最終的な自由エネルギー面の図を別の方法で生成している。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:33
 msgid "Some advice on installing PLUMED so you can do this exercise"
-msgstr ""
+msgstr "この演習に取り組むための PLUMED のインストールに関する助言"
