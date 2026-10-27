@@ -9,11 +9,11 @@ msgstr ""
 
 #: INPUTS.md:1
 msgid "Input Files"
-msgstr ""
+msgstr "入力ファイル"
 
 #: INPUTS.md:3
 msgid "ASE Input File"
-msgstr ""
+msgstr "ASE 入力ファイル"
 
 #: INPUTS.md:5
 msgid ""
@@ -22,28 +22,31 @@ msgid ""
 "(https://www.plumed.org/doc-v2.9/user-"
 "doc/html/_installation.html#installingpython)."
 msgstr ""
+"このチュートリアルでは、MD エンジンに ASE を用いる。ASE のインストール前に、PLUMED の Python Wrappers "
+"がインストールされていることを確認する（https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_installation.html#installingpython）。"
 
 #: INPUTS.md:7
 msgid ""
 "To install the development version of ASE, which includes all the latest "
 "features, you can run the following commands:"
-msgstr ""
+msgstr "最新の機能をすべて含む ASE の開発版は、次のコマンドでインストールできる。"
 
 #: INPUTS.md:14
 msgid ""
 "Once ASE is installed, you can run MD simulations with PLUMED with the "
 "following example Python script:"
-msgstr ""
+msgstr "ASE のインストール後、次の Python スクリプトの例で、PLUMED を使った MD を実行できる。"
 
 #: INPUTS.md:70
 msgid "PLUMED Input Section"
-msgstr ""
+msgstr "PLUMED 入力の部分"
 
 #: INPUTS.md:72
 msgid ""
 "As shown above, the PLUMED actions can be inputted explicitly in the Python "
 "script for the ASE input:"
-msgstr ""
+msgstr "上に示すように、PLUMED の Actions は、ASE 入力用の Python スクリプトに直接記述できる。"
 
 #: INPUTS.md:114
 msgid ""
@@ -53,3 +56,6 @@ msgid ""
 "WALKERS_DIR, and the frequency of the walkers reading the bias potential "
 "files by WALKERS_RSTRIDE."
 msgstr ""
+"Multiple Walkers Metadynamics を設定するには、Walkers の数を WALKERS_N、0から始まる Walker "
+"の番号を WALKERS_ID、BiasPotentials を保存するディレクトリを WALKERS_DIR、各 Walker が "
+"BiasPotential ファイルを読み込む頻度を WALKERS_RSTRIDE で指定する。"

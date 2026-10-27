@@ -9,7 +9,7 @@ msgstr ""
 
 #: Readme_OMP.md:1
 msgid "Threading: openMP"
-msgstr ""
+msgstr "Threading：OpenMP"
 
 #: Readme_OMP.md:24
 msgid ""
@@ -19,6 +19,9 @@ msgid ""
 " return the number in the environmental variable `PLUMED_NUM_THREADS`, "
 "otherwise it will return the stored number)."
 msgstr ""
+"Serial 版とほぼ同じで、違いはわずかである。`unsigned nt = OpenMP::getNumThreads()` で、使用する "
+"Thread 数をシステムに問い合わせる。最初の呼び出しでは、環境変数 `PLUMED_NUM_THREADS` "
+"の値を保存して返し、以降は保存した値を返す。"
 
 #: Readme_OMP.md:27
 msgid ""
@@ -29,6 +32,9 @@ msgid ""
 "by curly braces: the code within them will be distribuited between the "
 "threads."
 msgstr ""
+"次に、`#pragma omp parallel num_threads(nt)` で Thread "
+"数を明示して並列領域を開始する。指定しなければ、環境変数 `OMP_NUM_THREADS` の値を使う。この pragma は波括弧で区切った "
+"Scope の前に置き、その中のコードが Threads に分配される。"
 
 #: Readme_OMP.md:30
 msgid ""
@@ -36,6 +42,8 @@ msgid ""
 "will tranform the `for` in order to make it work in the multithreaded "
 "environment."
 msgstr ""
+"次の pragma は `#pragma omp for` である。これにより `for` ループを Multithreaded "
+"環境で実行するよう変換する。"
 
 #: Readme_OMP.md:33
 msgid "SPOILER"
@@ -43,7 +51,7 @@ msgstr "解答を含む内容"
 
 #: Readme_OMP.md:35
 msgid "There is at least a race condition here: can you spot it?"
-msgstr ""
+msgstr "ここには少なくとも1つ Race Condition がある。見つけられるだろうか。"
 
 #: Readme_OMP.md:38
 msgid "ANSWER"
@@ -56,28 +64,32 @@ msgid ""
 "same value, meaning the the number saved in memory has been incremented only"
 " once instead of twice or more."
 msgstr ""
+"Race Condition は `ncoord` にある。複数の Threads が同時に `+=` を実行すると、同じ値を読み出して "
+"`ncoord` を増加させる。そのため、メモリ中の値は、2回以上ではなく1回しか増加していないことになる。"
 
 #: Readme_OMP.md:42
 msgid ""
 "The solution is to append `reduction(+:)` to for pragma: `#pragma for "
 "reduction(+:)`"
 msgstr ""
+"解決法は、for の pragma に `reduction(+:)` を追加し、`#pragma for reduction(+:)` "
+"とすることである。"
 
 #: Readme_OMP.md:46
 msgid "Plumed tools used:"
-msgstr ""
+msgstr "使用する PLUMED のツール："
 
 #: Readme_OMP.md:47
 msgid ""
 "`tools/OpenMP.h` contains some function that are useful in working with "
 "openMP."
-msgstr ""
+msgstr "`tools/OpenMP.h` には、OpenMP で役立つ関数が含まれる。"
 
 #: Readme_OMP.md:48
 msgid ""
 "`OpenMP::getNumThreads()` to get the number of threads from the "
 "environmental variable `PLUMED_NUM_THREADS"
-msgstr ""
+msgstr "`OpenMP::getNumThreads()`：環境変数 PLUMED_NUM_THREADS から Thread 数を取得する。"
 
 #: Readme_OMP.md:50
 msgid "[back](Readme.md)"

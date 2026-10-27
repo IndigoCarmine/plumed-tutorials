@@ -17,6 +17,10 @@ msgid ""
 "and the GTP hydrolysis of the β-tubulin of a tubulin interdimer complex in "
 "microtubules using QM/MM TTMetaD, respectively."
 msgstr ""
+"このレッスンでは、Transition-Tempered Metadynamics（TTMetaD）を紹介する。前半は TTMetaD "
+"の簡単な入門、後半は単純な系と、より発展的な系への応用演習である。それぞれ、通常の MD と TTMetaD による Alanine Dipeptide"
+" の Dihedral Angles、および QM/MM TTMetaD による、Microtubules の Tubulin Interdimer "
+"Complex 内の β-Tubulin における GTP Hydrolysis を扱う。"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -31,11 +35,16 @@ msgid ""
 "dipeptide example and the GTP hydrolysis in microtubules example. You may "
 "click on the different boxes to access them."
 msgstr ""
+"下のフローチャートは、このレッスンの資料の関係を示す。資料は、論文、チュートリアル、手順書の3種類である。論文は TTMetaD 法と MT-GTP "
+"Hydrolysis の Mechanism を扱い、チュートリアルは基本的な MetaD のものである。演習の前に TTMetaD "
+"論文を読む必要があり、MT-GTP 論文は推奨だが必須ではない。MetaD のチュートリアルは、その基本を紹介する過去の教材である。2つの例、すなわち "
+"Alanine Dipeptide と Microtubules 内の GTP Hydrolysis の PLUMED "
+"入力もある。各ボックスをクリックして資料を開ける。"
 
 #. mermaid node label
 #: NAVIGATION.md:7
 msgid "TTMetaD Paper"
-msgstr ""
+msgstr "TTMetaD の論文"
 
 #. mermaid node label
 #: NAVIGATION.md:7 NAVIGATION.md:8 NAVIGATION.md:9 NAVIGATION.md:10
@@ -46,37 +55,37 @@ msgstr "演習の手順"
 #. mermaid node label
 #: NAVIGATION.md:8
 msgid "MT-GTP Paper"
-msgstr ""
+msgstr "MT-GTP の論文"
 
 #. mermaid node label
 #: NAVIGATION.md:9
 msgid "MetaD Tutorial"
-msgstr ""
+msgstr "MetaD のチュートリアル"
 
 #. mermaid node label
 #: NAVIGATION.md:10
 msgid "Alanine Dipeptide Example"
-msgstr ""
+msgstr "Alanine Dipeptide の例"
 
 #. mermaid node label
 #: NAVIGATION.md:11
 msgid "GTP Hydrolysis Example"
-msgstr ""
+msgstr "GTP Hydrolysis の例"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:12
 msgid "You should read this paper before completing this exercise"
-msgstr ""
+msgstr "この演習に取り組む前に、この論文を読んでおくこと。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:13
 msgid "You are recommended to read this paper but not required"
-msgstr ""
+msgstr "この論文を読むことを勧めるが、必須ではない。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:14
 msgid "A previous tutorial that introduces the basics of MetaD"
-msgstr ""
+msgstr "MetaD の基本を紹介する過去のチュートリアル"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:15
@@ -86,9 +95,9 @@ msgstr "取り組む演習の手順"
 #. mermaid click tooltip
 #: NAVIGATION.md:16
 msgid "Jupyter Notebook for the Alanine Dipeptide example"
-msgstr ""
+msgstr "Alanine Dipeptide の例の Jupyter Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:17
 msgid "Jupyter Notebook for the GTP hydrolysis in microtubules example"
-msgstr ""
+msgstr "Microtubules 内の GTP Hydrolysis の例の Jupyter Notebook"

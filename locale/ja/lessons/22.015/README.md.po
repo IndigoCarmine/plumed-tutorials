@@ -9,64 +9,70 @@ msgstr ""
 
 #: README.md:1
 msgid "Computing the effect of mechanical force in PLUMED"
-msgstr ""
+msgstr "PLUMED で Mechanical Force の効果を計算する"
 
 #: README.md:3
 msgid ""
 "This repository contains files for the plumed masterclass presented on "
 "October 17, 2022."
-msgstr ""
+msgstr "このリポジトリには、2022年10月17日に実施された PLUMED Masterclass のファイルがある。"
 
 #: README.md:5
 msgid "It covers the effect of mechanical forces and the `fisst` module."
-msgstr ""
+msgstr "Mechanical Forces の効果と `fisst` モジュールを扱う。"
 
 #: README.md:7
 msgid ""
 "Masterclass videos were presented by Glen Hocky and Guillaume Stirnemann"
-msgstr ""
+msgstr "Masterclass の動画は Glen Hocky と Guillaume Stirnemann が担当した。"
 
 #: README.md:9
 msgid ""
 "FISST video (Hocky): https://www.youtube.com/live/1GSKhM57lo0?si=Fetb-"
 "LabeqlweNHU"
 msgstr ""
+"FISST の動画（Hocky）：https://www.youtube.com/live/1GSKhM57lo0?si=Fetb-"
+"LabeqlweNHU"
 
 #: README.md:11
 msgid ""
 "Modeling of mechanobiological processes (Stirnemann) and solutions (Hocky): "
 "https://www.youtube.com/live/JjpKSzb9kJM?si=9zwW6_gW1siFZ9yJ"
 msgstr ""
+"Mechanobiological Processes "
+"のモデル化（Stirnemann）と解答（Hocky）：https://www.youtube.com/live/JjpKSzb9kJM?si=9zwW6_gW1siFZ9yJ"
 
 #: README.md:13
 msgid "There are four systems:"
-msgstr ""
+msgstr "次の4つの系がある。"
 
 #: README.md:15
 msgid ""
 "double_well/ - The effect of constant force is studied on a double well "
 "potential using `pesmd` and `metad`"
 msgstr ""
+"double_well/：Double Well Potential に対する Constant Force の効果を、`pesmd` と "
+"`metad` を用いて調べる。"
 
 #: README.md:16
 msgid ""
 "v-shape/ - The effect of force on a 2d potential is studied using `fisst`"
-msgstr ""
+msgstr "v-shape/：`fisst` を使い、2次元 Potential に対する Force の効果を調べる。"
 
 #: README.md:17
 msgid ""
 "This contains an example script showing how to reweight using FISST "
 "observable files"
-msgstr ""
+msgstr "FISST の Observable ファイルで Reweighting する方法を示すスクリプト例を含む。"
 
 #: README.md:18
 msgid ""
 "helix/ - The effect of force on a model molecule is studied using `fisst` in"
 " LAMMPS"
-msgstr ""
+msgstr "helix/：LAMMPS の `fisst` を使い、モデル分子への Force の効果を調べる。"
 
 #: README.md:19
 msgid ""
 "ala10/ - The effect of force is studied on a solvated model peptide, "
 "decalanine, using GROMACS"
-msgstr ""
+msgstr "ala10/：GROMACS を使い、溶媒和したモデル Peptide、Decalanine に対する Force の効果を調べる。"

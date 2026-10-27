@@ -9,7 +9,7 @@ msgstr ""
 
 #: POST_PROCESSING.md:1
 msgid "Analyze the Results and Post-Processing"
-msgstr ""
+msgstr "結果の解析と後処理"
 
 #: POST_PROCESSING.md:3
 msgid ""
@@ -22,10 +22,16 @@ msgid ""
 "in more detail. This section provides some guidelines on reweighing the "
 "simulation to obtain the free energy surface."
 msgstr ""
+"CVs の Diffusion だけでなく、Block Analysis を行って誤差や収束性を評価できる。PLUMED "
+"の[誤差解析](https://www.plumed-"
+"tutorials.org/lessons/21/002/data/NAVIGATION.html)と "
+"[Metadynamics](https://www.plumed-"
+"tutorials.org/lessons/21/004/data/NAVIGATION.html) "
+"のチュートリアルに詳しい説明がある。このセクションでは、Reweighting によって自由エネルギー面を求めるための指針を示す。"
 
 #: POST_PROCESSING.md:5
 msgid "Reweighing Multiple Walkers Metadynamics Simulations"
-msgstr ""
+msgstr "Multiple Walkers Metadynamics の Reweighting"
 
 #: POST_PROCESSING.md:7
 msgid ""
@@ -37,6 +43,11 @@ msgid ""
 "simulation](https://pubs.acs.org/doi/full/10.1021/ct3002464). This tutorial "
 "uses the former way as an example."
 msgstr ""
+"PLUMED の Metadynamics チュートリアルでは、Reweighting "
+"の主な2つの方法をすでに学んだかもしれない。[Metadynamics の BiasPotential の時間依存性から Weight "
+"を計算する方法](https://pubs.acs.org/doi/10.1021/jp504920s)と、[シミュレーション終了時の "
+"BiasPotential から Weight "
+"を計算する方法](https://pubs.acs.org/doi/full/10.1021/ct3002464)である。ここでは前者を例に使う。"
 
 #: POST_PROCESSING.md:9
 msgid ""
@@ -45,6 +56,9 @@ msgid ""
 "all the histograms to convert the free energy surface. You can construct a "
 "`plumed_reweight.dat` file for each walker as follows:"
 msgstr ""
+"Multiple Walkers Metadynamics の Frames を Reweighting するには、各 Walker "
+"を独立に処理してから、すべての Histograms を統合して自由エネルギー面へ変換すればよい。各 Walker 用の "
+"`plumed_reweight.dat` は、次のように作成できる。"
 
 #: POST_PROCESSING.md:25
 msgid ""
@@ -52,6 +66,8 @@ msgid ""
 "STRIDE in DUMPGRID for the block size in your block analysis. You can "
 "perform the reweighing using PLUMED tools:"
 msgstr ""
+"Block Analysis の Block Size に応じて、HISTOGRAM の CLEAR と DUMPGRID の STRIDE "
+"の値を決める必要がある。Reweighting は PLUMED のツールで実行できる。"
 
 #: POST_PROCESSING.md:30
 msgid ""
@@ -59,6 +75,8 @@ msgid ""
 "calculate the free energy and the associated error. You can either do it "
 "using PLUMED or with the following Python script:"
 msgstr ""
+"すべての Walkers を Reweighting したら、Histograms "
+"を統合し、自由エネルギーとその誤差を計算できる。PLUMED、または次の Python スクリプトを使う。"
 
 #: POST_PROCESSING.md:80
 msgid ""
@@ -67,3 +85,5 @@ msgid ""
 "need to modify the `plumed_reweight.dat` file to inform PLUMED tools to read"
 " a different CV column from the COLVAR file:"
 msgstr ""
+"Metadynamics で Bias を加えていない別の CV について Reweighting したい場合もある。その場合は、COLVAR の別の "
+"CV 列を読むように、`plumed_reweight.dat` を変更するだけでよい。"

@@ -20,6 +20,8 @@ msgid ""
 "This tutorial was authored by Claire Pritchard, Guillaume Stirnemann, and "
 "Glen M. Hocky in October 2024."
 msgstr ""
+"このチュートリアルは、2024年10月に Claire Pritchard、Guillaume Stirnemann、Glen M. Hocky "
+"によって作成された。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"
@@ -31,6 +33,8 @@ msgid ""
 " and how to compute their result using free energy and kinetics "
 "calculations."
 msgstr ""
+"この Masterclass では、PLUMED で Mechanical Forces をモデル化し、自由エネルギーや Kinetics "
+"の計算でその効果を求める方法を説明する。"
 
 #: INSTRUCTIONS.md:11
 msgid "Objectives"
@@ -42,11 +46,11 @@ msgstr "この Masterclass の到達目標は次のとおりである。"
 
 #: INSTRUCTIONS.md:14
 msgid "Learn how to apply a constant force in PLUMED;"
-msgstr ""
+msgstr "PLUMED で Constant Force を加える方法を学ぶ。"
 
 #: INSTRUCTIONS.md:15
 msgid "See how transition rates change with different forces."
-msgstr ""
+msgstr "Force によって Transition Rates がどう変わるかを調べる。"
 
 #: INSTRUCTIONS.md:17
 msgid "Prerequisites"
@@ -56,11 +60,11 @@ msgstr "前提条件"
 msgid ""
 "We assume that the person that will follow this tutorial is familiar with "
 "the Linux terminal, Gromacs and basic functionality of PLUMED."
-msgstr ""
+msgstr "Linux の Terminal、GROMACS、および PLUMED の基本機能に習熟していることを前提とする。"
 
 #: INSTRUCTIONS.md:21
 msgid "Familiarity with python and matplotlib is recommended for plotting"
-msgstr ""
+msgstr "描画のため、Python と matplotlib に習熟していることを勧める。"
 
 #: INSTRUCTIONS.md:23
 msgid "Setting up PLUMED"
@@ -73,18 +77,22 @@ msgid ""
 "been prepared and you can install them following the instructions in [this "
 "link](https://github.com/plumed/masterclass-2022)."
 msgstr ""
+"計算には GROMACS、PLUMED、および PLUMED の pesmd を使う。必要なソフトウェアの Conda "
+"パッケージが用意されているので、[こちら](https://github.com/plumed/masterclass-2022)の手順でインストールできる。"
 
 #: INSTRUCTIONS.md:28
 msgid ""
 "The data needed to run the exercises of this Masterclass can be found on "
 "[GitHub](https://github.com/hockyg/plumed-tutorial-force2)."
 msgstr ""
+"この Masterclass の演習に必要なデータは [GitHub](https://github.com/hockyg/plumed-"
+"tutorial-force2) にある。"
 
 #: INSTRUCTIONS.md:30
 msgid ""
 "You can clone this repository locally on your machine if you want, but "
 "specific data will be linked to below."
-msgstr ""
+msgstr "必要ならリポジトリを手元に clone できるが、個別のデータへのリンクも以下に示す。"
 
 #: INSTRUCTIONS.md:32
 msgid "Background"
@@ -92,19 +100,21 @@ msgstr "背景"
 
 #: INSTRUCTIONS.md:34
 msgid "Force basics"
-msgstr ""
+msgstr "Force の基本"
 
 #: INSTRUCTIONS.md:36
 msgid ""
 "A force along some direction here is defined as the negative gradient of the"
 " potential energy along that direction."
-msgstr ""
+msgstr "ここでは、ある方向の Force を、その方向に沿う Potential Energy の負の Gradient と定義する。"
 
 #: INSTRUCTIONS.md:38
 msgid ""
 "A constant force $F$ on a scalar collective variable $Q(\\vec{X})$ therefore"
 " is a simple addition to the system's energy function."
 msgstr ""
+"したがって、Scalar Collective Variable $Q(\\vec{X})$ に加える Constant Force $F$ は、系の "
+"Energy Function に単純な項を追加して表せる。"
 
 #: INSTRUCTIONS.md:44
 msgid ""
@@ -112,39 +122,40 @@ msgid ""
 " a lower energy for large values of $Q$, meaning $F\\gt0$ corresponds to a "
 "\"pulling\" force."
 msgstr ""
+"負号があるため、$F$ が正なら $Q$ が大きいほど Energy が低くなる。つまり $F\\gt0$ は引っ張る方向の Force に対応する。"
 
 #: INSTRUCTIONS.md:46
 msgid ""
 "A mechanical force would often in reality would correspond to pulling apart "
 "two atoms, and so $Q$ would often be a simple distance coordinate."
-msgstr ""
+msgstr "実際の Mechanical Force は2つの原子を引き離すことに対応する場合が多く、$Q$ に単純な距離座標を用いることが多い。"
 
 #: INSTRUCTIONS.md:48
 msgid ""
 "Note however, that other quantities could be used, such as an area which "
 "would mean $F$ corresponds to a pressure."
-msgstr ""
+msgstr "ただし、面積など他の量も使える。その場合、$F$ は Pressure に対応する。"
 
 #: INSTRUCTIONS.md:50
 msgid ""
 "Dimensional analysis implies that the units of $F$ must be [Energy]/[Q]."
-msgstr ""
+msgstr "Dimensional Analysis から、$F$ の単位は [Energy]/[Q] でなければならない。"
 
 #: INSTRUCTIONS.md:52
 msgid ""
 "The effect of constant force can be assessed using any enhanced sampling "
 "method."
-msgstr ""
+msgstr "Constant Force の効果は、任意の Enhanced Sampling 法で評価できる。"
 
 #: INSTRUCTIONS.md:54
 msgid "The work done by the bias in this case is very simple:"
-msgstr ""
+msgstr "この場合、Bias がする Work は非常に単純である。"
 
 #: INSTRUCTIONS.md:60
 msgid ""
 "Constant forces can be applied in PLUMED with the SLOPE keyword of the "
 "RESTRAINT bias."
-msgstr ""
+msgstr "PLUMED では、RESTRAINT Bias の SLOPE キーワードで Constant Forces を適用できる。"
 
 # Method name, software identifier or literal command intentionally preserved.
 #: INSTRUCTIONS.md:62
@@ -159,37 +170,42 @@ msgid ""
 "tip. To represent this in simulation, instead of applying a constant force, "
 "we impose a Harmonic restraint on $Q$ with a center that moves:"
 msgstr ""
+"Steered Molecular Dynamics（SMD）は、分子座標を引っ張る方法の1つである。分子を Spring を介して Optical "
+"Tweezers や AFM Tip に結び付ける実験と関係している。シミュレーションでは、Constant Force の代わりに、中心が移動する "
+"Harmonic Restraint を $Q$ に加えて表す。"
 
 #: INSTRUCTIONS.md:70
 msgid ""
 "Typically $Q_0(t)$ would move linearly, with $Q_0(t) = Q_0(0)-\\lambda\\ t$ "
 "although that is not a requirement."
-msgstr ""
+msgstr "必須ではないが、通常 $Q_0(t)$ は $Q_0(t) = Q_0(0)-\\lambda\\ t$ のように線形に移動する。"
 
 #: INSTRUCTIONS.md:72
 msgid ""
 "At any given time, the force along $Q$ from the moving bias is given as:"
-msgstr ""
+msgstr "任意の時刻に、移動する Bias が $Q$ に沿って加える Force は次のようになる。"
 
 #: INSTRUCTIONS.md:78
 msgid ""
 "This force is positive (pulling) when $Q_0(t)$ is bigger than $Q$, and it "
 "can get very large if the spring moves quickly to larger values."
 msgstr ""
+"$Q_0(t)$ が $Q$ より大きいとき、この Force は正、すなわち引っ張る方向となる。Spring が大きい値へ速く動くと、Force "
+"は非常に大きくなることがある。"
 
 #: INSTRUCTIONS.md:80
 msgid ""
 "SMD is implemented in PLUMED using the MOVINGRESTRAINT bias, and the work is"
 " computed automatically:"
-msgstr ""
+msgstr "SMD は PLUMED の MOVINGRESTRAINT Bias で実装され、Work も自動的に計算される。"
 
 #: INSTRUCTIONS.md:86
 msgid "where,"
-msgstr ""
+msgstr "ここで、"
 
 #: INSTRUCTIONS.md:92
 msgid "Dynamics from Infrequent Metadynamics"
-msgstr ""
+msgstr "Infrequent Metadynamics から求める Dynamics"
 
 #: INSTRUCTIONS.md:94
 msgid ""
@@ -199,10 +215,14 @@ msgid ""
 "unbinding is deemed to have occured, $\\tau=\\frac{1}{N} \\sum_{i=1}^N "
 "t^{unbind}_i$ (this assumes every simulation ends in an unbinding event)."
 msgstr ""
+"通常の MD で Unbinding の Rate Constant を計算するには、Bound Pose "
+"から多数のシミュレーションを開始し、Unbinding が起きたと判定される時刻を平均して、平均 Escape Time を求める。すなわち "
+"$\\tau=\\frac{1}{N} \\sum_{i=1}^N t^{unbind}_i$ である。これは、すべてのシミュレーションが "
+"Unbinding Event で終わることを仮定している。"
 
 #: INSTRUCTIONS.md:96
 msgid "In this case, the unbinding rate constant is $k_{off}=1/\\tau$."
-msgstr ""
+msgstr "この場合、Unbinding Rate Constant は $k_{off}=1/\\tau$ となる。"
 
 #: INSTRUCTIONS.md:99
 msgid ""
@@ -212,26 +232,32 @@ msgid ""
 "barrier to escape is not likely to be biased. In this case with some other "
 "assumptions, $\\tau = \\frac{1}{N} \\sum_{i=1}^{N} \\alpha_i \\t_i$, where"
 msgstr ""
+"Biased シミュレーションから Dynamics を求める方法の1つが、[Infrequent "
+"Metadynamics](https://doi.org/10.1103/PhysRevLett.111.230602) "
+"である。この方法では、Escape Barrier を越える遷移に Bias が加わりにくいよう、長い PACE で Bias "
+"を追加する。他のいくつかの仮定のもとで、$\\tau = \\frac{1}{N} \\sum_{i=1}^{N} \\alpha_i \\t_i$ "
+"となる。ここで、"
 
 #: INSTRUCTIONS.md:105
 msgid "Where $V_i(t)$ is the Metadynamics bias at time $t$."
-msgstr ""
+msgstr "$V_i(t)$ は時刻 $t$ の Metadynamics Bias である。"
 
 #: INSTRUCTIONS.md:107
 msgid ""
 "$\\alpha_i$ is called the _acceleration factor_ and can be computed by "
 "PLUMED for METAD automatically."
-msgstr ""
+msgstr "$\\alpha_i$ は _Acceleration Factor_ と呼ばれ、METAD では PLUMED が自動計算できる。"
 
 #: INSTRUCTIONS.md:109
 msgid ""
 "Note - there are other approaches to take the same data and compute $\\tau$ "
 "by fitting the survival distribution, but we will not discuss that here."
 msgstr ""
+"注意：同じデータから Survival Distribution を Fitting して $\\tau$ を求める方法もあるが、ここでは扱わない。"
 
 #: INSTRUCTIONS.md:111
 msgid "Dependence of unbinding rate constants with force"
-msgstr ""
+msgstr "Force に対する Unbinding Rate Constants の依存性"
 
 #: INSTRUCTIONS.md:113
 msgid ""
@@ -239,6 +265,8 @@ msgid ""
 "small pulling force follows what is sometimes called Bell's law, and is a "
 "simple consequence of the linear response of the barrier to pulling:"
 msgstr ""
+"Double Well Potential では、小さな Pulling Force のもとで高い Barrier を越える Rate は、Bell's"
+" Law と呼ばれる関係に従う。これは、Pulling に対して Barrier が Linear Response を示すことから単純に導かれる。"
 
 #: INSTRUCTIONS.md:119
 msgid ""
@@ -249,6 +277,9 @@ msgid ""
 "correct for this motion for a quadratic barrier. Feel free to tackle this as"
 " an exercise!)."
 msgstr ""
+"つまり、Force が0の場合に比べ、Unbinding は Force とともに指数関数的に速くなる。この加速は、一定と仮定した Transition"
+" State までの距離 $\\Delta Q^*$ に依存する。実際には Double Well でもこの距離は変化するが、Quadratic "
+"Barrier なら、その効果を容易に補正できる。演習として取り組んでみてもよい。"
 
 #: INSTRUCTIONS.md:121
 msgid "Exercises"
@@ -260,11 +291,11 @@ msgstr "以下に演習を示す。"
 
 #: INSTRUCTIONS.md:126
 msgid "Part 1 - Ligand dissociation from a membrane protein system"
-msgstr ""
+msgstr "パート1：Membrane Protein 系からの Ligand Dissociation"
 
 #: INSTRUCTIONS.md:128
 msgid "System and context"
-msgstr ""
+msgstr "対象系と背景"
 
 #: INSTRUCTIONS.md:130
 msgid ""
@@ -273,6 +304,8 @@ msgid ""
 "force spectroscopy experiments that can produce such forces from the pN to "
 "the nN regime."
 msgstr ""
+"以下では、Single-molecule Force Spectroscopy 実験を模倣した Constant Force の設定で、PLUMED "
+"を使って Ligand-Protein Interactions を調べる方法を示す。このような実験は pN から nN の Force を発生できる。"
 
 #: INSTRUCTIONS.md:132
 msgid ""
@@ -280,6 +313,8 @@ msgid ""
 "receptor GHSR bound to a model peptide GHRP-6 embedded in a model infinite "
 "lipid bilayer and solvated by water molecules."
 msgstr ""
+"ここでは意図的に大きな系を選び、モデル Peptide の GHRP-6 に結合した Ghrelin Receptor GHSR を、無限の Lipid"
+" Bilayer のモデルに埋め込み、水分子で溶媒和した系を扱う。"
 
 #: INSTRUCTIONS.md:134
 msgid ""
@@ -287,6 +322,9 @@ msgid ""
 "zip file](https://github.com/hockyg/plumed-tutorial-"
 "force2/raw/refs/heads/main/plumed-tutorial-force2-data-part1.zip)."
 msgstr ""
+"これらのシミュレーションに必要な入力ファイルは、[この ZIP ファイル](https://github.com/hockyg/plumed-"
+"tutorial-force2/raw/refs/heads/main/plumed-tutorial-force2-data-"
+"part1.zip)にすべてある。"
 
 #: INSTRUCTIONS.md:136
 msgid ""
@@ -297,16 +335,19 @@ msgid ""
 "would require the use of much larger forces to see dissociation within a "
 "short time window."
 msgstr ""
+"系の大きさと必要な計算時間から、可能なら GPU "
+"を使い、計算クラスタ上で実行することを強く勧める。ノートPCやデスクトップでも実行できるが、到達できるシミュレーション時間はかなり短い。その時間内に "
+"Dissociation を観測するには、はるかに大きな Force が必要になる。"
 
 #: INSTRUCTIONS.md:138
 msgid ""
 "We start by giving a little bit of context on the system chosen for this "
 "example, which is shown in the figure below:"
-msgstr ""
+msgstr "まず、この例で選んだ、下図に示す系の背景を簡単に説明する。"
 
 #: INSTRUCTIONS.md:140
 msgid "![tutorial_figure](images/GHRP-setup.png)."
-msgstr ""
+msgstr "![チュートリアルの系の図](images/GHRP-setup.png)。"
 
 #: INSTRUCTIONS.md:142
 msgid ""
@@ -318,16 +359,20 @@ msgid ""
 " or the center of mass of the ligand ($d_O$). In plumed, this is achieved as"
 " follows:"
 msgstr ""
+"パネル a は、すべての方向に周期的な系 {GHSR+ligand+membrane+water} の全体像を示す。パネル b と c は、2つの "
+"Collective Variables、$d_S$ と $d_O$ の幾何学的定義である。タンパク質内の Anchor（3つの Residues の "
+"Center of Mass）から、Ligand の N-terminal α-Carbon（$d_S$）、または Ligand の Center of"
+" Mass（$d_O$）までの距離にそれぞれ対応する。PLUMED では次のように実装する。"
 
 #: INSTRUCTIONS.md:150
 msgid ""
 "Please note the NOPBC option that is important here as we don't want to "
 "calculate the minimal distance between these two ligand/protein sites."
-msgstr ""
+msgstr "ここでは、Ligand とタンパク質の2点間の最短距離を計算したいわけではないため、NOPBC が重要である。"
 
 #: INSTRUCTIONS.md:152
 msgid "Applying a constant, vertical force"
-msgstr ""
+msgstr "一定の垂直な Force を加える"
 
 #: INSTRUCTIONS.md:154
 msgid ""
@@ -337,10 +382,12 @@ msgid ""
 "vertical force is controlled by the fact that bias is acting on the z "
 "component of the CV:"
 msgstr ""
+"これらの CVs の1つに、指定した大きさの垂直な Force を加えるとする。前述のとおり、RESTRAINT Bias の SLOPE "
+"で設定できる。CV の z 成分に Bias を加えることで、Force が垂直になる。"
 
 #: INSTRUCTIONS.md:156 INSTRUCTIONS.md:189
 msgid "For example,"
-msgstr ""
+msgstr "例えば、"
 
 #: INSTRUCTIONS.md:171
 msgid ""
@@ -348,12 +395,14 @@ msgid ""
 "units, what does a SLOPE of -270 correspond to in Piconewtons? (And remember"
 " from above, why is the SLOPE defined with a negative sign?)"
 msgstr ""
+"Energy と距離の単位をそれぞれ kJ/mol と nm に設定する。この単位系で SLOPE が -270 の場合、何 Piconewtons "
+"に相当するだろうか。また、前述の内容を踏まえ、なぜ SLOPE に負号を付けるのかを思い出してほしい。"
 
 #: INSTRUCTIONS.md:173
 msgid ""
 "Make sure to print out the distances you are interested in, as well as the "
 "work done by the bias."
-msgstr ""
+msgstr "関心のある距離と、Bias がした Work を出力しておく。"
 
 #: INSTRUCTIONS.md:175
 msgid ""
@@ -364,6 +413,9 @@ msgid ""
 "calculate converged quantities (e.g. unbinding times), you need to repeat "
 "such simulations multiple times."
 msgstr ""
+"SLOPE で Force の大きさを調整でき、任意の CV に適用できる。Steered MD と Constant Force MD "
+"は本質的に非平衡の設定なので、Force が十分に大きいと Unbinding は可逆的でないと考えられる。そのため、収束した量、例えば "
+"Unbinding Times を求めるには、計算を何度も繰り返す必要がある。"
 
 #: INSTRUCTIONS.md:177
 msgid ""
@@ -371,10 +423,12 @@ msgid ""
 "trajectories at two different forces acting on $d_S$. How does the unbinding"
 " time depends on force? Is this expected?"
 msgstr ""
+"例えば、次の図は $d_S$ に2種類の Force を加え、それぞれ5つの Trajectories から得た CV "
+"の時間変化を示す。Unbinding Time は Force によってどう変わるだろうか。予想どおりだろうか。"
 
 #: INSTRUCTIONS.md:179
 msgid "![different_forces](images/GHRP_distance_time.png)."
-msgstr ""
+msgstr "![異なる Forces での結果](images/GHRP_distance_time.png)。"
 
 #: INSTRUCTIONS.md:181
 msgid ""
@@ -383,16 +437,18 @@ msgid ""
 " this affects the unbinding time, or try to apply force to a different CV, "
 "$d_O$ for example."
 msgstr ""
+"演習として、これらの条件に合うよう SLOPE を設定する。さらに Force を変えて再実行し、Unbinding Time "
+"への影響を調べてもよい。また、例えば $d_O$ のような別の CV に Force を加えてもよい。"
 
 #: INSTRUCTIONS.md:183
 msgid "Pulling at an angle"
-msgstr ""
+msgstr "角度を付けた Pulling"
 
 #: INSTRUCTIONS.md:185
 msgid ""
 "Finally, it could be interesting and relevant for the comparision with "
 "experimental results to change the directionnality of the force."
-msgstr ""
+msgstr "最後に、Force の方向を変えることも興味深く、実験結果との比較に役立つ可能性がある。"
 
 #: INSTRUCTIONS.md:187
 msgid ""
@@ -400,12 +456,15 @@ msgid ""
 " we did above, can you guess what is done exactly to the system? Is is "
 "expected to have a significant influnce on the unbinding kinetics?"
 msgstr ""
+"例えば、次の PLUMED ファイルでは、これまでの内容から、系に何をしているかを推測できるだろうか。Unbinding Kinetics "
+"に大きく影響すると考えられるだろうか。"
 
 #: INSTRUCTIONS.md:202
 msgid ""
 "Fill in this PLUMED file so that constant force pulling is performed with a "
 "total magnitude of 450 pN at an angle of 40 degrees from the vertical."
 msgstr ""
+"全体の大きさが450 pN で、垂直方向から40度傾いた Constant Force Pulling を行うよう、PLUMED ファイルを完成させる。"
 
 #: INSTRUCTIONS.md:204
 msgid ""
@@ -414,10 +473,12 @@ msgid ""
 "different angles. The first angle is that corresponds to the tilt along x, "
 "and the second one, if shown, to that along y."
 msgstr ""
+"次の図は、Ligand Peptide の N-terminal Residue に、異なる角度で450 pN の Force "
+"を加えた結果である。最初の角度は x 方向への傾き、2つ目が示されていれば y 方向への傾きを表す。"
 
 #: INSTRUCTIONS.md:206
 msgid "![different_angles](images/GHRP_pulling_angles.png)."
-msgstr ""
+msgstr "![異なる角度での結果](images/GHRP_pulling_angles.png)。"
 
 #: INSTRUCTIONS.md:208
 msgid "Conclusion"
@@ -427,11 +488,11 @@ msgstr "結論"
 msgid ""
 "You should now be able to apply constant forces to any CV in a given system,"
 " and to tune the direction of this force."
-msgstr ""
+msgstr "これで、対象系の任意の CV に Constant Forces を加え、その方向を調整できるはずである。"
 
 #: INSTRUCTIONS.md:212
 msgid "Part 2 - Effect of force on unbinding rates"
-msgstr ""
+msgstr "パート2：Unbinding Rates に対する Force の効果"
 
 #: INSTRUCTIONS.md:214
 msgid ""
@@ -440,6 +501,8 @@ msgid ""
 "well potential, and simulations will be performed using plumed's `pesmd` "
 "function."
 msgstr ""
+"このセクションでは、Infrequent Metadynamics で Unbinding Rate Constants "
+"を求める方法を示す。Double-Well Potential を用い、PLUMED の `pesmd` でシミュレーションする。"
 
 #: INSTRUCTIONS.md:216
 msgid ""
@@ -447,10 +510,12 @@ msgid ""
 "masterclass/tutorial](https://www.plumed-"
 "tutorials.org/lessons/22/015/data/INSTRUCTIONS.html)."
 msgstr ""
+"最初の手順は、以前の [FISST の Masterclass／チュートリアル](https://www.plumed-"
+"tutorials.org/lessons/22/015/data/INSTRUCTIONS.html)の復習である。"
 
 #: INSTRUCTIONS.md:218
 msgid "Reminder - Effect of force on a 2-dimensional potential"
-msgstr ""
+msgstr "復習：2次元 Potential に対する Force の効果"
 
 #: INSTRUCTIONS.md:220
 msgid ""
@@ -458,12 +523,15 @@ msgid ""
 "(e.g. -2.5 to 2.5 in these units) and look at how the force changes the "
 "resulting free energy surface."
 msgstr ""
+"RESTRAINT を使い、異なる大きさの Constant Force（この単位系では例えば -2.5 から2.5）を加える。Force "
+"によって自由エネルギー面がどう変わるかを調べる。"
 
 #: INSTRUCTIONS.md:236
 msgid ""
 "Then download the [pesmd input file](inputs/doublewell_prod.pesmd.input) run"
 " the simulation using the command:"
 msgstr ""
+"[pesmd 入力](inputs/doublewell_prod.pesmd.input)をダウンロードし、次のコマンドでシミュレーションを実行する。"
 
 #: INSTRUCTIONS.md:242
 msgid ""
@@ -471,16 +539,20 @@ msgid ""
 "compute the surface, and zero the potential at the left minimum. What do you"
 " notice about the other minimum and barrier?"
 msgstr ""
+"GRID から、または sum_hills で計算して自由エネルギー面を描く。左側の Minimum で Potential を0に合わせる。もう一方の"
+" Minimum と Barrier には、どのような変化が見られるだろうか。"
 
 #: INSTRUCTIONS.md:244
 msgid ""
 "![Pulling on a double well, sampled by "
 "metadynamics](images/doublewell_force_metad.jpg)"
 msgstr ""
+"![Metadynamics で Sampling した、Double Well に対する Pulling "
+"の効果。](images/doublewell_force_metad.jpg)"
 
 #: INSTRUCTIONS.md:246
 msgid "Getting transition times versus force for a double well"
-msgstr ""
+msgstr "Double Well における Transition Times の Force 依存性を求める"
 
 #: INSTRUCTIONS.md:248
 msgid ""
@@ -491,12 +563,17 @@ msgid ""
 "exponentially, following Bell's law. Can you extract the transition distance"
 " from this figure?"
 msgstr ""
+"次のオプションで MetaD を実行し、異なる Forces での Kinetics を予測する。図では、0から1の各 _Pulling_ Force "
+"について、独立な Seed の計算を40回行って Unbinding Time を求めている。符号に注意すること。Bell's Law "
+"に従って時間が指数関数的に減少することが分かる。この図から Transition Distance を求められるだろうか。"
 
 #: INSTRUCTIONS.md:250
 msgid ""
 "Note that here we used reduced units. An example pesmd input file is given "
 "at [this link](inputs/doublewell_rates.pesmd.input)."
 msgstr ""
+"ここでは Reduced Units を使っている。[こちら](inputs/doublewell_rates.pesmd.input)に pesmd "
+"入力の例がある。"
 
 #: INSTRUCTIONS.md:252
 msgid ""
@@ -504,13 +581,17 @@ msgid ""
 "and use the COMMITTOR function to stop simulations when the system crosses "
 "the barrier (e.g. at x=15.5)"
 msgstr ""
+"次の空欄を埋めて Acceleration Factor の計算を有効にし、COMMITTOR を使って、系が Barrier を越えたら、例えば "
+"x=15.5 でシミュレーションを停止する。"
 
 #: INSTRUCTIONS.md:277
 msgid "Your results should look like the following:"
-msgstr ""
+msgstr "結果は次のようになるはずである。"
 
 #: INSTRUCTIONS.md:279
 msgid ""
 "![Taus from double well, from infrequent "
 "metadynamics](images/potential_and_taus.png)"
 msgstr ""
+"![Infrequent Metadynamics で求めた Double Well "
+"の遷移時間。](images/potential_and_taus.png)"

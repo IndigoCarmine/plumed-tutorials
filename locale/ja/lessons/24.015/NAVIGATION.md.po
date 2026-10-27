@@ -9,16 +9,16 @@ msgstr ""
 
 #: NAVIGATION.md:1
 msgid "How to use PyCV"
-msgstr ""
+msgstr "PyCV の使い方"
 
 #: NAVIGATION.md:3
 msgid "The lesson contains a guide to set up PyCV and some simple examples."
-msgstr ""
+msgstr "このレッスンには、PyCV の設定ガイドと簡単な例が含まれる。"
 
 #. mermaid node label
 #: NAVIGATION.md:8
 msgid "PyCV"
-msgstr ""
+msgstr "PyCV"
 
 #. mermaid node label
 #: NAVIGATION.md:9
@@ -28,9 +28,9 @@ msgstr "例"
 #. mermaid click tooltip
 #: NAVIGATION.md:13
 msgid "An introduction to PyCV"
-msgstr ""
+msgstr "PyCV の入門"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:14
 msgid "Some basic examples for PyCV"
-msgstr ""
+msgstr "PyCV の基本的な例"

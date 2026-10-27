@@ -9,19 +9,19 @@ msgstr ""
 
 #: Readme_Serial.md:1
 msgid "The serial code"
-msgstr ""
+msgstr "Serial 版のコード"
 
 #: Readme_Serial.md:19
 msgid "the workflow is:"
-msgstr ""
+msgstr "処理の流れは次のとおりである。"
 
 #: Readme_Serial.md:20
 msgid "get the positions"
-msgstr ""
+msgstr "原子の位置を取得する。"
 
 #: Readme_Serial.md:21
 msgid "initialize `ncoord` to zero"
-msgstr ""
+msgstr "`ncoord` を0に初期化する。"
 
 #: Readme_Serial.md:22
 msgid ""
@@ -29,6 +29,8 @@ msgid ""
 "atoms and increment `ncoord` each time the distance is less than `R_0` "
 "(avoid calculating the distance from self)"
 msgstr ""
+"可能な原子の組み合わせを二重ループで調べ、原子間距離を計算する。距離が `R_0` 未満のたびに `ncoord` "
+"を増やす。原子自身との距離は計算しない。"
 
 #: Readme_Serial.md:26
 msgid "[back](Readme.md)"

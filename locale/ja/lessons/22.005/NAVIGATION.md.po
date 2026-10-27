@@ -9,7 +9,7 @@ msgstr ""
 
 #: NAVIGATION.md:1
 msgid "Masterclass 22.05: Machine learning collective variables with Pytorch"
-msgstr ""
+msgstr "Masterclass 22.05：PyTorch による Collective Variables の Machine Learning"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -19,6 +19,9 @@ msgid ""
 "distinguish metastable states. In the second (DeepTICA) the slow modes of "
 "the simulations are extracted from a (biased) simulation and used as CVs."
 msgstr ""
+"この Masterclass では、Machine Learning（ML）による Data-driven な Collective Variables"
+" の設計方法を説明する。特に2つの手法を紹介する。1つ目の DeepLDA は、Metastable States を区別する Classifier "
+"として CVs を最適化する。2つ目の DeepTICA は、Biased シミュレーションから Slow Modes を取り出し、CVs として使う。"
 
 #: NAVIGATION.md:5
 msgid ""
@@ -28,19 +31,19 @@ msgstr "このレッスンは、2022年の PLUMED Masterclass シリーズの一
 
 #: NAVIGATION.md:7
 msgid "A first videos that describes the theory."
-msgstr ""
+msgstr "理論を説明する1本目の動画。"
 
 #: NAVIGATION.md:8
 msgid "Python notebooks that contain the exercises."
-msgstr ""
+msgstr "演習を収録した Python Notebooks。"
 
 #: NAVIGATION.md:9
 msgid "A second video with the discussion and the solution of the exercises."
-msgstr ""
+msgstr "演習の議論と解答を扱う2本目の動画。"
 
 #: NAVIGATION.md:10
 msgid "Python notebooks containing the solution to the exercises."
-msgstr ""
+msgstr "演習の解答を収録した Python Notebooks。"
 
 #: NAVIGATION.md:12
 msgid ""
@@ -75,12 +78,12 @@ msgstr "OPES"
 #. mermaid node label
 #: NAVIGATION.md:20
 msgid "Ref: DeepLDA"
-msgstr ""
+msgstr "参考文献：DeepLDA"
 
 #. mermaid node label
 #: NAVIGATION.md:21
 msgid "Ref: DeepTICA"
-msgstr ""
+msgstr "参考文献：DeepTICA"
 
 #. mermaid node label
 #: NAVIGATION.md:22
@@ -95,12 +98,12 @@ msgstr "インストール"
 #. mermaid node label
 #: NAVIGATION.md:24
 msgid "DeepLDA exercises"
-msgstr ""
+msgstr "DeepLDA の演習"
 
 #. mermaid node label
 #: NAVIGATION.md:25
 msgid "DeepTICA exercises"
-msgstr ""
+msgstr "DeepTICA の演習"
 
 #. mermaid node label
 #: NAVIGATION.md:26
@@ -110,12 +113,12 @@ msgstr "講義 II"
 #. mermaid node label
 #: NAVIGATION.md:28
 msgid "DeepLDA solutions"
-msgstr ""
+msgstr "DeepLDA の解答"
 
 #. mermaid node label
 #: NAVIGATION.md:29
 msgid "DeepTICA solutions"
-msgstr ""
+msgstr "DeepTICA の解答"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:30
@@ -125,19 +128,19 @@ msgstr "PLUMED の構文の基本を紹介する過去のチュートリアル"
 #. mermaid click tooltip
 #: NAVIGATION.md:31
 msgid "A paper on the OPES method"
-msgstr ""
+msgstr "OPES 法の論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:32
 msgid ""
 "A paper that introduced the DeepLDA method that is used in the tutorial"
-msgstr ""
+msgstr "このチュートリアルで用いる DeepLDA 法を導入した論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:33
 msgid ""
 "A paper that describes the DeepTICA method that is used in the tutorial"
-msgstr ""
+msgstr "このチュートリアルで用いる DeepTICA 法を説明する論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:34
@@ -156,17 +159,17 @@ msgstr "取り組む演習の手順"
 #. mermaid click tooltip
 #: NAVIGATION.md:36
 msgid "Instructions for installing the required software."
-msgstr ""
+msgstr "必要なソフトウェアのインストール手順。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:37
 msgid "A python notebook that discusses the exercises on deepLDA"
-msgstr ""
+msgstr "DeepLDA の演習を説明する Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:38
 msgid "A python notebook that discusses the exercises on deepTICA"
-msgstr ""
+msgstr "DeepTICA の演習を説明する Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:39
@@ -178,12 +181,12 @@ msgstr "2022年4月4日に PLUMED Masterclass シリーズの一環として行�
 #. mermaid click tooltip
 #: NAVIGATION.md:40
 msgid "A python notebook with the solutions of the exercises on DeepLDA"
-msgstr ""
+msgstr "DeepLDA の演習の解答を収録した Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:41
 msgid "A python notebook with the solutions of the exercises on DeepTICA"
-msgstr ""
+msgstr "DeepTICA の演習の解答を収録した Python Notebook"
 
 #: NAVIGATION.md:44
 msgid "References"
@@ -195,9 +198,14 @@ msgid ""
 " Sampling](https://pubs.acs.org/doi/full/10.1021/acs.jpclett.0c00535), JPCL "
 "(2020)"
 msgstr ""
+"Bonati, Rizzi and Parrinello, [Data-Driven Collective Variables for Enhanced"
+" Sampling](https://pubs.acs.org/doi/full/10.1021/acs.jpclett.0c00535), JPCL "
+"(2020)"
 
 #: NAVIGATION.md:46
 msgid ""
 "Bonati, Piccini and Parrinello, [Deep learning the slow modes for rare "
 "events sampling](https://doi.org/10.1073/pnas.2113533118), PNAS(2021)"
 msgstr ""
+"Bonati, Piccini and Parrinello, [Deep learning the slow modes for rare "
+"events sampling](https://doi.org/10.1073/pnas.2113533118), PNAS(2021)"

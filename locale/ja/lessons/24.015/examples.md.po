@@ -15,43 +15,45 @@ msgstr "例"
 msgid ""
 "All the example are run within the same environment of the installation "
 "procedure"
-msgstr ""
+msgstr "すべての例は、インストール手順と同じ環境で実行する。"
 
 #: examples.md:7
 msgid "Things to know:"
-msgstr ""
+msgstr "知っておくこと："
 
 #: examples.md:8
 msgid ""
 "I am always using \"path/to\" for indication the directory that contain a "
 "file"
-msgstr ""
+msgstr "ファイルを含むディレクトリを示すため、常に path/to という表記を使う。"
 
 #: examples.md:9
 msgid ""
 "Python will communicate with plumed using a module called "
 "\"plumedCommunications\" that is embedded with `PythonCVInterface.so`"
 msgstr ""
+"Python は、`PythonCVInterface.so` に組み込まれた plumedCommunications という Module で "
+"PLUMED と通信する。"
 
 #: examples.md:10
 msgid ""
 "The string `path/to/PythonCVInterface.so` can be obtained by running `python"
 " -m pycv`"
-msgstr ""
+msgstr "`path/to/PythonCVInterface.so` は、`python -m pycv` を実行して取得できる。"
 
 #: examples.md:11
 msgid ""
 "The string `path/to/PythonCVInterface.so` can be obtained within a python "
 "script with"
-msgstr ""
+msgstr "Python スクリプト内では、次の方法で `path/to/PythonCVInterface.so` を取得できる。"
 
 #: examples.md:17
 msgid "Getting the manual"
-msgstr ""
+msgstr "マニュアルの取得"
 
 #: examples.md:19
 msgid "This is a bonus, but can be helpful:"
-msgstr ""
+msgstr "補足だが、次の機能も便利である。"
 
 # Literal notation or identifier intentionally preserved.
 #: examples.md:21 examples.md:77 examples.md:110 examples.md:145
@@ -65,17 +67,17 @@ msgstr "pyhelp.py"
 
 #: examples.md:51
 msgid "Then run with `plumed driver --plumed plumed.dat --ixyz traj.xyz`"
-msgstr ""
+msgstr "次に、`plumed driver --plumed plumed.dat --ixyz traj.xyz` で実行する。"
 
 #: examples.md:54
 msgid ""
 "This thing will not have any results on the trajectory, but you will get the"
 " manual of the interface in a few txt files."
-msgstr ""
+msgstr "この処理は Trajectory に影響を与えないが、Interface のマニュアルをいくつかの txt ファイルとして得られる。"
 
 #: examples.md:56
 msgid "Or alternatively you can run:"
-msgstr ""
+msgstr "別の方法として、次も実行できる。"
 
 # Literal notation or identifier intentionally preserved.
 #: examples.md:57
@@ -88,14 +90,16 @@ msgid ""
 "running `python -m http.server` and then going to the address that appears "
 "on the terminal, that usually is 0.0.0.0:8000, with your internet browser."
 msgstr ""
+"ごく簡素な HTML ドキュメントが得られる。`python -m http.server` を実行し、Terminal に表示されるアドレス、通常は "
+"0.0.0.0:8000 をウェブブラウザで開くと閲覧できる。"
 
 #: examples.md:73
 msgid "Distance (with PBC)"
-msgstr ""
+msgstr "Distance（PBC を考慮）"
 
 #: examples.md:75
 msgid "In this example we show how to use the PBCs in a calculation:"
-msgstr ""
+msgstr "この例では、計算で PBCs を使う方法を示す。"
 
 # Literal notation or identifier intentionally preserved.
 #: examples.md:87
@@ -108,16 +112,18 @@ msgid ""
 "distances with it by using the method `apply` like in C++ plumed, but on a "
 "`list/np.ndarray` that must be shaped `[nat,3]`"
 msgstr ""
+"PLUMED から PBC Calculator を取得し、C++ の PLUMED と同じように `apply` "
+"を使って距離を補正する。ただし、対象は `[nat,3]` の形を持つ `list/np.ndarray` である。"
 
 #: examples.md:107
 msgid "Periodicity"
-msgstr ""
+msgstr "Periodicity"
 
 #: examples.md:109
 msgid ""
 "This is just an example on how the user can work with the periodicity of the"
 " retuned variables"
-msgstr ""
+msgstr "返す変数の Periodicity を扱う方法を示す例である。"
 
 # Literal notation or identifier intentionally preserved.
 #: examples.md:119
@@ -126,7 +132,7 @@ msgstr "periodicity.py"
 
 #: examples.md:143
 msgid "Getting simulation information"
-msgstr ""
+msgstr "シミュレーション情報の取得"
 
 # Literal notation or identifier intentionally preserved.
 #: examples.md:154
@@ -135,4 +141,4 @@ msgstr "mdInfo.py"
 
 #: examples.md:174
 msgid "Using PyCV when in a plumed-python script"
-msgstr ""
+msgstr "PLUMED-Python スクリプト内での PyCV の利用"

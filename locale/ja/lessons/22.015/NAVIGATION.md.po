@@ -43,7 +43,7 @@ msgstr "このレッスンは、2022年シリーズの第15回 Masterclass で�
 msgid ""
 "Solutions are available from [This "
 "page](https://github.com/hockyg/masterclass-22-15)"
-msgstr ""
+msgstr "解答は[こちら](https://github.com/hockyg/masterclass-22-15)にある。"
 
 #: NAVIGATION.md:14
 msgid ""
@@ -51,6 +51,9 @@ msgid ""
 "one](https://doi.org/10.1021/acs.jpcb.1c06330) from Hocky and [this "
 "one](https://doi.org/10.1021/acs.jpcb.1c10715) from Stirnemann."
 msgstr ""
+"関連する Perspective Articles として、Hocky "
+"の[論文](https://doi.org/10.1021/acs.jpcb.1c06330)や Stirnemann "
+"の[論文](https://doi.org/10.1021/acs.jpcb.1c10715)も参考になる。"
 
 #. mermaid node label
 #: NAVIGATION.md:18
@@ -65,7 +68,7 @@ msgstr "講義 I"
 #. mermaid node label
 #: NAVIGATION.md:19
 msgid "paper1"
-msgstr ""
+msgstr "論文1"
 
 #. mermaid node label
 #: NAVIGATION.md:20
@@ -80,7 +83,7 @@ msgstr "講義 II"
 #. mermaid node label
 #: NAVIGATION.md:22
 msgid "paper2"
-msgstr ""
+msgstr "論文2"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:23
@@ -90,7 +93,7 @@ msgstr "PLUMED の構文の基本を紹介する過去のチュートリアル"
 #. mermaid click tooltip
 #: NAVIGATION.md:24
 msgid "A paper describing the FISST method that is used in this tutorial"
-msgstr ""
+msgstr "このチュートリアルで用いる FISST 法を説明する論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:25
@@ -118,4 +121,4 @@ msgstr ""
 #. mermaid click tooltip
 #: NAVIGATION.md:28
 msgid "A follow up paper combining FISST with replica exchange"
-msgstr ""
+msgstr "FISST と Replica Exchange を組み合わせた後続の論文"

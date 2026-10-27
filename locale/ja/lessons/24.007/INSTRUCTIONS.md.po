@@ -9,7 +9,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:1
 msgid "PLUMED Masterclass: Transition-Tempered Metadynamics"
-msgstr ""
+msgstr "PLUMED Masterclass：Transition-Tempered Metadynamics"
 
 #: INSTRUCTIONS.md:3
 msgid "Origin"
@@ -34,6 +34,10 @@ msgid ""
 "improved, smoothly convergent variant of metadynamics (MetaD) that enhances "
 "the convergence and efficiency of free energy calculations."
 msgstr ""
+"このチュートリアルでは、選んだ Collective Variables（CVs）の Potential of Mean "
+"Force（PMF）を、Transition-Tempered "
+"Metadynamics（TTMetaD）シミュレーションで求める方法を学ぶ。TTMetaD は "
+"Metadynamics（MetaD）を改良し、滑らかに収束する手法であり、自由エネルギー計算の収束性と効率を高める。"
 
 #: INSTRUCTIONS.md:11
 msgid "Objectives"
@@ -41,19 +45,21 @@ msgstr "到達目標"
 
 #: INSTRUCTIONS.md:13
 msgid "By the end of this tutorial, you will know the skills to:"
-msgstr ""
+msgstr "このチュートリアルを終えると、次のことができるようになる。"
 
 #: INSTRUCTIONS.md:15
 msgid ""
 "Perform TTMetaD simulations and optimize its parameters using Alanine "
 "Dipeptide as a model system."
-msgstr ""
+msgstr "Alanine Dipeptide をモデル系として TTMetaD を実行し、パラメータを最適化する。"
 
 #: INSTRUCTIONS.md:16
 msgid ""
 "Elucidate the catalytic mechanism of GTP hydrolysis in microtubules by "
 "determining the PMF using QM/MM TTMetaD simulations."
 msgstr ""
+"QM/MM TTMetaD で PMF を求め、Microtubules 内の GTP Hydrolysis の Catalytic Mechanism"
+" を明らかにする。"
 
 #: INSTRUCTIONS.md:18
 msgid "Prerequisites"
@@ -67,6 +73,9 @@ msgid ""
 "in vacuum, and its implementation closely resembles the standard MetaD "
 "simulations but with slight parameter differences."
 msgstr ""
+"**MetaD の経験**：MetaD や PMF 計算の経験があるとよいが、必須ではない。最初に、真空中の Alanine Dipeptide の "
+"Backbone Dihedral Angles を用いた TTMetaD を扱う。その実装は通常の MetaD "
+"によく似ており、パラメータがわずかに異なる。"
 
 #: INSTRUCTIONS.md:22
 msgid ""
@@ -75,6 +84,8 @@ msgid ""
 "Python (Jupyter Notebook) will be helpful for data analysis and "
 "visualization."
 msgstr ""
+"**CP2K と QM/MM の経験**：2つ目の例では、CP2K と QM/MM "
+"シミュレーションに習熟していることを勧める。また、Python（Jupyter Notebook）の知識があると、データの解析と可視化に役立つ。"
 
 #: INSTRUCTIONS.md:24
 msgid "Overview"
@@ -97,10 +108,18 @@ msgid ""
 "being properly tempered in the second phase to secure the asymptotic "
 "convergence of the free energy surface."
 msgstr ""
+"Well-tempered Metadynamics（WTMetaD）は、生体分子系や材料系を調べる効果的で Adaptive な Enhanced "
+"Sampling 法として広く知られている。ただし、特に QM/MM "
+"で酵素反応を調べる場合のように、複雑で計算コストの高い系では、調整するパラメータの選択が難しいことがある。局所的な Metastable States "
+"から速く脱出することと、自由エネルギー推定全体を速く収束させることの両立は、大きな課題になりやすい。これに対処するため、[Dama et "
+"al.](https://pubs.acs.org/doi/full/10.1021/ct500441q) は Transition-Tempered "
+"Metadynamics（TTMetaD）を開発した。下図のように、TTMetaD は最初の段階では Hills に Tempering "
+"を行わず、その段階を短縮する。一方、次の段階では適切に Tempering "
+"して自由エネルギー面の漸近的な収束を確保し、全実行時間を最小化するよう設計されている。"
 
 #: INSTRUCTIONS.md:27
 msgid "![How does TTMetaD deposit Gaussian hills.](figs/ttmetad_demo.jpg)"
-msgstr ""
+msgstr "![TTMetaD による Gaussian Hills の追加方法。](figs/ttmetad_demo.jpg)"
 
 #: INSTRUCTIONS.md:29
 msgid ""
@@ -123,6 +142,15 @@ msgid ""
 "energy difference. This flexibility makes TTMetaD a permissive and robust "
 "method suitable for a wide range of applications."
 msgstr ""
+"この手法は、WTMetaD の滑らかな収束という特徴を保ちつつ、Barrier Height の事前知識を不要にする。そのため、速い Barrier "
+"Crossing と速い収束の間の Trade-off を避けられる。代わりに自由エネルギー Basins "
+"の位置を推定し、それらの間の往復回数に応じて、追加する Hills の高さを調整する。Basins は、Metadynamics "
+"研究の具体的な目的に合わせ、実験データ、物理・化学的知見、直感に基づいて選べる。この手法は、重要な状態は分かっていても遷移の Mechanisms "
+"が不明な、State-to-state Transitions "
+"の研究に特に適している。今回の2つ目の例のように計算コストが高い系では、わずかな効率向上でも計算資源と経過時間の大幅な節約につながるため、特に有用である。また、真の"
+" Basin Minimum の周囲の妥当な自由エネルギー Isosurface、すなわち Barrier と Basin "
+"の自由エネルギー差のおよそ半分の範囲内に、Basin を定義する座標があれば、TTMetaD "
+"は有効に機能する。この柔軟性により、幅広い用途で使いやすく堅牢な手法となっている。"
 
 #: INSTRUCTIONS.md:31
 msgid "Software and data"
@@ -140,6 +168,11 @@ msgid ""
 "write the PLUMED input files themselves before referring to the solutions "
 "provided."
 msgstr ""
+"このチュートリアルは2つの演習セクションからなる。セクション1には PLUMED のパッチを適用した GROMACS があればよく、セクション2には "
+"PLUMED のパッチを適用した CP2K が必要である。QM/MM "
+"は計算コストが高いため、[GitHub](https://github.com/uchicago-"
+"voth/masterclass-24-09-ttmetad) にある計算済みの HILLS データで解析を行ってもよい。構造ファイルと完全な "
+"PLUMED 入力もそこにある。ただし、解答を見る前に、まず自分で PLUMED 入力を書いてみることを強く勧める。"
 
 #: INSTRUCTIONS.md:35
 msgid "Exercises"
@@ -147,7 +180,7 @@ msgstr "演習"
 
 #: INSTRUCTIONS.md:37
 msgid "Section 1: Set up 2D TTMetaD simulations for analine dipeptide"
-msgstr ""
+msgstr "セクション1：Alanine Dipeptide の2次元 TTMetaD の設定"
 
 #: INSTRUCTIONS.md:39
 msgid ""
@@ -156,31 +189,34 @@ msgid ""
 " TTMetaD simulations and highlights the differences between TTMetaD and "
 "WTMetaD."
 msgstr ""
+"まず、比較的簡単な演習として、水中の Alanine Dipeptide をテスト系に使う。この例では TTMetaD の設定方法を示し、WTMetaD"
+" との違いを確認する。"
 
 #: INSTRUCTIONS.md:41
 msgid ""
 "Click on the labels of the actions for more information on what each action "
 "computes."
-msgstr ""
+msgstr "各 Action のラベルをクリックすると、何を計算するかの詳細を参照できる。"
 
 #: INSTRUCTIONS.md:43
 msgid ""
 "![Ball-and-stick structure of alanine dipeptide with atom "
 "index.](figs/alad.png)"
 msgstr ""
+"![原子番号を示した Alanine Dipeptide の Ball-and-stick Structure。](figs/alad.png)"
 
 #: INSTRUCTIONS.md:45 INSTRUCTIONS.md:105
 msgid "Step 1: Define the two CVs"
-msgstr ""
+msgstr "ステップ1：2つの CVs の定義"
 
 #: INSTRUCTIONS.md:46
 msgid ""
 "First, define the two CVs, the phi and psi angles of alanine dipeptide."
-msgstr ""
+msgstr "まず、Alanine Dipeptide の phi と psi の角度を、2つの CVs として定義する。"
 
 #: INSTRUCTIONS.md:48
 msgid "Step 2: Add MetaD bias to the two CVs"
-msgstr ""
+msgstr "ステップ2：2つの CVs への MetaD Bias の追加"
 
 #: INSTRUCTIONS.md:49
 msgid ""
@@ -190,10 +226,13 @@ msgid ""
 "phi and psi angles of alanine dipeptide as (-1.49,-1.20) and (1.05,-2.04), "
 "respectively."
 msgstr ""
+"次に、TTMetaD コマンドで2つの CVs に Metadynamics Bias を加える。[Chen et "
+"al.](https://doi.org/10.1063/1.4733389) の2次元 PMF に基づき、Alanine Dipeptide の "
+"phi・psi 空間に、(-1.49,-1.20) と (1.05,-2.04) を中心とする2つの Metabasins を定義する。"
 
 #: INSTRUCTIONS.md:71
 msgid "Step 3: Perform TTMetaD simulation"
-msgstr ""
+msgstr "ステップ3：TTMetaD の実行"
 
 #: INSTRUCTIONS.md:72
 msgid ""
@@ -202,10 +241,12 @@ msgid ""
 "simulation was performed using the same configuration but without defining "
 "transition wells."
 msgstr ""
+"GROMACS で TTMetaD を実行し、COLVAR と HILLS のデータファイルを得る。比較のため、Transition Wells "
+"を定義しない点以外は同じ設定で、WTMetaD も実行した。"
 
 #: INSTRUCTIONS.md:74
 msgid "Step 4: Analyze Gaussian hill depositions"
-msgstr ""
+msgstr "ステップ4：Gaussian Hills の追加過程の解析"
 
 #: INSTRUCTIONS.md:75
 msgid ""
@@ -214,19 +255,21 @@ msgid ""
 "WTMetaD and visualize the different 2D PMFs at various time points. The "
 "results should look like below:"
 msgstr ""
+"TTMetaD と WTMetaD で Gaussian Hills の追加方法がどう異なるかを調べる。両方の HILLS ファイルから "
+"Gaussian Hills を取り出し、さまざまな時点の2次元 PMFs を可視化できる。次のような結果になるはずである。"
 
 #: INSTRUCTIONS.md:77
 msgid ""
 "![Hill height deposition – WTMetaD vs. "
 "TTMetaD.](figs/ttmetad_vs_wtmetad.jpg)"
-msgstr ""
+msgstr "![Hills の追加時の高さ：WTMetaD と TTMetaD の比較。](figs/ttmetad_vs_wtmetad.jpg)"
 
 #: INSTRUCTIONS.md:79
 msgid ""
 "We have provided the data and Python scripts for visualization on the "
 "accompanying GitHub page, but we strongly recommend that you try to do this "
 "yourself first."
-msgstr ""
+msgstr "付属の GitHub ページにデータと可視化用の Python スクリプトがあるが、まず自分で行ってみることを強く勧める。"
 
 #: INSTRUCTIONS.md:81
 msgid ""
@@ -236,21 +279,24 @@ msgid ""
 "ensure convergence. In contrast, WTMetaD scales down the Gaussian hills as "
 "it revisits previously explored regions."
 msgstr ""
+"TTMetaD では、定義した2つの Metabasins が部分的につながり始めるまで、Gaussian Hills "
+"は初期の高さを保つ。Metabasins 間のつながりが強まるにつれ、追加する Gaussian Hills "
+"は徐々に低くなり、収束を確保する。一方、WTMetaD は、探索済みの領域を再訪するときに Gaussian Hills を縮小する。"
 
 #: INSTRUCTIONS.md:84
 msgid "![2D PMF at 50 ns.](alad/fes_50ns.png)"
-msgstr ""
+msgstr "![50 ns 時点の2次元 PMF。](alad/fes_50ns.png)"
 
 #: INSTRUCTIONS.md:86
 msgid ""
 "This example is primarily intended to illustrate the implementation of "
 "TTMetaD. A more practical application is covered in the second example."
-msgstr ""
+msgstr "この例の主な目的は、TTMetaD の実装方法を示すことである。より実践的な応用を、2つ目の例で扱う。"
 
 #: INSTRUCTIONS.md:88
 msgid ""
 "Section 2: GTP hydrolysis in microtubules using QM/MM TTMetaD simulations"
-msgstr ""
+msgstr "セクション2：QM/MM TTMetaD による Microtubules 内の GTP Hydrolysis"
 
 #: INSTRUCTIONS.md:89
 msgid ""
@@ -262,10 +308,15 @@ msgid ""
 "this example, we will set up QM/MM TTMetaD simulations to study the "
 "hydrolysis mechanism of GTP at the E-site."
 msgstr ""
+"Microtubules（MTs）は、αβ-Tubulin Heterodimers からなる大きな Cytoskeletal Polymers "
+"である。この動的な構造は、Polymerization と Depolymerization "
+"の状態を確率的に切り替える。Depolymerization は、β-Tubulin Subunit の E-site（Exchangeable "
+"Site）に結合した Guanosine Triphosphate（GTP）の Hydrolysis と密接に結び付いている。この例では、E-site "
+"における GTP Hydrolysis の Mechanism を調べる QM/MM TTMetaD を設定する。"
 
 #: INSTRUCTIONS.md:91
 msgid "![Ball-and-stick structures of GTP and GDP.](figs/gtp_gdp.jpg)"
-msgstr ""
+msgstr "![GTP と GDP の Ball-and-stick Structures。](figs/gtp_gdp.jpg)"
 
 #: INSTRUCTIONS.md:95
 msgid ""
@@ -278,10 +329,14 @@ msgid ""
 "three O$_γ$ atoms (O1G, O2G, and O3G in the figure above) and one water "
 "oxygen."
 msgstr ""
+"GDP は GTP の Hydrolysis Product である。GTP と GDP の主な構造的違いは、P$_γ$ 原子（上図の PG）の "
+"Coordination Configuration にある。Hydrolysis 前は、P$_γ$ は3つの O$_γ$ 原子と1つの O$_β$ "
+"原子（上図の PB）に結合し、溶媒の水の酸素原子（OW）とも部分的につながっている。Hydrolysis 後、Pi が Binding Pocket "
+"から放出される前は、P$_γ$ は3つの O$_γ$ 原子（上図の O1G、O2G、O3G）と1つの水の酸素原子に結合している。"
 
 #: INSTRUCTIONS.md:97
 msgid "We define two CVs to characterize GTP hydrolysis reaction:"
-msgstr ""
+msgstr "GTP Hydrolysis を特徴付ける2つの CVs を定義する。"
 
 #: INSTRUCTIONS.md:98
 msgid ""
@@ -289,6 +344,8 @@ msgid ""
 " and O$_β$. This CV varies from approximately 1 in the reactant state to 0 "
 "in the product state."
 msgstr ""
+"Phosphate の Dissociation：P$_γ$ と O$_β$ の間の Coordination Number で捉える。この CV "
+"は、Reactant State の約1から Product State の0へ変化する。"
 
 #: INSTRUCTIONS.md:99
 msgid ""
@@ -296,10 +353,12 @@ msgid ""
 "P$_γ$ with O$_w$ and P$_γ$ with O$_γ$. This CV varies from roughly 3 in the "
 "reactant state to over 4 in the product state."
 msgstr ""
+"水と P$_γ$ の Association：P$_γ$ と O$_w$、および P$_γ$ と O$_γ$ の Coordination "
+"Numbers で捉える。この CV は、Reactant State の約3から Product State の4を超える値へ変化する。"
 
 #: INSTRUCTIONS.md:101
 msgid "![Labeled atoms for reaction coordinate definitions.](figs/pocket.jpg)"
-msgstr ""
+msgstr "![Reaction Coordinates の定義に用いる原子のラベル。](figs/pocket.jpg)"
 
 #: INSTRUCTIONS.md:103
 msgid ""
@@ -311,24 +370,31 @@ msgid ""
 "of TTMetaD is the minimum bias on the maximally biased path between the two "
 "wells."
 msgstr ""
+"[Sun et al.](https://doi.org/10.1021/acs.jctc.7b00077) による Actin 内の ATP "
+"Hydrolysis の先行研究に基づき、Reactant Basin を (1.0, 3.2)、Product Basin を (0.1, 4.3) "
+"に定義する。これらの中心は、Trajectory が Reactant または Product の Well に入ったかを判定し、2つの Wells "
+"を結ぶ Path の端点となる。TTMetaD に入力される量は、2つの Wells 間で最も強く Bias された Path 上の最小 Bias "
+"だけである。"
 
 #: INSTRUCTIONS.md:106
 msgid "Start by defining the two coordination numbers of the Pγ atom."
-msgstr ""
+msgstr "まず、Pγ 原子の2つの Coordination Numbers を定義する。"
 
 #: INSTRUCTIONS.md:176
 msgid "Step 2: Add MetaD bias with delayed tempering"
-msgstr ""
+msgstr "ステップ2：Tempering を遅らせた MetaD Bias の追加"
 
 #: INSTRUCTIONS.md:177
 msgid ""
 "Apply a metadynamics bias to the two CVs using TTMetaD, with a delayed "
 "tempering condition of V* > 1 kcal/mol."
 msgstr ""
+"V* > 1 kcal/mol で Tempering を開始する条件を用い、TTMetaD による Metadynamics Bias を2つの "
+"CVs に加える。"
 
 #: INSTRUCTIONS.md:240
 msgid "Step 3: Perform TTMetaD QM/MM simulations"
-msgstr ""
+msgstr "ステップ3：TTMetaD QM/MM の実行"
 
 #: INSTRUCTIONS.md:241
 msgid ""
@@ -338,22 +404,28 @@ msgid ""
 "data on the [GitHub](https://github.com/uchicago-"
 "voth/masterclass-24-09-ttmetad/tree/main/mt_gtp) page for analysis."
 msgstr ""
+"PLUMED ライブラリと連携する CP2K で TTMetaD を実行し、データファイルを得る。QM/MM の計算コストは高いため、解析用の計算済み "
+"HILLS データを [GitHub](https://github.com/uchicago-"
+"voth/masterclass-24-09-ttmetad/tree/main/mt_gtp) に用意している。"
 
 #: INSTRUCTIONS.md:243
 msgid "Step 4: Plot the 2D PMF"
-msgstr ""
+msgstr "ステップ4：2次元 PMF の描画"
 
 #: INSTRUCTIONS.md:244
 msgid ""
 "You can extract the Gaussian hills from the HILLS file for TTMetaD and "
 "visualize the final 2D PMF. The results should look like below:"
 msgstr ""
+"TTMetaD の HILLS ファイルから Gaussian Hills を取り出し、最終的な2次元 PMF "
+"を可視化できる。次のような結果になるはずである。"
 
 #: INSTRUCTIONS.md:246
 msgid ""
 "![2D PMF for GTP hydrylysis in the tubulin interdimer "
 "complex.](mt_gtp/fes.png)"
 msgstr ""
+"![Tubulin Interdimer Complex における GTP Hydrolysis の2次元 PMF。](mt_gtp/fes.png)"
 
 #: INSTRUCTIONS.md:248
 msgid ""
@@ -362,10 +434,13 @@ msgid ""
 "voth/masterclass-24-09-ttmetad/tree/main/mt_gtp) page, but you are "
 "encouraged to try this yourself first."
 msgstr ""
+"付属の [GitHub](https://github.com/uchicago-"
+"voth/masterclass-24-09-ttmetad/tree/main/mt_gtp) ページの Jupyter Notebook "
+"に、データと可視化用の Python スクリプトを用意している。ただし、まず自分で試してみることを勧める。"
 
 #: INSTRUCTIONS.md:250
 msgid "Questions"
-msgstr ""
+msgstr "問い"
 
 #: INSTRUCTIONS.md:251
 msgid ""
@@ -374,6 +449,10 @@ msgid ""
 "refer to the Results and Discussion part in [Beckett and "
 "Voth](https://doi.org/10.1073/pnas.2305899120)!"
 msgstr ""
+"Microtubules 内の GTP Hydrolysis の2次元 PMF を、どのように解釈するだろうか。Hydrolysis の "
+"Mechanism を明らかにする PMF の重要な特徴は何か。[Beckett and "
+"Voth](https://doi.org/10.1073/pnas.2305899120) の Results and Discussion "
+"を参照してもよい。"
 
 #: INSTRUCTIONS.md:253
 msgid ""
@@ -382,3 +461,5 @@ msgid ""
 "script to bias a similar ATP hydrolysis reaction in one subunit of the actin"
 " filament?"
 msgstr ""
+"多くの生体分子の Hydrolysis や酵素反応を、QM/MM と TTMetaD で研究できる。Actin Filament の1つの "
+"Subunit で、類似した ATP Hydrolysis に Bias を加える PLUMED 入力を書けるだろうか。"

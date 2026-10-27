@@ -9,7 +9,7 @@ msgstr ""
 
 #: README.md:1
 msgid "PLUMED Masterclass 22.05"
-msgstr ""
+msgstr "PLUMED Masterclass 22.05"
 
 #: README.md:4
 msgid "Machine learning collective variables with PyTorch"
