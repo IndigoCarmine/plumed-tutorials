@@ -9,7 +9,7 @@ msgstr ""
 
 #: research.md:1
 msgid "What is science?"
-msgstr ""
+msgstr "科学とは何か"
 
 #: research.md:3
 msgid ""
@@ -20,13 +20,15 @@ msgid ""
 "set of canonical facts that students must learn. That this particular set of"
 " facts is canonical is presented as self-evident."
 msgstr ""
+"Demarcation Problem "
+"は、科学哲学で現在も研究されている話題である。科学と非科学をどう区別するかを問う。しかし、学部の科学講義の多くは、この問いを扱わない。各分野は、学生が学ぶべき正統的な事実の集まりとして示され、その事実が正統的であることは自明とされる。"
 
 #: research.md:8
 msgid ""
 "__If science is presented in this way and we we never get students to "
 "consider what distinguishes science from other forms of knowledge how are "
 "they supposed to learn how to do new scientific research?__"
-msgstr ""
+msgstr "__科学をそのように教え、他の知識と何が違うかを一度も考えさせないのなら、学生は新しい科学研究の進め方をどう学べばよいのだろうか。__"
 
 #: research.md:11
 msgid ""
@@ -35,6 +37,9 @@ msgid ""
 "research and the basic unit of research is the experimental system that he "
 "defines as:"
 msgstr ""
+"この講義の設計では、Rheinberger による Demarcation Problem "
+"の考え方（下の文献参照）から着想を得た。彼は、科学とは研究であり、その基本単位は Experimental System "
+"であるとする。それを次のように定義している。"
 
 #: research.md:14
 msgid ""
@@ -43,6 +48,7 @@ msgid ""
 " simply experimental devices that generate answers; experimental systems are"
 " vehicles for materializing questions"
 msgstr ""
+"実験者自身が、まだ明確に問うことさえできない問いに、未知の答えを与えるよう設計された操作の系。…単に答えを生み出す装置ではなく、問いを具体化するための媒体である。"
 
 #: research.md:16
 msgid ""
@@ -51,6 +57,9 @@ msgid ""
 "to known unknowns. For Rheinberger this process involves the use of "
 "technical objects and epistemic things. He defines these terms as follows:"
 msgstr ""
+"言い換えると、科学の重要な営みは、自然が自らを示すよう促す系、すなわち Unknown Unknowns を Known Unknowns "
+"に変える系を使うことにある。Rheinberger にとって、この過程には Technical Objects と Epistemic Things "
+"が関わる。彼はこれらを次のように定義している。"
 
 #: research.md:19
 msgid ""
@@ -59,12 +68,14 @@ msgid ""
 "traditions that community of scientists believe are reliable enough for them"
 " to leveraged in scientific inquiry."
 msgstr ""
+"__Technical Objects__ "
+"は、測定装置、観測手法、理論モデル、さらには研究の伝統など、科学者の共同体が探究に使えるほど信頼できると考える研究の道具である。"
 
 #: research.md:20
 msgid ""
 "__epistemic things__ are the targets of inquiry that we direct our technical"
 " objects to learn things."
-msgstr ""
+msgstr "__Epistemic Things__ は、Technical Objects を向け、何かを学ぼうとする探究の対象である。"
 
 #: research.md:22
 msgid ""
@@ -73,6 +84,9 @@ msgid ""
 "teach students how to do science we must show them how to use our technical "
 "objects and we must encourage them to apply them to epistemic things."
 msgstr ""
+"Rheinberger にとって科学は、Epistemic Things に Technical Objects "
+"を適用し、何が起きるかを調べる営みである。したがって、科学の進め方を教えるなら、Technical Objects の使い方を示し、それを "
+"Epistemic Things に適用するよう学生を促す必要がある。"
 
 #: research.md:25
 msgid ""
@@ -85,19 +99,30 @@ msgid ""
 " estensions provide examples of new epistemic things that you can apply "
 "these technical objects to."
 msgstr ""
+"この考えに基づき、講義の論文では、Technical Object（主に Statistical Mechanics の理論、MD、Monte "
+"Carlo）を使い、Epistemic Thing（微視的な振る舞いを記述した粒子 Ensemble "
+"の巨視的な振る舞い）を調べた例を示す。Notebooks は道具の操作を自分で学ぶためにあり、発展課題は、それを適用する新しい探究対象の例を示す。"
 
 #: research.md:29
 msgid "References"
 msgstr "参考文献"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: research.md:31
 msgid ""
 "Hans-Jorg Rheinberger, [Towards a history of epistemic "
 "things](https://philpapers.org/rec/RHETAH), Stanford University Press (1997)"
 msgstr ""
+"Hans-Jorg Rheinberger, [Towards a history of epistemic "
+"things](https://philpapers.org/rec/RHETAH), Stanford University Press (1997)"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: research.md:32
 msgid ""
 "Dr Fatima, [Unfalsifiable Astrophysics: 3 Kinds of Research with Nothing to "
 "(Dis)prove)](https://www.youtube.com/watch?v=SomcR72MuIM), YouTube (2025)"
 msgstr ""
+"Dr Fatima, [Unfalsifiable Astrophysics: 3 Kinds of Research with Nothing to "
+"(Dis)prove)](https://www.youtube.com/watch?v=SomcR72MuIM), YouTube (2025)"

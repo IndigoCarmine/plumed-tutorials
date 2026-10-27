@@ -899,7 +899,7 @@ msgstr ""
 
 #: README.md:604
 msgid "Troubleshooting"
-msgstr ""
+msgstr "問題の解決方法"
 
 #: README.md:606
 msgid "Issue"

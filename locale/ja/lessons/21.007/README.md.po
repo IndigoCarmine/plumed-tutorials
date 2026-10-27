@@ -9,22 +9,22 @@ msgstr ""
 
 #: README.md:1
 msgid "masterclass-21-7"
-msgstr ""
+msgstr "masterclass-21-7"
 
 #: README.md:2
 msgid ""
 "Repository of the data for PLUMED Masterclass 21.7. It includes the "
 "following directories:"
-msgstr ""
+msgstr "PLUMED Masterclass 21.7 のデータリポジトリ。次のディレクトリを含む。"
 
 #: README.md:3
 msgid "data: input files for Exercise 1 and 2;"
-msgstr ""
+msgstr "data：演習1と2の入力ファイル。"
 
 #: README.md:4
 msgid "notebooks: template Jupyter notebook;"
-msgstr ""
+msgstr "notebooks：Jupyter Notebook のテンプレート。"
 
 #: README.md:5
 msgid "slides: introductory slides."
-msgstr ""
+msgstr "slides：導入用スライド。"

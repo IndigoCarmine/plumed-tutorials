@@ -9,47 +9,47 @@ msgstr ""
 
 #: README.md:1
 msgid "Using plumed benchmark"
-msgstr ""
+msgstr "plumed benchmark の利用"
 
 #: README.md:3
 msgid "Options"
-msgstr ""
+msgstr "オプション"
 
 #: README.md:5
 msgid ""
 "Let's go through the options one by one, By inputting `plumed benchmark "
 "--help` in the terminal we get"
-msgstr ""
+msgstr "オプションを1つずつ確認する。Terminal で `plumed benchmark --help` を入力すると、次が表示される。"
 
 #: README.md:35
 msgid ""
 "[`--plumed`](#input-files) is used to pass one or more input files to the "
 "benchmark"
-msgstr ""
+msgstr "[`--plumed`](#input-files) は、1つ以上の入力ファイルを Benchmark に渡す。"
 
 #: README.md:36
 msgid "[`--kernel`](#kernels) is used to pass one or more plumed kernels"
-msgstr ""
+msgstr "[`--kernel`](#kernels) は、1つ以上の PLUMED Kernels を渡す。"
 
 #: README.md:37
 msgid "`--natoms` sets the number of atoms"
-msgstr ""
+msgstr "`--natoms` は原子数を設定する。"
 
 #: README.md:38
 msgid "`--nsteps` sets the number of steps"
-msgstr ""
+msgstr "`--nsteps` はステップ数を設定する。"
 
 #: README.md:39
 msgid ""
 "[`--maxtime`](#time-limit) stops gracefully the benchmark after the a "
 "certain amount of time has elapsed."
-msgstr ""
+msgstr "[`--maxtime`](#time-limit) は、指定した時間が経過したら Benchmark を正常に終了する。"
 
 #: README.md:40
 msgid ""
 "`--sleep` add a sleep timer during the loop, simulating an MD program doing "
 "its calculations"
-msgstr ""
+msgstr "`--sleep` は、MD プログラムの計算を模倣するため、ループ中に待機時間を入れる。"
 
 #: README.md:41
 msgid ""
@@ -57,26 +57,31 @@ msgid ""
 "kinds of atom distributions: \"line\", \"cube\", \"sphere\", \"globs\" and "
 "\"sc\""
 msgstr ""
+"[`--atom-distribution`](#atom-distributions) は、原子分布を "
+"line、cube、sphere、globs、sc から選ぶ。"
 
 #: README.md:42
 msgid ""
 "[`--domain-decomposition`](#domain-decomposition-and-shuffled-atoms) "
 "emulates a domain decomposition and forces the `--shuffled` option"
 msgstr ""
+"[`--domain-decomposition`](#domain-decomposition-and-shuffled-atoms) は "
+"Domain Decomposition を模倣し、`--shuffled` を強制する。"
 
 #: README.md:43
 msgid ""
 "[`--shuffled`](#domain-decomposition-and-shuffled-atoms) shuffles the atom "
 "indexes"
 msgstr ""
+"[`--shuffled`](#domain-decomposition-and-shuffled-atoms) は、原子の Index を並べ替える。"
 
 #: README.md:44
 msgid "`--dump-trajectory` dumps the trajectory to a file"
-msgstr ""
+msgstr "`--dump-trajectory` は Trajectory をファイルに出力する。"
 
 #: README.md:47
 msgid "A few words on the execution order."
-msgstr ""
+msgstr "実行順序についても説明する。"
 
 #: README.md:49
 msgid ""
@@ -85,6 +90,9 @@ msgid ""
 "[here](#input-files),[here](#kernels) and [here](#combining---kernel-and---"
 "plumed)) and run the benchmark on each one of these."
 msgstr ""
+"複数の入力ファイルや PLUMED Kernels を指定すると、Kernel とファイルの組み合わせを複数保存し、それぞれを Benchmark "
+"する。詳細は[入力](#input-files)、[Kernels](#kernels)、[両者の組み合わせ](#combining---kernel-"
+"and---plumed)を参照してほしい。"
 
 #: README.md:51
 msgid ""
@@ -93,21 +101,24 @@ msgid ""
 "ask for 100 steps and 5 kernels and/or 5 input files, your machine will run "
 "500 plumed steps."
 msgstr ""
+"各 Benchmark ステップでは原子分布を1回だけ計算し、指定したすべての Kernels で PLUMED "
+"の一連のコマンドを実行する。例えば100ステップと5つの Kernels、または5つの入力を指定すれば、合計500回の PLUMED "
+"ステップを実行する。"
 
 #: README.md:53
 msgid ""
 "The order of execution of the kernel-file combinations is randomly "
 "determined at each benchmark step, this should remove skew due to the "
 "execution order."
-msgstr ""
+msgstr "Kernel と入力の組み合わせの実行順序は、各ステップでランダムに決める。実行順による偏りを取り除くためである。"
 
 #: README.md:55
 msgid "In the following paragraphs, the more complex options are explained."
-msgstr ""
+msgstr "以降で、複雑なオプションを詳しく説明する。"
 
 #: README.md:57
 msgid "Time limit"
-msgstr ""
+msgstr "時間制限"
 
 #: README.md:59
 msgid ""
@@ -116,6 +127,8 @@ msgid ""
 "that the benchmark will exit gracefully and then produce the final output "
 "with the times report when the asked time has elapsed."
 msgstr ""
+"`--maxtime` で Benchmark の実行時間を制御できる。HPC の Queue System "
+"で使うと、指定時間の経過後に正常終了し、処理時間の最終レポートを出力できるため便利である。"
 
 #: README.md:61
 msgid ""
@@ -124,6 +137,8 @@ msgid ""
 "`--maxtime=\"60*5\"` to ask for 5 minutes of benchmark. **Remember the "
 "quotes**, since the asterisk will be used as a wildcard by your shell."
 msgstr ""
+"入力文字列は PLUMED が解析するため、pi 秒も指定できる。実用的には、`--maxtime=\"60*5\"` "
+"で5分間を指定できる。アスタリスクを Shell が Wildcard として解釈するため、**引用符を忘れないこと**。"
 
 #: README.md:63
 msgid "Input files"
@@ -136,6 +151,8 @@ msgid ""
 "options this will run the \"this\" kernel as three separated instances "
 "against the 3 input files"
 msgstr ""
+"`--plumed` では、`--plumed \"plumed.dat:coord.dat:third.dat\"` "
+"のように、コロン区切りで複数の入力を指定できる。他の指定がなければ、this Kernel の3つの独立な Instances が、各入力を実行する。"
 
 #: README.md:68 README.md:99 README.md:128 README.md:174
 msgid "Examples"
@@ -145,25 +162,33 @@ msgstr "例"
 msgid "`plumed benchmark --kernel \"this:./other.so:./new.so\"`"
 msgstr "`plumed benchmark --kernel \"this:./other.so:./new.so\"`"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #. mermaid node label
 #: README.md:76 README.md:87 README.md:106 README.md:135 README.md:146
 msgid "this"
-msgstr ""
+msgstr "this"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #. mermaid node label
 #: README.md:76 README.md:106 README.md:117 README.md:135 README.md:146
 msgid "/plumed.dat/"
-msgstr ""
+msgstr "/plumed.dat/"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #. mermaid node label
 #: README.md:77 README.md:88 README.md:136
 msgid "./other.so"
-msgstr ""
+msgstr "./other.so"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #. mermaid node label
 #: README.md:78 README.md:89 README.md:117 README.md:137 README.md:148
 msgid "./new.so"
-msgstr ""
+msgstr "./new.so"
 
 #: README.md:82
 msgid ""
@@ -173,14 +198,16 @@ msgstr ""
 "`plumed benchmark --kernel \"this:./other.so:./new.so\" --plumed "
 "\"coord.dat\"`"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #. mermaid node label
 #: README.md:87 README.md:107 README.md:118 README.md:136 README.md:147
 msgid "/coord.dat/"
-msgstr ""
+msgstr "/coord.dat/"
 
 #: README.md:93
 msgid "Kernels"
-msgstr ""
+msgstr "Kernels"
 
 #: README.md:94
 msgid ""
@@ -191,6 +218,10 @@ msgid ""
 "\"this:./kenel1.so:../../src/lib/install/libplumedKernel.so`) against the "
 "specified plumed file."
 msgstr ""
+"`--kernel` で、各 libplumedKernel.so への**パス**、または this を複数指定できる。this は、plumed "
+"benchmark を実行している PLUMED に付属する Kernel である。例えば `--kernel "
+"\"this:./kenel1.so:../../src/lib/install/libplumedKernel.so` のように指定し、各 "
+"Kernel を PLUMED 入力に対して実行する。"
 
 #: README.md:97
 msgid ""
@@ -200,15 +231,20 @@ msgid ""
 "local directory, usually this brings a crash, but if a library with the same"
 " name is in the LD_LIBRARY_PATH that will be loaded!."
 msgstr ""
+"作業ディレクトリに移動した Kernel は、`./kernelName.so` として指定する。`kernelName.so` "
+"だけだと、現在のディレクトリではなく LD_LIBRARY_PATH を検索する。通常はエラーになるが、同名の Library "
+"があれば、そちらを読み込んでしまう。"
 
 #: README.md:101
 msgid "`plumed benchmark --plumed \"plumed.dat:coord.dat:third.dat\"`"
 msgstr "`plumed benchmark --plumed \"plumed.dat:coord.dat:third.dat\"`"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #. mermaid node label
 #: README.md:108 README.md:119 README.md:137
 msgid "/third.dat/"
-msgstr ""
+msgstr "/third.dat/"
 
 #: README.md:112
 msgid ""
@@ -220,7 +256,7 @@ msgstr ""
 
 #: README.md:123
 msgid "Combining --kernel and --plumed"
-msgstr ""
+msgstr "--kernel と --plumed の組み合わせ"
 
 #: README.md:125
 msgid ""
@@ -230,6 +266,8 @@ msgid ""
 "kernel in the second position will be used with the file in the second "
 "position and so on."
 msgstr ""
+"複数の Kernels **と**複数の入力を同時に指定できる。その場合は数を同じにする。最初の Kernel と最初のファイル、2番目の Kernel"
+" と2番目のファイルというように対応させて実行する。"
 
 #: README.md:130
 msgid ""
@@ -249,7 +287,7 @@ msgstr ""
 
 #: README.md:152
 msgid "Domain decomposition and shuffled atoms"
-msgstr ""
+msgstr "Domain Decomposition と原子の並べ替え"
 
 #: README.md:154
 msgid ""
@@ -257,12 +295,16 @@ msgid ""
 "starting the benchmark. This will force plumed to adopt a more complex "
 "communication with the \"MD engine\""
 msgstr ""
+"`--shuffled` は、Benchmark の開始前に原子の Index を単純に並べ替える。これにより、PLUMED と MD "
+"エンジンの通信が複雑になる。"
 
 #: README.md:156
 msgid ""
 "The `--domain-decomposition` option will emulate a domain decomposition from"
 " an MD engine. With this option the `--shuffled` option is forced"
 msgstr ""
+"`--domain-decomposition` は MD エンジンの Domain Decomposition "
+"を模倣する。この場合、`--shuffled` も強制される。"
 
 #: README.md:158
 msgid ""
@@ -270,33 +312,35 @@ msgid ""
 "`mpirun -np x plumed benchmark ...`) the `--domain-decomposition` option and"
 " the `--shuffled` options will be forced on automatically."
 msgstr ""
+"`mpirun -np x plumed benchmark ...` で複数の MPI Processes を使う場合も、`--domain-"
+"decomposition` と `--shuffled` が自動的に有効になる。"
 
 #: README.md:161
 msgid "Atom Distributions"
-msgstr ""
+msgstr "原子分布"
 
 #: README.md:162
 msgid ""
 "When specifying `--atom-distribution` you can choose one among \"line\", "
 "\"cube\", \"sphere\", \"globs\" and \"sc\""
-msgstr ""
+msgstr "`--atom-distribution` では、line、cube、sphere、globs、sc のいずれかを選べる。"
 
 #: README.md:164
 msgid "The atom distribution can be divided into two categories:"
-msgstr ""
+msgstr "原子分布は2種類に分けられる。"
 
 #: README.md:165
 msgid ""
 "standard: the base is that each atom is in a grid with each atom at a "
 "distance of 1 nm (so that the atom radius is 0.5nm)."
-msgstr ""
+msgstr "標準的な分布：各原子を間隔1 nm の Grid に置く。原子半径は0.5 nm となる。"
 
 #: README.md:166
 msgid ""
 "\"line\" the atoms are displaced in a line at 1nm from each other, then at "
 "each step they are displaced in a sphere or radius 0.5nm around the initial "
 "position"
-msgstr ""
+msgstr "line：原子を1 nm 間隔で直線上に並べる。各ステップでは、初期位置を中心とする半径0.5 nm の球内に移動する。"
 
 #: README.md:167
 msgid ""
@@ -305,6 +349,8 @@ msgid ""
 " (1,8,27,64...) but it is filled bottom-up with the number of atoms "
 "requested"
 msgstr ""
+"sc：原子を Simple Cubic Crystal に並べる。執筆時点では追加の動きはない。Box "
+"は常に完全な立方体（1、8、27、64、…）であり、指定した原子数を下から順に詰める。"
 
 #: README.md:168
 msgid ""
@@ -314,70 +360,89 @@ msgid ""
 "each step, so they are **not** compatible with a neighbor list that updates "
 "every n>1 steps :"
 msgstr ""
+"ランダムな分布：1 nm^3 当たり1原子の密度で一様に配置する。nm^3 "
+"単位の全体積は原子数に等しい。各ステップで、利用できる体積内にランダムに再配置するため、n>1 ステップごとに更新する Neighbor List "
+"とは**互換性がない**。"
 
 #: README.md:169
 msgid "\"sphere\" the atoms are uniformly distributed in a sphere"
-msgstr ""
+msgstr "sphere：球内に原子を一様に分布させる。"
 
 #: README.md:170
 msgid "\"cube\" the atoms are uniformly distributed in a cube"
-msgstr ""
+msgstr "cube：立方体内に原子を一様に分布させる。"
 
 #: README.md:171
 msgid "\"globs\" the atoms are uniformly distributed in two spheres"
-msgstr ""
+msgstr "globs：2つの球内に原子を一様に分布させる。"
 
 #: README.md:175
 msgid "In the examples here the atoms are visualized with a radius of 0.5nm."
-msgstr ""
+msgstr "これらの例では、原子を半径0.5 nm で可視化している。"
 
 #: README.md:177
 msgid ""
 "In the cube, sphere and globs example, atom 0 is highlighted in red to show "
 "that is randomly displaced at each step"
-msgstr ""
+msgstr "cube、sphere、globs の例では、各ステップでランダムに動くことを示すため、原子0を赤くしている。"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:179
 msgid "line"
-msgstr ""
+msgstr "line"
 
 #: README.md:180
 msgid ""
 "The first 50 frames of a line with 10 atoms, the atoms are colored by their "
 "index to underline that they move around their initial position "
 "![](line.gif)"
-msgstr ""
+msgstr "10原子の line の最初の50 Frames。Index で色分けし、初期位置の周囲を動くことを示す。![](line.gif)"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:183
 msgid "sc"
-msgstr ""
+msgstr "sc"
 
 #: README.md:184
 msgid ""
 "How the simple cubic system is made with the increasing number of atoms "
 "![](sc.gif)"
-msgstr ""
+msgstr "原子数の増加に伴って Simple Cubic System ができる様子。![](sc.gif)"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:187
 msgid "cube"
-msgstr ""
+msgstr "cube"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:188
 msgid "![](cube.gif)"
-msgstr ""
+msgstr "![](cube.gif)"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:190
 msgid "sphere"
-msgstr ""
+msgstr "sphere"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:191
 msgid "![](sphere.gif)"
-msgstr ""
+msgstr "![](sphere.gif)"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:193
 msgid "globs"
-msgstr ""
+msgstr "globs"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:194
 msgid "![](globs.gif)"
-msgstr ""
+msgstr "![](globs.gif)"

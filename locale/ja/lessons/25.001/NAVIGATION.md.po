@@ -15,23 +15,23 @@ msgstr "PLUMED Masterclass 21.4：Metadynamics"
 #. mermaid node label
 #: NAVIGATION.md:3
 msgid "Installation and Usage"
-msgstr ""
+msgstr "インストールと使い方"
 
 #. mermaid node label
 #: NAVIGATION.md:4 NAVIGATION.md:8
 msgid "Github Repository"
-msgstr ""
+msgstr "GitHub リポジトリ"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:6
 msgid ""
 "You should understand the fundamentals of molecular dynamics simulations and"
 " complete this masterclass before moving on"
-msgstr ""
+msgstr "先に MD シミュレーションの基礎を理解し、この Masterclass を終えておくこと。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:7
 msgid ""
 "Instructions for installation, guided questions, and troubleshooting steps "
 "for this resource"
-msgstr ""
+msgstr "この教材のインストール手順、考えるための問い、および問題解決の手順"

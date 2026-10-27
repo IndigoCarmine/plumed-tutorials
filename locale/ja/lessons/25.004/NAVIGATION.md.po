@@ -11,7 +11,7 @@ msgstr ""
 msgid ""
 "MTH4332: Resources for statistical mechanics course in Queen's University "
 "Belfast"
-msgstr ""
+msgstr "MTH4332：Queen's University Belfast の Statistical Mechanics 講義資料"
 
 #: NAVIGATION.md:3
 msgid "Aims"
@@ -23,6 +23,8 @@ msgid ""
 "these resources on basic statistical mechanics in the hope that you find "
 "within them a useful introduction to the topic of statistical mechanics."
 msgstr ""
+"Queen's University Belfast 以外で学ぶ学生にも、Statistical Mechanics "
+"の有用な入門となることを願い、これらの基礎資料を公開している。"
 
 #: NAVIGATION.md:8
 msgid ""
@@ -36,41 +38,45 @@ msgid ""
 "way that allows you to submit work that you have done by following the "
 "exercises in this tutorial or in any of the other tutorials on this site."
 msgstr ""
+"Queen's University Belfast の学生には、この基礎講義を Statistical Mechanics "
+"のさらに深い探究の出発点にしてほしい。このチュートリアルだけを学んで終わることは望んでいない。可能なら、__PLUMED Tutorials "
+"の他の教材にも取り組み、この分野の最先端の研究を学んでほしい。__ MTH4332 の Portfolio "
+"課題は、この教材だけでなく、このサイトの他の教材の演習で行った作業も提出できるよう、意図的に設計している。"
 
 #: NAVIGATION.md:14
 msgid "What is covered"
-msgstr ""
+msgstr "扱う内容"
 
 #: NAVIGATION.md:16
 msgid "There are five exercises for you to work through here that cover:"
-msgstr ""
+msgstr "次の内容を扱う5つの演習がある。"
 
 #: NAVIGATION.md:18
 msgid ""
 "Evaluating average energies for systems of non-interacting particles "
 "numerically and analytically."
-msgstr ""
+msgstr "相互作用しない粒子系の平均エネルギーを、数値的・解析的に評価する。"
 
 #: NAVIGATION.md:19
 msgid ""
 "Running molecular dynamics to evaluate the heat capacity for a single "
 "particle on an energy landscape."
-msgstr ""
+msgstr "Energy Landscape 上の単一粒子の MD を行い、Heat Capacity を求める。"
 
 #: NAVIGATION.md:20
 msgid ""
 "Simulating the 2D Ising model to introduce theories of phase transitions."
-msgstr ""
+msgstr "2次元 Ising Model を計算し、Phase Transitions の理論を導入する。"
 
 #: NAVIGATION.md:21
 msgid ""
 "Running molecular dynamics on systems of interacting Lennard Jones particles"
 " and applying what you have learned about phase transitions."
-msgstr ""
+msgstr "相互作用する Lennard-Jones Particles の MD を行い、Phase Transitions の知識を適用する。"
 
 #: NAVIGATION.md:22
 msgid "Understanding harmonic quantum effects."
-msgstr ""
+msgstr "Harmonic Quantum Effects を理解する。"
 
 #: NAVIGATION.md:24
 msgid ""
@@ -84,6 +90,10 @@ msgid ""
 "papers. Please use these suggestions when you are using these resources to "
 "prepare your portfolio report."
 msgstr ""
+"各話題について、シミュレーションで理論的な考え方をどう調べたかを説明する短い論文を書いた。次の図のリンクから読める。図には、自動採点される "
+"Notebook "
+"教材へのリンクもあり、論文のシミュレーションを再現するための演習を収録している。各論文には、その研究を発展させる提案のページへのリンクもある。これらの資料で"
+" Portfolio Report を作るときは、その提案を活用してほしい。"
 
 #: NAVIGATION.md:30
 msgid ""
@@ -97,30 +107,35 @@ msgid ""
 "macroscopic behaviours. Some questions we might ask when doing research in "
 "this field include:"
 msgstr ""
+"この構成により、Statistical Mechanics "
+"の新しい研究の進め方を理解してほしい。この分野は、原子・分子の微視的な振る舞いの知識から、多数の粒子の Ensembles の振る舞いを理解するための "
+"[Technical Objects](research.md) "
+"を提供する。著者は、この分野の研究の多くが、既知の巨視的な振る舞いを再現する、原子・分子の微視的な振る舞いの最小限の記述を探すことだと考えている。例えば、次のような問いがある。"
 
 #: NAVIGATION.md:35
 msgid ""
 "Do we need to have an explict description of the electronic degrees of "
 "freedom?"
-msgstr ""
+msgstr "電子の自由度を明示的に記述する必要があるだろうか。"
 
 #: NAVIGATION.md:36
 msgid ""
 "Do we need to describe the interactions between particles or can we treat "
 "them as non-interacting?"
-msgstr ""
+msgstr "粒子間の相互作用を記述する必要があるか、それとも相互作用しないものとして扱えるだろうか。"
 
 #: NAVIGATION.md:37
 msgid ""
 "Do we need to understand the internal degrees of freedom of molecules or can"
 " we average these out?"
-msgstr ""
+msgstr "分子の内部自由度を理解する必要があるか、それとも平均化して消去できるだろうか。"
 
 #: NAVIGATION.md:38
 msgid ""
 "Can we treat nuclei as if they are classical particles? In other words, are "
 "nuclear quantum effects important?"
 msgstr ""
+"原子核を Classical Particles として扱えるだろうか。言い換えると、Nuclear Quantum Effects は重要だろうか。"
 
 #: NAVIGATION.md:40
 msgid ""
@@ -130,12 +145,13 @@ msgid ""
 "ideas are the tools that you can use for answering these questions for "
 "physical systems that interest you."
 msgstr ""
+"現在研究されている物理系の大半では、これらは今も未解決の問いである。講義の内容を、暗記すべき固定的な理論の集まりと考えないでほしい。関心のある物理系について、こうした問いに答えるための道具として使ってほしい。"
 
 #. mermaid node label
 #: NAVIGATION.md:47 NAVIGATION.md:53 NAVIGATION.md:58 NAVIGATION.md:63
 #: NAVIGATION.md:68
 msgid "Paper"
-msgstr ""
+msgstr "論文"
 
 #. mermaid node label
 #: NAVIGATION.md:47 NAVIGATION.md:53 NAVIGATION.md:58 NAVIGATION.md:63
@@ -147,35 +163,35 @@ msgstr "演習"
 #: NAVIGATION.md:47 NAVIGATION.md:53 NAVIGATION.md:58 NAVIGATION.md:63
 #: NAVIGATION.md:68
 msgid "Suggested Extensions"
-msgstr ""
+msgstr "発展課題の提案"
 
 #. mermaid node label
 #: NAVIGATION.md:49
 msgid "What is science?"
-msgstr ""
+msgstr "科学とは何か"
 
 #. mermaid node label
 #: NAVIGATION.md:50
 msgid "Monte Carlo"
-msgstr ""
+msgstr "Monte Carlo"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:71
 msgid ""
 "A more detailed introduction to the phillosophy that underpins this course"
-msgstr ""
+msgstr "この講義の基礎にある考え方の、より詳しい説明"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:72
 msgid ""
 "Some exercises to introduce you to the technique of Monte Carlo that we will"
 " be using to calculate ensemble averages in the rest of this course"
-msgstr ""
+msgstr "以降の講義で Ensemble Averages を計算するために使う、Monte Carlo の入門演習"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:73
 msgid "My example paper on non-interacting particles"
-msgstr ""
+msgstr "相互作用しない粒子に関する論文例"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:74 NAVIGATION.md:77 NAVIGATION.md:80 NAVIGATION.md:83
@@ -183,53 +199,53 @@ msgstr ""
 msgid ""
 "Some exercises to introduce you to the techniques that were used to produce "
 "the example report"
-msgstr ""
+msgstr "論文例の作成に用いた手法を学ぶ演習"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:75
 msgid ""
 "Suggestions for extension projects on systems on non-interacting particles"
-msgstr ""
+msgstr "相互作用しない粒子系の発展課題の提案"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:76
 msgid "My example paper on molecular dynamics on a single particle"
-msgstr ""
+msgstr "単一粒子の MD に関する論文例"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:78
 msgid ""
 "Suggestions for extension projects on single particle molecular dynamics"
-msgstr ""
+msgstr "単一粒子の MD の発展課題の提案"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:79
 msgid "My example paper on the Ising model"
-msgstr ""
+msgstr "Ising Model に関する論文例"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:81
 msgid "Suggestions for extension projects on the Ising model"
-msgstr ""
+msgstr "Ising Model の発展課題の提案"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:82
 msgid "My example paper on simulating Lennard Jones"
-msgstr ""
+msgstr "Lennard-Jones 系の計算に関する論文例"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:84
 msgid "Suggestions for extension projects multi particle molecular dynamics"
-msgstr ""
+msgstr "多粒子の MD の発展課題の提案"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:85
 msgid ""
 "My example paper on nuclear quantum effects and dynamic structure of "
 "materials"
-msgstr ""
+msgstr "Nuclear Quantum Effects と物質の Dynamic Structure に関する論文例"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:87
 msgid "Suggestions for extension projects on nuclear quantum effects"
-msgstr ""
+msgstr "Nuclear Quantum Effects の発展課題の提案"

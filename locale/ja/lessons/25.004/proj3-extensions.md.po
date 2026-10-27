@@ -9,7 +9,7 @@ msgstr ""
 
 #: proj3-extensions.md:1
 msgid "Ising model: Possible project extensions"
-msgstr ""
+msgstr "Ising Model：発展課題の提案"
 
 #: proj3-extensions.md:3
 msgid ""
@@ -23,6 +23,10 @@ msgid ""
 "spin $s_{i,j}$ starts interacting with spins like $s_{i,j-2}$, $s_{i,j+2}$ "
 "and so on."
 msgstr ""
+"課題例では、各 Spin が磁場と4つの Nearest Neighbours に相互作用する。つまり、$s_{i,j}$ は "
+"$s_{i-1,j}$、$s_{i+1,j}$、$s_{i,j-1}$、$s_{i,j+1}$、および外部磁場と相互作用する。発展課題では、この組み合わせを変えてみる。例えば、$s_{i,j}$"
+" を $s_{i-1,j}$ と $s_{i+1,j}$ のみと相互作用させてもよい。また、相互作用を Second-nearest "
+"Neighbours まで広げ、$s_{i,j}$ を $s_{i,j-2}$、$s_{i,j+2}$ などとも相互作用させられる。"
 
 #: proj3-extensions.md:9
 msgid ""
@@ -34,6 +38,10 @@ msgid ""
 "more exotic lattice options than this. You can, for instance, have the spins"
 " sit on a triangular lattice or a hexagonal lattice."
 msgstr ""
+"さらに意欲があれば、Square Lattice 以外に Spin を置くことも調べられる。$s_{i,j}$ と "
+"$s_{i-1,j}$・$s_{i+1,j}$ との相互作用が、$s_{i,j-1}$・$s_{i,j+1}$ との相互作用より弱ければ、$j$ 方向が"
+" $i$ 方向より短い Rectangular Lattice に相当する。さらに、Triangular Lattice や Hexagonal "
+"Lattice なども考えられる。"
 
 #: proj3-extensions.md:15
 msgid ""
@@ -42,3 +50,5 @@ msgid ""
 "please include a figure that illustrates how the spins interact as I have "
 "done in my example report."
 msgstr ""
+"Ising Spins 系の Magnetisation のシミュレーションについてレポートを書く場合は、著者のレポート例のように、Spins "
+"の相互作用の仕方を示す図を含めること。"

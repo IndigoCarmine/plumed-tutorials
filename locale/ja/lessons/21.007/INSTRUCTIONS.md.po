@@ -29,7 +29,7 @@ msgstr "目的"
 msgid ""
 "In this Masterclass, we will discuss how to monitor and optimize the "
 "performances of a PLUMED-enhanced MD simulation."
-msgstr ""
+msgstr "この Masterclass では、PLUMED を組み合わせた MD の性能を測定・最適化する方法を扱う。"
 
 #: INSTRUCTIONS.md:11
 msgid "Objectives"
@@ -45,20 +45,22 @@ msgid ""
 "[DEBUG](https://www.plumed.org/doc-v2.8/user-doc/html/_d_e_b_u_g.html) "
 "action;"
 msgstr ""
+"[DEBUG](https://www.plumed.org/doc-v2.8/user-doc/html/_d_e_b_u_g.html) "
+"Action で、PLUMED を組み合わせたシミュレーションの性能を測定する。"
 
 #: INSTRUCTIONS.md:16
 msgid "optimize a metadynamics simulation;"
-msgstr ""
+msgstr "Metadynamics のシミュレーションを最適化する。"
 
 #: INSTRUCTIONS.md:17
 msgid "optimize GROMACS parallelization;"
-msgstr ""
+msgstr "GROMACS の並列化を最適化する。"
 
 #: INSTRUCTIONS.md:18
 msgid ""
 "define complex CVs in the PLUMED input file in a computationally efficient "
 "manner."
-msgstr ""
+msgstr "複雑な CVs を、計算効率のよい PLUMED 入力として定義する。"
 
 #: INSTRUCTIONS.md:20
 msgid "Setting up PLUMED"
@@ -71,6 +73,8 @@ msgid ""
 " are reported for [this earlier "
 "masterclass](../../../21/005/data/NAVIGATION.html)."
 msgstr ""
+"この Masterclass には、MPI ライブラリでコンパイルした PLUMED と GROMACS が必要である。[以前の "
+"Masterclass](../../../21/005/data/NAVIGATION.html) の手順に従ってほしい。"
 
 #: INSTRUCTIONS.md:24
 msgid ""
@@ -78,6 +82,8 @@ msgid ""
 "conda versions that we are providing. Since we are focusing on performance "
 "here, this might be the right time to learn how to install them on your own."
 msgstr ""
+"使用する環境でコンパイルした GROMACS と PLUMED は、配布している conda "
+"版より大幅に速くなる。この課題は性能に注目するので、自分でのインストール方法を学ぶよい機会である。"
 
 #: INSTRUCTIONS.md:26
 msgid "Resources"
@@ -89,12 +95,14 @@ msgid ""
 " [GitHub](https://github.com/plumed/masterclass-21-7). You can clone this "
 "repository locally on your machine using the following command:"
 msgstr ""
+"演習に必要なデータは [GitHub](https://github.com/plumed/masterclass-21-7) "
+"にある。次のコマンドでリポジトリを自分のマシンに clone できる。"
 
 #: INSTRUCTIONS.md:34
 msgid ""
 "__All the exercises were tested with PLUMED version 2.7.0 and GROMACS "
 "2019.6__"
-msgstr ""
+msgstr "__すべての演習は PLUMED 2.7.0 と GROMACS 2019.6 で動作確認されている。__"
 
 #: INSTRUCTIONS.md:36
 msgid "Exercises"
@@ -106,10 +114,12 @@ msgid ""
 "the hardware and software you are using. It is thus instructive to test them"
 " on different architectures, or with different PLUMED or GROMACS versions."
 msgstr ""
+"結果は使用するハードウェアやソフトウェアの詳細に依存する場合がある。異なる Architectures や、別の PLUMED・GROMACS "
+"のバージョンでも試すと学びになる。"
 
 #: INSTRUCTIONS.md:40
 msgid "Measuring performance"
-msgstr ""
+msgstr "性能の測定"
 
 #: INSTRUCTIONS.md:42
 msgid ""
@@ -118,6 +128,8 @@ msgid ""
 "check at how many ns/day the simulation can produce. At the end of the log "
 "file you should find lines like these ones"
 msgstr ""
+"演習では、シミュレーションの性能を最大化する。GROMACS の一般的な指標は、1日で何 ns 計算できるかを表す ns/day "
+"である。ログの末尾には、次のような行があるはずである。"
 
 #: INSTRUCTIONS.md:53
 msgid ""
@@ -126,22 +138,24 @@ msgid ""
 " elapsed since the start of your simulation. If you then run the same input "
 "file using PLUMED as well you will instead see something like this:"
 msgstr ""
+"ns/day が高いほど、シミュレーションは速い。もう1つ重要なのは Wallclock Time、すなわち開始から何秒経過したかである。同じ入力で "
+"PLUMED も使うと、次のようになる。"
 
 #: INSTRUCTIONS.md:72
 msgid "Notice that:"
-msgstr ""
+msgstr "次の点に注目する。"
 
 #: INSTRUCTIONS.md:73
 msgid "The performance has decreased."
-msgstr ""
+msgstr "性能が低下している。"
 
 #: INSTRUCTIONS.md:74
 msgid "The wallclock time has increased."
-msgstr ""
+msgstr "Wallclock Time が増えている。"
 
 #: INSTRUCTIONS.md:75
 msgid "PLUMED is reporting some information about the time spent using it."
-msgstr ""
+msgstr "PLUMED の処理にかかった時間の情報が表示されている。"
 
 #: INSTRUCTIONS.md:77
 msgid ""
@@ -152,6 +166,9 @@ msgid ""
 "is to understand how to decrease this extra time without impacting the "
 "result of your simulation."
 msgstr ""
+"PLUMED の総処理時間は、Wallclock Time の増加分にほぼ等しい。GPU を使うと異なることがあり、Wallclock Time "
+"の増加は小さくなるはずである。この追加時間が PLUMED の使用コストを表す。結果に影響せず、この時間を減らす方法を理解することが、この "
+"Masterclass の目的である。"
 
 #: INSTRUCTIONS.md:79
 msgid ""
@@ -160,15 +177,17 @@ msgid ""
 "processes. Usually, most of the time is spent in the forward loop, where "
 "collective variables are calculated."
 msgstr ""
+"PLUMED は、処理時間の内訳も示す。通信に対応する行は、多数の MPI Processes "
+"で実行すると重要になる場合がある。通常は、Collective Variables を計算する Forward Loop が大半を占める。"
 
 #: INSTRUCTIONS.md:81
 msgid ""
 "You can obtain a more detailed breakdown adding to your input this line:"
-msgstr ""
+msgstr "入力に次の行を追加すると、さらに詳しい内訳を得られる。"
 
 #: INSTRUCTIONS.md:87
 msgid "The tail of the log will then look like this:"
-msgstr ""
+msgstr "ログの末尾は、次のようになる。"
 
 #: INSTRUCTIONS.md:113
 msgid ""
@@ -181,11 +200,17 @@ msgid ""
 "to optimize this, e.g., only computing variables when they are needed. This "
 "breakdown is very useful to know where you should direct your effort."
 msgstr ""
+"Forward Loop と Backward Loop の両方について、入力内の各 Action "
+"の処理時間が示される。自分で定義した名前を確認でき、無名の Actions は、入力での位置に対応する `@` と番号で参照される。各 Action "
+"の実行回数も分かる。PLUMED "
+"は、変数を必要なときにだけ計算するなど、これを最適化している。この詳細な内訳は、どこに最適化の労力をかけるべきかを知るために役立つ。"
 
 #: INSTRUCTIONS.md:115
 msgid "Exercise 1: Dissociation of NaCl in water"
-msgstr ""
+msgstr "演習1：水中の NaCl の Dissociation"
 
+# Closed the unpaired math delimiter in the source prose without changing the
+# expression.
 #: INSTRUCTIONS.md:117
 msgid ""
 "As a first test system we will consider a single Na Cl pair in a water box. "
@@ -200,6 +225,11 @@ msgid ""
 "as well as the number of water oxygens that are coordinated with the sodium "
 "ion."
 msgstr ""
+"最初のテスト系は、水の Box 内の1組の Na と Cl である。2つの Ions は引き合うため、Bound Conformation "
+"が安定なはずである。Ion 間距離の関数としての自由エネルギーには、Minimum と、その先の Barrier "
+"が現れると考えられる。大きな距離では平坦にはならず、Entropy の寄与により $-2k_BT \\log d$ のように減少し、Simulation"
+" Box の境界付近で再び増加する。この演習では、2つの Ions の距離の関数として自由エネルギーを計算する。CVs には、Ion "
+"間距離と、Sodium Ion に Coordinate している水の酸素原子数を使う。"
 
 #: INSTRUCTIONS.md:119
 msgid ""
@@ -208,10 +238,12 @@ msgid ""
 "MD simulation of this system with GROMACS. You can then create a "
 "`plumed.dat` file like this one as a starting point:"
 msgstr ""
+"この Masterclass の `GitHub` リポジトリの `data/exercise1` に、GROMACS でこの系を計算するための "
+"`topol.tpr` がある。まず、次のような `plumed.dat` を作成する。"
 
 #: INSTRUCTIONS.md:132
 msgid "As usual, you can run a simulation with the following command"
-msgstr ""
+msgstr "通常どおり、次のコマンドでシミュレーションを実行できる。"
 
 #: INSTRUCTIONS.md:138
 msgid ""
@@ -220,10 +252,12 @@ msgid ""
 "fourth point instead you will need to reach convergence. A time on the order"
 " of a ns should be more the sufficient."
 msgstr ""
+"最初の3項目は比較的短い計算でよいので、自分のマシンですぐに試せる nsteps を選ぶ。4項目目は収束が必要だが、1 ns "
+"程度あれば十分なはずである。"
 
 #: INSTRUCTIONS.md:140
 msgid "Exercise 1a: Optimizing the calculation of a metadynamics bias"
-msgstr ""
+msgstr "演習1a：Metadynamics Bias の計算の最適化"
 
 #: INSTRUCTIONS.md:142
 msgid ""
@@ -233,6 +267,9 @@ msgid ""
 "[METAD](https://www.plumed.org/doc-v2.8/user-doc/html/_m_e_t_a_d.html) and "
 "find out how to speed up this calculation. A few hints:"
 msgstr ""
+"最初は Metadynamics Bias "
+"の計算と更新に注目する。結果を大きく変えずに高速化する。[METAD](https://www.plumed.org/doc-v2.8/user-"
+"doc/html/_m_e_t_a_d.html) のマニュアルを調べ、その方法を考えてほしい。ヒントを示す。"
 
 #: INSTRUCTIONS.md:145
 msgid ""
@@ -240,23 +277,24 @@ msgid ""
 "pace and height by the same factor should not change the result "
 "significantly."
 msgstr ""
+"重要なのは追加速度、すなわち height/pace である。pace と height を同じ倍率で増やしても、結果は大きく変わらないはずである。"
 
 #: INSTRUCTIONS.md:146
 msgid ""
 "Grids will make calculation faster (especially for long runs) but update "
 "slower."
-msgstr ""
+msgstr "Grids を使うと、特に長い計算で評価が速くなるが、更新は遅くなる。"
 
 #: INSTRUCTIONS.md:148 INSTRUCTIONS.md:157 INSTRUCTIONS.md:166
 msgid ""
 "Notice that these changes are not expected to impact the convergence of the "
 "algorithm. Thus, you do not need a converged simulation to measure the "
 "impact on performances."
-msgstr ""
+msgstr "これらの変更は収束性には影響しないと考えられるため、性能への影響を測るのに、収束済みの計算は不要である。"
 
 #: INSTRUCTIONS.md:150
 msgid "Exercise 1b: Optimizing the calculation of a coordination number"
-msgstr ""
+msgstr "演習1b：Coordination Number の計算の最適化"
 
 #: INSTRUCTIONS.md:152
 msgid ""
@@ -268,10 +306,13 @@ msgid ""
 "doc/html/_c_o_o_r_d_i_n_a_t_i_o_n.html) and find out how to speed up this "
 "calculation. A few hints:"
 msgstr ""
+"2つ目は、Bias を加える CVs の一方、Na Ion と水の酸素との Coordination "
+"の計算に注目する。結果を大きく変えずに高速化する。[COORDINATION](https://www.plumed.org/doc-v2.8/user-"
+"doc/html/_c_o_o_r_d_i_n_a_t_i_o_n.html) のマニュアルから方法を調べてほしい。ヒントを示す。"
 
 #: INSTRUCTIONS.md:154
 msgid "Neighbor lists might help, but be very careful with parameters."
-msgstr ""
+msgstr "Neighbor Lists が役立つ可能性があるが、パラメータには十分注意する。"
 
 #: INSTRUCTIONS.md:155
 msgid ""
@@ -279,30 +320,31 @@ msgid ""
 "parallelized. Performances might thus be very different if you test your "
 "input with PLUMED v2.6 or earlier."
 msgstr ""
+"PLUMED 2.7 以降、Neighbor Lists の構築は並列化されている。2.6以前で同じ入力を試すと、性能が大きく異なる可能性がある。"
 
 #: INSTRUCTIONS.md:159
 msgid "Exercise 1c: Optimizing GROMACS parallelization"
-msgstr ""
+msgstr "演習1c：GROMACS の並列化の最適化"
 
 #: INSTRUCTIONS.md:161
 msgid ""
 "For this third point, we will try to make sure that GROMACS runs at its "
 "maximum speed. For this you will have to check GROMACS manual. A few hints:"
-msgstr ""
+msgstr "3つ目は、GROMACS 自体が最速で動くようにする。そのためには GROMACS のマニュアルを調べる必要がある。ヒントを示す。"
 
 #: INSTRUCTIONS.md:163
 msgid ""
 "Based on the number of processors in your computer, play with the number of "
 "OpenMP threads and of MPI processes."
-msgstr ""
+msgstr "使用する Processor 数に応じて、OpenMP Threads と MPI Processes の数を変えてみる。"
 
 #: INSTRUCTIONS.md:164
 msgid "Check if the `-pin on` option improves performances."
-msgstr ""
+msgstr "`-pin on` で性能が改善するかを確認する。"
 
 #: INSTRUCTIONS.md:168
 msgid "Exercise 1d: Optimizing metadynamics parameters"
-msgstr ""
+msgstr "演習1d：Metadynamics のパラメータの最適化"
 
 #: INSTRUCTIONS.md:170
 msgid ""
@@ -311,23 +353,25 @@ msgid ""
 "[METAD](https://www.plumed.org/doc-v2.8/user-doc/html/_m_e_t_a_d.html) "
 "parameters and see if you can improve them. A few hints:"
 msgstr ""
+"次に、より短いシミュレーションで同じ結果を得られるよう、アルゴリズムを変更する。[METAD](https://www.plumed.org/doc-v2.8/user-"
+"doc/html/_m_e_t_a_d.html) のパラメータを変え、改善を試してほしい。ヒントを示す。"
 
 #: INSTRUCTIONS.md:172
 msgid ""
 "Changing hills width might affect that speed at which you fill free-energy "
 "basins."
-msgstr ""
+msgstr "Hills の幅は、自由エネルギー Basins が埋まる速度に影響しうる。"
 
 #: INSTRUCTIONS.md:173
 msgid ""
 "Limiting the domain of the collective variables that you explore might help,"
 " if you can predict what happens in the portion of the domain that the "
 "simulation does not explore."
-msgstr ""
+msgstr "探索しない領域で何が起きるかを予測できるなら、CVs の探索範囲を制限すると役立つ場合がある。"
 
 #: INSTRUCTIONS.md:175
 msgid "You can even try to reduce the number of CVs."
-msgstr ""
+msgstr "CVs の数を減らすことも試せる。"
 
 #: INSTRUCTIONS.md:177
 msgid ""
@@ -336,10 +380,11 @@ msgid ""
 "impact on performances, and you have to make sure that the statistical "
 "accuracy is comparable."
 msgstr ""
+"これらの変更は収束性に影響すると考えられる。そのため、性能への影響を測るのに収束済みの計算は不要だが、統計精度が同程度であることを確認しなければならない。"
 
 #: INSTRUCTIONS.md:179
 msgid "Exercise 1e: Computing the binding free energy"
-msgstr ""
+msgstr "演習1e：結合自由エネルギーの計算"
 
 #: INSTRUCTIONS.md:181
 msgid ""
@@ -348,12 +393,14 @@ msgid ""
 "though this is defined at 1M concentration, the calculations that you are "
 "running are actually at infinite dilution."
 msgstr ""
+"最後に、ここまでの計算を解析し、2つの化学種の標準結合自由エネルギーを求める。定義上の標準濃度は1 M だが、実行している計算は Infinite "
+"Dilution の条件であることに注意する。"
 
 #: INSTRUCTIONS.md:183
 msgid ""
 "Exercise 2: Folding of the C-terminal domain (CTD) of the RfaH virulence "
 "factor"
-msgstr ""
+msgstr "演習2：RfaH Virulence Factor の C-terminal Domain（CTD）の Folding"
 
 #: INSTRUCTIONS.md:185
 msgid ""
@@ -365,6 +412,10 @@ msgid ""
 "stabilized by the N-terminal domain of the RfaH virulence factor. This "
 "transition is illustrated in the following figure:"
 msgstr ""
+"この演習では、[以前のレッスン](../../../21/004/data/NAVIGATION.html)の演習4で紹介した、_Escherichia"
+" coli_ の RfaH Virulence Factor の C-terminal Domain（CTD）を扱う。RfaH-CTD "
+"と呼ぶこの部分は、β-Barrel から、N-terminal Domain により安定化される α-Helical "
+"な構造へと、大きく変化する。次の図にこの遷移を示す。"
 
 #: INSTRUCTIONS.md:187
 msgid ""
@@ -376,6 +427,10 @@ msgid ""
 "linker that does not order within the crystals and therefore is not shown in"
 " the figure.](figures/RfaH-CTD.png)"
 msgstr ""
+"![RfaH-CTD の構造変化。NTD（灰色）が標的の ops（Operon Polarity Suppressor）DNA Element "
+"に結合すると、Domain の Dissociation が起きる。Autoinhibited State が解除され、CTD（色付き）は "
+"α-Helical Hairpin（A）から5本鎖の β-Barrel（B）へ変化できる。NTD と CTD をつなぐ Linker "
+"は結晶中で秩序化しないため、図には示していない。](figures/RfaH-CTD.png)"
 
 #: INSTRUCTIONS.md:189
 msgid ""
@@ -392,6 +447,13 @@ msgid ""
 "step of the simulation. In this exercise, we will learn how to write and "
 "optimize these types of CVs."
 msgstr ""
+"RfaH-CTD は、[SMOG](https://smog-server.org) という単純化した Structure-based "
+"Potential で計算する。その Energy Function は、β-Barrel と α-Helical の2状態に対応する Local "
+"Minima を持つよう設計されている。Native Structures にある Interactions、すなわち Native Contacts "
+"を安定化することで実現している。Structure-based Force Fields では、Native Contacts の総数のような、系の "
+"Energy と相関する座標関数が Enhanced Sampling に適した CV "
+"となることが示されている。しかし、多くの原子が関わることが多いため、各ステップでの評価は高コストになる。この演習では、そのような CVs "
+"の記述と最適化を学ぶ。"
 
 #: INSTRUCTIONS.md:191
 msgid ""
@@ -399,18 +461,21 @@ msgid ""
 "[GitHub](https://github.com/plumed/masterclass-21-7) repository of this "
 "Masterclass, you will find:"
 msgstr ""
+"この Masterclass の [GitHub](https://github.com/plumed/masterclass-21-7) リポジトリの"
+" `data/exercise2` に、次のファイルがある。"
 
 #: INSTRUCTIONS.md:193
 msgid ""
 "two PDB files of RfaH-CTD in the β-barrel (`stateA.pdb`) and α-helical "
 "(`stateB.pdb`) states;"
 msgstr ""
+"β-Barrel（`stateA.pdb`）と α-Helical（`stateB.pdb`）の2状態の RfaH-CTD の PDB ファイル。"
 
 #: INSTRUCTIONS.md:194
 msgid ""
 "a `topol.tpr` file, which is needed to perform a MD simulation of this "
 "system with GROMACS;"
-msgstr ""
+msgstr "GROMACS でこの系の MD を実行するための `topol.tpr`。"
 
 #: INSTRUCTIONS.md:195
 msgid ""
@@ -419,14 +484,16 @@ msgid ""
 "are defined using only the β-barrel conformation, which is the most "
 "populated state in the conditions we are simulating."
 msgstr ""
+"Native Contacts の総数を CV として Metadynamics を行う入力テンプレート（`plumed.dat`）。Contacts "
+"は、今回の条件で Population が最も大きい β-Barrel Conformation のみから定義している。"
 
 #: INSTRUCTIONS.md:198
 msgid "The provided PLUMED input file looks as follows:"
-msgstr ""
+msgstr "付属の PLUMED 入力は、次のようになっている。"
 
 #: INSTRUCTIONS.md:241
 msgid "The objectives of this exercise are to:"
-msgstr ""
+msgstr "演習の目的は次のとおりである。"
 
 #: INSTRUCTIONS.md:243
 msgid ""
@@ -434,10 +501,11 @@ msgid ""
 "**The user should report the speedup obtained with the optimized CV with "
 "respect to the one defined in the provided input file**;"
 msgstr ""
+"入力テンプレートの距離に基づく CV を最適化する。**元の入力で定義した CV に対し、最適化後の CV がどれだけ高速化したかを報告すること。**"
 
 #: INSTRUCTIONS.md:244
 msgid "optimize the performances of well-tempered metadynamics."
-msgstr ""
+msgstr "Well-tempered Metadynamics の性能を最適化する。"
 
 #: INSTRUCTIONS.md:245
 msgid ""
@@ -445,16 +513,18 @@ msgid ""
 "estimate). Have a look at [this earlier "
 "lessonr](../../../21/004/data/NAVIGATION.html) for more info."
 msgstr ""
+"RfaH-CTD の β-Barrel "
+"状態の安定性を、誤差推定とともに評価する。詳細は[以前のレッスン](../../../21/004/data/NAVIGATION.html)を参照してほしい。"
 
 #: INSTRUCTIONS.md:247
 msgid "Suggestions:"
-msgstr ""
+msgstr "提案："
 
 #: INSTRUCTIONS.md:248
 msgid ""
 "the users should consult the PLUMED manual in order to optimize the proposed"
 " CV;"
-msgstr ""
+msgstr "CV の最適化のため、PLUMED のマニュアルを参照する。"
 
 #: INSTRUCTIONS.md:249
 msgid ""
@@ -463,6 +533,10 @@ msgid ""
 "more information, have a look [here](https://www.plumed.org/doc-v2.7/user-"
 "doc/html/_lepton.html);"
 msgstr ""
+"COORDINATION CV には、独自の Switching Function を使える。その評価は "
+"[AsmJit](https://asmjit.com) "
+"で高速化できる。詳細は[こちら](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/_lepton.html)を参照してほしい。"
 
 #: INSTRUCTIONS.md:250
 msgid ""
@@ -471,6 +545,9 @@ msgid ""
 "using the `STRIDE` option on the "
 "[METAD](https://www.plumed.org/doc-v2.8/user-doc/html/_m_e_t_a_d.html) line."
 msgstr ""
+"[METAD](https://www.plumed.org/doc-v2.8/user-doc/html/_m_e_t_a_d.html) 行の "
+"`STRIDE` で2または4ステップごとに Bias を加える、[Multiple Time "
+"Stepping](https://www.plumed.org/doc-v2.7/user-doc/html/_m_t_s.html) を試す。"
 
 #: INSTRUCTIONS.md:252
 msgid "Please keep in mind that:"
@@ -482,6 +559,8 @@ msgid ""
 "solvent force fields. However, the simulation of this system might take a "
 "few hours, so allocate enough time to complete this exercise;"
 msgstr ""
+"SMOG は All-atom の Explicit-solvent Force Fields "
+"より大幅に低コストだが、この系でも数時間かかる場合がある。演習を終えられるよう、十分な時間を確保する。"
 
 #: INSTRUCTIONS.md:254
 msgid ""
@@ -492,3 +571,6 @@ msgid ""
 "particularly big, therefore using a large number of cores might be "
 "inefficient."
 msgstr ""
+"Force Field の特殊性により、GROMACS は `gmx mdrun -plumed plumed.dat -ntomp 4 "
+"-noddcheck` で実行する。資源に応じて CPU Core 数を調整できる。ここでは OpenMP で4 Core "
+"を使う。系はそれほど大きくないため、多数の Cores はかえって非効率になる場合がある。"

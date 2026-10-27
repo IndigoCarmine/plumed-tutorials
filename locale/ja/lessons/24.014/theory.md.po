@@ -102,6 +102,7 @@ msgid ""
 "maximum-entropy-compatible, posterior probability"
 msgstr ""
 
+# Mathematical expression and equation number intentionally preserved.
 #: theory.md:50
 msgid ""
 "$p_{MI}\\left( \\mathbf{X},\\sigma^{SEM},\\sigma^{B} \\right|\\mathbf{D}) = "
@@ -110,6 +111,11 @@ msgid ""
 "X},\\sigma_{i}^{SEM},\\sigma_{r,i}^{Β})p(\\sigma_{r,i})\\ \\ \\ \\ \\ \\ \\ "
 "\\ \\ \\ }}$ (3)"
 msgstr ""
+"$p_{MI}\\left( \\mathbf{X},\\sigma^{SEM},\\sigma^{B} \\right|\\mathbf{D}) = "
+"\\ \\prod_{r = 1}^{N_{R}}{p\\ \\left( X_{r} \\right)\\prod_{i = "
+"1}^{N_{D}}{p(\\mathbf{D|\\ "
+"X},\\sigma_{i}^{SEM},\\sigma_{r,i}^{Β})p(\\sigma_{r,i})\\ \\ \\ \\ \\ \\ \\ "
+"\\ \\ \\ }}$ (3)"
 
 #: theory.md:53
 msgid ""

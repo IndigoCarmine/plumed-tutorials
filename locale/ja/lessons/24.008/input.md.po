@@ -13,7 +13,7 @@ msgstr "[&larr; ホーム](NAVIGATION.md)"
 
 #: input.md:3
 msgid "Input"
-msgstr ""
+msgstr "入力"
 
 #: input.md:5
 msgid ""
@@ -21,10 +21,12 @@ msgid ""
 "available in the [GitHub repository](https://github.com/jakryd/plumed2-maze-"
 "tutorial)."
 msgstr ""
+"必要なファイルは、[GitHub repository](https://github.com/jakryd/plumed2-maze-"
+"tutorial) の `data` ディレクトリにある。"
 
 #: input.md:7
 msgid "Groups"
-msgstr ""
+msgstr "Groups"
 
 #: input.md:9
 msgid ""
@@ -32,10 +34,12 @@ msgid ""
 "benzene (atoms 2635-2646) and their center of masses. These definitions will"
 " be passed to an optimizer later."
 msgstr ""
+"まず、T4L（原子1～2634）と Benzene（原子2635～2646）の Groups、およびそれぞれの Center of Mass "
+"を定義する。これらの定義を、後で Optimizer に渡す。"
 
 #: input.md:19
 msgid "Optimizer and Loss Function"
-msgstr ""
+msgstr "Optimizer と Loss Function"
 
 #: input.md:21
 msgid ""
@@ -45,6 +49,9 @@ msgid ""
 "will be run during the MD simulation every `STRIDE` MD steps (here 1 ns) "
 "with 1000 iterations to converge (`N_ITER`)."
 msgstr ""
+"次に、Loss Function の観点で準最適な Ligand Unbinding Direction を見つける Optimizer "
+"を宣言する。Simulated Annealing（`MAZE_OPT_ANNEALING`）を用いる。MD の `STRIDE` "
+"ステップごと、ここでは1 ns ごとに最適化を行い、`N_ITER` の1000回の反復で収束させる。"
 
 #: input.md:55
 msgid ""
@@ -54,6 +61,9 @@ msgid ""
 "setup -- interested readers can read more about it "
 "[here](https://en.wikipedia.org/wiki/Simulated_annealing))."
 msgstr ""
+"`BETA` は Annealing Scheme の選択に必要である。ここでは Inverse Temperature Parameter を "
+"$\\beta=0.9$ "
+"から始め、各反復で1.005倍する（`BETA_SCHEDULE=GEOM`）。標準的な設定であり、詳しくは[こちら](https://en.wikipedia.org/wiki/Simulated_annealing)を参照してほしい。"
 
 #: input.md:57
 msgid ""
@@ -63,6 +73,10 @@ msgid ""
 "doc/html/_neighbour.html)). The neighbor list will be recalculated every 100"
 " steps (`NL_STRIDE`)."
 msgstr ""
+"高速化のため、Ligand-Protein 原子対の距離に0.6 nm の Cutoff を設定した Neighbor List `NLIST` "
+"を使う。[PLUMED Neighbor Lists](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_neighbour.html) を参照してほしい。Neighbor List "
+"は100ステップごとに再計算する（`NL_STRIDE`）。"
 
 #: input.md:59
 msgid ""
@@ -73,10 +87,15 @@ msgid ""
 " for switching functions available in PLUMED. Here, we will use an "
 "exponential loss function as explained in [Background](background.md)."
 msgstr ""
+"`SWITCH` は最適化する Loss Function を指定する。Coordination Numbers などの Collective "
+"Variables に用いる Switching Functions "
+"と同じ機能が使える。利用できる関数は[こちら](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/switchingfunction.html)にある。ここでは、[背景](background.md)で説明した "
+"Exponential Loss Function を使う。"
 
 #: input.md:61
 msgid "Bias"
-msgstr ""
+msgstr "Bias"
 
 #: input.md:63
 msgid ""
@@ -86,6 +105,9 @@ msgid ""
 "also requires a collective variable with Cartesian components to drive the "
 "ligand toward solvent."
 msgstr ""
+"定義した Optimizer を、Adaptive BiasPotential に渡す（[こちら](background.md#adaptive-"
+"biasing)を参照）。Simulated Annealing で見つけた最適な方向へ、Benzene を誘導する。このため、溶媒に向けて "
+"Ligand を動かす Cartesian Components を持つ Collective Variable も必要となる。"
 
 #: input.md:65
 msgid ""
@@ -96,12 +118,16 @@ msgid ""
 "`COMPONENTS`. As such, the biasing corresponds to a relative position, and "
 "additional restraints are not required."
 msgstr ""
+"*注意* 系の絶対位置に Bias を加えると、問題が生じたり、追加の Position Restraints "
+"が必要になったりする場合がある。詳しくは[こちら](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_p_o_s_i_t_i_o_n.html)を参照してほしい。そのため、`COMPONENTS` "
+"を持つ距離を使う必要がある。これにより相対位置への Bias となり、追加の Restraints は不要になる。"
 
 #: input.md:67
 msgid ""
 "The `HEIGHT` and `RATE` keywords give the scale constant and rate, "
 "respectively."
-msgstr ""
+msgstr "`HEIGHT` と `RATE` は、それぞれ Scale Constant と Rate を指定する。"
 
 #: input.md:115
 msgid ""
@@ -109,6 +135,8 @@ msgid ""
 "benzene enters the solvent, which occurs approximately when the distance "
 "between the ligand and the protein exceeds 3 nm."
 msgstr ""
+"Benzene が溶媒に入ったら計算を停止する Committor Indicator も定義する。目安は Ligand とタンパク質の距離が3 nm "
+"を超えたときである。"
 
 #: input.md:135
 msgid "Simulation"
@@ -116,7 +144,7 @@ msgstr "シミュレーション"
 
 #: input.md:137
 msgid "We are ready to run the simulation."
-msgstr ""
+msgstr "これでシミュレーションを実行する準備が整った。"
 
 #: input.md:139
 msgid ""
@@ -126,7 +154,11 @@ msgid ""
 "optimization results (see [here](https://github.com/jakryd/plumed2-maze-"
 "tutorial/tree/main/data))."
 msgstr ""
+"`colvar.dat` と `optimizer.dat` の2ファイルが保存される。`colvar.dat` には `PRINT` "
+"で保存する情報、`optimizer.dat` "
+"には最適化の結果に関するデータが入る。[こちら](https://github.com/jakryd/plumed2-maze-"
+"tutorial/tree/main/data)を参照してほしい。"
 
 #: input.md:141
 msgid "[Results &rarr;](results.md)"
-msgstr ""
+msgstr "[結果 &rarr;](results.md)"

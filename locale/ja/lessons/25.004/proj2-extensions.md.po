@@ -9,12 +9,12 @@ msgstr ""
 
 #: proj2-extensions.md:1
 msgid "Single particle MD: Possible project extensions"
-msgstr ""
+msgstr "単一粒子の MD：発展課題の提案"
 
 #: proj2-extensions.md:3
 msgid ""
 "In the example project, the particle sits on on the following potential:"
-msgstr ""
+msgstr "課題例では、粒子を次の Potential 上に置いている。"
 
 #: proj2-extensions.md:9
 msgid ""
@@ -27,3 +27,8 @@ msgid ""
 " find a simple 1D potential for which the heat capacity does depend on "
 "temperature?"
 msgstr ""
+"その Heat Capacity の温度依存性を調べる。自然な発展課題は、他の Potentials での振る舞いを調べることである。$x$ "
+"のより高いべき、Trigonometric Functions、その他の任意の関数を試せる。実際の系では Heat Capacity "
+"は温度に依存する。Phase Boundaries を越えるときに、この Response Function にピークが現れることが、Melting や"
+" Evaporation の Latent Heat に関係する。Heat Capacity が温度に依存する、単純な1次元 Potential "
+"を見つけられるだろうか。"

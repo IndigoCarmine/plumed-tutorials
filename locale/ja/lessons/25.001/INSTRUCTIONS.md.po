@@ -13,29 +13,29 @@ msgstr "手順"
 
 #: INSTRUCTIONS.md:6
 msgid "<b>Clone the Github repository for this tutorial.</b>"
-msgstr ""
+msgstr "<b>このチュートリアルの GitHub リポジトリを clone する。</b>"
 
 #: INSTRUCTIONS.md:11
 msgid ""
 "<b>Ensure dependencies are installed by creating or updating your Python "
 "environment with `environment.yml`. </b>"
-msgstr ""
+msgstr "<b>`environment.yml` で Python 環境を作成または更新し、依存パッケージをインストールする。</b>"
 
 #: INSTRUCTIONS.md:13
 msgid "Dependencies include NumPy, matplotlib, Pickle, Flask, ffmpeg, etc."
-msgstr ""
+msgstr "依存関係には NumPy、matplotlib、Pickle、Flask、ffmpeg などが含まれる。"
 
 #: INSTRUCTIONS.md:15
 msgid "Create a new environment:"
-msgstr ""
+msgstr "新しい環境を作成する場合："
 
 #: INSTRUCTIONS.md:19
 msgid "or update an existing environment:"
-msgstr ""
+msgstr "既存の環境を更新する場合："
 
 #: INSTRUCTIONS.md:24
 msgid "<b>Navigate to the home directory and launch the static webpage. </b>"
-msgstr ""
+msgstr "<b>ホームディレクトリへ移動し、静的ウェブページを起動する。</b>"
 
 #: INSTRUCTIONS.md:30
 msgid ""
@@ -43,22 +43,24 @@ msgid ""
 "having issues and <b> restarting the app does not work</b>, there is also a "
 "simple CLI. Here are a couple of example commands."
 msgstr ""
+"ブラウザでチュートリアルが自動的に開く*はず*である。問題があり、<b>アプリの再起動でも解決しない</b>場合は、簡単な CLI "
+"も使える。コマンドの例をいくつか示す。"
 
 #: INSTRUCTIONS.md:32
 msgid ""
 "Achieve better sampling with a longer metadynamics simulation and more even "
 "sampling:"
-msgstr ""
+msgstr "Metadynamics をより長く実行し、より均一な Sampling を得る。"
 
 #: INSTRUCTIONS.md:37
 msgid "Or just watch the ball go back and forth with an unbiased simulation:"
-msgstr ""
+msgstr "あるいは、Unbiased シミュレーションでボールが往復する様子を眺める。"
 
 #: INSTRUCTIONS.md:42
 msgid ""
 "<b>Build an intution for choosing MD simulation and metadynamics parameters."
 " </b>"
-msgstr ""
+msgstr "<b>MD と Metadynamics のパラメータ選択の直感を養う。</b>"
 
 #: INSTRUCTIONS.md:44
 msgid ""
@@ -67,37 +69,39 @@ msgid ""
 " this tutorial. Rather, users are encouraged to address the following "
 "questions (also found on the webpage):"
 msgstr ""
+"スライダーを動かし、不適切なパラメータ、Sampling "
+"の不足・過剰などの効果を可視化する。このチュートリアルには、唯一の正解はない。次の問いを考えながら試してほしい。ウェブページにも同じ問いがある。"
 
 #: INSTRUCTIONS.md:46
 msgid ""
 "How do the metadynamics parameters affect resolution of the free energy "
 "surface?"
-msgstr ""
+msgstr "Metadynamics のパラメータは、自由エネルギー面の分解能にどう影響するだろうか。"
 
 #: INSTRUCTIONS.md:48
 msgid "How do the metadynamics parameters affect simulation performance?"
-msgstr ""
+msgstr "Metadynamics のパラメータは、シミュレーションの性能にどう影響するだろうか。"
 
 #: INSTRUCTIONS.md:50
 msgid "Am I wasting time adding really small Gaussians?"
-msgstr ""
+msgstr "非常に小さな Gaussians を追加して、時間を無駄にしていないだろうか。"
 
 #: INSTRUCTIONS.md:52
 msgid "How does the starting point of the simulation affect sampling?"
-msgstr ""
+msgstr "シミュレーションの初期点は Sampling にどう影響するだろうか。"
 
 #: INSTRUCTIONS.md:54
 msgid "What does good sampling look like?"
-msgstr ""
+msgstr "よい Sampling は、どのように見えるだろうか。"
 
 #: INSTRUCTIONS.md:56
 msgid ""
 "If the underlying potential is NOT known, how could these results be "
 "misinterpreted?"
-msgstr ""
+msgstr "元の Potential が分かっていなければ、これらの結果をどう誤解しうるだろうか。"
 
 #: INSTRUCTIONS.md:58
 msgid ""
 "<b>How can I get an adequate estimate of the free energy surface with the "
 "lowest computational cost?</b>"
-msgstr ""
+msgstr "<b>最小の計算コストで、自由エネルギー面を十分に推定するにはどうすればよいだろうか。</b>"

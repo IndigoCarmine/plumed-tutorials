@@ -9,7 +9,7 @@ msgstr ""
 
 #: README.md:1
 msgid "`maze` Tutorial"
-msgstr ""
+msgstr "`maze` のチュートリアル"
 
 #: README.md:2
 msgid ""
@@ -17,12 +17,14 @@ msgid ""
 "original work, which explains the background of `maze` simulations, is "
 "published in [[1]](#1). Implementation details are summarized in [[2]](#2)."
 msgstr ""
+"`maze` で Ligand Unbinding Trajectories を実行する PLUMED チュートリアル。`maze` "
+"シミュレーションの背景を説明する元の研究は [[1]](#1)、実装の詳細は [[2]](#2) にまとめられている。"
 
 #: README.md:4
 msgid ""
 "**This tutoral uses a recent implementation of `maze` which differs from the"
 " original one**."
-msgstr ""
+msgstr "**このチュートリアルは、元の実装とは異なる、新しい `maze` の実装を用いる。**"
 
 #: README.md:6
 msgid ""
@@ -32,26 +34,29 @@ msgid ""
 "doc/html/_installation.html). The `maze` module must be enabled during "
 "compilation."
 msgstr ""
+"新しい版は[こちら](https://github.com/jakryd/plumed2-maze)から取得でき、まもなく PLUMED "
+"に統合される予定である。コンパイル方法は[こちら](https://www.plumed.org/doc-v2.4/user-"
+"doc/html/_installation.html)を参照してほしい。コンパイル時に `maze` モジュールを有効にする必要がある。"
 
 #: README.md:8
 msgid "This tutorial covers the following:"
-msgstr ""
+msgstr "このチュートリアルでは、次を扱う。"
 
 #: README.md:10
 msgid "[Background](background.md)"
-msgstr ""
+msgstr "[背景](background.md)"
 
 #: README.md:11
 msgid "A brief introduction to the background behind the use of `maze`."
-msgstr ""
+msgstr "`maze` を用いる背景の簡単な入門。"
 
 #: README.md:13
 msgid "[L99A T4 Lysozyme-Benzene](system.md)"
-msgstr ""
+msgstr "[L99A T4 Lysozyme-Benzene](system.md)"
 
 #: README.md:14
 msgid "A case study for this tutorial is a small protein that binds benzene."
-msgstr ""
+msgstr "Benzene と結合する小さなタンパク質を事例として扱う。"
 
 #: README.md:16
 msgid "[Input files preparation](input.md)"
@@ -59,12 +64,12 @@ msgstr "[入力ファイルの準備](input.md)"
 
 #: README.md:17
 msgid "Input setup for `maze`."
-msgstr ""
+msgstr "`maze` の入力設定。"
 
 #: README.md:19
 msgid "[Results](results.md)"
-msgstr ""
+msgstr "[結果](results.md)"
 
 #: README.md:20
 msgid "Presentation of results obtained with `maze`."
-msgstr ""
+msgstr "`maze` で得られた結果の説明。"

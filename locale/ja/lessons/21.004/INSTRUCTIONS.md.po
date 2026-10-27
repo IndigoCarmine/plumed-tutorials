@@ -791,6 +791,10 @@ msgid ""
 "linker that does not order within the crystals and therefore is not shown in"
 " the figure.](figures/RfaH-CTD.png)"
 msgstr ""
+"![RfaH-CTD の構造変化。NTD（灰色）が標的の ops（Operon Polarity Suppressor）DNA Element "
+"に結合すると、Domain の Dissociation が起きる。Autoinhibited State が解除され、CTD（色付き）は "
+"α-Helical Hairpin（A）から5本鎖の β-Barrel（B）へ変化できる。NTD と CTD をつなぐ Linker "
+"は結晶中で秩序化しないため、図には示していない。](figures/RfaH-CTD.png)"
 
 #: INSTRUCTIONS.md:359
 msgid ""

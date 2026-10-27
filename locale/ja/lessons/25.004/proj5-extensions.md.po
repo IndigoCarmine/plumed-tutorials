@@ -9,7 +9,7 @@ msgstr ""
 
 #: proj5-extensions.md:1
 msgid "Quantum effects: Possible project extensions"
-msgstr ""
+msgstr "Quantum Effects：発展課題の提案"
 
 #: proj5-extensions.md:3
 msgid ""
@@ -21,3 +21,7 @@ msgid ""
 "potential that you developed when extending [project "
 "4](proj4-extensions.md)."
 msgstr ""
+"この課題例は、Lennard-Jones Particles 系の Dynamical Properties と Nuclear Quantum "
+"Effects の計算法を示す。発展課題では、別の Pair Potential "
+"で相互作用する系に、レポート例と同様のシミュレーションを適用する。[課題4](proj4-extensions.md)の発展で作った Potential"
+" を再利用するのが妥当な選択である。"

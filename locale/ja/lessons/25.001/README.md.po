@@ -15,7 +15,7 @@ msgstr "VisMetaDynamics"
 msgid ""
 "An interactive tutorial to metadynamics and enhanced sampling techniques for"
 " molecular dynamics simulations."
-msgstr ""
+msgstr "MD の Metadynamics と Enhanced Sampling を学ぶ対話型チュートリアル。"
 
 #: README.md:5
 msgid "Introduction"
@@ -32,6 +32,11 @@ msgid ""
 "towards a *trans* configuration is an instantly recognizable and repeatedly "
 "proven result, both computationally and experimentally."
 msgstr ""
+"VisMetaDynamics は、あらかじめ定義した自由エネルギー面を用いる1次元の Langevin Integrator "
+"である。その自由エネルギー面は、[このチュートリアル](https://www.plumed.org/doc-v2.8/user-"
+"doc/html/lugano-3.html)などと同様に、Alanine Dipeptide を Toy System とする短い MetaD "
+"から得ている。Alanine Dipeptide が *trans* Configuration を好むことに対応する特徴的な自由エネルギー面は、*a "
+"priori* に知られ、計算と実験で繰り返し確認されている、すぐに見分けられる結果である。"
 
 #: README.md:9
 msgid ""
@@ -43,17 +48,21 @@ msgid ""
 "allows you to tune these parameters by hand with many options to visualize "
 "and compare simulations in seconds."
 msgstr ""
+"著者が Metadynamics "
+"を学び始めたとき、各パラメータが最終的な自由エネルギー面に与える効果を可視化することに苦労した。少しずつパラメータを変えて何度も計算する以外に、Hyperparameters"
+" が Reweighting 後の自由エネルギー面に及ぼす影響を直感的に理解する方法がなかった。VisMetaDynamics "
+"では、パラメータを手で調整し、さまざまな方法で数秒のうちにシミュレーションを可視化・比較できる。"
 
 #: README.md:11
 msgid ""
 "Users should try several combinations of parameters and explore the effects "
 "these parameters have on end results, simulation performance, and system "
 "behavior."
-msgstr ""
+msgstr "パラメータの組み合わせをいくつも試し、最終結果、計算性能、および系の振る舞いへの影響を調べてほしい。"
 
 #: README.md:14
 msgid "<b> What/who is this resource for for? </b>"
-msgstr ""
+msgstr "<b>この教材の目的と対象者</b>"
 
 #: README.md:15
 msgid ""
@@ -66,6 +75,9 @@ msgid ""
 "performance, accuracy of the free energy surface, and overall simulation "
 "behavior as a function of these parameters."
 msgstr ""
+"VisMetaDynamics は、MD シミュレーションに習熟した人向けに設計されている。Hyperparameters "
+"が自由エネルギー面や計算性能に与える効果を、視覚的・定性的に理解することで、[既存のチュートリアル](http://www.plumed-"
+"tutorials.org/browse.html)や教材を補う。スライダーを動かし、パラメータに応じて計算性能、自由エネルギー面の精度、およびシミュレーション全体の振る舞いがどう変わるかを観察してほしい。"
 
 #: README.md:17
 msgid "Installation"
@@ -81,6 +93,9 @@ msgid ""
 "are chosen to allow the user to explore many combinations of parameters, but"
 " may result in <b>computationally intractable calculations</b>."
 msgstr ""
+"GitHub リポジトリを clone し、そのディレクトリで `python app.py` を実行するだけで使える。既定のブラウザで Flask "
+"のページが自動的に開く。Python "
+"スクリプトは手元で実行され、選んだパラメータやハードウェアによっては計算コストが高くなる。スライダーは多様な組み合わせを試せる範囲に設定してあるが、<b>現実的な時間では終わらない計算</b>になる可能性もある。"
 
 #: README.md:20
 msgid ""
@@ -90,24 +105,26 @@ msgid ""
 "adjusted with optional command line arguments and unless told otherwise, the"
 " same default parameters from the Flask site will be used."
 msgstr ""
+"簡単に使える CLI もある。各パラメータを同じように指定でき、極端な値もより自由に選べるが、Integrator "
+"に問題が起きる場合がある。Optional なコマンドライン引数で調整し、指定がなければ Flask のページと同じ既定値を用いる。"
 
 #: README.md:22
 msgid "CLI example usage"
-msgstr ""
+msgstr "CLI の使用例"
 
 #: README.md:23
 msgid ""
 "Achieve better sampling with a longer metadynamics simulation and more even "
 "sampling:"
-msgstr ""
+msgstr "Metadynamics をより長く実行し、より均一な Sampling を得る。"
 
 #: README.md:29
 msgid "Or just watch the ball go back and forth with an unbiased simulation:"
-msgstr ""
+msgstr "あるいは、Unbiased シミュレーションでボールが往復する様子を眺める。"
 
 #: README.md:35
 msgid "Troubleshooting"
-msgstr ""
+msgstr "問題の解決方法"
 
 #: README.md:36
 msgid ""
@@ -119,6 +136,10 @@ msgid ""
 "format. If both of these scripts succeed, there is likely a network or "
 "browser issue with `app.py`."
 msgstr ""
+"`app.py` で使う Modules と Functions は、問題の切り分けのために Flask から独立して実行できる。Flask "
+"のページが開かない場合は、`python walker.py` または `python run_walker.py` "
+"を試す。ウェブページのすべての図が表示されるはずである。また、`run_walker.py` は `app.py` に渡す出力を JSON "
+"で表示する。両方が成功する場合は、`app.py` の問題はネットワークかブラウザにある可能性が高い。"
 
 #: README.md:38
 msgid ""
@@ -126,22 +147,25 @@ msgid ""
 "as Scipy, Numpy, pickle, ffmpeg, and Flask. `environment.yml` is included if"
 " needed."
 msgstr ""
+"[!NOTE] このチュートリアルは一般的なライブラリを使い、依存関係は SciPy、NumPy、pickle、ffmpeg、Flask "
+"など少数である。必要なら付属の `environment.yml` を利用できる。"
 
 #: README.md:41
 msgid ""
 "[!NOTE] If you are having Flask, internet, or browser issues, try to use the"
 " command line interface! Directions can be found above."
-msgstr ""
+msgstr "[!NOTE] Flask、インターネット、ブラウザの問題がある場合は CLI を試してほしい。手順は上にある。"
 
 #: README.md:45
 msgid ""
 "[!CAUTION] Maximizing simulation steps and minimizing hill frequency is "
 "computationally expensive, explore at your own risk."
 msgstr ""
+"[!CAUTION] シミュレーションのステップ数を最大にし、Hill Frequency を最小にすると計算コストが高くなる。注意して試すこと。"
 
 #: README.md:51
 msgid "About"
-msgstr ""
+msgstr "この教材について"
 
 #: README.md:53
 msgid ""
@@ -159,6 +183,14 @@ msgid ""
 "consult [documentation](https://www.plumed.org/) and [practical "
 "applications](https://www.plumed-nest.org/) on their own."
 msgstr ""
+"Metadynamics は、2002年に [Laio and Parrinello][1] "
+"が初めて提案して以来、[創薬][2]、[材料科学][3]、[Ligand "
+"Binding][4]、[その他多くの用途][5]で有用性を示してきた。その後、従来法の課題に対応する多くの変種が開発された。Parallel-Bias"
+" Metadynamics、Well-tempered Metadynamics、Bias-Exchange Metadynamics "
+"は、いずれも2002年の原法から派生している。Metadynamics とその関連手法は、プラグインや組み込み機能で現在の MD "
+"エンジンに容易に適用でき、この Enhanced Sampling 法の一群を広く利用できる。用途ごとの厳密に正しい実装や限界の詳細な Review "
+"は、この教材の範囲外である。[ドキュメント](https://www.plumed.org/)や[実際の応用例](https://www.plumed-"
+"nest.org/)も自分で参照してほしい。"
 
 #: README.md:56
 msgid ""
@@ -170,6 +202,10 @@ msgid ""
 "accessible by modern MD engines and calculate probability distributions of "
 "metastable states in the CV space."
 msgstr ""
+"Metadynamics では、選んだ Collective Variable（CV）に Gaussian Kernels、すなわち Bias の形で "
+"Potential Energy を定期的に加える。これにより Metastable States からの脱出を促し、通常は到達できない CV 空間の "
+"Conformations を探索できる。CVs とパラメータを注意深く選べば、現在の MD エンジンで到達できる Time Scale で Rare "
+"Events を観測し、CV 空間内の Metastable States の確率分布を求められる。"
 
 #: README.md:58
 msgid ""
@@ -177,6 +213,8 @@ msgid ""
 " configurations of alanine dipeptide. The dihedral angle Φ corresponding to "
 "the two metastable states are also defined."
 msgstr ""
+"下図は、Alanine Dipeptide の *cis*（左）と *trans*（右）の Configurations を Stick "
+"Representation で示す。2つの Metastable States に対応する Dihedral Angle Φ も定義している。"
 
 #: README.md:66
 msgid ""
@@ -184,6 +222,8 @@ msgid ""
 "must be chosen. The equation below shows the added potential as a function "
 "of time from classical metadynamics:"
 msgstr ""
+"十分な Sampling と計算性能を得るには、いくつかのパラメータを選ぶ必要がある。次の式は、従来の Metadynamics で追加する "
+"Potential を時間の関数として示す。"
 
 #: README.md:72
 msgid ""
@@ -197,6 +237,11 @@ msgid ""
 "simulations, but in this 1-dimensional case the free energy surface can be "
 "approximated as:"
 msgstr ""
+"適切なパラメータと計算時間を選ぶと、CV が CV 空間を自由に Diffusion できるほどの Potential Energy "
+"を持つまで、Bias が加えられる。これは、局所・大域の Maxima を越えるのに十分な Energy を持ち、Bias を取り除く "
+"Reweighting "
+"によって元の自由エネルギーを求められる状態の目安である。一般にこれを<b>収束</b>と呼ぶ。実際のシミュレーションの自由エネルギー面には、いくつかの "
+"[Reweighting 手法](6)が使えるが、この1次元の例では次のように近似できる。"
 
 #: README.md:82
 msgid ""
@@ -206,6 +251,9 @@ msgid ""
 " may appear converged. This phenomenon can be visualized in VisMetaDynamics "
 "by starting a very short simulation at a local minima."
 msgstr ""
+"ここでは CV が周期的で、元の Potential Energy も分かっているが、実際には<b>この条件が成り立つことはまれである</b>。CV "
+"空間が非周期的で未知の場合、広く深い自由エネルギー Basin に捕捉されていても、収束しているように見えることがある。VisMetaDynamics "
+"で Local Minimum から非常に短い計算を始めると、この現象を可視化できる。"
 
 #: README.md:84
 msgid ""
@@ -216,10 +264,13 @@ msgid ""
 "metadynamics simulations and their interpretations are far more complex than"
 " what is presented here, so go read some papers!"
 msgstr ""
+"このチュートリアルの目的は、MD と Metadynamics "
+"のパラメータ選択の直感を養う機会を提供することである。利用できるパラメータの極端な値を試し、それぞれの働きを自分で理解してほしい。ただし、実際の "
+"Metadynamics とその解釈は、ここで示したものよりはるかに複雑である。論文も読んでほしい。"
 
 #: README.md:86
 msgid "Contributing"
-msgstr ""
+msgstr "開発への参加"
 
 #: README.md:88
 msgid ""
@@ -227,6 +278,8 @@ msgid ""
 "energy surface produced from a real metadynamics simulation. Details to "
 "reproduce the results of this simulation can be found in `MD/`."
 msgstr ""
+"Integrator の元になる Potential は、実際の Metadynamics の自由エネルギー面を Sine／Cosine で "
+"Fitting したものである。計算結果の再現に必要な詳細は `MD/` にある。"
 
 #: README.md:90
 msgid ""
@@ -237,6 +290,9 @@ msgid ""
 "calculations in `walker.py` and the function applying a periodic boundary "
 "condition are more rigid."
 msgstr ""
+"この教材のコードは Object-oriented であり、別の Potential や Metadynamics の変種を試せるように Modular"
+" に作られている。Class と pickle Objects によって新しい Potential を簡単に指定できる一方、`walker.py` の "
+"Metadynamics 計算と PBC を適用する関数は、より固定的な実装になっている。"
 
 #: README.md:92
 msgid ""
@@ -247,45 +303,75 @@ msgid ""
 "sampling](https://doi:10.1016/0021-9991(77)90121-8) on a separate webpage "
 "might be done in future releases."
 msgstr ""
+"他の Metadynamics や Enhanced Sampling 法も試せるようになるとよい。今後の版では、同じ Integrator "
+"とモデル系を [Parallel-Bias "
+"Metadynamics](https://doi.org/10.1021/acs.jctc.5b00846) や [Umbrella "
+"Sampling](https://doi:10.1016/0021-9991(77)90121-8) に適用する別ページを作る可能性がある。"
 
 #: README.md:94
 msgid "References"
 msgstr "参考文献"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:95
 msgid ""
 "[Escaping free-energy minima, Laio and "
 "Parrinello](https://doi.org/10.1073/pnas.202427399)"
 msgstr ""
+"[Escaping free-energy minima, Laio and "
+"Parrinello](https://doi.org/10.1073/pnas.202427399)"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:97
 msgid ""
 "[Metadynaimcs for Perspective Drug Desig: Computationally Driven Synthesis "
 "of New Protein-Protein Interaction Inhibitors Targeting the EphA2 "
 "Receptor](https://pubs.acs.org/doi/10.1021/acs.jmedchem.6b01642)"
 msgstr ""
+"[Metadynaimcs for Perspective Drug Desig: Computationally Driven Synthesis "
+"of New Protein-Protein Interaction Inhibitors Targeting the EphA2 "
+"Receptor](https://pubs.acs.org/doi/10.1021/acs.jmedchem.6b01642)"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:99
 msgid ""
 "[Crystal Structrue Transformations in SiO2 from Classical and ab initio "
 "Metadynamics](https://doi.org/10.1038/nmat1696)"
 msgstr ""
+"[Crystal Structrue Transformations in SiO2 from Classical and ab initio "
+"Metadynamics](https://doi.org/10.1038/nmat1696)"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:101
 msgid ""
 "[Exploring Product Release from yeast Cytosine Deaminase with "
 "Metadynamics](https://pubs.acs.org/doi/full/10.1021/acs.jpcb.3c07972)"
 msgstr ""
+"[Exploring Product Release from yeast Cytosine Deaminase with "
+"Metadynamics](https://pubs.acs.org/doi/full/10.1021/acs.jpcb.3c07972)"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:103
 msgid ""
 "[Metadynamics: A Method to SImulate Rare Events and Reconstruct the Free "
 "Energy in Biophysics, Chemistry, and Material "
 "Science](https://doi.org/10.1088/0034-4885/71/12/126601)"
 msgstr ""
+"[Metadynamics: A Method to SImulate Rare Events and Reconstruct the Free "
+"Energy in Biophysics, Chemistry, and Material "
+"Science](https://doi.org/10.1088/0034-4885/71/12/126601)"
 
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
 #: README.md:105
 msgid ""
 "[Data Reweighting in Metadynamics "
 "Simulations](https://doi.org/10.1021/acs.jctc.9b00867)"
 msgstr ""
+"[Data Reweighting in Metadynamics "
+"Simulations](https://doi.org/10.1021/acs.jctc.9b00867)"

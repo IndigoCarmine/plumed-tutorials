@@ -13,7 +13,7 @@ msgstr "[&larr; ホーム](NAVIGATION.md)"
 
 #: background.md:3
 msgid "Background of `maze`"
-msgstr ""
+msgstr "`maze` の背景"
 
 #: background.md:5
 msgid ""
@@ -22,6 +22,8 @@ msgid ""
 "reaction pathways can lead to issues with calculating free energies and "
 "kinetic rates."
 msgstr ""
+"MD では、複雑な系の Rare Events を記述する Reaction Pathways の探索が難しい課題となってきた。Reaction "
+"Pathways を誤って求めると、自由エネルギーや Kinetic Rates の計算に問題が生じうる。"
 
 #: background.md:7
 msgid ""
@@ -32,10 +34,14 @@ msgid ""
 "pocket. This mutant is commonly utilized as a model system for studying how "
 "ligands bind to proteins."
 msgstr ""
+"このチュートリアルでは、タンパク質からの Ligand Unbinding Pathways を特定する Enhanced Sampling "
+"手法を扱う。Ligand-Protein Interactions を特徴付ける Loss Function を最適化する。対象は、Binding "
+"Pocket に Benzene を含む T4 Lysozyme L99A Mutant（T4L）である。この Mutant は、Ligands "
+"とタンパク質の結合を調べるモデル系として広く用いられる。"
 
 #: background.md:9
 msgid "Loss Function"
-msgstr ""
+msgstr "Loss Function"
 
 #: background.md:10
 msgid ""
@@ -44,12 +50,15 @@ msgid ""
 " the protein matrix. This loss function should have a maximum within the "
 "protein and decrease to zero as the ligand dissociates to solvent."
 msgstr ""
+"Binding Pockets のゆらぎは Dissociation に重要なので、Ligand が Protein Matrix "
+"にどれだけ深く埋もれているかを評価する Loss Function を用いる。この関数は、タンパク質の内部で最大となり、Ligand が溶媒へ "
+"Dissociation するにつれて0に近づくものとする。"
 
 #: background.md:12
 msgid ""
 "For simplicity, we will use a very simple model for ligand-protein "
 "interactions:"
-msgstr ""
+msgstr "簡単のため、Ligand-Protein Interactions に非常に単純なモデルを用いる。"
 
 #: background.md:18
 msgid ""
@@ -59,10 +68,13 @@ msgid ""
 "function](https://www.plumed.org/doc-v2.9/user-"
 "doc/html/switchingfunction.html)."
 msgstr ""
+"和は、Ligand の局所近傍の Ligand-Protein 原子対について取る。$r_0$ は Cutoff である。新しい `maze` "
+"では、PLUMED の [Switching Function](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/switchingfunction.html) として実装された任意の関数を Loss Function に使える。"
 
 #: background.md:20
 msgid "Minimization"
-msgstr ""
+msgstr "Minimization"
 
 #: background.md:21
 msgid ""
@@ -71,6 +83,8 @@ msgid ""
 "corresponds to a decrease in the loss function. The probability of accepting"
 " a randomly generated neighbor is given by:"
 msgstr ""
+"Simulated Annealing で Loss Function を最小化する。Ligand の近傍から位置をランダムに選び、Loss "
+"Function が小さくなるかを調べる。生成した近傍位置を受理する確率は、次のようになる。"
 
 #: background.md:27
 msgid ""
@@ -78,10 +92,12 @@ msgid ""
 "the loss function of the neighbor, and $\\beta$ is a tempering parameter "
 "(see [Input](input.md))."
 msgstr ""
+"$\\Delta L$ は現在位置と近傍位置での Loss Function の差、$\\beta$ は Tempering Parameter "
+"である。[入力](input.md)を参照してほしい。"
 
 #: background.md:29
 msgid "Adaptive Biasing"
-msgstr ""
+msgstr "Adaptive Biasing"
 
 #: background.md:30
 msgid ""
@@ -89,6 +105,8 @@ msgid ""
 "$w_k$ is determined, the current position of the ligand $x$ is biased toward"
 " $w_k$. This is accomplished by applying an adaptive harmonic potential:"
 msgstr ""
+"Minimization が収束して最適な Unbinding Direction $w_k$ が決まったら、Ligand の現在位置 $x$ から "
+"$w_k$ に向けて Bias を加える。Adaptive Harmonic Potential を用いて実現する。"
 
 #: background.md:36
 msgid ""
@@ -97,6 +115,8 @@ msgid ""
 " loss function minimizations. A detailed explanation can be found in "
 "[[1]](#1)."
 msgstr ""
+"$w_k$ はステップ $k$ での最適解、$v$ は Biasing Rate、$h$ は Scale Constant、$\\Delta t$ "
+"は連続する Loss Function の最小化の間の MD 時間である。詳しい説明は [[1]](#1) にある。"
 
 #: background.md:40
 msgid ""
@@ -112,7 +132,13 @@ msgid ""
 "sampled ligand conformations by selecting the ligand conformation with the "
 "lowest loss function value."
 msgstr ""
+"*図* Unbinding は、T4L-Benzene Complex の Bound State（X-ray Binding "
+"Site）から始まり、Ligand が溶媒に達すると終わる。(a) T4L の X-ray Structure の断面には、Benzene "
+"がタンパク質から脱出する明確な Tunnel がない。このため、出口を開くにはタンパク質の構造変化が必要である。(b) MD 中に、出口の Tunnel"
+" に沿う Unbinding を特徴付ける Reaction Pathway を局所的に特定する。(c) (k+1) 番目の Intermediate "
+"を決めるため、k 番目の Intermediate の近傍で Benzene の Conformations を Sampling する。最小の "
+"Loss Function を持つ Conformation を選び、最適な Biasing Direction を求める。"
 
 #: background.md:42
 msgid "[System &rarr;](system.md)"
-msgstr ""
+msgstr "[対象系 &rarr;](system.md)"

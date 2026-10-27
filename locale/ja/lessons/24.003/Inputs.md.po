@@ -9,21 +9,21 @@ msgstr ""
 
 #: Inputs.md:1
 msgid "Some other inputs that we have used when benchmarking plumed include:"
-msgstr ""
+msgstr "PLUMED の Benchmarking で使った、他の入力例も示す。"
 
 #: Inputs.md:3
 msgid ""
 "The inputs below were all tested using the `--atom-distribution=sc` option."
-msgstr ""
+msgstr "以下の入力は、すべて `--atom-distribution=sc` で動作確認している。"
 
 #: Inputs.md:5
 msgid "Coordination number using multicolvar"
-msgstr ""
+msgstr "multicolvar による Coordination Number"
 
 #: Inputs.md:16
 msgid "Steinhardt order parameters"
-msgstr ""
+msgstr "Steinhardt Order Parameters"
 
 #: Inputs.md:24
 msgid "Local Steinhard parameters"
-msgstr ""
+msgstr "Local Steinhardt Parameters"
