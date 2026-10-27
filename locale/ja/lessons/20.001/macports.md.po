@@ -1,0 +1,129 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: macports.md:1
+msgid "Installing PLUMED with MacPorts"
+msgstr "MacPorts でのインストール"
+
+#: macports.md:3
+msgid ""
+"If you are using a Mac, notice that you can take advantage of a MacPorts "
+"package. Installing a working plumed should be as easy as:"
+msgstr "Mac は MacPorts Package を使えます。次だけで済むはずです。"
+
+#: macports.md:6
+msgid "Install [MacPorts](https://www.macports.org/)"
+msgstr "[MacPorts](https://www.macports.org/) を入れる。"
+
+#: macports.md:7
+msgid "Type `sudo port install plumed`"
+msgstr "`sudo port install plumed` を実行する。"
+
+#: macports.md:9
+msgid ""
+"Notice that plumed comes with many variants that can be inspected with the "
+"command"
+msgstr "Variant は次で確認できます。"
+
+#: macports.md:15
+msgid ""
+"Plumed uses variants to support different compilers. For instance, you can "
+"install plumed with mpich using"
+msgstr "Compiler などを Variant で選べます。mpich の例は、"
+
+#: macports.md:22
+msgid ""
+"Using more recent clang instead of native compilers is recommended so as to "
+"take advantage of openMP"
+msgstr "OpenMP のため Native より新しい clang を推奨します。"
+
+#: macports.md:29
+msgid ""
+"Notice that support for c++17 with gcc compilers is someway problematic "
+"within MacPorts due to impossibility to use the system c++ library. For this"
+" reason, only clang compilers are supported (see also [this "
+"discussion](https://github.com/macports/macports-ports/pull/1252))."
+msgstr ""
+"MacPorts の GCC は System C++ Library が使えず C++17 に問題があるため、clang "
+"のみ対応します（[議論](https://github.com/macports/macports-ports/pull/1252)）。"
+
+#: macports.md:33
+msgid ""
+"Variants can be also used to compile with debug flags (`+debug`), to pick a "
+"linear algebra library (e.g. `+openblas`) and to enable all optional modules"
+" (`+allmodules`). Notice that the default variant installed with `sudo port "
+"install plumed` is shipped as a compiled binary, which is significantly "
+"faster to install."
+msgstr ""
+"Debug（`+debug`）、線形代数（`+openblas`）、全 Module（`+allmodules`）も選べます。既定の `sudo "
+"port install plumed` は Binary 配布で、導入が大幅に速くなります。"
+
+#: macports.md:38
+msgid ""
+"In addition, we provide a developer version (typically: a later version not "
+"yet considered as stable) under the subport `plumed-devel` that can be "
+"installed with"
+msgstr "未安定の開発版 `plumed-devel` もあります。"
+
+#: macports.md:45
+msgid ""
+"`plumed-devel` also supports the same variants as `plumed` in order to "
+"customize the compilation. `plumed-devel` and `plumed` cannot be installed "
+"at the same time."
+msgstr ""
+"`plumed-devel` は `plumed` と同じ Variant に対応しますが、`plumed-devel` と `plumed` "
+"は同時に入れられません。"
+
+#: macports.md:48
+msgid ""
+"It is also possible to install a plumed-patched version of gromacs. For "
+"instance, you can use the following command to install gromacs patched with "
+"plumed with clang-5.0 compiler and mpich:"
+msgstr "Patch 済み GROMACS も入れられます。clang-5.0・mpich の例は、"
+
+#: macports.md:57
+msgid ""
+"In case you want to combine gromacs with the unstable version of plumed, use"
+" this instead:"
+msgstr "不安定版 PLUMED との組み合わせは、"
+
+#: macports.md:64
+msgid ""
+"Notice that gromacs should be compiled using the same compiler variant as "
+"plumed (in this example `+mpich +clang50`). In case this is not true, "
+"compilation will fail."
+msgstr ""
+"GROMACS は PLUMED と同じ Compiler Variant（ここは `+mpich +clang50`）が必要で、違うと失敗します。"
+
+#: macports.md:68
+msgid ""
+"Also notice that gromacs is patched with plumed in runtime mode but that the"
+" path of libplumedKernel.dylib in the MacPorts tree is hard coded. As a "
+"consequence:"
+msgstr ""
+"Runtime Patch ですが、MacPorts の libplumedKernel.dylib の Path は固定されています。そのため、"
+
+#: macports.md:72
+msgid ""
+"If gromacs is run with `PLUMED_KERNEL` environment variable unset (or set to"
+" empty), then the MacPorts plumed is used."
+msgstr "`PLUMED_KERNEL` が未設定・空なら MacPorts 版を使う。"
+
+#: macports.md:75
+msgid ""
+"If gromacs is run with `PLUMED_KERNEL` environment variable pointing to "
+"another instance of the plumed library, the other instance is used."
+msgstr "`PLUMED_KERNEL` が別の Library を指せばそちらを使う。"
+
+#: macports.md:78
+msgid ""
+"This is especially useful if you are developing PLUMED since you will be "
+"able to install gromacs once for all and combine it with your working "
+"version of PLUMED."
+msgstr "GROMACS を1回だけ入れ、開発中の PLUMED と組み合わせられるため便利です。"

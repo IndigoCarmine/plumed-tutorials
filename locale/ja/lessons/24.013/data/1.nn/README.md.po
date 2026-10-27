@@ -1,0 +1,57 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/1.nn/README.md:1
+msgid "Neural Network Training Directory"
+msgstr "Neural Network の学習用ディレクトリ"
+
+#: data/1.nn/README.md:3
+msgid ""
+"This directory contains all necessary files to train a group of Neural "
+"Networks. Please note that you will need to provide the training dataset as "
+"an `.npy` file and update the relevant paths in the script."
+msgstr ""
+"このディレクトリには、複数の Neural Networks を学習するために必要なファイルがすべて含まれる。学習データを `.npy` "
+"ファイルとして用意し、スクリプト内の該当するパスを更新する必要がある。"
+
+#: data/1.nn/README.md:5
+msgid "Steps to Get Started"
+msgstr "開始するための手順"
+
+#: data/1.nn/README.md:7
+msgid "1. Add the Training Dataset"
+msgstr "1. 学習データを追加する"
+
+#: data/1.nn/README.md:8
+msgid "Place your training dataset as an `.npy` file in this directory."
+msgstr "学習データを `.npy` ファイルとして、このディレクトリに配置する。"
+
+#: data/1.nn/README.md:9
+msgid ""
+"Update the paths in `mmd_vae_biased_3HL.py` to point towards your training "
+"dataset."
+msgstr "`mmd_vae_biased_3HL.py` のパスを、用意した学習データを指すように更新する。"
+
+#: data/1.nn/README.md:11
+msgid "2. Create the Environment"
+msgstr "2. 環境を作成する"
+
+#: data/1.nn/README.md:12
+msgid ""
+"Use the provided `environment.yml` file to create a virtual environment. Run"
+" the following command in your terminal:"
+msgstr "付属の `environment.yml` から仮想環境を作成する。Terminal で次のコマンドを実行する。"
+
+#: data/1.nn/README.md:14
+msgid "3. Activate the Environment and Run"
+msgstr "3. 環境を有効化して実行する"
+
+#: data/1.nn/README.md:15
+msgid "bash auto_train.sh >& out.out"
+msgstr "bash auto_train.sh >& out.out"

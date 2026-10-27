@@ -1,0 +1,778 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: INSTRUCTIONS.md:1
+msgid "PLUMED Masterclass 22.11: Variationally Enhanced Sampling"
+msgstr "PLUMED Masterclass 22.11：Variationally Enhanced Sampling"
+
+#: INSTRUCTIONS.md:3
+msgid "Author"
+msgstr "著者"
+
+#: INSTRUCTIONS.md:4
+msgid ""
+"Omar Valsson Department of Chemistry, University of North Texas Webpage: "
+"www.valsson.info July 4, 2022"
+msgstr ""
+"Omar Valsson、Department of Chemistry, University of North Texas、Web "
+"サイト：www.valsson.info、2022年7月4日"
+
+#: INSTRUCTIONS.md:9
+msgid "Aims"
+msgstr "目的"
+
+#: INSTRUCTIONS.md:11
+msgid ""
+"In this Masterclass, we will discuss how to run variationally enhanced "
+"sampling simulations with PLUMED. We will also understand how to analyze the"
+" results."
+msgstr ""
+"この Masterclass では、PLUMED で Variationally Enhanced Sampling "
+"を実行する方法と、結果の解析方法を学びます。"
+
+#: INSTRUCTIONS.md:13
+msgid "Objectives"
+msgstr "到達目標"
+
+#: INSTRUCTIONS.md:15
+msgid "Once you have completed this Masterclass you will be able to:"
+msgstr "この Masterclass を終えると、次のことができるようになる。"
+
+#: INSTRUCTIONS.md:17
+msgid ""
+"Run variationally enhanced sampling simulations biasing one and two CVs"
+msgstr "1つまたは2つの CV に Bias を加える Variationally Enhanced Sampling を実行する。"
+
+#: INSTRUCTIONS.md:18
+msgid "Assess the convergence of the simulation"
+msgstr "シミュレーションの収束を評価する。"
+
+#: INSTRUCTIONS.md:19
+msgid "Perform reweighting from variationally enhanced sampling simulations"
+msgstr "Variationally Enhanced Sampling の結果を Reweighting する。"
+
+#: INSTRUCTIONS.md:21
+msgid "Setting up PLUMED"
+msgstr "PLUMED のセットアップ"
+
+#: INSTRUCTIONS.md:23
+msgid ""
+"For this masterclass you will need versions of PLUMED (with the VES module "
+"enabled) and GROMACS that are compiled using the MPI library. All the "
+"exercises were tested with PLUMED version 2.8.0 and GROMACS 2020.6. For "
+"example, to obtain these versions, you can follow the instructions at [this "
+"link](https://github.com/plumed/masterclass-2022)."
+msgstr ""
+"この Masterclass では、MPI ライブラリでコンパイルした PLUMED（VES Module を有効化）と GROMACS "
+"が必要です。すべての演習は PLUMED 2.8.0 と GROMACS 2020.6 "
+"でテストされています。例えば、[こちら](https://github.com/plumed/masterclass-2022) "
+"の手順でこれらのバージョンを入手できます。"
+
+#: INSTRUCTIONS.md:25
+msgid ""
+"The data needed to execute the exercises of this Masterclass can be found on"
+" [GitHub](https://github.com/valsson-group/masterclass-22-11). You can clone"
+" this repository locally on your machine using the following command:"
+msgstr ""
+"演習に必要なデータは [GitHub](https://github.com/valsson-group/masterclass-22-11) "
+"にあります。次のコマンドでリポジトリを自分のマシンに Clone できます。"
+
+#: INSTRUCTIONS.md:32
+msgid ""
+"These files include the GROMACS and PLUMED files needed to run this "
+"tutorial, along with Jupyter notebook `Analysis.ipynb` that you can use to "
+"plot and analyze the results of the simulations."
+msgstr ""
+"これらには Tutorial 実行に必要な GROMACS・PLUMED ファイルと、シミュレーション結果の描画・解析に使える Jupyter "
+"Notebook `Analysis.ipynb` が含まれます。"
+
+#: INSTRUCTIONS.md:34
+msgid "Summary of Theory"
+msgstr "理論の概要"
+
+#: INSTRUCTIONS.md:36
+msgid ""
+"Here, we will briefly summarize the theory behind variationally enhanced "
+"sampling (VES). For an full overview of VES, you should read the [original "
+"paper](https://doi.org/10.1103/PhysRevLett.113.090601), a review in a [book "
+"chapter on VES](https://doi.org/10.1007/978-3-319-44677-6_50), or a recent "
+"[enhanced sampling review](https://doi.org/10.33011/livecoms.4.1.1583) that "
+"includes discussion about VES."
+msgstr ""
+"Variationally Enhanced Sampling (VES) "
+"の理論を簡単にまとめます。全体像を把握するには、[原著論文](https://doi.org/10.1103/PhysRevLett.113.090601)、[VES"
+" についての書籍の章](https://doi.org/10.1007/978-3-319-44677-6_50)、または VES も扱う最近の "
+"[Enhanced Sampling の総説](https://doi.org/10.33011/livecoms.4.1.1583) "
+"を読んでください。"
+
+#: INSTRUCTIONS.md:38
+msgid "VES is based on the the following functional of the bias potential:"
+msgstr "VES は BiasPotential の次の汎関数に基づきます。"
+
+#: INSTRUCTIONS.md:48
+msgid ""
+"where $\\mathbf{s}$ are the CVs that we are biasing, "
+"$p_{\\mathrm{tg}}(\\mathbf{s})$ is a predefined probability distribution "
+"that we will refer to as the target distribution, and $F(\\mathbf{s})$ is "
+"the free energy surface. This functional can be shown to be convex and to "
+"have a minimum at:"
+msgstr ""
+"ここで $\\mathbf{s}$ は Bias を加える CV、$p_{\\mathrm{tg}}(\\mathbf{s})$ "
+"は事前に定義する確率分布で Target Distribution と呼び、$F(\\mathbf{s})$ "
+"は自由エネルギー表面です。この汎関数は凸で、次の条件で最小になることを示せます。"
+
+#: INSTRUCTIONS.md:55
+msgid ""
+"The last equation states that when we minimize the functional $\\Omega [V]$,"
+" we can obtain the free energy surface from the bias potential (and the "
+"target distribution). We can choose the target distribution "
+"$p_{\\mathrm{tg}}(\\mathbf{s})$ at will and it is the CV distribution that "
+"we obtain when minimizing $\\Omega [V]$."
+msgstr ""
+"この式は、汎関数 $\\Omega [V]$ を最小化すると BiasPotential と Target Distribution "
+"から自由エネルギー表面を得られることを示します。Target Distribution $p_{\\mathrm{tg}}(\\mathbf{s})$ "
+"は自由に選べ、$\\Omega [V]$ を最小化したときに得られる CV 分布になります。"
+
+#: INSTRUCTIONS.md:60
+msgid ""
+"We put the variational principle to practice by expanding $V(\\mathbf{s})$ "
+"in some basis set:"
+msgstr "変分原理を実際に使うため、ある Basis Set で $V(\\mathbf{s})$ を展開します。"
+
+#: INSTRUCTIONS.md:65
+msgid ""
+"where $f_i(\\mathbf{s})$ are the basis functions and the "
+"$\\boldsymbol\\alpha$ are the coefficients in the expansion."
+msgstr "ここで $f_i(\\mathbf{s})$ は Basis Functions、$\\boldsymbol\\alpha$ は展開係数です。"
+
+#: INSTRUCTIONS.md:67
+msgid ""
+"We then need to find the coefficients $\\boldsymbol\\alpha$ that minimize "
+"$\\Omega [V]$. In principle one could use any optimization algorithm. In "
+"practice the algorithm that has become the default choice for VES is the so-"
+"called [averaged stochastic gradient descent "
+"algorithm](http://papers.nips.cc/paper/4900-non-strongly-convex-smooth-"
+"stochastic-approximation-with-convergence-rate-o1n.pdf). In this algorithm "
+"the $\\boldsymbol\\alpha$ are evolved iteratively according to:"
+msgstr ""
+"次に $\\Omega [V]$ を最小化する係数 $\\boldsymbol\\alpha$ "
+"を求めます。原理的には任意の最適化アルゴリズムを使えます。実際に VES の標準となっているのは [Averaged Stochastic "
+"Gradient Descent](http://papers.nips.cc/paper/4900-non-strongly-convex-"
+"smooth-stochastic-approximation-with-convergence-rate-o1n.pdf) "
+"と呼ばれるアルゴリズムです。$\\boldsymbol\\alpha$ を次のように反復更新します。"
+
+#: INSTRUCTIONS.md:80
+msgid ""
+"where $\\mu$ is the step size, $\\bar{\\boldsymbol\\alpha}^{(n)}$ is the "
+"running average of $\\boldsymbol\\alpha^{(n)}$ at iteration $n$, and "
+"$\\nabla\\Omega(\\bar{\\boldsymbol\\alpha}^{(n)})$ and "
+"$H(\\bar{\\boldsymbol\\alpha}^{(n)})$ are the gradient and Hessian of "
+"$\\Omega[V]$ evaluated at the running average at iteration $n$, "
+"respectively. The behavior of the coefficients will become apparent in the "
+"examples below."
+msgstr ""
+"ここで $\\mu$ は Step Size、$\\bar{\\boldsymbol\\alpha}^{(n)}$ は反復 $n$ における "
+"$\\boldsymbol\\alpha^{(n)}$ "
+"の累積平均です。$\\nabla\\Omega(\\bar{\\boldsymbol\\alpha}^{(n)})$ と "
+"$H(\\bar{\\boldsymbol\\alpha}^{(n)})$ はそれぞれ、反復 $n$ の累積平均で評価した $\\Omega[V]$ "
+"の勾配と Hessian です。係数の挙動は以下の例で明らかになります。"
+
+#: INSTRUCTIONS.md:87
+msgid ""
+"As said above, we can choose the target distribution "
+"$p_{\\mathrm{tg}}(\\mathbf{s})$ at will. The most simple choice would be a "
+"uniform target distribution. However, it has been found more optimal to "
+"employ the so-called well-tempered distribution (see "
+"[here](http://doi.org/10.1021/acs.jctc.5b00076)):"
+msgstr ""
+"上述のとおり、Target Distribution $p_{\\mathrm{tg}}(\\mathbf{s})$ "
+"は自由に選べます。最も単純なのは一様分布ですが、Well-tempered Distribution "
+"を使う方がよいことがわかっています（[こちら](http://doi.org/10.1021/acs.jctc.5b00076) を参照）。"
+
+#: INSTRUCTIONS.md:95
+msgid ""
+"where $\\gamma$ is the so-called bias factor and $P(\\mathbf{s})$ is the "
+"unbiased CV distribution. Therefore the well-tempered distribution is the "
+"unbiased distribution with enhanced fluctuations and lowered barriers. This "
+"is the same distribution as sampled in well-tempered metadynamics. The "
+"advantages of this distribution are that the features of the FES (metastable"
+" states) are preserved and that the system is not forced to sample regions "
+"of high free energy (that can represent un-physical configurations) as it "
+"would if we had chosen the uniform target distribution. There is a caveat "
+"though, the well-tempered $p_{\\mathrm{tg}}(\\mathbf{s})$ depends on "
+"$F(\\mathbf{s})$ that is the function that we are trying to calculate. One "
+"way to approach this problem is to calculate $p_{\\mathrm{tg}}(\\mathbf{s})$"
+" self-consistently (see [here](http://doi.org/10.1021/acs.jctc.5b00076)), "
+"for instance at iteration $k$:"
+msgstr ""
+"$\\gamma$ は Bias Factor、$P(\\mathbf{s})$ は Unbiased な CV 分布です。したがって Well-"
+"tempered Distribution は、揺らぎを増やし Barrier を下げた Unbiased 分布で、Well-tempered "
+"Metadynamics が Sampling するものと同じです。FES の特徴（準安定状態）を保持し、一様な Target Distribution"
+" を選んだ場合のように、高自由エネルギー領域（非物理的な Configuration の場合もある）の Sampling "
+"を強制しない利点があります。ただし、Well-tempered の $p_{\\mathrm{tg}}(\\mathbf{s})$ は、これから計算する"
+" $F(\\mathbf{s})$ に依存します。この問題には、$p_{\\mathrm{tg}}(\\mathbf{s})$ "
+"を自己無撞着に計算する方法があります（[こちら](http://doi.org/10.1021/acs.jctc.5b00076) を参照）。例えば反復"
+" $k$ では次のようになります。"
+
+#: INSTRUCTIONS.md:110
+msgid "where:"
+msgstr "ここで、"
+
+#: INSTRUCTIONS.md:114
+msgid ""
+"Normally $p^{(0)}(\\mathbf{s})$ is taken to be uniform. Therefore the target"
+" distribution evolves in time until it becomes stationary when the "
+"simulation has converged. It has been shown that in some cases the "
+"convergence is faster using the well-tempered target distribution than using"
+" the uniform $p(\\mathbf{s})$ (see "
+"[here](http://doi.org/10.1021/acs.jctc.5b00076))."
+msgstr ""
+"通常、$p^{(0)}(\\mathbf{s})$ は一様とします。そのため Target Distribution "
+"は時間とともに変化し、シミュレーションが収束すると定常になります。一様な $p(\\mathbf{s})$ より Well-tempered "
+"Target Distribution "
+"の方が速く収束する場合があることが示されています（[こちら](http://doi.org/10.1021/acs.jctc.5b00076) "
+"を参照）。"
+
+#: INSTRUCTIONS.md:120
+msgid "The System: Association/Dissociation of NaCl in Aqueous Solution"
+msgstr "対象系：水溶液中の NaCl の会合・解離"
+
+#: INSTRUCTIONS.md:122
+msgid ""
+"In this tutorial, we will consider the association/dissociation of NaCl in "
+"aqueous solution. The system consists of 1 Na atom, 1 Cl atom, and 107 water"
+" molecules for a total of 323 atoms. In an effort to speed up the "
+"simulations, we employ a rather small water box, and thus need to employ "
+"smaller cutoffs than usually used. Therefore, this simulation setup should "
+"not be used in production runs. Typically, the run should take around 15-20 "
+"minutes to run on a laptop using two MPI processes. By running the "
+"simulations on a cluster, you reduce the simulation time."
+msgstr ""
+"この Tutorial では、水溶液中の NaCl の会合・解離を扱います。系は Na 原子1個、Cl "
+"原子1個、水107分子、計323原子です。高速化のため水の Box をかなり小さくし、通常より小さい Cutoff "
+"を使います。この設定は本計算には使用しないでください。Laptop で2つの MPI Process "
+"を使った場合、通常約15〜20分かかります。Cluster 上で実行すれば時間を短縮できます。"
+
+#: INSTRUCTIONS.md:124
+msgid ""
+"The most relevant CV for this system is the distance between the Na and Cl "
+"atoms that is defined in PLUMED as"
+msgstr "この系で最も重要な CV は Na と Cl の原子間距離で、PLUMED では次のように定義します。"
+
+#: INSTRUCTIONS.md:131
+msgid ""
+"Furthermore, the NaCl association/dissociation is coupled to the collective "
+"motion of the solvent. To measure that, we will use a CV that measures the "
+"solvation of the Na atom. For this, we employ the coordination number of the"
+" Na atom with respect to the oxygens of the water molecules that we define "
+"in PLUMED as"
+msgstr ""
+"さらに、NaCl の会合・解離は溶媒の集団運動と結び付いています。その測定に Na 原子の Solvation を表す CV "
+"を使います。水分子の酸素に対する Na 原子の Coordination Number を用い、PLUMED で次のように定義します。"
+
+#: INSTRUCTIONS.md:148
+msgid ""
+"We will also limit CV space exploration by employing an upper wall on the "
+"distance between Na and Cl atoms that is defined in PLUMED as"
+msgstr "また、Na と Cl の原子間距離に Upper Wall を設け、CV 空間の探索を制限します。PLUMED では次のように定義します。"
+
+#: INSTRUCTIONS.md:164
+msgid "Exercise 1: Biasing with One Collective Variable"
+msgstr "演習1：1つの Collective Variable に Bias を加える"
+
+#: INSTRUCTIONS.md:166
+msgid ""
+"We will start by performing a simulation where we bias the Na-Cl distance."
+msgstr "まず Na-Cl 距離に Bias を加えるシミュレーションを実行します。"
+
+#: INSTRUCTIONS.md:168
+msgid "Every VES simulation has three key ingredients:"
+msgstr "VES シミュレーションには3つの重要な要素があります。"
+
+#: INSTRUCTIONS.md:170
+msgid "Basis set"
+msgstr "Basis Set"
+
+#: INSTRUCTIONS.md:171
+msgid "Target distribution"
+msgstr "Target Distribution"
+
+#: INSTRUCTIONS.md:172
+msgid "Optimization algorithm"
+msgstr "最適化アルゴリズム"
+
+#: INSTRUCTIONS.md:174
+msgid ""
+"For the basis set, we will use the recently introduced [wavelet-based basis "
+"set](https://doi.org/10.1021/acs.jctc.2c00197) that are localized basis "
+"functions that have been shown to perform better than the previously used "
+"Chebyshev or Legendre polynomials. We will employ the least asymmetric "
+"variant of these wavelets or so-called symlets (as indicated by the "
+"`TYPE=SYMLETS` keyword). We will use an order 10 of the symlets or Sym10 (as"
+" indicated by the `ORDER=10` keyword). Furthermore information about the "
+"wavelets can be found in the reference above."
+msgstr ""
+"Basis Set には、最近導入された [Wavelet に基づく Basis "
+"Set](https://doi.org/10.1021/acs.jctc.2c00197) を使います。これらは局在した Basis "
+"Functions で、従来の Chebyshev や Legendre 多項式より優れた性能が示されています。Wavelet "
+"のうち非対称性が最も小さい Symlets を使います（`TYPE=SYMLETS` で指定）。次数は10、すなわち Sym10 "
+"とします（`ORDER=10` で指定）。Wavelet の詳細は上記の文献を参照してください。"
+
+#: INSTRUCTIONS.md:176
+msgid ""
+"We need to select the range on which the bias potential is expanded. Here we"
+" will use the range from 0.2 nm to 0.7 nm (as indicated by the `MINIMUM=0.2`"
+" and `MAXIMUM=0.7` keywords). We also need to select the number of basis "
+"functions, and here we will use 26 basis functions (as indicated by the "
+"`NUM_BF=26` keyword). The PLUMED action corresponding to this setup is given"
+" by"
+msgstr ""
+"BiasPotential を展開する範囲を選ぶ必要があります。ここでは0.2 nm から0.7 nm "
+"とします（`MINIMUM=0.2`、`MAXIMUM=0.7` で指定）。Basis Functions "
+"の数も選び、ここでは26個とします（`NUM_BF=26` で指定）。対応する PLUMED Action は次のとおりです。"
+
+#: INSTRUCTIONS.md:206
+msgid ""
+"For the target distribution, we employ a well-tempered distribution with a "
+"bias factor of 10."
+msgstr ""
+"Target Distribution には、Bias Factor 10の Well-tempered Distribution を使います。"
+
+#: INSTRUCTIONS.md:240
+msgid ""
+"Then we define the VES bias potential using the `VES_LINEAR_EXPANSION` "
+"action"
+msgstr "次に `VES_LINEAR_EXPANSION` Action で VES の BiasPotential を定義します。"
+
+#: INSTRUCTIONS.md:283
+msgid ""
+"Finally, we need to define the optimization algorithm. The standard is the "
+"averaged stochastic gradient descent (`OPT_AVERAGED_SGD`). We need to define"
+" two parameters: the stride and the step size. The stride (given by the "
+"keyword `STRIDE`) is the number of MD steps in which samples are collected "
+"to calculate the gradient and hessian of $\\Omega [V]$. The step size (given"
+" by the keyword `STEPSIZE`) is the step by which the coefficients are "
+"evolved at every optimization steps, given by $\\mu$ in the equation above. "
+"It has become traditional to choose a stride of around 500-2000 MD steps. It"
+" must be noted that we are not looking for an accurate estimation of the "
+"gradient, since for this we would need to sample all the CV space. The step "
+"size in the optimization has a strong connection with the height of typical "
+"barriers in the system. The larger the barriers, the larger the step size "
+"needed such that the bias can grow fast enough to overcome them. For this "
+"example we have chosen a stride of 500 steps (i.e., 1 ps) and a step size of"
+" 5.0 kJ/mol. We also need to choose how often we update the target "
+"distribution (given by the keyword `TARGETDIST_STRIDE`) and we do this every"
+" 100 bias potential updates (i.e., every 100 ps in the current case)."
+msgstr ""
+"最後に最適化アルゴリズムを定義します。標準は Averaged Stochastic Gradient Descent "
+"(`OPT_AVERAGED_SGD`) です。Stride と Step Size の2つのパラメータが必要です。Stride（Keyword "
+"`STRIDE`）は、$\\Omega [V]$ の勾配と Hessian を計算する Sample を集める MD Step 数です。Step "
+"Size（Keyword `STEPSIZE`）は各最適化 Step で係数を更新する大きさで、上の式の $\\mu$ に対応します。Stride "
+"は500〜2000 MD Step 程度がよく選ばれます。正確な勾配を推定しようとしているわけではありません。そのためには CV 空間全体の "
+"Sampling が必要です。最適化の Step Size は、系の典型的な Barrier の高さと強く関係します。Barrier "
+"が高いほど、それを越えるのに十分速く Bias を成長させるため、大きな Step Size が必要です。この例では Stride を500 "
+"Step（1 ps）、Step Size を5.0 kJ/mol とします。Target Distribution の更新頻度（Keyword "
+"`TARGETDIST_STRIDE`）も選び、BiasPotential の更新100回ごと（この場合100 ps ごと）とします。"
+
+#: INSTRUCTIONS.md:354
+msgid ""
+"The other parameters are related to the outputting frequency of various "
+"output files."
+msgstr "ほかのパラメータは、各種出力ファイルの出力頻度に関係します。"
+
+#: INSTRUCTIONS.md:356
+msgid ""
+"Finally, we need to define the `PRINT` action to output all the variables"
+msgstr "最後に、すべての変数を出力する `PRINT` Action を定義します。"
+
+#: INSTRUCTIONS.md:420
+msgid ""
+"The full PLUMED input file can be found in the Exercise-1 folder. There you "
+"also find all the relevant GROMACS input file. First, you need to run the "
+"`generate-tpr-file.sh` script that generates the GROMACS TPR file using the "
+"parameters defined in `MD-NPT.mdp` mdp file and the initial geometry defined"
+" using the `StartingGeometry` variable. You can then run the simulation "
+"using the `run.sh` script"
+msgstr ""
+"PLUMED 入力ファイル全体と必要な GROMACS 入力ファイルは Exercise-1 にあります。まず `generate-tpr-"
+"file.sh` を実行し、`MD-NPT.mdp` のパラメータと `StartingGeometry` 変数で指定する初期構造から GROMACS "
+"TPR ファイルを生成します。その後、`run.sh` でシミュレーションを実行できます。"
+
+#: INSTRUCTIONS.md:429
+msgid ""
+"The run might take around 15-20 minutes to run using two MPI processes. You "
+"can adjust the number of MPI processes used for the simulation using the "
+"`NumProcs` variable in the `run.sh` script."
+msgstr ""
+"2つの MPI Process では約15〜20分かかる場合があります。`run.sh` の `NumProcs` で MPI Process "
+"数を調整できます。"
+
+#: INSTRUCTIONS.md:431
+msgid "At the end of simulation, you will get several files:"
+msgstr "シミュレーション終了時には、いくつかのファイルが得られます。"
+
+#: INSTRUCTIONS.md:432
+msgid "`colvar.data`: Colvar file"
+msgstr "`colvar.data`：Colvar ファイル。"
+
+#: INSTRUCTIONS.md:433
+msgid ""
+"`coeffs.data` : Values of the coefficients $\\boldsymbol\\alpha$ and "
+"$\\bar{\\boldsymbol\\alpha}$ at different iterations."
+msgstr "`coeffs.data`：各反復での係数 $\\boldsymbol\\alpha$ と $\\bar{\\boldsymbol\\alpha}$ の値。"
+
+#: INSTRUCTIONS.md:434
+msgid ""
+"`bias.<bias-label>.iter-<iteration-number>.data` : Bias potential at "
+"iteration <iteration-number>."
+msgstr ""
+"`bias.<bias-label>.iter-<iteration-number>.data`：反復 <iteration-number> の "
+"BiasPotential。"
+
+#: INSTRUCTIONS.md:435
+msgid ""
+"`fes.<bias-name>.iter-<iteration-number>.data` : FES at iteration "
+"<iteration-number>."
+msgstr ""
+"`fes.<bias-name>.iter-<iteration-number>.data`：反復 <iteration-number> の FES。"
+
+#: INSTRUCTIONS.md:436
+msgid ""
+"`targetdistribution.<bias-name>.iter-<iteration-number>.data` : Target "
+"distribution at iteration <iteration-number>."
+msgstr ""
+"`targetdistribution.<bias-name>.iter-<iteration-number>.data`：反復 <iteration-"
+"number> の Target Distribution。"
+
+#: INSTRUCTIONS.md:438
+msgid ""
+"To assess the simulation and its convergence, you should first look at the "
+"time evolution of the biased CV and check that it is diffusive in CV space. "
+"Second, you should look at how the free energy surfaces behave as a function"
+" of time by looking at the `fes.<bias-name>.iter-<iteration-number>.data` "
+"files at different number of iterations (the minimum of the FES is always "
+"aligned to zero to facilitate comparison). To do this, you need to use your "
+"favorite way to plot datafiles (e.g., Matplotlib or Gnuplot). For instance, "
+"you can use the `Analysis.ipynb` Jupyter notebook provided."
+msgstr ""
+"シミュレーションと収束を評価するには、まず Bias を加えた CV の時間発展を見て、CV 空間で拡散していることを確認します。次に、異なる反復数の "
+"`fes.<bias-name>.iter-<iteration-number>.data` "
+"を見て、自由エネルギー表面の時間変化を調べます（比較しやすいよう FES の最小値は常に0に揃えます）。Matplotlib、Gnuplot "
+"など、好みの方法でデータファイルを描画してください。付属の `Analysis.ipynb` Jupyter Notebook も使えます。"
+
+#: INSTRUCTIONS.md:443
+msgid ""
+"You can also visualize the trajectory by opening it with VMD by using the "
+"command"
+msgstr "次のコマンドで VMD を開き、Trajectory を可視化することもできます。"
+
+#: INSTRUCTIONS.md:447
+msgid ""
+"The `NaCl_VES_NPT-300K.pbc-whole.xtc` is the trajectory file with the "
+"periodic boundary conditions made whole. This is done within the `run.sh` "
+"script."
+msgstr ""
+"`NaCl_VES_NPT-300K.pbc-whole.xtc` は、Periodic Boundary Conditions "
+"で分断された分子をつなぎ直した Trajectory ファイルです。この処理は `run.sh` 内で行います。"
+
+#: INSTRUCTIONS.md:449
+msgid ""
+"The `coeffs.data` file includes the values of coefficients "
+"$\\boldsymbol\\alpha$ and $\\bar{\\boldsymbol\\alpha}$ at different "
+"iterations. To extract the time evolution of a given coefficient, you can "
+"use the `ExtractCoeff.sh` script, for example to extract coefficient 3:"
+msgstr ""
+"`coeffs.data` には、各反復での係数 $\\boldsymbol\\alpha$ と "
+"$\\bar{\\boldsymbol\\alpha}$ が含まれます。特定の係数の時間発展は `ExtractCoeff.sh` "
+"で抽出できます。例えば係数3を抽出するには、次のようにします。"
+
+#: INSTRUCTIONS.md:455
+msgid ""
+"This will create a file with the first column the iteration number, the "
+"second column the averaged coefficient $\\bar{\\boldsymbol\\alpha}$, and the"
+" third column the instantaneous coefficients $\\boldsymbol\\alpha$. You "
+"should create files for different coefficient and visualize both the second "
+"and third columns to understand how the coefficients converge."
+msgstr ""
+"生成されるファイルの第1列は反復数、第2列は平均係数 $\\bar{\\boldsymbol\\alpha}$、第3列は瞬時係数 "
+"$\\boldsymbol\\alpha$ です。複数の係数についてファイルを作り、第2列と第3列を可視化して収束の仕方を理解してください。"
+
+#: INSTRUCTIONS.md:461
+msgid "Exercise 2: Reweighting a VES Simulation"
+msgstr "演習2：VES シミュレーションの Reweighting"
+
+#: INSTRUCTIONS.md:462
+msgid ""
+"Apart from estimating the FES directly from the bias potential, you can also"
+" estimate the FES through reweighting by histogramming where each "
+"configuration is weighted by the bias acting on it, $e^{\\beta "
+"V(\\mathbf{s})}$. The VES bias acting at each time step is given by the "
+"`ves.bias` variable in the `colvar.dat` file."
+msgstr ""
+"BiasPotential から直接 FES を推定するほか、各 Configuration に作用する Bias に応じて $e^{\\beta "
+"V(\\mathbf{s})}$ で重み付けした Histogram を作り、Reweighting で FES を推定できます。各 Time Step"
+" の VES Bias は `colvar.dat` の `ves.bias` 変数にあります。"
+
+#: INSTRUCTIONS.md:467
+msgid ""
+"When doing performing reweighting, it is better to ignore the initial part "
+"of the simulation where the bias potential is changing more rapidly. You can"
+" use the `trim-colvar-file.py` python script in the Exercise-2 folder to do "
+"this"
+msgstr ""
+"Reweighting では、BiasPotential が急速に変化する初期部分を除く方がよいでしょう。Exercise-2 の Python "
+"スクリプト `trim-colvar-file.py` で処理できます。"
+
+#: INSTRUCTIONS.md:473
+msgid ""
+"where here we ignore the first 400 ps of the `colvar.data` file from the "
+"Exercise 1 and create a new file called `colvar_reweight.data`."
+msgstr "ここでは演習1の `colvar.data` の最初の400 ps を除き、`colvar_reweight.data` を作成します。"
+
+#: INSTRUCTIONS.md:476
+msgid ""
+"We can then perform the reweighting for the distance using the following "
+"PLUMED input (`plumed_reweight.dat` in the `Exercise-2` folder)"
+msgstr ""
+"次の PLUMED 入力（`Exercise-2` 内の `plumed_reweight.dat`）で距離について Reweighting できます。"
+
+#: INSTRUCTIONS.md:499
+msgid "You can run this input by using the PLUMED driver"
+msgstr "PLUMED driver でこの入力を実行できます。"
+
+#: INSTRUCTIONS.md:504
+msgid ""
+"You should compare the resulting FES (the `fes-reweight.dist.data` file) to "
+"the results obtained directly from the bias potential in Exercise 1."
+msgstr ""
+"得られた FES（`fes-reweight.dist.data`）を、演習1で BiasPotential から直接得た結果と比較してください。"
+
+#: INSTRUCTIONS.md:507
+msgid ""
+"We can also obtain the FES for CVs that are not biased in the VES "
+"simulation. For example, we can obtain the two-dimensional FES for the "
+"distance and the solvation CV given by the coordination number CV. For this,"
+" you will need to add the following to the plumed_reweight.dat file and "
+"repeat the PLUMED driver run"
+msgstr ""
+"VES で Bias を加えていない CV の FES も得られます。例えば、距離と Coordination Number で表す Solvation"
+" CV の2次元 FES を求められます。plumed_reweight.dat に次を追加して PLUMED driver を再実行してください。"
+
+#: INSTRUCTIONS.md:533
+msgid ""
+"Note that here we use kernel density estimation with Gaussian kernels to "
+"obtain smoother results."
+msgstr "ここでは滑らかな結果を得るため、Gaussian Kernel による Kernel Density Estimation を使います。"
+
+#: INSTRUCTIONS.md:536
+msgid ""
+"You can also try to obtain the one-dimensional FES for the solvation CV by "
+"adjusting the input above."
+msgstr "上の入力を調整し、Solvation CV の1次元 FES を求めることも試してください。"
+
+#: INSTRUCTIONS.md:539
+msgid "This will generate a two-dimensional FES that you can visualize."
+msgstr "これにより、可視化できる2次元 FES が生成されます。"
+
+#: INSTRUCTIONS.md:541
+msgid "Exercise 3: Running Another Independent Simulation"
+msgstr "演習3：別の独立したシミュレーションの実行"
+
+#: INSTRUCTIONS.md:543
+msgid ""
+"To check the results, it is a good practice to run another independent "
+"simulation using different initial conditions. You can achieve this here by "
+"changing the initial geometry in the `generate-tpr-file.sh` script"
+msgstr ""
+"結果の確認には、初期条件を変えて独立したシミュレーションを行うことが有効です。ここでは `generate-tpr-file.sh` "
+"の初期構造を変更します。"
+
+#: INSTRUCTIONS.md:549
+msgid ""
+"and regenerating the GROMACS tpr file. Do this and rerun the simulation, "
+"check the convergence, and perform reweighting as before. Make sure that you"
+" do this in a new clean folder that is separate from the run in Exercise 1."
+msgstr ""
+"その後、GROMACS tpr ファイルを再生成します。シミュレーションを再実行し、先ほどと同様に収束を確認して Reweighting "
+"してください。演習1とは別の、新しい空のフォルダで実行してください。"
+
+#: INSTRUCTIONS.md:554
+msgid "Exercise 4: Biasing with Two Collective Variables"
+msgstr "演習4：2つの Collective Variables に Bias を加える"
+
+#: INSTRUCTIONS.md:556
+msgid ""
+"We will now bias also the solvation CV. To achieve this, we need first to "
+"setup a separate basis set for the solvation CV, where again we use the "
+"symlets but with a different range from 2.0 to 8.0"
+msgstr ""
+"次に Solvation CV にも Bias を加えます。まず Solvation CV 用の別の Basis Set を設定します。ここでも "
+"Symlets を使いますが、範囲は2.0〜8.0とします。"
+
+#: INSTRUCTIONS.md:599
+msgid ""
+"We also need to change the relevant keywords in the `VES_LINEAR_EXPANSION` "
+"action, namely the `ARG`, `BASIS_FUNCTIONS`, and `GRID_BINS` keywords"
+msgstr ""
+"また、`VES_LINEAR_EXPANSION` Action の `ARG`、`BASIS_FUNCTIONS`、`GRID_BINS` "
+"を変更する必要があります。"
+
+#: INSTRUCTIONS.md:657
+msgid ""
+"Additionally, we have turned on the calculation of the one-dimensional "
+"projection of the FES on the two CVs (we also need to set the keyword "
+"`FES_PROJ_OUTPUT=100` in `OPT_AVERAGED_SGD`). This is useful to assess the "
+"convergence as this is easier in one-dimension. We can also compare the "
+"projection to the results from Exercise 1. These changes should be "
+"sufficient to do the simulations using two CVs. You can see full input file "
+"in the `Exercise-4` folder."
+msgstr ""
+"さらに、両 CV それぞれへの FES の1次元射影の計算を有効にしています（`OPT_AVERAGED_SGD` で "
+"`FES_PROJ_OUTPUT=100` "
+"も指定する必要があります）。1次元では収束を評価しやすいため便利です。射影を演習1の結果とも比較できます。これらの変更で2つの CV "
+"を使うシミュレーションを実行できます。入力全体は `Exercise-4` にあります。"
+
+#: INSTRUCTIONS.md:665
+msgid ""
+"Once you have performed this simulation, you should also try to reweight "
+"from this simulations. Furthermore, if you have time, you should also try to"
+" perform another independent simulation."
+msgstr ""
+"実行後には、このシミュレーションからの Reweighting も試してください。時間があれば、別の独立したシミュレーションも実行してください。"
+
+#: INSTRUCTIONS.md:669
+msgid "Optional Exercises"
+msgstr "任意の演習"
+
+#: INSTRUCTIONS.md:671
+msgid ""
+"The following three exercises are optional, but they will show you how "
+"different parameters effect the results. You should base these exercises on "
+"the files from the Exercise-1 folder and make the necessary changes. Make "
+"sure that you run these simulations in separate folders and start from clean"
+" files from the Exercise-1 folder."
+msgstr ""
+"以下の3つは任意ですが、パラメータが結果に与える影響を示します。Exercise-1 "
+"のファイルを基に必要な変更を加えてください。それぞれ別フォルダで、Exercise-1 の未使用ファイルから開始してください。"
+
+#: INSTRUCTIONS.md:676
+msgid "Optional Exercise 5: Play with the Optimization Parameters"
+msgstr "任意演習5：最適化パラメータを変える"
+
+#: INSTRUCTIONS.md:678
+msgid ""
+"The main parameter in the optimization algorithm is the step size and it is "
+"not always easy to choose this parameter. Luckily, the algorithm is quite "
+"robust and will work for different step sizes."
+msgstr ""
+"最適化アルゴリズムの主なパラメータは Step Size で、選択は必ずしも容易ではありません。ただしアルゴリズムは比較的頑健で、異なる Step "
+"Size でも動作します。"
+
+#: INSTRUCTIONS.md:682
+msgid ""
+"Run different simulations using step sizes 0.5 and 50.0 and try to "
+"rationalize the behavior. Normally, when the step size is too large, the "
+"system gets stuck in CV space and coefficients oscillate wildly. When the "
+"step size is too small, the algorithm runs out of \"steam\" too fast and the"
+" simulation converges slowly. These two extreme cases should be avoided."
+msgstr ""
+"Step Size を0.5と50.0にして別々のシミュレーションを実行し、挙動を説明してください。通常、大きすぎると系が CV "
+"空間で動けなくなり、係数が激しく振動します。小さすぎるとアルゴリズムの推進力が早く失われ、収束が遅くなります。この両極端を避ける必要があります。"
+
+#: INSTRUCTIONS.md:688
+msgid "Optional Exercise 6: Uniform Target Distribution"
+msgstr "任意演習6：一様な Target Distribution"
+
+#: INSTRUCTIONS.md:689
+msgid ""
+"Perform a simulation using an uniform target distribution and see how this "
+"changes the results."
+msgstr "一様な Target Distribution で実行し、結果の変化を調べてください。"
+
+#: INSTRUCTIONS.md:692
+msgid "In this case, you need to change the target distribution to"
+msgstr "この場合、Target Distribution を次のように変更します。"
+
+#: INSTRUCTIONS.md:724
+msgid ""
+"and remove the `TARGETDIST_STRIDE` and `TARGETDIST_OUTPUT` keywords from the"
+" \\ref OPT_AVERAGED_SGD action."
+msgstr ""
+"また、\\ref OPT_AVERAGED_SGD Action から `TARGETDIST_STRIDE` と "
+"`TARGETDIST_OUTPUT` を削除します。"
+
+#: INSTRUCTIONS.md:727
+msgid "Legendre polynomials basis function"
+msgstr "Legendre 多項式の Basis Functions"
+
+#: INSTRUCTIONS.md:728
+msgid ""
+"Perform a simulation using Legendre polynomials (`BF_LEGENDRE`) basis "
+"functions instead of the wavelets and see how this will affect the result. "
+"As the Legendre polynomials are delocalized basis functions, this should "
+"lead to more fluctuations in the bias potential as has been observed in the "
+"[paper introducing the wavelets](https://doi.org/10.1021/acs.jctc.2c00197)."
+msgstr ""
+"Wavelet の代わりに Legendre 多項式 (`BF_LEGENDRE`) の Basis Functions "
+"を使い、結果への影響を調べてください。Legendre 多項式は非局在の Basis Functions なので、[Wavelet "
+"を導入した論文](https://doi.org/10.1021/acs.jctc.2c00197) で観測されたように、BiasPotential "
+"の揺らぎが大きくなるはずです。"
+
+#: INSTRUCTIONS.md:733
+msgid ""
+"In this case, you need to change the basis set action in the PLUMED input to"
+msgstr "この場合、PLUMED 入力の Basis Set Action を次のように変更します。"
+
+#: INSTRUCTIONS.md:759
+msgid "Additional comments"
+msgstr "補足"
+
+#: INSTRUCTIONS.md:761
+msgid ""
+"This should cover the basics of running VES simulations in PLUMED, but the "
+"following comments might be of interest to some."
+msgstr "ここまでで PLUMED による VES 実行の基礎を扱いました。以下の補足も参考になるでしょう。"
+
+#: INSTRUCTIONS.md:764
+msgid "Restarting"
+msgstr "再開"
+
+#: INSTRUCTIONS.md:765
+msgid ""
+"VES simulations can be easily restarted. The code will automatically output "
+"all the file needed at the end of the simulation. To restart, you just need "
+"to reset the simulation with your MD code in the traditional way and add a "
+"`RESET` keyword to the top of the PLUMED input (for some codes like GROMACS,"
+" a restart is automatically detected by PLUMED and thus this keyword is not "
+"needed)."
+msgstr ""
+"VES は容易に再開できます。必要な全ファイルはシミュレーション終了時に自動出力されます。通常の方法で MD コードの再開を設定し、PLUMED "
+"入力の先頭に `RESET` を追加してください（GROMACS などでは PLUMED が再開を自動検出するため、この Keyword は不要です）。"
+
+#: INSTRUCTIONS.md:771
+msgid "Multiple Walkers"
+msgstr "Multiple Walkers"
+
+#: INSTRUCTIONS.md:773
+msgid ""
+"VES simulations supports the usage of multiple walkers where different "
+"copies of the system share the same bias potential (i.e. coefficients) and "
+"cooperatively sample the averages needed for the gradient and Hessian. This "
+"can significantly help with convergence in difficult cases. It is of course "
+"best to start the different copies from different positions in CV space. To "
+"activate this option you just need to add the `MULTIPLE_WALKERS` keyword to "
+"the `OPT_AVERAGED_SGD` action. Note that this is only supported if the MD "
+"code support running multiple replicas connected via MPI (e.g., GROMACS or "
+"LAMMPS)."
+msgstr ""
+"VES は、系の複数の Copy が同じ BiasPotential（係数）を共有し、勾配と Hessian に必要な平均を協力して Sampling "
+"する Multiple Walkers に対応します。難しい系で収束を大きく改善できます。各 Copy は CV "
+"空間の異なる位置から開始するのが望ましいでしょう。`OPT_AVERAGED_SGD` Action に `MULTIPLE_WALKERS` "
+"を追加すれば有効になります。ただし、MPI で結ばれた複数の Replica の実行を MD コードがサポートする場合（GROMACS や LAMMPS"
+" など）に限ります。"

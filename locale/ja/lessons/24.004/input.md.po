@@ -1,0 +1,439 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: input.md:1
+msgid "Input files preparation"
+msgstr "入力ファイルの準備"
+
+#: input.md:3
+msgid ""
+"In the zip file available in the [GitHub "
+"repository](https://github.com/compsb-unimi/VMetaD-tutorial) you will find "
+"all the initial files needed to run this tutorial."
+msgstr ""
+"[GitHub リポジトリ](https://github.com/compsb-unimi/VMetaD-tutorial) の ZIP "
+"に、実行に必要な初期ファイルがすべてあります。"
+
+#: input.md:5
+msgid "Preliminary molecular dynamics run"
+msgstr "事前の Molecular Dynamics"
+
+#: input.md:6
+msgid ""
+"As a first step for the VMetaD run, we have to choose the atoms which will "
+"constitute the reference frame on which we will calculate the position of "
+"the ligand with respect to the protein. To be sure in choosing residues that"
+" remain stable (i.e. do not belong to a moving loop), we run a 100 ns-long "
+"plain molecular dynamics (MD) simulation at 300 K (that is the temperature "
+"at which we will run and analyze all the simulations in this tutorial). This"
+" run took 2 h on 4 CPUs of a M1 Max MacBook Pro)."
+msgstr ""
+"まず、タンパク質に対する Ligand の位置を計算する参照座標系の原子を選びます。動く Loop などを避け、安定な残基を選ぶため、300 K "
+"で100 ns の通常 MD を実行します。この Tutorial の全シミュレーション・解析は同じ温度です。M1 Max MacBook Pro の4"
+" CPU で2時間かかりました。"
+
+#: input.md:8
+msgid ""
+"After the simulation, we calculate the per-residue root mean square "
+"fluctuations (RMSF), which highlights the more dynamic residues."
+msgstr "実行後、残基ごとの Root Mean Square Fluctuations (RMSF) を求め、動きの大きい残基を確認します。"
+
+#: input.md:16
+msgid ""
+"We can see that almost all the C-terminal domain (residues 71-162) does not "
+"show large fluctuations, and only few residues are above the (arbitrary) "
+"RMSF threshold of 0.15 nm. We thus consider to define the reference frame "
+"considering all the residues 71-162 but the five ones with RMSF > 0.15 nm "
+"(residues 135, 136, 137, 140, and 141)."
+msgstr ""
+"C-terminal Domain（71〜162）のほぼ全体で揺らぎは小さく、任意に定めた RMSF 0.15 nm "
+"の閾値を超える残基はわずかです。したがって71〜162のうち、RMSF > 0.15 nm "
+"の5残基（135、136、137、140、141）を除いて参照座標系を定めます。"
+
+#: input.md:18
+msgid "PDB file for reference frame refitting"
+msgstr "参照座標系の再 Fit 用 PDB"
+
+#: input.md:19
+msgid ""
+"To be sure to keep the structure stable during the simulation, we will "
+"define the reference frame of VMetaD on the residues selected for the fit. "
+"To have a reference structure to be used in PLUMED (see the next section for"
+" the input file), we convert the initial structure to the PDB format using "
+"`gmx editconf` (to ensure consistency with the numbering) and keeping only "
+"the C-alphas:"
+msgstr ""
+"シミュレーション中も構造を安定に保つため、Fit に選んだ残基で VMetaD の参照座標系を定めます。PLUMED "
+"用の参照構造として、番号の整合性を保つため `gmx editconf` で初期構造を PDB に変換し、C-alpha "
+"のみを残します。入力は次の節で説明します。"
+
+#: input.md:24
+msgid ""
+"Remember to add the correct values to the b-factor columns (and/or removing "
+"unwanted atoms for the fitting procedure) telling PLUMED which are the atoms"
+" we want to use for the fitting procedure (see the `ref_ca.pdb` file in the "
+"folder for reference)."
+msgstr ""
+"B-factor 列に適切な値を入れるか、不要な原子を除き、Fit に使う原子を PLUMED に指定してください（付属の `ref_ca.pdb` "
+"を参照）。"
+
+#: input.md:26
+msgid "Choice of the restraining potential size"
+msgstr "Restraint Potential の大きさの選択"
+
+#: input.md:28
+msgid ""
+"We now need to choose the size of the restraint potential. In the [original "
+"paper](https://doi.org/10.1021/acs.jpclett.9b01183) we showed that the "
+"reliability of the estimates is not affected by the size of the potential. "
+"However, we have to keep in mind that we need a part of the box where the "
+"ligand can stay far away from the protein in order to represent the unbound "
+"state in a satisfactory way. An important point here is that the sphere "
+"constraint __must__ be inside the box, otherwise the entropic correction "
+"will not accurately account for the loss of configurational space. To "
+"visually inspect how large the potential is, and to get a feel for the "
+"possible movements of the ligand, we can visualize both the system and the "
+"restraint with VMD (downloadable "
+"[here](https://www.ks.uiuc.edu/Research/vmd/))."
+msgstr ""
+"次に Restraint Potential "
+"の大きさを選びます。[原著](https://doi.org/10.1021/acs.jpclett.9b01183) "
+"では、推定の信頼性がその大きさに依存しないことを示しました。ただし非結合状態を十分に表すには、Ligand がタンパク質から離れられる領域が Box "
+"内に必要です。球形拘束は __必ず__ Box 内に収めてください。外に出ると Configuration 空間の減少を Entropy "
+"補正で正しく扱えません。大きさと Ligand "
+"の可動範囲を確認するには、VMD（[こちら](https://www.ks.uiuc.edu/Research/vmd/)）で系と Restraint "
+"を表示できます。"
+
+#: input.md:30
+msgid ""
+"We can open VMD and load the `starting.gro` structure file in the GitHub "
+"folder. After the structure is loaded and the visualization has been set up "
+"at your taste, you can open the Tk console and write"
+msgstr ""
+"VMD を開き、GitHub の `starting.gro` を読み込みます。好みの表示に設定し、Tk Console で次を入力します。"
+
+#: input.md:34
+msgid "which draws the cubic box in which the system is inserted."
+msgstr "系を含む立方体 Box が描かれます。"
+
+#: input.md:36
+msgid ""
+"Now we can generate the atom selection we defined after checking the RMSF:"
+msgstr "次に、RMSF の確認後に決めた原子選択を作ります。"
+
+#: input.md:40
+msgid "The console should answer"
+msgstr "Console は次のように返すはずです。"
+
+#: input.md:44
+msgid ""
+"Where `XX` is a number. The selection for the reference frame has been "
+"defined and named `$sel`. Now we can compute the position of the center of "
+"mass of this set of atoms:"
+msgstr ""
+"`XX` は数値です。参照座標系用の選択が `$sel` として定義されました。次に、この原子群の Center of Mass を計算します。"
+
+#: input.md:48
+msgid ""
+"The console should answer with the position of the center of mass (in "
+"Ångstrom)"
+msgstr "Center of Mass の位置が Ångstrom 単位で返されます。"
+
+#: input.md:52
+msgid ""
+"Knowing this information, we can draw the sphere with a radius of (for "
+"example) 2 nm (20 Å) with the following command"
+msgstr "この情報から、例えば半径2 nm (20 Å) の球を次で描けます。"
+
+#: input.md:56
+msgid ""
+"Receiving a number as an answer from the console. Such number is the ID of "
+"the 3D object we just draw. The drawn sphere is opaque, not allowing us to "
+"see inside it; to make it transparent, we need to specify that we want a "
+"transparent material"
+msgstr ""
+"Console が返す数値は、描いた3D Object の ID です。球は不透明で内部が見えないため、透明な Material を指定します。"
+
+#: input.md:60
+msgid ""
+"We can see that the sphere contains the entire domain, but it is probably "
+"too small to represent the unbound state in a precise way. Let's delete the "
+"sphere using the ID of the 3D object (let's say that it is `14`), and plot a"
+" new sphere of radius 2.8 nm"
+msgstr ""
+"球は Domain 全体を含みますが、非結合状態を正確に表すには小さすぎるようです。3D Object の ID（例えば "
+"`14`）で球を削除し、半径2.8 nm の球を描き直します。"
+
+#: input.md:66
+msgid "You can see the expected result below"
+msgstr "期待される結果を以下に示します。"
+
+#: input.md:73
+msgid "The PLUMED input file"
+msgstr "PLUMED 入力ファイル"
+
+#: input.md:74
+msgid ""
+"_(You can read the following line-by-line description keeping an eye on the "
+"`plumed.dat` file in the GitHub folder as a reference)_"
+msgstr "_以下の各行の説明は、GitHub の `plumed.dat` を参照しながら読めます。_"
+
+#: input.md:76
+msgid "Reference frame setup"
+msgstr "参照座標系の設定"
+
+#: input.md:77
+msgid ""
+"We start with the `WHOLEMOLECULES` instruction, to be sure that lysozyme "
+"(`ENTITY0`) will not be broken by the periodic boundary condition, as well "
+"as the benzene molecule (`ENTITY1`):"
+msgstr ""
+"まず `WHOLEMOLECULES` で、Periodic Boundary Conditions により Lysozyme（`ENTITY0`）と "
+"Benzene（`ENTITY1`）が分断されないようにします。"
+
+#: input.md:81
+msgid ""
+"Now that we are sure of the integrity of the structures in PLUMED, we "
+"perform the rototranslational fit of the system to make sure that the "
+"protein will be in the fixed reference frame position:"
+msgstr "構造がつながったら、系を回転・並進して Fit し、タンパク質を固定した参照座標系に置きます。"
+
+#: input.md:89
+msgid ""
+"We then start with the groups definition. We previously prepared a GROMACS "
+"index file (`index.ndx`) with all the groups named as intended. As an "
+"alternative, you can also define such groups with atom ids."
+msgstr ""
+"次に Group を定義します。事前に必要な名前の Group を含む GROMACS Index `index.ndx` を用意しました。Atom "
+"ID で直接定義することもできます。"
+
+#: input.md:100
+msgid "We have three groups:"
+msgstr "3つの Group があります。"
+
+#: input.md:101
+msgid ""
+"`prot_noh`, which contains all the non-hydrogen atoms of the protein (for "
+"our multi-eGO potential is equivalent to all the protein, but in all-atom "
+"representation it makes a difference);"
+msgstr "`prot_noh`：タンパク質の非水素原子。multi-eGO では全タンパク質と等価ですが、All-atom では違いがあります。"
+
+#: input.md:102
+msgid ""
+"`sph`, which contains the atoms that define the reference frame (the C-alpha"
+" of the selected residues -see above-);"
+msgstr "`sph`：参照座標系を定める原子（上記で選んだ残基の C-alpha）。"
+
+#: input.md:103
+msgid "`lig`, which contains the atoms of the ligand."
+msgstr "`lig`：Ligand の原子。"
+
+#: input.md:105
+msgid ""
+"After the definition of the groups, to avoid that the passage in a periodic "
+"boundary conditions causes a \"jump\" of the ligand with respect to the "
+"protein, we add a `WRAPAROUND` instruction:"
+msgstr "Group 定義後、PBC を越えた Ligand がタンパク質に対して Jump しないよう `WRAPAROUND` を加えます。"
+
+#: input.md:118
+msgid "Ending the fitting part of the PLUMED input."
+msgstr "これで入力の Fit 部分が完了します。"
+
+#: input.md:120
+msgid "Spherical coordinates definition"
+msgstr "球座標の定義"
+
+#: input.md:121
+msgid ""
+"We now compute the position of the center of mass of the atoms defining the "
+"reference frame ($(x,y,z)=(0,0,0)$ in our CV space), and the center of mass "
+"of the ligand:"
+msgstr ""
+"参照座標系の原子群の Center of Mass（CV 空間で $(x,y,z)=(0,0,0)$）と Ligand の Center of Mass"
+" を計算します。"
+
+#: input.md:140
+msgid ""
+"From the position, we can obtain the cartesian coordinates of the ligand in "
+"this reference frame"
+msgstr "これらの位置から、この座標系での Ligand の Cartesian Coordinates を求めます。"
+
+#: input.md:163
+msgid ""
+"and via the usual transformation, obtain the final spherical coordinates "
+"$(\\rho,\\theta,\\varphi)$"
+msgstr "通常の変換で、最終的な球座標 $(\\rho,\\theta,\\varphi)$ を得ます。"
+
+#: input.md:190
+msgid "which will be our CVs."
+msgstr "これらを CV とします。"
+
+#: input.md:192
+msgid "Restraining"
+msgstr "Restraint"
+
+#: input.md:193
+msgid ""
+"We now have to impose the spherical restraint. We put a `UPPER_WALLS` which "
+"impedes the ligand to go farther than 2.8 nm:"
+msgstr "球形 Restraint を加えます。`UPPER_WALLS` で Ligand が2.8 nm より遠くに行かないようにします。"
+
+#: input.md:222
+msgid ""
+"the $k$ value is 10,000 kJ/mol/nm^2, which means that if the ligand is out "
+"by 0.1 nm he will feel a potential of 100 kJ/mol."
+msgstr "$k$ は10,000 kJ/mol/nm^2 なので、0.1 nm 外に出ると100 kJ/mol の Potential を受けます。"
+
+#: input.md:224
+msgid ""
+"One effect that we should take into account is the possibility that the "
+"ligand, in advanced phases of the simulation, will try to unfold the "
+"protein, being the place occupied by it the volume portion with less "
+"history-dependent potential deposited. To limit this phenomenon we will put "
+"in place a RMSD restraining that will be removed during the reweighting "
+"procedure. To compute the RMSD we will use the same atoms included in the "
+"`ref_ca.pdb` file instruction"
+msgstr ""
+"後半では、履歴依存 Potential が最も少ないタンパク質の占める体積へ Ligand が入り、Unfolding "
+"を起こす可能性があります。抑えるため RMSD Restraint を加え、Reweighting で除きます。RMSD は `ref_ca.pdb` "
+"の原子で計算します。"
+
+#: input.md:257
+msgid "Reweighting CVs"
+msgstr "Reweighting 用 CV"
+
+#: input.md:258
+msgid ""
+"As anticipated in the theory part, to compute binding free energy "
+"differences we will need to reweight our free energy landscape on new apt "
+"CVs which will allow us in discriminating efficiently the bound and unbound "
+"states. Like in the original work, here we will use again the distance from "
+"the origin of the reference frame $\\rho$ and the number of contacts between"
+" the protein and the ligand. This will guarantee that if the guest can be "
+"considered not in contact with the host (and thus defining the unbound "
+"state), even if $\\rho$ is large."
+msgstr ""
+"理論編のとおり、結合自由エネルギー差には、結合・非結合状態を効率よく区別する CV への Reweighting "
+"が必要です。原著と同じく、参照座標系の原点からの距離 $\\rho$ と、タンパク質・Ligand 間の Contact "
+"数を使います。これにより、$\\rho$ が大きい場合にも Guest が Host と Contact していないか確認し、非結合状態を定義できます。"
+
+#: input.md:260
+msgid "The total number of contact $c$ is defined with a switching function"
+msgstr "全 Contact 数 $c$ は Switching Function で定義します。"
+
+#: input.md:267
+msgid ""
+"which runs on all the (heavy) atoms of the protein and all the atoms of the "
+"ligand. This is implemented with `COOORDINATION`:"
+msgstr "タンパク質の全 Heavy Atom と Ligand の全原子について計算します。`COOORDINATION` で実装します。"
+
+#: input.md:301
+msgid "where we set a $r_0$ parameter at 0.45 nm."
+msgstr "$r_0$ は0.45 nm とします。"
+
+#: input.md:303
+msgid "Volume-based Metadynamics"
+msgstr "Volume-based Metadynamics"
+
+#: input.md:304
+msgid "We now set up the VMetaD:"
+msgstr "次に VMetaD を設定します。"
+
+#: input.md:351
+msgid ""
+"The most exotic option used is `CALC_RCT`, which allows the calculation on "
+"the fly of the [Tiwary-Parrinello "
+"estimator](https://doi.org/10.1021/jp504920s) that we will use for "
+"reweighting."
+msgstr ""
+"特徴的なのは `CALC_RCT` で、Reweighting に使う [Tiwary-Parrinello "
+"Estimator](https://doi.org/10.1021/jp504920s) を On-the-fly に計算できます。"
+
+#: input.md:353
+msgid "Printing"
+msgstr "出力"
+
+#: input.md:354
+msgid ""
+"We finally print all the relevant files that we will use for post-processing"
+" and analysis."
+msgstr "最後に、後処理・解析に必要な全ファイルを出力します。"
+
+#: input.md:410
+msgid ""
+"We will have all the VMetaD quantities in `metad_data.dat`, the restraints "
+"data in `{rmsd,sphere}_restaint.dat`, the $(x,y,z)$ and "
+"$(\\rho,\\theta,\\varphi)$ coordinates in `xyz_coord.dat` and "
+"`rtp_coord.dat`, respectively, and the reweighting CVs in `coord_rho.dat`."
+msgstr ""
+"VMetaD の量は `metad_data.dat`、Restraint は "
+"`{rmsd,sphere}_restaint.dat`、$(x,y,z)$ と $(\\rho,\\theta,\\varphi)$ はそれぞれ "
+"`xyz_coord.dat`、`rtp_coord.dat`、Reweighting CV は `coord_rho.dat` に出力します。"
+
+#: input.md:412
+msgid ""
+"___PLEASE NOTE___: all the printing frequencies are synchronized with the "
+"VMetaD `PACE` (every 10 print we deposit 1 gaussian), and it should be "
+"synchronized also with trajectory printing (I personally suggest the same "
+"frequency used for gaussian deposition). This allows us to restart safely in"
+" case of issues and re-run or re-analyze with new CVs the run, if needed."
+msgstr ""
+"___注意___：出力頻度は VMetaD の `PACE` と同期しています（10回の出力ごとに Gaussian 1個を追加）。Trajectory"
+" の出力とも同期させてください。Gaussian 追加と同じ頻度を推奨します。問題時の安全な再開や、別の CV による再実行・再解析が可能になります。"
+
+#: input.md:414
+msgid "Last advices before launching the simulation"
+msgstr "実行前の最後の助言"
+
+#: input.md:415
+msgid ""
+"One issue that can be observed when launching when running VMetaD is the "
+"sudden interruption of the simulation with a cryptic error. Please check the"
+" position of the ligand: in most cases, the system reached "
+"$(\\rho,\\theta,\\varphi)=(0,0,0)$, where the derivatives of the potential "
+"cannot be defined, and thus PLUMED sends an error. Despite being annoying, "
+"this is perfectly normal, and does not invalidate the run. Please restart it"
+" from the previous checkpoint (save a checkpoint often!)."
+msgstr ""
+"VMetaD が突然、わかりにくいエラーで止まることがあります。Ligand の位置を確認してください。多くは系が "
+"$(\\rho,\\theta,\\varphi)=(0,0,0)$ に達し、Potential "
+"の微分が定義できなくなるためです。不便ですが正常なことで、計算全体が無効になるわけではありません。前の Checkpoint "
+"から再開してください。Checkpoint は頻繁に保存しましょう。"
+
+#: input.md:417
+msgid ""
+"Another consideration regarding the singularity of the reference frame is "
+"its position with respect to the actual binding site. In close proximity of "
+"it (let's say less than 2 sigmas in $\\rho$) even an extremely small "
+"movement in any direction makes the ligand move of several sigmas in "
+"$\\theta$ and $\\varphi$, with the possibility of underestimation of the "
+"bias. This could imply the need of longer simulation times to fill up the "
+"basin. To limit this effect, we suggest to verify if the origin of the "
+"reference frame is farther that 2-3 sigmas in $\\rho$ from the binding site "
+"(the perfect situation would be setting the origin in a point occupied by "
+"the host, at 4-5 Å from the binding site)."
+msgstr ""
+"座標系の特異点と実際の結合部位の位置関係にも注意します。原点の近く（$\\rho$ の2 Sigma 未満程度）では、わずかな移動でも "
+"$\\theta$ と $\\varphi$ が数 Sigma 変化し、Bias を過小評価する可能性があります。そのため Basin "
+"を埋める時間が長くなる場合があります。原点が結合部位から $\\rho$ の2〜3 Sigma "
+"より離れているか確認してください。理想は、結合部位から4〜5 Å 離れた Host 内の点です。"
+
+#: input.md:419
+msgid "Launch!"
+msgstr "実行！"
+
+#: input.md:420
+msgid ""
+"You can now run the VMetaD tutorial. We advice you to run it for (at least) "
+"500 ns. In this example, we run it for 1 µs."
+msgstr "VMetaD を実行できます。少なくとも500 ns を推奨します。この例は1 µs です。"
+
+#: input.md:422
+msgid "[Back to VMetad home](NAVIGATION.md)"
+msgstr "[VMetad のホームに戻る](NAVIGATION.md)"

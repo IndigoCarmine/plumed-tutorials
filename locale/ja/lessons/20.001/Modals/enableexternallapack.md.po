@@ -1,0 +1,20 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Modals/enableexternallapack.md:2
+msgid "--enable-external-lapack option"
+msgstr "--enable-external-lapack オプション"
+
+#: Modals/enableexternallapack.md:25
+msgid ""
+"You can also only disable the external LAPACK. In other words, you can use "
+"the internal version of LAPACK with an external version of BLAS by using the"
+" command:"
+msgstr ""
+"External LAPACK だけを無効にし、Internal LAPACK と External BLAS を組み合わせることもできます。"

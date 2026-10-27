@@ -1,0 +1,481 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 01.md:1
+msgid "Tutorial 1: Single-structure refinement with EMMIVox"
+msgstr "チュートリアル1：EMMIVox による Single-structure Refinement"
+
+#: 01.md:3
+msgid ""
+"These are the steps for refining a single structural model into a cryo-EM "
+"maps with EMMIVox."
+msgstr "cryo-EM Map と EMMIVox を使い、単一の構造モデルを Refinement する手順を示す。"
+
+#: 01.md:5
+msgid ""
+"**Note**: all the python scripts are contained in the `scripts` folder. "
+"Please run each step of the tutorial in the dedicated subfolder of "
+"`tutorials/1-refinement` referred to as **Working directory**."
+msgstr ""
+"**注意**：Python スクリプトはすべて `scripts` フォルダにある。各手順は、`tutorials/1-refinement` "
+"内の、**作業ディレクトリ**として指定したサブフォルダで実行する。"
+
+#: 01.md:7
+msgid "0. System setup"
+msgstr "0. 系の設定"
+
+#: 01.md:9
+msgid ""
+"Create the topology files and the initial conformation in GROMACS format "
+"starting from the deposited PDB (`7P6A.pdb`). We have done this for you "
+"using [CHARMM-GUI](https://www.charmm-gui.org). CHARMM-GUI can also complete"
+" your system if there are missing residues and create the force field for a "
+"small-molecule, if present."
+msgstr ""
+"登録済み PDB（`7P6A.pdb`）から、GROMACS 形式の Topology と初期 Conformation を作る。ここでは "
+"[CHARMM-GUI](https://www.charmm-gui.org) で作成済みである。CHARMM-GUI は、欠損 Residues "
+"の補完や、Small Molecule がある場合の Force Field の作成にも使える。"
+
+#: 01.md:11
+msgid ""
+"**Note**: The conformation in the `step3_input.gro` file (GROMACS format) "
+"produced by CHARMM-GUI is identical to one in the deposited PDB. However, "
+"CHARMM-GUI will probably translate and rotate your initial PDB, which will "
+"then not fit the input cryo-EM map anymore. Furthermore, atoms order might "
+"be different."
+msgstr ""
+"**注意**：CHARMM-GUI が出力した GROMACS 形式の `step3_input.gro` の Conformation は、登録 "
+"PDB と同じである。ただし、初期 PDB に並進・回転を加えることが多く、そのままでは入力 cryo-EM Map "
+"に合わなくなる。原子の順序も変わる場合がある。"
+
+#: 01.md:14
+msgid ""
+"CHARMM-GUI renumbers residues and chains in `step3_input.gro`, so we first "
+"need to make sure we have a PDB file consistent with the `gro` atom order. "
+"We can create this PDB file using this command:"
+msgstr ""
+"CHARMM-GUI は `step3_input.gro` の Residues と Chains の番号を振り直すため、まず `gro` "
+"の原子順序に対応した PDB を用意する。次のコマンドで作成できる。"
+
+#: 01.md:17
+msgid "`bash renumber.sh step3_input.gro step3_input.pdb`"
+msgstr "`bash renumber.sh step3_input.gro step3_input.pdb`"
+
+#: 01.md:19
+msgid ""
+"Add to the index file created by CHARMM-GUI (`index.ndx`) two custom groups:"
+msgstr "CHARMM-GUI の Index ファイル（`index.ndx`）に、2つの Groups を追加する。"
+
+#: 01.md:21
+msgid ""
+"`System-MAP`, which contains all the atoms that will be used to generate the"
+" cryo-EM map. You can do this with `make_ndx.py` in `scripts` using "
+"[`MDAnalysis`](https://www.mdanalysis.org) selection syntax. Hydrogen atoms "
+"and the carboxylate oxygens of glutamic/aspartic acid will be automatically "
+"removed from this group, as they are not used in PLUMED to calculate the "
+"cryo-EM map. A second group, called `System-MAP-H` will also be created to "
+"include these missing atoms (mostly to write them in the trajectory file)."
+msgstr ""
+"`System-MAP` は、cryo-EM Map の生成に使うすべての原子を含む。`scripts` の `make_ndx.py` "
+"で、[`MDAnalysis`](https://www.mdanalysis.org) の Selection Syntax "
+"を用いて作れる。水素原子と Glutamic／Aspartic Acid の Carboxylate Oxygens は、PLUMED の Map "
+"計算には使わないため、自動的に除外される。これらを含めた `System-MAP-H` も作成され、主に Trajectory 出力に用いる。"
+
+#: 01.md:23
+msgid ""
+"`python make_ndx.py step3_input.gro \"protein\" System-MAP --ndx index.ndx`"
+msgstr ""
+"`python make_ndx.py step3_input.gro \"protein\" System-MAP --ndx index.ndx`"
+
+#: 01.md:25
+msgid ""
+"`System-XTC`, which contains all the atoms that will be written to the "
+"GROMACS trajectory file (xtc format). In this case, we want to write all the"
+" atoms used for the cryo-EM calculation plus hydrogen and carboxylate "
+"oxygens of glutamic/aspartic acid."
+msgstr ""
+"`System-XTC` は、GROMACS の xtc 形式の Trajectory に出力する原子を含む。ここでは、cryo-EM "
+"計算に使う原子に加えて、水素と Glutamic／Aspartic Acid の Carboxylate Oxygens も出力する。"
+
+#: 01.md:27
+msgid "`python make_XTC_ndx.py System-MAP-H --ndx index.ndx`"
+msgstr "`python make_XTC_ndx.py System-MAP-H --ndx index.ndx`"
+
+#: 01.md:29
+msgid "**Working directory**: `0-Building`"
+msgstr "**作業ディレクトリ**：`0-Building`"
+
+#: 01.md:31
+msgid "1. Map preparation"
+msgstr "1. Map の準備"
+
+#: 01.md:33
+msgid ""
+"At this stage we need to download the cryo-EM full map "
+"[`emd_13223.map`](https://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-13223/map/emd_13223.map.gz)."
+" the two half-maps "
+"[`emd_13223_half_map_1.map`](https://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-13223/other/emd_13223_half_map_1.map.gz)"
+" and "
+"[`emd_13223_half_map_2.map`](https://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-13223/other/emd_13223_half_map_2.map.gz),"
+" and the PDB [`7P6A.pdb`](https://files.rcsb.org/download/7P6A.pdb), which "
+"will be needed to zone the density map close to the model (optional, but "
+"speeds up things a lot)."
+msgstr ""
+"cryo-EM の Full Map "
+"[`emd_13223.map`](https://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-13223/map/emd_13223.map.gz)、2つの"
+" Half-maps "
+"[`emd_13223_half_map_1.map`](https://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-13223/other/emd_13223_half_map_1.map.gz)"
+" と "
+"[`emd_13223_half_map_2.map`](https://ftp.ebi.ac.uk/pub/databases/emdb/structures/EMD-13223/other/emd_13223_half_map_2.map.gz)、および"
+" PDB [`7P6A.pdb`](https://files.rcsb.org/download/7P6A.pdb) をダウンロードする。PDB "
+"は、密度 Map をモデルの近傍に限定するために使う。これは任意だが、大きく高速化できる。"
+
+#: 01.md:38
+msgid ""
+"To convert the input cryo-EM map to PLUMED format, calculate an error map "
+"from the two half maps, and optionally filter voxels by correlation, you "
+"need to execute this:"
+msgstr ""
+"入力 Map を PLUMED 形式に変換し、2つの Half-maps から Error Map を計算し、必要なら相関で Voxels "
+"を絞るには、次を実行する。"
+
+#: 01.md:40
+msgid ""
+"`python cryo-EM_preprocess.py emd_13223.map 0.9 emd_plumed.dat --zone 3.5 "
+"--zone_PDB 7P6A.pdb --zone_sel \"protein\" --halfmaps "
+"emd_13223_half_map_1.map emd_13223_half_map_2.map > log.preprocess`"
+msgstr ""
+"`python cryo-EM_preprocess.py emd_13223.map 0.9 emd_plumed.dat --zone 3.5 "
+"--zone_PDB 7P6A.pdb --zone_sel \"protein\" --halfmaps "
+"emd_13223_half_map_1.map emd_13223_half_map_2.map > log.preprocess`"
+
+#: 01.md:42
+msgid ""
+"**Note 1**: The value `0.9` is the cutoff to exclude correlated voxels "
+"(above this threshold). If you want to keep all the voxels of the input map,"
+" set this to `1.0`. `emd_plumed.dat` is the name of the output map in PLUMED"
+" format. `--zone` can be used to keep only voxels within a certain distance "
+"(here 3.5 Ang) from the model specified by `--zone_PDB`."
+msgstr ""
+"**注意1**：`0.9` は、相関がこれを超える Voxels を除外する Cutoff である。すべて残したければ `1.0` "
+"にする。`emd_plumed.dat` は PLUMED 形式の出力 Map 名である。`--zone` で、`--zone_PDB` "
+"のモデルから指定距離、ここでは3.5 Ang 以内の Voxels だけを残せる。"
+
+#: 01.md:44
+msgid ""
+"**Note 2**: If you want to give a look at the map after the preparation, you"
+" can inspect `emd_plumed.mrc`. This is the map that will be used in PLUMED "
+"for modelling and corresponds to `emd_plumed.dat`."
+msgstr ""
+"**注意2**：準備後の Map を確認するには `emd_plumed.mrc` を見る。これが PLUMED の Modelling "
+"に使われ、`emd_plumed.dat` に対応する Map である。"
+
+#: 01.md:46
+msgid ""
+"Now we align the cryo-EM map in PLUMED format (`emd_plumed.dat`) to the "
+"GROMACS conformation (`step3_input.pdb`). This is needed because CHARMM-GUI "
+"probably moved the initial structure during system setup."
+msgstr ""
+"次に、PLUMED 形式の Map（`emd_plumed.dat`）を GROMACS の "
+"Conformation（`step3_input.pdb`）に合わせる。CHARMM-GUI が系の設定中に初期構造を移動した可能性があるためである。"
+
+#: 01.md:48
+msgid ""
+"`python align-VOXELS.py ../0-Building/step3_input.pdb 7P6A.pdb "
+"emd_plumed_aligned.dat emd_plumed.dat --ref_sel \"backbone\" --mobile_sel "
+"\"backbone and not altLoc B and not (name O and resid 379)\"`"
+msgstr ""
+"`python align-VOXELS.py ../0-Building/step3_input.pdb 7P6A.pdb "
+"emd_plumed_aligned.dat emd_plumed.dat --ref_sel \"backbone\" --mobile_sel "
+"\"backbone and not altLoc B and not (name O and resid 379)\"`"
+
+#: 01.md:50
+msgid ""
+"**Note 3**: Since there are some discrepancies between the number of atoms "
+"in the two PDBs, we have specified a selection of common atoms for alignment"
+" using [`MDAnalysis`](https://www.mdanalysis.org) selection syntax. "
+"`--ref_sel` refers to `step3_input.pdb` and `--mobile_sel` to `7P6A.pdb`. "
+"You can verify that the alignment is correct by checking the RMSD value in "
+"output: it should be zero as the two models are identical."
+msgstr ""
+"**注意3**：2つの PDB の原子数が異なるため、[`MDAnalysis`](https://www.mdanalysis.org) の "
+"Selection Syntax で共通の原子を選んで Alignment する。`--ref_sel` は "
+"`step3_input.pdb`、`--mobile_sel` は `7P6A.pdb` を指す。出力の RMSD "
+"で確認でき、同じモデルなので0となるはずである。"
+
+#: 01.md:52
+msgid "**Working directory**: `1-Map-Preparation`"
+msgstr "**作業ディレクトリ**：`1-Map-Preparation`"
+
+#: 01.md:54
+msgid "2. System equilibration"
+msgstr "2. 系の Equilibration"
+
+#: 01.md:56
+msgid ""
+"We need to prepare the system with an energy minimization and equilibration "
+"at room temperature. No cryo-EM restraints will be used at this stage."
+msgstr ""
+"Energy Minimization と室温での Equilibration を行う。この段階では cryo-EM Restraints は加えない。"
+
+#: 01.md:58
+msgid "Run energy minimization:"
+msgstr "Energy Minimization を実行する。"
+
+#: 01.md:60
+msgid ""
+"`gmx_mpi grompp -f 0-em-steep.mdp -c ../0-Building/step3_input.gro -p "
+"../0-Building/topol.top -o em.tpr`"
+msgstr ""
+"`gmx_mpi grompp -f 0-em-steep.mdp -c ../0-Building/step3_input.gro -p "
+"../0-Building/topol.top -o em.tpr`"
+
+#: 01.md:62
+msgid "`gmx_mpi mdrun -pin on -deffnm em`"
+msgstr "`gmx_mpi mdrun -pin on -deffnm em`"
+
+#: 01.md:64
+msgid ""
+"Do a 1-ns NPT equilibration with positional restraints on everything except "
+"water and ions:"
+msgstr "水と Ions 以外に Position Restraints を加え、1 ns の NPT Equilibration を行う。"
+
+#: 01.md:66
+msgid ""
+"`gmx_mpi grompp -f 1_npt_posres.mdp -c em.gro -n ../0-Building/index.ndx -p "
+"../0-Building/topol.top -r em.gro -o npt_posres.tpr -maxwarn 1`"
+msgstr ""
+"`gmx_mpi grompp -f 1_npt_posres.mdp -c em.gro -n ../0-Building/index.ndx -p "
+"../0-Building/topol.top -r em.gro -o npt_posres.tpr -maxwarn 1`"
+
+#: 01.md:68
+msgid "`gmx_mpi mdrun -pin on -deffnm npt_posres -nsteps 500000 -update gpu`"
+msgstr "`gmx_mpi mdrun -pin on -deffnm npt_posres -nsteps 500000 -update gpu`"
+
+#: 01.md:70
+msgid ""
+"Do a 2-ns NVT equilibration with positional restraints on everything except "
+"water and ions:"
+msgstr "水と Ions 以外に Position Restraints を加え、2 ns の NVT Equilibration を行う。"
+
+#: 01.md:72
+msgid ""
+"`gmx_mpi grompp -f 2_nvt_posres.mdp -c npt_posres.gro -n "
+"../0-Building/index.ndx -p ../0-Building/topol.top -r em.gro -o "
+"nvt_posres.tpr -maxwarn 1`"
+msgstr ""
+"`gmx_mpi grompp -f 2_nvt_posres.mdp -c npt_posres.gro -n "
+"../0-Building/index.ndx -p ../0-Building/topol.top -r em.gro -o "
+"nvt_posres.tpr -maxwarn 1`"
+
+#: 01.md:74
+msgid "`gmx_mpi mdrun -pin on -deffnm nvt_posres -nsteps 1000000 -update gpu`"
+msgstr ""
+"`gmx_mpi mdrun -pin on -deffnm nvt_posres -nsteps 1000000 -update gpu`"
+
+#: 01.md:76
+msgid "**Working directory**: `2-Equilibration`"
+msgstr "**作業ディレクトリ**：`2-Equilibration`"
+
+#: 01.md:78
+msgid "3. Optimizing the cryo-EM map scaling factor"
+msgstr "3. cryo-EM Map の Scaling Factor の最適化"
+
+#: 01.md:80
+msgid ""
+"We postprocess the NVT equilibration trajectory to obtain an optimal scaling"
+" factor between experimental and predicted map."
+msgstr ""
+"NVT Equilibration の Trajectory を後処理し、実験と予測の Maps の間の最適な Scaling Factor を求める。"
+
+#: 01.md:82
+msgid "`bash optimize_scale.sh 8`"
+msgstr "`bash optimize_scale.sh 8`"
+
+#: 01.md:84
+msgid ""
+"Here we are using 8 CPU cores (and the GPU) to postprocess the trajectory "
+"with PLUMED. The optimal value of the scale will be printed in `BEST_SCALE` "
+"at the end of the optimization. This will be used for both single-structure "
+"refinement and ensemble modelling."
+msgstr ""
+"ここでは8つの CPU Cores と GPU を用いて、PLUMED で後処理する。最適化後の値は `BEST_SCALE` "
+"に出力され、Single-structure Refinement と Ensemble Modelling の両方に使う。"
+
+#: 01.md:86
+msgid "**Working directory**: `3-Map-Scaling`"
+msgstr "**作業ディレクトリ**：`3-Map-Scaling`"
+
+#: 01.md:88
+msgid "4. Production"
+msgstr "4. 本計算"
+
+#: 01.md:90
+msgid ""
+"To run the production simulation for single-structure refinement we need to:"
+msgstr "Single-structure Refinement の本計算には、次の準備が必要である。"
+
+#: 01.md:92
+msgid "Prepare the `plumed_EMMI.dat` file with production parameters using:"
+msgstr "次のコマンドで、本計算のパラメータを使う `plumed_EMMI.dat` を作る。"
+
+#: 01.md:94
+msgid "`bash prepare_PLUMED_input.sh`"
+msgstr "`bash prepare_PLUMED_input.sh`"
+
+#: 01.md:96
+msgid ""
+"The generated PLUMED input file, called `plumed_EMMI.dat`, should look like "
+"this:"
+msgstr "生成される PLUMED 入力 `plumed_EMMI.dat` は、次のようになる。"
+
+#: 01.md:137
+msgid ""
+"Run a 10-ns long production run following the instructions below, after "
+"setting the number of CPU cores to use (`$OMP_NUM_THREADS`)."
+msgstr "CPU Core 数（`$OMP_NUM_THREADS`）を設定し、次の手順で10 ns の本計算を行う。"
+
+#: 01.md:139
+msgid ""
+"`gmx_mpi grompp -f 4-nvt-production.mdp -c ../2-Equilibration/nvt_posres.gro"
+" -n ../0-Building/index.ndx -p ../0-Building/topol.top -o production.tpr`"
+msgstr ""
+"`gmx_mpi grompp -f 4-nvt-production.mdp -c ../2-Equilibration/nvt_posres.gro"
+" -n ../0-Building/index.ndx -p ../0-Building/topol.top -o production.tpr`"
+
+#: 01.md:141
+msgid ""
+"`gmx_mpi mdrun -pin on -deffnm production -ntomp $OMP_NUM_THREADS -nsteps "
+"5000000 -plumed plumed_EMMI.dat`"
+msgstr ""
+"`gmx_mpi mdrun -pin on -deffnm production -ntomp $OMP_NUM_THREADS -nsteps "
+"5000000 -plumed plumed_EMMI.dat`"
+
+#: 01.md:143
+msgid ""
+"**Note**: Do **not** add the option `-update gpu` when using GROMACS in "
+"combination with PLUMED."
+msgstr "**注意**：GROMACS と PLUMED を組み合わせる場合、`-update gpu` を追加しては**いけない**。"
+
+#: 01.md:145
+msgid "**Working directory**: `4-Production`"
+msgstr "**作業ディレクトリ**：`4-Production`"
+
+#: 01.md:147
+msgid "5. Postprocessing and validation"
+msgstr "5. 後処理と検証"
+
+#: 01.md:149
+msgid ""
+"We first need to extract the conformation with best EMMIVox score from our "
+"production run and perform a short energy minimization. To setup all the "
+"files needed for minimization, you need to execute this script:"
+msgstr ""
+"まず、本計算から EMMIVox Score が最良の Conformation を取り出し、短い Energy Minimization "
+"を行う。必要なファイルは、次のスクリプトで用意する。"
+
+#: 01.md:151
+msgid "`bash prepare_PLUMED_input_emin.sh`"
+msgstr "`bash prepare_PLUMED_input_emin.sh`"
+
+#: 01.md:153
+msgid "Now we run energy minimization using 8 CPU cores:"
+msgstr "次に、8つの CPU Cores で Energy Minimization を実行する。"
+
+#: 01.md:155
+msgid "`bash run_PLUMED_emin.sh 8`"
+msgstr "`bash run_PLUMED_emin.sh 8`"
+
+#: 01.md:157
+msgid ""
+"After minimization is complete, we need to align `conf_pbc.pdb` to the "
+"original cryo-EM map using the `transformation.dat` file created during the "
+"map preparation stage:"
+msgstr ""
+"完了したら、Map の準備で作った `transformation.dat` を使い、`conf_pbc.pdb` を元の cryo-EM Map "
+"に合わせる。"
+
+#: 01.md:160
+msgid ""
+"`python align-PDBs.py conf_pbc.pdb conf_pbc_aligned.pdb ../1-Map-"
+"Preparation/transformation.dat`"
+msgstr ""
+"`python align-PDBs.py conf_pbc.pdb conf_pbc_aligned.pdb ../1-Map-"
+"Preparation/transformation.dat`"
+
+#: 01.md:162
+msgid "Finally, we add the BFactors column to our aligned model:"
+msgstr "最後に、Alignment したモデルに BFactors の列を追加する。"
+
+#: 01.md:164
+msgid "`python add-BFACT.py conf_pbc_aligned.pdb EMMIStatus conf_EMMIVOX.pdb`"
+msgstr ""
+"`python add-BFACT.py conf_pbc_aligned.pdb EMMIStatus conf_EMMIVOX.pdb`"
+
+#: 01.md:166
+msgid ""
+"The output PDB file `conf_EMMIVOX.pdb` is ready to be validated with PHENIX:"
+msgstr "出力 PDB `conf_EMMIVOX.pdb` は、PHENIX で検証できる状態になっている。"
+
+#: 01.md:168
+msgid ""
+"`bash do_PHENIX conf_EMMIVOX.pdb ../1-Map-Preparation/emd_13223.map 1.9 > "
+"results.EMMIVOX`"
+msgstr ""
+"`bash do_PHENIX conf_EMMIVOX.pdb ../1-Map-Preparation/emd_13223.map 1.9 > "
+"results.EMMIVOX`"
+
+#: 01.md:170
+msgid ""
+"where `1.9` is the resolution of the input map `emd_13223.map` in Angstrom. "
+"Validation metrics are saved in `results.EMMIVOX`."
+msgstr ""
+"`1.9` は入力 Map `emd_13223.map` の Angstrom 単位の Resolution である。検証指標は "
+"`results.EMMIVOX` に保存される。"
+
+#: 01.md:172
+msgid "Compare the EMMIVOX-refined model with the deposited PDB:"
+msgstr "EMMIVOX で Refinement したモデルを、登録済み PDB と比較する。"
+
+#: 01.md:174
+msgid ""
+"`bash do_PHENIX ../1-Map-Preparation/7P6A.pdb ../1-Map-"
+"Preparation/emd_13223.map 1.9 > results.PDB`"
+msgstr ""
+"`bash do_PHENIX ../1-Map-Preparation/7P6A.pdb ../1-Map-"
+"Preparation/emd_13223.map 1.9 > results.PDB`"
+
+#: 01.md:176
+msgid ""
+"Model fit to the data (CC_mask) can be calculated using our internal script:"
+msgstr "データへのモデルの適合度（CC_mask）は、付属のスクリプトでも計算できる。"
+
+#: 01.md:178
+msgid ""
+"`python cryo-EM_validate.py ../1-Map-Preparation/emd_13223.map "
+"--pdbA=conf_EMMIVOX.pdb --threshold=0.0 > CCmask.EMMIVOX`"
+msgstr ""
+"`python cryo-EM_validate.py ../1-Map-Preparation/emd_13223.map "
+"--pdbA=conf_EMMIVOX.pdb --threshold=0.0 > CCmask.EMMIVOX`"
+
+#: 01.md:180
+msgid ""
+"`python cryo-EM_validate.py ../1-Map-Preparation/emd_13223.map "
+"--pdbA=../1-Map-Preparation/7P6A.pdb --threshold=0.0 > CCmask.PDB`"
+msgstr ""
+"`python cryo-EM_validate.py ../1-Map-Preparation/emd_13223.map "
+"--pdbA=../1-Map-Preparation/7P6A.pdb --threshold=0.0 > CCmask.PDB`"
+
+#: 01.md:182
+msgid "**Working directory**: `5-Analysis`"
+msgstr "**作業ディレクトリ**：`5-Analysis`"
+
+#: 01.md:184
+msgid "[Back to EMMIVox home](NAVIGATION.md)"
+msgstr "[EMMIVox のホームに戻る](NAVIGATION.md)"

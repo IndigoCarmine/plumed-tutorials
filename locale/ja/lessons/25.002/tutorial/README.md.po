@@ -1,0 +1,429 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tutorial/README.md:1
+msgid "bAIes-SM Tutorial"
+msgstr "bAIes-SM のチュートリアル"
+
+#: tutorial/README.md:3
+msgid ""
+"In this tutorial, you will learn how to use **bAIes** to refine protein "
+"complex structures for improved virtual screening performance. **bAIes** is "
+"a powerful tool based on Bayesian inference that integrates AlphaFold2 (AF2)"
+" local pairwise distance confidence scores with state-of-the-art molecular "
+"mechanics force fields."
+msgstr ""
+"このチュートリアルでは、**bAIes** でタンパク質複合体を Refinement し、Virtual Screening "
+"の性能を改善する方法を学ぶ。**bAIes** は、AlphaFold2（AF2）の Local Pairwise Distance "
+"Confidence Scores と、現在の Molecular Mechanics Force Fields を統合する、Bayesian "
+"Inference に基づくツールである。"
+
+#: tutorial/README.md:6
+msgid ""
+"You will begin by generating an initial protein complex structure and "
+"residue-level distance confidence information using AlphaFold2. Next, we "
+"will perform a molecular dynamics (MD) relaxation with Gromacs. Following "
+"this, we will use bAIes to refine the protein models in a Bayesian way, "
+"where the MD simulations are guided jointly by MD force fields and the AF-"
+"derived local distance confidences. From the resulting trajectories, one or "
+"more refined structures will be selected and used as targets for small "
+"molecule (SM) docking."
+msgstr ""
+"まず AlphaFold2 で、タンパク質複合体の初期構造と、Residue レベルの Distance Confidence を生成する。次に "
+"GROMACS の MD で Relaxation する。その後、Force Fields と AF の Local Distance "
+"Confidences の両方で MD を誘導し、bAIes による Bayesian Refinement を行う。得られた Trajectories"
+" から1つ以上の構造を選び、Small Molecule（SM）Docking の Targets とする。"
+
+#: tutorial/README.md:11
+msgid ""
+"This workflow is a critical and enabling step in structure-based drug "
+"discovery, as it enhances the accuracy and reliability of protein targets "
+"for virtual screening, ultimately increasing the likelihood of identifying "
+"promising therapeutic compounds."
+msgstr ""
+"この手順は、Virtual Screening "
+"用の標的タンパク質の精度と信頼性を高め、有望な治療化合物を見つける可能性を増やすため、Structure-based Drug Discovery "
+"に重要な段階である。"
+
+#: tutorial/README.md:14
+msgid ""
+"Let's begin! We will use the example of a human estrogen receptor ([PDB "
+"3ERD](https://www.rcsb.org/structure/3ERD)). This system comprises the "
+"ligand-binding domain (LBD) of the receptor (herα) in complex with "
+"diethylstilbestrol (DES) and a peptide derived from the NR box II region of "
+"the coactivator GRIP1, as well as the crystal structure of the hERα LBD "
+"bound to the selective antagonist 4-hydroxytamoxifen (OHT). We focus on the "
+"DES-LBD-peptide complex."
+msgstr ""
+"それでは始めよう。Human Estrogen Receptor（[PDB "
+"3ERD](https://www.rcsb.org/structure/3ERD)）を例に使う。Receptor（herα）の Ligand-"
+"binding Domain（LBD）、Diethylstilbestrol（DES）、Coactivator GRIP1 の NR Box II "
+"由来の Peptide の複合体、および Selective Antagonist の 4-Hydroxytamoxifen（OHT）と結合した "
+"hERα LBD の結晶構造を含む。ここでは DES-LBD-Peptide Complex に注目する。"
+
+#: tutorial/README.md:22
+msgid ""
+"<em>The entire protein complex and a close-up view of the binding pocket "
+"showing the protein molecular bonds, with the native ligand inside it.</em>"
+msgstr ""
+"<em>タンパク質複合体の全体と Binding Pocket の拡大図。タンパク質の Bonds と、Pocket 内の Native Ligand "
+"を示す。</em>"
+
+#: tutorial/README.md:25
+msgid "1 AF"
+msgstr "1 AF"
+
+#: tutorial/README.md:26 tutorial/README.md:60 tutorial/README.md:104
+#: tutorial/README.md:223 tutorial/README.md:267
+msgid ""
+"Please go into the relevant directory for this step from the repository "
+"root:"
+msgstr "リポジトリのルートから、この段階のディレクトリに移動する。"
+
+#: tutorial/README.md:30
+msgid ""
+"As 3ERD is a protein complex, we will use AF multimer for its structure "
+"prediction. We will use the standard full MSA, and run it as follows:"
+msgstr "3ERD はタンパク質複合体なので、構造予測には AF Multimer を使う。標準の Full MSA を用い、次のように実行する。"
+
+#: tutorial/README.md:50
+msgid ""
+"Note the following: `ALPHAFOLD_DATA` is the path to the standard AF "
+"databases which are searched during the execution, and should be specified "
+"if not default. `ALPHAFOLD_DATA_EXT` is a user-specific location of Uniref30"
+" database that includes data till 30-02-2023, which may have to be "
+"downloaded separately to allow the full database `full_dbs` search."
+msgstr ""
+"`ALPHAFOLD_DATA` は、実行時に検索する標準 AF Databases "
+"のパスであり、既定と異なれば指定する。`ALPHAFOLD_DATA_EXT` は、30-02-2023までのデータを含む Uniref30 "
+"のユーザー固有の場所である。`full_dbs` の検索のため、別途取得が必要な場合がある。"
+
+#: tutorial/README.md:55
+msgid ""
+"As this is a time-consuming and expensive process to set up and run, we have"
+" already provided you with the relevant results. As you can see, we asked AF"
+" to relax only the highest ranked structure. Among the produced files, our "
+"interest lies in that one relaxed structure file (`relaxed.pdb`) and the "
+"metric file (`result.pkl`). Please note that due to storage space "
+"constraints, we have omitted any extra information from `result.pkl` that "
+"bAIes will not need in the later steps. We will use the metric file for "
+"bAIes in step 3."
+msgstr ""
+"準備と実行に時間・コストがかかるため、結果を用意している。AF には最上位の構造だけを Relaxation させた。注目する出力は、その構造 "
+"`relaxed.pdb` と指標の `result.pkl` である。容量節約のため、`result.pkl` から後の bAIes "
+"に不要な情報を除いている。このファイルは段階3で使う。"
+
+#: tutorial/README.md:59
+msgid "2 MD relaxation"
+msgstr "2 MD Relaxation"
+
+#: tutorial/README.md:65
+msgid ""
+"We will now equilibrate the AF predicted structure in water as solvent with "
+"vanilla MD using the AMBER forcefield. For this, we will first need to set "
+"up the system for MD. We use GROMACS as the MD software. We create the "
+"topology of the AF model as:"
+msgstr ""
+"AF 予測構造を水中で、AMBER Force Field と通常の MD により Equilibration する。まず GROMACS "
+"用に系を設定し、AF モデルの Topology を次のように作る。"
+
+#: tutorial/README.md:71
+msgid ""
+"Note that we use `gmx_mpi` for executing GROMACS because it is the MPI-"
+"enabled version, allowing for parallel execution across multiple processors."
+" We recommend you to use the MPI version to handle these typically large "
+"systems which you may have already installed before starting the tutorial. "
+"If not, you can find instructions [here](../install.md). Note that "
+"`temp.gro` may have changed indices of the atoms, but we will take care of "
+"this when indexing our files. Note that we have included in the topology "
+"description a positional restraint on all heavy atoms. We will use this in "
+"the steps of relaxing the system. We place the AF model in a cubic box of "
+"suitable dimensions, and solvate the protein with TIP3P water molecules, and"
+" add NA+ and CL- and 0.15M concentration ensuring neutrality:"
+msgstr ""
+"複数 Process で並列実行できる MPI 版の `gmx_mpi` を使う。典型的に大きな系のため、MPI "
+"版を勧める。まだ導入していなければ[こちら](../install.md)を参照してほしい。`temp.gro` では原子の Index "
+"が変わる可能性があるが、後の Index 作成で対処する。Topology には、Relaxation に使う、全 Heavy Atoms の "
+"Position Restraints を加えてある。AF モデルを適切な大きさの立方体 Box に入れ、TIP3P Water で溶媒和し、NA+ と"
+" CL- を0.15 M で加えて電気的中性も保つ。"
+
+#: tutorial/README.md:89
+msgid ""
+"We will now use a steepest-descent algorithm to minimize the energy of this "
+"system, followed by relaxation in NVT conditions (T=300K) and then in NPT "
+"conditions (P=1 bar, T=300K) for 100ps each. Note that the equilibration is "
+"carried out with positional restraints (we ensured this in the topology "
+"creation step) on all heavy atoms of the system (defined as `DPOSRES` in "
+"`nvt.mdp` and `npt.mdp`, and described in `topol_Protein_chain_X.itp` "
+"(X=A,B,C,D))"
+msgstr ""
+"Steepest Descent で Energy Minimization を行い、NVT（T=300 K）、NPT（P=1 bar、T=300 "
+"K）の順に100 ps ずつ Relaxation する。全 Heavy Atoms に Position Restraints "
+"を加える。Topology 作成時に設定し、`nvt.mdp` と `npt.mdp` の `DPOSRES`、および "
+"`topol_Protein_chain_X.itp`（X=A,B,C,D）で定義してある。"
+
+#: tutorial/README.md:103
+msgid "3.1 bAIes setup"
+msgstr "3.1 bAIes の設定"
+
+#: tutorial/README.md:108
+msgid ""
+"bAIes uses Bayesian inference to perform MD with the knowledge of AF-"
+"predicted local distance confidence. For this, bAIes needs to have a direct "
+"on-the-fly communication with the distance confidence information that is "
+"available in `../1-AF/result.pkl`. AF distograms are distance distributions "
+"between every pair of C_β (C_α for glycine) atoms."
+msgstr ""
+"bAIes は Bayesian Inference を使い、AF の Local Distance Confidence を考慮した MD "
+"を行う。そのため、`../1-AF/result.pkl` の情報を On-the-fly で参照する必要がある。AF の Distograms は、各"
+" C_β 原子対、Glycine では C_α 原子対の距離分布である。"
+
+#: tutorial/README.md:114
+msgid "More about how the distance confidence information is stored:"
+msgstr "Distance Confidence の保存方法について："
+
+#: tutorial/README.md:116
+msgid ""
+"`result.pkl` can be read as a Python dictionary. Its entry `distogram` "
+"comprises an array (`bin_edges`) specifying the edges of 64 equispaced "
+"distance bins (in Angstroms), which define the possible pairwise "
+"C<sub>β</sub> atom distances of the protein residues (C<sub>α</sub> for "
+"Glycine) which range from 0.2 to 2.2 nm."
+msgstr ""
+"`result.pkl` は Python の Dictionary として読める。`distogram` には、等間隔の64 Distance "
+"Bins の境界を Angstrom 単位で記録した `bin_edges` がある。タンパク質 Residues の C<sub>β</sub> "
+"原子間、Glycine では C<sub>α</sub> 原子間の、0.2～2.2 nm の距離を定義する。"
+
+#: tutorial/README.md:119
+msgid ""
+"Corresponding to these bin edges, there is an array (`logits`) specifying "
+"the probability (in a raw output form) of observing each such distance. In "
+"summary:"
+msgstr "各 Bin に対応する未変換の確率出力を、`logits` に格納している。まとめると、次の構造である。"
+
+#: tutorial/README.md:121
+msgid ""
+"result.pkl: { &nbsp;&nbsp; 'distogram': { &nbsp;&nbsp;&nbsp;&nbsp; "
+"'bin_edges': (64,), &nbsp;&nbsp;&nbsp;&nbsp; 'logits': (N_residues, "
+"N_residues, 64,), &nbsp;&nbsp;} }"
+msgstr ""
+"result.pkl: { &nbsp;&nbsp; 'distogram': { &nbsp;&nbsp;&nbsp;&nbsp; "
+"'bin_edges': (64,), &nbsp;&nbsp;&nbsp;&nbsp; 'logits': (N_residues, "
+"N_residues, 64,), &nbsp;&nbsp;} }"
+
+#: tutorial/README.md:131
+msgid ""
+"The communication between bAIes and AF comprises 3 kinds of information: i) "
+"A list of residue pairs for which bAIes will need the distance confidence "
+"information."
+msgstr ""
+"bAIes と AF の間で、3種類の情報をやり取りする。i) Distance Confidence が必要な Residue Pairs の一覧。"
+
+#: tutorial/README.md:136
+msgid ""
+"Every C<sub>β</sub>-C<sub>β</sub> atom pair is associated with a distance "
+"probability distribution, but not all of them are accounted for by bAIes. "
+"bAIes filters only those pairs which are more likely to have strong "
+"interactions, and uses their pairwise distance confidence information from "
+"AF to augment the force field in a Bayesian framework."
+msgstr ""
+"すべての C<sub>β</sub>-C<sub>β</sub> 原子対に距離の確率分布があるが、bAIes "
+"はすべてを使わない。強い相互作用を持つ可能性が高い原子対だけを選び、AF の Pairwise Distance Confidence で Force "
+"Field を Bayesian に補う。"
+
+#: tutorial/README.md:139
+msgid ""
+"bAIes selects those residue pairs which: a) have the most probable distance "
+"(in their distogram) less than a residue pair-specific cut-off, handled by a"
+" map from the Baker lab (Methods in article), and, b) are separated by at "
+"least 3 residues in sequence."
+msgstr ""
+"選ぶ Residue Pairs は、a) Distogram の最頻距離が Baker Lab の Map に基づくペア固有の Cutoff "
+"より小さく、b) 配列上で少なくとも3 Residues 離れているもの。詳細は論文の Methods を参照してほしい。"
+
+#: tutorial/README.md:146
+msgid ""
+"ii) The most probable distance between the C_β atoms of those residue pairs."
+msgstr "ii) 選択した Residue Pairs の C_β 原子間の最頻距離。"
+
+#: tutorial/README.md:150
+msgid ""
+"The distograms provide a raw distance probabilty as `logits`. We convert "
+"them to probability distributions with the `softmax` function. For each "
+"selected residue pair, the most probable distance can now be directly "
+"obtained as the distance corresponding to the peak of the probability "
+"distribution."
+msgstr ""
+"Distograms の未変換の `logits` を `softmax` で確率分布にする。各 Residue Pair "
+"の最頻距離は、その分布のピークに対応する距離として求まる。"
+
+#: tutorial/README.md:156
+msgid "iii) A measure of confidence in those pairwise distributions."
+msgstr "iii) Pairwise Distributions の Confidence の指標。"
+
+#: tutorial/README.md:160
+msgid ""
+"The probability distribution of each selected residue pair is fitted with a "
+"lognormal curve. The standard deviation of this fitted curve is then used as"
+" a quantitative measure of uncertainty -— a higher standard deviation "
+"indicates lower confidence in the predicted distance."
+msgstr ""
+"各 Residue Pair の確率分布を Lognormal Curve に Fitting する。その Standard Deviation "
+"を不確実性の定量的指標とし、大きいほど予測距離への Confidence が低いとみなす。"
+
+#: tutorial/README.md:166
+msgid "Let us back up the provided results:"
+msgstr "用意された結果を Backup する。"
+
+#: tutorial/README.md:173
+msgid ""
+"We will now extract these 3 pieces of information all at once by using the "
+"`../../scripts/preprocess.py` script as follows:"
+msgstr "`../../scripts/preprocess.py` で、これら3種類の情報を一度に取り出す。"
+
+#: tutorial/README.md:187
+msgid ""
+"Note that we need to be careful here about the indexing of the atoms which "
+"are altered by GROMACS. We need the distogram information that was indexed "
+"by AF (as in `relaxed.pdb`) to be correctly read by GROMACS. The mapping is "
+"provided to the preprocessing script by a GROMACS format pdb (`mdpdb.pdb`) "
+"obtained by:"
+msgstr ""
+"GROMACS が変更した原子の Index に注意が必要である。AF が `relaxed.pdb` で付けた Index の Distogram "
+"情報を、GROMACS から正しく読めるようにする。対応関係は、次で作る GROMACS 形式の PDB `mdpdb.pdb` "
+"を前処理スクリプトに渡して指定する。"
+
+#: tutorial/README.md:195
+msgid "File contents example:"
+msgstr "ファイル内容の例："
+
+#: tutorial/README.md:210
+msgid ""
+"Column 1: &nbsp;&nbsp; Field identity of selected pairwise residues Column "
+"2: &nbsp;&nbsp; Atom i of selected pair ij Column 3: &nbsp;&nbsp; Atom j of "
+"selected pair ij Column 4: &nbsp;&nbsp; Logarithm of mean distance value of "
+"fitted lognormal curve Column 5: &nbsp;&nbsp; Standard deviation of fitted "
+"lognormal curve <br>"
+msgstr ""
+"列1：&nbsp;&nbsp; 選択した Residue Pair の Field ID 列2：&nbsp;&nbsp; 原子対 ij の原子 i "
+"列3：&nbsp;&nbsp; 原子対 ij の原子 j 列4：&nbsp;&nbsp; Fitting した Lognormal Curve "
+"の平均距離の対数 列5：&nbsp;&nbsp; Fitting した Lognormal Curve の Standard Deviation "
+"<br>"
+
+#: tutorial/README.md:217
+msgid ""
+"The output of this script (`logn.out` and `index.ndx`) is already provided "
+"to you. The latter file contains redundant information about the selected "
+"residues, but in a different format. It is the unique list of C_β atoms (not"
+" atom pairs) belonging to the selected pairwise residues."
+msgstr ""
+"出力の `logn.out` と `index.ndx` も用意してある。後者は同じ Residues の情報を別形式で保持し、選んだ原子対に属する "
+"C_β 原子の、重複しない一覧である。原子対の一覧ではない。"
+
+#: tutorial/README.md:222
+msgid "3.2 bAIes production"
+msgstr "3.2 bAIes の本計算"
+
+#: tutorial/README.md:228
+msgid ""
+"To run bAIes, you will need a PLUMED actions script that specifies how the "
+"C_β-C_β distances should be incorporated. We have provided this to you "
+"(`logn_jeff.dat`)."
+msgstr ""
+"C_β-C_β 距離の取り込み方を指定する PLUMED Actions のスクリプトが必要である。`logn_jeff.dat` を用意している。"
+
+#: tutorial/README.md:232
+msgid "**File contents** Example:"
+msgstr "**ファイル内容**の例："
+
+#: tutorial/README.md:248
+msgid ""
+"Line 1: Defines keyword `batoms` by reading the group `batoms` from the "
+"index file `index.ndx` Line 2: Defines action `baies` to operate on `batoms`"
+" using input `logn.out`, and employing the error prior of type `JEFFREYS` "
+"Line 3: Defines logging information Line 4: Applies a biasing potential to "
+"the simulation based on the value of `baies.ene` every 4 steps"
+msgstr ""
+"1行目：`index.ndx` の Group `batoms` を読み、キーワード `batoms` を定義する。2行目：入力 `logn.out` "
+"と Error Prior `JEFFREYS` を使い、`batoms` に作用する Action `baies` "
+"を定義する。3行目：ログの情報を定義する。4行目：`baies.ene` に基づく BiasPotential を4ステップごとに適用する。"
+
+#: tutorial/README.md:256
+msgid ""
+"Starting from the MD equilibrated structure, we run bAIes for 5ns as "
+"follows:"
+msgstr "MD で Equilibration した構造から、次のように5 ns の bAIes を行う。"
+
+#: tutorial/README.md:262
+msgid ""
+"Note that to execute the above, you will need the PLUMED-patch of GROMACS to"
+" be installed, which you may have already done before starting the tutorial."
+" If not, you can find instructions [here](../install.md). Note that you need"
+" to set the number of CPU cores to use ($OMP_NUM_THREADS=10, for instance)."
+msgstr ""
+"PLUMED のパッチを適用した GROMACS が必要である。まだ導入していなければ[こちら](../install.md)に手順がある。CPU "
+"Core 数も、例えば $OMP_NUM_THREADS=10 のように設定する。"
+
+#: tutorial/README.md:266
+msgid "3.3 Model(s) selection as docking targets"
+msgstr "3.3 Docking Targets のモデル選択"
+
+#: tutorial/README.md:272
+msgid ""
+"We now have the trajectory generated by bAIes, and it is time to select "
+"suitable models from it that will form the docking targets. For this, we "
+"will cluster the trajectory according to their binding pocket structure as "
+"follows: We define the pocket as the set of heavy protein atoms within 6Å of"
+" any heavy atom of the ligand in the X-ray structure. Then we employed the "
+"<em>gromos</em> clustering approach using the RMSD calculated on the C_β "
+"pocket atoms as metric."
+msgstr ""
+"bAIes の Trajectory から、Docking Targets に適したモデルを選ぶ。Binding Pocket の構造に基づいて "
+"Clustering する。Pocket は、X-ray Structure の Ligand の各 Heavy Atom から6Å以内の、タンパク質の"
+" Heavy Atoms と定義する。その Pocket の C_β 原子の RMSD を Metric として、<em>gromos</em> "
+"Clustering を用いる。"
+
+#: tutorial/README.md:277
+msgid ""
+"We will need a structure file (we use `mdpdb.pdb`) and we will need the "
+"pocket selection in the index file."
+msgstr "構造ファイル、ここでは `mdpdb.pdb` と、Pocket を選択した Index ファイルが必要である。"
+
+#: tutorial/README.md:291
+msgid ""
+"For this example, we choose a cutoff of 0.040 nm to ensure a balance between"
+" conformationally distinct and homogeneous model. Note that a range of "
+"cutoffs is usually tested to find the correct balance. In our experience, "
+"while very large/small cutoffs can obviously cause problems, the approach is"
+" insensitive to differences of around ±0.02 nm. To perform the model "
+"selection, we cluster the trajectory as follows:"
+msgstr ""
+"この例では、異なる Conformations を分けつつ均質なモデルを得るため、Cutoff を0.040 nm "
+"とする。通常は複数の値を試す。極端に大きい・小さい値は問題になるが、経験上、±0.02 nm 程度の違いには影響されにくい。次のように "
+"Trajectory を Clustering する。"
+
+#: tutorial/README.md:302
+msgid ""
+"Finally, the different clusters can be split into individual models as:"
+msgstr "最後に、Clusters を個々のモデルに分ける。"
+
+#: tutorial/README.md:308
+msgid ""
+"The bAIes-refined models are now located in the `clusters/frames` "
+"subdirectory, ranked according to sampled population. Typically, the highest"
+" rank (`model_1.pdb`) is considered a highly accurate target model against "
+"which virtual screening of small molecules can be performed. In our study "
+"(to be published), we have showed that our test cases produce an enrichment,"
+" in particular early enrichment, significantly higher than both raw AF "
+"models as well as MD-refined models."
+msgstr ""
+"Refinement したモデルは `clusters/frames` に、Population 順に保存される。通常、最上位の "
+"`model_1.pdb` を高精度の Target Model とし、Small Molecules の Virtual Screening "
+"を行える。著者らの研究（公開予定）では、未処理の AF モデルや MD のみで Refinement したモデルより、特に Early "
+"Enrichment が大きく改善した。"

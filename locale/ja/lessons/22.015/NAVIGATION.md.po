@@ -1,0 +1,124 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Masterclass 22.15: Mechanical pulling + FISST module"
+msgstr "Masterclass 22.15：Mechanical Pulling と FISST モジュール"
+
+#: NAVIGATION.md:3
+msgid ""
+"This lesson was given as part of the PLUMED masterclass series in 2022. It "
+"includes:"
+msgstr "このレッスンは、2022年の PLUMED Masterclass シリーズの一環として実施された。内容は次のとおりである。"
+
+#: NAVIGATION.md:5
+msgid "Two videos that describe the theory."
+msgstr "理論を説明する2本の動画。"
+
+#: NAVIGATION.md:6
+msgid "A series of exercises for you to complete."
+msgstr "取り組むための一連の演習。"
+
+#: NAVIGATION.md:8
+msgid ""
+"The flow chart shown below indicates the order in which you should consult "
+"the resources. You can click on the nodes to access the various resources. "
+"Follow the thick black lines for the best results. The resources that are "
+"connected by dashed lines are supplmentary resources that you may find "
+"useful when completing the exercise."
+msgstr ""
+"下のフローチャートは資料を参照する順序を示している。各ノードをクリックすると資料を開ける。太い黒線に沿って進めることを推奨する。破線でつながる資料は、演習に取り組む際に役立つ補足資料である。"
+
+#: NAVIGATION.md:10
+msgid "This lesson was the fifteenth masterclass in the 2022 series."
+msgstr "このレッスンは、2022年シリーズの第15回 Masterclass である。"
+
+#: NAVIGATION.md:12
+msgid ""
+"Solutions are available from [This "
+"page](https://github.com/hockyg/masterclass-22-15)"
+msgstr "解答は[こちら](https://github.com/hockyg/masterclass-22-15)にある。"
+
+#: NAVIGATION.md:14
+msgid ""
+"Some relevant perspective articles to consider are [this "
+"one](https://doi.org/10.1021/acs.jpcb.1c06330) from Hocky and [this "
+"one](https://doi.org/10.1021/acs.jpcb.1c10715) from Stirnemann."
+msgstr ""
+"関連する Perspective Articles として、Hocky "
+"の[論文](https://doi.org/10.1021/acs.jpcb.1c06330)や Stirnemann "
+"の[論文](https://doi.org/10.1021/acs.jpcb.1c10715)も参考になる。"
+
+#. mermaid node label
+#: NAVIGATION.md:18
+msgid "syntax"
+msgstr "構文"
+
+#. mermaid node label
+#: NAVIGATION.md:18
+msgid "Lecture I"
+msgstr "講義 I"
+
+#. mermaid node label
+#: NAVIGATION.md:19
+msgid "paper1"
+msgstr "論文1"
+
+#. mermaid node label
+#: NAVIGATION.md:20
+msgid "instructions"
+msgstr "手順"
+
+#. mermaid node label
+#: NAVIGATION.md:21
+msgid "Lecture II"
+msgstr "講義 II"
+
+#. mermaid node label
+#: NAVIGATION.md:22
+msgid "paper2"
+msgstr "論文2"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:23
+msgid "A previous tutorial that introduces the basics of PLUMED syntax"
+msgstr "PLUMED の構文の基本を紹介する過去のチュートリアル"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:24
+msgid "A paper describing the FISST method that is used in this tutorial"
+msgstr "このチュートリアルで用いる FISST 法を説明する論文"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:25
+msgid ""
+"A lecture that was given on October 17th 2022 as part of the plumed "
+"masterclass series that introduces you to the exercises in this lesson"
+msgstr "2022年10月17日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習を紹介する講義"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:26
+msgid "Instructions for the exercises that you are supposed to complete"
+msgstr "取り組む演習の手順"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:27
+msgid ""
+"A lecture that was given on October 24th 2022 as part of the plumed "
+"masterclass series that gives background on modelling mechanobiological "
+"processes, and then goes through the solutions to the exercises in the "
+"lesson"
+msgstr ""
+"2022年10月24日に PLUMED Masterclass シリーズの一環として行われた、Mechanobiological Processes "
+"のモデル化の背景を説明し、このレッスンの演習の解答を解説する講義"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:28
+msgid "A follow up paper combining FISST with replica exchange"
+msgstr "FISST と Replica Exchange を組み合わせた後続の論文"

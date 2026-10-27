@@ -1,0 +1,16 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lesson.yml:title
+msgid "Exploring Free Energy Surfaces with MACE-PLUMED Metadynamics"
+msgstr "MACE-PLUMED Metadynamics を用いた自由エネルギー面の探索"
+
+#: lesson.yml:description
+msgid "Performing metadynamics simulations with LAMMPS, MACE and PLUMED"
+msgstr "LAMMPS、MACE、PLUMED を用いて Metadynamics シミュレーションを実行する"

@@ -1,0 +1,68 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. mermaid node label
+#: NAVIGATION.md:3
+msgid "ref. PIV"
+msgstr "PIV の参考文献"
+
+#. mermaid node label
+#: NAVIGATION.md:3
+msgid "PIV distance"
+msgstr "PIV Distance"
+
+#. mermaid node label
+#: NAVIGATION.md:4
+msgid "ref. PathCV"
+msgstr "PathCV の参考文献"
+
+#. mermaid node label
+#: NAVIGATION.md:5
+msgid "ref. PIV-PathCV"
+msgstr "PIV-PathCV の参考文献"
+
+#. mermaid node label
+#: NAVIGATION.md:6
+msgid "PIV-PathCV mapping"
+msgstr "PIV-PathCV への Mapping"
+
+#. mermaid node label
+#: NAVIGATION.md:7
+msgid "PIV-PathCV metadynamics"
+msgstr "PIV-PathCV Metadynamics"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:8
+msgid "reference for PIV"
+msgstr "PIV の参考文献"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:9
+msgid "reference for PathCV"
+msgstr "PathCV の参考文献"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:10
+msgid "reference for PIV-PathCV"
+msgstr "PIV-PathCV の参考文献"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:11
+msgid "Associating PIVs to system configurations PIVs and cmputing distances"
+msgstr "系の Configuration に PIVs を対応付け、距離を計算する"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:12
+msgid "Mapping a trajectory into PIV-PathCV space"
+msgstr "Trajectory を PIV-PathCV 空間に Mapping する"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:13
+msgid "Biasing a simulation in the PIV-PathCV space"
+msgstr "PIV-PathCV 空間でシミュレーションに Bias を加える"

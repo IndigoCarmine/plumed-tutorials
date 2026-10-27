@@ -1,0 +1,113 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Tutorial - Advanced mechanical pulling"
+msgstr "チュートリアル：発展的な Mechanical Pulling"
+
+#: NAVIGATION.md:3
+msgid ""
+"This goes beyond what was presented in PLUMED Masterclass 22.15, and which "
+"is now available as a Tutorial on [this page](https://www.plumed-"
+"tutorials.org/lessons/22/015/data/NAVIGATION.html)"
+msgstr ""
+"これは、現在[こちら](https://www.plumed-"
+"tutorials.org/lessons/22/015/data/NAVIGATION.html)でチュートリアルとして公開されている、PLUMED "
+"Masterclass 22.15 より発展的な内容である。"
+
+#: NAVIGATION.md:5
+msgid ""
+"This tutorial provides theoretical background then gives a set of exercises "
+"for you to complete. You may want to watch the videos that accompany the "
+"previous tutorial first."
+msgstr "このチュートリアルでは、理論的背景を説明してから一連の演習を行う。先に、以前のチュートリアルの動画を見ておくとよい。"
+
+#: NAVIGATION.md:7
+msgid ""
+"The flow chart shown below indicates the order in which you should consult "
+"the resources. You can click on the nodes to access the various resources. "
+"Follow the thick black lines for the best results. The resources that are "
+"connected by dashed lines are supplmentary resources that you may find "
+"useful when completing the exercise."
+msgstr ""
+"下のフローチャートは資料を参照する順序を示している。各ノードをクリックすると資料を開ける。太い黒線に沿って進めることを推奨する。破線でつながる資料は、演習に取り組む際に役立つ補足資料である。"
+
+#: NAVIGATION.md:9
+msgid ""
+"Some relevant perspective articles to consider are [this "
+"one](https://doi.org/10.1021/acs.jpcb.1c06330) from Hocky and [this "
+"one](https://doi.org/10.1021/acs.jpcb.1c10715) from Stirnemann."
+msgstr ""
+"関連する Perspective Articles として、Hocky "
+"の[論文](https://doi.org/10.1021/acs.jpcb.1c06330)や Stirnemann "
+"の[論文](https://doi.org/10.1021/acs.jpcb.1c10715)も参考になる。"
+
+#: NAVIGATION.md:11
+msgid ""
+"Solutions are available from [This page](https://github.com/hockyg/plumed-"
+"tutorial-force2)"
+msgstr "解答は[こちら](https://github.com/hockyg/plumed-tutorial-force2)にある。"
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "FISST tutorial"
+msgstr "FISST のチュートリアル"
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "instructions"
+msgstr "手順"
+
+#. mermaid node label
+#: NAVIGATION.md:17
+msgid "Hocky mechanobiology review"
+msgstr "Hocky による Mechanobiology の Review"
+
+#. mermaid node label
+#: NAVIGATION.md:18
+msgid "Stirnemann mechanobiology review"
+msgstr "Stirnemann による Mechanobiology の Review"
+
+#. mermaid node label
+#: NAVIGATION.md:19
+msgid "Computing force dependent rates"
+msgstr "Force に依存する Rates の計算"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:20
+msgid ""
+"A previous tutorial that introduces the concepts of mechanical pulling in "
+"PLUMED and the FISST module"
+msgstr "PLUMED の Mechanical Pulling と FISST モジュールの考え方を紹介する過去のチュートリアル"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:21
+msgid "Instructions for the exercises that you are supposed to complete"
+msgstr "取り組む演習の手順"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:22
+msgid ""
+"One paper describing how to treat forces in molecular dynamics simulations "
+"of biological macromolecules"
+msgstr "Biological Macromolecules の MD における Forces の扱い方を説明する論文"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:23
+msgid ""
+"A second paper describing how to treat forces in molecular dynamics "
+"simulations of biological macromolecules"
+msgstr "Biological Macromolecules の MD における Forces の扱い方を説明する2つ目の論文"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:24
+msgid ""
+"A paper showing that force-dependent rates can be computed using infrequent "
+"metadynamics"
+msgstr "Infrequent Metadynamics で Force に依存する Rates を計算できることを示す論文"

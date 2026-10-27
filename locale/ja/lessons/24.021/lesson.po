@@ -1,0 +1,22 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lesson.yml:title
+msgid "Setting Up and Analyzing Bias-Exchange Metadynamics Simulations"
+msgstr "Bias-Exchange Metadynamics シミュレーションの設定と解析"
+
+#: lesson.yml:description
+msgid ""
+"This tutorial offers a comprehensive protocol, complemented by practical "
+"examples, for setting up and performing free energy analysis of bias-"
+"exchange metadynamics simulations of cis-trans isomerization in a proline-"
+"containing peptide."
+msgstr ""
+"Proline を含む Peptide の Cis-Trans Isomerization を対象に、Bias-Exchange "
+"Metadynamics シミュレーションの設定と自由エネルギー解析を行うための包括的なプロトコルを、実例とともに紹介するチュートリアル。"

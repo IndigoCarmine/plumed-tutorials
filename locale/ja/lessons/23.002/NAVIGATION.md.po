@@ -1,0 +1,92 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Parallelism in Plumed2"
+msgstr "PLUMED2 の並列処理"
+
+#: NAVIGATION.md:3
+msgid ""
+"This lesson is a pratical introduction (with some exercises with code to "
+"modify) to the parallel functionality of PLUMED for the developers."
+msgstr "このレッスンは、開発者向けに PLUMED の並列機能を紹介する実践的な入門であり、コードを書き換える演習も含む。"
+
+#: NAVIGATION.md:5
+msgid ""
+"The code is hosted "
+"[here](https://github.com/Iximiel/PlumedFlagship_parallelism). You can start"
+" from the [introduction](Readme.md), and then read the [serial "
+"example](Readme_Serial.md) that contains the base idea of the CV."
+msgstr ""
+"コードは[こちら](https://github.com/Iximiel/PlumedFlagship_parallelism)にある。まず[はじめに](Readme.md)を読み、CV"
+" の基本的な考え方を説明する [Serial 版の例](Readme_Serial.md)へ進むとよい。"
+
+#: NAVIGATION.md:7
+msgid ""
+"You can then navigate the three cases ([openMP](Readme_OMP.md), "
+"[MPI](Readme_MPI.md), [Cuda](Readme_CUDA.md)) in any order"
+msgstr ""
+"その後、[OpenMP](Readme_OMP.md)、[MPI](Readme_MPI.md)、[CUDA](Readme_CUDA.md) "
+"の3つの例は、どの順序で読んでもよい。"
+
+#: NAVIGATION.md:9
+msgid ""
+"NB: For this lesson the CV is presented with no explicit derivatives "
+"calculated."
+msgstr "注意：このレッスンでは、CV の微分を明示的に計算しない形で示している。"
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "Introduction"
+msgstr "はじめに"
+
+#. mermaid node label
+#: NAVIGATION.md:17
+msgid "Serial example"
+msgstr "Serial 版の例"
+
+#. mermaid node label
+#: NAVIGATION.md:18
+msgid "OMP example"
+msgstr "OMP の例"
+
+#. mermaid node label
+#: NAVIGATION.md:19
+msgid "MPI example"
+msgstr "MPI の例"
+
+#. mermaid node label
+#: NAVIGATION.md:20
+msgid "CUDA example"
+msgstr "CUDA の例"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:28
+msgid "The introduction to the lessons"
+msgstr "レッスンの導入"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:29
+msgid "The presentation of the base example"
+msgstr "基本となる例の説明"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:30
+msgid "The presentation of the openMP example"
+msgstr "OpenMP の例の説明"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:31
+msgid "The presentation of the MPI example"
+msgstr "MPI の例の説明"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:32
+msgid "A prototype for a Cuda implementation"
+msgstr "CUDA 実装の Prototype"

@@ -1,0 +1,158 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: MultiColvarShortcut.md:1
+msgid "Backwards compatibility for MultiColvar"
+msgstr "MultiColvar の後方互換性"
+
+#: MultiColvarShortcut.md:3
+msgid ""
+"As discussed in [this article](MultiColvar.md), I have made substantial "
+"changes to the way MultiColvars are implemented. In previous version the "
+"PLUMED input to calculate the number of distances are less than 0.1 nm is as"
+" follows:"
+msgstr "[こちら](MultiColvar.md) のように実装を大きく変えました。従来の0.1 nm 未満の距離数は、"
+
+#: MultiColvarShortcut.md:11
+msgid "Now, however, the same operation is achieved by the following code:"
+msgstr "現在は同じ処理を次で行います。"
+
+#: MultiColvarShortcut.md:20
+msgid ""
+"Obviously, we do not want users to have to re-learn PLUMED because there "
+"have been changes to the code. In other words, we want to ensure that the "
+"first input above continues to work with the new version of the code."
+msgstr "変更のためユーザーが学び直す必要はなく、旧入力も動くようにします。"
+
+#: MultiColvarShortcut.md:23
+msgid "Shortcut actions"
+msgstr "Shortcut Action"
+
+#: MultiColvarShortcut.md:25
+msgid ""
+"It is straightforward to write code that allows users to use the old old "
+"PLUMED input syntax. It is a matter of simply using shortcut actions to read"
+" the input for actions that are no longer implemented and convert them to "
+"the new input. In other words, and for the example above, the command "
+"DISTANCES is connected to a class that inherits from ActionShortcut. In the "
+"constructor for this object the new input could be created as follows:"
+msgstr "旧入力を読み新入力に変換する ActionShortcut で容易に対応できます。DISTANCES の Constructor なら、"
+
+#: MultiColvarShortcut.md:45
+msgid ""
+"This is the essense of what is done in `multicolvar/Distances.cpp` which is "
+"where the DISTANCES command is implemented within PLUMED. The actual code is"
+" slightly more complicated as DISTANCES allowed for more options than simply"
+" LESS_THAN. However, the key point I am trying to explain here is how we can"
+" use ActionShortcut objects to implement a single-line version of the three-"
+"line input required to calculate the number of distances that are less than "
+"0.1 nm."
+msgstr ""
+"`multicolvar/Distances.cpp` の本質です。実際は LESS_THAN 以外にも対応するため複雑ですが、3行を1行の "
+"Shortcut にできます。"
+
+#: MultiColvarShortcut.md:49
+msgid "Components of Shortcut actions"
+msgstr "Shortcut の成分"
+
+#: MultiColvarShortcut.md:51
+msgid ""
+"Before concluding there is one final thing I need to explain for you to "
+"fully understand how these ActionShortcut objects work. There is a wrinkle "
+"that is best understood by considering the following (old-style) PLUMED "
+"input again:"
+msgstr "動作を理解する最後の注意点を、旧入力で説明します。"
+
+#: MultiColvarShortcut.md:61
+msgid ""
+"As explained above, once the shortcuts have worked their magic PLUMED will "
+"actually read in:"
+msgstr "展開後は実際には次を読みます。"
+
+#: MultiColvarShortcut.md:72
+msgid ""
+"The wrinkle that you need to notice here is that the quantity that we are "
+"asking PLUMED to print out `d1.lessthan` does not appear to be defined in "
+"the above input. The quantity that we would like to print out is called "
+"`d1_lessthan`. Obviously, given that the input above works, there is a "
+"workaround for this problem and it is this that still remains to be "
+"explained."
+msgstr "出力する `d1.lessthan` が定義されず、実体は `d1_lessthan` という問題があります。動く理由は次です。"
+
+#: MultiColvarShortcut.md:76
+msgid ""
+"The workaround is that you can define output components for shortcuts just "
+"as you would define output components in other ActionWithValue objects. For "
+"our Distances action above we can thus write a registerKeywords method as "
+"follows:"
+msgstr ""
+"ActionWithValue 同様に Shortcut に出力成分を登録できます。Distances の registerKeywords は、"
+
+#: MultiColvarShortcut.md:88
+msgid ""
+"When `ActionWithArguments` tries to interpret a Value name such as "
+"`d1.lessthan` it now does two things."
+msgstr "`ActionWithArguments` は `d1.lessthan` に対し2つを確認します。"
+
+#: MultiColvarShortcut.md:90
+msgid ""
+"It checks if there is an ActionWithValue object with the label `d1` that has"
+" a component called `d1.lessthan`."
+msgstr "ラベル `d1` の ActionWithValue に `d1.lessthan` 成分があるか。"
+
+#: MultiColvarShortcut.md:91
+msgid ""
+"It checks if there is an ActionShortcut object with the label `d1`. If there"
+" is such an ActionShortcut object, PLUMED checks if `lessthan` is amongst "
+"the list of registered componets for that action. If that has indeed been "
+"registered then PLUMED interprets `d1.lessthan` as `d1_lessthan` and "
+"searches for an action with the label `d1_lessthan`"
+msgstr ""
+"ラベル `d1` の ActionShortcut があり、`lessthan` が登録されているか。あれば `d1.lessthan` を "
+"`d1_lessthan` と解釈し、`d1_lessthan` の Action を探す。"
+
+#: MultiColvarShortcut.md:93
+msgid ""
+"Notice that this behaviour is also triggered if you use wildcards like this:"
+msgstr "Wildcard でも同様です。"
+
+#: MultiColvarShortcut.md:100
+msgid ""
+"PRINT here would ouptut `d1_lessthan` and `d1_lowest` as these are the two "
+"actions that are registerd and created by the DISTANCES shortcut command."
+msgstr "PRINT は登録・生成された `d1_lessthan` と `d1_lowest` を出します。"
+
+#: MultiColvarShortcut.md:102
+msgid "Conclusion"
+msgstr "結論"
+
+#: MultiColvarShortcut.md:104
+msgid ""
+"The new syntax for MultiColvar is (I think) clearer than the old one. It "
+"also more flexible and allows one to do many more things with PLUMED. I thus"
+" want to encourage users to learn it and to discard the old-style inputs in "
+"future. To help with this aim, I have ensured that you have the option to "
+"see the full input whenever a shortcut action appears in an example input on"
+" the tutorials page and in the nest. You can try this functionality above. "
+"If you hover over any of the DISTANCES commands in the example inputs above "
+"you will see an option to expand the shortcut. If you click this option the "
+"full three-line input for `DISTANCES LESS_THAN` is shown."
+msgstr ""
+"新構文はより明確・柔軟なので、今後は旧構文を置き換えることを勧めます。Tutorial・NEST では Shortcut を展開できます。上の "
+"DISTANCES に Hover して展開を押すと、`DISTANCES LESS_THAN` の3行全体が見えます。"
+
+#: MultiColvarShortcut.md:109
+msgid ""
+"I think that allowing users to see how code has been implemented in this way"
+" is enormously useful. Users can start understanding how the code works by "
+"interacting with the rich set of (automatically-annotated) examples in the "
+"nest and tutorials that are likely related to the calculations they wish to "
+"perform. They thus no longer need to battle through material in a manual "
+"that is full of information that is not relevant to the work they are doing."
+msgstr "関連する自動注釈付きの豊富な例を操作して実装を理解でき、無関係な情報も多いマニュアルと格闘せずに済みます。"

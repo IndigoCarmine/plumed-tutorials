@@ -1,0 +1,108 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: navigation.md:1
+msgid ""
+"PLUMED Tutorial on Trans-Cis isomerization in the ground and excited states"
+msgstr ""
+"Ground State と Excited State における Trans-Cis Isomerization の PLUMED チュートリアル"
+
+#: navigation.md:3
+msgid ""
+"This lesson intends to show ho to combine PLUMED with your MD code to "
+"simulate dihedral angle isomerization in ground and excited states using FEP"
+" and Hamiltonian Replica exchange."
+msgstr ""
+"このレッスンでは、PLUMED と使用する MD コードを組み合わせ、FEP と Hamiltonian Replica Exchange "
+"を用いて、Ground State と Excited State における Dihedral Angle の Isomerization "
+"をシミュレーションする方法を示す。"
+
+#: navigation.md:5
+msgid "In this tutorial you will find:"
+msgstr "このチュートリアルには、次の資料がある。"
+
+#: navigation.md:7
+msgid "The reference paper."
+msgstr "参考論文。"
+
+#: navigation.md:8
+msgid "The slides of the simulation workflow."
+msgstr "シミュレーションのワークフローを示すスライド。"
+
+#: navigation.md:9
+msgid "The instructions on how to setup the simulations."
+msgstr "シミュレーションの設定手順。"
+
+#: navigation.md:10
+msgid "The plumed input file."
+msgstr "PLUMED 入力ファイル。"
+
+#: navigation.md:11
+msgid "A python notebook with a solution useful to complete the exercise."
+msgstr "演習を終える際に役立つ解答を収録した Python Notebook。"
+
+#: navigation.md:13
+msgid ""
+"The flow chart shown below indicates the order in which you should consult "
+"the resources. You can click on the nodes to access the various resources."
+msgstr "下のフローチャートは資料を参照する順序を示している。各ノードをクリックすると、それぞれの資料を開ける。"
+
+#. mermaid node label
+#: navigation.md:19
+msgid "The method intro"
+msgstr "手法の入門"
+
+#. mermaid node label
+#: navigation.md:19
+msgid "Lecture I"
+msgstr "講義 I"
+
+#. mermaid node label
+#: navigation.md:20
+msgid "Instructions"
+msgstr "演習の手順"
+
+#. mermaid node label
+#: navigation.md:21
+msgid "An example of plumed file"
+msgstr "PLUMED ファイルの例"
+
+#. mermaid node label
+#: navigation.md:22
+msgid "solution"
+msgstr "解答"
+
+#. mermaid click tooltip
+#: navigation.md:23
+msgid ""
+"The paper related to the Multi-replica biased sampling for Trans-cis "
+"isomerization in the ground and excited states using PLUMED"
+msgstr ""
+"PLUMED を用いた Ground State と Excited State の Trans-Cis Isomerization に対する "
+"Multi-replica Biased Sampling の論文"
+
+#. mermaid click tooltip
+#: navigation.md:24
+msgid "The lecture slides"
+msgstr "講義スライド"
+
+#. mermaid click tooltip
+#: navigation.md:25
+msgid "The instructions for the masterclass"
+msgstr "Masterclass の手順書"
+
+#. mermaid click tooltip
+#: navigation.md:26
+msgid "The example plumed input file"
+msgstr "PLUMED 入力ファイルの例"
+
+#. mermaid click tooltip
+#: navigation.md:27
+msgid "The notebook file"
+msgstr "Notebook ファイル"

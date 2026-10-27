@@ -1,0 +1,146 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: MDInterfaceII.md:1
+msgid "Passing atoms to/from PLUMED"
+msgstr "原子情報の受け渡し"
+
+#: MDInterfaceII.md:3
+msgid ""
+"As discussed in [this article](MDInterfaceI.md), data is passed from the MD "
+"code to PLUMED by creating a PUT action. These PUT actions take the data "
+"from a void pointer that is passed to PLUMED from the MD code and transfer "
+"it into a PLMD::Value object. Passing a void pointer and using a PUT action "
+"to convert the data within it to a PLMD::Value is also used when the atomic "
+"positions, masses and charges are sent to PLUMED. However, there are some "
+"other subtleties for these quantities because MD codes use a domain "
+"decomposition and scatter the properties of atoms across multiple domains. "
+"We thus need to use the action DOMAIN_DECOMPOSITION when passing these "
+"quantities to make sense of the information in the void pointers that the MD"
+" code passes."
+msgstr ""
+"[こちら](MDInterfaceI.md) の PUT は Void Pointer を Value に変換し、位置・質量・電荷にも使います。ただし "
+"MD は Domain Decomposition で原子情報を分散するため、DOMAIN_DECOMPOSITION で Pointer "
+"情報を解釈します。"
+
+#: MDInterfaceII.md:11
+msgid "Creating a DOMAIN_DECOMPOSITION action"
+msgstr "DOMAIN_DECOMPOSITION の作成"
+
+#: MDInterfaceII.md:13
+msgid ""
+"A DOMAIN_DECOMPOSITION can be created by using a call to plumed.cmd as "
+"follows:"
+msgstr "plumed.cmd で次のように作ります。"
+
+#: MDInterfaceII.md:19
+msgid ""
+"The DOMAIN_DECOMPOSTION command above creates a PUT action with the label "
+"vv. The pointer to the data that needs to be transferred to the PLMD::Value "
+"object that is created by the PUT action is then set by using the command "
+"below:"
+msgstr "上はラベル vv の PUT を作ります。転送元 Pointer は、"
+
+#: MDInterfaceII.md:26
+msgid ""
+"Meanwhile, the pointer to the forces that should be modified is passed as "
+"follows:"
+msgstr "変更する力の Pointer は、"
+
+#: MDInterfaceII.md:32
+msgid ""
+"In other words, pointers to values and forces in the MD code are passed to "
+"PUT actions that are created by the DOMAIN_DECOMPOSION in [the way you pass "
+"data to other PUT actions](MDInterfaceI.md)."
+msgstr "つまり、[他の PUT と同様](MDInterfaceI.md)、生成した PUT に MD の値・力の Pointer を渡します。"
+
+#: MDInterfaceII.md:35
+msgid ""
+"The PLMD::Value objects created by a DOMAIN_DECOMPOSITION action are always "
+"vectors with the same number of components as atoms in the system. "
+"Furthermore, you can create multiple PUT actions from a single "
+"DOMAIN_DECOMPOSITION action. To see why this is useful, consider the "
+"following DOMAIN_DECOMPOSITION command:"
+msgstr ""
+"Value は常に系の原子数と同じ長さの Vector です。1 DOMAIN_DECOMPOSITION から複数 PUT も作れます。例は、"
+
+#: MDInterfaceII.md:50
+msgid ""
+"This action is created when you call `plumed.cmd(\"setNatoms\",&natoms)` "
+"from gromacs. It makes 5 PLMD::Value called posx, posy, posz, Masses and "
+"Charges. These PLMD::Value objects then hold the x, y and z positions of the"
+" atoms and the masses and charges of the atoms. It is important to note that"
+" this command will also, create a PBC_ACTION to hold the cell."
+msgstr ""
+"GROMACS の `plumed.cmd(\"setNatoms\",&natoms)` "
+"で呼ばれ、posx・posy・posz・Masses・Charges の5 Value と、Cell を保持する PBC_ACTION を作ります。"
+
+#: MDInterfaceII.md:54
+msgid ""
+"The ROLE keywords above are only needed because the five quantities passed "
+"by the command above play a unique role within PLUMED. If you pass some "
+"other quantities, this instruction is not required. PLMD::ActionAtomistic "
+"searches for atomic positions, masses and charges by looking for PUT Actions"
+" that have these five particular roles and for ActionWithVirtualAtom "
+"objects."
+msgstr ""
+"ROLE はこの5量の特別な役割用で、他の量には不要です。ActionAtomistic はその ROLE の PUT と "
+"ActionWithVirtualAtom から位置・質量・電荷を探します。"
+
+#: MDInterfaceII.md:58
+msgid "Differences from regular PUT actions"
+msgstr "通常 PUT との違い"
+
+#: MDInterfaceII.md:60
+msgid ""
+"PUT actions created from a DOMAIN_DECOMPOSITION action behave differently "
+"from other PUT actions. In particular:"
+msgstr "DOMAIN_DECOMPOSITION 由来の PUT は次が異なります。"
+
+#: MDInterfaceII.md:62
+msgid ""
+"If a DOMAIN_DECOMPOSITION action creates a PUT action, then the PUT action "
+"depends on the DOMAIN_DECOMPOSITION action. ActionToPutData::apply thus does"
+" nothing for these PUT actions."
+msgstr "元の DOMAIN_DECOMPOSITION に依存し、ActionToPutData::apply は何もしない。"
+
+#: MDInterfaceII.md:63
+msgid ""
+"Similarly, when DOMAIN_DECOMPOSITION actions create PUT actions, data is "
+"transferred from the input pointer to the PLMD::Value object by the "
+"DOMAIN_DECOMPOSITION action. When ActionToPutData::wait is called for these "
+"PUT Actions `wasset=true`, ActionToPutData::wait does nothing."
+msgstr ""
+"元が Pointer から Value を移すため、ActionToPutData::wait は `wasset=true` で何もしない。"
+
+#: MDInterfaceII.md:64
+msgid ""
+"Lastly, if a constant PUT action is created by DOMAIN_DECOMPOSITION, the "
+"values in the vector are set during the first step of MD rather than during "
+"initialisation."
+msgstr "Constant でも初期化時ではなく MD の最初の Step に設定する。"
+
+#: MDInterfaceII.md:66
+msgid ""
+"These differences are necessary because PUT actions cannot understand the "
+"information in the pointers that are passed from the MD code. These pointers"
+" are only understandable if you know which atoms are on each processor. This"
+" information is only passed to the DOMAIN_DECOMPOSITION action. "
+"DOMAIN_DECOMPOSITION must translate the information passed from the MD code "
+"before it is passed back on through PLMD::Value objects created by the PUT "
+"actions. DOMAIN_DECOMPOSITION thus keeps pointers to all the PUT actions "
+"that it creates. It sets the data in these action's PLMD::Value objects "
+"within `DomainDecomposition::share(const std::vector<AtomNumber>& unique)` "
+"and `DomainDecomposition::wait().` The forces on the PUT actions created by "
+"the DOMAIN_DECOMPOSITION action are added in `DomainDecomposition::apply()`."
+msgstr ""
+"PUT だけでは各 Processor の原子配置がわからず Pointer を解釈できないためです。その情報を受ける "
+"DOMAIN_DECOMPOSITION が変換します。全 PUT への Pointer "
+"を保持し、`DomainDecomposition::share(const std::vector<AtomNumber>& unique)` と "
+"`DomainDecomposition::wait().` で値、`DomainDecomposition::apply()` で力を設定します。"

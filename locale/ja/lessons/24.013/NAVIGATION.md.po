@@ -1,0 +1,108 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid ""
+"Permutationally Invariant Networks for Enhanced Sampling (PINES) is a data-"
+"driven method for studying free energy landscapes of both single and multi-"
+"molecular systems. PINES discovers collective variables (CVs) that are "
+"translationally, rotationally, and permutationally invariant in an iterative"
+" manner by taking permutationally invariant vectors (PIV) as input and "
+"passing them through a regularized autoencoder to discover high-variance CVs"
+" using the Molecular Enhanced Sampling with Autoencoders (MESA) technique. "
+"In this advanced PLUMED tutorial, we first provide an overview of the PINES "
+"method and demonstrate its application to study ion dissociation in water."
+msgstr ""
+"Permutationally Invariant Networks for Enhanced "
+"Sampling（PINES）は、単一分子系・多分子系の自由エネルギー地形を調べる Data-driven な手法である。PINES "
+"は、Permutationally Invariant Vectors（PIV）を入力として Regularized Autoencoder "
+"に渡し、Molecular Enhanced Sampling with Autoencoders（MESA）を用いて分散が大きい CVs "
+"を学習する。これを繰り返すことで、並進・回転・粒子の置換に対して不変な Collective Variables（CVs）を発見する。この発展的な "
+"PLUMED チュートリアルでは、まず PINES 法の概要を示し、水中の Ion Dissociation への応用を実演する。"
+
+#: NAVIGATION.md:11
+msgid ""
+"We use Jupyter notebooks that cover the entire iterative process of PINES — "
+"initial simulation setup, feature determination for constructing PIVs, "
+"dimensionality reduction using regularized autoencoders, whitening the "
+"latent space using principal component analysis, and generating PLUMED files"
+" for biasing using parallel bias metadynamics. All the input files required "
+"to run the tutorial will also be provided with the tutorial."
+msgstr ""
+"Jupyter Notebooks を使って、PINES の反復過程全体を扱う。具体的には、初期シミュレーションの設定、PIVs を構成する "
+"Features の決定、Regularized Autoencoders による Dimensionality Reduction、Principal"
+" Component Analysis を用いた Latent Space の Whitening、および Parallel-Bias "
+"Metadynamics で Bias を加える PLUMED ファイルの生成である。チュートリアルの実行に必要な入力ファイルもすべて提供する。"
+
+#: NAVIGATION.md:17
+msgid ""
+"The primary learning objectives from this tutorial are permutationally "
+"invariant molecular representations, high-variance CVs, autoencoders, and "
+"enhanced sampling methods at a high level along with a practical "
+"understanding of PINES to molecular systems in PLUMED. We assume the user is"
+" familiar with CV biasing enhanced sampling methods and usage of "
+"metadynamics introduced in early PLUMED tutorials."
+msgstr ""
+"主な学習目標は、Permutationally Invariant な分子表現、分散が大きい CVs、Autoencoders、および Enhanced"
+" Sampling 法の概要を理解し、PLUMED を使って PINES を分子系に適用するための実践的な理解を得ることである。CV に Bias "
+"を加える Enhanced Sampling 法と、初期の PLUMED チュートリアルで導入された Metadynamics "
+"の使い方を理解していることを前提とする。"
+
+#. mermaid node label
+#: NAVIGATION.md:25
+msgid "PINES Paper"
+msgstr "PINES の論文"
+
+#. mermaid node label
+#: NAVIGATION.md:25
+msgid "Description"
+msgstr "説明"
+
+#. mermaid node label
+#: NAVIGATION.md:26
+msgid "MESA Paper"
+msgstr "MESA の論文"
+
+#. mermaid node label
+#: NAVIGATION.md:27
+msgid "Notebook"
+msgstr "Notebook"
+
+#. mermaid node label
+#: NAVIGATION.md:28
+msgid "Metadynamics"
+msgstr "Metadynamics"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:29
+msgid "The paper about the PINES method introduced in this tutorial"
+msgstr "このチュートリアルで紹介する PINES 法の論文"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:30
+msgid ""
+"The paper about the MESA method, the previous iteration of PINES which is "
+"not permutation invariant"
+msgstr "PINES の前身であり、Permutation Invariance を持たない MESA 法の論文"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:31
+msgid ""
+"A very brief introduction to PINES and the instructions for the exercises"
+msgstr "PINES のごく簡単な入門と、演習の手順"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:32
+msgid "A python notebook file containing the exercise"
+msgstr "演習を収録した Python Notebook"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:33
+msgid "This tutorial teaches you how to run metadynamics simulations"
+msgstr "Metadynamics シミュレーションの実行方法を学ぶチュートリアル"

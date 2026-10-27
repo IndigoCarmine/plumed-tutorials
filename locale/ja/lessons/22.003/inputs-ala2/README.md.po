@@ -1,0 +1,55 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: inputs-ala2/README.md:1
+msgid ""
+"DISCLAIMER: gromacs 2020 officially does not support simulations in vacuum, "
+"see [here](https://manual.gromacs.org/2020/release-notes/2020/major/removed-"
+"functionality.html)."
+msgstr ""
+"注意：gromacs 2020 "
+"は真空中のシミュレーションを公式にはサポートしていません。[こちら](https://manual.gromacs.org/2020/release-"
+"notes/2020/major/removed-functionality.html) を参照してください。"
+
+#: inputs-ala2/README.md:3
+msgid ""
+"The idea is to run short unbiased simulations in the basins, "
+"`unbiased-s[AB]`, and from these trajectories (.xtc) take several "
+"configuration files (.gro) that are then used to create new input files "
+"(.tpr) based on the ala2 topology (.top) and with the same MD parameters "
+"(.mdp)"
+msgstr ""
+"まず Basin 内で短い Unbiased シミュレーション `unbiased-s[AB]` を実行し、その Trajectory (.xtc) "
+"から複数の Configuration ファイル (.gro) を取得します。それらを使い、ala2 の Topology (.top) と同じ MD "
+"パラメータ (.mdp) に基づく新しい入力ファイル (.tpr) を作成します。"
+
+#: inputs-ala2/README.md:6
+msgid "**useful commands:**"
+msgstr "**便利なコマンド：**"
+
+# Method name, software identifier or literal command intentionally preserved.
+#: inputs-ala2/README.md:8
+msgid "gmx_mpi grompp -f md.mdp -p topol.top -c config.gro -o input.tpr"
+msgstr "gmx_mpi grompp -f md.mdp -p topol.top -c config.gro -o input.tpr"
+
+#: inputs-ala2/README.md:10
+msgid ""
+"gmx_mpi trjconv -f unbiased-sA/alanine.xtc -s input.tpr -skip 300 -sep -o "
+"unbiased-sA/alanine..gro <<< \"0\""
+msgstr ""
+"gmx_mpi trjconv -f unbiased-sA/alanine.xtc -s input.tpr -skip 300 -sep -o "
+"unbiased-sA/alanine..gro <<< \"0\""
+
+#: inputs-ala2/README.md:12
+msgid ""
+"for i in {0..3};do gmx_mpi grompp -f md.mdp -p topol.top -c unbiased-"
+"sA/alanine.$i.gro -o input.$i.tpr; done"
+msgstr ""
+"for i in {0..3};do gmx_mpi grompp -f md.mdp -p topol.top -c unbiased-"
+"sA/alanine.$i.gro -o input.$i.tpr; done"

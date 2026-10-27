@@ -1,0 +1,30 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lesson.yml:title
+msgid "Modelling Concentration-driven processes with PLUMED"
+msgstr "PLUMED による Concentration-driven Processes のモデル化"
+
+#: lesson.yml:description
+msgid ""
+"An introduction to the tools that are available in PLUMED for simulating "
+"concentration-driven processes such as nucleation, growth and diffusion."
+msgstr ""
+"Nucleation、Growth、Diffusion などの Concentration-driven Processes "
+"をシミュレーションするために PLUMED で利用できるツールの入門。"
+
+#. video title
+#: EMBED.yml:video1
+msgid "Lecture I"
+msgstr "講義 I"
+
+#. video title
+#: EMBED.yml:video2
+msgid "Lecture II"
+msgstr "講義 II"

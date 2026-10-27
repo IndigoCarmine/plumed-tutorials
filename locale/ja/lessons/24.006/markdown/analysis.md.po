@@ -1,0 +1,202 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: markdown/analysis.md:1
+msgid ""
+"For your benefit the [repository](https://github.com/blake-"
+"armstrong/binding-tutorial-PLUMED/) contains a directory called "
+"`reference_data` which contains all of the outputs that are produced from "
+"the [running your simulations](inputs.md) section. If for some reason you "
+"can't or don't want to run the simulations yourself, you can use the raw "
+"data provided for analysis, or look at the analysis that is also included."
+msgstr ""
+"[リポジトリ](https://github.com/blake-armstrong/binding-tutorial-PLUMED/) の "
+"`reference_data` には [実行](inputs.md) "
+"の全出力があります。自分で実行できない、またはしない場合も、元データで解析したり、付属の解析結果を見たりできます。"
+
+#: markdown/analysis.md:3
+msgid "Installations"
+msgstr "インストール"
+
+#: markdown/analysis.md:5
+msgid ""
+"Before proceeding with the analysis, the script `mtd_analysis.py` requires a"
+" couple of Python packages to be installed. Run the following command to "
+"install them into your conda environment:"
+msgstr "解析の `mtd_analysis.py` に必要な Python Package を、次で conda 環境に入れます。"
+
+#: markdown/analysis.md:11
+msgid "Analysis"
+msgstr "解析"
+
+#: markdown/analysis.md:14
+msgid ""
+"Once your simulations have finished the BIAS directory will contain all of "
+"your HILLS files. If you see any `bck.HILLS.x` it is because there were "
+"already HILLS files in the BIAS directory when the simulation began, and "
+"were moved to backup before beginning to prevent overwriting them."
+msgstr ""
+"終了後、BIAS に HILLS が揃います。`bck.HILLS.x` は実行前に既存 HILLS があり、上書き防止のため Backup "
+"に移されたものです。"
+
+#: markdown/analysis.md:16
+msgid ""
+"In each `data/radius_0.x` directory you will find an 'analysis.sh' file. "
+"Running the command `bash analysis.sh` will do the following:"
+msgstr "各 `data/radius_0.x` の analysis.sh を `bash analysis.sh` で実行すると、次を行います。"
+
+#: markdown/analysis.md:23
+msgid ""
+"This section will grab the value of $k_BT$ at 300 K using the PLUMED command"
+" line tool. This value is required when producing the PMF."
+msgstr "PLUMED コマンドラインで300 K の $k_BT$ を求めます。PMF に必要です。"
+
+#: markdown/analysis.md:28
+msgid ""
+"Here all of the `HILLS.x` files in the `BIAS` directory will be concatenated"
+" together to produce one main HILLS file."
+msgstr "`BIAS` の全 `HILLS.x` を1つに連結します。"
+
+#: markdown/analysis.md:33
+msgid ""
+"Here we use the `sum_hills` tool to process the combined HILLS file and "
+"produce the one dimensional PMF. We manually pass in the value of kt and "
+"tell PLUMED to translate the profile such that the minimum becomes zero."
+msgstr "`sum_hills` で連結 HILLS から1次元 PMF を作ります。kt を手動で渡し、最小を0に揃えます。"
+
+#: markdown/analysis.md:38
+msgid ""
+"This Python script will perform the analysis described in the [theory "
+"section](theory.md), taking the file containing the 1D PMF, the spring "
+"constant and radius for the flat-bottom cylindrical restraint, and the "
+"temperature as input. To demonstrate this for the case of radius_0.0, once "
+"completed it will print the following to the screen (and written to the file"
+" `dG.dat`):"
+msgstr ""
+"[理論編](theory.md) の Python 解析は、1次元 PMF、Flat-bottom 円柱の Spring "
+"Constant・半径、温度を入力に取ります。radius_0.0 では次が画面と `dG.dat` に出ます。"
+
+#: markdown/analysis.md:72
+msgid ""
+"The first section, \"Binding Energy\", has computed the binding free energy "
+"$\\Delta G_{PMF}$ as 23.08 kJ/mol using a set of hard-coded boundaries "
+"(which can be modified if desired). The volume correction free energy "
+"$\\Delta G_V$ for the unbound region is computed to be -18.06 kJ/mol from an"
+" unbound volume of 0.0006497226 nm^3. Combining these two give a total "
+"correction of 5.02 kJ/mol. This script also writes out the PMF with the "
+"unbound region aligned to zero (`aligned_fes.dat`), making comparison with "
+"other radii easier."
+msgstr ""
+"「Binding Energy」では、固定の境界（変更可能）で $\\Delta G_{PMF}$ = 23.08 kJ/mol "
+"を計算します。非結合体積0.0006497226 nm^3から $\\Delta G_V$ = -18.06 kJ/mol を得て、合計は5.02 "
+"kJ/mol です。非結合領域を0に揃えた `aligned_fes.dat` も出力し、半径間で比較しやすくします。"
+
+#: markdown/analysis.md:74
+msgid ""
+"The final correction for the bound volume explored $\\Delta G_R$ is usually "
+"performed with alchemical free energy perturbation, however, in this simple "
+"system we make an analytical estimate, which is presented as 4.62 kJ/mol in "
+"the \"Bound Correction\" section of the output. Briefly, the analytical "
+"estimate works by fitting a harmonic potential to the minimum produced by "
+"the Gaussian and using that to compute an estimate of the unrestrained bound"
+" volume using the equation for the volume of a 3D harmonic oscillator in the"
+" [theory section](theory.md). This fit is written to `fit_harmonic.dat`. The"
+" volume of the restrained bound volume is then estimated using the equations"
+" for the area of a 2D harmonic oscillator (for the area in the xy plane) and"
+" the length for a 1D harmonic oscillator (to estimate the height of the "
+"restrained cylinder along z using the fit). The ratio of these two produce a"
+" free energy correction very similar to that produced by alchemical methods."
+" In the case of radii greater than zero, the restrained bound volume is "
+"greater than the unrestrained bound volume, resulting in a free energy "
+"correction of 0 kJ/mol for the removal of the cylindrical restraint."
+msgstr ""
+"結合領域の体積補正 $\\Delta G_R$ は通常 Alchemical Free Energy Perturbation "
+"で求めますが、この単純な系では解析的に推定し、「Bound Correction」に4.62 kJ/mol と表示します。Gaussian の極小を "
+"Harmonic Potential に Fit し、[理論編](theory.md) の3次元 Harmonic Oscillator "
+"の体積から非拘束体積を推定します。Fit は `fit_harmonic.dat` に保存します。拘束体積は、xy の2次元 Oscillator "
+"の面積と、Fit による z の1次元 Oscillator の長さから推定します。両体積比の自由エネルギー補正は Alchemical "
+"法とよく一致します。半径が0超では拘束体積が非拘束体積より大きいため、円柱除去の補正は0 kJ/mol です。"
+
+#: markdown/analysis.md:76
+msgid ""
+"Combing $\\Delta G_{PMF}$, $\\Delta G_V$ and $\\Delta G_R$ produces a final "
+"standard binding free energy of 9.65 kJ/mol. This value should be the same "
+"for every radius (to within $k_BT$), given the entire unbound volume is "
+"sampled completely."
+msgstr ""
+"$\\Delta G_{PMF}$、$\\Delta G_V$、$\\Delta G_R$ を合わせ、標準結合自由エネルギー9.65 kJ/mol "
+"を得ます。非結合体積全体を十分 Sampling すれば、全半径で $k_BT$ 以内で一致するはずです。"
+
+#: markdown/analysis.md:78
+msgid ""
+"Included below is a table of the standard binding free energies as a "
+"function of the radius of the flat-bottom cylindrical harmonic restraint."
+msgstr "半径に対する標準結合自由エネルギーを表に示します。"
+
+#: markdown/analysis.md:80
+msgid "Radius (nm)"
+msgstr "半径 (nm)"
+
+#: markdown/analysis.md:80
+msgid "$\\Delta G_{PMF}$ (kJ/mol)"
+msgstr "$\\Delta G_{PMF}$ (kJ/mol)"
+
+#: markdown/analysis.md:80
+msgid "$\\Delta G_{V}$ (kJ/mol)"
+msgstr "$\\Delta G_{V}$ (kJ/mol)"
+
+#: markdown/analysis.md:80
+msgid "$\\Delta G_{R}$ (kJ/mol)"
+msgstr "$\\Delta G_{R}$ (kJ/mol)"
+
+#: markdown/analysis.md:80
+msgid "$\\Delta G^{⦵}$ (kJ/mol)"
+msgstr "$\\Delta G^{⦵}$ (kJ/mol)"
+
+#: markdown/analysis.md:90
+msgid ""
+"Qualitatively, one can see the agreement to within $k_BT$. A keen student "
+"might feel inclined to run replicates and perform a statistical analysis to "
+"quantitatively show that they are in agreement, but that is left as further "
+"work and not performed here."
+msgstr "定性的には $k_BT$ 以内の一致がわかります。独立実行と統計解析で定量的に確かめてもよいですが、ここでは今後の課題とします。"
+
+#: markdown/analysis.md:92
+msgid ""
+"A simple gnuplot script for visualising the PMFs of the different radii all "
+"together has been provided as `scripts/fes.gnuplot`. Once the simulations "
+"have all run the data can be visualised as follow:"
+msgstr "異なる半径の PMF をまとめる `scripts/fes.gnuplot` を用意しています。全実行後、次で可視化できます。"
+
+#: markdown/analysis.md:103
+msgid ""
+"One-dimensional PMFs (aligned to the unbound region) as a function of the "
+"radius of the flat-bottom cylindrical restraining potential, and how they "
+"compared to the input potential energy surface (shown with the dashed red "
+"line). This representation highlights how the relative stability of the "
+"bound region to the unbound region decreases with increasing radius. The "
+"dissolution barrier decreases with increasing radius, as the ligand can more"
+" freely move around the barrier in the x and y directions."
+msgstr ""
+"Flat-bottom 円柱の半径ごとの、非結合領域を0にした1次元 PMF と、入力 Potential Energy "
+"Surface（赤破線）の比較です。半径が増すと、非結合状態に対する結合領域の相対安定性が低下します。Ligand が x・y 方向に Barrier "
+"を回避しやすくなるため、Dissolution Barrier も下がります。"
+
+#: markdown/analysis.md:106
+msgid ""
+"This figure makes apparent how the height of the free energy barrier is "
+"dependent on the radius of the cylinder, and why it is important to be able "
+"to use large flat-bottom cylinders when performing actual binding "
+"simulations when the barriers are of interest."
+msgstr ""
+"この図は Barrier 高さの半径依存性と、実際の結合で Barrier を知りたい場合に大きな Flat-bottom 円柱が重要な理由を示します。"
+
+#: markdown/analysis.md:110
+msgid "[Back to binding tutorial main page.](../NAVIGATION.md)"
+msgstr "[Binding チュートリアルのメインページに戻る。](../NAVIGATION.md)"

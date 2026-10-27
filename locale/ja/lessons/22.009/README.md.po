@@ -1,0 +1,67 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:2
+msgid "![image](image.png)"
+msgstr "![画像](image.png)"
+
+#: README.md:5
+msgid "Plumed masterclass-22-09"
+msgstr "Plumed masterclass-22-09"
+
+#: README.md:7
+msgid "Repository of the data for the PLUMED Masterclass 22.9"
+msgstr "PLUMED Masterclass 22.9 のデータリポジトリ"
+
+#: README.md:9
+msgid ""
+"This Plumed masterclass is on \"Using path collective variables to find "
+"reaction mechanisms in complex free energy landscapes\"."
+msgstr ""
+"この Plumed Masterclass では、「Path Collective Variables を使って複雑な自由エネルギー地形の "
+"Reaction Mechanism を見つける方法」を扱います。"
+
+#: README.md:11
+msgid "The masterclass consists of 4 parts:"
+msgstr "Masterclass は4つの部分で構成されます。"
+
+#: README.md:12
+msgid ""
+"A lecture on Path Collective Variables found on [this youtube "
+"video](https://www.youtube.com/watch?v=SAbLcQLGzuk)."
+msgstr ""
+"[こちらの YouTube 動画](https://www.youtube.com/watch?v=SAbLcQLGzuk) にある Path "
+"Collective Variables の講義。"
+
+#: README.md:13
+msgid ""
+"A detailed explanation of the material and the exercises on [this plumed "
+"website](https://www.plumed-"
+"tutorials.org/lessons/22/009/data/NAVIGATION.html)."
+msgstr ""
+"[こちらの plumed Web サイト](https://www.plumed-"
+"tutorials.org/lessons/22/009/data/NAVIGATION.html) にある教材と演習の詳しい説明。"
+
+#: README.md:14
+msgid ""
+"The software and data for the handson exercises found on this github "
+"repository."
+msgstr "この GitHub リポジトリにある実習用ソフトウェアとデータ。"
+
+#: README.md:15
+msgid ""
+"A detailed explanation of the solutions of the exercises on [this youtube "
+"video](https://www.youtube.com/watch?v=m5eTgR232V4)."
+msgstr ""
+"[こちらの YouTube 動画](https://www.youtube.com/watch?v=m5eTgR232V4) "
+"にある演習解答の詳しい説明。"
+
+#: README.md:17
+msgid "Enjoy!"
+msgstr "ぜひ楽しんでください！"

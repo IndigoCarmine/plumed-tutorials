@@ -1,0 +1,36 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:1
+msgid "Files:"
+msgstr "ファイル："
+
+#: README.md:2
+msgid ""
+"`HILLS.cv12` and `COLVAR.cv12` - hills and collective variable + bias report"
+" from metadynamics with phi and psi dihedral angles"
+msgstr ""
+"`HILLS.cv12` と `COLVAR.cv12`：phi、psi の Dihedral Angle を使った Metadynamics の "
+"Hill と Collective Variable・Bias の記録"
+
+#: README.md:3
+msgid ""
+"`HILLS.cv1` and `COLVAR.cv1` - hills and collective variable + bias report "
+"from metadynamics with phi dihedral angle"
+msgstr ""
+"`HILLS.cv1` と `COLVAR.cv1`：phi の Dihedral Angle を使った Metadynamics の Hill と "
+"Collective Variable・Bias の記録"
+
+#: README.md:4
+msgid ""
+"`HILLS.cv2` and `COLVAR.cv2` - hills and collective variable + bias report "
+"from metadynamics with psi dihedral angle"
+msgstr ""
+"`HILLS.cv2` と `COLVAR.cv2`：psi の Dihedral Angle を使った Metadynamics の Hill と "
+"Collective Variable・Bias の記録"

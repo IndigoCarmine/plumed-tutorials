@@ -1,0 +1,19 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lesson.yml:title
+msgid "An introduction to statistical mechanics for undergraduate students"
+msgstr "学部生のための Statistical Mechanics 入門"
+
+#: lesson.yml:description
+msgid ""
+"These are the resources that I provide to students at Queen's Unviersity "
+"Belfast for the third year course in statistical mechanics"
+msgstr ""
+"Queen's University Belfast の3年次の Statistical Mechanics の授業で著者が学生に提供している教材"

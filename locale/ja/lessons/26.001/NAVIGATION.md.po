@@ -1,0 +1,165 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Tutorial: Mastering Enhanced Sampling with OneOPES"
+msgstr "Tutorial：OneOPES による Enhanced Sampling の習得"
+
+#: NAVIGATION.md:3
+msgid ""
+"This tutorial was first given at the [Next-Generation Molecular Modeling "
+"Summer School 2026](https://github.com/crs4/NGMM2026)."
+msgstr ""
+"[Next-Generation Molecular Modeling Summer School "
+"2026](https://github.com/crs4/NGMM2026) で最初に行った Tutorial です。"
+
+#: NAVIGATION.md:5
+msgid ""
+"It is a self-contained tutorial that guides the user in performing enhanced "
+"sampling simulations, starting from the basics to dealing with suboptimal "
+"collective variables and introducing replica exchange."
+msgstr ""
+"基礎から、最適でない CV や Replica Exchange まで、Enhanced Sampling を順に学べる自己完結した Tutorial "
+"です。"
+
+#: NAVIGATION.md:7
+msgid ""
+"Users are encouraged to read the main reference paper and to follow the "
+"suggested accessory tutorials, from the basics of PLUMED syntax until the "
+"OPES tutorial. These tasks are given as inputs in the flow chart below."
+msgstr ""
+"原著と、PLUMED 構文の基礎から OPES までの推奨 Tutorial を参照してください。下の Flow Chart に入力として示しています。"
+
+#: NAVIGATION.md:9
+msgid ""
+"A number of OneOPES applications and a tutorial on OneOPES applied to host-"
+"guest systems are refereed as outputs in the flow chart."
+msgstr "OneOPES の応用と Host-Guest Tutorial を、Flow Chart の出力として示しています。"
+
+#. mermaid node label
+#: NAVIGATION.md:13
+msgid "OneOPES paper"
+msgstr "OneOPES 論文"
+
+#. mermaid node label
+#: NAVIGATION.md:13
+msgid "Instructions"
+msgstr "演習の手順"
+
+#. mermaid node label
+#: NAVIGATION.md:14
+msgid "PLUMED syntax"
+msgstr "PLUMED の構文"
+
+#. mermaid node label
+#: NAVIGATION.md:15
+msgid "Statistical errors in MD"
+msgstr "MD における統計誤差"
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "Multiple replicas"
+msgstr "複数 Replica"
+
+#. mermaid node label
+#: NAVIGATION.md:17
+msgid "OPES tutorial"
+msgstr "OPES Tutorial"
+
+#. mermaid node label
+#: NAVIGATION.md:18
+msgid "OneOPES applications"
+msgstr "OneOPES の応用"
+
+#. mermaid node label
+#: NAVIGATION.md:19
+msgid "OneOPES host-guest tutorial"
+msgstr "OneOPES Host-Guest Tutorial"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:20
+msgid "The paper where OneOPES was introduced."
+msgstr "OneOPES を提案した論文。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:21
+msgid "The OneOPES tutorial."
+msgstr "OneOPES Tutorial。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:22
+msgid "PLUMED Masterclass 21.1: PLUMED syntax and analysis"
+msgstr "PLUMED Masterclass 21.1：PLUMED の構文と解析"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:23
+msgid "PLUMED Masterclass 21.2: Statistical errors in MD"
+msgstr "PLUMED Masterclass 21.2：MD における統計誤差"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:24
+msgid "PLUMED Masterclass 21.5: Simulations with multiple replicas"
+msgstr "PLUMED Masterclass 21.5：複数の Replicas を用いたシミュレーション"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:25
+msgid ""
+"PLUMED Masterclass 22.03: Rethinking Metadynamics: the On-the-fly "
+"Probability Enhanced Sampling (OPES) method"
+msgstr ""
+"PLUMED Masterclass 22.03：Metadynamics の再考：On-the-fly Probability Enhanced "
+"Sampling (OPES) 法"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:26
+msgid ""
+"OneOPES current application list, with their paper reference and their "
+"corresponding input files."
+msgstr "OneOPES の応用一覧、関連論文、対応する入力。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:27
+msgid ""
+"PLUMED Masterclass 24.16: OneOPES Tutorial for Host-Guest Systems with "
+"PLUMED"
+msgstr "PLUMED Masterclass 24.16：PLUMED による Host-Guest 系の OneOPES Tutorial"
+
+#: NAVIGATION.md:30
+msgid "References"
+msgstr "参考文献"
+
+#: NAVIGATION.md:31
+msgid ""
+"Invernizzi, Piaggi, and Parrinello, [Unified Approach to Enhanced "
+"Sampling](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041034),"
+" PRX (2020)"
+msgstr ""
+"Invernizzi, Piaggi, and Parrinello, [Unified Approach to Enhanced "
+"Sampling](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041034),"
+" PRX (2020)"
+
+#: NAVIGATION.md:32
+msgid ""
+"Invernizzi and Parrinello, [Exploration vs Convergence Speed in Adaptive-"
+"Bias Enhanced Sampling](https://pubs.acs.org/doi/10.1021/acs.jctc.2c00152), "
+"JCTC (2022)"
+msgstr ""
+"Invernizzi and Parrinello, [Exploration vs Convergence Speed in Adaptive-"
+"Bias Enhanced Sampling](https://pubs.acs.org/doi/10.1021/acs.jctc.2c00152), "
+"JCTC (2022)"
+
+#: NAVIGATION.md:33
+msgid ""
+"Rizzi, Aureli, Ansari and Gervasio, [OneOPES, a Combined Enhanced Sampling "
+"Method to Rule Them All](https://pubs.acs.org/doi/10.1021/acs.jctc.3c00254),"
+" JCTC (2023)"
+msgstr ""
+"Rizzi, Aureli, Ansari and Gervasio, [OneOPES, a Combined Enhanced Sampling "
+"Method to Rule Them All](https://pubs.acs.org/doi/10.1021/acs.jctc.3c00254),"
+" JCTC (2023)"

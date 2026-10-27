@@ -1,0 +1,34 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: install.md:1
+msgid "Install"
+msgstr "インストール"
+
+#: install.md:3
+msgid ""
+"In order to use PLUMED with ASE, you need to install the python version of "
+"plumed and a version of ASE >= 3.23.0. For specific information about the "
+"installation of each code, you might need to check the formal instructions "
+"of [PLUMED]( https://www.plumed.org/doc-v2.8/user-"
+"doc/html/_installation.html#installingpython ) and [ASE]( "
+"https://wiki.fysik.dtu.dk/ase/install.html#installation-from-source ). "
+"However, for a quick installation that guaranties to run this tutorial, you "
+"can execute the next lines in your linux terminal if you have conda already "
+"installed:"
+msgstr ""
+"Python 版 PLUMED と ASE >= 3.23.0 が必要です。詳細は [PLUMED]( "
+"https://www.plumed.org/doc-v2.8/user-"
+"doc/html/_installation.html#installingpython ) と [ASE]( "
+"https://wiki.fysik.dtu.dk/ase/install.html#installation-from-source ) "
+"の公式手順を参照してください。conda 導入済みなら、Linux Terminal で次を実行すると手早く準備できます。"
+
+#: install.md:17
+msgid "[Theory: CVs and MTD &rarr;](theory.md)"
+msgstr "[理論：CV と MTD &rarr;](theory.md)"

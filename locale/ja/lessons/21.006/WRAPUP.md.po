@@ -1,0 +1,196 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: WRAPUP.md:1
+msgid "PLUMED Masterclass 21.6: Dimensionality reduction"
+msgstr "PLUMED Masterclass 21.6：Dimensionality Reduction"
+
+#: WRAPUP.md:3
+msgid "Aims"
+msgstr "目的"
+
+#: WRAPUP.md:5
+msgid ""
+"The primary aim of this Masterclass is to show you how you might use PLUMED "
+"in your work. We will see how to call PLUMED from a python notebook and "
+"discuss some strategies for selecting collective variables."
+msgstr ""
+"この Masterclass の主な目的は、自身の研究で PLUMED をどのように活用できるかを示すことである。Python Notebook から "
+"PLUMED を呼び出す方法を学び、Collective Variables を選ぶための戦略を検討する。"
+
+#: WRAPUP.md:9
+msgid "Applying these ideas in your research"
+msgstr "研究への応用"
+
+#: WRAPUP.md:11
+msgid ""
+"The exercises in this lesson have introduced you to the following ideas:"
+msgstr "ここまで次を学びました。"
+
+#: WRAPUP.md:13
+msgid "Using chemiscope to visualize trajectories and collective variables."
+msgstr "Chemiscope で Trajectory・CV を可視化する。"
+
+#: WRAPUP.md:14
+msgid "Using dimensionality reduction algorithms"
+msgstr "Dimensionality Reduction を使う。"
+
+#: WRAPUP.md:15
+msgid "Using Path collective variables"
+msgstr "Path CV を使う。"
+
+#: WRAPUP.md:16
+msgid "Clustering trajectories"
+msgstr "Trajectory を Clustering する。"
+
+#: WRAPUP.md:17
+msgid "Dealing with indistinguishable atoms"
+msgstr "区別不能な原子を扱う。"
+
+#: WRAPUP.md:19
+msgid ""
+"What I would like to do in the follow-up session is to think about how you "
+"can use these ideas as you do your research. The first step in using any of "
+"these questions is asking a research question that is amenable to answering "
+"using one of these methods. In this final exercise, I would like you to "
+"think about using these methods in your research. The first step in doing so"
+" is asking yourself the question __what am I trying to find out?__ The "
+"clearer you make this question, the easier you will find the subsequent "
+"research project. With this in mind, here are some examples of terrible "
+"research questions:"
+msgstr ""
+"Follow-up では研究への応用を考えます。まず手法で答えられる問いを立てます。__何を明らかにしたいか__ "
+"を明確にすると、研究を進めやすくなります。次は悪い問いの例です。"
+
+#: WRAPUP.md:24
+msgid ""
+"Understanding protein-ligand interactions using machine learning algorithms."
+msgstr "Machine Learning で Protein-Ligand 相互作用を理解する。"
+
+#: WRAPUP.md:25
+msgid "Understanding the mechanism via which limescale forms in pipes"
+msgstr "配管内の Limescale 形成を理解する。"
+
+#: WRAPUP.md:26
+msgid "Understanding protein folding using machine learning."
+msgstr "Machine Learning で Protein Folding を理解する。"
+
+#: WRAPUP.md:27
+msgid "Studying transport through membrane proteins."
+msgstr "Membrane Protein の輸送を研究する。"
+
+#: WRAPUP.md:28
+msgid "Understanding the catalytic mechanism of iron in ammonia formation."
+msgstr "Ammonia 形成での鉄の触媒機構を理解する。"
+
+#: WRAPUP.md:30
+msgid ""
+"These research questions are terrible because the final result that you will"
+" obtain has not been specified. It is unclear when the project will be "
+"finished, or what success in this project looks like. With this in mind, "
+"consider the following alternative questions, which each have a clear goal. "
+"Each of the goals below maps on to one of the terrible research questions "
+"above:"
+msgstr "得るべき最終結果を指定せず、終了や成功が不明なため悪い問いです。次は対応する明確な目標です。"
+
+#: WRAPUP.md:32
+msgid "Calculate the free energy change when ligand A binds to protein B."
+msgstr "Ligand A が Protein B に結合する自由エネルギー変化を求める。"
+
+#: WRAPUP.md:33
+msgid ""
+"Calculate the free energy change when single calcium and carbonate ions bind"
+" to copper surfaces."
+msgstr "Calcium と Carbonate Ion が1つずつ銅表面に結合する自由エネルギー変化を求める。"
+
+#: WRAPUP.md:34
+msgid ""
+"Calculate the free energy change when protein A transitions to its folded "
+"state."
+msgstr "Protein A が Folded 状態になる自由エネルギー変化を求める。"
+
+#: WRAPUP.md:35
+msgid ""
+"Calculate the free energy change as a sodium ion moves through a sodium "
+"channel protein."
+msgstr "Sodium Ion が Sodium Channel を通る自由エネルギー変化を求める。"
+
+#: WRAPUP.md:36
+msgid ""
+"Calculate the free energy change when nitrogen, hydrogen and ammonia gas "
+"bind to iron surfaces."
+msgstr "Nitrogen・Hydrogen・Ammonia Gas が鉄表面に結合する自由エネルギー変化を求める。"
+
+#: WRAPUP.md:38
+msgid ""
+"For each of the questions above, it is clear what success will look like -- "
+"you will have a converged estimate of the free energy difference. We have "
+"shown you how such estimates can be extracted in previous masterclasses and "
+"what it looks like when such calculations go wrong. Answering these research"
+" questions is thus simply a matter of applying what you have learned. "
+"Notice, also, how for each of the questions above, it is clear what you can "
+"do in the first step:"
+msgstr "収束した自由エネルギー差という成功が明確です。以前、その推定と失敗例を学んだので応用できます。最初の手順も明確です。"
+
+#: WRAPUP.md:41
+msgid ""
+"Run a parallel tempering metadynamics simulation with the distance between "
+"the centres of mass of the protein and the ligand as a CV."
+msgstr "Protein と Ligand の COM 距離で Parallel-tempering Metadynamics を実行する。"
+
+#: WRAPUP.md:42
+msgid ""
+"Run a metadynamics simulation of a slab of copper in contact with an aqueous"
+" solution containing a single calcium ion. Use the z component of the vector"
+" connecting the calcium ion and the centre of mass of the copper slab as the"
+" CV. Run a metadynamics simulation using the distance from the protein's "
+"folded state as the collective variable."
+msgstr ""
+"Calcium Ion 1個の水溶液と銅 Slab を実行し、Ion と Slab COM 間の z 成分を CV にする。Protein の "
+"Folded 状態からの距離を CV にした Metadynamics を行う。"
+
+#: WRAPUP.md:44
+msgid ""
+"Run a metadynamics simulation of the sodium in the channel protein. Use the "
+"z position of the sodium relative to the centre of the channel protein as a "
+"CVs."
+msgstr "Channel 内 Sodium の、Protein 中心に対する z を CV にする。"
+
+#: WRAPUP.md:45
+msgid ""
+"Run a metadynamics simulation of a slab of iron in contact with a simulation"
+" box that is empty except for one nitrogen molecule. Use the z component of "
+"the vector connecting the centre of mass of the nitrogen and the centre of "
+"mass of the iron slab as the CV."
+msgstr "Nitrogen 1分子だけの Box と鉄 Slab を実行し、両 COM 間の z 成分を CV にする。"
+
+#: WRAPUP.md:47
+msgid ""
+"These simulations may or may not give you the desired free energy "
+"difference. You will at least get some trajectory data from them, however. "
+"You can then analyze the trajectories using a machine learning algorithm or "
+"similar to refine your approach. This refining stage is where the experience"
+" of your supervisor should be invaluable."
+msgstr ""
+"目的の差が得られなくても Trajectory は得られます。それを Machine Learning "
+"などで解析して改善できます。その段階では指導者の経験が貴重です。"
+
+#: WRAPUP.md:50
+msgid ""
+"With all this in mind, think about your research project. Try to develop a "
+"research question to work on and an approach that you can use to tackle this"
+" question. Your question should not be some grand challenge. It should be "
+"something simple that you know how to do. You do not need to run these "
+"simulations. I want you to think about the research question to discuss them"
+" at the follow-up session. I want you to think about how you can use these "
+"methods in your research as if you are not doing so, attending these "
+"masterclasses is pointless as you will never really apply these methods."
+msgstr ""
+"自分の研究で、問いと取り組み方を考えてください。壮大な課題でなく、方法がわかる単純なものにします。実行は不要で、Follow-up "
+"で議論する問いを考えてください。実際の研究に使うことを考えなければ、Masterclass で方法を学ぶ意味がなくなります。"

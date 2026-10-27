@@ -1,0 +1,170 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid ""
+"Multiple Walkers Metadynamics Simulations with a Reactive Machine Learning "
+"Interatomic Potential"
+msgstr ""
+"Reactive Machine Learning Interatomic Potential を用いた Multiple Walkers "
+"Metadynamics シミュレーション"
+
+#: NAVIGATION.md:3
+msgid ""
+"In molecular dynamics (MD) simulations, different kinds of empirical "
+"interatomic potentials have been used to study various problems. However, "
+"those empirical potentials are usually incapable of describing chemical "
+"reactions as they need a proper description of the formation and breakage of"
+" chemical bonds. On the other hand, interatomic potentials derived from "
+"first-principles methods (e.g., density functional theory) are often "
+"expensive and can only be applied to small systems. For a more extensive "
+"system, such as chemical reactions in a bulk solution with explicit solvent "
+"molecules, the timescale of the process is often too long for first-"
+"principles MD simulations to reach. Recently, reactive machine learning "
+"interatomic potentials (MLIP) have been of great interest to the community "
+"as they can provide atomistic details to a system of interest with first-"
+"principles insights and a speed comparable to empirical potentials. They can"
+" be combined with various enhanced sampling techniques (e.g., umbrella "
+"sampling, metadynamics, etc.) to more efficiently explore the free energy "
+"space of a chemical reaction."
+msgstr ""
+"Molecular Dynamics（MD）では、さまざまな問題を調べるために各種の Empirical Interatomic Potentials "
+"が使われてきた。しかし、化学反応には Chemical Bonds の形成と切断の適切な記述が必要なため、これらの Potentials "
+"では通常扱えない。一方、Density Functional Theory などの First-principles 手法から得る "
+"Interatomic Potentials は計算コストが高く、小さな系にしか適用できないことが多い。明示的な溶媒分子を含む Bulk "
+"Solution 中の化学反応のような大きな系では、過程の Time Scale が First-principles MD "
+"で到達するには長すぎることが多い。近年は、First-principles の知見と、Empirical Potentials "
+"に匹敵する速度で原子レベルの詳細を与えられる Reactive Machine Learning Interatomic "
+"Potentials（MLIP）が注目されている。Umbrella Sampling や Metadynamics などの Enhanced "
+"Sampling と組み合わせれば、化学反応の自由エネルギー空間をさらに効率よく探索できる。"
+
+#: NAVIGATION.md:5
+msgid ""
+"This tutorial uses Atomic Simulation Environment (ASE) to perform multiple "
+"walkers metadynamics simulations with a trained equivariant message-passing "
+"neural network potential, MACE, to explore the free energy surface of "
+"nitrate anion dissociation at its triplet state in an aqueous solution. In "
+"principle, multiple walkers metadynamics can be more efficient than standard"
+" metadynamics when the free energy surface of interest has more than two "
+"local minima. This tutorial uses MACE as the MLIP of choice, but different "
+"MLIPs can be used in ASE without additional compilation if the ASE "
+"calculator for that particular MLIP is available in the version used."
+msgstr ""
+"このチュートリアルでは、Atomic Simulation Environment（ASE）と、学習済みの Equivariant Message-"
+"passing Neural Network Potential である MACE を用いて Multiple Walkers Metadynamics"
+" を実行する。対象は、水溶液中の Triplet State にある Nitrate Anion の Dissociation "
+"の自由エネルギー面である。原理的には、対象の自由エネルギー面に Local Minima が3つ以上ある場合、Multiple Walkers "
+"Metadynamics は通常の Metadynamics より効率よくなる可能性がある。ここでは MLIP に MACE を選ぶが、使用する ASE"
+" に対応する Calculator があれば、追加のコンパイルなしで他の MLIPs も利用できる。"
+
+#: NAVIGATION.md:7
+msgid ""
+"Depending on your previous exposure and interest in the topics, you may want"
+" to look at the lessons on PLUMED syntax, metadynamics, and external "
+"tutorials on training a MACE potential by its developer group."
+msgstr ""
+"これまでの経験や関心に応じて、PLUMED の構文、Metadynamics のレッスン、または MACE 開発グループによる Potential "
+"学習の外部チュートリアルを参照するとよい。"
+
+#. mermaid node label
+#: NAVIGATION.md:11
+msgid "PLUMED Syntax"
+msgstr "PLUMED の構文"
+
+#. mermaid node label
+#: NAVIGATION.md:11
+msgid "Statistical Errors in MD"
+msgstr "MD における統計誤差"
+
+#. mermaid node label
+#: NAVIGATION.md:12
+msgid "Metadynamics"
+msgstr "Metadynamics"
+
+#. mermaid node label
+#: NAVIGATION.md:13
+msgid "Multiple Walkers Metadynamics"
+msgstr "Multiple Walkers Metadynamics"
+
+#. mermaid node label
+#: NAVIGATION.md:14
+msgid "Instructions"
+msgstr "演習の手順"
+
+#. mermaid node label
+#: NAVIGATION.md:15
+msgid "MACE Tutorials"
+msgstr "MACE のチュートリアル"
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "Model System"
+msgstr "モデル系"
+
+#. mermaid node label
+#: NAVIGATION.md:17
+msgid "Input Files"
+msgstr "入力ファイル"
+
+#. mermaid node label
+#: NAVIGATION.md:18
+msgid "Post-processing"
+msgstr "後処理"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:19
+msgid ""
+"This is a PLUMED masterclass tutorial introducing PLUMED syntax and enhanced"
+" sampling"
+msgstr "PLUMED の構文と Enhanced Sampling を紹介する PLUMED Masterclass のチュートリアル"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:20
+msgid ""
+"This is a PLUMED masterclass tutorial on how to handle the statistical "
+"errors in MD simulations"
+msgstr "MD シミュレーションの統計誤差の扱い方を学ぶ PLUMED Masterclass のチュートリアル"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:21
+msgid ""
+"This is a PLUMED masterclass tutorial performing metadynamics simulations "
+"with PLUMED"
+msgstr "PLUMED で Metadynamics を実行する PLUMED Masterclass のチュートリアル"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:22
+msgid "The original paper introducing multiple walkers metadynamics"
+msgstr "Multiple Walkers Metadynamics を最初に紹介した論文"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:23
+msgid ""
+"External tutorials on training on a MACE potential by its developer group"
+msgstr "MACE 開発グループによる、MACE Potential を学習するための外部チュートリアル"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:24
+msgid "The instructions of this tutorial exercise"
+msgstr "このチュートリアルの演習手順"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:25
+msgid "An introduction to the model system of this tutorial"
+msgstr "このチュートリアルのモデル系の入門"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:26
+msgid "Examples of the input files"
+msgstr "入力ファイルの例"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:27
+msgid "The post-processing and reweighing of the simulations"
+msgstr "シミュレーションの後処理と Reweighting"

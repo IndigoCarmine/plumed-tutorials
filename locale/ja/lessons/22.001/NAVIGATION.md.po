@@ -1,0 +1,142 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid ""
+"Masterclass 22.01: Funnel Metadynamics (FM): predicting ligand binding "
+"models, binding free energies and kinetics"
+msgstr ""
+"Masterclass 22.01：Funnel Metadynamics (FM)：Ligand 結合モデル・自由エネルギー・Kinetics の予測"
+
+#: NAVIGATION.md:3
+msgid ""
+"This lesson was given as part of the PLUMED masterclass series in 2022. It "
+"included:"
+msgstr "2022年 PLUMED Masterclass シリーズの Lesson で、次を含みます。"
+
+#: NAVIGATION.md:5
+msgid ""
+"A two video set covering the theory behind the technique and practical "
+"information to set up and analyse the results."
+msgstr "理論と、設定・解析の実践を扱う2本の動画。"
+
+#: NAVIGATION.md:6
+msgid "A set of inputs to try the code and rerun FM on a paradigmatic system."
+msgstr "代表系で FM を再実行する入力。"
+
+#: NAVIGATION.md:7
+msgid ""
+"Some supplementary python notebooks that provide further background "
+"information on the exercise."
+msgstr "演習の背景知識を補う Python Notebooks。"
+
+#: NAVIGATION.md:9
+msgid ""
+"The flow chart shown below indicates the order in which you should consult "
+"the resources. You can click on the nodes to access the various resources. "
+"Follow the thick black lines for the best results. The resources that are "
+"connected by dashed lines are supplmentary resources that you may find "
+"useful when completing the exercise."
+msgstr ""
+"下のフローチャートは資料を参照する順序を示している。各ノードをクリックすると資料を開ける。太い黒線に沿って進めることを推奨する。破線でつながる資料は、演習に取り組む際に役立つ補足資料である。"
+
+#: NAVIGATION.md:11
+msgid "This data was presented among the masterclasses in the 2022 series."
+msgstr "2022年 Masterclass シリーズで紹介したデータ。"
+
+#. mermaid node label
+#: NAVIGATION.md:15
+msgid "Install"
+msgstr "インストール"
+
+#. mermaid node label
+#: NAVIGATION.md:15
+msgid "Lecture I"
+msgstr "講義 I"
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "Slides"
+msgstr "講義スライド"
+
+#. mermaid node label
+#: NAVIGATION.md:17
+msgid "Instructions"
+msgstr "演習の手順"
+
+#. mermaid node label
+#: NAVIGATION.md:18
+msgid "web server"
+msgstr "Web Server"
+
+#. mermaid node label
+#: NAVIGATION.md:19
+msgid "Showcase"
+msgstr "実演"
+
+#. mermaid node label
+#: NAVIGATION.md:20
+msgid "Lecture II"
+msgstr "講義 II"
+
+#. mermaid node label
+#: NAVIGATION.md:22
+msgid "Solution"
+msgstr "解答"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:23
+msgid ""
+"Instructions for how to install the version of PLUMED that you will need for"
+" this exercise"
+msgstr "この演習に必要なバージョンの PLUMED のインストール手順"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:24
+msgid ""
+"This lesson explains the basics about ligand/target binding and the scope of"
+" FM."
+msgstr "Ligand/Target 結合の基礎と FM の用途を説明する Lesson。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:25
+msgid "The slides for the theory explained in Lecture I."
+msgstr "Lecture I の理論の Slide。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:26
+msgid "A step-by-step procedure that will wlk you through the FM procedure."
+msgstr "FM を順に進める手順。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:27
+msgid ""
+"Web server to set up a FM simulation. Can be used in substitution of the tcl"
+" plug-in funnel.tcl."
+msgstr "FM 設定用 Web Server。funnel.tcl の代わりに使えます。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:28
+msgid ""
+"A lecture that goes a little more in deep in the practical phases of "
+"preparing and analysing a FM simulation"
+msgstr "FM の準備・解析の実践を詳しく扱う講義。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:29
+msgid ""
+"A python notebook that contains results and analyses of the simulation that "
+"is discussed in the masterclass."
+msgstr "Masterclass の結果・解析を含む Python Notebook。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:30
+msgid ""
+"A video showcasing Funnel Metadynamics Pre-Processing Tool functionalities"
+msgstr "Funnel Metadynamics Pre-Processing Tool の機能紹介動画。"

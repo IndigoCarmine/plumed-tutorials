@@ -1,0 +1,123 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Perf.md:1
+msgid "Flamegraph with perf from plumed benchmark"
+msgstr "plumed benchmark の perf による Flamegraph"
+
+#: Perf.md:3
+msgid ""
+"Flamegraphs provide you with a way for visualising how long is spent in each"
+" of the functions that make up a large piece of software like PLUMED. "
+"Constructing these graphs is a useful way to identify bottlenecks in codes "
+"and ways of optimising your calculations."
+msgstr ""
+"Flamegraphs は、PLUMED のような大きなソフトウェアの各関数に、どれだけ時間がかかっているかを可視化する。コードの "
+"Bottlenecks と、計算を最適化する方法の特定に役立つ。"
+
+#: Perf.md:6
+msgid ""
+"The best way to understand how to create a flame graph is by looking at the "
+"[original "
+"site](https://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html). A step-"
+"by-step instruction guide can be found on that site (this step by step guide"
+" is for linux. Mac OS user can follow some links "
+"[here](https://www.brendangregg.com/flamegraphs.html)):"
+msgstr ""
+"Flame Graph "
+"の作り方を理解するには、[元のサイト](https://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html)を見るのがよい。Linux"
+" 用の手順ガイドがある。macOS "
+"の利用者は[こちら](https://www.brendangregg.com/flamegraphs.html)のリンクも参照できる。"
+
+#: Perf.md:9
+msgid "Before working through the step by step guides above you should:"
+msgstr "上の手順を進める前に、次を行う。"
+
+#: Perf.md:10
+msgid "ensure you have enough permission to run processes with perf"
+msgstr "perf で Processes を実行するのに十分な権限があることを確認する。"
+
+#: Perf.md:11
+msgid ""
+"recompile plumed with `CXXFLAGS='-O3 -g -fno-omit-frame-pointer' CFLAGS=\"-g"
+" -O2 -fno-omit-frame-pointer\" ./configure other options` [-fno-omit-frame-"
+"pointer](https://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#C) is "
+"necessary on linux to correctly time the functions (you can use also "
+"`-gdwarf` instead of `-g`)"
+msgstr ""
+"`CXXFLAGS='-O3 -g -fno-omit-frame-pointer' CFLAGS=\"-g -O2 -fno-omit-frame-"
+"pointer\" ./configure other options` で PLUMED を再コンパイルする。Linux で関数の時間を正しく測るには"
+" [-fno-omit-frame-"
+"pointer](https://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#C) "
+"が必要である。`-g` の代わりに `-gdwarf` も使える。"
+
+#: Perf.md:12
+msgid "do the same also with all the kernels you want to measure"
+msgstr "測定するすべての Kernels も同様に再コンパイルする。"
+
+#: Perf.md:13
+msgid ""
+"clone the repository `git clone "
+"https://github.com/brendangregg/FlameGraph.git`, or download the release"
+msgstr ""
+"`git clone https://github.com/brendangregg/FlameGraph.git` "
+"でリポジトリを取得するか、Release をダウンロードする。"
+
+#: Perf.md:14
+msgid "save the path of the repository (I saved it as `flameDir`)"
+msgstr "リポジトリのパスを保存する。著者は `flameDir` に保存した。"
+
+#: Perf.md:15
+msgid "run the benchmark with perf:"
+msgstr "perf で Benchmark を実行する。"
+
+#: Perf.md:20
+msgid "then post process with perf :"
+msgstr "次に perf で後処理する。"
+
+#: Perf.md:24
+msgid "before you post process with the flamegraphs utilities:"
+msgstr "続いて Flamegraphs の Utilities で後処理する。"
+
+#: Perf.md:29
+msgid ""
+"You can then open the flamegraph. You should see something similar to the "
+"graph shown below."
+msgstr "Flamegraph を開くと、次のような図が見られるはずである。"
+
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
+#: Perf.md:31
+msgid "![](benchmark-school-perf.svg)"
+msgstr "![](benchmark-school-perf.svg)"
+
+#: Perf.md:34
+msgid ""
+"When reading a flame graph remember: the functions are horizontally in "
+"alphabetical order. The horizontal space is the percent of time that the "
+"function occupies in time and the height of the rectangle is the stack depth"
+" in which that function has been measured."
+msgstr ""
+"Flame Graph の関数は、横方向にアルファベット順で並ぶ。幅はその関数が占める時間の割合、矩形の高さは測定した Stack Depth を表す。"
+
+#: Perf.md:37
+msgid ""
+"For example in the column on the right where the base is \"_start\" you can "
+"see that of all the functions calls in the stack of \"mca_base*\" basically "
+"all the time is occupied by the \"do_lookup_x\" on the top of that stack."
+msgstr ""
+"例えば、右側の _start を底とする列では、mca_base* の Stack の関数呼び出しのうち、ほぼすべての時間を上端の "
+"do_lookup_x が占めることが分かる。"
+
+#: Perf.md:39
+msgid ""
+"If you open the svg with a browser you can click on the individual functions"
+" to zoom in. There is also a search utility when the graph is opened with a "
+"browser."
+msgstr "SVG をブラウザで開くと、個々の関数をクリックして拡大できる。検索機能も使える。"

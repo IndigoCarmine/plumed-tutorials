@@ -1,0 +1,45 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Readme_Serial.md:1
+msgid "The serial code"
+msgstr "Serial 版のコード"
+
+#: Readme_Serial.md:19
+msgid "the workflow is:"
+msgstr "処理の流れは次のとおりである。"
+
+#: Readme_Serial.md:20
+msgid "get the positions"
+msgstr "原子の位置を取得する。"
+
+#: Readme_Serial.md:21
+msgid "initialize `ncoord` to zero"
+msgstr "`ncoord` を0に初期化する。"
+
+#: Readme_Serial.md:22
+msgid ""
+"do a double loop calculating the distance between each possible couple of "
+"atoms and increment `ncoord` each time the distance is less than `R_0` "
+"(avoid calculating the distance from self)"
+msgstr ""
+"可能な原子の組み合わせを二重ループで調べ、原子間距離を計算する。距離が `R_0` 未満のたびに `ncoord` "
+"を増やす。原子自身との距離は計算しない。"
+
+#: Readme_Serial.md:26
+msgid "[back](Readme.md)"
+msgstr "[戻る](Readme.md)"
+
+#: Readme_Serial.md:28
+msgid ""
+"See also: [serial](Readme_Serial.md) [openMP](Readme_OMP.md) "
+"[MPI](Readme_MPI.md) [Cuda](Readme_CUDA.md)"
+msgstr ""
+"関連資料：[Serial](Readme_Serial.md) [OpenMP](Readme_OMP.md) [MPI](Readme_MPI.md)"
+" [CUDA](Readme_CUDA.md)"

@@ -1,0 +1,91 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: THEORY.md:1
+msgid "PLUMED Masterclass 21.4: Metadynamics"
+msgstr "PLUMED Masterclass 21.4：Metadynamics"
+
+#: THEORY.md:3
+msgid "Background theory"
+msgstr "背景理論"
+
+#: THEORY.md:5
+msgid ""
+"In [metadynamics](https://www.pnas.org/doi/10.1073/pnas.202427399), an "
+"external history-dependent bias potential is constructed in the space of a "
+"few selected degrees of freedom $\\vec{s}({q})$, generally called collective"
+" variables (CVs). This potential is built as a sum of Gaussian kernels "
+"deposited along the trajectory in the CVs space:"
+msgstr ""
+"[Metadynamics](https://www.pnas.org/doi/10.1073/pnas.202427399) は、Collective"
+" Variables (CVs) と呼ぶ少数の自由度 $\\vec{s}({q})$ の空間に、外部の履歴依存 BiasPotential "
+"を構築します。CV 空間の Trajectory に沿って Gaussian Kernel を足し合わせます。"
+
+#: THEORY.md:14
+msgid ""
+"where $\\tau$ is the Gaussian deposition stride, $\\sigma_i$ the width of "
+"the Gaussian for the $i$th CV, and $W(k \\tau)$ is the height of the "
+"Gaussian. The effect of the metadynamics bias potential is to push the "
+"system away from local minima into visiting new regions of the phase space. "
+"Furthermore, in the long time limit, the bias potential converges to minus "
+"the free energy as a function of the CVs:"
+msgstr ""
+"$\\tau$ は Gaussian 追加の Stride、$\\sigma_i$ は $i$ 番目の CV の Gaussian 幅、$W(k "
+"\\tau)$ は高さです。BiasPotential は系を局所極小から押し出し、新しい Phase Space を訪れさせます。長時間極限では、CV"
+" の関数としての自由エネルギーの符号反転に収束します。"
+
+#: THEORY.md:20
+msgid ""
+"In standard metadynamics, Gaussian kernels of constant height are added for "
+"the entire course of a simulation. As a result, the system is eventually "
+"pushed to explore high free-energy regions and the estimate of the free "
+"energy calculated from the bias potential oscillates around the real value. "
+"In [well-tempered "
+"metadynamics](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.100.020603),"
+" the height of the Gaussian is decreased with simulation time according to:"
+msgstr ""
+"標準 Metadynamics では高さ一定の Gaussian "
+"を全期間追加するため、最終的には高自由エネルギー領域まで探索し、BiasPotential からの推定は真値の周囲で振動します。[Well-"
+"tempered "
+"Metadynamics](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.100.020603)"
+" は、時間とともに高さを次のように減らします。"
+
+#: THEORY.md:26
+msgid ""
+"where $W_0$ is an initial Gaussian height, $\\Delta T$ an input parameter "
+"with the dimension of a temperature, and $k_B$ is the Boltzmann constant. "
+"With this rescaling of the Gaussian height, the bias potential smoothly "
+"converges in the long time limit, but it does not fully compensate the "
+"underlying free energy:"
+msgstr ""
+"$W_0$ は初期 Gaussian 高さ、$\\Delta T$ は温度の次元を持つ入力パラメータ、$k_B$ は Boltzmann "
+"定数です。高さの Rescaling により長時間極限で滑らかに収束しますが、自由エネルギーを完全には打ち消しません。"
+
+#: THEORY.md:32
+msgid ""
+"where $T$ is the temperature of the system. In the long time limit, the CVs "
+"thus sample an ensemble at a temperature $T+\\Delta T$ which is higher than "
+"the system temperature $T$. The parameter $\\Delta T$ can be chosen to "
+"regulate the extent of free-energy exploration: $\\Delta T = 0$ corresponds "
+"to standard MD, $\\Delta T \\rightarrow\\infty$ to standard metadynamics. In"
+" well-tempered metadynamics literature and in PLUMED, you will often "
+"encounter the term \"bias factor\" which is the ratio between the "
+"temperature of the CVs ($ T+\\Delta T$) and the system temperature ($T$):"
+msgstr ""
+"$T$ は系の温度です。長時間極限で CV は、系の温度 $T$ より高い $T+\\Delta T$ の Ensemble を Sampling "
+"します。$\\Delta T$ で自由エネルギー探索の範囲を調整でき、$\\Delta T = 0$ は標準 MD、$\\Delta T "
+"\\rightarrow\\infty$ は標準 Metadynamics です。文献や PLUMED の「Bias Factor」は、CV 温度（$ "
+"T+\\Delta T$）と系の温度（$T$）の比です。"
+
+#: THEORY.md:38
+msgid ""
+"The bias factor should thus be carefully chosen in order for the relevant "
+"free-energy barriers to be crossed efficiently in the time scale of the "
+"simulation."
+msgstr "重要な自由エネルギー Barrier をシミュレーション時間内に効率よく越えられるよう、Bias Factor を慎重に選びます。"

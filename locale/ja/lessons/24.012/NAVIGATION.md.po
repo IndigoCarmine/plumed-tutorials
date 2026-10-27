@@ -1,0 +1,136 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Exploring Free Energy Surfaces with MACE-PLUMED Metadynamics"
+msgstr "MACE-PLUMED Metadynamics を用いた自由エネルギー面の探索"
+
+#: NAVIGATION.md:3
+msgid ""
+"In this tutorial, we will learn how to link up the recently developed MACE "
+"potential with PLUMED to perform enhanced sampling simulations in the form "
+"of two-dimensional metadynamics. Our test system will be a molecule of "
+"gaseous carbonic acid (H2CO3). This tutorial will probe the various "
+"conformations carbonic acid can adopt and establish which are the most "
+"stable."
+msgstr ""
+"このチュートリアルでは、近年開発された MACE Potential と PLUMED を連携させ、2次元 Metadynamics による "
+"Enhanced Sampling シミュレーションを実行する方法を学ぶ。対象は気相の炭酸分子（H2CO3）である。炭酸が取りうるさまざまな "
+"Conformations を調べ、どれが最も安定かを求める。"
+
+#: NAVIGATION.md:5
+msgid ""
+"Carbonic acid is important for carbon dioxide solvation chemistry, relating "
+"to processes like ocean acidification and the bicarbonate buffer system. The"
+" acid has two terminal OH groups that can either be in cis or trans "
+"orientation, giving rise to three conformers, cis-cis, cis-trans, and trans-"
+"trans as shown below."
+msgstr ""
+"炭酸は、海洋酸性化や Bicarbonate Buffer System などに関係する、二酸化炭素の Solvation Chemistry "
+"で重要である。炭酸には末端の OH Groups が2つあり、それぞれ Cis または Trans の向きを取れる。そのため、下に示す Cis-"
+"Cis、Cis-Trans、Trans-Trans の3つの Conformers が生じる。"
+
+#: NAVIGATION.md:10
+msgid "In this tutorial, we will cover:"
+msgstr "このチュートリアルでは、次を扱う。"
+
+#: NAVIGATION.md:11
+msgid "Navigating the MACE-LAMMPS-PLUMED interface."
+msgstr "MACE-LAMMPS-PLUMED インターフェースの使い方。"
+
+#: NAVIGATION.md:12
+msgid "Setting up your work environment."
+msgstr "作業環境の設定。"
+
+#: NAVIGATION.md:13
+msgid "Running simple MD simulations using a MACE potential."
+msgstr "MACE Potential を用いた簡単な MD シミュレーションの実行。"
+
+#: NAVIGATION.md:14
+msgid "Performing metadynamics using two collective variables."
+msgstr "2つの Collective Variables を用いた Metadynamics の実行。"
+
+#: NAVIGATION.md:17
+msgid "By the end of this tutorial you should:"
+msgstr "このチュートリアルを終えると、次のことができるようになる。"
+
+#: NAVIGATION.md:18
+msgid "Know how to run simple MD powered by MACE potentials."
+msgstr "MACE Potentials を用いた簡単な MD の実行方法を理解する。"
+
+#: NAVIGATION.md:19
+msgid ""
+"Integrate MACE with PLUMED to enable the accurate determination of free "
+"energy surfaces."
+msgstr "MACE と PLUMED を連携させ、自由エネルギー面を精密に求める。"
+
+#: NAVIGATION.md:21
+msgid ""
+"The data and files needed to run the excercises of this tutorial can be "
+"found on Github. **Clone the following directory to your local machine**: "
+"https://github.com/water-ice-group/plumed_tutorial_mace.git"
+msgstr ""
+"演習に必要なデータとファイルは GitHub にある。**次のディレクトリを自分のマシンに clone "
+"する**：https://github.com/water-ice-group/plumed_tutorial_mace.git"
+
+#: NAVIGATION.md:23
+msgid "This tutorial is organized as follows:"
+msgstr "このチュートリアルは、次の構成になっている。"
+
+#. mermaid node label
+#: NAVIGATION.md:27
+msgid "Metadynamics"
+msgstr "Metadynamics"
+
+#. mermaid node label
+#: NAVIGATION.md:27 NAVIGATION.md:28
+msgid "Setting up your environment"
+msgstr "環境の設定"
+
+#. mermaid node label
+#: NAVIGATION.md:28
+msgid "Introduction to MACE"
+msgstr "MACE の入門"
+
+#. mermaid node label
+#: NAVIGATION.md:29
+msgid "Running Free MD"
+msgstr "通常の MD の実行"
+
+#. mermaid node label
+#: NAVIGATION.md:30
+msgid "Running Metadynamics"
+msgstr "Metadynamics の実行"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:31
+msgid "Masterclass on Metadynamics"
+msgstr "Metadynamics の Masterclass"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:32
+msgid ""
+"Learn about the MACE potential for performing accurate and efficient "
+"molecular dynamics simulations"
+msgstr "精密で効率的な MD シミュレーションを行うための MACE Potential について学ぶ。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:33
+msgid "Understand how to set up the MACE-ASE-PLUMED interface."
+msgstr "MACE-ASE-PLUMED インターフェースの設定方法を理解する。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:34
+msgid "Run simple MD using MACE and ASE."
+msgstr "MACE と ASE を使って簡単な MD を実行する。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:35
+msgid "Perform metadynamics using MACE to examine conformational stability."
+msgstr "MACE による Metadynamics を実行して、構造の安定性を調べる。"

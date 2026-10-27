@@ -1,0 +1,95 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Readme_MPI.md:1
+msgid "Processes: MPI"
+msgstr "Processes：MPI"
+
+#: Readme_MPI.md:24
+msgid ""
+"In this case the parallelization strategy passes through parallel processes:"
+" with `unsigned rank = comm.Get_rank()` we inform the function wich is the "
+"this process, with `unsigned stride = comm.Get_size()` we want to know the "
+"number of processes that partecipate to the calculation."
+msgstr ""
+"この場合は、複数の Processes によって並列化する。`unsigned rank = comm.Get_rank()` で現在の Process"
+" を関数に伝え、`unsigned stride = comm.Get_size()` で計算に参加する Process 数を得る。"
+
+#: Readme_MPI.md:27
+msgid ""
+"The strategy here is to split the outer for cycle between the processes, so "
+"that each process will do only part of the loop. We are doing by hand what "
+"the `#pragma for` does behind the curtains in the threaded example. The "
+"original cycle `for (unsigned int i0 = 0; i0 < nn; ++i0)` became `for "
+"(unsigned int i0 = rank; i0 < nn; i0 += stride)`: `stride` ensures that the "
+"calculation won't overlap."
+msgstr ""
+"ここでは、外側の for ループを Processes に分配し、それぞれが一部だけを実行する。Threading の例で `#pragma for` "
+"が内部で行う処理を、手作業で実装している。元のループ `for (unsigned int i0 = 0; i0 < nn; ++i0)` を `for"
+" (unsigned int i0 = rank; i0 < nn; i0 += stride)` に変える。`stride` "
+"によって計算の重複を防ぐ。"
+
+#: Readme_MPI.md:30
+msgid ""
+"We have less risk of having a data race because all the variable are "
+"instantiated for each different processor, meaning that non only the for "
+"loop is executed in parallel but that the change in data in a process won't "
+"affect other processes!"
+msgstr ""
+"各 Process に変数を個別に生成するため、Data Race の危険は小さい。for ループが並列に実行されるだけでなく、ある Process "
+"のデータ変更が、他の Processes に影響しない。"
+
+#: Readme_MPI.md:32
+msgid ""
+"We have then the problem of obtaining the correct result: we have to set "
+"`ncoord` to the sum of all the `ncoord` in the various processes. To do this"
+" sum we use the Plumed mpi inteface: `comm.Sum(ncoord)` this will call the "
+"reduction sum algorithm of the MPI library with no complications. Plumed "
+"tools used:"
+msgstr ""
+"次に、正しい結果を得る必要がある。各 Process の `ncoord` をすべて合計し、その値を `ncoord` に設定する。PLUMED の "
+"MPI Interface `comm.Sum(ncoord)` を使うと、MPI ライブラリの Reduction Sum を簡単に呼べる。使用する "
+"PLUMED のツールは次のとおりである。"
+
+#: Readme_MPI.md:36
+msgid ""
+"`tools/Communicator.h` is present as the variable `comm` that is inherited "
+"through `PLMD::Action`. `PLMD::Communicator` is an interface to some of the "
+"functionalities of the C API of mpi.h"
+msgstr ""
+"`tools/Communicator.h` の機能は、`PLMD::Action` から継承する変数 `comm` "
+"として使える。`PLMD::Communicator` は、mpi.h の C API の一部を扱う Interface である。"
+
+#: Readme_MPI.md:38
+msgid ""
+"`PLMD::Communicator::Get_size()` to get the number of the processes spawned "
+"by mpirun"
+msgstr "`PLMD::Communicator::Get_size()`：mpirun が起動した Process 数を取得する。"
+
+#: Readme_MPI.md:39
+msgid "`PLMD::Communicator::Get_rank()` to get the id of the process"
+msgstr "`PLMD::Communicator::Get_rank()`：Process の ID を取得する。"
+
+#: Readme_MPI.md:40
+msgid ""
+"`PLMD::Communicator::Sum()` to obtain the correct sum of `ncoord` from all "
+"the processes"
+msgstr "`PLMD::Communicator::Sum()`：すべての Processes の `ncoord` を正しく合計する。"
+
+#: Readme_MPI.md:42
+msgid "[back](Readme.md)"
+msgstr "[戻る](Readme.md)"
+
+#: Readme_MPI.md:44
+msgid ""
+"See also: [serial](Readme_Serial.md) [openMP](Readme_OMP.md) "
+"[MPI](Readme_MPI.md) [Cuda](Readme_CUDA.md)"
+msgstr ""
+"関連資料：[Serial](Readme_Serial.md) [OpenMP](Readme_OMP.md) [MPI](Readme_MPI.md)"
+" [CUDA](Readme_CUDA.md)"

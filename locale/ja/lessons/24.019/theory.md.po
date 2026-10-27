@@ -1,0 +1,107 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: theory.md:1
+msgid "Theory"
+msgstr "理論"
+
+#: theory.md:3
+msgid "Collective Variables"
+msgstr "Collective Variables"
+
+#: theory.md:5
+msgid ""
+"In most cases, it is impossible to extract clear information about a system "
+"of interest by monitoring the Cartesian coordinates of all atoms directly, "
+"especially if our system contains many atoms. Instead, it is possible to "
+"monitor the system by defining functions of those coordinates that describe "
+"the chemical properties that we are interested in. These functions are "
+"called Collective Variables (CVs) and allow biasing specific degrees of "
+"freedom or analyzing how those properties evolve. Plumed has numerous CVs "
+"already implemented that can be used with ASE. For a complete explanation of"
+" CVs implemented in Plumed, [go to this "
+"link](https://www.plumed.org/doc-v2.8/user-doc/html/colvarintro.html)."
+msgstr ""
+"全原子の Cartesian "
+"座標を直接監視して明確な情報を得るのは、特に大きな系では困難です。対象の化学的性質を記述する座標の関数、Collective Variables "
+"(CVs) を定義すれば、特定自由度への Bias や時間変化の解析が容易になります。PLUMED の多数の CV を ASE "
+"で使えます。[一覧](https://www.plumed.org/doc-v2.8/user-doc/html/colvarintro.html) "
+"を参照してください。"
+
+#: theory.md:16
+msgid "Metadynamics"
+msgstr "Metadynamics"
+
+#: theory.md:18
+msgid ""
+"[Metadynamics](https://www.nature.com/articles/s42254-020-0153-0) is an "
+"enhanced sampling method that allows exploring the configuration landscape "
+"by adding cumulative bias in terms of some CVs. This bias is added each "
+"$\\tau$ time lapse and usually its shape is Gaussian. In time t, the "
+"accumulated bias is defined as"
+msgstr ""
+"[Metadynamics](https://www.nature.com/articles/s42254-020-0153-0) は、CV "
+"の関数として Bias を蓄積し地形を探索する Enhanced Sampling 法です。通常 Gaussian を $\\tau$ ごとに加え、時刻"
+" t の蓄積 Bias は、"
+
+#: theory.md:37
+msgid ""
+"where $\\mathbf{s}$ is a set of collective variables, $\\sigma_i$ is the "
+"width of the Gaussian related to the i-th collective variable, and *W(s, "
+"t')* is the height of the Gaussian in time *t'*. In simple metadynamics, "
+"*W(s, t')* is a constant, but in Well-Tempered Metadynamics, the height of "
+"the Gaussians is lower where previous bias was added. This reduction in the "
+"height of the new Gaussians decreases the error and avoids exploration "
+"towards high free energy states that are thermodynamically irrelevant. The "
+"height in time t' for Well-Tempered Metadynamics is"
+msgstr ""
+"$\\mathbf{s}$ は CV 集合、$\\sigma_i$ は i 番目の Gaussian 幅、*W(s, t')* は時刻 *t'* "
+"の高さです。通常は *W(s, t')* 一定ですが、Well-Tempered では既存 Bias "
+"のある場所で低くします。誤差を減らし、熱力学的に重要でない高自由エネルギー状態の探索を避けます。時刻 t' の高さは、"
+
+#: theory.md:56
+msgid ""
+"with $W$ the maximum height of the Gaussians, $\\beta$ the inverse of the "
+"thermal energy ($1/k_BT$) and $\\gamma$ a bias factor greater than one that "
+"regulates how fast the height of the bias decreases: the higher the bias "
+"factor, the slower the heights decrease. Note that when $\\gamma$ approaches"
+" infinity, this equation becomes constant and simple metadynamics is "
+"recovered. In contrast, when $\\gamma$ approaches zero, no bias is added, "
+"which is the case of Molecular Dynamics."
+msgstr ""
+"$W$ は最大高さ、$\\beta$ は熱エネルギーの逆数 ($1/k_BT$)、$\\gamma$ は1超の Bias Factor "
+"です。大きいほど高さがゆっくり減ります。$\\gamma$ が無限大なら一定になり通常 Metadynamics に戻ります。一方 $\\gamma$ "
+"が0に近づくと Bias がなく、通常 MD になります。"
+
+#: theory.md:64
+msgid ""
+"The addition of the bias potential produces an extra force in each atom, "
+"such that the resultant force for the i-th atom is"
+msgstr "BiasPotential により各原子に追加の力が働き、i 番目の合力は、"
+
+#: theory.md:77
+msgid ""
+"where $F_i$ is the natural unbiased force, $R_i$ is the coordinate of the "
+"atom, and the second term is the additional force due to the added bias."
+msgstr "$F_i$ は Unbiased な力、$R_i$ は座標、第2項は Bias による追加の力です。"
+
+#: theory.md:80
+msgid ""
+"Part of the power of metadynamics is that it can be used for exploring "
+"conformations. Moreover, the accumulated bias converges to the free energy "
+"surface ( $F(s)$ ),"
+msgstr "Conformation 探索に加え、Bias と自由エネルギー表面（$F(s)$）の収束関係を得られます。"
+
+#: theory.md:93
+msgid "[&larr; Introduction](NAVIGATION.md)"
+msgstr "[&larr; 導入](NAVIGATION.md)"
+
+#: theory.md:94
+msgid "[Toy model: Planar 7-Atoms Cluster &rarr;](defsystem.md)"
+msgstr "[モデル：平面7原子 Cluster &rarr;](defsystem.md)"

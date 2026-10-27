@@ -1,0 +1,274 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Part1_Conformation.md:1
+msgid "Analyzing CpH-Metadynamics simulations"
+msgstr "CpH-Metadynamics の解析"
+
+#: Part1_Conformation.md:3
+msgid ""
+"In this tutorial, we will briefly look into different analyses that can be "
+"performed using CpH-MetaD. These analysis will be comprised of two parts:"
+msgstr "この Tutorial では、CpH-MetaD で可能な解析を簡単に紹介します。2つの部分があります。"
+
+#: Part1_Conformation.md:5
+msgid "Conformational analysis"
+msgstr "Conformation の解析"
+
+#: Part1_Conformation.md:6
+msgid "Protonation analysis"
+msgstr "Protonation の解析"
+
+#: Part1_Conformation.md:8
+msgid ""
+"In the conformational analysis, we will evaluate the convergence of chosen "
+"Collective Variables (CV's), characterize the CV space and estimate errors. "
+"In the protonation analysis, we will estimate average protonations of the "
+"titrable site at each pH value, estimate pKas using the Henderson-"
+"Hasselbalch equation and calculate errors, while using the metadynamics "
+"weights. Furthermore, we will compute the same properties using a WHAM "
+"procedure to reweight to obtain smoother and more accurate descriptions of "
+"several observables."
+msgstr ""
+"Conformation 解析では、選んだ Collective Variables (CVs) の収束を評価し、CV "
+"空間を特徴付け、誤差を推定します。Protonation 解析では Metadynamics の重みを用い、各 pH での Titration Site"
+" の平均 Protonation、Henderson-Hasselbalch 式による pKa、誤差を求めます。さらに WHAM で "
+"Reweighting し、より滑らかで正確な Observable の記述を得ます。"
+
+#: Part1_Conformation.md:10
+msgid "Loading Packages"
+msgstr "Package の読み込み"
+
+#: Part1_Conformation.md:21
+msgid "Conformational Analysis"
+msgstr "Conformation の解析"
+
+#: Part1_Conformation.md:23
+msgid "Extraction of trajectories and protonation state data"
+msgstr "Trajectory と Protonation State の抽出"
+
+#: Part1_Conformation.md:25
+msgid ""
+"All trajectories and protonation states were extracted locally using the "
+"scripts in the data folder. Take notice of them and examine how to extract "
+"the information."
+msgstr ""
+"全 Trajectory と Protonation State は data "
+"内のスクリプトでローカルに抽出しました。情報の抽出方法を確認してください。"
+
+#: Part1_Conformation.md:27
+msgid "Calculating populations and the free energy in function of the CVs"
+msgstr "CV の関数としての Population と自由エネルギーの計算"
+
+#: Part1_Conformation.md:29
+msgid ""
+"Here we use the PLUMED tool to obtain reweighted data on the desired "
+"observables, i.e. the chosen CV's:"
+msgstr "PLUMED で、対象 Observable、すなわち選んだ CV の Reweighting 済みデータを得ます。"
+
+#: Part1_Conformation.md:30
+msgid ""
+"the $\\chi$ angle of titrable site : this important property of nucleobases "
+"characterizes the relative orientation of the base/sugar. It is defined by "
+"the O4'-C1'-N1'-C2 (C,U) or O4'-C1'-N9-C4 (A,G). When the angle is between 0"
+" and 2 radians (-90º to 90º) it is in syn and the base is oriented towards "
+"the sugar, while from -pi to 0 and 2 to pi the angle is in anti. This base-"
+"flipping is a slow internal degree of freedom therefore a good candidate for"
+" a CV. It is also useful to validate our force field against experimental "
+"data;"
+msgstr ""
+"Titration Site の $\\chi$ 角：塩基と糖の相対配向を表す重要な Nucleobase の性質です。O4'-C1'-N1'-C2 "
+"(C,U) または O4'-C1'-N9-C4 (A,G) で定義します。0〜2 radian（-90º〜90º）では syn "
+"で塩基が糖を向き、-pi〜0と2〜pi は anti です。Base-flipping は遅い内部自由度なので CV に適し、Force Field "
+"の実験検証にも有用です。"
+
+#: Part1_Conformation.md:32
+msgid ""
+"the sugar puckering: another slow yet important property that refers to the "
+"conformation of the ribose. It is defined by the C2' and C3' atoms' relative"
+" positions to the plane defined by the C1', O4' and C4' atoms. The C2' endo "
+"is defined by the C2' atom above the plane and similarly the C3' endo for "
+"the C3' atom. The positioning defines the proximity of the 2'-OH group to "
+"the base and also the helix type. These calculations were done locally."
+msgstr ""
+"Sugar Puckering：Ribose の Conformation に関わる、遅く重要な性質です。C1'、O4'、C4' の平面に対する C2'"
+" と C3' の位置で定義します。C2' が平面上側なら C2' endo、C3' が上側なら C3' endo です。2'-OH "
+"と塩基の近さ、Helix の種類を決めます。これらはローカルで計算しました。"
+
+#: Part1_Conformation.md:34
+msgid ""
+"Biased simulations were performed at 3 distinct pH values: 8.0, 9.0 and "
+"10.0. Since the pKa of uridine is 9.22, then each simulation should exhibit "
+"differences in their observables if they are protonation-dependent. And that"
+" is what we are going to assess. For that purpose, we need to unbias our "
+"simulations and obtain either the weights or the unbiased observables. "
+"First, we need to extract the reweighted observables using the HILLS file "
+"for each simulation of our system. To do that we need to run the PLUMED "
+"driver module on the concatenated trajectory using a modified version of our"
+" PLUMED.dat input file. Examine the following cell that generates the "
+"PLUMED_rew.dat file."
+msgstr ""
+"pH 8.0、9.0、10.0で Bias 付き MD を行いました。Uridine の pKa は9.22なので、Protonation に依存する "
+"Observable は条件間で違うはずです。それを評価するため Bias を除き、重みまたは Unbiased Observable "
+"を得ます。まず各実行の HILLS を使い、変更した PLUMED.dat で連結 Trajectory に driver "
+"を実行します。PLUMED_rew.dat を生成する次の Cell を確認してください。"
+
+#: Part1_Conformation.md:83
+msgid ""
+"From the previous cell, we were able to obtain the weighted histograms, the "
+"unweighted properties and the bias used along the frames of the simulation. "
+"At this moment, we can extract the information from the COLVAR files and "
+"compute the weights w of each frame using w = exp(V/kBT) and then applying "
+"each w to each value of the observable. As such, we can obtain weighted "
+"averages, free-energy differences between the energy minima and plot the "
+"free energy along the chosen observable."
+msgstr ""
+"前の Cell で Weighted Histogram、重みなしの性質、各 Frame の Bias を得ました。COLVAR から各 Frame "
+"の重み w = exp(V/kBT) を計算し、Observable の各値に掛けます。これにより Weighted "
+"Average、極小間の自由エネルギー差、Observable に沿う自由エネルギーを求められます。"
+
+#: Part1_Conformation.md:85
+msgid ""
+"In the following cells, we will examine how the pH impacts the CVs of our "
+"system by comparing the populations of the syn/anti and the C2'/C3' endo "
+"conformations and their free energy differences."
+msgstr ""
+"次の Cell で syn/anti と C2'/C3' endo の Population と自由エネルギー差を比較し、pH の影響を調べます。"
+
+#: Part1_Conformation.md:87
+msgid ""
+"Q1. Does increasing the pH, thus the number of deprotonation events, impact "
+"the thermodynamic balance between these distinct conformations?"
+msgstr "Q1. pH を上げて Deprotonation を増やすと、Conformation 間の熱力学的な釣り合いに影響しますか？"
+
+#: Part1_Conformation.md:149
+msgid ""
+"Q2. Calculate the By observing the plot and examining the populations' "
+"values, what can we learn from the pH dependence of this system?"
+msgstr "Q2. 図と Population の値から、この系の pH 依存性について何がわかりますか？"
+
+#: Part1_Conformation.md:151
+msgid ""
+"Wt-metadynamics simulations depend on providing enough transitions across "
+"the defined range of the CV space to obtain sufficient sampling and a good "
+"description of the desired observables. As such, we need to examine if the "
+"number of transitions across the full CV range and if there is enough "
+"sampling in the transition regions which are typically of high energy."
+msgstr ""
+"Well-tempered Metadynamics で Observable をよく記述するには、CV "
+"範囲全体に十分な遷移が必要です。全範囲を越える遷移数と、通常は高エネルギーの遷移領域に十分な Sampling があるか調べます。"
+
+#: Part1_Conformation.md:168
+msgid ""
+"Q3. Are there enough transitions across the full range to state that we are "
+"sampling this specific CV space?"
+msgstr "Q3. この CV 空間を Sampling できているといえるほど、全範囲の遷移は十分ありますか？"
+
+#: Part1_Conformation.md:170
+msgid ""
+"Another important property to evaluate is the convergence of the free energy"
+" difference. In a simple system such as this, convergence can be assessed by"
+" measuring the free energy difference along the simulation time. Then, we "
+"will be able to use the converged portion of the trajectory to calculate "
+"other observables and estimate standard errors."
+msgstr ""
+"自由エネルギー差の収束も重要です。このような単純な系では時間変化で評価できます。収束後の Trajectory でほかの Observable "
+"と標準誤差を求めます。"
+
+#: Part1_Conformation.md:172
+msgid ""
+"To obtain the convergence, we need to compute the free energy along each CV "
+"value using the sum_hills module every N steps of the simulation."
+msgstr "sum_hills で N Step ごとに CV に沿う自由エネルギーを計算します。"
+
+#: Part1_Conformation.md:180
+msgid ""
+"The sum_hills module is used to sum the Gaussians stored in the HILLS file "
+"by using the --hills keyword. Then it is possible to select one specific CV,"
+" using the --idw keyword, to obtain their specific bias."
+msgstr ""
+"sum_hills は --hills で HILLS の Gaussian を足し合わせます。--idw で特定 CV を選び、その Bias "
+"を得られます。"
+
+#: Part1_Conformation.md:182
+msgid ""
+"Then, by iterating through each pH value, we can extract the data of each "
+"file and compute the free energy difference of the minima defined by the "
+"syn/anti criterion used previously."
+msgstr "各 pH のファイルを読み、先ほどの syn/anti の定義で極小間の自由エネルギー差を計算します。"
+
+#: Part1_Conformation.md:225
+msgid ""
+"Q4. Did the free energy difference converge quickly and how much should we "
+"discard of our trajectory?"
+msgstr "Q4. 自由エネルギー差は速く収束しましたか？Trajectory のどれだけを除くべきですか？"
+
+#: Part1_Conformation.md:227
+msgid ""
+"After assessing the convergence of our simulation and defining how much "
+"should we discard, we can perform some statistics using block analysis and a"
+" bootstrap approach on the converged part of our trajectory."
+msgstr "収束と除外部分を決めたら、収束部分で Block Analysis と Bootstrap による統計解析を行います。"
+
+#: Part1_Conformation.md:229
+msgid ""
+"First, we are going to reproduce the plot of the free energy as a function "
+"of the $\\chi$ angle with the standard errors."
+msgstr "まず $\\chi$ 角の自由エネルギーを標準誤差付きで描き直します。"
+
+#: Part1_Conformation.md:305
+msgid ""
+"Q5. How does the new free energy plot compare to the one obtained through "
+"the PLUMED module? How big are the error estimates?"
+msgstr "Q5. PLUMED で得た図とどう違いますか？誤差はどれほどですか？"
+
+#: Part1_Conformation.md:307
+msgid ""
+"Q6. Attempt to reproduce the previous analyses for the Zx component of the "
+"sugar puckering. How does it compare to the $\\chi$ angle?"
+msgstr "Q6. Sugar Puckering の Zx 成分でも同じ解析を試してください。$\\chi$ 角とどう違いますか？"
+
+#: Part1_Conformation.md:309
+msgid ""
+"So far, we have examined how an individual CV depends on the simulation pH "
+"and how the population balance of syn/anti and C2'/C3' endo change across "
+"the different simulations. Now, we want to compare the 2D free energy "
+"surface along all pH values and observe how the energy minima relate to each"
+" other."
+msgstr ""
+"各 CV の pH 依存性と syn/anti、C2'/C3' endo の Population の変化を見ました。次に各 pH "
+"の2次元自由エネルギー表面を比較し、極小間の関係を調べます。"
+
+#: Part1_Conformation.md:311
+msgid ""
+"Plotting 2D Free Energy Surface in the function of the metadynamics CVs"
+msgstr "Metadynamics CV の関数としての2次元自由エネルギー表面の描画"
+
+#: Part1_Conformation.md:313
+msgid ""
+"First, we need to once again use the sum_hills module to read the HILLS file"
+" of each simulation and generate a file with the free energies at each grid "
+"point. The grid is defined by both CVs and, at each point, an energy value "
+"is assigned after the module sums all the Gaussians deposited during the "
+"simulation that are stored in the HILLS file."
+msgstr ""
+"sum_hills で各 HILLS を読み、Grid ごとの自由エネルギーを生成します。両 CV で定義した Grid の各点に、全 Gaussian"
+" の和からエネルギーが割り当てられます。"
+
+#: Part1_Conformation.md:326
+msgid ""
+"After generating each fes_pH.dat file, we can plot the data and it should "
+"look like the following plot:"
+msgstr "fes_pH.dat を生成し、描画すると次のようになるはずです。"
+
+#: Part1_Conformation.md:391
+msgid ""
+"Q7. Do we identify differences in the energy minima and barriers across the "
+"different pH values? What can we say about the system?"
+msgstr "Q7. pH 間で極小と Barrier に違いがありますか？系について何がいえますか？"

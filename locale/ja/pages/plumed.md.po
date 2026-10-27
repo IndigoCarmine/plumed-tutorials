@@ -1,0 +1,71 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plumed.md:1
+msgid "What code will I learn about here?"
+msgstr "どのコードについて学ぶのか？"
+
+#: plumed.md:6
+msgid ""
+"PLUMED is an open-source, community-developed library that provides a wide "
+"range of different methods, which include:"
+msgstr "PLUMED は、コミュニティによって開発されているオープンソースのライブラリで、次のような多様な手法を提供します："
+
+#: plumed.md:8
+msgid "enhanced-sampling algorithms"
+msgstr "Enhanced Sampling法"
+
+#: plumed.md:9
+msgid "free-energy methods"
+msgstr "自由エネルギー計算法"
+
+#: plumed.md:10
+msgid ""
+"tools to analyze the vast amounts of data produced by molecular dynamics "
+"(MD) simulations."
+msgstr "分子動力学（MD）シミュレーションで生成される膨大なデータを解析するためのツール"
+
+#: plumed.md:12
+msgid ""
+"These techniques can be used in combination with a large toolbox of "
+"collective variables that describe complex processes in physics, chemistry, "
+"material science, and biology."
+msgstr ""
+"これらの手法は、物理学、化学、材料科学、生物学における複雑な過程を記述する、豊富なCollective "
+"Variablesのツールボックスと組み合わせて使用できます。"
+
+#: plumed.md:14
+msgid ""
+"PLUMED works together with some of the most popular MD engines, such as "
+"[ACEMD](https://www.acellera.com/products/molecular-dynamics-software-gpu-"
+"acemd/), [Amber](http://ambermd.org), "
+"[DL_POLY](https://www.scd.stfc.ac.uk/Pages/DL_POLY.aspx), "
+"[GROMACS](http://www.gromacs.org), [LAMMPS](https://lammps.sandia.gov), "
+"[NAMD](http://www.ks.uiuc.edu/Research/namd/), [OpenMM](http://openmm.org), "
+"[ABIN](https://github.com/PHOTOX/ABIN), [CP2K](https://www.cp2k.org), "
+"[i-PI](http://ipi-code.org), [PINY-"
+"MD](https://github.com/TuckermanGroup/PINY), and [Quantum "
+"Espresso](https://www.quantum-espresso.org). In addition, PLUMED can be used"
+" to augment the capabilities of analysis tools such as "
+"[VMD](https://www.ks.uiuc.edu/Research/vmd/), [HTMD](https://www.htmd.org), "
+"[OpenPathSampling](http://openpathsampling.org/latest/), and as a standalone"
+" utility to analyze pre-calculated MD trajectories."
+msgstr ""
+"PLUMED は、[ACEMD](https://www.acellera.com/products/molecular-dynamics-"
+"software-gpu-"
+"acemd/)、[Amber](http://ambermd.org)、[DL_POLY](https://www.scd.stfc.ac.uk/Pages/DL_POLY.aspx)、[GROMACS](http://www.gromacs.org)、[LAMMPS](https://lammps.sandia.gov)、[NAMD](http://www.ks.uiuc.edu/Research/namd/)、[OpenMM](http://openmm.org)、[ABIN](https://github.com/PHOTOX/ABIN)、[CP2K](https://www.cp2k.org)、[i-PI](http://ipi-"
+"code.org)、[PINY-MD](https://github.com/TuckermanGroup/PINY)、[Quantum "
+"Espresso](https://www.quantum-espresso.org) など、最も広く使われている MD "
+"エンジンの多くと連携して動作します。さらに PLUMED "
+"は、[VMD](https://www.ks.uiuc.edu/Research/vmd/)、[HTMD](https://www.htmd.org)、[OpenPathSampling](http://openpathsampling.org/latest/)"
+" などの解析ツールの機能拡張にも、計算済みの MD トラジェクトリを解析する単体のユーティリティとしても利用できます。"
+
+#: plumed.md:16
+msgid "<b>Check it out <a href=\"https://www.plumed.org\">here</a>!</b>"
+msgstr "<b>詳しくは<a href=\"https://www.plumed.org\">こちら</a>！</b>"

@@ -1,0 +1,204 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: oneopes_tutorial.md:1
+msgid "Complete OneOPES Tutorial for Host-Guest Systems"
+msgstr "Host-Guest Systems の OneOPES 総合チュートリアル"
+
+#: oneopes_tutorial.md:3
+msgid "Table of Contents"
+msgstr "目次"
+
+#: oneopes_tutorial.md:4
+msgid "[System Preparation](#1-system-preparation)"
+msgstr "[系の準備](#1-system-preparation)"
+
+#: oneopes_tutorial.md:5
+msgid ""
+"[Initial PLUMED Setup for Unbiased Run](#2-initial-plumed-setup-for-"
+"unbiased-run)"
+msgstr ""
+"[Unbiased 計算用の PLUMED の初期設定](#2-initial-plumed-setup-for-unbiased-run)"
+
+#: oneopes_tutorial.md:6
+msgid "[Running Unbiased Simulation](#3-running-unbiased-simulation)"
+msgstr "[Unbiased シミュレーションの実行](#3-running-unbiased-simulation)"
+
+#: oneopes_tutorial.md:7
+msgid "[Setting Up OneOPES Replicas](#4-setting-up-oneopes-replicas)"
+msgstr "[OneOPES Replicas の設定](#4-setting-up-oneopes-replicas)"
+
+#: oneopes_tutorial.md:8
+msgid "[Running OneOPES Simulation](#5-running-oneopes-simulation)"
+msgstr "[OneOPES シミュレーションの実行](#5-running-oneopes-simulation)"
+
+#: oneopes_tutorial.md:10
+msgid "1. System Preparation"
+msgstr "1. 系の準備"
+
+#: oneopes_tutorial.md:12
+msgid "Calculate atomic Charges"
+msgstr "原子の Charges を計算する"
+
+#: oneopes_tutorial.md:13
+msgid "Parameterize System"
+msgstr "系の Parameterization を行う"
+
+#: oneopes_tutorial.md:14
+msgid "Obtain initial binding pose"
+msgstr "初期 Binding Pose を得る"
+
+#: oneopes_tutorial.md:15
+msgid "Generate topology files"
+msgstr "Topology ファイルを生成する"
+
+#: oneopes_tutorial.md:16
+msgid "Add water model and ions"
+msgstr "Water Model と Ions を加える"
+
+#: oneopes_tutorial.md:17
+msgid "Run unbiased simulations"
+msgstr "Unbiased シミュレーションを実行する"
+
+#: oneopes_tutorial.md:19
+msgid "1.6.1. Energy minimization"
+msgstr "1.6.1. Energy Minimization"
+
+#: oneopes_tutorial.md:21
+msgid "1.6.2. NVT equilibration"
+msgstr "1.6.2. NVT Equilibration"
+
+#: oneopes_tutorial.md:23
+msgid "1.6.3. NPT equilibration"
+msgstr "1.6.3. NPT Equilibration"
+
+#: oneopes_tutorial.md:25
+msgid "1.6.4. Generate .tpr file for production"
+msgstr "1.6.4. 本計算用の .tpr ファイルを生成する"
+
+#: oneopes_tutorial.md:27
+msgid "2. Initial PLUMED Setup for Unbiased Run"
+msgstr "2. Unbiased 計算用の PLUMED の初期設定"
+
+#: oneopes_tutorial.md:29
+msgid "2.1 Define Groups"
+msgstr "2.1 Groups の定義"
+
+#: oneopes_tutorial.md:30
+msgid "First, identify correct atom numbers from your .gro file:"
+msgstr "まず、.gro ファイルで正しい原子番号を確認する。"
+
+#: oneopes_tutorial.md:50
+msgid "2.2 Set Up Virtual Atoms and Basic CVs"
+msgstr "2.2 Virtual Atoms と基本的な CVs の設定"
+
+#: oneopes_tutorial.md:51
+msgid "Place virtual atoms along the Z-axis of the host"
+msgstr "Host の Z 軸に沿って Virtual Atoms を配置する"
+
+#: oneopes_tutorial.md:86
+msgid "2.3 Define Water Coordination"
+msgstr "2.3 Water Coordination の定義"
+
+#: oneopes_tutorial.md:87
+msgid ""
+"Define water coordination between water oxygen atoms and the selected ligand"
+" atoms and virtual atoms."
+msgstr ""
+"水の酸素原子と、選択した Ligand の原子および Virtual Atoms の間の Water Coordination を定義する。"
+
+#: oneopes_tutorial.md:139
+msgid "2.4 Define Funnel, Walls, and Additional CVs"
+msgstr "2.4 Funnel、Walls、および追加の CVs の定義"
+
+#: oneopes_tutorial.md:207
+msgid "3. Running Unbiased Simulation"
+msgstr "3. Unbiased シミュレーションの実行"
+
+#: oneopes_tutorial.md:209
+msgid "Run 1 ns simulation:"
+msgstr "1 ns のシミュレーションを実行する。"
+
+#: oneopes_tutorial.md:214
+msgid "Calculate standard deviations of CVs from COLVAR file"
+msgstr "COLVAR ファイルから CVs の Standard Deviations を計算する"
+
+#: oneopes_tutorial.md:215
+msgid "These values will be used as SIGMA values in the biased simulations"
+msgstr "これらの値は、Biased シミュレーションの SIGMA の値として用いる。"
+
+#: oneopes_tutorial.md:217
+msgid "4. Setting Up OneOPES Replicas"
+msgstr "4. OneOPES Replicas の設定"
+
+#: oneopes_tutorial.md:219
+msgid "Create 8 replica directories and prepare a plumed.dat file for each:"
+msgstr "8つの Replica ディレクトリを作成し、それぞれに plumed.dat を用意する。"
+
+#: oneopes_tutorial.md:221
+msgid "Replica 0 (Base)"
+msgstr "Replica 0（基準）"
+
+#: oneopes_tutorial.md:303
+msgid "Replica 1"
+msgstr "Replica 1"
+
+#: oneopes_tutorial.md:304 oneopes_tutorial.md:394 oneopes_tutorial.md:495
+msgid "Add CV to previous replica:"
+msgstr "直前の Replica の設定に CV を追加する。"
+
+#: oneopes_tutorial.md:393
+msgid "Replica 2"
+msgstr "Replica 2"
+
+#: oneopes_tutorial.md:494
+msgid "Replica 3"
+msgstr "Replica 3"
+
+#: oneopes_tutorial.md:604
+msgid "Replica 4"
+msgstr "Replica 4"
+
+#: oneopes_tutorial.md:605
+msgid "Add ECV_MULTITHERMAL to previous replica:"
+msgstr "直前の Replica の設定に ECV_MULTITHERMAL を追加する。"
+
+#: oneopes_tutorial.md:731
+msgid "Replica 5"
+msgstr "Replica 5"
+
+#: oneopes_tutorial.md:732
+msgid "Increase temperature of ECV_MULTITHERMAL:"
+msgstr "ECV_MULTITHERMAL の温度を上げる。"
+
+#: oneopes_tutorial.md:869
+msgid "Replica 6"
+msgstr "Replica 6"
+
+#: oneopes_tutorial.md:870 oneopes_tutorial.md:1019
+msgid "Increase temperature:"
+msgstr "温度を上げる。"
+
+#: oneopes_tutorial.md:1018
+msgid "Replica 7"
+msgstr "Replica 7"
+
+#: oneopes_tutorial.md:1178
+msgid "5. Running OneOPES Simulation"
+msgstr "5. OneOPES シミュレーションの実行"
+
+#: oneopes_tutorial.md:1179
+msgid ""
+"Create 8 directories, named from 0 to 7. Copy the tpr, topology and gro "
+"files, the host_template.pdb and the corresponding plumed.dat file to each "
+"folder. Then run OneOpes multireplica with the displayed mpirun command."
+msgstr ""
+"0から7の名前を付けた8つのディレクトリを作成する。各フォルダに tpr、Topology、gro "
+"のファイル、host_template.pdb、および対応する plumed.dat をコピーする。次に、示した mpirun コマンドで "
+"OneOpes の Multi-replica 計算を実行する。"

@@ -1,0 +1,22 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:1
+msgid ""
+"Files and instructions needed for running the PLUMED tutorial: 'Exploring "
+"Free Energy Surfaces with MACE-PLUMED Metadynamics'."
+msgstr ""
+"PLUMED チュートリアル「Exploring Free Energy Surfaces with MACE-PLUMED "
+"Metadynamics」の実行に必要なファイルと手順。"
+
+#: README.md:3
+msgid ""
+"Instructions provided in `.md` files. Resources for tutorial provided in "
+"`resources`."
+msgstr "手順は `.md` ファイルにあり、チュートリアルの資料は `resources` にある。"

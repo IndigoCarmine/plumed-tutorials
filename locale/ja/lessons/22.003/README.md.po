@@ -1,0 +1,61 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:1
+msgid "PLUMED Masterclass-22-03: OPES method"
+msgstr "PLUMED Masterclass-22-03：OPES 法"
+
+#: README.md:2
+msgid ""
+"Repository of the data for [PLUMED Masterclass 22.3](https://plumed-"
+"school.github.io/lessons/22/003/data/NAVIGATION.html) (see also "
+"[here](https://www.plumed.org/masterclass))."
+msgstr ""
+"[PLUMED Masterclass 22.3](https://plumed-"
+"school.github.io/lessons/22/003/data/NAVIGATION.html) "
+"のデータリポジトリ（[こちら](https://www.plumed.org/masterclass) も参照）。"
+
+#: README.md:4
+msgid ""
+"The slides of the masterclass can be found at [this "
+"link](https://docs.google.com/presentation/d/1G94Kjq3kn3sNxFi2fZoISG3OMNq_erGIgleyr8y2YEA)."
+" The video recording is also available for both the "
+"[lecture](https://youtu.be/1XYGfA4kJ1c) and the [tutorial "
+"correction](https://youtu.be/Rn5JgItgKX4)."
+msgstr ""
+"Masterclass の Slide は "
+"[こちら](https://docs.google.com/presentation/d/1G94Kjq3kn3sNxFi2fZoISG3OMNq_erGIgleyr8y2YEA)"
+" にあります。[講義](https://youtu.be/1XYGfA4kJ1c) と "
+"[演習解説](https://youtu.be/Rn5JgItgKX4) の両方の録画も公開されています。"
+
+#: README.md:7
+msgid ""
+"The `notebooks` directory contains two Jupyter notebooks with all the "
+"instructions of the tutorials."
+msgstr "`notebooks` ディレクトリには、Tutorial のすべての手順を記載した2つの Jupyter Notebook があります。"
+
+#: README.md:9
+msgid "installation"
+msgstr "インストール"
+
+#: README.md:10
+msgid "For a quick start use conda (or mamba):"
+msgstr "手早く始めるには conda（または mamba）を使います。"
+
+#: README.md:18
+msgid ""
+"For better performance see instructions for compiling "
+"[plumed](https://www.plumed.org/doc-v2.8/user-doc/html/_installation.html) "
+"and [gromacs](https://manual.gromacs.org/documentation/2020/install-"
+"guide/index.html)."
+msgstr ""
+"性能を高める場合は、[plumed](https://www.plumed.org/doc-v2.8/user-"
+"doc/html/_installation.html) と "
+"[gromacs](https://manual.gromacs.org/documentation/2020/install-"
+"guide/index.html) のコンパイル手順を参照してください。"

@@ -1,0 +1,182 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: DESCRIPTION.md:1
+msgid "Permutationally Invariant Network for Enhanced Sampling (PINES)"
+msgstr "Permutationally Invariant Network for Enhanced Sampling（PINES）"
+
+#: DESCRIPTION.md:3
+msgid ""
+"PINES is a data-driven method for the automatic discovery of high variance "
+"collective variables (CVs) and enhanced sampling to obtain free energy "
+"landscapes of both single and multi-component molecular systems. It can be "
+"conceived as a permutationally invariant extension to the Molecular Enhanced"
+" Sampling with Autoencoders (MESA) method. PINES comprises three main "
+"components:"
+msgstr ""
+"PINES は、分散が大きい Collective Variables（CVs）を自動的に発見し、Enhanced Sampling "
+"によって単一成分・多成分の分子系の自由エネルギー地形を求める、Data-driven な手法である。Molecular Enhanced "
+"Sampling with Autoencoders（MESA）法を Permutationally Invariant "
+"に拡張したものと考えられる。PINES は、主に次の3つの要素からなる。"
+
+#: DESCRIPTION.md:5
+msgid "Components of PINES"
+msgstr "PINES の構成要素"
+
+#: DESCRIPTION.md:7
+msgid ""
+"**Permutation Invariant Vector (PIV) Featurization (F):** Provides a "
+"translationally, rotationally, and permutationally invariant representation "
+"of the molecular system."
+msgstr ""
+"**Permutation Invariant Vector（PIV）による Featurization（F）：** "
+"分子系について、並進・回転・粒子の置換に対して不変な表現を与える。"
+
+#: DESCRIPTION.md:10
+msgid ""
+"**Universal Function Approximators (Autoencoders):** Used for discovering "
+"high-variance CVs {($\\xi_1$, $\\xi_2$, ...)} from the molecular dynamics "
+"data."
+msgstr ""
+"**Universal Function Approximators（Autoencoders）：** MD データから、分散が大きい CVs "
+"{($\\xi_1$, $\\xi_2$, ...)} を発見するために用いる。"
+
+#: DESCRIPTION.md:13
+msgid ""
+"**Molecular Dynamics (MD) Simulations with CV Biasing:** Enhanced sampling "
+"MD simulations are performed by biasing along the high-variance CVs learned "
+"by autoencoders. This tutorial uses **Parallel-Bias Metadynamics (PBMetaD)**"
+" for sampling, though any CV-enhanced sampling method can be employed."
+msgstr ""
+"**CV に Bias を加える Molecular Dynamics（MD）シミュレーション：** Autoencoders が学習した分散の大きい "
+"CVs に沿って Bias を加え、Enhanced Sampling MD を実行する。このチュートリアルでは **Parallel-Bias "
+"Metadynamics（PBMetaD）** を Sampling に用いるが、CV に基づく他の Enhanced Sampling "
+"法も使用できる。"
+
+#: DESCRIPTION.md:18
+msgid ""
+"<em>Figure 1: Overview of PINES for automatic discovery of high-variance CVs"
+" and biasing the system using CV-enhanced sampling to overcome the sampling "
+"challenges of MD simulations in determining free energy landscapes of both "
+"single and multi-molecular systems. (a) We perform MD simulations to sample "
+"the phase space of the system. The snapshot shows a representation of a NaCl"
+" system configuration in water with Na, Cl, O, and H colored in yellow, "
+"green, red, and white, respectively. (b) Representation of the system "
+"configurations sampled during MD simulation in Cartesian space, where {xi, "
+"yi, zi} represent the x, y, and z positions of atom i in the system. (c) "
+"Conversion of the system configurations sampled during MD simulation to a "
+"permutationally, rotationally, and translationally invariant representation "
+"using PIVs. (d) Learning differentiable and high-variance nonlinear CVs "
+"using autoencoders. We use a feed-forward network as a universal function "
+"approximator for both the encoder and decoder parts of the autoencoders. (e)"
+" Principal component analysis to align the manifold discovered using "
+"autoencoders with the highest variance directions. (f) CV enhanced sampling "
+"using PBMetaD or termination of PINES upon the convergence of discovered "
+"CVs. Figure adapted from 10.1021/acs.jctc.3c00923, copyright ACS.</em>"
+msgstr ""
+"<em>図1：分散が大きい CVs を自動的に発見し、CV に基づく Enhanced Sampling で系に Bias を加える PINES "
+"の概要。単一分子系・多分子系の自由エネルギー地形を求める際の MD の Sampling 上の課題を克服する。(a) 系の Phase Space を "
+"Sampling するため、MD シミュレーションを行う。図は水中の NaCl 系の Configuration を示し、Na、Cl、O、H "
+"をそれぞれ黄、緑、赤、白で表している。(b) MD で Sampling した Configurations を Cartesian Space "
+"で表す。{xi, yi, zi} は、系の原子 i の x、y、z 座標を表す。(c) PIVs を用い、MD で Sampling した "
+"Configurations を、粒子の置換・回転・並進に対して不変な表現へ変換する。(d) Autoencoders "
+"を用いて、微分可能で分散が大きい非線形 CVs を学習する。Encoder と Decoder の両方に、Universal Function "
+"Approximator として Feed-forward Network を用いる。(e) Principal Component Analysis "
+"を行い、Autoencoders が発見した Manifold を分散が最大となる方向に整列させる。(f) PBMetaD による CV "
+"Enhanced Sampling を行うか、発見した CVs が収束したら PINES を終了する。図は "
+"10.1021/acs.jctc.3c00923 をもとに改変。著作権 ACS。</em>"
+
+#: DESCRIPTION.md:23
+msgid "Tutorial: NaCl Ion Pair Dissociation in Water"
+msgstr "チュートリアル：水中の NaCl Ion Pair Dissociation"
+
+#: DESCRIPTION.md:25
+msgid ""
+"In this tutorial, we apply PINES to investigate the "
+"**association/dissociation process of a NaCl ion pair in water**. This is a "
+"classic system, where it is well known that the rearrangement of water "
+"molecules in the solvation shell of ions plays a critical role in driving "
+"the association or dissociation of NaCl. In other words, enhanced sampling "
+"of association or dissociation of Na+ and Cl- ions in water may require "
+"explicit biasing along water degrees of freedom.Traditional techniques "
+"struggle with this, as they do not naturally handle the **permutational "
+"symmetry** of water molecules, i.e., their indistinguishability."
+msgstr ""
+"このチュートリアルでは、PINES を用いて**水中の NaCl Ion Pair の Association／Dissociation "
+"過程**を調べる。このよく研究された系では、Ion の Solvation Shell 内の水分子の再配置が、NaCl の Association や "
+"Dissociation を駆動するうえで重要であることが知られている。言い換えると、水中の Na+ と Cl- の "
+"Association／Dissociation を Enhanced Sampling するには、水の自由度に明示的に Bias "
+"を加える必要がある場合がある。従来の手法は、水分子の**Permutational Symmetry**、すなわち "
+"Indistinguishability を自然には扱えないため、これが難しい。"
+
+#: DESCRIPTION.md:27
+msgid "Why Use PINES?"
+msgstr "PINES を使う理由"
+
+#: DESCRIPTION.md:29
+msgid ""
+"PINES addresses the challenge of indistinguishable solvent molecules by "
+"using **PIV representation**. This feature of PINES automatically removes "
+"translational, rotational, and permutational variances, allowing us to "
+"discover **solvent-inclusive high-variance CVs** efficiently. This leads to "
+"more effective enhanced sampling for complex systems such as the "
+"dissociation of NaCl."
+msgstr ""
+"PINES は、**PIV Representation** "
+"を用いて、区別できない溶媒分子を扱う課題に対処する。並進・回転・粒子の置換による表現の変化を自動的に取り除くことで、**溶媒を含み、分散が大きい "
+"CVs** を効率よく発見できる。その結果、NaCl の Dissociation などの複雑な系を、より効果的に Enhanced Sampling "
+"できる。"
+
+#: DESCRIPTION.md:33
+msgid "Software Requirements"
+msgstr "必要なソフトウェア"
+
+#: DESCRIPTION.md:35
+msgid "The tutorial was tested using:"
+msgstr "このチュートリアルは、次の構成で動作確認されている。"
+
+#: DESCRIPTION.md:37
+msgid "**GROMACS-2021.6**"
+msgstr "**GROMACS-2021.6**"
+
+#: DESCRIPTION.md:38
+msgid ""
+"**PLUMED-2.8.3** patched with PINES. Instructions for installing PINES can "
+"be found at [PINES GitHub Repository](https://github.com/Ferg-Lab/pines)."
+msgstr ""
+"PINES のパッチを適用した **PLUMED-2.8.3**。PINES のインストール手順は [PINES GitHub "
+"Repository](https://github.com/Ferg-Lab/pines) にある。"
+
+#: DESCRIPTION.md:43
+msgid "Steps in the Tutorial"
+msgstr "チュートリアルの手順"
+
+#: DESCRIPTION.md:45
+msgid ""
+"**Step 1: Featurization** Represent the molecular simulation trajectory "
+"using a permutationally invariant representation."
+msgstr "**ステップ1：Featurization** 分子シミュレーションの Trajectory を、粒子の置換に対して不変な表現で記述する。"
+
+#: DESCRIPTION.md:48
+msgid ""
+"**Step 2: CV Discovery with Autoencoders** Train autoencoders to identify "
+"high-variance CVs from the molecular dynamics data."
+msgstr ""
+"**ステップ2：Autoencoders による CV の発見** Autoencoders を学習し、MD データから分散が大きい CVs "
+"を特定する。"
+
+#: DESCRIPTION.md:51
+msgid ""
+"**Step 3: Enhanced Sampling** Perform enhanced sampling of the system by "
+"applying **Parallel-Bias Metadynamics** along the high-variance CVs to study"
+" the free energy landscape of NaCl association/dissociation in water."
+msgstr ""
+"**ステップ3：Enhanced Sampling** 分散が大きい CVs に沿って **Parallel-Bias Metadynamics** "
+"を適用し、系を Enhanced Sampling する。これにより、水中の NaCl の Association／Dissociation "
+"の自由エネルギー地形を調べる。"

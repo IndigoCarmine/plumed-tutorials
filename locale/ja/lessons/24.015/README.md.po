@@ -1,0 +1,399 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:1
+msgid "Using PyCV"
+msgstr "PyCV を使う"
+
+#: README.md:2
+msgid "Installation"
+msgstr "インストール"
+
+#: README.md:4
+msgid ""
+"It should be sufficient to run, ideally in a virtual or conda environment. "
+"From the plumed source directory run:"
+msgstr "仮想環境または conda 環境で行うことを推奨する。PLUMED のソースディレクトリから、次を実行すればよい。"
+
+#: README.md:10
+msgid ""
+"You will need to have plumed avaiable in your path or through `pkg-config`"
+msgstr "PATH、または `pkg-config` を通じて PLUMED を利用できる必要がある。"
+
+#: README.md:12
+msgid ""
+"Required dependencies `numpy` and `pybind11` are installed as part of the "
+"installation process."
+msgstr "必要な依存パッケージ `numpy` と `pybind11` は、インストール処理の中で導入される。"
+
+#: README.md:14
+msgid ""
+"[!NOTE] Note that an in-place installation, `pip install -e .`, won't work."
+msgstr "[!NOTE] In-place Installation の `pip install -e .` は使えない。"
+
+#: README.md:17
+msgid ""
+"[!NOTE] To get the position of the shared object to load with the LOAD "
+"action, call `python -m pycv`, see [the examples](examples.md)"
+msgstr ""
+"[!NOTE] LOAD Action で読み込む Shared Object の場所は、`python -m pycv` "
+"で取得できる。[使用例](examples.md)を参照してほしい。"
+
+#: README.md:20
+msgid "Known runtime problems"
+msgstr "実行時の既知の問題"
+
+#: README.md:22
+msgid ""
+"On some platforms, *embedded* Python interpreters (such as the one used in "
+"PYCV) appear to behave differently than the plain ones, raising surprising "
+"errors. For example:"
+msgstr ""
+"一部のプラットフォームでは、PYCV のような *Embedded* Python Interpreter が、通常の Interpreter "
+"と異なる動作をして予想外のエラーを出すことがある。例を示す。"
+
+#: README.md:25
+msgid ""
+"[!NOTE] Some Python configurations (e.g. Conda under Linux) require the"
+msgstr "[!NOTE] 一部の Python 構成（Linux の Conda など）では、次の対応が必要になる。"
+
+#: README.md:27
+msgid ""
+"Python shared library to be found in the LD_LIBRARY_PATH, ignoring the "
+"activated environment. This manifests itself with an error like:"
+msgstr ""
+"有効化した環境にかかわらず、LD_LIBRARY_PATH から Python の Shared Library "
+"を見つけられるようにする必要がある。次のようなエラーとして現れる。"
+
+#: README.md:35
+msgid ""
+"[!NOTE] Similarly, some Python configurations (e.g. MacOS) ignore the "
+"current"
+msgstr "[!NOTE] 同様に、一部の Python 構成（macOS など）では、パッケージ検索時に現在の環境を無視する。"
+
+#: README.md:37
+msgid ""
+"environment when searching for packages (e.g. `numpy`). Hence, one should "
+"set PYTHONPATH manually. This manifests itself with an error like:"
+msgstr "例えば `numpy` の検索でも環境が無視されるため、PYTHONPATH を手動で設定する必要がある。次のようなエラーとして現れる。"
+
+#: README.md:45
+msgid "The basics"
+msgstr "基本事項"
+
+#: README.md:47
+msgid ""
+"When using PyCV the user will need to create a module[^1] that must at least"
+" contain an initialization dictionary and a calculate function"
+msgstr ""
+"PyCV を使うには、少なくとも初期化用の Dictionary と calculate 関数を含む Module[^1] を作成する必要がある。"
+
+#: README.md:49
+msgid ""
+"[^1]: a module is a `.py` file or a directory that contains a `__init__.py`,"
+" here we will only show `py` files"
+msgstr ""
+"[^1]: Module は `.py` ファイル、または `__init__.py` を含むディレクトリである。ここでは `py` "
+"ファイルのみを示す。"
+
+#: README.md:51
+msgid "What to write in the plumed.dat (PYCVINTERFACE)"
+msgstr "plumed.dat に記述する内容（PYCVINTERFACE）"
+
+#: README.md:57 README.md:75
+msgid ""
+"`IMPORT` this is the only mandatory keyword, this indicates the python "
+"module to load"
+msgstr "`IMPORT` は唯一の必須キーワードであり、読み込む Python Module を指定する。"
+
+#: README.md:58 README.md:76
+msgid ""
+"`INIT` indicates the function to call at initialization. Defaults to "
+"`plumedInit`"
+msgstr "`INIT` は初期化時に呼ぶ関数を指定する。既定値は `plumedInit` である。"
+
+#: README.md:59 README.md:77
+msgid "`COMPONENTS` can be specified either in python or in the plumed.dat"
+msgstr "`COMPONENTS` は Python と plumed.dat のどちらでも指定できる。"
+
+#: README.md:60
+msgid "`NOPBC` can be specified either in python or in the plumed.dat"
+msgstr "`NOPBC` は Python と plumed.dat のどちらでも指定できる。"
+
+#: README.md:61
+msgid ""
+"`ATOMS`, `GROUPA`,`GROUPB`, using `GROUP*` will make plumed set up a "
+"neighbor list between the groups, or group A, whereas with ATOMS all the "
+"atom will be passed"
+msgstr ""
+"`ATOMS`、`GROUPA`、`GROUPB`：`GROUP*` を使うと、PLUMED は Groups 間、または Group A 内の "
+"Neighbor List を設定する。ATOMS の場合は、すべての原子を渡す。"
+
+#: README.md:62
+msgid ""
+"`PAIR`,`NLIST`,`NL_CUTOFF`,`NL_STRIDE` can only be specified in the "
+"plumed.dat ~to be verified~"
+msgstr "`PAIR`、`NLIST`、`NL_CUTOFF`、`NL_STRIDE` は plumed.dat でのみ指定できる。~要確認~"
+
+#: README.md:63 README.md:78
+msgid ""
+"`CALCULATE` indicates the function to call at calculate time. Defaults to "
+"`plumedCalculate`"
+msgstr "`CALCULATE` は計算時に呼ぶ関数を指定する。既定値は `plumedCalculate` である。"
+
+#: README.md:64
+msgid ""
+"`PREPARE` indicates the function to call at prepare time. Ignored if not "
+"specified"
+msgstr "`PREPARE` は prepare 時に呼ぶ関数を指定する。指定しなければ無視する。"
+
+#: README.md:65
+msgid ""
+"`UPDATE` indicates the function to call at update time. Ignored if not "
+"specified"
+msgstr "`UPDATE` は update 時に呼ぶ関数を指定する。指定しなければ無視する。"
+
+#: README.md:67
+msgid "What to write in the plumed.dat (PYFUNCTION)"
+msgstr "plumed.dat に記述する内容（PYFUNCTION）"
+
+#: README.md:79
+msgid "`ARG` the list of arguments, to be specified in the plumed.dat"
+msgstr "`ARG` は引数のリストであり、plumed.dat で指定する。"
+
+#: README.md:81
+msgid ""
+"PYFUNCTION is simpler: but needs to get the arguments from the plumed object"
+msgstr "PYFUNCTION の方が単純だが、引数は PLUMED Object から取得する必要がある。"
+
+#: README.md:93
+msgid "The functions"
+msgstr "関数について"
+
+#: README.md:95
+msgid ""
+"For both PYFUNCTION and PYCVINTERFACE the function called by plumed must "
+"accept a specific object."
+msgstr ""
+"PYFUNCTION と PYCVINTERFACE のどちらも、PLUMED から呼ばれる関数は所定の Object を受け取る必要がある。"
+
+#: README.md:96
+msgid ""
+"PYCVINTERFACE functions will expect a "
+"`plumedCommunications.PythonCVInterface` object"
+msgstr ""
+"PYCVINTERFACE の関数は `plumedCommunications.PythonCVInterface` Object を受け取る。"
+
+#: README.md:97
+msgid ""
+"PYFUNCTION functions will expect a `plumedCommunications.PythonFunction` "
+"object"
+msgstr "PYFUNCTION の関数は `plumedCommunications.PythonFunction` Object を受け取る。"
+
+#: README.md:99
+msgid ""
+"These objects are used to retrieve data and settings from plumed. Plumed "
+"will get data back with the `data` attribute (see [below](#the-data-"
+"attribute)) but mainly with the use of returned dictionaries."
+msgstr ""
+"これらの Object を使って、PLUMED からデータや設定を取得する。PLUMED へは `data` Attribute（[後述](#the-"
+"data-attribute)）でもデータを渡せるが、主には返り値の Dictionaries を用いる。"
+
+#: README.md:101
+msgid ""
+"In the [examples](examples.md#getting-the-manual) I show how to retrieve the"
+" manual for those objects"
+msgstr "これらの Object のマニュアルを取得する方法は、[使用例](examples.md#getting-the-manual)で示す。"
+
+#: README.md:104
+msgid "Initialization"
+msgstr "初期化"
+
+#: README.md:106
+msgid ""
+"If in the plumed.dat `INIT` is not specified, plumed will search for an "
+"object \"plumedInit\", that can be either a function that returns a dict or "
+"a dict This dict MUST contain at least the information about the presence of"
+" the derivatives and on the periodicity of the variable. We will refer to "
+"this dict as \"the _init dict_\" from now."
+msgstr ""
+"plumed.dat で `INIT` を指定しなかった場合、PLUMED は plumedInit という Object を探す。これは dict "
+"を返す関数でも、dict 自体でもよい。この dict には、少なくとも微分の有無と変数の Periodicity の情報が必須である。以降、これを "
+"_init dict_ と呼ぶ。"
+
+#: README.md:112
+msgid ""
+"The _init dict_ will tell plumed how many components the calculate function "
+"will return and how they shall behave. Along this the dict can contain all "
+"the keyword that are compatible with PYCVINTERFACE. Mind that if the same "
+"keyword is specified both in the _init dict_ and in the plumed file the "
+"calculation will be aborted to avoid unwanted settings conflicts. In case of"
+" flags the dict entry must be a boolean, differently from the standard "
+"plumed input."
+msgstr ""
+"_init dict_ は、calculate 関数が返す Components の数と、その振る舞いを PLUMED "
+"に伝える。また、PYCVINTERFACE と互換性のあるキーワードをすべて含められる。ただし、_init dict_ と PLUMED "
+"ファイルの両方に同じキーワードを指定すると、意図しない設定の競合を防ぐため計算が中断される。Flag の Dictionary Entry は、通常の "
+"PLUMED 入力とは異なり、Boolean である必要がある。"
+
+#: README.md:122
+msgid ""
+"The only keyword that can only be specified in python is `COMPONENTS`. The "
+"`COMPONENTS` key must point to a dict that has as keys the names of the "
+"components. Each component dictionary must have two keys:"
+msgstr ""
+"Python でのみ指定できるキーワードは `COMPONENTS` である。`COMPONENTS` の値は、Components の名前をキーとする"
+" dict にする。各 Component の Dictionary には、次の2つのキーが必要である。"
+
+#: README.md:126
+msgid ""
+"`\"period\"`: `None` of a list of two values, min and max (like `[0,1]` or "
+"also strings like `[\"0.5*pi\",\"2*pi\"]`)"
+msgstr ""
+"`\"period\"`：`None`、または最小値と最大値の2値からなるリスト。`[0,1]` のほか、`[\"0.5*pi\",\"2*pi\"]`"
+" のような文字列も使える。"
+
+#: README.md:128
+msgid ""
+"`\"derivative\"`: `True` or `False` If you want to use a single component "
+"you can create the `\"COMPONENTS\"` dict with as single key, the name will "
+"be ignored. In the previous example the key `\"Value\"` is used instead of "
+"`\"COMPONENTS\"`: it is a shorter form for `\"COMPONENTS\":{\"any\":{...}}`."
+" To avoid confusion you cannot specify both `\"COMPONENTS\"` and `\"Value\"`"
+" in the same dict."
+msgstr ""
+"`\"derivative\"`：`True` または `False`。単一の Component を使う場合は、キーを1つだけ持つ "
+"`\"COMPONENTS\"` の dict を作成でき、その名前は無視される。前の例では `\"COMPONENTS\"` の代わりに "
+"`\"Value\"` を使っている。これは `\"COMPONENTS\":{\"any\":{...}}` の短縮形である。混乱を避けるため、同じ "
+"dict に `\"COMPONENTS\"` と `\"Value\"` を同時に指定することはできない。"
+
+#: README.md:136
+msgid ""
+"To speed up the declarations of the components the `plumedCommunications` "
+"module contains a submodule `defaults` with the default dictionaries already"
+" set up:"
+msgstr ""
+"Components の宣言を簡単にするため、`plumedCommunications` Module には、既定の Dictionaries "
+"を設定済みの Submodule `defaults` がある。"
+
+#: README.md:138
+msgid ""
+"`plumedCommunications.defaults.COMPONENT={\"period\":None, "
+"\"derivative\":True}`"
+msgstr ""
+"`plumedCommunications.defaults.COMPONENT={\"period\":None, "
+"\"derivative\":True}`"
+
+#: README.md:139
+msgid ""
+"`plumedCommunications.defaults.COMPONENT_NODEV={\"period\":None, "
+"\"derivative\":False}`"
+msgstr ""
+"`plumedCommunications.defaults.COMPONENT_NODEV={\"period\":None, "
+"\"derivative\":False}`"
+
+#: README.md:141
+msgid "Calculate"
+msgstr "Calculate"
+
+#: README.md:143
+msgid ""
+"If `CALCULATE` is not specified, plumed will search for a function named "
+"\"plumedCalculate\" plumed will read the variable returned accordingly to "
+"what it was specified in the initialization dict."
+msgstr ""
+"`CALCULATE` を指定しなければ、PLUMED は plumedCalculate という関数を探す。初期化用の dict "
+"の指定に従って、返された変数を読み取る。"
+
+#: README.md:147
+msgid ""
+"The calculate function must, as all the other functions accept a "
+"`plumedCommunications.PythonCVInterface` (or a "
+"`plumedCommunications.PythonFunction` in case of a pyfunction) object as "
+"only input."
+msgstr ""
+"calculate 関数も他の関数と同様に、唯一の入力として `plumedCommunications.PythonCVInterface` "
+"Object を受け取る必要がある。PYFUNCTION の場合は `plumedCommunications.PythonFunction` "
+"を受け取る。"
+
+#: README.md:150
+msgid ""
+"The calculate function must either return a float or a tuple or, in the case"
+" of multiple components, a dict whose keys are the name of the components, "
+"whose elements are either float or tuple."
+msgstr ""
+"calculate 関数は、float または tuple を返す必要がある。複数の Components を持つ場合は、Component "
+"名をキーとし、各要素を float または tuple とする dict を返す。"
+
+#: README.md:154
+msgid ""
+"Plumed will assign automatically the result to the CV (to the key named "
+"element), if the name of the component is missing the calculation will be "
+"interrupted with an error message. If derivatives are disabled it will "
+"expect a float(or a double). In case of activated derivatives it will "
+"interrupt the calculation if the return value would not be a tuple. The "
+"tuple should be (float, ndArray(nat,3),ndArray(3,3)) with the first elements"
+" the value, the second the atomic derivatives and the third the box "
+"derivative (that can also have shape(9), with format (x_x, x_y, x_z, y_x, "
+"y_y, y_z, z_x, z_y, z_z)), if the box derivative are not present a WARNING "
+"will be raised, but the calculation won't be interrupted."
+msgstr ""
+"PLUMED は、キーで指定した Component に対応する CV に結果を自動的に割り当てる。Component "
+"名がなければ、エラーメッセージを出して計算を中断する。微分が無効な場合、返り値は float（または double）とする。微分が有効で、返り値が "
+"tuple でない場合は計算を中断する。tuple は (float, ndArray(nat,3),ndArray(3,3)) "
+"とし、最初の要素が値、2番目が Atomic Derivatives、3番目が Box Derivative である。Box Derivative は "
+"shape(9) でもよく、順序は (x_x, x_y, x_z, y_x, y_y, y_z, z_x, z_y, z_z) とする。Box "
+"Derivatives がなければ WARNING を出すが、計算は中断しない。"
+
+#: README.md:166
+msgid "Prepare"
+msgstr "Prepare"
+
+#: README.md:168
+msgid ""
+"If the `PREPARE` keyword is used, the defined function will be called at "
+"prepare time, before calculate. The returned \"prepare\" dictionary can "
+"contain a `\"setAtomRequest\"` key with a parseable ATOM string, like in the"
+" standard plumed input (or a list of indexes, 0 based)."
+msgstr ""
+"`PREPARE` を使うと、定義した関数が calculate より前の prepare 時に呼ばれる。返り値の prepare Dictionary"
+" には、通常の PLUMED 入力のように解析可能な ATOM 文字列、または0始まりの Index のリストを値とする "
+"`\"setAtomRequest\"` を含められる。"
+
+#: README.md:180
+msgid "Update"
+msgstr "Update"
+
+#: README.md:182
+msgid ""
+"If the `UPDATE` keyword is used, the defined function will be called at "
+"update time, after calculate. As now plumed will ignore the return of this "
+"function (but it stills need to return a dict) and it is intended to "
+"accumulate things or post process data afer calculate"
+msgstr ""
+"`UPDATE` を使うと、定義した関数が calculate より後の update 時に呼ばれる。現時点では、返り値は無視されるが dict "
+"を返す必要がある。calculate の後に値を蓄積したり、データを後処理したりするための機能である。"
+
+#: README.md:187
+msgid ""
+"In the example `plmdAction.data[\"pycv\"]=0` is initialized in `pyinit` and "
+"its value is updated in calculate."
+msgstr "この例では、`pyinit` で `plmdAction.data[\"pycv\"]=0` を初期化し、calculate で値を更新している。"
+
+#: README.md:191
+msgid "The `data` attribute"
+msgstr "`data` Attribute"
+
+#: README.md:192
+msgid ""
+"The plumedCommunications.PythonCVInterface has a `data` attribute that is a "
+"dictionary and can be used to store data during the calculations"
+msgstr ""
+"plumedCommunications.PythonCVInterface の `data` Attribute は Dictionary "
+"であり、計算中のデータの保存に使える。"

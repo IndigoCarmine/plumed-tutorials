@@ -1,0 +1,303 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Revising PLUMED"
+msgstr "PLUMED の改良"
+
+#: NAVIGATION.md:3
+msgid ""
+"After the Trieste meeting in 2017, I (Gareth Tribello) started revising some"
+" of the code in PLUMED in a separate branch called hack-the-tree. The code "
+"in this new branch quickly diverged from the code in the master branch. This"
+" divergence, I now realise, was a good thing. The extensive code base for a "
+"piece of scientific software places innumerable constraints on its "
+"development. Sometimes it helps to free yourself of these constraints and to"
+" allow yourself to \"break\" some things. I think this process has allowed "
+"me to improve how some of the CVs and methods I have written for PLUMED are "
+"implemented."
+msgstr ""
+"2017年 Trieste 会議後、私 Gareth Tribello は hack-the-tree Branch で改良を始め、master "
+"から大きく分岐しました。大規模な科学コードは開発を制約するため、時に制約を外して壊せることは有益で、私の CV・手法の実装を改善できたと思います。"
+
+#: NAVIGATION.md:9
+msgid ""
+"I think it is now time to merge some of these features from the hack-the-"
+"tree branch back into the master branch of PLUMED. I decided to write these "
+"pages as I made the code from hack-the-tree amenable to the rest of the "
+"code. I hope they explain my thinking and help others use the new features I"
+" have implemented. I also hope they inspire discussions about how we "
+"approach code development for a particular research community. When I "
+"started this process I identified the following three themes that have "
+"driven a lot of my thinking over the last three years:"
+msgstr ""
+"今こそ一部を master に Merge すべきと考え、互換化しながらこのページを書きました。考えと新機能を伝え、Community "
+"の開発方針の議論も促したいと思います。過去3年の思考を導いた主題は次です。"
+
+#: NAVIGATION.md:14
+msgid "[Passing data between actions](Passing.md)"
+msgstr "[Action 間のデータ受け渡し](Passing.md)"
+
+#: NAVIGATION.md:15
+msgid "[Reproducibility and extensibility](Reproducibility.md)"
+msgstr "[再現性と拡張性](Reproducibility.md)"
+
+#: NAVIGATION.md:16
+msgid "[Hierachy and community](Community.md)"
+msgstr "[階層と Community](Community.md)"
+
+#: NAVIGATION.md:18
+msgid ""
+"A lot of the posts in the pages that follow expand on these three ideas."
+msgstr "以後の記事はこれらを展開します。"
+
+#. mermaid node label
+#: NAVIGATION.md:23
+msgid "Passing data"
+msgstr "データ受け渡し"
+
+#. mermaid node label
+#: NAVIGATION.md:23
+msgid "Reproducibility"
+msgstr "再現性"
+
+#. mermaid node label
+#: NAVIGATION.md:24
+msgid "Hierachy"
+msgstr "階層"
+
+#. mermaid node label
+#: NAVIGATION.md:25
+msgid "Passing data to and from PLUMED I"
+msgstr "PLUMED とのデータ受け渡し I"
+
+#. mermaid node label
+#: NAVIGATION.md:26
+msgid "Passing data to and from PLUMED II"
+msgstr "PLUMED とのデータ受け渡し II"
+
+#. mermaid node label
+#: NAVIGATION.md:28
+msgid "Passing the energy"
+msgstr "Energy の受け渡し"
+
+#. mermaid node label
+#: NAVIGATION.md:29
+msgid "Virtual atoms"
+msgstr "Virtual Atom"
+
+#. mermaid node label
+#: NAVIGATION.md:30
+msgid "Graphs"
+msgstr "Graph"
+
+#. mermaid node label
+#: NAVIGATION.md:31
+msgid "multi colvar"
+msgstr "MultiColvar"
+
+#. mermaid node label
+#: NAVIGATION.md:33
+msgid "multi colvar shortcuts"
+msgstr "MultiColvar Shortcut"
+
+#. mermaid node label
+#: NAVIGATION.md:36
+msgid "contact matrices"
+msgstr "Contact Matrix"
+
+#. mermaid node label
+#: NAVIGATION.md:38
+msgid "Sprint"
+msgstr "SPRINT"
+
+#. mermaid node label
+#: NAVIGATION.md:40
+msgid "Clusters"
+msgstr "Cluster"
+
+#. mermaid node label
+#: NAVIGATION.md:41
+msgid "Symmetry functions"
+msgstr "Symmetry Function"
+
+#. mermaid node label
+#: NAVIGATION.md:43
+msgid "Steinhardt parameters"
+msgstr "Steinhardt Parameter"
+
+#. mermaid node label
+#: NAVIGATION.md:44
+msgid "Behler Symmetry functions"
+msgstr "Behler Symmetry Function"
+
+#. mermaid node label
+#: NAVIGATION.md:45
+msgid "Volumes"
+msgstr "Volume"
+
+#. mermaid node label
+#: NAVIGATION.md:46
+msgid "Averaging"
+msgstr "平均"
+
+# Method name, software identifier or literal command intentionally preserved.
+#. mermaid node label
+#: NAVIGATION.md:47
+msgid "Histograms"
+msgstr "Histograms"
+
+# Literal notation or identifier intentionally preserved.
+#. mermaid node label
+#: NAVIGATION.md:48
+msgid "RMSD"
+msgstr "RMSD"
+
+# Method name, software identifier or literal command intentionally preserved.
+#. mermaid node label
+#: NAVIGATION.md:49
+msgid "Paths"
+msgstr "Paths"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:51
+msgid ""
+"8th May 2023: General thoughts about how data is passed between PLUMED "
+"actions"
+msgstr "2023年5月8日：Action 間のデータ受け渡しについて"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:52
+msgid ""
+"8th May 2023: General thoughts about why we want to do calculations that are"
+" reproducibile"
+msgstr "2023年5月8日：計算の再現性を求める理由"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:53
+msgid ""
+"8th May 2023: General thoughts about how we support communities of scholars"
+msgstr "2023年5月8日：研究者 Community の支援について"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:54
+msgid "8th May 2023: A description of how data is passed to and from PLUMED"
+msgstr "2023年5月8日：PLUMED とのデータ受け渡し"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:55
+msgid ""
+"21st May 2023: A description of how atomic properties are passed to and from"
+" PLUMED"
+msgstr "2023年5月21日：原子特性の受け渡し"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:56
+msgid ""
+"21st May 2023: A description of how potential energy is passed to PLUMED"
+msgstr "2023年5月21日：Potential Energy の入力"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:57
+msgid ""
+"22nd May 2023: A description of how virtual atom positions are passed "
+"between Actions in PLUMED"
+msgstr "2023年5月22日：Action 間の Virtual Atom 位置の伝達"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:58
+msgid ""
+"1st June 2023: A description of the way we can use graphs to illustrate "
+"PLUMED input files"
+msgstr "2023年6月1日：Graph による入力の説明"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:59
+msgid "1st June 2023: An explaination of how multicolvar is implemented"
+msgstr "2023年6月1日：MultiColvar の実装"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:60
+msgid ""
+"9th June 2023: An explanation of how backwards compatibility for MultiColvar"
+" has been ensured and an introduction to ActionShortcut"
+msgstr "2023年6月9日：MultiColvar の後方互換性と ActionShortcut"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:61
+msgid ""
+"12th June 2023: An explanation of how coordination numbers and contact maps "
+"can be used to construct CVs"
+msgstr "2023年6月12日：Coordination Number・Contact Map による CV"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:62
+msgid ""
+"3rd July 2023: Details on how SPRINT collective variables are implemented "
+"using shortcuts"
+msgstr "2023年7月3日：Shortcut による SPRINT CV"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:63
+msgid ""
+"13th September 2023: An explanation of how Steinhardt parameters are "
+"implemented in PLUMED"
+msgstr "2023年9月13日：Steinhardt Parameter の実装"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:64
+msgid ""
+"14th September 2023: An explanation of how Behler-Parinello symmetry "
+"functions are implemented in PLUMED"
+msgstr "2023年9月14日：Behler-Parinello Symmetry Function の実装"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:65
+msgid ""
+"15th September 2023: Information on how you can use PLUMED to calculate the "
+"number of atoms and average for a symmetry function in a region"
+msgstr "2023年9月15日：領域内の原子数と Symmetry Function 平均"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:66
+msgid ""
+"15th September 2023: Information on how you can use PLUMED to calculate "
+"symmetry functions"
+msgstr "2023年9月15日：Symmetry Function の計算"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:67
+msgid ""
+"11th December 2023: Averages in the new version of PLUMED and thoughts about"
+" indistinguisability"
+msgstr "2023年12月11日：新版の平均と区別不能性"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:68
+msgid "11th December 2023: Histograms in the new version of PLUMED"
+msgstr "2023年12月11日：新版の Histogram"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:69
+msgid "28th Feburary 2024: DFS clustering in the new version of PLUMED"
+msgstr "2024年2月28日：新版の DFS Clustering"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:70
+msgid ""
+"29th February 2024: Some thoughts on RMSD and ways of getting simplifying "
+"the code by getting rid of the reference class"
+msgstr "2024年2月29日：RMSD と Reference Class を除く単純化"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:71
+msgid ""
+"29th February 2024: Implementing PATH and GPROPERTYMAP using the new "
+"functionality"
+msgstr "2024年2月29日：新機能による PATH・GPROPERTYMAP"

@@ -1,0 +1,225 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Passing.md:1
+msgid "Passing data between Actions"
+msgstr "Action 間のデータ受け渡し"
+
+#: Passing.md:3
+msgid ""
+"Each line in a PLUMED input file creates a PLMD::Action. Many of these "
+"PLMD::Action commands calculate some quantity or some small set of "
+"quantities. These quantities are stored in PLMD::Value objects. PLMD::Action"
+" commands that calculate quantities thus inherit from the base class "
+"PLMD::ActionWithValue. If a second PLMD::Action uses the PLMD::Value that is"
+" calculated earlier in the input, then this section action will inherit from"
+" PLMD::ActionWithArgument. To summarise:"
+msgstr ""
+"入力の各行は PLMD::Action を作ります。量を計算するものは ActionWithValue を継承し、Value に保存します。以前の "
+"Value を使うものは ActionWithArgument を継承します。つまり、"
+
+#: Passing.md:9
+msgid ""
+"PLMD::Value holds the quantities that can be passed between PLMD::Action "
+"objects."
+msgstr "PLMD::Value は Action 間で渡す量を保持する。"
+
+#: Passing.md:10
+msgid "PLMD::ActionWithValue objects are used to set PLMD::Value objects."
+msgstr "ActionWithValue は Value を設定する。"
+
+#: Passing.md:11
+msgid "PLMD::ActionWithArguments objects are used to get PLMD::Value objects."
+msgstr "ActionWithArguments は Value を取得する。"
+
+#: Passing.md:13
+msgid ""
+"So does all the data that passes between PLMD::Action objects do so in "
+"PLMD::Value objects? No."
+msgstr "では全データが Value で渡るかというと、そうではありません。"
+
+#: Passing.md:15
+msgid ""
+"Why not? PLMD::Value objects can only be used to pass scalars between "
+"PLMD::Action objects. If one wishes to pass something more complicated (e.g."
+" an atomic position), some alternative mechanism must be developed."
+msgstr "従来は Scalar だけで、原子位置などには別の機構が必要でした。"
+
+#: Passing.md:18
+msgid ""
+"I have been interested in extending this mechanism for passing data between "
+"Actions over the past few years. I wanted to develop a new version of the "
+"PLMD::Value class that also allows one to pass vectors, matrices and "
+"functions on grids between PLMD::Action objects. My interest in doing so "
+"came initially from a desire to make it easy to pass all these quantities "
+"from PLUMED to Python. I quickly realised, however, that the greater "
+"flexibility this offers makes PLUMED more powerful."
+msgstr ""
+"近年、Vector・Matrix・Grid 関数も渡せる Value を開発しました。最初は Python への転送が目的でしたが、柔軟性が "
+"PLUMED 全体を強化すると気付きました。"
+
+#: Passing.md:23
+msgid "Anatomy of PLMD::Value"
+msgstr "PLMD::Value の構造"
+
+#: Passing.md:25
+msgid ""
+"The four most important variables in a PLUMED 2.9 PLMD::Value object are:"
+msgstr "2.9の重要な4変数は、"
+
+#: Passing.md:27
+msgid "`value` = the value of the scalar"
+msgstr "`value`：Scalar 値。"
+
+#: Passing.md:28
+msgid ""
+"`hasDeriv`= bool that is true if the action that calculates scalar also "
+"calculates the derivatives of the value with respect to the input quantities"
+" for the PLMD::Action that calculates it"
+msgstr "`hasDeriv`：計算元の入力量に対する微分も求める場合 true。"
+
+#: Passing.md:29
+msgid ""
+"`derivatives` = the derivatives of the input quantity with respect to the "
+"input quantities for the PLMD::Action that calculates it"
+msgstr "`derivatives`：Action の入力量に対する微分。"
+
+#: Passing.md:30
+msgid ""
+"`inputForce` = the force that acts upon this scalar. In calculating the "
+"forces on the atoms using the chain rule, this inputForce is multiplied by "
+"the derivatives in `derivatives.`"
+msgstr "`inputForce`：Scalar に働く力。Chain Rule で `derivatives.` の微分と掛ける。"
+
+#: Passing.md:32
+msgid ""
+"In the new version of PLUMED that allows one to pass scalars, vectors, "
+"matrices and grids, these four variables are replaced by:"
+msgstr "新版は次に置き換えます。"
+
+#: Passing.md:34
+msgid ""
+"`data` = a std::vector that contains all the data that is to be passed "
+"between actions"
+msgstr "`data`：全伝達データの std::vector。"
+
+#: Passing.md:35
+msgid ""
+"`shape` = a std::vector with 0 components if PLMD::Value is a scalar, 1 "
+"component if PLMD::Value is a vector/1D grid, 2 components if PLMD::Value is"
+" a matrix/2D grid."
+msgstr "`shape`：Scalar は0成分、Vector/1D Grid は1、Matrix/2D Grid は2の std::vector。"
+
+#: Passing.md:36
+msgid ""
+"`hasDeriv` = if shape.size()==0 this bool is true if the action that "
+"calculates scalar also calculates the derivatives of the value with respect "
+"to the input quantities for the PLMD::Action that calculates it. If "
+"shape.size()>0, this bool is true if the PLMD::Value holds a function "
+"computed on a grid."
+msgstr ""
+"`hasDeriv`：shape.size()==0 なら Scalar の微分の有無、shape.size()>0 なら Grid 関数の場合 "
+"true。"
+
+#: Passing.md:37
+msgid ""
+"`storedata` = a bool that is set true if hasDeriv is false, shape.size()>0, "
+"and we need to store the values of the vector/matrix to calculate forces "
+"using the chain rule."
+msgstr ""
+"`storedata`：hasDeriv=false、shape.size()>0 で、力の Chain Rule に Vector/Matrix "
+"値の保存が必要なら true。"
+
+#: Passing.md:38
+msgid ""
+"`inputForce` = a std::vector that contains the forces that should be applied"
+" on each component of the input object."
+msgstr "`inputForce`：各成分に加える力の std::vector。"
+
+#: Passing.md:40
+msgid ""
+"In future articles, I will write much more about the `storedata` variable "
+"and how we can calculate forces __without__ storing derivatives with respect"
+" to all the components. For now, though, I will explain the organisation of "
+"the information in `data` the three most basic data types:"
+msgstr "微分全保存 __なし__ の力計算と `storedata` は後述します。まず `data` の基本3種の配置です。"
+
+#: Passing.md:43
+msgid ""
+"__scalars without derivatives__ - the data vector has only one component, "
+"which holds the scalar."
+msgstr "__微分なし Scalar__：1成分に値を保持。"
+
+#: Passing.md:44
+msgid ""
+"__scalar with derivatives__ - the data vector has 1 + number of derivatives "
+"components. data[0] holds the value of the scalar. Every other component "
+"holds a derivative of the scalar."
+msgstr "__微分付き Scalar__：1+微分数の成分。data[0] が値、残りは微分。"
+
+#: Passing.md:45
+msgid ""
+"__vector__ - the data vector has `shape[0]` commponents. This is the number "
+"of components in the vector."
+msgstr "__Vector__：`shape[0]` 成分。"
+
+#: Passing.md:46
+msgid ""
+"__matrix__ - the data vector has `shape[0]*shape[1]` components. This is the"
+" number of components in the matrix."
+msgstr "__Matrix__：`shape[0]*shape[1]` 成分。"
+
+#: Passing.md:48
+msgid ""
+"I will expand on what is done for matrices, and grids will be provided in "
+"future articles as it is a little more complicated."
+msgstr "Matrix の詳細と Grid は少し複雑なので後述します。"
+
+#: Passing.md:50
+msgid "Why/why not just scalars?"
+msgstr "Scalar だけにする理由・しない理由"
+
+#: Passing.md:52
+msgid ""
+"Systems in biochemistry, unlike those in condensed matter, do not have atom-"
+"interchange symmetry. When designing CVs, there is thus no reason to say "
+"that a quantity calculated for two different sets of atoms is "
+"interchangeable. Therefore, in biochemistry (as opposed to materials "
+"science), CVs are not often designed by calculating a vector of "
+"symmetrically equivalent quantities and then performing some operation on "
+"this vector (e.g. taking the average of all the quantities within it). "
+"Simulators of biomolecules, for instance, would also rarely calculate a "
+"radial distribution function, which is a ubiquitous operation among "
+"researchers who simulate materials."
+msgstr ""
+"生化学は凝縮系と違い原子交換対称性がなく、異なる原子集合の量を交換可能とはいえません。そのため材料と違い、等価量の Vector に平均などを適用する "
+"CV は少なめです。材料で一般的な Radial Distribution Function も生体系ではあまり計算しません。"
+
+#: Passing.md:57
+msgid ""
+"The majority of the simulations that are done with PLUMED are on systems of "
+"biomolecules. For these simulations having fine-grained control over the "
+"individual scalars passed in the input file makes sense, as these scalars "
+"are not all symmetrically equivalent. You thus rarely encounter situations, "
+"as you would in materials science, where the same operations should be done "
+"for every scalar in a vector."
+msgstr ""
+"PLUMED は生体系が多く、非等価 Scalar を細かく制御するのは妥当です。材料のように全 Vector 成分へ同じ操作をする場面は少なめです。"
+
+#: Passing.md:61
+msgid ""
+"The introduction of methods such as parallel bias metadynamics suggests that"
+" it is worth trying to change the way we introduce methods such as "
+"metadynamics. This method was developed in 2018, 16 years after the "
+"introduction of metadynamics. Given the time this development took, is it "
+"worth doing more to raise awareness that averaging over symmetrically-"
+"equivalent CVs is acceptable when using enhanced sampling methods?"
+msgstr ""
+"ただし Parallel Bias Metadynamics は導入方法の再検討を促します。Metadynamics "
+"の16年後の2018年に開発されたことを考え、Enhanced Sampling で対称等価 CV を平均してよいことを広めるべきでしょうか？"

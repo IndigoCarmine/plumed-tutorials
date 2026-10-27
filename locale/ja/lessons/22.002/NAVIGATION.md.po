@@ -1,0 +1,89 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Masterclass 22.02: Analysis of Plumed output by Metadynminer"
+msgstr "Masterclass 22.02：Metadynminer による Plumed 出力の解析"
+
+#: NAVIGATION.md:3
+msgid ""
+"This lesson was given as part of the PLUMED masterclass series in 2022. It "
+"includes:"
+msgstr "このレッスンは、2022年の PLUMED Masterclass シリーズの一環として実施された。内容は次のとおりである。"
+
+#: NAVIGATION.md:5
+msgid "Two videos that describe the theory."
+msgstr "理論を説明する2本の動画。"
+
+#: NAVIGATION.md:6
+msgid "A series of exercises for you to complete."
+msgstr "取り組むための一連の演習。"
+
+#: NAVIGATION.md:7
+msgid "A python notebook that contains a full solution to the exercises."
+msgstr "演習の解答一式を収録した Python Notebook。"
+
+#: NAVIGATION.md:9
+msgid ""
+"The flow chart shown below indicates the order in which you should consult "
+"the resources. You can click on the nodes to access the various resources. "
+"Follow the thick black lines for the best results. The resources that are "
+"connected by dashed lines are supplmentary resources that you may find "
+"useful when completing the exercise."
+msgstr ""
+"下のフローチャートは資料を参照する順序を示している。各ノードをクリックすると資料を開ける。太い黒線に沿って進めることを推奨する。破線でつながる資料は、演習に取り組む際に役立つ補足資料である。"
+
+#: NAVIGATION.md:11
+msgid "This lesson was the second masterclass in the 2022 series."
+msgstr "このレッスンは、2022年シリーズの第2回 Masterclass である。"
+
+#. mermaid node label
+#: NAVIGATION.md:15
+msgid "ref1"
+msgstr "参考文献1"
+
+#. mermaid node label
+#: NAVIGATION.md:15
+msgid "Lecture I"
+msgstr "講義 I"
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "Instructions"
+msgstr "演習の手順"
+
+#. mermaid node label
+#: NAVIGATION.md:17
+msgid "Lecture II"
+msgstr "講義 II"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:18
+msgid "A previous tutorial that introduces the basics of metadynamics"
+msgstr "Metadynamics の基礎を紹介する以前の Tutorial"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:19
+msgid ""
+"A lecture that was given on February 14th 2022 as part of the plumed "
+"masterclass series that introduces you to the exercises in this lesson"
+msgstr "2022年2月14日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習を紹介する講義"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:20
+msgid "Instructions for the exercises that you are supposed to complete"
+msgstr "取り組む演習の手順"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:21
+msgid ""
+"A lecture that was given on February 21st 2022 as part of the plumed "
+"masterclass series that goes through the solutions to the exercises in the "
+"lesson"
+msgstr "2022年2月21日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習の解答を解説する講義"

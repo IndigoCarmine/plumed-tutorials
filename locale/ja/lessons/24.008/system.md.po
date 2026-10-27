@@ -1,0 +1,52 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: system.md:1
+msgid "[&larr; Home](NAVIGATION.md)"
+msgstr "[&larr; ホーム](NAVIGATION.md)"
+
+#: system.md:3
+msgid "L99A T4 Lysozyme (T4L)"
+msgstr "L99A T4 Lysozyme（T4L）"
+
+#: system.md:5
+msgid ""
+"T4L has a specific mutation: leucine (L) substitution at position 99 with "
+"alanine (A). This change creates a hydrophobic cavity in the C-terminal "
+"domain, altering its stability and binding properties (see Figure)."
+msgstr ""
+"T4L では、99番目の Leucine（L）を Alanine（A）に置換している。この変化により C-terminal Domain に "
+"Hydrophobic Cavity ができ、安定性と結合の性質が変わる（図参照）。"
+
+#: system.md:7
+msgid ""
+"This variant is particularly useful as a model system for studying protein-"
+"ligand interactions because the introduced cavity can accommodate small "
+"hydrophobic molecules (benzene and its derivatives)."
+msgstr ""
+"この Cavity は Benzene やその誘導体のような小さな Hydrophobic Molecules を収容できるため、Protein-"
+"Ligand Interactions のモデル系として特に有用である。"
+
+#: system.md:11
+msgid ""
+"In this tutorial, we will use a structure based on the PDB ID "
+"[4w52](https://www.rcsb.org/structure/4W52) with the CHARMM36 force field "
+"and run a T4L-benzene dissociation simulation in the NVT ensemble at 300 K "
+"using the velocity rescaling thermostat (see the `data` directory "
+"[here](https://github.com/jakryd/plumed2-maze-tutorial) for more details)."
+msgstr ""
+"このチュートリアルでは PDB ID [4w52](https://www.rcsb.org/structure/4W52) に基づく構造と "
+"CHARMM36 Force Field を使い、Velocity Rescaling Thermostat を用いた300 K の NVT "
+"Ensemble で T4L-Benzene Dissociation "
+"を実行する。詳細は[こちら](https://github.com/jakryd/plumed2-maze-tutorial)の `data` "
+"ディレクトリにある。"
+
+#: system.md:13
+msgid "[Input &rarr;](input.md)"
+msgstr "[入力 &rarr;](input.md)"

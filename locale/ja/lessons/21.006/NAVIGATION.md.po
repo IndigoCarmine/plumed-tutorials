@@ -1,0 +1,206 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "PLUMED Masterclass 21.6: Dimensionality reduction"
+msgstr "PLUMED Masterclass 21.6：Dimensionality Reduction"
+
+#: NAVIGATION.md:3
+msgid ""
+"This lesson was given as part of the PLUMED masterclass series in 2021. It "
+"includes:"
+msgstr "このレッスンは、2021年の PLUMED Masterclass シリーズの一環として実施された。内容は次のとおりである。"
+
+#: NAVIGATION.md:5
+msgid ""
+"A video that explain the theory covered and a second video which shows you "
+"how the exercises should be completed."
+msgstr "扱う理論を解説する動画と、演習の解き方を示す2本目の動画。"
+
+#: NAVIGATION.md:6
+msgid "A series of exercises that you should try to complete yourself."
+msgstr "自分で取り組む一連の演習。"
+
+#: NAVIGATION.md:7
+msgid ""
+"Some supplementary python notebooks that provide further background "
+"information on the exercise."
+msgstr "演習の背景知識を補う Python Notebooks。"
+
+#: NAVIGATION.md:9
+msgid ""
+"The flow chart shown below indicates the order in which you should consult "
+"the resources. You can click on the nodes to access the various resources. "
+"Follow the thick black lines for the best results. The resources that are "
+"connected by dashed lines are supplmentary resources that you may find "
+"useful when completing the exercise. There is a lot of material in this "
+"lesson and the flow chart shows you multiple paths that you can follow "
+"through this material. The best path to follow will depend on your "
+"interests."
+msgstr ""
+"下のフローチャートは資料を参照する順序を示している。各ノードをクリックすると資料を開ける。太い黒線に沿って進めることを推奨する。破線でつながる資料は、演習に取り組む際に役立つ補足資料である。このレッスンには多くの教材があり、フローチャートには複数の学習経路を示している。適した経路は、自身の関心によって異なる。"
+
+#: NAVIGATION.md:11
+msgid ""
+"This lesson was the sixth masterclass in the 2021 series. You will likely be"
+" able to complete the exercise without completing all the five masterclasses"
+" before this one in the series. However, the first masterclass contains "
+"instructions for installing PLUMED using conda that you may need to consult "
+"if you have not installed it already."
+msgstr ""
+"このレッスンは、2021年シリーズの第6回 Masterclass "
+"である。それ以前の5回の演習をすべて終えていなくても取り組めるはずである。ただし、PLUMED をまだインストールしていない場合は、第1回の "
+"Masterclass にある conda によるインストール手順を参照してほしい。"
+
+#. mermaid node label
+#: NAVIGATION.md:15
+msgid "PLUMED intro"
+msgstr "PLUMED 入門"
+
+#. mermaid node label
+#: NAVIGATION.md:15
+msgid "Lecture I"
+msgstr "講義 I"
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "Getting started"
+msgstr "はじめに"
+
+#. mermaid node label
+#: NAVIGATION.md:18 NAVIGATION.md:25 NAVIGATION.md:28 NAVIGATION.md:33
+msgid "Solutions"
+msgstr "解答"
+
+#. mermaid node label
+#: NAVIGATION.md:20
+msgid "Dimensionality reduction"
+msgstr "Dimensionality Reduction"
+
+#. mermaid node label
+#: NAVIGATION.md:21
+msgid "Path CVs"
+msgstr "Path CVs"
+
+#. mermaid node label
+#: NAVIGATION.md:22
+msgid "Indistinguishability"
+msgstr "Indistinguishability"
+
+#. mermaid node label
+#: NAVIGATION.md:23
+msgid "Lecture II"
+msgstr "講義 II"
+
+#. mermaid node label
+#: NAVIGATION.md:29
+msgid "Generating startpoints"
+msgstr "初期点の生成"
+
+#. mermaid node label
+#: NAVIGATION.md:35
+msgid "Your research"
+msgstr "自身の研究への応用"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:38
+msgid ""
+"This elementary lesson shows you how to install PLUMED and some basic and "
+"more advanced syntax. You will only need to complete up to exercise 1 of "
+"this earlier lesson to complete these exercises on dimensionality reduction"
+msgstr ""
+"PLUMED のインストール方法と、基本的な構文から発展的な構文までを紹介する入門レッスン。今回の Dimensionality Reduction "
+"の演習に取り組むには、この過去のレッスンの演習1まで終えていれば十分である。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:39
+msgid ""
+"A lecture that was given on April 12th 2021 as part of the plumed "
+"masterclass series that introduces you to the exercises in this lesson"
+msgstr "2021年4月12日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習を紹介する講義"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:40
+msgid ""
+"Installation instructions followed by a discussion of how to run PLUMED from"
+" python direction and how to use chemiscope to visualize trajectories"
+msgstr ""
+"インストール手順に続き、Python から PLUMED を直接実行する方法と、chemiscope で Trajectories "
+"を可視化する方法を解説する。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:41
+msgid ""
+"This python notebook contains a full set of solutions for the exercises that"
+" show how you can call PLUMED from a jupyter notebook"
+msgstr "Jupyter Notebook から PLUMED を呼び出す方法を学ぶ演習の解答一式を収録した Python Notebook"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:42
+msgid ""
+"An introduction to running various different types of dimensionality "
+"reduction algorithms on trajectories"
+msgstr "Trajectories に各種の Dimensionality Reduction アルゴリズムを適用するための入門"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:43
+msgid "An introduction to path collective variables and the isocommittor"
+msgstr "Path Collective Variables と Isocommittor の入門"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:44
+msgid ""
+"An introduction to methods for dealing with systems of indistinguishable "
+"particles"
+msgstr "Indistinguishable Particles からなる系を扱う手法の入門"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:45
+msgid ""
+"Some advice on using the methods discussed in this tutorial in your own "
+"research"
+msgstr "このチュートリアルで扱う手法を、自身の研究に用いるための助言"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:46
+msgid ""
+"A lecture that was given on April 19th 2021 as part of the plumed "
+"masterclass series that goes through the solutions to the exercises in the "
+"lesson"
+msgstr "2021年4月19日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習の解答を解説する講義"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:47
+msgid ""
+"This python notebook contains a full set of solutions for the exercises on "
+"dimensionality reduction techniques"
+msgstr "Dimensionality Reduction 手法に関する演習の解答一式を収録した Python Notebook"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:48
+msgid ""
+"This python notebook contains a full set of solutions for the exercises on "
+"path collective variables"
+msgstr "Path Collective Variables に関する演習の解答一式を収録した Python Notebook"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:49
+msgid ""
+"This python notebook contains a full set of solutions for the exercises on "
+"dealing with systems of indistiguishable particles"
+msgstr "Indistinguishable Particles からなる系を扱う演習の解答一式を収録した Python Notebook"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:50
+msgid ""
+"This python notebook shows how I generated a series of random startpoints "
+"for the isocommittor simulations that were used in the exercise on path CVs"
+msgstr ""
+"Path CVs の演習で用いた Isocommittor シミュレーションについて、一連のランダムな初期点をどのように生成したかを示す Python "
+"Notebook"

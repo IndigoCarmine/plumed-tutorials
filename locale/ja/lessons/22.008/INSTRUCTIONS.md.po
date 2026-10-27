@@ -1,0 +1,425 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: INSTRUCTIONS.md:1
+msgid ""
+"PLUMED Masterclass 22.8: Modelling Concentration-driven processes with "
+"PLUMED"
+msgstr ""
+"PLUMED Masterclass 22.8：PLUMED による Concentration-driven Processes のモデル化"
+
+#: INSTRUCTIONS.md:5
+msgid "Origin"
+msgstr "作成について"
+
+#: INSTRUCTIONS.md:9
+msgid "This masterclass was authored by Matteo Salvalaglio on May 20, 2022"
+msgstr "この Masterclass は、2022年5月20日に Matteo Salvalaglio によって作成された。"
+
+#: INSTRUCTIONS.md:13
+msgid "Aims"
+msgstr "目的"
+
+#: INSTRUCTIONS.md:17
+msgid ""
+"This Masterclass aims to introduce users to the tools available via PLUMED "
+"to analyze and perform simulations of concentration-driven processes such as"
+" nucleation, growth, and diffusion."
+msgstr ""
+"この Masterclass では、Nucleation、Growth、Diffusion などの Concentration-driven "
+"Processes を解析・シミュレーションするために PLUMED で利用できるツールを紹介する。"
+
+#: INSTRUCTIONS.md:21
+msgid "Objectives"
+msgstr "到達目標"
+
+#: INSTRUCTIONS.md:25
+msgid "Once this Masterclass is completed, users will be able to:"
+msgstr "この Masterclass を終えると、次のことができるようになる。"
+
+#: INSTRUCTIONS.md:29
+msgid "Write a PLUMED input file to analyze a trajectory with multicolvars."
+msgstr "multicolvars を使って Trajectory を解析する PLUMED 入力ファイルを作成する。"
+
+#: INSTRUCTIONS.md:31
+msgid ""
+"Use the Depth-First-Search tools available in PLUMED to characterize "
+"clusters of atoms in an existing vapour condensation trajectory."
+msgstr ""
+"PLUMED の Depth-First-Search ツールを使い、既存の Vapour Condensation Trajectory "
+"における原子の Clusters を特徴付ける。"
+
+#: INSTRUCTIONS.md:33
+msgid ""
+"Write a PLUMED input file to analyze the condensation of a simple liquid "
+"phase from vapour."
+msgstr "蒸気から単純な液相が Condensation する過程を解析する PLUMED 入力ファイルを作成する。"
+
+#: INSTRUCTIONS.md:35
+msgid ""
+"Write a PLUMED input file for CmuMD, and perform a CmuMD simulation of "
+"liquid condensation at constant driving force."
+msgstr ""
+"CmuMD 用の PLUMED 入力を作成し、一定の Driving Force のもとで Liquid Condensation の CmuMD "
+"シミュレーションを実行する。"
+
+#: INSTRUCTIONS.md:37
+msgid ""
+"Write a PLUMED input file for CmuMD, and perform a CmuMD simulation to model"
+" steady-state diffusive flux across a simulation box."
+msgstr ""
+"CmuMD 用の PLUMED 入力を作成し、Simulation Box を横切る Steady-state Diffusive Flux "
+"をモデル化する CmuMD シミュレーションを実行する。"
+
+#: INSTRUCTIONS.md:41
+msgid "Prerequisites"
+msgstr "前提条件"
+
+#: INSTRUCTIONS.md:45
+msgid ""
+"We assume that you are familiar with PLUMED. However, the 2021 PLUMED "
+"Masterclass is a great place to start if you are not."
+msgstr "PLUMED に習熟していることを前提とする。初めての場合は、2021年の PLUMED Masterclass がよい出発点になる。"
+
+#: INSTRUCTIONS.md:49
+msgid "Setting up the software"
+msgstr "ソフトウェアのセットアップ"
+
+#: INSTRUCTIONS.md:53
+msgid ""
+"Follow the instructions provided "
+"[here](https://urldefense.com/v3/__https://github.com/plumed/masterclass-2022__;!!JFdNOqOXpB6UZW0!5LDzfOpI0a0QUEAXjfWbM4f1ubgf4gC-"
+"ELH4qKstVB9wJwXRDKOjaCtm52xOb0YEw5tvTtPxyw$ ) to install gromacs+plumed2.8 "
+"compiled with [CmuMD](https://urldefense.com/v3/__https://github.com/mme-"
+"ucl/CmuMD__;!!JFdNOqOXpB6UZW0!5LDzfOpI0a0QUEAXjfWbM4f1ubgf4gC-"
+"ELH4qKstVB9wJwXRDKOjaCtm52xOb0YEw5sp2Fhg_A$ )."
+msgstr ""
+"[こちら](https://urldefense.com/v3/__https://github.com/plumed/masterclass-2022__;!!JFdNOqOXpB6UZW0!5LDzfOpI0a0QUEAXjfWbM4f1ubgf4gC-"
+"ELH4qKstVB9wJwXRDKOjaCtm52xOb0YEw5tvTtPxyw$ "
+")の手順に従い、[CmuMD](https://urldefense.com/v3/__https://github.com/mme-"
+"ucl/CmuMD__;!!JFdNOqOXpB6UZW0!5LDzfOpI0a0QUEAXjfWbM4f1ubgf4gC-"
+"ELH4qKstVB9wJwXRDKOjaCtm52xOb0YEw5sp2Fhg_A$ ) を組み込んでコンパイルした GROMACS＋PLUMED "
+"2.8 をインストールする。"
+
+#: INSTRUCTIONS.md:57
+msgid "Background Overview"
+msgstr "背景の概要"
+
+#: INSTRUCTIONS.md:61
+msgid ""
+"PLUMED facilitates the calculation of functions of atom coordinates and the "
+"introduction of bias potentials in atomistic simulations."
+msgstr ""
+"PLUMED を使うと、原子座標の関数の計算や、Atomistic Simulations への BiasPotential の導入を容易に行える。"
+
+#: INSTRUCTIONS.md:65
+msgid ""
+"In this tutorial, we review how to use PLUMED functionalities for two "
+"complementary tasks:"
+msgstr "このチュートリアルでは、次の2つの相補的な作業について PLUMED の機能の使い方を確認する。"
+
+#: INSTRUCTIONS.md:67
+msgid ""
+"Calculating collective variables that capture processes of "
+"assembly/disassembly such as the nucleation, condensation, dissolution etc. "
+"(Ex. 1, 2)"
+msgstr ""
+"Nucleation、Condensation、Dissolution などの Assembly／Disassembly 過程を捉える "
+"Collective Variables を計算する。（演習1、2）"
+
+#: INSTRUCTIONS.md:69
+msgid ""
+"Introducing biasing forces through CmuMD, a "
+"[method](https://urldefense.com/v3/__https://aip.scitation.org/doi/abs/10.1063/1.4917200__;!!JFdNOqOXpB6UZW0!5LDzfOpI0a0QUEAXjfWbM4f1ubgf4gC-"
+"ELH4qKstVB9wJwXRDKOjaCtm52xOb0YEw5vzGbfc4A$ ) that mimics open-boundary "
+"conditions and allows for mitigation of finite-size effects. (Ex. 3, 4)"
+msgstr ""
+"Open-boundary Conditions を模倣し、Finite-size Effects "
+"を緩和できる[手法](https://urldefense.com/v3/__https://aip.scitation.org/doi/abs/10.1063/1.4917200__;!!JFdNOqOXpB6UZW0!5LDzfOpI0a0QUEAXjfWbM4f1ubgf4gC-"
+"ELH4qKstVB9wJwXRDKOjaCtm52xOb0YEw5vzGbfc4A$ )である CmuMD を使い、Biasing Forces "
+"を導入する。（演習3、4）"
+
+#: INSTRUCTIONS.md:73
+msgid "Resources"
+msgstr "資料"
+
+#: INSTRUCTIONS.md:77
+msgid ""
+"The data needed to complete the exercises of this Masterclass can be found "
+"on [GitHub](https://github.com/mme-ucl/PLUMED_MClass_22-08)."
+msgstr ""
+"この Masterclass の演習に必要なデータは [GitHub](https://github.com/mme-"
+"ucl/PLUMED_MClass_22-08) にある。"
+
+#: INSTRUCTIONS.md:79
+msgid ""
+"You can clone this repository locally on your machine using the following "
+"command:"
+msgstr "次のコマンドで、このリポジトリを自分のマシンに clone できる。"
+
+#: INSTRUCTIONS.md:91
+msgid "Solution"
+msgstr "解答"
+
+#: INSTRUCTIONS.md:95
+msgid ""
+"The solution of this masterclass is available on GitHub as a [jupyter "
+"notebook](https://github.com/mme-"
+"ucl/PLUMED_MClass_22-08/blob/main/Solution/Solution.ipynb)."
+msgstr ""
+"この Masterclass の解答は、GitHub の [Jupyter Notebook](https://github.com/mme-"
+"ucl/PLUMED_MClass_22-08/blob/main/Solution/Solution.ipynb) として公開されている。"
+
+#: INSTRUCTIONS.md:99
+msgid "Exercise 1: analysis of a nucleation trajectory I"
+msgstr "演習1：Nucleation Trajectory の解析 I"
+
+#: INSTRUCTIONS.md:103
+msgid ""
+"We can start by using plumed to analyze a trajectory and identify the total "
+"number of atoms belonging to a liquid phase condensing from a supersaturated"
+" vapour in a long unbiased MD simulation."
+msgstr ""
+"まず、長い Unbiased MD シミュレーションの Trajectory を PLUMED で解析し、過飽和蒸気から Condensation "
+"する液相に属する原子の総数を求める。"
+
+#: INSTRUCTIONS.md:107
+msgid ""
+"To this aim, a typical choice is the implementation of a criterion inspired "
+"by the work of Ten Wolde and Frenkel: all the atoms with a threshold number "
+"of nearest neighbours larger than a threshold is considered as part of the "
+"liquid phase."
+msgstr ""
+"このためには、Ten Wolde と Frenkel の研究に着想を得た判定基準を用いるのが一般的である。Nearest Neighbours "
+"の数が所定の閾値を超える原子を、すべて液相に属するとみなす。"
+
+#: INSTRUCTIONS.md:111
+msgid ""
+"In PLUMED this criterion can be readily implemented using the multicolvar "
+"[COORDINATIONNUMBER](https://www.plumed.org/doc-master/user-"
+"doc/html/_c_o_o_r_d_i_n_a_t_i_o_n_n_u_m_b_e_r.html):"
+msgstr ""
+"PLUMED では、multicolvar の [COORDINATIONNUMBER](https://www.plumed.org/doc-"
+"master/user-doc/html/_c_o_o_r_d_i_n_a_t_i_o_n_n_u_m_b_e_r.html) "
+"を用いて、この基準を容易に実装できる。"
+
+#: INSTRUCTIONS.md:127
+msgid ""
+"The time evolution of the number of atoms in the liquid phase can be "
+"computed by analyzing the trajectory using the "
+"[driver](https://www.plumed.org/doc-master/user-doc/html/driver.html) "
+"functionality (where liquid.dat is the plumed file for this analysis)."
+msgstr ""
+"液相中の原子数の時間変化は、[driver](https://www.plumed.org/doc-master/user-"
+"doc/html/driver.html) 機能で Trajectory を解析して計算できる。ここで liquid.dat は、この解析用の "
+"PLUMED ファイルである。"
+
+#: INSTRUCTIONS.md:139 INSTRUCTIONS.md:217 INSTRUCTIONS.md:307
+#: INSTRUCTIONS.md:397
+msgid "Try on your own"
+msgstr "自分で試す"
+
+#: INSTRUCTIONS.md:143
+msgid ""
+"Using other MultiColvar keywords can you count the number of atoms on the "
+"surface of the clusters forming in this trajectory? Can you estimate how the"
+" surface to volume ratio of the droplets forming in the system changes "
+"directly within PLUMED?"
+msgstr ""
+"他の MultiColvar キーワードを用いて、この Trajectory で形成される Clusters "
+"の表面にある原子の数を数えられるだろうか。系内にできる Droplets の Surface-to-Volume Ratio の変化を、PLUMED "
+"内で直接推定できるだろうか。"
+
+#: INSTRUCTIONS.md:147 INSTRUCTIONS.md:225 INSTRUCTIONS.md:317
+#: INSTRUCTIONS.md:381
+msgid "Available data"
+msgstr "利用できるデータ"
+
+#: INSTRUCTIONS.md:151 INSTRUCTIONS.md:229
+msgid ""
+"The MD trajectory that we will analyze can be found in the folder called "
+"`data`:"
+msgstr "解析する MD Trajectory は `data` フォルダにある。"
+
+#: INSTRUCTIONS.md:153 INSTRUCTIONS.md:231
+msgid ""
+"`LJvap.gro`: reference conformation of 10000 LJ particles in a metastable "
+"vapour phase."
+msgstr ""
+"`LJvap.gro`：Metastable Vapour Phase にある10000個の LJ Particles の Reference "
+"Conformation。"
+
+#: INSTRUCTIONS.md:155 INSTRUCTIONS.md:233
+msgid "`LJvap_to_liq.xtc`: trajectory."
+msgstr "`LJvap_to_liq.xtc`：Trajectory。"
+
+#: INSTRUCTIONS.md:159
+msgid "Exercise 2: analysis of a nucleation trajectory II"
+msgstr "演習2：Nucleation Trajectory の解析 II"
+
+#: INSTRUCTIONS.md:163
+msgid ""
+"In certain contexts, it can be helpful to characterize the phase transition "
+"by following analyzing the population of clusters that form during the "
+"nucleation process. In PLUMED, this is possible by taking advantage of the "
+"[DFSCLUSTERING](https://www.plumed.org/doc-master/user-"
+"doc/html/_d_f_s_c_l_u_s_t_e_r_i_n_g.html) algorithm, which builds on the "
+"construction of a [CONTACT_MATRIX](https://www.plumed.org/doc-master/user-"
+"doc/html/_c_o_n_t_a_c_t__m_a_t_r_i_x.html) to identify clusters of atoms "
+"with specific properties."
+msgstr ""
+"状況によっては、Nucleation の過程で形成される Clusters の Population を解析し、Phase Transition "
+"を特徴付けると有用である。PLUMED では、[CONTACT_MATRIX](https://www.plumed.org/doc-"
+"master/user-doc/html/_c_o_n_t_a_c_t__m_a_t_r_i_x.html) の構築に基づいて、特定の性質を持つ原子の "
+"Clusters を識別する [DFSCLUSTERING](https://www.plumed.org/doc-master/user-"
+"doc/html/_d_f_s_c_l_u_s_t_e_r_i_n_g.html) アルゴリズムを利用できる。"
+
+#: INSTRUCTIONS.md:167
+msgid ""
+"Here we analyse the clusters distribution emerging in the trajectory "
+"`LJvap_to_liq.xtc`, focussing on the number of clusters, and following the "
+"evolution of the four largest clusters in the system:"
+msgstr ""
+"ここでは、Trajectory `LJvap_to_liq.xtc` に現れる Cluster Distribution を解析する。Clusters "
+"の数に注目し、系内で最大の4つの Clusters の時間変化を追う。"
+
+#: INSTRUCTIONS.md:221
+msgid ""
+"Modifying the setup above, can you compute the number of clusters with a "
+"size larger than 20 LJ particles?"
+msgstr "上の設定を変更して、20個を超える LJ Particles からなる Clusters の数を計算できるだろうか。"
+
+#: INSTRUCTIONS.md:237
+msgid "Exercise 3: Steady-state diffusive flux with CmuMD"
+msgstr "演習3：CmuMD による Steady-state Diffusive Flux"
+
+#: INSTRUCTIONS.md:241
+msgid ""
+"In the two examples discussed in Exercises 1 and 2 it is apparent that the "
+"process of condensation reaches steady state due to finite-size effects. "
+"However, looking at the process more carefully, one can notice that the "
+"driving force leading to phase separation is far from constant."
+msgstr ""
+"演習1と2の例では、Finite-size Effects によって Condensation が Steady State "
+"に達することが分かる。しかし過程を詳しく見ると、Phase Separation の Driving Force は一定とは大きく異なる。"
+
+#: INSTRUCTIONS.md:243
+msgid ""
+"C$\\mu$MD allows using PLUMED to apply ad-hoc forces and keep constant the "
+"composition of spatial regions of the simulation box called control regions."
+" This feature allows to model processes driven by concentration in steady, "
+"out-of-equilibrium conditions."
+msgstr ""
+"C$\\mu$MD では、PLUMED を使って目的に応じた Force を加え、Simulation Box 内の Control Regions "
+"と呼ばれる空間領域の組成を一定に保てる。この機能により、濃度を Driving Force とする過程を、定常的な非平衡条件でモデル化できる。"
+
+#: INSTRUCTIONS.md:247
+msgid ""
+"The first example we will focus on is a purely diffusive process in a LJ "
+"vapour."
+msgstr "最初に扱う例は、LJ Vapour 中の純粋な Diffusion 過程である。"
+
+#: INSTRUCTIONS.md:251
+msgid ""
+"A PLUMED file that allows imposing a steady concentration difference with "
+"CmuMD looks like:"
+msgstr "CmuMD で一定の濃度差を与える PLUMED ファイルは、次のようになる。"
+
+#: INSTRUCTIONS.md:295
+msgid "We can run a CMUMD simulation under these conditions as:"
+msgstr "この条件での CMUMD シミュレーションは、次のように実行できる。"
+
+#: INSTRUCTIONS.md:311
+msgid "Perform simulations at varying concentration differences."
+msgstr "濃度差を変えながらシミュレーションを実行する。"
+
+#: INSTRUCTIONS.md:313
+msgid ""
+"Compute the concentration gradient across the simulation box as a function "
+"of the concentration difference between left and right controlled volumes."
+msgstr ""
+"左右の Control Volumes の濃度差の関数として、Simulation Box を横切る Concentration Gradient "
+"を計算する。"
+
+#: INSTRUCTIONS.md:321
+msgid "In the folder `data`:"
+msgstr "`data` フォルダ内のファイル："
+
+#: INSTRUCTIONS.md:323
+msgid "`LJ_diffusion.gro`: reference conformation of 1000 LJ particles."
+msgstr "`LJ_diffusion.gro`：1000個の LJ Particles の Reference Conformation。"
+
+#: INSTRUCTIONS.md:325
+msgid ""
+"`LJ_diffusion.xtc`: trajectory evolving under the effect of the stationary "
+"concentration gradient."
+msgstr ""
+"`LJ_diffusion.xtc`：定常的な Concentration Gradient の影響下で時間発展する Trajectory。"
+
+#: INSTRUCTIONS.md:329
+msgid "Exercise 4: Steady-state condensation process with C$\\mu$MD"
+msgstr "演習4：C$\\mu$MD による Steady-state Condensation 過程"
+
+#: INSTRUCTIONS.md:333
+msgid ""
+"The fourth exercise combines aspects of the previous three. We will use "
+"CmuMD to control the driving force associated with the growth of a dense "
+"phase represented by a slab at the center of a simulation box."
+msgstr ""
+"4つ目の演習では、前の3つの内容を組み合わせる。Simulation Box の中央に Slab として配置した高密度相の成長について、CmuMD "
+"を使って Driving Force を制御する。"
+
+#: INSTRUCTIONS.md:337
+msgid ""
+"Similarly to the diffusion case the plumed file that can be used to perform "
+"this type of simulation reads:"
+msgstr "Diffusion の場合と同様に、このシミュレーション用の PLUMED ファイルは次のようになる。"
+
+#: INSTRUCTIONS.md:385
+msgid ""
+"In the folder `data`, a CmuMD trajectory ready for analysis can be found "
+"together with the gromacs input files necessary to setup and run it."
+msgstr ""
+"`data` フォルダには、解析できる状態の CmuMD Trajectory と、その計算の設定・実行に必要な GROMACS 入力ファイルがある。"
+
+#: INSTRUCTIONS.md:387
+msgid "`LJ_slab.gro`: reference conformation of 1000 LJ particles."
+msgstr "`LJ_slab.gro`：1000個の LJ Particles の Reference Conformation。"
+
+#: INSTRUCTIONS.md:389
+msgid ""
+"`LJ_slab.xtc`: trajectory evolving under the effect of the stationary "
+"concentration gradient."
+msgstr "`LJ_slab.xtc`：定常的な Concentration Gradient の影響下で時間発展する Trajectory。"
+
+#: INSTRUCTIONS.md:391
+msgid "`md_input_LJ_slab`: MD input files"
+msgstr "`md_input_LJ_slab`：MD 入力ファイル"
+
+#: INSTRUCTIONS.md:401
+msgid ""
+"Setup and run CMUMD simulations for the LJ slab system at varying CR "
+"concentrations."
+msgstr "LJ Slab 系について、CR の濃度を変えながら CMUMD シミュレーションを設定し、実行する。"
+
+#: INSTRUCTIONS.md:403
+msgid ""
+"Use the multicolvar-based approach discussed in Ex1 to follow the "
+"condensation process."
+msgstr "演習1の multicolvar に基づく方法で、Condensation の過程を追う。"
+
+#: INSTRUCTIONS.md:405
+msgid ""
+"Use the graph-based approach discussed in Ex2 to follow the condensation "
+"process."
+msgstr "演習2の Graph に基づく方法で、Condensation の過程を追う。"
+
+#: INSTRUCTIONS.md:407
+msgid "Monitor the density profile across the simulation box."
+msgstr "Simulation Box を横切る Density Profile を監視する。"

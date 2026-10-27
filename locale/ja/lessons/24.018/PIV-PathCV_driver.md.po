@@ -1,0 +1,50 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: PIV-PathCV_driver.md:1
+msgid "Mapping a trajectory into PIV-PathCV space"
+msgstr "Trajectory を PIV-PathCV 空間に Mapping する"
+
+#: PIV-PathCV_driver.md:3
+msgid ""
+"The simplest version of PathCV needs the specification of two reference "
+"configurations, and for each of them one can compute the PIV as follows"
+msgstr ""
+"最も単純な PathCV では、2つの Reference Configurations を指定する必要がある。それぞれの PIV "
+"は、次のように計算できる。"
+
+#: PIV-PathCV_driver.md:44
+msgid ""
+"here the PIV is computed using Hydrogen (HW) and Oxygen (OW) atoms as named "
+"in the Ih.pdb and Liq.pdb files. The PIV version of the example above uses "
+"distances scaled by the cubic root of the ratio between a reference volume "
+"(VOLUME=4.589575) and the volume of the cell along the trajectory."
+msgstr ""
+"ここでは、Ih.pdb と Liq.pdb で HW、OW と命名された水素原子と酸素原子を用いて PIV を計算する。上の例の PIV "
+"では、基準体積（VOLUME=4.589575）と Trajectory 中の Cell の体積との比の立方根で距離をスケーリングする。"
+
+#: PIV-PathCV_driver.md:46
+msgid ""
+"PIV-PathCV collective variables (s and z) can then be computed by adding to "
+"the plumed.dat file the following lines:"
+msgstr ""
+"次の行を plumed.dat に追加すると、PIV-PathCV の Collective Variables（s と z）を計算できる。"
+
+#: PIV-PathCV_driver.md:53
+msgid ""
+"Compute the the values of the PIV-PathCV along the provided trajectory "
+"(traj.xtc) as a function of time using the plumed driver:"
+msgstr ""
+"plumed driver を用いて、提供された Trajectory（traj.xtc）に沿う PIV-PathCV の値を時間の関数として計算する。"
+
+#: PIV-PathCV_driver.md:58
+msgid ""
+"Please note that atoms need to be listed in the same order in all reference "
+"files and in the trajectory."
+msgstr "すべての Reference Files と Trajectory で、原子を同じ順序に並べる必要がある。"

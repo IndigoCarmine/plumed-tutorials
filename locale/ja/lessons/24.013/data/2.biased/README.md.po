@@ -1,0 +1,47 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/2.biased/README.md:1
+msgid "Biased"
+msgstr "Biased"
+
+#: data/2.biased/README.md:3
+msgid ""
+"This folder contains the biased MD run using PBMetaD and the collective "
+"variables (CVs) discovered by PINES."
+msgstr ""
+"このフォルダには、PBMetaD と、PINES が発見した Collective Variables（CVs）を用いた Biased MD "
+"計算が含まれる。"
+
+#: data/2.biased/README.md:5
+msgid "Steps"
+msgstr "手順"
+
+#: data/2.biased/README.md:7
+msgid ""
+"**Copy the CV File**: Copy the `plumed_parameterized.dat` file from the "
+"`1.NN` folder, which contains the collective variables (CVs) discovered by "
+"PINES."
+msgstr ""
+"**CV ファイルのコピー**：`1.NN` フォルダから、PINES が発見した Collective Variables（CVs）を含む "
+"`plumed_parameterized.dat` をコピーする。"
+
+#: data/2.biased/README.md:10
+msgid ""
+"**Run Biased MD Simulation**: Execute a biased MD run using PBMetaD with the"
+" `plumed_parameterized.dat` file."
+msgstr ""
+"**Biased MD シミュレーションの実行**：`plumed_parameterized.dat` を使い、PBMetaD による Biased "
+"MD 計算を実行する。"
+
+#: data/2.biased/README.md:13
+msgid ""
+"**Calculate PIV Vector**: Calculate the PIV vector of the biased trajectory "
+"to analyze the results."
+msgstr "**PIV Vector の計算**：結果を解析するため、Biased Trajectory の PIV Vector を計算する。"

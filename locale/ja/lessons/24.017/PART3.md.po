@@ -1,0 +1,88 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: PART3.md:1
+msgid "Part 3: Use the bias on a system with multiple ions"
+msgstr "Part 3：複数の Ion を持つ系への Bias の適用"
+
+#: PART3.md:3
+msgid ""
+"Now that our bias is tested for a single Mg<sup>2+</sup>–phosphate pair, we "
+"can use it on a larger RNA system with multiple binding sites and ions in "
+"solution."
+msgstr ""
+"単一の Mg<sup>2+</sup>–Phosphate Pair で Bias をテストできたので、複数の結合部位と溶液中の Ion を持つ大きな "
+"RNA 系に適用します。"
+
+#: PART3.md:5
+msgid ""
+"We will directly use the accelerating stategy to sample the Mg-binding "
+"features of a short RNA duplex, G<sub>3</sub>·C<sub>3</sub>."
+msgstr ""
+"この加速法を直接使い、短い RNA Duplex G<sub>3</sub>·C<sub>3</sub> の Mg 結合特性を Sampling "
+"します。"
+
+#: PART3.md:6
+msgid "Implementation"
+msgstr "実装"
+
+#: PART3.md:8
+msgid "Simulation set-up"
+msgstr "シミュレーションの設定"
+
+#: PART3.md:12
+msgid "We provide as input files:"
+msgstr "次の入力ファイルを用意しています。"
+
+#: PART3.md:13
+msgid ""
+"`input.gro`: equilibrated simulation box with the "
+"G<sub>3</sub>·C<sub>3</sub> duplex solvated with MgCl<sub>2</sub> (8 "
+"Mg<sup>2+</sup> and 10 Cl<sup>−</sup> ions in total)"
+msgstr ""
+"`input.gro`：MgCl<sub>2</sub> 溶液中の G<sub>3</sub>·C<sub>3</sub> Duplex "
+"を含む平衡化済み Box（Mg<sup>2+</sup> 8個、Cl<sup>−</sup> 10個）"
+
+#: PART3.md:14
+msgid "`run.mdp`: GROMACS MD parameter file"
+msgstr "`run.mdp`：GROMACS の MD パラメータファイル"
+
+#: PART3.md:15
+msgid "`topol.top`: Standalone GROMACS topology file"
+msgstr "`topol.top`：単独で使える GROMACS Topology"
+
+#: PART3.md:17
+msgid "[They can be downloaded here.](duplex/duplex.zip)"
+msgstr "[こちらからダウンロードできます。](duplex/duplex.zip)"
+
+#: PART3.md:20
+msgid "Instructions"
+msgstr "演習の手順"
+
+#: PART3.md:22
+msgid ""
+"Write a PLUMED input file `plumed_duplex.dat`. You will need to declare two "
+"coordination CVs and one bias for every Mg atom."
+msgstr ""
+"PLUMED 入力 `plumed_duplex.dat` を作成してください。各 Mg 原子に対して2つの Coordination CV と1つの "
+"Bias を宣言します。"
+
+#: PART3.md:24
+msgid ""
+"[!TIP] This is probably better done with a script. One way of doing this in "
+"a bash script is to first get a list of indices for all MG atoms, for "
+"example using [AWK](https://www.gnu.org/software/gawk/manual/gawk.html):"
+msgstr ""
+"[!TIP] スクリプトを使う方がよいでしょう。Bash では、例えば "
+"[AWK](https://www.gnu.org/software/gawk/manual/gawk.html) で、まず全 MG 原子の Index"
+" の一覧を得ます。"
+
+#: PART3.md:29
+msgid "and then generate the PLUMED code in a `for` loop"
+msgstr "次に `for` Loop 内で PLUMED コードを生成します。"

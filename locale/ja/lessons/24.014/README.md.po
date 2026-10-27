@@ -1,0 +1,107 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:1
+msgid "AlphaFold-Metainference tutorial"
+msgstr "AlphaFold-Metainference Tutorial"
+
+#: README.md:2
+msgid ""
+"A tutorial to setup and run AlphaFold-Metainference simulations. The "
+"original work which explains the theory for AlphaFold-Metainference (AF-MI) "
+"can be found [here](https://www.nature.com/articles/s41467-025-56572-9)."
+msgstr ""
+"AlphaFold-Metainference の設定と実行を学ぶ Tutorial です。AlphaFold-Metainference (AF-"
+"MI) の理論を説明する原著は [こちら](https://www.nature.com/articles/s41467-025-56572-9) "
+"にあります。"
+
+#: README.md:4
+msgid "The tutorial comprises the following sections:"
+msgstr "次の節で構成されます。"
+
+#: README.md:6
+msgid "AlphaFold-Metainference theory"
+msgstr "AlphaFold-Metainference の理論"
+
+#: README.md:7
+msgid ""
+"A brief introduction to the theory and advantage in using AlphaFold-"
+"Metainference."
+msgstr "AlphaFold-Metainference の理論と利点の簡単な紹介。"
+
+#: README.md:9
+msgid "Case study: TDP-43 WtoA monomer dynamics"
+msgstr "Case Study：TDP-43 WtoA Monomer の Dynamics"
+
+#: README.md:10
+msgid ""
+"We will present the case study for this tutorial, the DNA/RNA processing "
+"protein TDP-43 which undergoes both functional and pathogennic aggregation "
+"in amyotrophic lateral sclerosis (ALS) and other neurodegenerative "
+"conditions. To enable a rapid structural ensemble generation on a "
+"laptop/workstation, AF-MI is coupled to the CALVADOS-2 coarse-grained "
+"forcefield."
+msgstr ""
+"DNA/RNA の処理に関わる TDP-43 を例に扱います。TDP-43 は Amyotrophic Lateral Sclerosis (ALS) "
+"などの神経変性疾患で、機能的な Aggregation と病的な Aggregation の両方を起こします。Laptop/Workstation で "
+"Structural Ensemble を迅速に生成するため、AF-MI を CALVADOS-2 Coarse-grained Force Field"
+" と組み合わせます。"
+
+#: README.md:12
+msgid "Input files preparation"
+msgstr "入力ファイルの準備"
+
+#: README.md:13
+msgid ""
+"We will discuss all the preliminary steps to set up AF-MI, from generating "
+"the AF2 distance-map restraints data, to preparing PLUMED inputes, and "
+"running energy minimization and production runs"
+msgstr ""
+"AF2 Distance-map Restraint データの生成、PLUMED 入力の準備、Energy Minimization、本計算まで、AF-"
+"MI の設定に必要な手順を説明します。"
+
+#: README.md:15
+msgid "Structural ensemble generation and post-processing analysis"
+msgstr "Structural Ensemble の生成と後処理解析"
+
+#: README.md:16
+msgid ""
+"Finally, we will discuss how to generate the unbiased structural ensemble of"
+" TDP-43, estimate free energy surfaces along collective variables (CVs) and "
+"predict ensemble averaged properties such as secondary structureand RMSF."
+msgstr ""
+"最後に、Bias を除いた TDP-43 の Structural Ensemble の生成、Collective Variables (CVs) "
+"に沿う自由エネルギー表面の推定、Secondary Structure や RMSF などの Ensemble Average の予測を説明します。"
+
+#: README.md:18
+msgid ""
+"___NB:___ This tutorial assumes that you know metadynamics theory and "
+"practice in PLUMED (if not, a good start can be the [PLUMED "
+"tutorial](https://www.plumed-"
+"tutorials.org/lessons/21/004/data/NAVIGATION.html) about it)."
+msgstr ""
+"___注：___ PLUMED の Metadynamics の理論と実践を知っていることを前提とします。未習の場合は、関連する [PLUMED "
+"Tutorial](https://www.plumed-"
+"tutorials.org/lessons/21/004/data/NAVIGATION.html) から始めるとよいでしょう。"
+
+#: README.md:20
+msgid "This tutorial has been contributed by"
+msgstr "この Tutorial の寄稿者："
+
+#: README.md:21
+msgid "Dr. Faidon Brotzakis (fb516@cam.ac.uk, brotzakis@fleming.gr)"
+msgstr "Dr. Faidon Brotzakis (fb516@cam.ac.uk, brotzakis@fleming.gr)"
+
+#: README.md:23
+msgid "Hussein Murtada (mhm42@cam.ac.uk)"
+msgstr "Hussein Murtada (mhm42@cam.ac.uk)"
+
+#: README.md:25
+msgid "Prof. Michele Vendruscolo (mv245@cam.ac.uk)"
+msgstr "Prof. Michele Vendruscolo (mv245@cam.ac.uk)"

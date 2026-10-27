@@ -1,0 +1,189 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 02.md:1
+msgid "Tutorial 2: Ensemble refinement with EMMIVox"
+msgstr "チュートリアル2：EMMIVox による Ensemble Refinement"
+
+#: 02.md:3
+msgid ""
+"These are the steps to do ensemble modelling using a cryo-EM map and "
+"EMMIVox."
+msgstr "cryo-EM Map と EMMIVox を使う Ensemble Modelling の手順を示す。"
+
+#: 02.md:5
+msgid ""
+"**Note 1**: To do ensemble modelling you need to first complete the single-"
+"structure refinement tutorial."
+msgstr "**注意1**：先に Single-structure Refinement のチュートリアルを終えておく必要がある。"
+
+#: 02.md:7
+msgid ""
+"**Note 2**: all the python scripts are contained in the `scripts` folder. "
+"Please run each step of the tutorial in the dedicated subfolder of "
+"`tutorials/2-ensemble` referred to as **Working directory**."
+msgstr ""
+"**注意2**：Python スクリプトはすべて `scripts` フォルダにある。各手順は、`tutorials/2-ensemble` "
+"内の、**作業ディレクトリ**として指定したサブフォルダで実行する。"
+
+#: 02.md:9
+msgid "0. Production"
+msgstr "0. 本計算"
+
+#: 02.md:11
+msgid ""
+"Prepare the input files and directories for ensemble modelling with 16 "
+"replicas using:"
+msgstr "次のコマンドで、16 Replicas の Ensemble Modelling の入力とディレクトリを用意する。"
+
+#: 02.md:13
+msgid "`bash prepare_PLUMED_Ensemble_input.sh 16`"
+msgstr "`bash prepare_PLUMED_Ensemble_input.sh 16`"
+
+#: 02.md:15
+msgid ""
+"You can specify fewer or more replicas depending on the number of CPU cores "
+"and GPUs available."
+msgstr "利用できる CPU Cores と GPUs に応じて、Replicas を増減してよい。"
+
+#: 02.md:17
+msgid ""
+"The generated PLUMED input file, called `plumed_EMMI.dat`, should look like "
+"this:"
+msgstr "生成される PLUMED 入力 `plumed_EMMI.dat` は、次のようになる。"
+
+#: 02.md:60
+msgid ""
+"Run a 10-ns long simulation in parallel using 16 MPI processes, each one "
+"parallelized on multiple CPU cores (`$OMP_NUM_THREADS`). You might need to "
+"adapt this line depending on your command to submit parallel jobs, i.e. "
+"srun, mpiexec, or mpirun."
+msgstr ""
+"16の MPI Processes を用いて10 ns を並列計算する。各 Process 内も、複数の CPU "
+"Cores（`$OMP_NUM_THREADS`）で並列化する。使用する並列 Job のコマンド、srun、mpiexec、mpirun "
+"に応じて、この行を調整する。"
+
+#: 02.md:63
+msgid ""
+"`srun -N 16 gmx_mpi mdrun -pin on -ntomp $OMP_NUM_THREADS -plumed "
+"plumed_EMMI.dat -s production.tpr -multidir rep-* -nsteps 5000000`"
+msgstr ""
+"`srun -N 16 gmx_mpi mdrun -pin on -ntomp $OMP_NUM_THREADS -plumed "
+"plumed_EMMI.dat -s production.tpr -multidir rep-* -nsteps 5000000`"
+
+#: 02.md:65
+msgid ""
+"**Note**: Usually a good setup for multiple-replica simulations is to "
+"allocate 1 GPU to each replica, and 6-10 CPU cores (`$OMP_NUM_THREADS`) per "
+"replica depending on the system size. You can safely allocate (using your "
+"job manager, i.e. slurm or pbs) 2 replicas on the same GPU without "
+"significant loss in performance."
+msgstr ""
+"**注意**：Multi-replica 計算では、通常1 Replica に1 GPU と、系の大きさに応じて6～10 CPU "
+"Cores（`$OMP_NUM_THREADS`）を割り当てるとよい。Job Manager（slurm や pbs）で同じ GPU に2 "
+"Replicas を配置しても、大幅な性能低下なく実行できる。"
+
+#: 02.md:67
+msgid "**Working directory**: `0-Production`"
+msgstr "**作業ディレクトリ**：`0-Production`"
+
+#: 02.md:69
+msgid "1. Postprocessing and validation"
+msgstr "1. 後処理と検証"
+
+#: 02.md:71
+msgid ""
+"We first need to concatenate the trajectories of all replicas and fix "
+"discontinuities due to Periodic Boundary Conditions:"
+msgstr "まず、全 Replicas の Trajectories を連結し、PBC による不連続を修正する。"
+
+#: 02.md:73
+msgid "`bash prepare_PLUMED_Ensemble_analysis.sh`"
+msgstr "`bash prepare_PLUMED_Ensemble_analysis.sh`"
+
+#: 02.md:75
+msgid ""
+"Now we need to transform back the concatenated trajectory `traj-all-PBC.xtc`"
+" to fit the original cryo-EM map using the `transformation.dat` created "
+"during the map preparation stage of single-structure refinement:"
+msgstr ""
+"Single-structure Refinement の Map 準備で作った `transformation.dat` を用い、連結した "
+"`traj-all-PBC.xtc` を元の cryo-EM Map に対応する座標へ戻す。"
+
+#: 02.md:78
+msgid ""
+"`python align-XTC.py conf_map.pdb traj-all-PBC.xtc traj-all-PBC-align.xtc "
+"../../1-refinement/1-Map-Preparation/transformation.dat`"
+msgstr ""
+"`python align-XTC.py conf_map.pdb traj-all-PBC.xtc traj-all-PBC-align.xtc "
+"../../1-refinement/1-Map-Preparation/transformation.dat`"
+
+#: 02.md:80
+msgid ""
+"We add a Bfactor column to the reference PDB (`conf_map.pdb`). These "
+"Bfactors are the same for all residues, they were set before doing ensemble "
+"modelling equal to the minimum Bfactor found in the single-structure "
+"refinement:"
+msgstr ""
+"参照 PDB（`conf_map.pdb`）に Bfactor 列を加える。全 Residues で同じ値であり、Ensemble Modelling "
+"の前に、Single-structure Refinement で得た最小の Bfactor に設定してある。"
+
+#: 02.md:83
+msgid ""
+"`python add-BFACT.py conf_map.pdb ../0-Production/EMMIStatus "
+"conf_EMMIVOX.pdb`"
+msgstr ""
+"`python add-BFACT.py conf_map.pdb ../0-Production/EMMIStatus "
+"conf_EMMIVOX.pdb`"
+
+#: 02.md:85
+msgid ""
+"And finally we calculate model fit to the data (CC_mask) of the original PDB"
+" `7P6A.pdb` and of our ensemble:"
+msgstr "最後に、元の PDB `7P6A.pdb` と Ensemble について、データへの適合度（CC_mask）を計算する。"
+
+#: 02.md:87
+msgid ""
+"`python cryo-EM_validate.py ../../1-refinement/1-Map-"
+"Preparation/emd_13223.map --pdbA=../../1-refinement/1-Map-"
+"Preparation/7P6A.pdb --pdbC=conf_EMMIVOX.pdb --trjC=traj-all-PBC-align.xtc "
+"--threshold=0.0`"
+msgstr ""
+"`python cryo-EM_validate.py ../../1-refinement/1-Map-"
+"Preparation/emd_13223.map --pdbA=../../1-refinement/1-Map-"
+"Preparation/7P6A.pdb --pdbC=conf_EMMIVOX.pdb --trjC=traj-all-PBC-align.xtc "
+"--threshold=0.0`"
+
+#: 02.md:89
+msgid ""
+"**Note**: if you performed energy minimization and validation after single-"
+"structure refinement, you can compare also with the EMMIVOX model:"
+msgstr ""
+"**注意**：Single-structure Refinement の後に Energy Minimization "
+"と検証を行っていれば、EMMIVOX モデルとも比較できる。"
+
+#: 02.md:91
+msgid ""
+"`python cryo-EM_validate.py ../../1-refinement/1-Map-"
+"Preparation/emd_13223.map "
+"--pdbA=../../1-refinement/5-Analysis/conf_EMMIVOX.pdb "
+"--pdbC=conf_EMMIVOX.pdb --trjC=traj-all-PBC-align.xtc --threshold=0.0`"
+msgstr ""
+"`python cryo-EM_validate.py ../../1-refinement/1-Map-"
+"Preparation/emd_13223.map "
+"--pdbA=../../1-refinement/5-Analysis/conf_EMMIVOX.pdb "
+"--pdbC=conf_EMMIVOX.pdb --trjC=traj-all-PBC-align.xtc --threshold=0.0`"
+
+#: 02.md:93
+msgid "**Working directory**: `1-Analysis`"
+msgstr "**作業ディレクトリ**：`1-Analysis`"
+
+#: 02.md:95
+msgid "[Back to EMMIVox home](NAVIGATION.md)"
+msgstr "[EMMIVox のホームに戻る](NAVIGATION.md)"

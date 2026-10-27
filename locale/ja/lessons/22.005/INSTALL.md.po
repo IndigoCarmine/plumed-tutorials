@@ -1,0 +1,104 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: INSTALL.md:1
+msgid "Instructions for installing the software"
+msgstr "ソフトウェアのインストール手順"
+
+#: INSTALL.md:3
+msgid "The following software is required for running this masterclass:"
+msgstr "この Masterclass の実行には、次のソフトウェアが必要である。"
+
+#: INSTALL.md:5
+msgid "PLUMED configured with LibTorch + OPES & PyTorch modules"
+msgstr "LibTorch と OPES・PyTorch モジュールを有効にして構成した PLUMED"
+
+#: INSTALL.md:6
+msgid "mlcvs python library"
+msgstr "mlcvs Python ライブラリ"
+
+#: INSTALL.md:8
+msgid "Install LibTorch"
+msgstr "LibTorch のインストール"
+
+#: INSTALL.md:10
+msgid ""
+"You can follow the [instructions](https://www.plumed.org/doc-master/user-"
+"doc/html/_p_y_t_o_r_c_h.html) on the PLUMED manual to download and configure"
+" LibTorch. Here we report them for convenience."
+msgstr ""
+"LibTorch のダウンロードと設定は、PLUMED マニュアルの[手順](https://www.plumed.org/doc-"
+"master/user-doc/html/_p_y_t_o_r_c_h.html)に従えばよい。便宜上、ここにも示す。"
+
+#: INSTALL.md:12
+msgid ""
+"We can download the pre-built LibTorch library from their website. The "
+"following script downloads the 1.13.1 version (Linux, CPU, with C++11 ABI "
+"compatibility), check [here](https://pytorch.org/) for other "
+"platforms/versions."
+msgstr ""
+"ビルド済みの LibTorch ライブラリを公式サイトからダウンロードできる。以下のスクリプトは1.13.1版（Linux、CPU、C++11 ABI "
+"互換）を取得する。他のプラットフォームやバージョンは[こちら](https://pytorch.org/)を確認してほしい。"
+
+#: INSTALL.md:21
+msgid ""
+"The location of the include and library files need to be exported in the "
+"environment. Execute the following commands to save them in a file "
+"sourceme.sh inside the libtorch folder:"
+msgstr ""
+"Include Files と Library Files の場所を環境変数として export する必要がある。次のコマンドで、libtorch "
+"フォルダ内の sourceme.sh に設定を保存する。"
+
+#: INSTALL.md:33
+msgid "Install PLUMED"
+msgstr "PLUMED のインストール"
+
+#: INSTALL.md:35
+msgid "Download the development version of PLUMED2"
+msgstr "PLUMED2 の開発版をダウンロードする。"
+
+#: INSTALL.md:49
+msgid "Install GROMACS"
+msgstr "GROMACS のインストール"
+
+#: INSTALL.md:51
+msgid ""
+"Download the 2020.6 version of GROMACS and patch it with the PLUMED version "
+"installed."
+msgstr "GROMACS 2020.6 をダウンロードし、インストールした PLUMED のパッチを適用する。"
+
+#: INSTALL.md:81
+msgid "Install mlcvs"
+msgstr "mlcvs のインストール"
+
+#: INSTALL.md:83
+msgid ""
+"If you want to use conda you can create an environment named "
+"`masterclass22.05`, activate it, and install the required dependencies:"
+msgstr "conda を使う場合は、`masterclass22.05` という環境を作成して有効化し、必要な依存関係をインストールする。"
+
+#: INSTALL.md:93
+msgid "If you want to use pip:"
+msgstr "pip を使う場合："
+
+#: INSTALL.md:103
+msgid ""
+"Once the dependencies have been installed you can clone the repository and "
+"install the package:"
+msgstr "依存関係のインストール後、リポジトリを clone してパッケージをインストールできる。"
+
+#: INSTALL.md:112
+msgid "Download the data"
+msgstr "データのダウンロード"
+
+#: INSTALL.md:114
+msgid ""
+"Download the repository containing the jupyter notebooks and the data for "
+"running the simulations:"
+msgstr "Jupyter Notebooks と、シミュレーションの実行に必要なデータを含むリポジトリをダウンロードする。"

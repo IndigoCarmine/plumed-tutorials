@@ -1,0 +1,267 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Method name, software identifier or literal command intentionally preserved.
+#: histograms.md:1
+msgid "Histograms"
+msgstr "Histograms"
+
+#: histograms.md:3
+msgid ""
+"Whenver we compute a histogram we are computing multiple averages at the "
+"same time. Consequently, I think that the input syntax syntax that we use "
+"for computing histograms should respect the distinction between:"
+msgstr "Histogram は複数平均の同時計算なので、構文も次を区別すべきです。"
+
+#: histograms.md:6
+msgid "Computing a time average"
+msgstr "時間平均。"
+
+#: histograms.md:7
+msgid ""
+"Computing a spatial average over multiple indistinguishable instances of the"
+" same quantity."
+msgstr "区別不能な同量の空間平均。"
+
+#: histograms.md:8
+msgid "Computing an average over replicas"
+msgstr "Replica 平均。"
+
+#: histograms.md:10
+msgid ""
+"that I discussed in the post on [averaging](averaging). In this post I will "
+"explain how I have implemented histograms in a way that respects this "
+"distinction."
+msgstr "[平均の記事](averaging) に従う Histogram 実装を説明します。"
+
+#: histograms.md:12
+msgid "Time-average histograms"
+msgstr "時間平均 Histogram"
+
+#: histograms.md:14
+msgid ""
+"The code for calculating a histogram is the same as it was in previous "
+"versions of PLUMED. To calculate the distribution of values that the "
+"distance between atoms 1 and 2 took during your simulation you use the "
+"following input:"
+msgstr "旧版と同じ構文で、原子1・2の距離分布は、"
+
+#: histograms.md:23
+msgid ""
+"If you look in more detail at this input though you see that the HISTOGRAM "
+"action is a shortcut that expands to the following much longer and more "
+"complicated looking input:"
+msgstr "HISTOGRAM は Shortcut で、次の長い入力に展開されます。"
+
+#: histograms.md:43
+msgid ""
+"If you look at the manual pages for this action you will see how you can "
+"even pass the shape of the Gaussians that you want to use when constructing "
+"your histogram in the input and the heights of the Gaussians to use. In "
+"short, users have an exquisite control over the way their histograms are "
+"constructed if they move away from using the short cuts. Importantly, they "
+"can control how the histogram is normalised or not normalised. In "
+"collaborations I have been a part of I have found that folks want to exploit"
+" this flexibilty. I also hope that the syntax I will describe in these pages"
+" offers this flexibilty while still being quite transparant."
+msgstr "Gaussian の形・高さや正規化を細かく制御できます。共同研究でも必要とされる柔軟性を、透明な構文で提供したいと考えます。"
+
+#: histograms.md:47
+msgid "Time and spatial average histograms"
+msgstr "時間・空間平均 Histogram"
+
+#: histograms.md:49
+msgid ""
+"In the inputs above the DISTANCE command outputs a single scalar. Creating "
+"and storing a grid to hold the single Gaussian centered on this distance "
+"value using a KDE command and only then adding it to the histogram that is "
+"being accumulated by the ACCUMULATE command thus perhaps seems perverse. "
+"When one has multiple indistinguishable representations of the same quantity"
+" in each trajectory frame, however, the reason for separating these two "
+"actions becomes more clear. Consider the following input that is calculating"
+" the distribution of coordination numbers:"
+msgstr ""
+"単一 DISTANCE の Gaussian を KDE Grid に作ってから ACCUMULATE するのは回りくどく見えますが、各 Frame "
+"に多数の等価量がある場合に意味が明確になります。Coordination 分布なら、"
+
+#: histograms.md:64
+msgid ""
+"In the input above the final histogram is caclulated by averaging over time "
+"and over the multiple indistinguishable realisations of the coordination "
+"number in each trajectory frame. The KDE action computes a histogram from "
+"the instantaneous values of all the coordination numbers, while the "
+"ACCUMULATE then adds all these instantaneous distributions together and "
+"hence does the averaging over time. Notice, furthermore, that we can "
+"multiply each instaneous KDE estimate by the weight of the corresponding "
+"trajectory frame if we are reweighting a biased simulation using a CUSTOM "
+"action before we pass the instaneous estimate of the distribution to the "
+"ACCUMULATE action. The input for this type of calculation is pretty "
+"transparent and flexible as the user does everything with CUSTOM actions "
+"(i.e. mathematical equations). They are not forced to learn an exotic syntax"
+" for doing reweighting."
+msgstr ""
+"KDE が瞬時の全 Coordination の分布、ACCUMULATE が時間平均を作ります。Bias 付きなら、渡す前に CUSTOM で "
+"Frame 重みを掛けます。特殊構文を学ばず数式で Reweighting でき、柔軟で明確です。"
+
+#: histograms.md:69
+msgid ""
+"The real reason that I have introduced this separation between the KDE and "
+"HISTOGRAM actions is because of how KDE has been used for biasing in papers "
+"such as [this one](https://pubs.acs.org/doi/full/10.1021/acs.jctc.7b01027). "
+"In that paper the instantaenous distribution of an order parameter is "
+"computed using kernel density estimation. The Kulback Leibler divergence "
+"between the instantaneous distribution and some reference distribution is "
+"then used as a CV in a biased simulation. To use a CV like this in PLUMED "
+"you would use an input like the one shown below:"
+msgstr ""
+"分離の主な理由は [この論文](https://pubs.acs.org/doi/full/10.1021/acs.jctc.7b01027) の "
+"KDE Bias です。Order Parameter の瞬時分布と参照の Kullback-Leibler Divergence を CV "
+"にします。入力は、"
+
+#: histograms.md:106
+msgid ""
+"This input looks at the instantaneous distribution of $\\theta$ and $\\phi$ "
+"angles for the bonds between atoms and their neighbours in the first "
+"coordination sphere. $\\phi$ is defined as the angle between the vector "
+"connecting the two atoms and the positive $z$ direction. $\\theta$ is then "
+"the torsional angle between the bond and the positive $x$ direction. In "
+"other words, $\\theta$ and $\\phi$ are the second two spherical polar "
+"coordinates. You can see that we construct the instantaneous distribution of"
+" bonds in this spheircal polar direction and then compute the Kulbeck-"
+"Leibler divergence between this instantaneous distribution and a reference "
+"uniform distribution. Notice, finally, that we can add a restraint on this "
+"very complicated CV and that PLUMED will work out the derivatives on the "
+"atoms using the chain rule for us."
+msgstr ""
+"第1 Coordination Sphere の Bond の $\\theta$・$\\phi$ 分布です。$\\phi$ は原子間 Vector "
+"と正の $z$、$\\theta$ は正の $x$ に対する Torsion Angle で、$\\theta$・$\\phi$ "
+"は球座標の角成分です。瞬時 Bond 方向分布と一様参照の Kullback-Leibler Divergence を求め、Restraint "
+"も加えられます。原子微分は Chain Rule で自動計算します。"
+
+#: histograms.md:111
+msgid "The radial distribution function"
+msgstr "Radial Distribution Function"
+
+#: histograms.md:113
+msgid ""
+"The grid and histogram functionality that I have described in the previous "
+"sections can be used to calculate the radial distribution function (RDF). I "
+"have thus implemented a shortcut action to calculate the RDF that works as "
+"follows. If you click on the RDF command you will be given the option to "
+"expand the shortcut and see how this command is built from simpler PLUMED "
+"actions."
+msgstr ""
+"Grid・Histogram で RDF も計算でき、Shortcut を用意しました。RDF をクリックして展開すると単純 Action "
+"の組み合わせが見えます。"
+
+#: histograms.md:121
+msgid ""
+"Notice that what is output here is the instantaneous RDF. If you want to "
+"compute a time average of the RDF you need to use suitable accumulate "
+"actions as described in previous sections."
+msgstr "瞬時 RDF なので、時間平均には適切な Accumulate が必要です。"
+
+#: histograms.md:123
+msgid ""
+"The RDF was implemented in order to add the [entropy "
+"CV](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.015701) "
+"that was developed by Piaggi and Parrinello. This CV computes a Kulbeck-"
+"Leibler divergence and thus operates like the CVs described at the end of "
+"the previous section. There is a shortcut to this action to which can be "
+"called using the following input:"
+msgstr ""
+"Piaggi・Parrinello の [Entropy "
+"CV](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.015701) "
+"のため RDF を実装しました。前節同様 Kullback-Leibler Divergence を使います。Shortcut は、"
+
+#: histograms.md:129
+msgid ""
+"If you implement this (and the related PAIRENTROPIES) shortcuts in a single "
+"action you may get better performance. I believe these implementations that "
+"use shortcuts provide a useful reference values for these CVs and our easy "
+"to maintain. They are a useful start point for anyone building code to use "
+"such a CV in a production calculation."
+msgstr ""
+"単一 Action に再実装すれば速くなりますが、Shortcut は保守しやすい参照値となり、本計算用コードの出発点に有用です。関連 "
+"PAIRENTROPIES も同様です。"
+
+#: histograms.md:131
+msgid "Histograms and replicas"
+msgstr "Histogram と Replica"
+
+#: histograms.md:133
+msgid ""
+"If you are running a simulation with four replicas you can construct a "
+"histogram using all the data from the replicas by using an input like the "
+"one shown below:"
+msgstr "4 Replica の全データの Histogram は、"
+
+#: histograms.md:150
+msgid ""
+"Notice how the GATHER_REPLICAS and CONCATENATE actions are used here to "
+"transfer the data on each replica to a four dimensional vector that can be "
+"used in the input for KDE. Notice, furthermore, that by using the "
+"VOLUMES/HEIGHTS keyword of KDE we can ascribe weights to the data from each "
+"replica. These weights can be used to do any reweighting to take account of "
+"different conditions that might be used with different replicas."
+msgstr ""
+"GATHER_REPLICAS と CONCATENATE が4次元 Vector にまとめ KDE に渡します。VOLUMES/HEIGHTS で "
+"Replica の重みも付け、異なる条件の Reweighting に使えます。"
+
+#: histograms.md:153
+msgid "Spatial averages"
+msgstr "Spatial Averages"
+
+#: histograms.md:155
+msgid ""
+"Over the last few years researchers from Michele's group and I wrote "
+"functionality in PLUMED for [this "
+"paper](https://pubs.aip.org/aip/jcp/article-"
+"abstract/152/4/044103/76401/Classical-nucleation-theory-predicts-the-shape-"
+"of?redirectedFrom=fulltext) on the capiliary fluctuation method and [this "
+"one](https://iopscience.iop.org/article/10.1088/1361-648X/aa893d/meta) on "
+"determining the shape of a nucleating solid. These papers made use of an "
+"action called MULTICOLVARDENS that built a continuous representation for the"
+" average value of some atom-based order parameter at each point in the "
+"simulation cell. With the new version of PLUMED there is no need to "
+"implement a second MULTICOLVARDENS action as you can calculate these fields "
+"by using the KDE command directly as shown below:"
+msgstr ""
+"Michele Group と私は、[Capillary Fluctuation "
+"法](https://pubs.aip.org/aip/jcp/article-"
+"abstract/152/4/044103/76401/Classical-nucleation-theory-predicts-the-shape-"
+"of?redirectedFrom=fulltext) と [Nucleation "
+"固体形状](https://iopscience.iop.org/article/10.1088/1361-648X/aa893d/meta) "
+"のため、各点の原子 Order Parameter 平均を連続場にする MULTICOLVARDENS を作りました。新版では別 Action は不要で"
+" KDE を直接使えます。"
+
+#: histograms.md:170
+msgid ""
+"I hope what is beign calculated here is clear from the syntax above. Notice,"
+" furthermore, that if one wants to compute the average over multiple frames "
+"you can accumulate the grids with labels p_numer and p_denom. On steps where"
+" the average of the function is desired you can then compute the ratio of "
+"the two grids with CUSTOM."
+msgstr ""
+"構文から計算が明確なら幸いです。複数 Frame の平均は p_numer・p_denom Grid を蓄積し、必要な Step に CUSTOM "
+"で比を求めます。"
+
+#: histograms.md:172
+msgid ""
+"Notice lastly that this input can also be used to calculate the conditional "
+"average of a CV as a function of another CV. In other words, you can use "
+"inputs like the one above to calculate the average value of $s$ when some "
+"other CV has a fixed value as is discussed in [this "
+"paper](https://pubs.aip.org/aip/jcp/article-"
+"abstract/149/10/104104/196263/Building-maps-in-collective-variable-"
+"space?redirectedFrom=fulltext)."
+msgstr ""
+"別 CV を固定した条件付き平均にも使えます。[この論文](https://pubs.aip.org/aip/jcp/article-"
+"abstract/149/10/104104/196263/Building-maps-in-collective-variable-"
+"space?redirectedFrom=fulltext) のように、他の CV が一定のときの $s$ の平均を求められます。"

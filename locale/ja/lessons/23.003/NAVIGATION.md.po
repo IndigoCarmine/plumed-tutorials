@@ -1,0 +1,363 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid ""
+"Blog: Experience Accelerating Metainferencing Simulations Through Profiling"
+msgstr "ブログ：Profiling を通じて Metainference シミュレーションを高速化した経験"
+
+#: NAVIGATION.md:4
+msgid ""
+"This blog shares our experience of trying to accelerate metainferencing "
+"simulations through profiling with the hope that it benefits anyone in the "
+"community who is interested in, or might benefit from, faster PLUMED "
+"simulations."
+msgstr ""
+"この記事では、Profiling を使って Metainference シミュレーションの高速化を試みた経験を共有する。PLUMED "
+"シミュレーションの高速化に関心がある方や、その恩恵を受けうるコミュニティの方々に役立つことを願っている。"
+
+#: NAVIGATION.md:8
+msgid "**Final outcome: ~2x faster simulations**"
+msgstr "**最終的な成果：シミュレーションを約2倍に高速化**"
+
+#: NAVIGATION.md:12
+msgid "Who we are?"
+msgstr "私たちについて"
+
+#: NAVIGATION.md:14
+msgid ""
+"We are members of the Scientific Software Engineering "
+"[(SSE)](https://ssecenter.cc.gatech.edu/) Center at Georgia Tech which is a "
+"new effort that is part of the Virtual Institute for Scientific Software "
+"[(VISS)](https://www.schmidtfutures.com/our-work/virtual-institute-for-"
+"scientific-software/). VISS was launched by Schmidt Futures to address the "
+"need for training and educating software engineers, and the SSE center at "
+"Georgia Tech is focused on developing new methodologies for improving high-"
+"performance scientific codes and for training tomorrow’s software engineers."
+msgstr ""
+"私たちは、Georgia Tech の Scientific Software Engineering "
+"[(SSE)](https://ssecenter.cc.gatech.edu/) Center のメンバーである。このセンターは Virtual "
+"Institute for Scientific Software "
+"[(VISS)](https://www.schmidtfutures.com/our-work/virtual-institute-for-"
+"scientific-software/) の一環として始まった新しい取り組みである。VISS は、Software Engineers "
+"の育成・教育の必要性に応えるために Schmidt Futures が設立した。Georgia Tech の SSE Center "
+"は、高性能な科学計算コードを改善するための新しい方法論の開発と、次世代の Software Engineers の育成に重点を置いている。"
+
+#: NAVIGATION.md:16
+msgid "Why did we investigate?"
+msgstr "調査を始めた理由"
+
+#: NAVIGATION.md:18
+msgid ""
+"This work was performed as part of request to VISS by PIs - [Gabi "
+"Heller](https://scholar.google.com/citations?user=xB2BOkQAAAAJ&hl=en) and "
+"[Thomas Löhr](https://scholar.google.com/citations?user=_FDAncsAAAAJ&hl=en) "
+"The original expression of interest from PIs outlined how their "
+"metainferencing simulations using [GROMACS](https://gromacs.bioexcel.eu/) "
+"and [PLUMED](https://www.plumed.org/) were slowing down their scientific "
+"exploration. They observed that it seemed that the slowdown was severe when "
+"they used PLUMED, potentially due to lack of GPU support in PLUMED as "
+"Gromacs support for GPUs if fairly mature. PIs requested the addition of GPU"
+" support within PLUMED to reduce the time spend running simulations, thereby"
+" increasing the pace of scientific discovery."
+msgstr ""
+"この作業は、研究責任者の [Gabi "
+"Heller](https://scholar.google.com/citations?user=xB2BOkQAAAAJ&hl=en) と "
+"[Thomas Löhr](https://scholar.google.com/citations?user=_FDAncsAAAAJ&hl=en) "
+"から VISS への依頼の一環として行われた。最初の相談では、[GROMACS](https://gromacs.bioexcel.eu/) と "
+"[PLUMED](https://www.plumed.org/) を使った Metainference "
+"シミュレーションの遅さが、研究の進展を妨げていることが示されていた。PLUMED を使うと特に遅くなるように見えるという。GROMACS の GPU "
+"対応は比較的成熟しているため、PLUMED の GPU "
+"対応の不足が原因ではないかと考えられていた。研究責任者らは、シミュレーション時間を短縮して科学的発見を加速するため、PLUMED への GPU "
+"対応の追加を依頼した。"
+
+#: NAVIGATION.md:21
+msgid "What we did?"
+msgstr "実施したこと"
+
+#: NAVIGATION.md:23
+msgid ""
+"Without prior experience, the first step we took was to identify a "
+"representative target simulation. PIs were gracious enough to share their "
+"work on [small molecule sequestration of amyloid-β as a drug discovery "
+"strategy for Alzheimer's disease](https://github.com/vendruscolo-"
+"lab/amyloid-beta_small_mol) as the target simulation."
+msgstr ""
+"この分野の事前経験がなかった私たちは、まず代表的な対象シミュレーションを特定した。研究責任者らは、[Alzheimer's Disease "
+"の創薬戦略として Amyloid-β を Small Molecules で Sequestration "
+"する研究](https://github.com/vendruscolo-lab/amyloid-"
+"beta_small_mol)を、対象シミュレーションとして快く共有してくれた。"
+
+#: NAVIGATION.md:29
+msgid ""
+"We setup the simulation and profiled simulation on [Georgia Tech (GT) "
+"Rougues Gallery](https://crnch.gatech.edu/rogues-gallery/) to identify "
+"hotspots in PLUMED and that are amenable for GPU acceleration. [^1]"
+msgstr ""
+"シミュレーションを設定し、[Georgia Tech (GT) Rogues "
+"Gallery](https://crnch.gatech.edu/rogues-gallery/) 上で Profiling を行って、GPU "
+"で高速化できそうな PLUMED の Hotspots を特定した。[^1]"
+
+#: NAVIGATION.md:31
+msgid ""
+"We shared our [findings](Findings) with PLUMED team who suggested changes in"
+" the configuration options to run the exact same target simulations without "
+"requiring any GPU support. This gave us a new baseline to consider for GPU "
+"offloading as it led to ~2x faster simulations."
+msgstr ""
+"[調査結果](Findings)を PLUMED チームと共有したところ、GPU "
+"対応を追加せず、まったく同じ対象シミュレーションを実行できる設定オプションの変更を提案してくれた。この変更で約2倍の高速化が得られ、GPU "
+"Offloading を検討する際の新しい Baseline ができた。"
+
+#: NAVIGATION.md:33
+msgid ""
+"We reprofiled the target simulation with the suggested options and found "
+"that PLUMED overheads were infact not significant and thus, pointing to "
+"diminishing returns on effort of offloading it to GPUs. However, we were "
+"able to point to some additional opportunities for optimizations in PLUMED."
+msgstr ""
+"提案されたオプションで対象シミュレーションを再度 Profiling したところ、PLUMED の Overheads "
+"は実際には大きくなかった。このことは、GPU Offloading に労力をかけても得られる追加の効果が小さいことを示していた。一方、PLUMED "
+"の最適化について、さらにいくつかの機会を示すことができた。"
+
+#: NAVIGATION.md:35
+msgid ""
+"We verified the outcomes for a different (bigger) simulation and confirmed "
+"with PIs that this outcome indeed was significant."
+msgstr "別の、より大きなシミュレーションでも結果を検証し、この成果が実際に重要であることを研究責任者らと確認した。"
+
+#: NAVIGATION.md:37
+msgid "What we discovered?"
+msgstr "分かったこと"
+
+#: NAVIGATION.md:38
+msgid ""
+"In this post, we provide details on how we got to a point of ~2x faster "
+"simulation. We used [Intel "
+"vTune](https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-"
+"profiler.html) to carry our analysis."
+msgstr ""
+"この記事では、約2倍の高速化に至るまでの経緯を詳しく説明する。解析には [Intel "
+"vTune](https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-"
+"profiler.html) を用いた。"
+
+#: NAVIGATION.md:40
+msgid "Identified hotspots"
+msgstr "特定した Hotspots"
+
+#: NAVIGATION.md:42
+msgid ""
+"**Hotspots on CPU only**: We started with CPU only hardware setup and "
+"profiled the simulation run to identify the hotspots. We discovered that "
+"there was a significant overhead from PLUMED (~35%) in the overall "
+"simulation runtime and 2 out of top 4 hotspot functions are PLUMED "
+"functions."
+msgstr ""
+"**CPU のみの場合の Hotspots**：まず CPU のみの構成でシミュレーションを Profiling し、Hotspots "
+"を特定した。全実行時間に占める PLUMED の Overhead は約35%と大きく、上位4つの Hotspot Functions のうち2つは "
+"PLUMED の関数だった。"
+
+#: NAVIGATION.md:47
+msgid ""
+"**Hotspots on GPU**: Next step was to verify if the same hotspots persist "
+"with Gromacs running with CUDA support and PLUMED on CPU. Although, the "
+"overall simulation was sped up by ~50%, our hotspot analysis pointed out "
+"that 3 out of 5 hotspots functions were PLUMED functions. Here is the "
+"snapshot of our observations:"
+msgstr ""
+"**GPU を使う場合の Hotspots**：次に、GROMACS を CUDA 対応で、PLUMED を CPU 上で実行し、同じ Hotspots"
+" が残るかを確認した。シミュレーション全体は約50%高速化したが、Hotspot 解析では上位5つの関数のうち3つが PLUMED "
+"の関数だった。観測結果の概要を次に示す。"
+
+#: NAVIGATION.md:53
+msgid ""
+"However, we noted that the contribution of PLUMED overhead in simulation run"
+" time reduced from ~35% to ~23%. Moreover, we also performed hpc-performance"
+" and memory consumption analysis to discover that there were opportunities "
+"for optimizations in PLUMED specific to vectorization and memory allocations"
+" which can further reduce PLUMED overhead."
+msgstr ""
+"ただし、実行時間に占める PLUMED の Overhead は、約35%から約23%へ減少していた。また、HPC "
+"性能とメモリ使用量も解析した結果、Vectorization と Memory Allocation に関して PLUMED "
+"を最適化できる余地があり、Overhead をさらに減らせると分かった。"
+
+#: NAVIGATION.md:60
+msgid "Towards a least disrup tive solution"
+msgstr "変更を抑えた解決策に向けて"
+
+#: NAVIGATION.md:62
+msgid ""
+"Before moving ahead with trying to blindly pursue PLUMED GPU offload (or the"
+" hotspot functions), we shared our findings with PLUMED team to get their "
+"take / feedback on these observations. While they did agree with our "
+"findings which we also verified with standalone metadynamics simulation - "
+"[simplemd](https://www.plumed.org/doc-master/user-doc/html/simplemd.html) "
+"from [PLUMED Testcenter](https://plumed-testcenter.github.io/browse.html), "
+"they also pointed out something interesting."
+msgstr ""
+"PLUMED 全体、あるいは Hotspot Functions の GPU Offloading を手当たり次第に進める前に、PLUMED "
+"チームと調査結果を共有し、意見を求めた。チームは結果に同意した。これらの結果は、[PLUMED Testcenter](https://plumed-"
+"testcenter.github.io/browse.html) の独立した Metadynamics シミュレーション "
+"[simplemd](https://www.plumed.org/doc-master/user-doc/html/simplemd.html) "
+"でも検証したものである。さらに、チームは興味深い点を指摘してくれた。"
+
+#: NAVIGATION.md:64
+msgid ""
+"On discussion, it was apparent that there were some potential modifications "
+"on how the target metainferencing simulations were using PLUMED. "
+"Specifically, the target simulations were not using some of the techniques "
+"already available and well "
+"[documented](https://www.plumed.org/doc-v2.9/user-doc/html/_secondary.html):"
+msgstr ""
+"議論を通して、対象の Metainference シミュレーションにおける PLUMED "
+"の使い方を変更できる点が明らかになった。具体的には、対象シミュレーションでは、すでに利用可能で、十分な[ドキュメント](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_secondary.html)もある次の機能を使っていなかった。"
+
+#: NAVIGATION.md:66
+msgid ""
+"**STRANDS-CUTOFF** for collective variables ANTIBETARMSD and PARABETARMSD"
+msgstr ""
+"Collective Variables の ANTIBETARMSD と PARABETARMSD に対する **STRANDS-CUTOFF**"
+
+#: NAVIGATION.md:67
+msgid ""
+"**OPTIMAL-FAST** to change the metric used to calculate distance from ideal "
+"structure elements"
+msgstr "理想的な構造要素からの距離の計算に用いる Metric を変更する **OPTIMAL-FAST**"
+
+#: NAVIGATION.md:69
+msgid ""
+"We then used these options in the target simulation to see what impact do "
+"they have and also to get the correct baseline for considering GPU offload "
+"for PLUMED. Our overall observations can be summarized in the following "
+"table:"
+msgstr ""
+"そこで対象シミュレーションにこれらのオプションを適用し、効果を調べるとともに、PLUMED の GPU Offloading を検討するための正しい "
+"Baseline を得た。観測結果は次の表にまとめられる。"
+
+#: NAVIGATION.md:71
+msgid "Baseline"
+msgstr "Baseline"
+
+#: NAVIGATION.md:71
+msgid "+STRANDS_CUTOFF=1"
+msgstr "+STRANDS_CUTOFF=1"
+
+#: NAVIGATION.md:71
+msgid "+ OPTIMAL-FAST"
+msgstr "+ OPTIMAL-FAST"
+
+#: NAVIGATION.md:73
+msgid "Elapsed time"
+msgstr "経過時間"
+
+# Literal notation or identifier intentionally preserved.
+#: NAVIGATION.md:73
+msgid "259.7 s"
+msgstr "259.7 s"
+
+# Literal notation or identifier intentionally preserved.
+#: NAVIGATION.md:73
+msgid "121.8s"
+msgstr "121.8s"
+
+# Literal notation or identifier intentionally preserved.
+#: NAVIGATION.md:73
+msgid "117.9s"
+msgstr "117.9s"
+
+#: NAVIGATION.md:74
+msgid "CPU Time"
+msgstr "CPU 時間"
+
+# Literal notation or identifier intentionally preserved.
+#: NAVIGATION.md:74
+msgid "30227.8s"
+msgstr "30227.8s"
+
+# Literal notation or identifier intentionally preserved.
+#: NAVIGATION.md:74
+msgid "12923.2s"
+msgstr "12923.2s"
+
+# Literal notation or identifier intentionally preserved.
+#: NAVIGATION.md:74
+msgid "12417.9s"
+msgstr "12417.9s"
+
+#: NAVIGATION.md:81
+msgid ""
+"We then verified our observations with a larger system being simulated which"
+" was in its spirit similar to our target simulation. We observed that with "
+"larger simulation, the overhead of PLUMED was further reduced. This affirmed"
+" us that going forward when simulations are going to become larger, the "
+"overhead of PLUMED will reduce and overall benefit of offloading PLUMED to "
+"GPUs may deliver diminishing returns especially considering the effort and "
+"technical effort needed to achieve it."
+msgstr ""
+"次に、対象と同様の性質を持つ、より大きな系のシミュレーションでも結果を検証した。シミュレーションが大きくなると、PLUMED の Overhead "
+"はさらに減少した。この結果から、今後シミュレーションがさらに大規模になるにつれ、PLUMED の Overhead は小さくなり、GPU "
+"Offloading 全体の利点も小さくなる可能性があると考えられる。特に、実現に必要な労力や技術的作業を考慮する必要がある。"
+
+#: NAVIGATION.md:83
+msgid "TL;DR"
+msgstr "要点"
+
+#: NAVIGATION.md:85
+msgid ""
+"To make your simulations go faster, we recommend using these options in your"
+" simulations. To use them, you can make modify you CVs (in CVs.dat for the "
+"target simulation) file to the line which specifies to ANTIBETARMSD and "
+"PARABETARMSD as follows:"
+msgstr ""
+"シミュレーションを高速化するには、これらのオプションの利用を推奨する。CVs のファイル、対象シミュレーションでは CVs.dat "
+"の中で、ANTIBETARMSD と PARABETARMSD を指定する行を次のように変更する。"
+
+#: NAVIGATION.md:87
+msgid "**Original**"
+msgstr "**変更前**"
+
+#: NAVIGATION.md:93
+msgid "**Modified**"
+msgstr "**変更後**"
+
+#: NAVIGATION.md:98
+msgid "Reflections"
+msgstr "振り返り"
+
+#: NAVIGATION.md:99
+msgid ""
+"Even though these observations are made on a specific hardware "
+"infrastructure and a specific kind of simulation, they are fairly general "
+"which should hold for other hardware and software setups except one may find"
+" different bottlenecks for their simulations. Based on these observations, "
+"it may or may not be beneficial to consider GPU offloading for PLUMED In "
+"future."
+msgstr ""
+"これらは特定のハードウェアと種類のシミュレーションで得た結果だが、比較的一般性があり、他のハードウェアやソフトウェア構成でも成り立つはずである。ただし、シミュレーションによって"
+" Bottlenecks は異なりうる。この結果を踏まえると、今後 PLUMED の GPU Offloading "
+"を検討することが有益かどうかは、状況による。"
+
+#: NAVIGATION.md:101
+msgid ""
+"Perhaps more importantly, the steps we took and our experience could help in"
+" you carrying out your own profiling and guide your future steps or "
+"optimizations you may need for your PLUMED simulations."
+msgstr ""
+"さらに重要なのは、今回の手順と経験が、自身のシミュレーションの Profiling や、今後必要になる PLUMED "
+"の最適化の方針を考える際に役立つ可能性があることである。"
+
+#: NAVIGATION.md:104
+msgid ""
+"[^1]: Detailed instructions on running and profiling "
+"[link](https://github.gatech.edu/sse-center/plumed-"
+"investigation/blob/main/GETTINGSTARTED.md)"
+msgstr ""
+"[^1]: 実行と Profiling の詳しい手順への[リンク](https://github.gatech.edu/sse-"
+"center/plumed-investigation/blob/main/GETTINGSTARTED.md)"

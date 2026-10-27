@@ -9,3 +9,4 @@ networkx==3.1
 numpy==1.24.4
 pytube==15.0.0
 DateTime==5.5
+polib==1.2.0

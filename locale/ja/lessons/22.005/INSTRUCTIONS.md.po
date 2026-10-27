@@ -1,0 +1,356 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: INSTRUCTIONS.md:1
+msgid ""
+"PLUMED Masterclass 22.5: Machine learning collective variables with Pytorch"
+msgstr ""
+"PLUMED Masterclass 22.5：PyTorch による Collective Variables の Machine Learning"
+
+#: INSTRUCTIONS.md:3
+msgid "Origin"
+msgstr "作成について"
+
+#: INSTRUCTIONS.md:5
+msgid "This masterclass was authored by Luigi Bonati on March 28, 2022"
+msgstr "この Masterclass は、2022年3月28日に Luigi Bonati によって作成された。"
+
+#: INSTRUCTIONS.md:7
+msgid "Aims"
+msgstr "目的"
+
+#: INSTRUCTIONS.md:9
+msgid ""
+"This Masterclass describes how to design data-driven collective variables "
+"using machine learning (ML) methods."
+msgstr ""
+"この Masterclass では、Machine Learning（ML）を使って Data-driven な Collective "
+"Variables を設計する方法を説明する。"
+
+#: INSTRUCTIONS.md:11
+msgid "Objectives"
+msgstr "到達目標"
+
+#: INSTRUCTIONS.md:13
+msgid "Once this Masterclass is completed, you will know how to:"
+msgstr "この Masterclass を終えると、次のことができるようになる。"
+
+#: INSTRUCTIONS.md:15
+msgid "Design data-driven CVs in Python using Pytorch"
+msgstr "Python と PyTorch を使って Data-driven な CVs を設計する。"
+
+#: INSTRUCTIONS.md:16
+msgid "Deploy them in PLUMED via the PYTORCH_MODEL interface"
+msgstr "PYTORCH_MODEL インターフェースを通じて PLUMED で利用する。"
+
+#: INSTRUCTIONS.md:18
+msgid "Prerequisites"
+msgstr "前提条件"
+
+#: INSTRUCTIONS.md:20
+msgid ""
+"We assume that you are familiar with PLUMED and enhanced sampling "
+"calculations. If you are not, the 2021 PLUMED Masterclass is a great place "
+"to start. We will also use OPES to enhance sampling, which has been covered "
+"in another masterclass."
+msgstr ""
+"PLUMED と Enhanced Sampling 計算に習熟していることを前提とする。初めての場合は、2021年の PLUMED "
+"Masterclass がよい出発点になる。Sampling の促進には、別の Masterclass で扱った OPES も用いる。"
+
+#: INSTRUCTIONS.md:22
+msgid "Furthermore, Python knowledge is required for this masterclass."
+msgstr "また、この Masterclass には Python の知識が必要である。"
+
+#: INSTRUCTIONS.md:24
+msgid "Overview"
+msgstr "概要"
+
+#: INSTRUCTIONS.md:26
+msgid ""
+"The identification of suitable collective variables (CVs) is crucial for the"
+" success of several enhanced sampling methods. Typically, the quest for CVs "
+"has been driven by physical intuition, however, the complexity of the "
+"systems that can be simulated nowadays calls for new approaches. For this "
+"reason, here we want to learn the CVs directly from molecular dynamics data."
+" As in any machine learning approach, the three key ingredients will be (1) "
+"the data, (2) the model, and (3) the objective function. We note that these "
+"are tightly connected to each other. Indeed, depending on the kind of data "
+"that is available we can ask different questions. Furthermore, the ability "
+"to answer such questions (as well as to interpret the results) will depend "
+"on the choice of appropriate models."
+msgstr ""
+"適切な Collective Variables（CVs）の特定は、多くの Enhanced Sampling "
+"法を成功させるうえで極めて重要である。従来、CVs "
+"の探索は物理的直感に基づくことが多かったが、現在シミュレーションできる系の複雑さには新しい方法が必要である。そこで、ここでは MD データから CVs "
+"を直接学習する。Machine Learning の他の応用と同様に、重要な要素は (1) データ、(2) モデル、(3) Objective "
+"Function "
+"の3つである。これらは密接に関係している。利用できるデータの種類によって、問えることが異なるからである。また、その問いに答えられるか、結果を解釈できるかは、適切なモデルの選択に依存する。"
+
+#: INSTRUCTIONS.md:29
+msgid ""
+"Broadly speaking, the CVs should represent the collective atomic movement as"
+" the system translocates from one metastable state to another. As a general "
+"requirement, CVs should be continuous and differentiable functions of the "
+"atomic positions able to (1) distinguish the different states and (2) be "
+"connected to the slow modes of the system. However, this results in a "
+"chicken and egg problem: if we have reactive trajectories that already "
+"explored the relevant phase space we might analyze such simulations and "
+"extract good CVs. But more often than not, for obtaining such reactive "
+"simulations we already need good CVs. Here we describe two possible ways out"
+" of this chicken-and-egg situation, which reflects two scenarios that in the"
+" practice occur very often:"
+msgstr ""
+"大まかに言えば、CVs は、系が1つの Metastable State から別の状態へ移るときの、原子の集団的な運動を表す必要がある。一般に、CVs "
+"は原子座標の連続かつ微分可能な関数であり、(1) 異なる状態を区別し、(2) 系の Slow Modes "
+"と結び付いていることが求められる。しかし、ここには循環した問題がある。重要な Phase Space を探索済みの Reactive "
+"Trajectories があれば、それを解析してよい CVs を取り出せる。一方、そのような Reactive Simulations "
+"を得るためには、すでによい CVs が必要なことが多い。ここでは、実際によく生じる2つの状況に対応した、この問題から抜け出す方法を説明する。"
+
+#: INSTRUCTIONS.md:34
+msgid ""
+"(1) Only the metastable states are known. These could be for instance the "
+"reactant and product of a chemical reaction, crystalline and liquid "
+"configurations of a material, the bound and unbound states of a ligand into "
+"a protein, etc... Given this limited data, we can guess the CVs by "
+"optimizing variables with a classification criterion. This consists of "
+"enforcing only the first CV requirement stated above. Of course, one should "
+"not expect this to work as well as if one could add dynamic information on "
+"the transition paths, but it should be seen as a way to make the best out of"
+" limited knowledge. Very often the only information available is what the "
+"states of interest are, and so it is necessary to develop methods that can "
+"construct approximate CVs from this information."
+msgstr ""
+"(1) Metastable States のみが分かっている場合。例えば、化学反応の Reactant と Product、物質の結晶と液体の "
+"Configurations、タンパク質に対する Ligand の Bound State と Unbound State "
+"などである。限られたデータでも、Classification Criterion で変数を最適化すれば CVs を推定できる。これは、上述の CV "
+"の要件のうち最初のものだけを課すことに相当する。当然、Transition Paths "
+"の動的な情報も加えられる場合と同じ性能は期待できないが、限られた知識を最大限活用する方法と捉えるべきである。関心のある状態が何かという情報しか得られないことは多く、その情報から近似的な"
+" CVs を構成する手法が必要になる。"
+
+#: INSTRUCTIONS.md:36
+msgid ""
+"(2) We have an enhanced sampling simulation in which we have biased some CV,"
+" but with suboptimal results. Instead of proceeding by trial and error by "
+"changing the CVs until we find the right one(s), we can analyze such "
+"simulations and identify the slow degrees of freedom. If we can express them"
+" in a functional form and subsequently bias them we will be able to "
+"significantly improve sampling quality."
+msgstr ""
+"(2) ある CV に Bias を加えた Enhanced Sampling シミュレーションはあるが、結果が最適でない場合。適切な CVs "
+"が見つかるまで変更を繰り返す代わりに、そのシミュレーションを解析して遅い自由度を特定できる。それを関数として表し、Bias "
+"を加えられれば、Sampling の質を大きく改善できる。"
+
+#: INSTRUCTIONS.md:38
+msgid "Software and data"
+msgstr "ソフトウェアとデータ"
+
+#: INSTRUCTIONS.md:40
+msgid ""
+"The data needed to complete the exercises of this Masterclass can be found "
+"on [GitHub](https://github.com/luigibonati/masterclass-plumed/). To complete"
+" the exercises, we will go through a set of **Jupyter notebooks**, from "
+"which all the simulations can be performed and analyzed."
+msgstr ""
+"この Masterclass の演習に必要なデータは "
+"[GitHub](https://github.com/luigibonati/masterclass-plumed/) にある。演習では一連の "
+"**Jupyter Notebooks** を用い、そこからすべてのシミュレーションを実行・解析できる。"
+
+#: INSTRUCTIONS.md:43
+msgid ""
+"Here you can find the "
+"[instructions](https://github.com/luigibonati/masterclass-"
+"plumed/blob/main/INSTALL.md) for installing the required software. In "
+"particular, you will need to use the development version of PLUMED compiled "
+"with LibTorch, as well as GROMACS. To run the simulations we will use "
+"GROMACS 2020.6 patched with PLUMED."
+msgstr ""
+"必要なソフトウェアのインストール[手順](https://github.com/luigibonati/masterclass-"
+"plumed/blob/main/INSTALL.md)はこちらにある。特に、LibTorch を有効にしてコンパイルした PLUMED "
+"の開発版と、GROMACS が必要である。シミュレーションには、PLUMED のパッチを適用した GROMACS 2020.6 を用いる。"
+
+#: INSTRUCTIONS.md:47
+msgid "Training CVs with Pytorch"
+msgstr "PyTorch による CVs の学習"
+
+#: INSTRUCTIONS.md:49
+msgid ""
+"In this tutorial, we will use "
+"[mlcvs](https://mlcvs.readthedocs.io/en/latest/), a Python-based package "
+"designed for building data-driven collective variables for enhanced sampling"
+" simulations. In `mlcvs` we have implemented different kinds of data-driven "
+"CVs proposed in the literature, including Deep-LDA and Deep-TICA which we "
+"describe in this masterclass."
+msgstr ""
+"このチュートリアルでは、Enhanced Sampling シミュレーション向けの Data-driven な Collective Variables"
+" を作成する Python パッケージ [mlcvs](https://mlcvs.readthedocs.io/en/latest/) "
+"を使う。`mlcvs` には、文献で提案された各種の Data-driven CVs を実装しており、この Masterclass で説明する "
+"Deep-LDA と Deep-TICA も含まれる。"
+
+#: INSTRUCTIONS.md:52
+msgid ""
+"[!IMPORTANT] The mlcvs library has been renamed to "
+"[mlcolvar](https://mlcolvar.readthedocs.io) and integrated with many other "
+"functionalities. An older version compatible with the masterclass can be "
+"accessed by cloning the `pre-lightning` from the Github "
+"[repository](https://github.com/luigibonati/mlcolvar/). However, we suggest "
+"to check out the new mlcolvar documentation for up-to-date tutorials and "
+"examples for DeepLDA/DeepTICA CVs."
+msgstr ""
+"[!IMPORTANT] mlcvs ライブラリは [mlcolvar](https://mlcolvar.readthedocs.io) "
+"に改称され、多くの機能が統合された。この Masterclass と互換性のある旧版は、GitHub "
+"[repository](https://github.com/luigibonati/mlcolvar/) の `pre-lightning` を "
+"clone すれば利用できる。ただし、DeepLDA／DeepTICA CVs の最新のチュートリアルや例については、新しい mlcolvar "
+"のドキュメントを参照することを勧める。"
+
+#: INSTRUCTIONS.md:57
+msgid "Using the CVs in PLUMED"
+msgstr "PLUMED で CVs を使う"
+
+#: INSTRUCTIONS.md:59
+msgid ""
+"Once the models have been trained on the data, we can export them using the "
+"jit (just in time) compiler of Pytorch. This creates a Python-independent "
+"model, which can be loaded in PLUMED using Pytorch C++ APIs (LibTorch). Of "
+"particular relevance is that we can exploit the automatic differentiation "
+"feature of Pytorch to compute derivatives of the model with respect to the "
+"inputs. Note that in this way we can load the models exported from `mlcvs` "
+"as well as any other function built using Pytorch methods and serialized "
+"with jit."
+msgstr ""
+"データからモデルを学習したら、PyTorch の JIT（Just-in-time）Compiler を用いて export できる。これにより "
+"Python に依存しないモデルが作られ、PyTorch C++ APIs（LibTorch）を使って PLUMED "
+"に読み込める。特に重要なのは、PyTorch の Automatic Differentiation "
+"を利用して、入力に対するモデルの微分を計算できることである。この方法なら、`mlcvs` から export したモデルだけでなく、PyTorch "
+"の機能で構成し、JIT で Serialize した他の関数も読み込める。"
+
+#: INSTRUCTIONS.md:62
+msgid ""
+"A typical PLUMED input might be the following, in which we first calculate "
+"some descriptors and feed them as inputs of the model."
+msgstr "典型的な PLUMED 入力は次のようになる。まず Descriptors を計算し、それをモデルの入力として渡す。"
+
+#: INSTRUCTIONS.md:72
+msgid "Exercises"
+msgstr "演習"
+
+#: INSTRUCTIONS.md:74
+msgid ""
+"The exercises are presented in the two Jupyter notebooks, from which all the"
+" simulations can be performed and analyzed. For this reason, this page only "
+"presents a high level overview of the contents of the notebooks."
+msgstr ""
+"演習は2つの Jupyter Notebooks にあり、すべてのシミュレーションをそこから実行・解析できる。このため、このページでは "
+"Notebooks の内容の概要だけを示す。"
+
+#: INSTRUCTIONS.md:77
+msgid "Toy system: alanine dipeptide"
+msgstr "Toy System：Alanine Dipeptide"
+
+#: INSTRUCTIONS.md:79
+msgid ""
+"As done in some previous masterclass, we will play with a toy system, the "
+"small alanine dipeptide molecule in a vacuum (ala2). This has the advantage "
+"of being a well-known system and it is cheap to simulate. The typical use "
+"case is to test enhanced sampling methods using as CVs the torsional angle "
+"$\\phi$ and $\\psi$. Since the former is an almost ideal CV for describing "
+"the transition between its two metastable states, this will typically result"
+" in a very efficient sampling. Here we want to approach this problem in a "
+"more blind way and try to design efficient CVs with as little knowledge as "
+"possible, learning the CVs directly from the output of molecular dynamics "
+"simulations."
+msgstr ""
+"以前のいくつかの Masterclass と同様に、真空中の小さな Alanine Dipeptide 分子（ala2）を Toy System "
+"として使う。よく知られた系で、シミュレーションが低コストという利点がある。典型的には、Torsion Angles の $\\phi$ と "
+"$\\psi$ を CVs として Enhanced Sampling 法を試す。前者は2つの Metastable States "
+"間の遷移を記述するほぼ理想的な CV なので、通常は非常に効率よく Sampling できる。ここでは、できるだけ事前知識を使わず、MD "
+"シミュレーションの出力から CVs を直接学習して、効率的な CVs を設計する。"
+
+#: INSTRUCTIONS.md:84
+msgid ""
+"In both exercises, we will characterize the molecule with a general set of "
+"physical descriptors, which are the interatomic distances between heavy "
+"atoms. The reason for not working directly with atomic positions is twofold:"
+" on one hand, invariant CVs can be easily obtained under the relevant "
+"symmetries, while on the other, we can use different kind of descriptors to "
+"focus the sampling on the relevant processes."
+msgstr ""
+"両方の演習では、Heavy Atoms 間の原子間距離という、一般的な物理的 Descriptors "
+"の集合で分子を特徴付ける。原子座標を直接用いない理由は2つある。重要な対称性に対して不変な CVs を容易に得られることと、Descriptors "
+"の種類を選ぶことで、重要な過程に Sampling を集中させられることである。"
+
+#: INSTRUCTIONS.md:87
+msgid "Tutorial 1: `Collective variables from equilibrium fluctuations"
+msgstr "チュートリアル1：Equilibrium Fluctuations から求める Collective Variables"
+
+#: INSTRUCTIONS.md:89
+msgid ""
+"You can find the first tutorial in the jupyter notebook "
+"`tutorial1_DeepLDA.ipynb`. In this exercise, we will design the CVs starting"
+" only from a realization of the metastable states. The main steps will be "
+"the following:"
+msgstr ""
+"最初のチュートリアルは Jupyter Notebook `tutorial1_DeepLDA.ipynb` にある。この演習では、Metastable"
+" States の実現例のみから CVs を設計する。主な手順は次のとおりである。"
+
+#: INSTRUCTIONS.md:92
+msgid ""
+"Perform short unbiased MD simulations in the metastable states and evaluate "
+"a set of physical descriptors (e.g. interatomic distances between heavy "
+"atoms)"
+msgstr ""
+"Metastable States で短い Unbiased MD を実行し、物理的 Descriptors の集合（Heavy Atoms "
+"間の距離など）を評価する。"
+
+#: INSTRUCTIONS.md:93
+msgid ""
+"We train a neural-network based CV to discriminate between the states, using"
+" Fisher's discriminant as the objective function (DeepLDA)"
+msgstr ""
+"Fisher Discriminant を Objective Function として、状態を識別する Neural Network に基づく CV "
+"を学習する（DeepLDA）。"
+
+#: INSTRUCTIONS.md:94
+msgid ""
+"Finally, we apply a bias potential to enhance the fluctuations of the "
+"DeepLDA CV and drive the system back and forth between the two states."
+msgstr "最後に BiasPotential を加え、DeepLDA CV のゆらぎを増強して、2つの状態間を行き来させる。"
+
+#: INSTRUCTIONS.md:96
+msgid "Tutorial 2: Collective variables as slow modes of biased simulations"
+msgstr "チュートリアル2：Biased シミュレーションの Slow Modes としての Collective Variables"
+
+#: INSTRUCTIONS.md:98
+msgid ""
+"In the second exercise, which you can find in the notebook "
+"`tutorial2_DeepTICA.ipynb` , we will extract the CVs from biased "
+"simulations. As before, we will go through three main steps:"
+msgstr ""
+"2つ目の演習は Notebook `tutorial2_DeepTICA.ipynb` にあり、Biased シミュレーションから CVs "
+"を取り出す。前と同じく、主に3つの手順で進める。"
+
+#: INSTRUCTIONS.md:100
+msgid ""
+"Perform an enhanced sampling calculation using some approximate CVs as well "
+"as generalized ensembles simulations (e.g. multicanonical)."
+msgstr ""
+"近似的な CVs を用いた Enhanced Sampling 計算や、Generalized Ensembles "
+"シミュレーション（Multicanonical など）を行う。"
+
+#: INSTRUCTIONS.md:101
+msgid ""
+"Use the trajectory to train a neural-network based CV to find the maximally "
+"autocorrelated modes, which correspond to the slowest degrees of freedom "
+"(DeepTICA)"
+msgstr ""
+"Trajectory を用いて Neural Network に基づく CV を学習し、最も遅い自由度に対応する、Autocorrelation "
+"が最大の Modes を見つける（DeepTICA）。"
+
+#: INSTRUCTIONS.md:102
+msgid "Bias these slow degrees of freedom to improve sampling"
+msgstr "これらの遅い自由度に Bias を加え、Sampling を改善する。"

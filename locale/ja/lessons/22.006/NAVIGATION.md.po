@@ -1,0 +1,147 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Masterclass 22.6: EDS module + Coarse-Grained directed simulations"
+msgstr "Masterclass 22.6：EDS モジュールと Coarse-Grained Directed Simulations"
+
+#: NAVIGATION.md:3
+msgid ""
+"This lesson was given as part of the PLUMED masterclass series in 2022. It "
+"includes:"
+msgstr "このレッスンは、2022年の PLUMED Masterclass シリーズの一環として実施された。内容は次のとおりである。"
+
+#: NAVIGATION.md:5
+msgid "Two videos that describe the theory."
+msgstr "理論を説明する2本の動画。"
+
+#: NAVIGATION.md:6
+msgid "A series of exercises for you to complete."
+msgstr "取り組むための一連の演習。"
+
+#: NAVIGATION.md:7
+msgid "A python notebook that contains a full solution to the exercises."
+msgstr "演習の解答一式を収録した Python Notebook。"
+
+#: NAVIGATION.md:9
+msgid ""
+"The flow chart shown below indicates the order in which you should consult "
+"the resources. You can click on the nodes to access the various resources. "
+"Follow the thick black lines for the best results. The resources that are "
+"connected by dashed lines are supplmentary resources that you may find "
+"useful when completing the exercise."
+msgstr ""
+"下のフローチャートは資料を参照する順序を示している。各ノードをクリックすると資料を開ける。太い黒線に沿って進めることを推奨する。破線でつながる資料は、演習に取り組む際に役立つ補足資料である。"
+
+#: NAVIGATION.md:11
+msgid "This lesson was the sixth masterclass in the 2022 series."
+msgstr "このレッスンは、2022年シリーズの第6回 Masterclass である。"
+
+#. mermaid node label
+#: NAVIGATION.md:15
+msgid "ref1"
+msgstr "参考文献1"
+
+#. mermaid node label
+#: NAVIGATION.md:15
+msgid "Lecture I"
+msgstr "講義 I"
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "ref2"
+msgstr "参考文献2"
+
+#. mermaid node label
+#: NAVIGATION.md:17
+msgid "ref3"
+msgstr "参考文献3"
+
+#. mermaid node label
+#: NAVIGATION.md:18
+msgid "ref4"
+msgstr "参考文献4"
+
+#. mermaid node label
+#: NAVIGATION.md:19
+msgid "instructions"
+msgstr "手順"
+
+#. mermaid node label
+#: NAVIGATION.md:20
+msgid "Lecture II"
+msgstr "講義 II"
+
+#. mermaid node label
+#: NAVIGATION.md:21
+msgid "pesmd solutions"
+msgstr "pesmd の解答"
+
+#. mermaid node label
+#: NAVIGATION.md:22
+msgid "ala2 solutions"
+msgstr "ala2 の解答"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:23
+msgid "A previous tutorial that introduces the basics of PLUMED syntax"
+msgstr "PLUMED の構文の基本を紹介する過去のチュートリアル"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:24
+msgid ""
+"The original paper describing the Experiment Directed Simulation (EDS) "
+"Method"
+msgstr "Experiment Directed Simulation（EDS）法を最初に説明した論文"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:25
+msgid ""
+"A paper applying EDS to DFT water, where the EDS module was implemented"
+msgstr "EDS を DFT Water に適用した論文。この研究で EDS モジュールが実装された。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:26
+msgid ""
+"A paper describing the Coarse-Grained Directed Simulation Method (CGDS), "
+"which enhanced the EDS software"
+msgstr "EDS ソフトウェアを拡張した Coarse-Grained Directed Simulation（CGDS）法を説明する論文"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:27
+msgid ""
+"A lecture that was given on April 26th 2022 as part of the plumed "
+"masterclass series that introduces you to the exercises in this lesson"
+msgstr "2022年4月26日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習を紹介する講義"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:28
+msgid "Instructions for the exercise that you are supposed to complete"
+msgstr "取り組む演習の手順"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:29
+msgid ""
+"A lecture that was given on May 2nd 2022 as part of the plumed masterclass "
+"series that goes through the solutions to the exercises in the lesson"
+msgstr "2022年5月2日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習の解答を解説する講義"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:30
+msgid ""
+"A python notebook that contains solutions to the first set of exercises that"
+" use pesmd"
+msgstr "pesmd を使う最初の演習の解答を収録した Python Notebook"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:31
+msgid ""
+"A python notebook where that contains solutions to the second set of "
+"exercises that involve alanine dipeptide"
+msgstr "Alanine Dipeptide を扱う2つ目の演習の解答を収録した Python Notebook"

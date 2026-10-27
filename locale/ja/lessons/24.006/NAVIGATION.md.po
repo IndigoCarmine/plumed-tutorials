@@ -1,0 +1,221 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Overview"
+msgstr "概要"
+
+#: NAVIGATION.md:3
+msgid ""
+"A tutorial to run simple surface binding calculations using Metadynamics "
+"through PLUMED. The procedure described herein is an extension of the "
+"[earlier work of Doudou <em>et "
+"al.</em>](https://pubmed.ncbi.nlm.nih.gov/26609600/) (1) where the binding "
+"free energy of a model binding system (and a benzamidine−trypsin system) are"
+" calculated from a one-dimensional PMF and standardised to a reference state"
+" of a 1 M solution. This procedure has been used extensively by our group "
+"for binding processes on surfaces of "
+"[halite](https://pubs.acs.org/doi/full/10.1021/acs.jctc.2c00787) (2) and "
+"[calcite](https://pubs.acs.org/doi/full/10.1021/acs.jpcc.3c02864) (3)."
+msgstr ""
+"PLUMED の Metadynamics で簡単な表面結合を計算する Tutorial です。[Doudou "
+"らの研究](https://pubmed.ncbi.nlm.nih.gov/26609600/) (1) を拡張します。原著では、モデル系と "
+"Benzamidine–Trypsin 系の結合自由エネルギーを1次元 PMF から求め、1 M の参照状態に標準化します。本手順は私たちの Group"
+" で [Halite](https://pubs.acs.org/doi/full/10.1021/acs.jctc.2c00787) "
+"(2)、[Calcite](https://pubs.acs.org/doi/full/10.1021/acs.jpcc.3c02864) (3) "
+"表面の結合に広く使われています。"
+
+#: NAVIGATION.md:5
+msgid ""
+"A harmonic restraint is applied to the binding atom orthogonal to the "
+"collective variable used to describe the binding process. This has the "
+"effect of constraining the binding atom to a cylindrical volume orthogonal "
+"to the surface of interest. Equations 8 and 9 from the original paper of "
+"Doudou <em>et al.</em> demonstrate that the volume explored in the unbound "
+"region by the restrained binding atom can be analytically calculated and "
+"referenced to the standard-state volume, producing a volumed-based free "
+"energy correction to be applied to the total binding energy."
+msgstr ""
+"結合原子に、結合過程の CV と直交する Harmonic Restraint を加え、表面に垂直な円柱体積に制限します。Doudou "
+"らの式8・9は、非結合領域で原子が探索する体積を解析的に求め、標準状態体積を参照して、全結合自由エネルギーに体積補正を加えられることを示します。"
+
+#: NAVIGATION.md:7
+msgid ""
+"While the original paper allows for the correction of a harmonic restraint "
+"with any spring constant, this method will only ever produce an upper limit "
+"for any free energy barriers separating the bound and unbound regions due to"
+" being forced to follow a straight path during separation. Here we describe "
+"how to apply and account for a flat-bottomed cylindrical restraint with "
+"harmonic walls starting at a specified radius instead of the harmonic "
+"restraint used in the original paper, which represents the limiting case of "
+"the general approach as the cylinder radius tends to zero. The flat-bottomed"
+" restraint provides a region unperturbed by any harmonic potential, allowing"
+" for the possibility of producing the actual free energy profile with "
+"accurate barrier heights, for a sufficiently large radius value, which could"
+" then be used for kinetic studies. Described [here](markdown/theory.md) are "
+"the integrals for the flat-bottomed potentials and a brief overview on how "
+"to turn the one-dimensional PMF into a standard binding free energy."
+msgstr ""
+"原著は任意の Spring Constant の補正を扱えますが、解離時に直線 Path を強制するため、結合・非結合領域間の Barrier "
+"の上限しか得られません。ここでは、指定半径の外から Harmonic Wall が働く Flat-bottom 円柱 Restraint "
+"の導入と補正を説明します。原著は半径0の極限です。Flat-bottom は Potential に乱されない領域を作り、十分大きな半径なら正しい "
+"Barrier の Profile を得て Kinetics に使える可能性があります。[こちら](markdown/theory.md) "
+"で積分と1次元 PMF から標準結合自由エネルギーへの変換を説明します。"
+
+#: NAVIGATION.md:9
+msgid "System creation"
+msgstr "系の作成"
+
+#: NAVIGATION.md:11
+msgid ""
+"For this tutorial, we have constructed a simple model system that will run "
+"and converge quickly on any machine while still mimicking the important "
+"aspects of an actual binding profile. The details on how this has been done "
+"are presented [here](markdown/system.md)."
+msgstr ""
+"実際の結合 Profile の重要部分を再現しながら、どのマシンでも速く実行・収束する簡単なモデルを作りました。詳細は "
+"[こちら](markdown/system.md) です。"
+
+#: NAVIGATION.md:13
+msgid "Input files & running simulation"
+msgstr "入力ファイルと実行"
+
+#: NAVIGATION.md:15
+msgid ""
+"[OpenMM](https://github.com/openmm/openmm) (4) has been chosen as the "
+"molecular dynamics engine for this tutorial, utilising PLUMED through the "
+"[openmm-plumed plugin](https://github.com/openmm/openmm-plumed). Details on "
+"the input files provided, their meaning, and how to use them are discussed "
+"[here](markdown/inputs.md)."
+msgstr ""
+"MD エンジンは [OpenMM](https://github.com/openmm/openmm) (4)、PLUMED 連携は [openmm-"
+"plumed Plugin](https://github.com/openmm/openmm-plumed) を使います。入力の内容と使い方は "
+"[こちら](markdown/inputs.md) です。"
+
+#: NAVIGATION.md:17
+msgid "Analysing simulation"
+msgstr "シミュレーションの解析"
+
+#: NAVIGATION.md:19
+msgid ""
+"Using the PLUMED command line tool and a series of Python and bash scripts, "
+"we demonstrate how to analyse the raw HILLS file produced by these "
+"simulations and generate the final standard binding free energies. All "
+"details can be found [here](markdown/analysis.md)."
+msgstr ""
+"PLUMED のコマンドラインと Python・Bash で HILLS を解析し、最終的な標準結合自由エネルギーを求めます。詳細は "
+"[こちら](markdown/analysis.md) です。"
+
+#: NAVIGATION.md:21
+msgid "References"
+msgstr "参考文献"
+
+#: NAVIGATION.md:23
+msgid ""
+"Doudou S, Burton NA, Henchman RH. Standard free energy of binding from a "
+"one-dimensional potential of mean force. Journal of Chemical Theory and "
+"Computation. 2009 Apr 14;5(4):909-18."
+msgstr ""
+"Doudou S, Burton NA, Henchman RH. Standard free energy of binding from a "
+"one-dimensional potential of mean force. Journal of Chemical Theory and "
+"Computation. 2009 Apr 14;5(4):909-18."
+
+#: NAVIGATION.md:24
+msgid ""
+"Silvestri A, Raiteri P, Gale JD. Obtaining consistent free energies for ion "
+"binding at surfaces from solution: pathways versus alchemy for determining "
+"kink site stability. Journal of Chemical Theory and Computation. 2022 Sep "
+"8;18(10):5901-19."
+msgstr ""
+"Silvestri A, Raiteri P, Gale JD. Obtaining consistent free energies for ion "
+"binding at surfaces from solution: pathways versus alchemy for determining "
+"kink site stability. Journal of Chemical Theory and Computation. 2022 Sep "
+"8;18(10):5901-19."
+
+#: NAVIGATION.md:25
+msgid ""
+"Armstrong BI, Silvestri A, De La Pierre M, Raiteri P, Gale JD. Determining "
+"the complete stability of calcite kink sites: Real vs ideal. The Journal of "
+"Physical Chemistry C. 2023 Jul 5;127(28):13958-68."
+msgstr ""
+"Armstrong BI, Silvestri A, De La Pierre M, Raiteri P, Gale JD. Determining "
+"the complete stability of calcite kink sites: Real vs ideal. The Journal of "
+"Physical Chemistry C. 2023 Jul 5;127(28):13958-68."
+
+#: NAVIGATION.md:26
+msgid ""
+"Eastman P, Galvelis R, Peláez RP, Abreu CR, Farr SE, Gallicchio E, Gorenko "
+"A, Henry MM, Hu F, Huang J, Krämer A. OpenMM 8: molecular dynamics "
+"simulation with machine learning potentials. The Journal of Physical "
+"Chemistry B. 2023 Dec 28;128(1):109-16."
+msgstr ""
+"Eastman P, Galvelis R, Peláez RP, Abreu CR, Farr SE, Gallicchio E, Gorenko "
+"A, Henry MM, Hu F, Huang J, Krämer A. OpenMM 8: molecular dynamics "
+"simulation with machine learning potentials. The Journal of Physical "
+"Chemistry B. 2023 Dec 28;128(1):109-16."
+
+#. mermaid node label
+#: NAVIGATION.md:30
+msgid "Metadynamics"
+msgstr "Metadynamics"
+
+#. mermaid node label
+#: NAVIGATION.md:30
+msgid "Original Work"
+msgstr "原著"
+
+#. mermaid node label
+#: NAVIGATION.md:31
+msgid "Theory"
+msgstr "理論"
+
+#. mermaid node label
+#: NAVIGATION.md:32
+msgid "Model system"
+msgstr "モデル系"
+
+#. mermaid node label
+#: NAVIGATION.md:33
+msgid "Inputs"
+msgstr "入力"
+
+#. mermaid node label
+#: NAVIGATION.md:34
+msgid "Analysis"
+msgstr "解析"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:36
+msgid "A tutorial that introduces the basics of metadynanics"
+msgstr "Metadynamics の基礎を紹介する Tutorial"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:37
+msgid "Theory behind computing standard binding free energies."
+msgstr "標準結合自由エネルギー計算の理論。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:38
+msgid "Extension to the theory for a cylindrical volume."
+msgstr "円柱体積への理論の拡張。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:39
+msgid "Model system for surface binding calculations."
+msgstr "表面結合計算のモデル系。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:40
+msgid "Input file preparation and explanation."
+msgstr "入力の準備と説明。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:41
+msgid "HILLS processing, free energy calculation and standardisation."
+msgstr "HILLS の処理、自由エネルギー計算、標準化。"

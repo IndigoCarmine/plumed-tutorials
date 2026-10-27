@@ -1,0 +1,21 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lesson.yml:title
+msgid "VisMetaDynamics"
+msgstr "VisMetaDynamics"
+
+#: lesson.yml:description
+msgid ""
+"A graphical tool that allows you to visually inspect how the free energy "
+"surface for a metadynamics simulation is affected by the choice of "
+"hyperparameters"
+msgstr ""
+"Metadynamics シミュレーションにおいて、Hyperparameters "
+"の選択が自由エネルギー面に及ぼす影響を視覚的に調べるためのグラフィカルツール"

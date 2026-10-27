@@ -1,0 +1,18 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lesson.yml:title
+msgid "Benchmarking PLUMED"
+msgstr "PLUMED の Benchmarking"
+
+#: lesson.yml:description
+msgid ""
+"This tutorial shows you how to use the plumed benchmark tool to measure the "
+"performance of the code"
+msgstr "plumed benchmark ツールを用いてコードの性能を測定する方法を説明するチュートリアル"

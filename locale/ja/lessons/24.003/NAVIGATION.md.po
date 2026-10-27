@@ -1,0 +1,86 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "How to use the plumed benchmark command"
+msgstr "plumed benchmark コマンドの使い方"
+
+#: NAVIGATION.md:3
+msgid "The lesson contains:"
+msgstr "このレッスンには、次の資料がある。"
+
+#: NAVIGATION.md:4
+msgid "a [manual](README.md) for plumed benchmark"
+msgstr "plumed benchmark の[マニュアル](README.md)。"
+
+#: NAVIGATION.md:5
+msgid ""
+"a [small tutorial](Tutorial.md) in which I show how to measure and confront "
+"performances working with the COORDINATION action"
+msgstr "COORDINATION Action の性能を測定・比較する[簡単なチュートリアル](Tutorial.md)。"
+
+#: NAVIGATION.md:6
+msgid ""
+"a small introduction to creating a [flame graph](Perf.md) from a plumed "
+"benchmark run."
+msgstr "plumed benchmark から [Flame Graph](Perf.md) を作るための簡単な入門。"
+
+#: NAVIGATION.md:7
+msgid ""
+"a [list of input files](Inputs.md) that we have used in the past when "
+"benchmarking PLUMED."
+msgstr "過去の PLUMED の Benchmarking で使った[入力ファイルの一覧](Inputs.md)。"
+
+#: NAVIGATION.md:9
+msgid ""
+"The tutorial has also a companion [notebook](Tutorial_notebook.ipynb), with "
+"all the scripts I used to make the images"
+msgstr "図の作成に用いたすべてのスクリプトを含む、付属の [Notebook](Tutorial_notebook.ipynb) もある。"
+
+#: NAVIGATION.md:11
+msgid ""
+"You should try to follow the tutorial with the manual opened in a second "
+"tab."
+msgstr "別のタブにマニュアルを開きながら、チュートリアルを進めるとよい。"
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "benchmark manpage"
+msgstr "benchmark の manpage"
+
+#. mermaid node label
+#: NAVIGATION.md:17
+msgid "A benchmark tutorial"
+msgstr "Benchmark のチュートリアル"
+
+#. mermaid node label
+#: NAVIGATION.md:19
+msgid "Flamegraph with perf from plumed benchmark"
+msgstr "plumed benchmark の perf による Flamegraph"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:22
+msgid "A manpage for plumed benchmark"
+msgstr "plumed benchmark の manpage"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:23
+msgid "A tutorial on the coordination"
+msgstr "Coordination のチュートリアル"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:24
+msgid ""
+"The notebook with the scripts relative to the tutorial on the coordination"
+msgstr "Coordination のチュートリアルのスクリプトを含む Notebook"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:25
+msgid "A simple tutorial creating a flame graph using perf"
+msgstr "perf による Flame Graph 作成の簡単なチュートリアル"

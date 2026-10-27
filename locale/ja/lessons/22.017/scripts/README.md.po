@@ -1,0 +1,122 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: scripts/README.md:1
+msgid "Python scripts for pre- and post-processing of EMMIVox simulations"
+msgstr "EMMIVox の前処理・後処理用の Python スクリプト"
+
+#: scripts/README.md:3
+msgid ""
+"Here you will find some python scripts useful to setup and analyze EMMIVox "
+"simulations. For info about their syntax, just type:"
+msgstr "ここには、EMMIVox の設定と解析に役立つ Python スクリプトがある。構文を知るには、次を入力する。"
+
+#: scripts/README.md:5
+msgid "`python script.py -h`"
+msgstr "`python script.py -h`"
+
+#: scripts/README.md:7
+msgid "Brief overview:"
+msgstr "概要："
+
+#: scripts/README.md:8
+msgid ""
+"`align-VOXELS.py`: align two PDBs based on an atom selections, dump the "
+"transformation to file, apply transformation to a cryo-EM map, write "
+"transformed cryo-EM map to file;"
+msgstr ""
+"`align-VOXELS.py`：選択した原子で2つの PDBs を Alignment し、変換をファイルに出力する。cryo-EM Map "
+"に変換を適用し、変換後の Map を保存する。"
+
+#: scripts/README.md:9
+msgid ""
+"`align-PDBs.py`: transform one PDB based on the inverse transformation read "
+"from file;"
+msgstr "`align-PDBs.py`：ファイルから読んだ逆変換を PDB に適用する。"
+
+#: scripts/README.md:10
+msgid ""
+"`align-XTC.py`: transform a trajectory in XTC format based on the inverse "
+"transformation read from file;"
+msgstr "`align-XTC.py`：ファイルから読んだ逆変換を XTC 形式の Trajectory に適用する。"
+
+#: scripts/README.md:11
+msgid ""
+"`cryo-EM_preprocess.py`: filter correlated voxels of a cryo-EM map, "
+"calculate error map from two half maps, zone the map close to the input "
+"model, write filtered map in PLUMED format to file;"
+msgstr ""
+"`cryo-EM_preprocess.py`：相関した Voxels を除外し、Half-maps から Error Map "
+"を計算する。入力モデルの近傍に限定し、PLUMED 形式の Map を保存する。"
+
+#: scripts/README.md:12
+msgid ""
+"`cryo-EM_validate.py`: calculate model/map fit (CCmask like) from one PDB, "
+"two PDBs, or two PDBs and a trajectory (average map);"
+msgstr ""
+"`cryo-EM_validate.py`：1 PDB、2 PDBs、または2 PDBs と Trajectory（平均 Map）から、モデルと Map"
+" の適合度（CCmask に相当）を計算する。"
+
+#: scripts/README.md:13
+msgid ""
+"`add-BFACT.py`: read a PDB file and a EMMIStatus file (with Bfactor) and "
+"create a new PDB file with Bfactor column;"
+msgstr ""
+"`add-BFACT.py`：PDB と Bfactor を含む EMMIStatus を読み、Bfactor 列のある新しい PDB を作る。"
+
+#: scripts/README.md:14
+msgid ""
+"`make_ndx.py` and `make_XTC_ndx.py`: create GROMACS index files with "
+"selection of atoms."
+msgstr "`make_ndx.py` と `make_XTC_ndx.py`：選択した原子の GROMACS Index ファイルを作る。"
+
+#: scripts/README.md:16
+msgid "**Software installation**"
+msgstr "**ソフトウェアのインストール**"
+
+#: scripts/README.md:18
+msgid ""
+"You can create a conda environment to install all the python libraries "
+"needed to run pre- and post-processing tools."
+msgstr "conda 環境を作成し、前処理・後処理ツールの実行に必要な Python ライブラリをすべてインストールできる。"
+
+#: scripts/README.md:20
+msgid "`conda create --name emmivox`"
+msgstr "`conda create --name emmivox`"
+
+#: scripts/README.md:22
+msgid "`conda activate emmivox`"
+msgstr "`conda activate emmivox`"
+
+#: scripts/README.md:24
+msgid "`conda install -c conda-forge mrcfile mdanalysis biopython`"
+msgstr "`conda install -c conda-forge mrcfile mdanalysis biopython`"
+
+#: scripts/README.md:26
+msgid "Make sure you are installing MDAnalysis version >= 2.0.0."
+msgstr "MDAnalysis 2.0.0 以上をインストールしていることを確認する。"
+
+#: scripts/README.md:28
+msgid ""
+"In this environment, you also need to install `pytorch` using the "
+"instructions available [here](https://pytorch.org). Make sure you select a "
+"version compatible with the Cuda version installed on your machine or "
+"alternatively the CPU version. These instructions are for pytorch version "
+"1.13.0 with Cuda 11.6:"
+msgstr ""
+"この環境には、[こちら](https://pytorch.org)の手順に従って `pytorch` もインストールする必要がある。マシン上の CUDA"
+" のバージョンに対応するもの、または CPU 版を選ぶ。以下は CUDA 11.6 を使用する PyTorch 1.13.0 の手順である。"
+
+#: scripts/README.md:32
+msgid ""
+"`conda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch "
+"-c nvidia`"
+msgstr ""
+"`conda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch "
+"-c nvidia`"

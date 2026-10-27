@@ -1,0 +1,165 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 04_metaD.md:1
+msgid "Using MACE to run Metadynamics over Two Collective Variables"
+msgstr "MACE を使い、2つの Collective Variables で Metadynamics を実行する"
+
+#: 04_metaD.md:3
+msgid ""
+"Now that we've run some simple MD, let us move on to the main task for this "
+"tutorial. In this section, we will be using PLUMED to drive a conformational"
+" change in our carbonic acid molecule. This molecule exists in three main "
+"conformations: cis-cis (CC), cis-trans (CT), and trans-trans (TT). It's up "
+"to you to determine which of these conformers is most stable, and which is "
+"least stable."
+msgstr ""
+"簡単な MD を実行できたので、このチュートリアルの主な課題へ進む。このセクションでは、PLUMED "
+"を使って炭酸分子の構造変化を駆動する。この分子には、主に Cis-Cis（CC）、Cis-Trans（CT）、Trans-Trans（TT）の3つの "
+"Conformations がある。どれが最も安定で、どれが最も不安定かは、自分で調べてほしい。"
+
+#: 04_metaD.md:5
+msgid ""
+"The files needed to complete this part of the tutorial are located in the "
+"`resources` subdirectory (https://github.com/water-ice-"
+"group/plumed_tutorial_mace.git)."
+msgstr ""
+"この部分に必要なファイルは `resources` サブディレクトリにある（https://github.com/water-ice-"
+"group/plumed_tutorial_mace.git）。"
+
+#: 04_metaD.md:9
+msgid ""
+"Like in the previous task, we have a configuration file `init.xyz` and our "
+"ase file `run.py`. Looking at the latter, you should see some noticeable "
+"changes to the code. The code below gives the PLUMED input needed to perform"
+" our enhanced sampling:"
+msgstr ""
+"前の課題と同様に、Configuration ファイル `init.xyz` と ASE 用の `run.py` "
+"がある。後者のコードには、いくつか明らかな変更が見られるはずである。以下は、Enhanced Sampling に必要な PLUMED 入力である。"
+
+#: 04_metaD.md:15
+msgid "Converting from python to PLUMED format:"
+msgstr "Python から PLUMED 形式への変換："
+
+#: 04_metaD.md:26
+msgid ""
+"Line 1 gives the units used by PLUMED. Lines 2 and 3 define the collective "
+"variables (torsion) that we will use to probe the conformation change. Line "
+"4 is used to define the parameters used in running metadynamics, including "
+"gaussian heights, widths, and the rate at which they are deposited. Line 5 "
+"tells us to print the important collective variable information."
+msgstr ""
+"1行目は PLUMED が使う単位を指定する。2行目と3行目は、構造変化を調べる Collective "
+"Variables（Torsion）を定義する。4行目は、Gaussian の高さ、幅、追加頻度など、Metadynamics "
+"のパラメータを定義する。5行目は、重要な Collective Variable の情報を出力するよう指定する。"
+
+#: 04_metaD.md:28
+msgid ""
+"For this system, we differentiate between our three conformers using two "
+"torsional collective variables, $\\phi$ and $\\theta$, corresponding to the "
+"H1-O2-C1-O1 and H2-O3-C1-O1 dihedrals (see below for reference positions). "
+"When $\\phi$ = $\\theta$ = 0, we have the CC conformer. When $\\phi$ = 0 "
+"(180) and $\\theta$ = 180 (0), we have the CT conformer. And when both "
+"$\\phi$ = $\\theta$ = 180, we have the TT conformer."
+msgstr ""
+"この系では、H1-O2-C1-O1 と H2-O3-C1-O1 の Dihedrals に対応する2つの Torsional Collective "
+"Variables、$\\phi$ と $\\theta$ を用いて3つの Conformers "
+"を区別する。参照する原子位置は下の図を参照してほしい。$\\phi$ = $\\theta$ = 0 のときは CC Conformer "
+"である。$\\phi$ = 0（180）かつ $\\theta$ = 180（0）のときは CT Conformer となる。両方が $\\phi$ ="
+" $\\theta$ = 180 のときは TT Conformer である。"
+
+#: 04_metaD.md:32
+msgid "Calling PLUMED during the run is achieved by the following block:"
+msgstr "計算中に PLUMED を呼び出すのは、次の部分である。"
+
+#: 04_metaD.md:40
+msgid ""
+"where we define the MACE calculator, PLUMED input, the starting "
+"configuration, timestep, and *kT*."
+msgstr ""
+"ここでは、MACE の Calculator、PLUMED 入力、初期 Configuration、Time Step、および *kT* "
+"を定義している。"
+
+#: 04_metaD.md:42
+msgid ""
+"Run the simulation using `python run.py`. Notice that two additional files "
+"will now be output alongside a trajectory and a log file. The `COLVAR` file "
+"gives details on the values of the two collective variable at each timestep."
+" `HILLS` records the gaussians deposited at each step; this will be "
+"important for reconstructing the potential energy surface later."
+msgstr ""
+"`python run.py` でシミュレーションを実行する。Trajectory とログのほかに、さらに2つのファイルが出力される。`COLVAR` "
+"は、各 Time Step における2つの Collective Variables の値を記録する。`HILLS` は各ステップで追加した "
+"Gaussians を記録し、後で Potential Energy Surface を再構成する際に重要となる。"
+
+#: 04_metaD.md:44
+msgid ""
+"We can use `COLVAR` to build up a picture of what is happening as the "
+"metadynamics proceeds. We encourage you to plot both $\\phi$ and $\\theta$ "
+"as a function of time to understand which states the molecule occupies and "
+"their relative proportions. How many transitions have there been between CC,"
+" CT, and TT?"
+msgstr ""
+"`COLVAR` を使い、Metadynamics の進行中に何が起きているかを調べられる。$\\phi$ と $\\theta$ "
+"の両方を時間の関数として描画し、分子がどの状態を占め、それぞれの割合がどの程度かを確認してほしい。CC、CT、TT の間で、何回の遷移が起きただろうか。"
+
+#: 04_metaD.md:46
+msgid ""
+"We have set the number of steps in this simulation to be 100,000. This "
+"should take around 1-2 hours to complete depending on your hardware. You can"
+" speed up computation by switching `device='cpu'` to `'cuda'`, if GPU "
+"computation is available. Feel free to increase the number of steps in this "
+"simulation to improve the convergence of our profile and obtain more "
+"accurate free energies."
+msgstr ""
+"このシミュレーションは100,000ステップに設定してある。ハードウェアによるが、完了まで1～2時間程度かかる。GPU "
+"を使える場合は、`device='cpu'` を `'cuda'` に変えると計算を高速化できる。Profile "
+"の収束を改善して、より精密な自由エネルギーを求めるために、ステップ数を増やしてもよい。"
+
+#: 04_metaD.md:48
+msgid ""
+"Following the completion of the simulation, we can look to extract a "
+"potential energy surface for the conformational changes of carbonic acid."
+msgstr "シミュレーションが完了したら、炭酸の構造変化に関する Potential Energy Surface を取り出す。"
+
+#: 04_metaD.md:49
+msgid "Copy `HILLS` to a new directory."
+msgstr "`HILLS` を新しいディレクトリにコピーする。"
+
+#: 04_metaD.md:50
+msgid ""
+"Source your installed version of PLUMED and type `plumed sum_hills --hills "
+"HILLS --kt 0.02585`. This will add up the deposited gaussians and output the"
+" potential energies in `fes.dat`."
+msgstr ""
+"インストールした PLUMED を使える環境を有効化し、`plumed sum_hills --hills HILLS --kt 0.02585` "
+"を実行する。追加した Gaussians が足し合わされ、Potential Energies が `fes.dat` に出力される。"
+
+#: 04_metaD.md:51
+msgid ""
+"Use the data in `fes.dat` to plot the 2D energy surface for our molecule. We"
+" have provided scripts for you to do this, though we encourage you to try "
+"coding this yourself."
+msgstr ""
+"`fes.dat` のデータを使い、分子の2次元 Energy Surface "
+"を描画する。そのためのスクリプトも提供しているが、自分でコードを書いてみることを勧める。"
+
+#: 04_metaD.md:53
+msgid "You profile should resemble something like this:"
+msgstr "得られた Profile は、次のようになるはずである。"
+
+#: 04_metaD.md:57
+msgid ""
+"We can see four basins on this profile (if fewer, try running the "
+"simulations for longer). Are you able to identify which basin corresponds to"
+" which conformer? What is the most stable conformer? Can we provide a "
+"chemical rationale for these relative stabilities?"
+msgstr ""
+"この Profile には4つの Basins が見られる。少ない場合は、シミュレーションをより長く実行してみる。どの Basin がどの "
+"Conformer に対応するかを特定できるだろうか。最も安定なのはどの Conformer か。相対的な安定性を、化学的に説明できるだろうか。"

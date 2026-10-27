@@ -1,0 +1,70 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. mermaid node label
+#: NAVIGATION.md:3
+msgid "Metadynamics Intro"
+msgstr "Metadynamics の導入"
+
+#. mermaid node label
+#: NAVIGATION.md:3
+msgid "CpH-Metadynamics intro"
+msgstr "CpH-Metadynamics の導入"
+
+#. mermaid node label
+#: NAVIGATION.md:4
+msgid "CpH-MetaD source"
+msgstr "CpH-MetaD の Source"
+
+#. mermaid node label
+#: NAVIGATION.md:5
+msgid "Conformational Analysis"
+msgstr "Conformation の解析"
+
+#. mermaid node label
+#: NAVIGATION.md:6
+msgid "Protonation Analysis"
+msgstr "Protonation の解析"
+
+#. mermaid node label
+#: NAVIGATION.md:7
+msgid "Solution"
+msgstr "解答"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:9
+msgid ""
+"A brief introduction to metadynamics is useful before executing this "
+"tutorial"
+msgstr "実行前に Metadynamics の簡単な導入を学ぶと役立ちます。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:10
+msgid "A theoretical introduction to the CpH-Metadynamics method"
+msgstr "CpH-Metadynamics の理論的な導入"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:11
+msgid "Take a look into the source page and material for the CpH-Metadynamics"
+msgstr "CpH-Metadynamics の Source ページと資料を確認してください。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:12
+msgid "Perform the conformation analysis of CpH-Metadynamics."
+msgstr "CpH-Metadynamics の Conformation を解析する。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:13
+msgid "Perform the protonation analysis of CpH-Metadynamics"
+msgstr "CpH-Metadynamics の Protonation を解析する。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:14
+msgid "A python notebook containing a full set of solutions for the exercise"
+msgstr "演習の完全な解答を含む Python Notebook"

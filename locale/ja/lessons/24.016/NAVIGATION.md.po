@@ -1,0 +1,53 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "OneOPES Tutorial for Host-Guest Systems with PLUMED"
+msgstr "PLUMED を用いた Host-Guest Systems の OneOPES チュートリアル"
+
+#: NAVIGATION.md:3
+msgid ""
+"This tutorial explains how to set up and run OneOPES simulations for host-"
+"guest systems using PLUMED[[1]](#1). OneOPES[[2]](#2) is a combined enhanced"
+" sampling method that exploits replica exchange and can accelerate several "
+"collective variables simultaneously."
+msgstr ""
+"このチュートリアルでは、PLUMED[[1]](#1) を用いて Host-Guest Systems の OneOPES "
+"シミュレーションを設定し、実行する方法を説明する。OneOPES[[2]](#2) は、Replica Exchange を活用し、複数の "
+"Collective Variables を同時に加速できる複合的な Enhanced Sampling 手法である。"
+
+#. mermaid node label
+#: NAVIGATION.md:12
+msgid "OneOpes Paper"
+msgstr "OneOpes の論文"
+
+#. mermaid node label
+#: NAVIGATION.md:12
+msgid "OneOpes plumed tutorial"
+msgstr "OneOpes の PLUMED チュートリアル"
+
+#. mermaid node label
+#: NAVIGATION.md:13
+msgid "OneOpes à la carte Paper"
+msgstr "OneOpes à la carte の論文"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:14
+msgid "The paper about the OneOpes method."
+msgstr "OneOpes 法の論文。"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:15
+msgid "The paper automating OneOpes for host-guest systems"
+msgstr "Host-Guest Systems 向けの OneOpes を自動化する論文"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:16
+msgid "A tutorial to setup a host-guest system with OneOpes"
+msgstr "OneOpes を用いて Host-Guest System を設定するチュートリアル"

@@ -1,0 +1,18 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lesson.yml:title
+msgid "Standard binding free energies from cylindrical restraints"
+msgstr "Cylindrical Restraints を用いた標準結合自由エネルギーの計算"
+
+#: lesson.yml:description
+msgid ""
+"Calculating standard binding free energies with metadynamics, PLUMED and "
+"OpenMM"
+msgstr "Metadynamics、PLUMED、OpenMM を用いて標準結合自由エネルギーを計算する"

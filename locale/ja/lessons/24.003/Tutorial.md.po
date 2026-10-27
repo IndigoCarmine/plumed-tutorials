@@ -1,0 +1,263 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Tutorial.md:1
+msgid "A simple benchmark example"
+msgstr "簡単な Benchmark の例"
+
+#: Tutorial.md:4
+msgid "Now we'll get our hands dirty."
+msgstr "実際に試してみる。"
+
+#: Tutorial.md:6
+msgid ""
+"I will make a short demonstration only using the COORDINATION command in "
+"plumed, since it is available with a zero-configuration plumed."
+msgstr "追加設定のない PLUMED でも使える、COORDINATION コマンドだけで簡単な実演を行う。"
+
+#: Tutorial.md:8
+msgid "We will use the following input as a base for the benchmark"
+msgstr "次の入力を Benchmark の基本として使う。"
+
+#: Tutorial.md:17
+msgid ""
+"I will also remove the backups of the output files by using the command "
+"`export PLUMED_MAXBACKUP=0`"
+msgstr "`export PLUMED_MAXBACKUP=0` で、出力ファイルの Backup も作らないようにする。"
+
+#: Tutorial.md:19
+msgid "First look at the output"
+msgstr "まず出力を確認する"
+
+#: Tutorial.md:25
+msgid ""
+"The first lines of the output are a header with the information needed to "
+"reproduce the benchmark run:"
+msgstr "出力の最初は、Benchmark を再現するために必要な情報を含む Header である。"
+
+#: Tutorial.md:38
+msgid ""
+"The header makes it easier to reproduce and store the result of the "
+"benchmark."
+msgstr "Header により、結果の再現と保存が容易になる。"
+
+#: Tutorial.md:40
+msgid ""
+"The final lines contain the time information collected by the internal "
+"plumed timers. For each kernel+input combination, we have the usual plumed "
+"time report plus a few lines that show if the cost of the analysis varies "
+"along the run."
+msgstr ""
+"最後には、PLUMED 内部の Timer が集めた時間の情報がある。Kernel "
+"と入力の各組み合わせについて、通常の時間レポートと、解析コストが計算中に変化したかを示す行を出力する。"
+
+#: Tutorial.md:63
+msgid "Most of our conclusions will be taken from these parts of the output"
+msgstr "主な結論は、これらの部分から得る。"
+
+#: Tutorial.md:65
+msgid "Benchmarking the COORDINATION with OpenMP"
+msgstr "OpenMP による COORDINATION の Benchmarking"
+
+#: Tutorial.md:85
+msgid ""
+"My CPU has 6 physical cores but can execute 12 threads. By looking at all "
+"the possibilities we can see how plumed performs with different numbers of "
+"threads."
+msgstr ""
+"著者の CPU は6つの Physical Cores を持ち、12 Threads を実行できる。さまざまな設定を試して、Thread 数に応じた "
+"PLUMED の性能を調べる。"
+
+#: Tutorial.md:87
+msgid "To extract the data we can use a bash script like:"
+msgstr "データの取り出しには、次のような Bash スクリプトが使える。"
+
+#: Tutorial.md:102
+msgid "and obtain for each set of threads (here with 6) a table like this :"
+msgstr "各 Thread 数、ここでは6について、次のような表を得る。"
+
+#: Tutorial.md:109
+msgid "Using the following simple Python script:"
+msgstr "次の簡単な Python スクリプトを使う。"
+
+#: Tutorial.md:141
+msgid "We can then obtain:"
+msgstr "次の図が得られる。"
+
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
+#: Tutorial.md:143
+msgid "![](CoordinationVSthreads.png)"
+msgstr "![](CoordinationVSthreads.png)"
+
+#: Tutorial.md:145
+msgid ""
+"If we use a logarithmic y-axis we can better visualize the timings for the "
+"the 100 atoms runs: ![](CoordinationVSthreads_log.png)"
+msgstr "y 軸を対数にすると、100原子の場合の時間を見やすくできる。![](CoordinationVSthreads_log.png)"
+
+#: Tutorial.md:148
+msgid ""
+"We can see how the number of threads can speed up the calculation. Using all"
+" the threads might not be a good idea if you are editing files or if you "
+"have a browser opened on the same computer."
+msgstr ""
+"Thread 数で計算が速くなる様子が分かる。ただし、同じマシンでファイルを編集したり、ブラウザを開いたりする場合、すべての Threads "
+"を使うのは得策でないかもしれない。"
+
+#: Tutorial.md:150
+msgid "How to wrongly set up the neighbor list"
+msgstr "Neighbor List の不適切な設定例"
+
+#: Tutorial.md:153
+msgid "The choice of the switching function"
+msgstr "Switching Function の選択"
+
+#: Tutorial.md:155
+msgid ""
+"I choose `SWITCH={EXP D_0=1 R_0=0.25 D_MAX=2}` as a switching function not "
+"to demonstrate something physical, but to have a small cutoff and to use it "
+"with the neighbor list (NL), since only using R_0=1 will result in needing "
+"at least 6 nm of cutoff."
+msgstr ""
+"`SWITCH={EXP D_0=1 R_0=0.25 D_MAX=2}` を選ぶのは、物理を示すためではなく、小さい Cutoff で "
+"Neighbor List（NL）を使うためである。R_0=1 だけでは、少なくとも6 nm の Cutoff が必要となる。"
+
+# Bibliographic title, software value, file path or image-only markup
+# intentionally preserved.
+#: Tutorial.md:157
+msgid "![](Switches.png)"
+msgstr "![](Switches.png)"
+
+#: Tutorial.md:161
+msgid ""
+"Computing the NL is costly, but the coordination calculation can be sped up "
+"considerably if the NL is set up correctly. The neighbor list operation "
+"compiles a list of atom pairs within the cutoff every `NL_STRIDE` steps, "
+"this makes the calculation of the coordination more efficient since it will "
+"be run on a subset of the total possible pairs of atoms."
+msgstr ""
+"NL の構築自体は高コストだが、適切に設定すれば Coordination の計算を大きく高速化できる。`NL_STRIDE` ステップごとに "
+"Cutoff 内の原子対を列挙し、全原子対の一部だけを計算するためである。"
+
+#: Tutorial.md:164
+msgid ""
+"`NL_STRIDE` should be set up with the system in mind: if the system is "
+"expected to show low atom mobility it is possible to choose a higher stride "
+"In the following run we can see how the benchmark can help when choosing the"
+" correct settings for your analysis/run."
+msgstr ""
+"`NL_STRIDE` は系に応じて選ぶ。原子の Mobility が低いなら、Stride "
+"を大きくできる。以下では、解析・計算の適切な設定を選ぶ際に、Benchmark がどう役立つかを見る。"
+
+#: Tutorial.md:167
+msgid ""
+"Now we prepare two series of inputs with the neighbor list cutoff at 110, "
+"150 and 200% of `R_0`, and with `NL_STRIDE` set to 100 or 10 steps."
+msgstr ""
+"Neighbor List の Cutoff を `R_0` の110、150、200%にし、`NL_STRIDE` "
+"を100または10ステップとした、2系列の入力を作る。"
+
+#: Tutorial.md:169
+msgid ""
+"The files will be called `plumedNL%.dat` and `plumedNL%_shortstride.dat`, "
+"for example `plumedNL200_shortstride.dat` will be:"
+msgstr ""
+"ファイル名を `plumedNL%.dat` と `plumedNL%_shortstride.dat` とする。例えば "
+"`plumedNL200_shortstride.dat` は次のようになる。"
+
+#: Tutorial.md:179
+msgid "The script to run all the benchmarks looks like this:"
+msgstr "全 Benchmark を実行するスクリプトは、次のようになる。"
+
+#: Tutorial.md:197
+msgid "The results obtained are: ![](CoordinationNL.png)"
+msgstr "結果は次のとおりである。![](CoordinationNL.png)"
+
+#: Tutorial.md:200
+msgid ""
+"In this image, the lighter part of each column is the time that plumed "
+"passes in the calculate() part of the analysis. And for each \"number of "
+"atoms\" the times are divided by the total time in the calculation without "
+"the NL."
+msgstr "棒の薄い部分は、解析の calculate() にかかる時間である。各原子数の時間を、NL なしの総計算時間で割っている。"
+
+#: Tutorial.md:202
+msgid ""
+"As stated before the NL will reduce the number of computations done, but if "
+"set up incorrectly (too few steps between NL calculations or too much NL "
+"cutoff) it can hinder the performance."
+msgstr "NL は計算回数を減らすが、更新間隔が短すぎたり、Cutoff が大きすぎたりすると、性能を悪化させる場合がある。"
+
+#: Tutorial.md:204
+msgid ""
+"This example mainly demonstrates the speedup and the costs of the NL: if you"
+" know your system an NL can be used to speed up the calculations "
+"significantly without changing the results."
+msgstr "この例は、主に NL の高速化と構築コストを示す。系を理解していれば、結果を変えずに大きく高速化できる。"
+
+#: Tutorial.md:206
+msgid ""
+"There is something odd about this: see the notebook for some "
+"[details](Tutorial_notebook.ipynb#extra-cache)"
+msgstr ""
+"この結果には、少し不思議な点がある。Notebook の[説明](Tutorial_notebook.ipynb#extra-"
+"cache)を参照してほしい。"
+
+#: Tutorial.md:209
+msgid "Script to produce the image"
+msgstr "図を作成するスクリプト"
+
+#: Tutorial.md:212
+msgid ""
+"`plumed_bench_pp` is a python package (`pip install -U plumed-bench-pp`) "
+"that I wrote to speed up the post-processing of the result of the benchmark"
+msgstr ""
+"`plumed_bench_pp` は、Benchmark の後処理を速くするために著者が作成した Python パッケージである（`pip "
+"install -U plumed-bench-pp`）。"
+
+#: Tutorial.md:275
+msgid "Extra: NL and mobility"
+msgstr "補足：NL と Mobility"
+
+#: Tutorial.md:277
+msgid ""
+"I have prepared an extra run just to show that if a system is too mobile a "
+"poorly calibrated NL could hurt the results."
+msgstr "原子の動きが大きすぎると、調整が不適切な NL が結果を損なうことを示す追加計算を用意した。"
+
+#: Tutorial.md:287
+msgid ""
+"This is of course an exaggerated situation, but here is the outcome of the "
+"run:"
+msgstr "極端な例だが、次の結果となる。"
+
+#: Tutorial.md:289
+msgid "Time"
+msgstr "時間"
+
+#: Tutorial.md:289
+msgid "no NL"
+msgstr "NL なし"
+
+#: Tutorial.md:289
+msgid "with NL"
+msgstr "NL あり"
+
+#: Tutorial.md:322
+msgid ""
+"Since the NL is calculated every 10 steps and the atoms are always randomly "
+"displaced the results are correct only every 10 steps."
+msgstr "NL は10ステップごとに計算する一方、原子は毎回ランダムに再配置するため、正しい結果になるのは10ステップごとだけである。"
+
+#: Tutorial.md:324
+msgid ""
+"NB.: at the time of writing this, \"sc\" is not mobile at all, while "
+"\"cube\" randomly displaces all the atoms at each single step"
+msgstr "注意：執筆時点では sc の原子はまったく動かない一方、cube は毎ステップですべての原子をランダムに再配置する。"

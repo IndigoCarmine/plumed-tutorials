@@ -1,0 +1,42 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Modals/CXX.md:2
+msgid "CXX Environment Variable"
+msgstr "環境変数 CXX"
+
+#: Modals/CXX.md:18
+msgid ""
+"PLUMED 2.4 requires a compiler that supports C++11. The following compilers "
+"(or later versions) should be sufficient:"
+msgstr "PLUMED 2.4 は C++11 対応 Compiler が必要です。次以降の版で十分です。"
+
+# Compiler name and version intentionally preserved.
+#: Modals/CXX.md:20
+msgid "gcc 4.8.1"
+msgstr "gcc 4.8.1"
+
+# Compiler name and version intentionally preserved.
+#: Modals/CXX.md:21
+msgid "clang 3.3"
+msgstr "clang 3.3"
+
+# Compiler name and version intentionally preserved.
+#: Modals/CXX.md:22
+msgid "intel 15"
+msgstr "intel 15"
+
+#: Modals/CXX.md:32
+msgid ""
+"We regularly test a number of compilers on <a "
+"href=\"https://github.com/plumed/plumed2/actions\">GitHub Actions</a>. These"
+" compilers should thus always compile PLUMED correctly."
+msgstr ""
+"<a href=\"https://github.com/plumed/plumed2/actions\">GitHub Actions</a> "
+"で定期テストする Compiler は、常に正しくビルドできるはずです。"

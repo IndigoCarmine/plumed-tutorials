@@ -1,0 +1,146 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Readme_CUDA.md:1
+msgid "EXTRA: GPU offloading with Cuda"
+msgstr "補足：CUDA による GPU Offloading"
+
+#: Readme_CUDA.md:2
+msgid ""
+"To get the cuda code compiled I set up an ad hoc alternative to `plumed "
+"mklib`, that uses nvcc to compile the kernel and to link the shared object. "
+"The example is extremely simplified and should not be used in the real world"
+" as is, because it contains a collection of **bad ideas**."
+msgstr ""
+"CUDA コードのコンパイル用に、`plumed mklib` の専用の代替手順を用意した。nvcc で Kernel をコンパイルし、Shared "
+"Object をリンクする。この例は極端に簡略化されており、多くの**悪い実装例**を含むため、そのまま実際の用途に使ってはいけない。"
+
+#: Readme_CUDA.md:4
+msgid "The calculate insterface is simple:"
+msgstr "calculate の Interface は単純である。"
+
+#: Readme_CUDA.md:12
+msgid ""
+"it calls `getCoordination(pos, R_0)`, that is an interface to the kernel:"
+msgstr "Kernel への Interface である `getCoordination(pos, R_0)` を呼ぶ。"
+
+#: Readme_CUDA.md:36
+msgid ""
+"there the data is initialized and loaded on the GPU with a combination of "
+"`cudaMalloc` and `cudaMemcpy` and then the two kernels are called with the "
+"`<<<NBlocks,threadPerBlock>>>` syntax."
+msgstr ""
+"そこで `cudaMalloc` と `cudaMemcpy` を組み合わせてデータを初期化し、GPU "
+"に転送する。次に、`<<<NBlocks,threadPerBlock>>>` の構文で2つの Kernels を呼ぶ。"
+
+#: Readme_CUDA.md:38
+msgid "Citing the Nvidia blog:"
+msgstr "NVIDIA のブログから引用する。"
+
+#: Readme_CUDA.md:39
+msgid ""
+"A group of threads is called a CUDA block. CUDA blocks are grouped into a "
+"grid. A kernel is executed as a grid of blocks of threads."
+msgstr ""
+"Threads の集まりを CUDA Block と呼ぶ。CUDA Blocks は Grid にまとめられる。Kernel は、Threads の "
+"Blocks からなる Grid として実行される。"
+
+#: Readme_CUDA.md:41
+msgid "Each thread execute the instructions in the kernel."
+msgstr "各 Thread は Kernel 内の命令を実行する。"
+
+#: Readme_CUDA.md:43
+msgid ""
+"In this case we have a kernel for calculation the `ncoord` value of each "
+"atom:"
+msgstr "ここでは、各原子の `ncoord` を計算する Kernel を用意している。"
+
+#: Readme_CUDA.md:66
+msgid ""
+"You have to imagine that the kernel is more or less the body of the outer "
+"for loop of the previous examples and to get the outer index you have to "
+"check in which thread you are: `threadIdx` and `blockIdx` that contains the "
+"information about the index of the thread or of the block. In this case the "
+"kernel is called as a block of `nat` threads (and that is a very **bad "
+"idea**, since `nat` may be not a power of 2 or be bigger than the maximum "
+"number of thread avaiable in the gpu)."
+msgstr ""
+"Kernel は、前の例の外側の for ループの本体におおよそ相当すると考えるとよい。外側の Index は、どの Thread "
+"かを調べて得る。`threadIdx` と `blockIdx` が、それぞれ Thread と Block の Index "
+"の情報を持つ。この例では、Kernel を `nat` 個の Threads の1 Block "
+"として呼ぶ。これは非常に**悪い実装**である。`nat` は2の累乗とは限らず、GPU で利用可能な最大 Thread "
+"数を超える場合もあるためである。"
+
+#: Readme_CUDA.md:69
+msgid "EXTRA REMARKS"
+msgstr "追加の注意点"
+
+#: Readme_CUDA.md:71
+msgid ""
+"Also the kernel is made in order that can be called with `<<<1, nat>>>` or "
+"`<<<nat, 1>>>` without any error, due to the index bein calculated always as"
+" a sum `const int i = threadIdx.x + blockIdx.x;` that is `0+something` or "
+"`something+0`if the threads or the blocks are 1. This is a **bad idea**."
+msgstr ""
+"また、この Kernel は、Index を常に `const int i = threadIdx.x + blockIdx.x;` "
+"の和で計算するため、`<<<1, nat>>>` と `<<<nat, 1>>>` のどちらでもエラーなく呼べるようになっている。Threads または"
+" Blocks の数が1なら、和はそれぞれ `0+something` または `something+0` になる。これは**悪い実装**である。"
+
+#: Readme_CUDA.md:74
+msgid ""
+"Then the coordination must be summed (in a very simple case like this it may"
+" be faster doing the process in for loop on the cpu) with a reduction "
+"algorithm:"
+msgstr ""
+"次に、Reduction アルゴリズムで Coordination を合計する。このように単純な場合は、CPU の for "
+"ループで行う方が速い可能性もある。"
+
+#: Readme_CUDA.md:91
+msgid "`blockDim` contains the number of thread in the block"
+msgstr "`blockDim` は Block 内の Thread 数を保持する。"
+
+#: Readme_CUDA.md:93
+msgid ""
+"The sum is made in pair to each element of the passed array and stored in "
+"one of the two used indexes of the array. And the operation is repeaded on "
+"half of the array, and so on until we are reduced to one element that is the"
+" result."
+msgstr ""
+"渡された Array の要素を2つずつ足し、使った2つの Index の一方に結果を保存する。残った半分の Array "
+"に対して同じ処理を繰り返し、最後の1要素に結果を得る。"
+
+#: Readme_CUDA.md:95
+msgid ""
+"Visually the operation is the following: <!-- source: "
+"https://riptutorial.com/cuda/topic/6566/parallel-reduction--e-g--how-to-sum-"
+"an-array- --> <img src=\"./Imgs/reduction.png\" alt= “” width=\"50%\">"
+msgstr ""
+"この処理を図で示すと、次のようになる。<!-- source: "
+"https://riptutorial.com/cuda/topic/6566/parallel-reduction--e-g--how-to-sum-"
+"an-array- --> <img src=\"./Imgs/reduction.png\" alt= “” width=\"50%\">"
+
+#: Readme_CUDA.md:100
+msgid "HOMEWORK"
+msgstr "課題"
+
+#: Readme_CUDA.md:102
+msgid "the reduction algorithm does not return the correct result: why?"
+msgstr "この Reduction アルゴリズムは正しい結果を返さない。なぜだろうか。"
+
+#: Readme_CUDA.md:106
+msgid "[back](Readme.md)"
+msgstr "[戻る](Readme.md)"
+
+#: Readme_CUDA.md:108
+msgid ""
+"See also: [serial](Readme_Serial.md) [openMP](Readme_OMP.md) "
+"[MPI](Readme_MPI.md) [Cuda](Readme_CUDA.md)"
+msgstr ""
+"関連資料：[Serial](Readme_Serial.md) [OpenMP](Readme_OMP.md) [MPI](Readme_MPI.md)"
+" [CUDA](Readme_CUDA.md)"

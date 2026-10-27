@@ -1,0 +1,146 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Readme.md:1
+msgid ""
+"Plumed Flagship meeting: Lecture: Parallel and GPUs programming in PLUMED"
+msgstr "PLUMED Flagship Meeting 講義：PLUMED の並列・GPU プログラミング"
+
+#: Readme.md:3
+msgid "We have some simple examples for using parallelism in plumed:"
+msgstr "PLUMED の並列処理のために、いくつかの簡単な例を用意している。"
+
+#: Readme.md:5
+msgid ""
+"`SerialCoordination.cpp` is a ~~vandalized~~ simplified version of the cv "
+"`Coordination`"
+msgstr "`SerialCoordination.cpp` は、CV `Coordination` を ~~壊した~~ 簡略化した版である。"
+
+#: Readme.md:6
+msgid ""
+"`OMPCoordination.cpp` is an example on how openMP can be used in Plumed"
+msgstr "`OMPCoordination.cpp` は、PLUMED で OpenMP を使う方法の例である。"
+
+#: Readme.md:7
+msgid "`MPICoordination.cpp` is an example on how MPI can be used in Plumed"
+msgstr "`MPICoordination.cpp` は、PLUMED で MPI を使う方法の例である。"
+
+#: Readme.md:8
+msgid ""
+"`CUDACoordination.cpp` is an example on trying to user Cuda for solving this"
+" problem (it needs an ad hoc compiler queue and the kernel "
+"`CUDACoordinationkernel.cu` )"
+msgstr ""
+"`CUDACoordination.cpp` は、この問題を CUDA で解こうとする例である。専用のコンパイル手順と、Kernel "
+"`CUDACoordinationkernel.cu` が必要になる。"
+
+#: Readme.md:10
+msgid "(The original `Coordination` combines the use of both openMP and MPI)"
+msgstr "元の `Coordination` は、OpenMP と MPI を組み合わせて使っている。"
+
+#: Readme.md:12
+msgid "Plumed helps the developer with some tools for parallelism:"
+msgstr "PLUMED は、開発者向けに次の並列処理ツールを提供する。"
+
+#: Readme.md:13
+msgid ""
+"`tools/OpenMP.h` contains some function that are useful in working with "
+"openMP. In the example we are using `OpenMP::getNumThreads()` to get the "
+"number of threads from the environmental variable `PLUMED_NUM_THREADS`"
+msgstr ""
+"`tools/OpenMP.h` には、OpenMP で役立つ関数が含まれる。この例では、`OpenMP::getNumThreads()` で環境変数"
+" `PLUMED_NUM_THREADS` から Thread 数を取得する。"
+
+#: Readme.md:16
+msgid ""
+"`tools/Communicator.h` is present as the variable `comm` that is inherited "
+"through `PLMD::Action`. `PLMD::Communicator` is an interface to some of the "
+"functionalities of the C API of `mpi.h`. In the example we are using "
+"`PLMD::Communicator::Get_size()` to get the number of the processes spawned "
+"by mpirun, `PLMD::Communicator::Get_rank()` to get the id of the process, "
+"and `PLMD::Communicator::Sum()` to sum the result of the coordination and "
+"make the correct value avayable for further calculations."
+msgstr ""
+"`tools/Communicator.h` の機能は、`PLMD::Action` から継承する変数 `comm` "
+"として使える。`PLMD::Communicator` は、`mpi.h` の C API の一部を扱う Interface "
+"である。この例では、`PLMD::Communicator::Get_size()` で mpirun が起動した Process "
+"数を取得し、`PLMD::Communicator::Get_rank()` で Process の ID "
+"を得る。また、`PLMD::Communicator::Sum()` で Coordination "
+"の結果を足し合わせ、以降の計算で正しい値を使えるようにする。"
+
+#: Readme.md:22
+msgid "Intro"
+msgstr "はじめに"
+
+#: Readme.md:24
+msgid ""
+"The exercise uses `Base.hpp` to give a very base version of the COORDINATION"
+" CV, in this case it is returning the sum of the number of atoms that are "
+"within R_0 from each atom. For simplicity it the pbcs will be ignored "
+"throught all of the examples. `MyCoordinationBase` in `Base.hpp` do not have"
+" the calculate method and so the example will have more or less the "
+"following structure:"
+msgstr ""
+"演習では、`Base.hpp` に COORDINATION CV のごく基本的な版を用意している。各原子について、R_0 "
+"以内にある原子の数を数え、その総和を返す。簡単のため、すべての例で PBCs を無視する。`Base.hpp` の "
+"`MyCoordinationBase` には calculate メソッドがないため、例の構成はおおよそ次のようになる。"
+
+#: Readme.md:45
+msgid ""
+"For automation purposes (see the `Makefile`) we are using the same key "
+"`PLUMED_REGISTER_ACTION(MyCoordination, \"MYCOORDINATION\")` for all of the "
+"examples."
+msgstr ""
+"自動化のため（`Makefile` 参照）、すべての例で同じキー `PLUMED_REGISTER_ACTION(MyCoordination, "
+"\"MYCOORDINATION\")` を使う。"
+
+#: Readme.md:46
+msgid "Prerequisites"
+msgstr "前提条件"
+
+#: Readme.md:47
+msgid ""
+"Plumed 2.9.0 configured and installed with `--enable-modules=all` and MPI"
+msgstr "`--enable-modules=all` と MPI を有効にして構成・インストールした PLUMED 2.9.0。"
+
+#: Readme.md:48
+msgid "in my workstation I am using gcc 9.4.0 and openmpi 4.1.1"
+msgstr "著者の Workstation では gcc 9.4.0 と OpenMPI 4.1.1 を用いている。"
+
+#: Readme.md:49
+msgid "For the GPU offloading the example is written with Nvdia's Cuda"
+msgstr "GPU Offloading の例は、NVIDIA の CUDA で書かれている。"
+
+#: Readme.md:50
+msgid "In my workstation I am using cuda 11.7 with a T1000 card"
+msgstr "著者の Workstation では、CUDA 11.7 と T1000 カードを用いている。"
+
+#: Readme.md:53
+msgid "[The serial code](Readme_Serial.md)"
+msgstr "[Serial 版のコード](Readme_Serial.md)"
+
+#: Readme.md:55
+msgid "[Threading: openMP](Readme_OMP.md)"
+msgstr "[Threading：OpenMP](Readme_OMP.md)"
+
+#: Readme.md:57
+msgid "[Processes: MPI](Readme_MPI.md)"
+msgstr "[Processes：MPI](Readme_MPI.md)"
+
+#: Readme.md:59
+msgid "[EXTRA: GPU offloading with Cuda](Readme_CUDA.md)"
+msgstr "[補足：CUDA による GPU Offloading](Readme_CUDA.md)"
+
+#: Readme.md:61
+msgid "Closing information"
+msgstr "補足事項"
+
+#: Readme.md:63
+msgid "The file in the `Solution` directory give the correct results"
+msgstr "`Solution` ディレクトリ内のファイルは、正しい結果を与える。"

@@ -1,0 +1,45 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 02_setting_up_env.md:1
+msgid "Download PLUMED"
+msgstr "PLUMED のダウンロード"
+
+#: 02_setting_up_env.md:3
+msgid ""
+"Before proceeding, ensure that you have installed and compiled a working "
+"version of PLUMED. This will be important for later on during post analysis."
+" Details on installation can be found here: "
+"https://www.plumed.org/doc-v2.9/user-doc/html/_installation.html"
+msgstr ""
+"進む前に、動作する PLUMED "
+"をインストール・コンパイルしておく。後の解析で必要になる。インストール方法の詳細はこちらにある：https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_installation.html"
+
+#: 02_setting_up_env.md:5
+msgid "Create MACE environment"
+msgstr "MACE 環境の作成"
+
+#: 02_setting_up_env.md:6
+msgid ""
+"Setting up the MACE-ASE-PLUMED interface is most easily achieved by using "
+"`conda` to create a new virtual environment. Follow the instructions below "
+"to create this environment and install the necessary modules for running our"
+" calculations. Ensure that you have `python3.9` or higher."
+msgstr ""
+"MACE-ASE-PLUMED インターフェースは、`conda` "
+"で新しい仮想環境を作成すると最も簡単に設定できる。以下の手順に従って環境を作り、計算の実行に必要なモジュールをインストールする。`python3.9` "
+"以上を用意すること。"
+
+#: 02_setting_up_env.md:25
+msgid ""
+"And that's it. When performing the tutorial tasks, always ensure to activate"
+" the virtual environment: `conda activate plumed_mace`."
+msgstr ""
+"これで準備は完了である。チュートリアルの作業を行うときは、必ず `conda activate plumed_mace` で仮想環境を有効化する。"

@@ -1,0 +1,78 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: results.md:1
+msgid "[&larr; Home](NAVIGATION.md)"
+msgstr "[&larr; ホーム](NAVIGATION.md)"
+
+#: results.md:3
+msgid "Results"
+msgstr "結果"
+
+#: results.md:5
+msgid ""
+"In our previous paper [[1]](#1), we ran around 300 short trajectories and "
+"identified dissociation pathways shown in Figure, where each pathway is "
+"named pwa, pwb, ..., and by T4L helices through which benzene dissociated."
+msgstr ""
+"以前の論文 [[1]](#1) では、約300本の短い Trajectories を実行し、図に示す Dissociation Pathways "
+"を特定した。各 Pathway は pwa、pwb、…のほか、Benzene が通過した T4L の Helices で命名している。"
+
+#: results.md:7
+msgid ""
+"Using the parameters selected in this tutorial, we should be able to obtain "
+"one of these pathways within 10 ns."
+msgstr "このチュートリアルのパラメータでは、10 ns 以内にこれらの Pathways のいずれかが得られるはずである。"
+
+#: results.md:11
+msgid ""
+"In the example calculated here, the simulation ends around 2.5 ns, resulting"
+" in an unbinding pathway shown below. To find an exit from T4L, the pulling "
+"direction of benzene was optimized three times (at 0, 1, and 2 ns)."
+msgstr ""
+"ここでの例は約2.5 ns で終了し、下に示す Unbinding Pathway が得られる。T4L からの出口を探すため、Benzene の "
+"Pulling Direction を0、1、2 ns の3回最適化した。"
+
+#: results.md:13
+msgid ""
+"By displaying overlayed conformations of the T4L-benzene complex sampled "
+"during the simulation, we can see which helices fluctuate the most during "
+"the dissociation."
+msgstr ""
+"Sampling した T4L-Benzene Complex の Conformations を重ねて表示すると、Dissociation 中にどの "
+"Helices が最も大きくゆらぐかを確認できる。"
+
+#: results.md:17
+msgid ""
+"The next figure shows how the loss function behaves in time. We can see that"
+" starting from 1.5 ns, it decays to zero, which means that benzene unbinds "
+"from the binding pocket of T4L and diffuses toward solvent."
+msgstr ""
+"次の図は、Loss Function の時間変化を示す。1.5 ns から0へ減衰しており、Benzene が T4L の Binding Pocket"
+" から Unbinding し、溶媒へ拡散することを表している。"
+
+#: results.md:21
+msgid ""
+"This point also coincides with the peak in the bias potential, suggesting "
+"that this is the point where benzene overcomes the highest energy barrier."
+msgstr ""
+"この時点は BiasPotential のピークとも一致しており、Benzene が最も高い Energy Barrier を越える時点と考えられる。"
+
+#: results.md:25
+msgid ""
+"*Note* Dissociation pathways obtained using the `maze` module can define "
+"reference frames for path collective variables, which can be used to run a "
+"metadynamics simulation and calculate a free-energy profile. For further "
+"details on this, see [here](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_p_a_t_h.html)."
+msgstr ""
+"*注意* `maze` で得られた Dissociation Pathways は、Path Collective Variables の "
+"Reference Frames として使える。その CVs で Metadynamics を行えば、自由エネルギー Profile "
+"を計算できる。詳細は[こちら](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_p_a_t_h.html)を参照してほしい。"

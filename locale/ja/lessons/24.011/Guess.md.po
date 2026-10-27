@@ -1,0 +1,279 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Guess.md:1
+msgid "Generating a guess path"
+msgstr "推定 Path の生成"
+
+#: Guess.md:3
+msgid ""
+"Goal of the path parameterization stage is to identify a set (or frameset) "
+"of equidistant $N$ nodes (or frames) that provide a discrete representation "
+"of the process under investigation, here ligand binding. This significantly "
+"affects the quality of the resulting Path CVs, especially in the case of "
+"resampling efforts. Such frames should be as equidistant as possibile, and "
+"here we use the mean squared displacement (MSD) in the Cartesian space as "
+"metric."
+msgstr ""
+"Path のパラメータ化では、対象過程（ここでは Ligand 結合）を離散的に表す等間隔の $N$ Node（Frame）の集合、Frameset "
+"を求めます。特に再 Sampling では、Path CV の質を大きく左右します。Frame は可能な限り等間隔にし、ここでは Cartesian "
+"空間の Mean Squared Displacement (MSD) を Metric とします。"
+
+#: Guess.md:5
+msgid ""
+"We use the 50 ns unbinding trajectory previously generated via SMD to pick "
+"these frames. Likely, we will not be able to strictly fulfill the "
+"equidistancy, as frames satisfying such condition may not exist in the "
+"original trajectory. Nevertheless, if the SMD trajectory is sufficiently "
+"enriched with configurations of the system progressively describing the "
+"unbinding process, we should be able to get reasonably close to our goal. We"
+" can then interpolate between the frames in this initial frameset to enrich "
+"it with intermediates, and finally repeat the search for equidistant frames "
+"on the enriched frameset. In this way, we should be able to converge to a "
+"series of subsequent frames with more uniform spacing."
+msgstr ""
+"先ほどの50 ns SMD 解離 Trajectory から Frame を選びます。厳密に等間隔な Frame "
+"は存在しないかもしれませんが、解離を段階的に記述する Configuration が十分あれば、近づけられます。初期 Frameset "
+"の間を補間して中間 Frame を加え、等間隔 Frame の探索を繰り返せば、間隔がより一様な系列に収束できるはずです。"
+
+#: Guess.md:7
+msgid ""
+"We will take advantage of a few scripts, namely **``rmsd_mc.sh``**, "
+"**``morph_frameset.tcl``**, and **``occ_beta.tcl``**. Note that these are "
+"intended for use in the Visual Molecular Dynamics (VMD) software "
+"(https://www.ks.uiuc.edu/Research/vmd/), so you will need a working version "
+"of it. To set up the use of these scripts, source the **```env.sh```** file,"
+" which will set the environmental variable ``PATHTOOLS``."
+msgstr ""
+"**``rmsd_mc.sh``**、**``morph_frameset.tcl``**、**``occ_beta.tcl``** "
+"を使います。Visual Molecular Dynamics (VMD、https://www.ks.uiuc.edu/Research/vmd/) "
+"用なので、動作する VMD が必要です。**```env.sh```** を Source し、環境変数 ``PATHTOOLS`` "
+"を設定してください。"
+
+#: Guess.md:9
+msgid ""
+"[comment]: # (, which, to implement the described pipeline, we will use in "
+"the order rmsd_mc.sh -> morph_frameset.tcl -> rmsd_mc.sh.)"
+msgstr ""
+"[comment]: # （この手順では rmsd_mc.sh -> morph_frameset.tcl -> rmsd_mc.sh "
+"の順に使います。）"
+
+#: Guess.md:12
+msgid ""
+"Although conceptually straighforward, this task in practice is non-trivial. "
+"Additionally, it consists of several technical steps, which we will go "
+"through."
+msgstr "概念は単純ですが、実際には容易ではなく、複数の技術的な手順を順に説明します。"
+
+#: Guess.md:14
+msgid "Search for equidistant frames (Round 1)"
+msgstr "等間隔 Frame の探索（1回目）"
+
+#: Guess.md:16
+msgid ""
+"First, since the procedure is focused on the protein-ligand system, we can "
+"strip waters away for convenience of managing lighter files. There's plenty "
+"of alternatives to achieve this. As an example, if you use gromacs you can "
+"create an index file (e.g. *index_protlig.ndx*) containing a group with "
+"protein and ligand heavy atoms only, and use it on the SMD trajectory:"
+msgstr ""
+"Protein-Ligand 系に注目するため、水を除いてファイルを軽くします。方法はいろいろあります。例えば GROMACS なら、タンパク質と "
+"Ligand の Heavy Atom だけの Group を含む *index_protlig.ndx* などを作り、SMD に適用します。"
+
+#: Guess.md:20
+msgid ""
+"In mapping ligand displacement, we may want to focus on a subselection of "
+"ligand's heavy atoms, for instance to exclude chemically equivalent or less "
+"relevant atoms. Already at this stage we can generate *steer_protlig.xtc* "
+"containing only the focused selection. In our case, we ecluded the two "
+"methyls from the isopropyl group in the ligand."
+msgstr ""
+"Ligand の変位には、化学的に等価または重要性の低い原子を除くなど、Heavy Atom の一部だけを使う場合があります。この段階で "
+"*steer_protlig.xtc* をその選択だけにできます。この例では Ligand の Isopropyl 基の2つの Methyl "
+"を除きました。"
+
+#: Guess.md:22
+msgid ""
+"We can now use the **``rmsd_mc.sh``** script to seek for equidistant frames "
+"in the *steer_protlig.xtc* trajectory. To complete this task, the script "
+"computes the MSD between pairs of frames in the trajectory. To this end, we "
+"need to specify two atom selections: one to align the structure, and another"
+" to calculate the displacement. A suboptimal alignment can compromise the "
+"accurate tracking of ligand's displacement with respect to the binding site."
+" To mitigate this effect, we should align the structure on a stable "
+"reference. For instance, here we use low-fluctuating $\\alpha$ carbons of "
+"the intra-membrane region of the receptor, which were identified by "
+"measuring the root-mean-square fluctuation (RMSF) of all protein’s $\\alpha$"
+" carbons in plain (i.e. unbiased) MD simulations. As for the second "
+"selection, we use ligand's heavy atoms."
+msgstr ""
+"**``rmsd_mc.sh``** で *steer_protlig.xtc* から等間隔 Frame を探します。Frame 対の MSD "
+"を計算するため、重ね合わせ用と変位計算用の2つの原子選択が必要です。不適切な重ね合わせは、結合部位に対する Ligand "
+"変位の追跡精度を損ないます。安定な参照として、通常の Unbiased MD で全 $\\alpha$ Carbon の RMSF "
+"を調べ、Receptor の膜内領域の低揺らぎの $\\alpha$ Carbon を選びます。変位には Ligand の Heavy Atom "
+"を使います。"
+
+#: Guess.md:24
+msgid ""
+"We can use the **occupancy** and **B-factor** fields of the PDB formatting "
+"to pass this information, i.e. the two selections, to **``rmsd_mc.sh``**. "
+"Here is an example showing that atoms 1146 and 1776 will be included for the"
+" alignment, and atoms 2260-2263 for the calculation."
+msgstr ""
+"PDB の **occupancy** と **B-factor** で、2つの選択を **``rmsd_mc.sh``** "
+"に渡せます。次の例は、原子1146と1776を重ね合わせ、2260〜2263を変位計算に使います。"
+
+#: Guess.md:41
+msgid ""
+"With this formatting in mind, we need to convert *steer_protlig.xtc* into a "
+"multipdb trajectory. For convenience, we can use the **``occ_beta.tcl``** "
+"script as follows:"
+msgstr ""
+"この形式に従い、*steer_protlig.xtc* を Multi-PDB Trajectory "
+"に変換します。**``occ_beta.tcl``** を次のように使えます。"
+
+#: Guess.md:45
+msgid ""
+"Note that, for application to different systems, you will need to adapt this"
+" command."
+msgstr "別の系ではコマンドを調整してください。"
+
+#: Guess.md:47
+msgid ""
+"Here, *structure_protlig.pdb* is a pdb file of the protein-ligand complex "
+"only, consistent with *steer_protlig.xtc* trajectory, ``-protsel`` specifies"
+" the selection on which performing the alignment, and ``-ligsel`` is the "
+"selection for the displacement calculation. The script will generate a "
+"*multipdb_occbeta.pdb* trajectory, which can be used to feed the "
+"**``rmsd_mc.sh``** script as follows:"
+msgstr ""
+"*structure_protlig.pdb* は *steer_protlig.xtc* と整合する複合体だけの PDB、``-protsel`` "
+"は重ね合わせ、``-ligsel`` は変位計算の選択です。生成される *multipdb_occbeta.pdb* を、次のように "
+"**``rmsd_mc.sh``** に渡します。"
+
+#: Guess.md:51
+msgid ""
+"With the above command, we perform 10000 iterations to generate a frameset "
+"comprising 80 frames. Note that the choice of 80 frames is a result of "
+"trial-and-error testing. Ideally, one should balance the need for high "
+"resolution in the chemical accuracy of the path, which requires a higher "
+"number of frames, with the practical availability of those configurations in"
+" the trajectory of the prior SMD simulation. As a general guideline, a "
+"frameset with a spacing between 1.0 - 1.5 $Å$ is recommended, and the number"
+" of frames should be adjusted accordingly."
+msgstr ""
+"10000回の反復で80 Frame の Frameset を作ります。80は試行錯誤で選びました。Frame を増やして Path "
+"の化学的精度を上げることと、SMD に必要な Configuration が存在することの釣り合いが必要です。目安は1.0〜1.5 $Å$ "
+"間隔で、Frame 数を調整します。"
+
+#: Guess.md:53
+msgid ""
+"Once the calculation is completed, you can visualize the obtained frameset "
+"(*REPARAM_FINAL.pdb*) in VMD."
+msgstr "終了したら *REPARAM_FINAL.pdb* を VMD で可視化できます。"
+
+#: Guess.md:55
+msgid ""
+"Additional outputs are the *output.csv* and a series of *RMSD_DIAGONAL_N* "
+"files. The first column of *output.csv* monitors the energy at each "
+"iteration, while the second to last columns list the 80 frames selected from"
+" the original trajectory for each iteration. Finally, each *RMSD_DIAGONAL_N*"
+" file reports the distance between subsequent frames, in terms of root-mean-"
+"square deviation (RMSD), at iteration N. We can visualize these quantities "
+"in separate plots:"
+msgstr ""
+"*output.csv* と複数の *RMSD_DIAGONAL_N* も出力します。*output.csv* "
+"の第1列は各反復のエネルギー、第2列以降は各回で元の Trajectory から選んだ80 Frame です。*RMSD_DIAGONAL_N* は反復"
+" N の隣接 Frame 間の RMSD を示します。それぞれ描画できます。"
+
+#: Guess.md:57
+msgid "![guess_round1](figures/guess_round1_50ns.png \"Figure\")"
+msgstr "![1回目の推定](figures/guess_round1_50ns.png \"Figure\")"
+
+#: Guess.md:59
+msgid ""
+"As you can see, the program did its best to identify equally spaced frames "
+"from the original trajectory, though the series of RMSD values is not "
+"uniform."
+msgstr "元の Trajectory から可能な限り等間隔の Frame を選んでいますが、RMSD は一様ではありません。"
+
+#: Guess.md:61
+msgid "Enriching the frameset through interpolation"
+msgstr "補間による Frameset の拡充"
+
+#: Guess.md:63
+msgid ""
+"We can try to mitigate this by enriching the *REPARAM_FINAL.pdb* frameset "
+"with intermediate frames and then repeating the frame-selection procedure. "
+"To this end, we can use the **``morph_frameset.tcl``** script as follows:"
+msgstr ""
+"*REPARAM_FINAL.pdb* に中間 Frame を加え、選択を繰り返して改善を試みます。**``morph_frameset.tcl``**"
+" を使います。"
+
+#: Guess.md:69
+msgid ""
+"The script is set to interpolate between subsequent frames inserting 5 "
+"intermediate frames, generating an output trajectory named "
+"*REPARAM_FINAL_morphed.pdb*. You can easily modify the command to "
+"increase/reduce this parameter and check the effect yourself. As a general "
+"indication, generating a low number of intermediates reduces chances to "
+"produce non-physical structures, which may then be included in the final "
+"frameset."
+msgstr ""
+"隣接 Frame 間に5つの中間 Frame を補間し、*REPARAM_FINAL_morphed.pdb* "
+"を生成します。数を増減して影響を確認できます。中間 Frame を少なくすると、最終 Frameset に非物理的な構造が入る可能性を抑えられます。"
+
+#: Guess.md:71
+msgid "Search for equidistant frames (Round 2)"
+msgstr "等間隔 Frame の探索（2回目）"
+
+#: Guess.md:73
+msgid "Finally, we repeat the frame selection procedure:"
+msgstr "最後に、Frame 選択を繰り返します。"
+
+#: Guess.md:77
+msgid ""
+"The task is relatively simpler now, so we should expect less iterations. "
+"Again, we can visulize the output quantities:"
+msgstr "今度は簡単になるため、反復数は少なくなるはずです。再び出力量を可視化します。"
+
+#: Guess.md:79
+msgid "![guess_round1](figures/guess_round2_50ns.png \"Figure\")"
+msgstr "![2回目の推定](figures/guess_round2_50ns.png \"Figure\")"
+
+#: Guess.md:81
+msgid ""
+"We can clearly see the improvement achieved in the last plot, which reports "
+"the RMSD between subsequent frames. Specifically, the RMSDs lay on a flat "
+"line, as we should expect when achieving equidistance, here sitting at an "
+"RMSD of about 1.1 $Å$."
+msgstr "最後の図の隣接 Frame 間 RMSD に改善が見られます。等間隔の場合に期待される平坦な線となり、約1.1 $Å$ です。"
+
+#: Guess.md:83
+msgid ""
+"Take now note of the last few lines of the *out_rmsdmc.dat* file, in "
+"particular of the entry ``LAMBDA``, as we will need to specify this value "
+"for using Path CVs. Note that here ``LAMBDA`` is expressed in $Å^{-2}$ "
+"units. In our example, we obtained a value of 1.759 $Å^{-2}$."
+msgstr ""
+"*out_rmsdmc.dat* の最後の数行、特に ``LAMBDA`` を記録してください。Path CV に必要です。``LAMBDA`` "
+"の単位は $Å^{-2}$ で、この例は1.759 $Å^{-2}$ でした。"
+
+#: Guess.md:85
+msgid ""
+"As a final remark, despite numbers may seem pretty, it is always advisable "
+"to visualize in VMD the resulting *REPARAM_FINAL.pdb*, to make sure to have "
+"not included remarkably unphysical structures."
+msgstr "数値がよく見えても、*REPARAM_FINAL.pdb* を VMD で確認し、著しく非物理的な構造がないか調べてください。"
+
+#: Guess.md:87
+msgid ""
+"We provide a script named **``README.sh``** through which you can carry out "
+"the whole pipeline."
+msgstr "全手順を実行できる **``README.sh``** も用意しています。"
