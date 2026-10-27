@@ -1,0 +1,58 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: bias_exchange.md:1
+msgid ""
+"Bias exchange metadynamics simulation of the cis-trans isomerization of a "
+"Prolyl Peptide"
+msgstr ""
+
+#: bias_exchange.md:3
+msgid ""
+"PLUMED input for a bias-exchange metadynamics simulation of the cis-trans "
+"isomerization in a Prolyl peptide (see also that of a bi-dimensional "
+"metadynamics). The simulation utilizes two replicas, each applying a bias to"
+" one of the torsion angles, omega and psi, that describe the cis-trans "
+"transition at the proline peptide bond, along with the associated auxiliary "
+"conformational motion, respectively. Replica exchanges are attempted at "
+"regular intervals and accepted according to a Metropolis criterion, based on"
+" the biasing potentials of the replicas. The setup entails one common "
+"*PLUMED* file specifing the two torsional angles, omega and psi, and the "
+"```RANDOM_EXCHANGES``` *keyword* instructing *PLUMED* to make exchanges "
+"between randomly chosen replicas:"
+msgstr ""
+
+#: bias_exchange.md:15
+msgid ""
+"Two additional *PLUMED* files are required for each metadynamics replica, "
+"and these can be placed in separate folders where each replica is being run."
+" These *PLUMED* files read the definitions of collective variables and other"
+" shared parameters from the common *PLUMED* file using the ```INCLUDE "
+"FILE``` *keyword*. The bias is applied to a single dihedral angle, with each"
+" replica biasing a different angle. The first *PLUMED* file performs "
+"metadynamics on the omega angle (```cv1```):"
+msgstr ""
+
+#: bias_exchange.md:36
+msgid ""
+"The second *PLUMED* file entails a metadynamics on the psi angle "
+"(```cv2```):"
+msgstr ""
+
+#: bias_exchange.md:57
+msgid ""
+"Both *PLUMED* files output the collective variables and biasing applied "
+"forces on those variables to the files ```COLVAR``` and ```forces.dat``` via"
+" the keywords ```PRINT``` and ```DUMPFORCES```, respectively. These files "
+"are useful for calculating the bi-dimensional free energy as a function of "
+"omega and psi, using the sampling of both replicas via the force correction "
+"analysis method (FCAM, Marinelli et al. JCTC 2021, https://github.com/FCAM-"
+"NIH/FCAM). Detailed documentation on setup and analysis is provided on the "
+"Tutorial Instructions."
+msgstr ""

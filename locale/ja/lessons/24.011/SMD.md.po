@@ -1,0 +1,95 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: SMD.md:1
+msgid "Generating an unbinding trajectory"
+msgstr ""
+
+#: SMD.md:3
+msgid ""
+"To generate a guess path for drug-target binding, we need the initial and "
+"final reference states along with a tentative sampling of the process. In "
+"most cases, the bound state of the drug-target complex is available either "
+"though known experimental structures or docking predictions. However, "
+"sampling the spontaneous drug-target dissociation with standard MD is "
+"usually impractical due to timescale issues. To overcome this limitation, "
+"one can leverage enhanced sampling methods. Herein, we resort to steered MD "
+"(SMD), though other equally valid alternatives, such as adiabatic-bias MD, "
+"are available."
+msgstr ""
+
+#: SMD.md:5
+msgid ""
+"As a test system to show the procedure for parameterizing a guess path, we "
+"take the complex between the drug alprenolol and the $\\beta2$ adrenergic "
+"receptor, which was more extensively studied in this work: "
+"https://doi.org/10.1021/acs.jctc.9b00450"
+msgstr ""
+
+#: SMD.md:7
+msgid ""
+"Starting from the bound state of the complex, we pull along the distance "
+"between the ligand and the binding site. In particular, we take as CV the "
+"distance between the geometric centers of the low-fluctuating $\\alpha$ "
+"carbons of the intra-membrane region of the receptor (ca) and the ligand's "
+"heavy atoms (alp). We do this in a 10 ns SMD simulation, where we increase "
+"the distance from its initial value to a target value of 30.0 Å and using a "
+"force constant of 100 kcal/(mol * $Å^2$). For the receptor's atoms, we can "
+"take the residue list from the published work. Fill in the following plumed "
+"template to perform the SMD simulation:"
+msgstr ""
+
+#: SMD.md:30
+msgid ""
+"For the subsequent stages of the procedure, it is important to have a "
+"trajectory that finely catches the system progression along the process. To "
+"this end, we need to increase the saving frequency of MD snapshots. Setting "
+"a dumping frequency value of 1 ps in the MD engine should be reasonable for "
+"most applications."
+msgstr ""
+
+#: SMD.md:32
+msgid ""
+"Once the simulation has completed, we can read the plumed output "
+"*colvar_SMD.dat*, which stores different quantities recorded during the "
+"simulation. For instance, we can inspect how strictly the system follows the"
+" SMD restraint, and the work as a function of the distance CV:"
+msgstr ""
+
+#: SMD.md:34
+msgid "![SMD](figures/smd.png \"Figure\")"
+msgstr ""
+
+#: SMD.md:36
+msgid ""
+"As a final consideration, note that while the distance between ligand and "
+"binding site increases, both the ligand, as well as the surrounding residues"
+" from the target, are free to explore different configurations. For this "
+"reason, it is good practice to perform a series of SMD simulations, and pick"
+" the one where the work associated with the process is lowest. In first "
+"approximation, this should better point to the minimum free energy path. "
+"Additionally, the simulation parameters used herein were suitable to this "
+"illustrative example and may need readjustements for application of "
+"different systems. For instance, consider that different force constant "
+"values or simulation time may be required. As an exercise, we can perform a "
+"single replicate of SMD at increasing simulation times, e.g. 50 and 100 ns. "
+"If we compare the work as a function of the distance CV in the three "
+"simulations, we should obtain something like this:"
+msgstr ""
+
+#: SMD.md:39
+msgid "![SMD](figures/smd_times.png \"Figure\")"
+msgstr ""
+
+#: SMD.md:41
+msgid ""
+"As expected, allowing more time to the system for readjusting to more "
+"favorable configurations as we pull the ligand outside the binding site "
+"results in lower work."
+msgstr ""

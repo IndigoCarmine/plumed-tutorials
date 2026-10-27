@@ -1,0 +1,72 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:1
+msgid "Computing the effect of mechanical force in PLUMED"
+msgstr ""
+
+#: README.md:3
+msgid ""
+"This repository contains files for the plumed masterclass presented on "
+"October 17, 2022."
+msgstr ""
+
+#: README.md:5
+msgid "It covers the effect of mechanical forces and the `fisst` module."
+msgstr ""
+
+#: README.md:7
+msgid ""
+"Masterclass videos were presented by Glen Hocky and Guillaume Stirnemann"
+msgstr ""
+
+#: README.md:9
+msgid ""
+"FISST video (Hocky): https://www.youtube.com/live/1GSKhM57lo0?si=Fetb-"
+"LabeqlweNHU"
+msgstr ""
+
+#: README.md:11
+msgid ""
+"Modeling of mechanobiological processes (Stirnemann) and solutions (Hocky): "
+"https://www.youtube.com/live/JjpKSzb9kJM?si=9zwW6_gW1siFZ9yJ"
+msgstr ""
+
+#: README.md:13
+msgid "There are four systems:"
+msgstr ""
+
+#: README.md:15
+msgid ""
+"double_well/ - The effect of constant force is studied on a double well "
+"potential using `pesmd` and `metad`"
+msgstr ""
+
+#: README.md:16
+msgid ""
+"v-shape/ - The effect of force on a 2d potential is studied using `fisst`"
+msgstr ""
+
+#: README.md:17
+msgid ""
+"This contains an example script showing how to reweight using FISST "
+"observable files"
+msgstr ""
+
+#: README.md:18
+msgid ""
+"helix/ - The effect of force on a model molecule is studied using `fisst` in"
+" LAMMPS"
+msgstr ""
+
+#: README.md:19
+msgid ""
+"ala10/ - The effect of force is studied on a solvated model peptide, "
+"decalanine, using GROMACS"
+msgstr ""

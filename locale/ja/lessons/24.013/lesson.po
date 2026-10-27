@@ -1,0 +1,18 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lesson.yml:title
+msgid "Permutationally Invariant Networks for Enhanced Sampling (PINES)"
+msgstr "Permutationally Invariant Networks for Enhanced Sampling (PINES)"
+
+#: lesson.yml:description
+msgid ""
+"An introduction to using permutationally invariant networks for enhanced "
+"sampling"
+msgstr "Enhanced Sampling に Permutationally Invariant Networks を用いるための入門"

@@ -1,0 +1,72 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. mermaid node label
+#: NAVIGATION.md:3 NAVIGATION.md:4
+msgid "PLUMED syntax"
+msgstr "PLUMED の構文"
+
+#. mermaid node label
+#: NAVIGATION.md:3 NAVIGATION.md:5 NAVIGATION.md:7
+msgid "Metadynamics: cis-trans isomerization"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:4 NAVIGATION.md:6 NAVIGATION.md:8
+msgid "Bias-Exchange: cis-trans isomerization"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:5 NAVIGATION.md:6
+msgid "WHAM: Free energy"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:7 NAVIGATION.md:8
+msgid "FCAM: Free energy"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:9 NAVIGATION.md:17
+msgid "Tutorial Instructions"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:10 NAVIGATION.md:20
+msgid "Tutorial Files"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:12
+msgid "PLUMED input instructions for bi-dimensional metadynamics"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:13
+msgid "PLUMED input instructions for bias-exchange metadynamics"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:14
+msgid "A tutorial on the basic plumed syntax"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:15 NAVIGATION.md:16
+msgid ""
+"metagu3: VMD plugin for cluster and free energy analysis (Giorgino et al. "
+"Comp Phys Comm 2017)"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:18 NAVIGATION.md:19
+msgid ""
+"FCAM: free energy calculation based on mean forces (Marinelli et al. JCTC "
+"2021)"
+msgstr ""

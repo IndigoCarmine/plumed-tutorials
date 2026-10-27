@@ -1,0 +1,115 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "hybrid Small Angle Scattering — hands-on guide"
+msgstr "hybrid Small Angle Scattering — 実習ガイド"
+
+#: NAVIGATION.md:3
+msgid ""
+"This guide is designed to provide users with practical advice on using the "
+"hySAS module. For theoretical information about the method, please refer to "
+"the related "
+"[manuscript](https://pubs.acs.org/doi/full/10.1021/acs.jctc.3c00864). The "
+"guide is divided into several sections:"
+msgstr ""
+
+#: NAVIGATION.md:5
+msgid "[hySAS Intro & Overview](intro.md)"
+msgstr ""
+
+#: NAVIGATION.md:6
+msgid ""
+"A brief introduction to the method, basic concepts, and an overview of the "
+"analyses that can be performed."
+msgstr ""
+
+#: NAVIGATION.md:8
+msgid "[Determining the Scattering Profile with hySAS](01.md)"
+msgstr ""
+
+#: NAVIGATION.md:9
+msgid ""
+"From coordinates to a SAS curve: steps and examples to analyse a PDB file or"
+" a trajectory."
+msgstr ""
+
+#: NAVIGATION.md:11
+msgid "[Generating a Conformational Ensemble with GMX and hySAS](02.md)"
+msgstr ""
+
+#: NAVIGATION.md:12
+msgid ""
+"Combining GROMACS and PLUMED to generate conformational ensembles restrained"
+" by SAS data using different coupling methods."
+msgstr ""
+
+#: NAVIGATION.md:14
+msgid "[Preparing the Input Files](input.md)"
+msgstr ""
+
+#: NAVIGATION.md:15
+msgid "Guidelines and tips for preparing the input files."
+msgstr ""
+
+#: NAVIGATION.md:17
+msgid "[Compiling PLUMED with ARRAYFIRE Support](arrayfire.md)"
+msgstr ""
+
+#: NAVIGATION.md:18
+msgid ""
+"Technical suggestions and a real-case example for installing PLUMED with "
+"ARRAYFIRE support on a SLURM-based HPC."
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:22 NAVIGATION.md:29
+msgid "hySAS intro & overview"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:23
+msgid "Tutorial-1: <br> Determining the scattering profile with hySAS"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:24
+msgid ""
+"Tutorial-2: <br> Generating a conformational ensemble with GMX and hySAS"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:26
+msgid "Technical Support: <br> Preparing the input files"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:27
+msgid "Technical Support: <br> Compiling PLUMED with ARRAYFIRE support"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:30
+msgid "Tutorial-1: Determining the scattering profile with hySAS"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:31
+msgid "Tutorial-2: Generating a conformational ensemble with GMX and hySAS"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:32
+msgid "Preparing the input files"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:33
+msgid "Compiling PLUMED with ARRAYFIRE support"
+msgstr ""

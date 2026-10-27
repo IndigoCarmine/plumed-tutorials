@@ -1,0 +1,243 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Part1_Conformation.md:1
+msgid "Analyzing CpH-Metadynamics simulations"
+msgstr ""
+
+#: Part1_Conformation.md:3
+msgid ""
+"In this tutorial, we will briefly look into different analyses that can be "
+"performed using CpH-MetaD. These analysis will be comprised of two parts:"
+msgstr ""
+
+#: Part1_Conformation.md:5
+msgid "Conformational analysis"
+msgstr ""
+
+#: Part1_Conformation.md:6
+msgid "Protonation analysis"
+msgstr ""
+
+#: Part1_Conformation.md:8
+msgid ""
+"In the conformational analysis, we will evaluate the convergence of chosen "
+"Collective Variables (CV's), characterize the CV space and estimate errors. "
+"In the protonation analysis, we will estimate average protonations of the "
+"titrable site at each pH value, estimate pKas using the Henderson-"
+"Hasselbalch equation and calculate errors, while using the metadynamics "
+"weights. Furthermore, we will compute the same properties using a WHAM "
+"procedure to reweight to obtain smoother and more accurate descriptions of "
+"several observables."
+msgstr ""
+
+#: Part1_Conformation.md:10
+msgid "Loading Packages"
+msgstr ""
+
+#: Part1_Conformation.md:21
+msgid "Conformational Analysis"
+msgstr ""
+
+#: Part1_Conformation.md:23
+msgid "Extraction of trajectories and protonation state data"
+msgstr ""
+
+#: Part1_Conformation.md:25
+msgid ""
+"All trajectories and protonation states were extracted locally using the "
+"scripts in the data folder. Take notice of them and examine how to extract "
+"the information."
+msgstr ""
+
+#: Part1_Conformation.md:27
+msgid "Calculating populations and the free energy in function of the CVs"
+msgstr ""
+
+#: Part1_Conformation.md:29
+msgid ""
+"Here we use the PLUMED tool to obtain reweighted data on the desired "
+"observables, i.e. the chosen CV's:"
+msgstr ""
+
+#: Part1_Conformation.md:30
+msgid ""
+"the $\\chi$ angle of titrable site : this important property of nucleobases "
+"characterizes the relative orientation of the base/sugar. It is defined by "
+"the O4'-C1'-N1'-C2 (C,U) or O4'-C1'-N9-C4 (A,G). When the angle is between 0"
+" and 2 radians (-90º to 90º) it is in syn and the base is oriented towards "
+"the sugar, while from -pi to 0 and 2 to pi the angle is in anti. This base-"
+"flipping is a slow internal degree of freedom therefore a good candidate for"
+" a CV. It is also useful to validate our force field against experimental "
+"data;"
+msgstr ""
+
+#: Part1_Conformation.md:32
+msgid ""
+"the sugar puckering: another slow yet important property that refers to the "
+"conformation of the ribose. It is defined by the C2' and C3' atoms' relative"
+" positions to the plane defined by the C1', O4' and C4' atoms. The C2' endo "
+"is defined by the C2' atom above the plane and similarly the C3' endo for "
+"the C3' atom. The positioning defines the proximity of the 2'-OH group to "
+"the base and also the helix type. These calculations were done locally."
+msgstr ""
+
+#: Part1_Conformation.md:34
+msgid ""
+"Biased simulations were performed at 3 distinct pH values: 8.0, 9.0 and "
+"10.0. Since the pKa of uridine is 9.22, then each simulation should exhibit "
+"differences in their observables if they are protonation-dependent. And that"
+" is what we are going to assess. For that purpose, we need to unbias our "
+"simulations and obtain either the weights or the unbiased observables. "
+"First, we need to extract the reweighted observables using the HILLS file "
+"for each simulation of our system. To do that we need to run the PLUMED "
+"driver module on the concatenated trajectory using a modified version of our"
+" PLUMED.dat input file. Examine the following cell that generates the "
+"PLUMED_rew.dat file."
+msgstr ""
+
+#: Part1_Conformation.md:83
+msgid ""
+"From the previous cell, we were able to obtain the weighted histograms, the "
+"unweighted properties and the bias used along the frames of the simulation. "
+"At this moment, we can extract the information from the COLVAR files and "
+"compute the weights w of each frame using w = exp(V/kBT) and then applying "
+"each w to each value of the observable. As such, we can obtain weighted "
+"averages, free-energy differences between the energy minima and plot the "
+"free energy along the chosen observable."
+msgstr ""
+
+#: Part1_Conformation.md:85
+msgid ""
+"In the following cells, we will examine how the pH impacts the CVs of our "
+"system by comparing the populations of the syn/anti and the C2'/C3' endo "
+"conformations and their free energy differences."
+msgstr ""
+
+#: Part1_Conformation.md:87
+msgid ""
+"Q1. Does increasing the pH, thus the number of deprotonation events, impact "
+"the thermodynamic balance between these distinct conformations?"
+msgstr ""
+
+#: Part1_Conformation.md:149
+msgid ""
+"Q2. Calculate the By observing the plot and examining the populations' "
+"values, what can we learn from the pH dependence of this system?"
+msgstr ""
+
+#: Part1_Conformation.md:151
+msgid ""
+"Wt-metadynamics simulations depend on providing enough transitions across "
+"the defined range of the CV space to obtain sufficient sampling and a good "
+"description of the desired observables. As such, we need to examine if the "
+"number of transitions across the full CV range and if there is enough "
+"sampling in the transition regions which are typically of high energy."
+msgstr ""
+
+#: Part1_Conformation.md:168
+msgid ""
+"Q3. Are there enough transitions across the full range to state that we are "
+"sampling this specific CV space?"
+msgstr ""
+
+#: Part1_Conformation.md:170
+msgid ""
+"Another important property to evaluate is the convergence of the free energy"
+" difference. In a simple system such as this, convergence can be assessed by"
+" measuring the free energy difference along the simulation time. Then, we "
+"will be able to use the converged portion of the trajectory to calculate "
+"other observables and estimate standard errors."
+msgstr ""
+
+#: Part1_Conformation.md:172
+msgid ""
+"To obtain the convergence, we need to compute the free energy along each CV "
+"value using the sum_hills module every N steps of the simulation."
+msgstr ""
+
+#: Part1_Conformation.md:180
+msgid ""
+"The sum_hills module is used to sum the Gaussians stored in the HILLS file "
+"by using the --hills keyword. Then it is possible to select one specific CV,"
+" using the --idw keyword, to obtain their specific bias."
+msgstr ""
+
+#: Part1_Conformation.md:182
+msgid ""
+"Then, by iterating through each pH value, we can extract the data of each "
+"file and compute the free energy difference of the minima defined by the "
+"syn/anti criterion used previously."
+msgstr ""
+
+#: Part1_Conformation.md:225
+msgid ""
+"Q4. Did the free energy difference converge quickly and how much should we "
+"discard of our trajectory?"
+msgstr ""
+
+#: Part1_Conformation.md:227
+msgid ""
+"After assessing the convergence of our simulation and defining how much "
+"should we discard, we can perform some statistics using block analysis and a"
+" bootstrap approach on the converged part of our trajectory."
+msgstr ""
+
+#: Part1_Conformation.md:229
+msgid ""
+"First, we are going to reproduce the plot of the free energy as a function "
+"of the $\\chi$ angle with the standard errors."
+msgstr ""
+
+#: Part1_Conformation.md:305
+msgid ""
+"Q5. How does the new free energy plot compare to the one obtained through "
+"the PLUMED module? How big are the error estimates?"
+msgstr ""
+
+#: Part1_Conformation.md:307
+msgid ""
+"Q6. Attempt to reproduce the previous analyses for the Zx component of the "
+"sugar puckering. How does it compare to the $\\chi$ angle?"
+msgstr ""
+
+#: Part1_Conformation.md:309
+msgid ""
+"So far, we have examined how an individual CV depends on the simulation pH "
+"and how the population balance of syn/anti and C2'/C3' endo change across "
+"the different simulations. Now, we want to compare the 2D free energy "
+"surface along all pH values and observe how the energy minima relate to each"
+" other."
+msgstr ""
+
+#: Part1_Conformation.md:311
+msgid ""
+"Plotting 2D Free Energy Surface in the function of the metadynamics CVs"
+msgstr ""
+
+#: Part1_Conformation.md:313
+msgid ""
+"First, we need to once again use the sum_hills module to read the HILLS file"
+" of each simulation and generate a file with the free energies at each grid "
+"point. The grid is defined by both CVs and, at each point, an energy value "
+"is assigned after the module sums all the Gaussians deposited during the "
+"simulation that are stored in the HILLS file."
+msgstr ""
+
+#: Part1_Conformation.md:326
+msgid ""
+"After generating each fes_pH.dat file, we can plot the data and it should "
+"look like the following plot:"
+msgstr ""
+
+#: Part1_Conformation.md:391
+msgid ""
+"Q7. Do we identify differences in the energy minima and barriers across the "
+"different pH values? What can we say about the system?"
+msgstr ""

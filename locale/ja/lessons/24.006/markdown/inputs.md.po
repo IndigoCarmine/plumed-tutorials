@@ -1,0 +1,283 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: markdown/inputs.md:1
+msgid "Input files"
+msgstr "入力ファイル"
+
+#: markdown/inputs.md:3
+msgid ""
+"All files and data required to perform this tutorial are on the [GitHub "
+"repository](https://github.com/blake-armstrong/binding-tutorial-PLUMED). "
+"They can either be accessed by cloning the repository to your machine;"
+msgstr ""
+
+#: markdown/inputs.md:9
+msgid ""
+"or by following the download instructions in the `README.md` page on the "
+"repository to download the basic ZIP file."
+msgstr ""
+
+#: markdown/inputs.md:11
+msgid ""
+"Once downloaded, the input files required to run a simulation with OpenMM "
+"and PLUMED are provided in the `simulation_files` directory. Included in the"
+" `scripts` directory are bash scripts that will automate setting up the "
+"multiple-walker simulation files and will analyse the output for you. These "
+"scripts are not strictly necessary to perform this tutorial, as the actions "
+"they perform can be carried out manually by the user. All the data has "
+"already been produced and analysed, and is presented in the 'data' "
+"directory. We will discuss how that data was produced and analysed so you "
+"can do it all yourself."
+msgstr ""
+
+#: markdown/inputs.md:13
+msgid "OpennMM & PLUMED Installation"
+msgstr ""
+
+#: markdown/inputs.md:15
+msgid ""
+"The first thing we need to do is get a working installation of OpenMM and "
+"openmmplumed. [Comprehensive installation instructions for "
+"OpenMM](http://docs.openmm.org/latest/userguide/application/01_getting_started.html)."
+" We recommend using `conda`, as it is the most straight forward way to "
+"install the software without needing to worry about dependencies. See "
+"[instructions for installing "
+"conda](https://conda.io/projects/conda/en/latest/user-"
+"guide/install/index.html). After testing the installation with:"
+msgstr ""
+
+#: markdown/inputs.md:21
+msgid ""
+"All platforms available to you will be shown. In this tutorial we use the "
+"CPU platform, and the input files provided set up a simulation to use the "
+"CPU platform, which every user should have available by default. The "
+"[instructions to install the OpenMM PLUMED "
+"plugin](https://github.com/openmm/openmm-plumed) are also very simple when "
+"using conda. This will also install the command line plumed tool which will "
+"be used for analysis later on."
+msgstr ""
+
+#: markdown/inputs.md:23
+msgid "Running a simulation"
+msgstr ""
+
+#: markdown/inputs.md:25
+msgid "Running the bash script `setup_walkers.sh`"
+msgstr ""
+
+#: markdown/inputs.md:31
+msgid "or"
+msgstr ""
+
+#: markdown/inputs.md:37
+msgid ""
+"will create a set of directory trees within the `data` directory labelled "
+"with cylinder radii ranging from 0.0 nm to 0.5 nm. `NUMWALKERS` is an "
+"integer for the number of walkers desired with the default being 4 (NB this "
+"can be changed but must be greater than 1 for multiple walker metadynamics)."
+" These directories are where the multiple walker simulations will be run for"
+" systems with various radii for the flat-bottom cylindrical restraining "
+"potential. This setup script has been included so that the user can play "
+"around with different numbers of walkers in an easy way, if they so desire. "
+"By default, it will create directories and setups for four walkers. The "
+"details on how to run a single walker are discussed further later."
+msgstr ""
+
+#: markdown/inputs.md:39
+msgid "If we navigate to the directory for a radius of 0.0 nm,"
+msgstr ""
+
+#: markdown/inputs.md:45
+msgid ""
+"here we will find a `run.sh` script here that will handle submitting the "
+"run.py job for each walker. The `run.py` file (which is located in the "
+"`simulation_files` directory) will allow us to run our simulation using "
+"OpenMM through its Python API. The `plumed.inp` file which contains the "
+"PLUMED specifics. There is an 'analysis.sh' script here as well, which will "
+"handle the analysis of our simulation output, which is discussed "
+"[here](analysis.md)."
+msgstr ""
+
+#: markdown/inputs.md:47
+msgid ""
+"There is [extensive documentation for using the OpenMM Python "
+"API](http://docs.openmm.org/latest/userguide/application/02_running_sims.html)"
+" which we direct you to if you cannot understand some component of the "
+"`run.py` file while we briefly discuss it here."
+msgstr ""
+
+#: markdown/inputs.md:49
+msgid "run.py"
+msgstr ""
+
+#: markdown/inputs.md:58
+msgid ""
+"These lines give us access to the OpenMM code, and the OpenMM PLUMED plugin "
+"that can parse a PLUMED input file, interpret it, and provide the "
+"instructions to OpenMM."
+msgstr ""
+
+#: markdown/inputs.md:74
+msgid ""
+"Simulation parameter definitions that will be used further in the file. When"
+" providing a unit with a dimension, we make use of the OpenMM unit object. "
+"By default, each walker will run for 2 ns which should take 5 - 10 minutes "
+"to complete. This should be enough to produce a PMF that is sufficiently "
+"converged to analyse for our purposes due to the simplicity of the model "
+"system."
+msgstr ""
+
+#: markdown/inputs.md:93 markdown/inputs.md:165
+msgid ""
+"The details of this section are better explained in the [OpenMM "
+"docs](http://docs.openmm.org/latest/userguide/application/02_running_sims.html)."
+msgstr ""
+
+#: markdown/inputs.md:102
+msgid ""
+"This section is needed to prevent the thermal energy from being removed from"
+" the system as we have only one particle. It is not important to understand,"
+" as it would not generally be necessary for a real simulation."
+msgstr ""
+
+#: markdown/inputs.md:109
+msgid ""
+"This is where a PLUMED input script is read and our forces will be created "
+"and added to the system."
+msgstr ""
+
+#: markdown/inputs.md:167
+msgid "plumed.inp"
+msgstr ""
+
+#: markdown/inputs.md:169
+msgid ""
+"Here we will discuss all of the sections of the PLUMED input file "
+"(plumed.inp)."
+msgstr ""
+
+#: markdown/inputs.md:175
+msgid ""
+"Required for multiple walkers. Ensures each walker reads HILLS from all "
+"walkers when initialised."
+msgstr ""
+
+#: markdown/inputs.md:180
+msgid ""
+"Simulation units. Same as OpenMM units for consistency. Not a necessity."
+msgstr ""
+
+#: markdown/inputs.md:186
+msgid ""
+"Here we define our z-distance that we will use for the collective variable. "
+"We define a fixed point at the middle of our cubic simulation box (50 Å in "
+"each direction) and calculate the distance between the fixed point and our "
+"one particle, and save it to the `d1` variable."
+msgstr ""
+
+#: markdown/inputs.md:203
+msgid ""
+"Here we use the x and y components of the d1 variable to create `rd`, the "
+"flat-bottomed cylindrical restraining potential. We then tell PLUMED to "
+"actually use the potential to apply forces throughout the simulation, and "
+"not just record its value."
+msgstr ""
+
+#: markdown/inputs.md:214
+msgid ""
+"Here we define upper and lower harmonic walls in the z-dimension. The lower "
+"wall emulates the repulsion of a surface, and starts acting on the particle "
+"at -0.125 nm in the z direction. The upper wall prevents the binding atom "
+"from going too far from the `surface` in the z-direction, and starts acting "
+"at 1.5 nm."
+msgstr ""
+
+#: markdown/inputs.md:252
+msgid ""
+"The following is used to create an arbitrary potential energy surface that "
+"mimics the binding profile of an atom normal to a surface. There will be a "
+"minimum at [2.5, 2.5, 2.5] nm to represent a stable surface site and a "
+"maximum at [2.5, 2.5, 2.8] nm to represent a barrier for leaving the "
+"surface."
+msgstr ""
+
+#: markdown/inputs.md:291
+msgid ""
+"This will output a collective variable file to monitor that everything in "
+"the simulation is proceeding as expected."
+msgstr ""
+
+#: markdown/inputs.md:296
+msgid ""
+"This will flush the output every 1000 steps, allowing us to monitor that "
+"everything within PLUMED is working as it should while the simulation is "
+"running."
+msgstr ""
+
+#: markdown/inputs.md:320
+msgid ""
+"This tells PLUMED to run multiple walker metadynamics with a collective "
+"variable defined as the z-component of the `d1` distance. WALKERS_ID and "
+"WALKERS_N are set to placeholder names which will get replaced when "
+"submitting the job through the `run.sh` script. While the multiple walkers "
+"run, the HILLS files will be written to and read from the 'BIAS' directory. "
+"If you wish to run a single walker simulation, the `RESTART` keyword should "
+"be removed, alongside the last four lines inside the `METAD` section. The "
+"`HILLS` file will then be written inside the current directory instead of a "
+"dedicated `BIAS` directory. The analysis scripts will then need to be "
+"modified accordingly."
+msgstr ""
+
+#: markdown/inputs.md:322
+msgid "run.sh"
+msgstr ""
+
+#: markdown/inputs.md:324
+msgid ""
+"The `run.sh` file will handle submitting all of the walkers for a given "
+"simulation."
+msgstr ""
+
+#: markdown/inputs.md:329
+msgid ""
+"The `OPENMM_CPU_THREADS` environmental variable is used for OpenMM to assign"
+" the number of threads per job on the CPU. If this isn't set OpenMM will use"
+" all of your available CPU cores. In our case where our system only has one "
+"atom, it is the most efficient to run with only one thread per walker."
+msgstr ""
+
+#: markdown/inputs.md:343
+msgid ""
+"This for loop iterates through every walker directory and runs `python3 "
+"../../simulation_files/run.py` to begin the metadynamics simulation, and "
+"submits the job as a background process with `&`. The script saves the "
+"process ID and outputs it to the screen afterwards to make it easy to kill "
+"the background processes if something goes wrong. On UNIX-based operating "
+"systems you can run either the `top` or `htop` command to monitor the "
+"background processes."
+msgstr ""
+
+#: markdown/inputs.md:345
+msgid "Beginning the simulation"
+msgstr ""
+
+#: markdown/inputs.md:347
+msgid ""
+"To begin your simulations for a given radius run the command `bash run.sh` "
+"from the `data/radius_0.x` directory. If you do not modify the `run.py` "
+"file, each walker will run for 100 ns to give a combined time of 400 ns. "
+"This amount of time is enough for the PMFs to adequately converge. Feel free"
+" to run for longer to get an even smoother profile! Once your simulations "
+"have finished running, it is time to [analyse](analysis.md)."
+msgstr ""
+
+#: markdown/inputs.md:351
+msgid "[Back to binding tutorial main page.](../NAVIGATION.md)"
+msgstr "[Binding チュートリアルのメインページに戻る。](../NAVIGATION.md)"

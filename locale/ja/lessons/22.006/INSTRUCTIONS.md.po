@@ -1,0 +1,244 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: INSTRUCTIONS.md:1
+msgid ""
+"PLUMED Masterclass 22.6: EDS module + Coarse-Grained directed simulations"
+msgstr ""
+
+#: INSTRUCTIONS.md:3
+msgid "Origin"
+msgstr "作成について"
+
+#: INSTRUCTIONS.md:5
+msgid ""
+"This masterclass was authored by Glen Hocky and Andrew White on April 26, "
+"2022"
+msgstr ""
+
+#: INSTRUCTIONS.md:7
+msgid "Aims"
+msgstr "目的"
+
+#: INSTRUCTIONS.md:9
+msgid ""
+"This Masterclass describes how to bias simulations to agree with "
+"experimental data using experiment directed simulation."
+msgstr ""
+
+#: INSTRUCTIONS.md:11
+msgid "Objectives"
+msgstr "到達目標"
+
+#: INSTRUCTIONS.md:13
+msgid "Once this Masterclass is completed, you will know how to:"
+msgstr ""
+
+#: INSTRUCTIONS.md:15
+msgid "How to bias collective variables to agree with set values"
+msgstr ""
+
+#: INSTRUCTIONS.md:16
+msgid ""
+"Develop a deeper feeling how parameters in method change learning efficiency"
+msgstr ""
+
+#: INSTRUCTIONS.md:18
+msgid "Prerequisites"
+msgstr "前提条件"
+
+#: INSTRUCTIONS.md:20
+msgid ""
+"We assume that you are familiar with PLUMED and enhanced sampling "
+"calculations. If you are not, the 2021 PLUMED Masterclass is a great place "
+"to start. In particular, you should be familiar with specifying collective "
+"variables."
+msgstr ""
+
+#: INSTRUCTIONS.md:22
+msgid ""
+"Furthermore, some Python or other programming knowledge is required for this"
+" masterclass to generate plots and perform some analysis calculations."
+msgstr ""
+
+#: INSTRUCTIONS.md:24
+msgid "Overview"
+msgstr "概要"
+
+#: INSTRUCTIONS.md:26
+msgid ""
+"Experiment directed simulation (EDS) is a maximum entropy method for biasing"
+" specific collective variables (CVs) to agree with set values. These are "
+"typically from experimental data, like a known radius of gyration or NMR "
+"chemical shift. Biasing a CV is an under-determined problem because there "
+"are many ways to change the systems' potential energy to agree with a set "
+"point. If we further maximize ensemble entropy while matching the set point,"
+" the problem has a unique solution of"
+msgstr ""
+
+#: INSTRUCTIONS.md:32
+msgid ""
+"where $U(x)$ is the potential energy of the system, $f(x)$ is the CV, and "
+"$\\lambda$ is a fit parameter. EDS is a time-dependent method that finds "
+"$\\lambda$ while the simulation is running. It typically converges much "
+"faster than free-energy methods, but comes with the same caveats that "
+"insufficient sampling or rare events can affect the method. Another "
+"important detail is that EDS/maximum entropy biasing is for matching the set"
+" point on average (in expectation), rather than at every frame."
+msgstr ""
+
+#: INSTRUCTIONS.md:34
+msgid "Software and data"
+msgstr ""
+
+#: INSTRUCTIONS.md:36
+msgid ""
+"The only data needed to complete the exercises of this Masterclass can be "
+"found on an the following github page "
+"[data](https://github.com/hockyg/plumed-eds-masterclass), with alanine "
+"inputs being borrowed from an earlier one "
+"[GitHub-22-03](https://github.com/invemichele/masterclass-22-03.git/). "
+"Simulations will be performed using PLUMED's pesmd module, and gromacs."
+msgstr ""
+
+#: INSTRUCTIONS.md:39
+msgid "Exercises"
+msgstr "演習"
+
+#: INSTRUCTIONS.md:41
+msgid "The exercises are presented below."
+msgstr "以下に演習を示す。"
+
+#: INSTRUCTIONS.md:43
+msgid "Setup 1-dimensional system."
+msgstr ""
+
+#: INSTRUCTIONS.md:45
+msgid ""
+"Set up a plumed file to use with pesmd that has a harmonic potential. Then "
+"run using the 1d input provided in the github. For example:"
+msgstr ""
+
+#: INSTRUCTIONS.md:59
+msgid ""
+"Histogram your data, and see if it fits the ideal Boltzmann distribution for"
+" this harmonic oscillator. Make sure to normalize your distribution "
+"properly!"
+msgstr ""
+
+#: INSTRUCTIONS.md:61
+msgid ""
+"Now try adding a harmonic bias using the RESTRAINT function, so that the "
+"data becomes centered near $x=1$."
+msgstr ""
+
+#: INSTRUCTIONS.md:63
+msgid ""
+"Finally, we will add an EDS bias. Make your EDS bias also be centered at 1."
+msgstr ""
+
+#: INSTRUCTIONS.md:75
+msgid ""
+"Note, we have to add TEMP=1 because pesmd does not provide the temperature "
+"to the EDS module."
+msgstr ""
+
+#: INSTRUCTIONS.md:77
+msgid ""
+"![Position versus time, unbiased, harmonic bias, and EDS "
+"bias](figs/masterclass-22-6-comp_rest_eds.png) ![Histogram of position for "
+"1d oscillator shows how RESTRAINT fails and EDS "
+"wins](figs/masterclass-22-6-comp_rest_eds_hist.png)"
+msgstr ""
+
+#: INSTRUCTIONS.md:80
+msgid ""
+"Now look at how the bias factor changes with time. Can you also compute the "
+"bias from this value, and the value of the position versus time? Look in the"
+" colvar file and the restart file to see what values are there."
+msgstr ""
+
+#: INSTRUCTIONS.md:82
+msgid ""
+"![Value of learned EDS linear coefficient and eds bias versus time in the "
+"simulation](figs/masterclass-22-6-1d_check_bias.png)"
+msgstr ""
+
+#: INSTRUCTIONS.md:84
+msgid "Setup and bias a 2-dimensional system."
+msgstr ""
+
+#: INSTRUCTIONS.md:86
+msgid ""
+"Now we will move on to a 2d harmonic oscillator. This way we can see the "
+"effect of biasing x, y, or a combination. Note, there is a different pesmd "
+"input file for this."
+msgstr ""
+
+#: INSTRUCTIONS.md:97
+msgid ""
+"Try to bias either the x or y directions separately. Try biasing a "
+"combination of them. We biased the average of x*y to be = 1. Use the CUSTOM "
+"command to try that out. What do you think it should look like? Write a "
+"python program to histogram the x and y data and see. It should look like "
+"below."
+msgstr ""
+
+#: INSTRUCTIONS.md:101
+msgid ""
+"![Histogram of positions for 2d oscillator with various EDS biases "
+"applied](figs/masterclass-22-6-2d_bias.png)"
+msgstr ""
+
+#: INSTRUCTIONS.md:103
+msgid "Alanine dipeptide"
+msgstr ""
+
+#: INSTRUCTIONS.md:105
+msgid ""
+"Bias alanine dipeptide using gromacs and the input files provided in the "
+"github."
+msgstr ""
+
+#: INSTRUCTIONS.md:118
+msgid ""
+"Try biasing phi and psi independently. Try biasing them at the same time. "
+"What is a good PERIOD to choose?"
+msgstr ""
+
+#: INSTRUCTIONS.md:120
+msgid ""
+"![Histogram of phi and psi for adp from a very long unbiased "
+"simulation](figs/masterclass-22-6-ala2_unbiased.png)"
+msgstr ""
+
+#: INSTRUCTIONS.md:122
+msgid ""
+"![Histogram of phi and psi for adp from a very long unbiased simulation with"
+" phi biased to be 1](figs/masterclass-22-6-ala2_eds_phi1.png)"
+msgstr ""
+
+#: INSTRUCTIONS.md:124
+msgid ""
+"![Histogram of phi and psi for adp from a very long unbiased simulation with"
+" psi biased to be 1](figs/masterclass-22-6-ala2_eds_psi1.png)"
+msgstr ""
+
+#: INSTRUCTIONS.md:126
+msgid "Free explore"
+msgstr ""
+
+#: INSTRUCTIONS.md:128
+msgid ""
+"Take a protein of interest, or alanine 2, and bias more than one variable. "
+"To try CGDS, choose the center of mass of some different parts of your "
+"protein. Can you bias the distance between these COMs and the angle between "
+"them at the same time? Does using COVAR or LM affect the speed of "
+"convergence?"
+msgstr ""

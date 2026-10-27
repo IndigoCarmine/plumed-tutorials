@@ -1,0 +1,117 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: SymmetryFunction.md:1
+msgid "Calculating symmetry functions"
+msgstr ""
+
+#: SymmetryFunction.md:3
+msgid ""
+"In the other blog articles on these pages I have written a great deal about "
+"how you can calculate coordination numbers using inputs such as the one "
+"below:"
+msgstr ""
+
+#: SymmetryFunction.md:16
+msgid ""
+"In this article I want to explain how we can use PLUMED input files that are"
+" similar to the one above to calculate other input files."
+msgstr ""
+
+#: SymmetryFunction.md:19
+msgid "CONTACT_MATRIX and the COMPONENTS flag"
+msgstr ""
+
+#: SymmetryFunction.md:21
+msgid ""
+"In the input at the top of this file I used a CONTACT_MATRIX. This command "
+"outputs a matrix, $\\mathbf{A}$, in which element $i,j$ is given by:"
+msgstr ""
+
+#: SymmetryFunction.md:27
+msgid ""
+"where $\\sigma$ is a switching function and $r_{ij}$ is the distance between"
+" atom $i$ and atom $j$."
+msgstr ""
+
+#: SymmetryFunction.md:29
+msgid ""
+"Switching functions like $\\sigma(r_{ij})$ are used in the definitions "
+"symmetry functions such as those used in the FCCUBIC, TETRAHEDRAL and "
+"SIMPLECUBIC actions. These functions have the following general form:"
+msgstr ""
+
+#: SymmetryFunction.md:35
+msgid ""
+"where $f$ is some function of the $x_{ij}$, $y_{ij}$ and $z_{ij}$ components"
+" of the vector that connects atom $i$ to atom $j$. To make it easy to "
+"implement such functions I have introduced a COMPONENTS flag on the "
+"CONTACT_MATRIX command that can be used as shown below:"
+msgstr ""
+
+#: SymmetryFunction.md:46
+msgid ""
+"The COMPONENTS flag for the CONTACT_MATRIX action is specfically designed to"
+" make calculating symmetry functions such as $s_i$ striaghforward. The "
+"elements of the matrix `c1.x` are thus calculated as:"
+msgstr ""
+
+#: SymmetryFunction.md:56
+msgid ""
+"The elements of `c1.y` and `c1.z` are also calculated in a similar fashion. "
+"__In other words, the $i,j$ element of these three matrices are only non-"
+"zero if atom $j$ is within the first coordination sphere of atom $i$.__"
+msgstr ""
+
+#: SymmetryFunction.md:59
+msgid "Combining CONTACT_MATRIX and CUSTOM"
+msgstr ""
+
+#: SymmetryFunction.md:61
+msgid ""
+"We can use the CONTACT_MATRIX command with the COMPONENTS keyword to "
+"calculate a function similar to $s_i$ above as follows:"
+msgstr ""
+
+#: SymmetryFunction.md:81
+msgid "The graph for this input is shown below:"
+msgstr ""
+
+#: SymmetryFunction.md:99
+msgid "The way forces are passed through the code is illustrated below."
+msgstr ""
+
+#: SymmetryFunction.md:117
+msgid ""
+"Once again the elements of any matrices and vectors are recomputed during "
+"the backward loop when we apply the chain rule."
+msgstr ""
+
+#: SymmetryFunction.md:119
+msgid "Extending these symmetry functions"
+msgstr ""
+
+#: SymmetryFunction.md:121
+msgid ""
+"There are ways of defining the neighbourhood of atom $i$ that do not involve"
+" using the CONTACT_MATRIX keyword. For example, you can define a matrix in "
+"which element $i,j$ is only non-zero if there is a hydrogen bond between "
+"atom $i$ and atom $j$ (HBOND_MATRIX or HBPAMM_MATRIX) or, if you have "
+"molecules, you can say that molecule $i$ and $j$ are connected if they are "
+"within a cutoff of each other and if the two molecules have some favourable "
+"orientation with respect to each other. In all these cases you can also use "
+"a COMPONENTS keywords to get the direction of the bonds in the first "
+"coordination sphere as I have described in the article above. You are thus "
+"not forced to use a switching function to define the $\\sigma(r_{ij})$ part "
+"of the symmetry function that was defined above. You can use other methods "
+"to determine whether atom $i$ and atom $j$ are adjacent or not. "
+"Consequently, the implementation of these symmetry function in PLUMED is "
+"quite flexible and allows users to try many things without modifying the "
+"code."
+msgstr ""

@@ -1,0 +1,313 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 01.md:1
+msgid "Tutorial 1:<br>Determining a scattering profile with hySAS"
+msgstr ""
+
+#: 01.md:3
+msgid ""
+"In the next example, we calculate the scattering profile of a structure "
+"consisting of atoms 1-11558 using the ONEBEAD approach. This structure could"
+" be made of protein(s), DNA, RNA, or complexes. As a first step, let's "
+"create and open the `plumed.dat` file, which will contain all the "
+"instructions:"
+msgstr ""
+
+#: 01.md:8
+msgid ""
+"The first requirement is to provide the PDB of the structure via MOLINFO, in"
+" this case `template_AA.pdb`. Detailed information about the input file can "
+"be found in the technical support section."
+msgstr ""
+
+#: 01.md:12
+msgid ""
+"The SAS instructions need the corresponding action option, which can be "
+"either SAXS or SANS. In the following example, we proceed by opening the "
+"SAXS action:"
+msgstr ""
+
+#: 01.md:18
+msgid ""
+"The SAXS calculation options must be listed with the appropriate flags, in "
+"any order. Here, we include atoms 1-11878 and specify the ONEBEAD mapping (1"
+" bead for 1 amino acid, 3 beads for 1 nucleotide). The same "
+"`template_AA.pdb` is used for both MOLINFO and TEMPLATE. The GPU flag allows"
+" the calculation of the scattering profile(s) on the GPU; this feature "
+"requires PLUMED to be compiled with support for the ArrayFire library. See "
+"the corresponding technical support section in this manual for more "
+"information. The electron density of the solvent is set to 0.334 electrons "
+"per cubic angstrom (bulk water) with the SOLVDENS flag. In the example, the "
+"solvation layer contribution is ignored by setting "
+"SOLVATION_CORRECTION=0.00. For this reason, other flags such as SASA_CUTOFF "
+"and SOLVATION_STRIDE are not required. Further examples are given at the end"
+" of this page."
+msgstr ""
+
+#: 01.md:32
+msgid ""
+"After the option flags, the user has to provide the list of q-values for "
+"which the corresponding SAS intensity must be calculated. In this example, "
+"we provide 121 q-values, from almost zero to 0.3 Å<sup>-1</sup> (which "
+"corresponds to the maximum momentum transfer available for the ONEBEAD "
+"mapping), every 0.0025 Å<sup>-1</sup>. The more the q-values, the more "
+"intensive the calculation. After listing the q-values, the SAXS action must "
+"be closed and the intensities printed. In the case of a trajectory, it is "
+"possible to select the printing frequency. In the example, the intensities "
+"are printed at every simulation step, specifying STRIDE=1. Additional `{}` "
+"brackets have been added to prevent a readability issue, they are optional "
+"to run the code. Save and close the file."
+msgstr ""
+
+#: 01.md:172
+msgid ""
+"As an additional example, we provide a SANS action with a different setup. "
+"The solvent layer contribution is set to 80 electrons/nm<sup>3</sup>. Since "
+"we want to calculate the SANS intensity, there will be an automatic "
+"conversion from electron density to water molecule density. Unlike the "
+"previous example, the solvation correction is now activated. We specified "
+"the solvent exposed area threshold for a bead to 1 nm<sup>2</sup> using the "
+"flag SASA_CUTOFF. The bead exposure is evaluated by the LCPO algorithm, and "
+"since calculating it for each step of the simulation could be "
+"computationally expensive, it is possible to set the frequency for the "
+"solvent-accessible surface area estimation with the SOLVATION_STRIDE flag. "
+"By default, it is set to 10 steps. Finally, the fraction of deuterated "
+"solvent is specified with DEUTER_CONC. This information is also used to "
+"configure the implicit hydrogen-deuterium exchange: with a probability equal"
+" to the deuterium concentration in the solvent (60% in this case), an "
+"exposed bead is considered deuterated."
+msgstr ""
+
+#: 01.md:192
+msgid ""
+"In the following table, a list of the possible flags accepted by the "
+"SAXS/SANS action:"
+msgstr ""
+
+#: 01.md:194
+msgid "**Flag**"
+msgstr ""
+
+#: 01.md:194
+msgid "**Default value**"
+msgstr ""
+
+#: 01.md:194
+msgid "**Description**"
+msgstr ""
+
+#: 01.md:196
+msgid "NOPBC"
+msgstr ""
+
+#: 01.md:196 01.md:197 01.md:199 01.md:200 01.md:201 01.md:202 01.md:203
+msgid "false"
+msgstr ""
+
+#: 01.md:196
+msgid "Ignore the periodic boundary conditions when calculating distances"
+msgstr ""
+
+#: 01.md:197
+msgid "SERIAL"
+msgstr ""
+
+#: 01.md:197
+msgid "Perform the calculation in serial - for debug purpose"
+msgstr ""
+
+#: 01.md:198
+msgid "DEVICEID"
+msgstr ""
+
+#: 01.md:198
+msgid "Identifier of the GPU to be used"
+msgstr ""
+
+#: 01.md:199
+msgid "GPU"
+msgstr ""
+
+#: 01.md:199
+msgid "Calculate SAXS/SANS using ARRAYFIRE on a GPU"
+msgstr ""
+
+#: 01.md:200
+msgid "ABSOLUTE"
+msgstr ""
+
+#: 01.md:200
+msgid ""
+"Absolute intensity: the intensities for each q-value are not normalized for "
+"the intensity at q=0."
+msgstr ""
+
+#: 01.md:201
+msgid "ATOMISTIC"
+msgstr ""
+
+#: 01.md:201
+msgid "Calculate SAXS/SANS using the atomistic model"
+msgstr ""
+
+#: 01.md:202
+msgid "MARTINI"
+msgstr ""
+
+#: 01.md:202
+msgid "Calculate SAXS using the Martini model"
+msgstr ""
+
+#: 01.md:203
+msgid "ONEBEAD"
+msgstr ""
+
+#: 01.md:203
+msgid "Calculate SAXS/SANS for a single bead model"
+msgstr ""
+
+#: 01.md:204
+msgid "TEMPLATE"
+msgstr ""
+
+#: 01.md:204
+msgid "template.pdb"
+msgstr ""
+
+#: 01.md:204
+msgid "A PDB file is required for ONEBEAD mapping"
+msgstr ""
+
+#: 01.md:205
+msgid "ATOMS"
+msgstr ""
+
+#: 01.md:205
+msgid "The atoms to be included in the calculation"
+msgstr ""
+
+#: 01.md:206
+msgid "QVALUE"
+msgstr ""
+
+#: 01.md:206
+msgid ""
+"Selected scattering lengths in inverse angstroms are given as QVALUE1, "
+"QVALUE2, ..."
+msgstr ""
+
+#: 01.md:207
+msgid "PARAMETERS"
+msgstr ""
+
+#: 01.md:207
+msgid ""
+"Used parameter Keywords like PARAMETERS1, PARAMETERS2. These are used to "
+"calculate the form factor for the *i* <sup>th</sup> atom/bead"
+msgstr ""
+
+#: 01.md:208
+msgid "PARAMETERSFILE"
+msgstr ""
+
+#: 01.md:208
+msgid "Read the PARAMETERS from a file"
+msgstr ""
+
+#: 01.md:209
+msgid "DEUTER_CONC"
+msgstr ""
+
+#: 01.md:209
+msgid "Fraction of deuterated solvent. For SANS only."
+msgstr ""
+
+#: 01.md:210
+msgid "SOLVDENS"
+msgstr ""
+
+#: 01.md:210
+msgid "Density of the solvent"
+msgstr ""
+
+#: 01.md:211
+msgid "SOLVATION_CORRECTION"
+msgstr ""
+
+#: 01.md:211
+msgid "Solvation layer electron density correction (ONEBEAD only)"
+msgstr ""
+
+#: 01.md:212
+msgid "SASA_CUTOFF"
+msgstr ""
+
+#: 01.md:212
+msgid ""
+"SASA value to consider a residue as exposed to the solvent (ONEBEAD only)"
+msgstr ""
+
+#: 01.md:213
+msgid "EXPINT"
+msgstr ""
+
+#: 01.md:213
+msgid "Experimental intensity for a specific q value"
+msgstr ""
+
+#: 01.md:214
+msgid "SOLVATION_STRIDE"
+msgstr ""
+
+#: 01.md:214
+msgid ""
+"Number of steps between every new residues solvation estimation via LCPO "
+"(ONEBEAD only)"
+msgstr ""
+
+#: 01.md:215
+msgid "SCALE_EXPINT"
+msgstr ""
+
+#: 01.md:215
+msgid ""
+"Scaling value for experimental data normalization. Cannot be used with "
+"ABSOLUTE."
+msgstr ""
+
+#: 01.md:218
+msgid ""
+"Before running the driver, it is possible to set the number of CPU cores to "
+"be used for the analysis as an environment variable in the terminal where "
+"the PLUMED driver will be launched. In the following example 8 cores are "
+"used:"
+msgstr ""
+
+#: 01.md:223
+msgid "Finally, run the driver to analyse a:"
+msgstr ""
+
+#: 01.md:224
+msgid "PDB"
+msgstr ""
+
+#: 01.md:228
+msgid ""
+"In this case the PDB is the same that is provided to MOLINFO, TEMPLATE and "
+"analysed."
+msgstr ""
+
+#: 01.md:229
+msgid "Trajectory"
+msgstr ""
+
+#: 01.md:234
+msgid "[Back to hySAS home](NAVIGATION.md)"
+msgstr "[hySAS のホームに戻る](NAVIGATION.md)"

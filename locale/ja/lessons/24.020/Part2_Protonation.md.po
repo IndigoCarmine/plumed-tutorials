@@ -1,0 +1,177 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Part2_Protonation.md:1
+msgid "Protonation Analysis"
+msgstr ""
+
+#: Part2_Protonation.md:3
+msgid ""
+"Conformational analyses are fundamental in identifying energy minima, "
+"estimating populations of the chosen CVs and other observables, thus "
+"assessing how the system behaves at different pH values. Nevertheless, there"
+" is an another dimension to CpH-Metadynamics simulations which concerns the "
+"protonation analysis."
+msgstr ""
+
+#: Part2_Protonation.md:5
+msgid ""
+"When we consider how the system behaves at different pH conditions, we are "
+"evaluating how the protonation balance (i.e. the average protonation) of the"
+" titrable sites impact the conformational part. Therefore, it is important "
+"to consider how the protonation states change throughout the simulation or "
+"what is the average protonation of different energy minima. One important "
+"and distinctive property is the pKa."
+msgstr ""
+
+#: Part2_Protonation.md:7
+msgid ""
+"The pKa is the pH at which 50% of the population of a titrable site is "
+"protonated and the other 50% is deprotonated. Hence the pKa measures the "
+"proton binding affinity of a titrable site at a given pH value. Typically, "
+"if the solution pH < pKa, then the population of protonated states is more "
+"likely to be larger than the population of deprotonated states. If the pH > "
+"pKa, then the population of deprotonated states is likely to be larger than "
+"the population of protonated states. At pH=pKa, the protonation and "
+"deprotonation probability is equal, thus there is a thermodynamic "
+"equilibrium."
+msgstr ""
+
+#: Part2_Protonation.md:9
+msgid ""
+"The pKa is typically associated with the Henderson-Hasselbalch equation, "
+"which describes the relationship between the pKa, pH, and the balance "
+"between the protonated and deprotonated populations:"
+msgstr ""
+
+#: Part2_Protonation.md:13
+msgid ""
+"Usually, changes in pKa are measured as pH units, however, they can be "
+"translated into kJ/mol. pH variations can be measured as a $\\Delta\\Delta$ "
+"G of the protonation-free energies at two distinct pH values. Since the "
+"protonation-free energy can be described as:"
+msgstr ""
+
+#: Part2_Protonation.md:17
+msgid ""
+"where R is the gas constant, T is the temperature in Kelvin. Then the energy"
+" associated with a pH unit change is:"
+msgstr ""
+
+#: Part2_Protonation.md:21
+msgid "which for a $ \\Delta pH=1 $ is roughly:"
+msgstr ""
+
+#: Part2_Protonation.md:25
+msgid ""
+"These energetic contributions can impact significantly thermodynamic "
+"equilibria, change conformational probabilities and balance between "
+"populations. Therefore, using these relationships, we will see how we are "
+"able to plot titration curves, estimate pKa values and measure energy "
+"differences using CpH-metaD simulations."
+msgstr ""
+
+#: Part2_Protonation.md:27
+msgid ""
+"In the uridine system, the nucleobase has a pKa of 9.22 at the N3 atom. This"
+" means that at pH < pKa, most of the population should be protonated, hence "
+"in a neutral state. While for pH > pKa, most of the population should be "
+"deprotonated, hence in a negatively charged state. How do these charge "
+"variations impact our system? Can we measure changes in protonation at "
+"different pH values and along the simulation time? Is each energy minima "
+"distinguishable by their average protonation? If so, then why and how does "
+"electrostatics play a role?"
+msgstr ""
+
+#: Part2_Protonation.md:29
+msgid "These are all questions to be addressed in the following section."
+msgstr ""
+
+#: Part2_Protonation.md:31
+msgid "Extracting the protonation data"
+msgstr ""
+
+#: Part2_Protonation.md:33
+msgid ""
+"We need to extract the protonation data stored in the .occ files. These "
+"files contain information of the proton occupation state of each titrable "
+"site along segments of the simulation. These files are generated after each "
+"cycle of CpHMD and the total number of lines matches the $ "
+"Time_{seg}/\\tau_{p} $, which is the time of segment (1000 ps) over the "
+"frequency of protonation (20 ps)."
+msgstr ""
+
+#: Part2_Protonation.md:35
+msgid ""
+"Each column corresponds to a distinct titrable site and each row to "
+"different timestamps (typically every 20 ps). Then the occupation state is "
+"defined by the parametrized states found in the St-XOL3_DelPHi folder. For "
+"example, the uridine has two states: URN0 and URN1. URN0 refers to the "
+"neutral (0) state, hence the protonated state, while URN1 refers to the "
+"charged (-1) state, hence the deprotonated state. In the .occ file, if the "
+"occupation state is 0, then it means it is protonated. However, for the "
+"adenine, the AR0 also refers to the neutral state, however in this case it "
+"is the deprotonated state, and AR1 is the protonated (+1) state. Hence in "
+"this specific case, the protonation and occupation states match and we don't"
+" need to correct. Typically, binary protonable sites do not need to be "
+"corrected, as for the adenine and cytidine, while deprotonable sites "
+"(uridine and guanine) require this conversion to obtain the protonation "
+"states. Sites with multiple tautomers always need a correction since in "
+"those cases, each occupation state refers to a different position of the "
+"proton."
+msgstr ""
+
+#: Part2_Protonation.md:38
+msgid ""
+"First, we are going to generate a data frame to store all the data found in "
+"the .occ files for the different pH values."
+msgstr ""
+
+#: Part2_Protonation.md:79
+msgid ""
+"After extracting all the data and assigning the proper timestamps, we can "
+"define the frequency of protonation. While we only calculate the protonation"
+" information every 20~ps, in reality, we can propagate the stored "
+"protonation states to the intermediate frames within each protonation "
+"calculation. If the simulation timestep is 2 ps and the $\\tau_{p}$ is 20 "
+"ps, then the protonation states of these intermediate frames correspond to "
+"the state assigned in the previous cycle."
+msgstr ""
+
+#: Part2_Protonation.md:105
+msgid ""
+"Since we are performing CpH-Metadynamics simulations, we require the weight "
+"data from the accumulated bias in the simulation. Protonation and "
+"conformation are intrinsically coupled, then biased conformations dictate "
+"that their protonation states should also be unbiased. To do that we need to"
+" obtain the weights and correctly assign them to the corresponding frames."
+msgstr ""
+
+#: Part2_Protonation.md:142
+msgid ""
+"Q8. Examine the final dataframe. Do the timestamps of the protonation states"
+" match the conformational data? Are all the pH values present?"
+msgstr ""
+
+#: Part2_Protonation.md:144
+msgid ""
+"After obtaining the final dataframe with all the pH values, protonation and "
+"conformation data and the weights, we can calculate average protonations, "
+"derive a titration curve, and estimate the pKa. To plot a titration curve, "
+"we need to redefine the Henderson-Hasselbalch (HH) relationship between pH, "
+"pKa and protonation. We can rewrite the HH function as follows:"
+msgstr ""
+
+#: Part2_Protonation.md:148
+msgid ""
+"where <P> is the average protonation at a certain pH value, pH is the "
+"assigned value of the simulation and the pKa is the fitted parameter. "
+"However, we are dealing with biased simulations, then we need to calculate "
+"the weighted average protonations:"
+msgstr ""

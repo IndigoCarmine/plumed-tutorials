@@ -1,0 +1,87 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1 NAVIGATION.md:41
+msgid "Path integral metadynamics"
+msgstr "Path Integral Metadynamics"
+
+#: NAVIGATION.md:3
+msgid ""
+"Path integrals simulatins are able to describe the quantum thermodynamics of"
+" distinguishable particles at finite temperature, and are the most accurate "
+"approach to describe the behavior of light nuclei (e.g. hydrogen) at room "
+"temperature and above."
+msgstr ""
+
+#: NAVIGATION.md:8
+msgid ""
+"They can be combined with metadynamics to accelerate the sampling of rare "
+"events, and compute a \"quantum free energies\" that reflect (in an "
+"approximate way) the effect of zero-point energy and tunneling on reaction "
+"rates."
+msgstr ""
+
+#: NAVIGATION.md:12
+msgid "Free-energy of the Zundel cation"
+msgstr ""
+
+#: NAVIGATION.md:14
+msgid ""
+"This lecture provide a hands-on interactive tutorial (that you can also "
+"download and run locally) that uses the [i-PI code](http://ipi-code.org) to "
+"perform path-integral simulations for the Zundel cation, a protonated water "
+"dimer. PLUMED is used to compute appropriate collective variables, using an "
+"input as follows"
+msgstr ""
+
+#: NAVIGATION.md:33
+msgid ""
+"Depending on your previous experience, you may want to follow the lessons on"
+" metadynamics, and the external tutorial on path integral simulations."
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:40
+msgid "Basic plumed syntax"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:40
+msgid "Metadynamics"
+msgstr "Metadynamics"
+
+#. mermaid node label
+#: NAVIGATION.md:42
+msgid "Introduction to path integrals"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:43
+msgid ""
+"Follow this lecture for an introduction to PLUMED and enhanced sampling"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:44
+msgid "Follow this lecture if you have never heard of metadynamics before"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:45
+msgid ""
+"An interactive tutorial on path integral simulations and how to perform them"
+" using i-PI"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:46
+msgid ""
+"The main tutorial: combine i-PI and PLUMED to compute free energies "
+"including quantum nuclear effects"
+msgstr ""

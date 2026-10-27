@@ -9,11 +9,13 @@ msgstr ""
 
 #: lesson.yml:title
 msgid "Umbrella Sampling"
-msgstr "アンブレラサンプリング"
+msgstr "Umbrella Sampling"
 
 #: lesson.yml:description
-msgid "How to calculate statistical averages and free energy surfaces using umbrella sampling"
-msgstr "アンブレラサンプリングを用いて統計平均と自由エネルギー面を計算する方法"
+msgid ""
+"How to calculate statistical averages and free energy surfaces using "
+"umbrella sampling"
+msgstr "Umbrella Sampling を用いて統計平均と自由エネルギー面を計算する方法"
 
 #. video title
 #: EMBED.yml:video1

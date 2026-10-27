@@ -1,0 +1,93 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:1
+msgid "AlphaFold-Metainference tutorial"
+msgstr ""
+
+#: README.md:2
+msgid ""
+"A tutorial to setup and run AlphaFold-Metainference simulations. The "
+"original work which explains the theory for AlphaFold-Metainference (AF-MI) "
+"can be found [here](https://www.nature.com/articles/s41467-025-56572-9)."
+msgstr ""
+
+#: README.md:4
+msgid "The tutorial comprises the following sections:"
+msgstr ""
+
+#: README.md:6
+msgid "AlphaFold-Metainference theory"
+msgstr ""
+
+#: README.md:7
+msgid ""
+"A brief introduction to the theory and advantage in using AlphaFold-"
+"Metainference."
+msgstr ""
+
+#: README.md:9
+msgid "Case study: TDP-43 WtoA monomer dynamics"
+msgstr ""
+
+#: README.md:10
+msgid ""
+"We will present the case study for this tutorial, the DNA/RNA processing "
+"protein TDP-43 which undergoes both functional and pathogennic aggregation "
+"in amyotrophic lateral sclerosis (ALS) and other neurodegenerative "
+"conditions. To enable a rapid structural ensemble generation on a "
+"laptop/workstation, AF-MI is coupled to the CALVADOS-2 coarse-grained "
+"forcefield."
+msgstr ""
+
+#: README.md:12
+msgid "Input files preparation"
+msgstr "入力ファイルの準備"
+
+#: README.md:13
+msgid ""
+"We will discuss all the preliminary steps to set up AF-MI, from generating "
+"the AF2 distance-map restraints data, to preparing PLUMED inputes, and "
+"running energy minimization and production runs"
+msgstr ""
+
+#: README.md:15
+msgid "Structural ensemble generation and post-processing analysis"
+msgstr ""
+
+#: README.md:16
+msgid ""
+"Finally, we will discuss how to generate the unbiased structural ensemble of"
+" TDP-43, estimate free energy surfaces along collective variables (CVs) and "
+"predict ensemble averaged properties such as secondary structureand RMSF."
+msgstr ""
+
+#: README.md:18
+msgid ""
+"___NB:___ This tutorial assumes that you know metadynamics theory and "
+"practice in PLUMED (if not, a good start can be the [PLUMED "
+"tutorial](https://www.plumed-"
+"tutorials.org/lessons/21/004/data/NAVIGATION.html) about it)."
+msgstr ""
+
+#: README.md:20
+msgid "This tutorial has been contributed by"
+msgstr ""
+
+#: README.md:21
+msgid "Dr. Faidon Brotzakis (fb516@cam.ac.uk, brotzakis@fleming.gr)"
+msgstr ""
+
+#: README.md:23
+msgid "Hussein Murtada (mhm42@cam.ac.uk)"
+msgstr ""
+
+#: README.md:25
+msgid "Prof. Michele Vendruscolo (mv245@cam.ac.uk)"
+msgstr ""

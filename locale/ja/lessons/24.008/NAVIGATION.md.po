@@ -1,0 +1,120 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "`maze` Tutorial"
+msgstr ""
+
+#: NAVIGATION.md:2
+msgid ""
+"A PLUMED tutorial to run ligand unbinding trajectories with `maze`. The "
+"original work, which explains the background of `maze` simulations, is "
+"published in [[1]](#1). Implementation details are summarized in [[2]](#2)."
+msgstr ""
+
+#: NAVIGATION.md:4
+msgid ""
+"**This tutoral uses a recent implementation of `maze` which differs from the"
+" original one**."
+msgstr ""
+
+#: NAVIGATION.md:6
+msgid ""
+"The new version is accessible [here](https://github.com/jakryd/plumed2-maze)"
+" and will be merged into PLUMED soon. For information on how to compile it, "
+"see [here](https://www.plumed.org/doc-v2.4/user-"
+"doc/html/_installation.html). The `maze` module must be enabled during "
+"compilation."
+msgstr ""
+
+#: NAVIGATION.md:8
+msgid "This tutorial covers the following:"
+msgstr ""
+
+#: NAVIGATION.md:10
+msgid "[Background](background.md)"
+msgstr ""
+
+#: NAVIGATION.md:11
+msgid "A brief introduction to the background behind the use of `maze`."
+msgstr ""
+
+#: NAVIGATION.md:13
+msgid "[L99A T4 Lysozyme-Benzene](system.md)"
+msgstr ""
+
+#: NAVIGATION.md:14
+msgid "A case study for this tutorial is a small protein that binds benzene."
+msgstr ""
+
+#: NAVIGATION.md:16
+msgid "[Input files preparation](input.md)"
+msgstr "[入力ファイルの準備](input.md)"
+
+#: NAVIGATION.md:17
+msgid "Input setup for `maze`."
+msgstr ""
+
+#: NAVIGATION.md:19
+msgid "[Results](results.md)"
+msgstr ""
+
+#: NAVIGATION.md:20
+msgid "Presentation of results obtained with `maze`."
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:32
+msgid "PLUMED syntax"
+msgstr "PLUMED の構文"
+
+#. mermaid node label
+#: NAVIGATION.md:32
+msgid "Background"
+msgstr "背景"
+
+#. mermaid node label
+#: NAVIGATION.md:33
+msgid "System"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:34
+msgid "Input files"
+msgstr "入力ファイル"
+
+#. mermaid node label
+#: NAVIGATION.md:35
+msgid "Results"
+msgstr "結果"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:37
+msgid "This lesson teaches the basic features of the PLUMED input syntax."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:38
+msgid "Background and introduction to maze."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:39
+msgid "System: L99A T4 Lysozyme-Benzene."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:40
+msgid "Input files preparation."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:41
+msgid "Results."
+msgstr ""

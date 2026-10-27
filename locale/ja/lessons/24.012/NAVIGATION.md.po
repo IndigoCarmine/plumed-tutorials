@@ -1,0 +1,128 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Exploring Free Energy Surfaces with MACE-PLUMED Metadynamics"
+msgstr "MACE-PLUMED Metadynamics を用いた自由エネルギー面の探索"
+
+#: NAVIGATION.md:3
+msgid ""
+"In this tutorial, we will learn how to link up the recently developed MACE "
+"potential with PLUMED to perform enhanced sampling simulations in the form "
+"of two-dimensional metadynamics. Our test system will be a molecule of "
+"gaseous carbonic acid (H2CO3). This tutorial will probe the various "
+"conformations carbonic acid can adopt and establish which are the most "
+"stable."
+msgstr ""
+
+#: NAVIGATION.md:5
+msgid ""
+"Carbonic acid is important for carbon dioxide solvation chemistry, relating "
+"to processes like ocean acidification and the bicarbonate buffer system. The"
+" acid has two terminal OH groups that can either be in cis or trans "
+"orientation, giving rise to three conformers, cis-cis, cis-trans, and trans-"
+"trans as shown below."
+msgstr ""
+
+#: NAVIGATION.md:10
+msgid "In this tutorial, we will cover:"
+msgstr ""
+
+#: NAVIGATION.md:11
+msgid "Navigating the MACE-LAMMPS-PLUMED interface."
+msgstr ""
+
+#: NAVIGATION.md:12
+msgid "Setting up your work environment."
+msgstr ""
+
+#: NAVIGATION.md:13
+msgid "Running simple MD simulations using a MACE potential."
+msgstr ""
+
+#: NAVIGATION.md:14
+msgid "Performing metadynamics using two collective variables."
+msgstr ""
+
+#: NAVIGATION.md:17
+msgid "By the end of this tutorial you should:"
+msgstr ""
+
+#: NAVIGATION.md:18
+msgid "Know how to run simple MD powered by MACE potentials."
+msgstr ""
+
+#: NAVIGATION.md:19
+msgid ""
+"Integrate MACE with PLUMED to enable the accurate determination of free "
+"energy surfaces."
+msgstr ""
+
+#: NAVIGATION.md:21
+msgid ""
+"The data and files needed to run the excercises of this tutorial can be "
+"found on Github. **Clone the following directory to your local machine**: "
+"https://github.com/water-ice-group/plumed_tutorial_mace.git"
+msgstr ""
+
+#: NAVIGATION.md:23
+msgid "This tutorial is organized as follows:"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:27
+msgid "Metadynamics"
+msgstr "Metadynamics"
+
+#. mermaid node label
+#: NAVIGATION.md:27 NAVIGATION.md:28
+msgid "Setting up your environment"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:28
+msgid "Introduction to MACE"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:29
+msgid "Running Free MD"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:30
+msgid "Running Metadynamics"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:31
+msgid "Masterclass on Metadynamics"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:32
+msgid ""
+"Learn about the MACE potential for performing accurate and efficient "
+"molecular dynamics simulations"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:33
+msgid "Understand how to set up the MACE-ASE-PLUMED interface."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:34
+msgid "Run simple MD using MACE and ASE."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:35
+msgid "Perform metadynamics using MACE to examine conformational stability."
+msgstr ""

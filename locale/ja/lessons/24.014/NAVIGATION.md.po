@@ -1,0 +1,158 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "AlphaFold-Metainference tutorial"
+msgstr ""
+
+#: NAVIGATION.md:2
+msgid ""
+"A tutorial to setup and run AlphaFold-Metainference simulations. The "
+"original work which explains the theory for AlphaFold-Metainference (AF-MI) "
+"can be found "
+"[here](https://www.biorxiv.org/content/10.1101/2024.11.09.622758v1)."
+msgstr ""
+
+#: NAVIGATION.md:4
+msgid "The tutorial comprises the following sections:"
+msgstr ""
+
+#: NAVIGATION.md:7
+msgid "[AlphaFold-Metainference theory](theory.md)"
+msgstr ""
+
+#: NAVIGATION.md:8
+msgid ""
+"A brief introduction to the theory and advantage in using AlphaFold-"
+"Metainference."
+msgstr ""
+
+#: NAVIGATION.md:10
+msgid "[Case study: TDP-43 WtoA monomer dynamics](case_study.md)"
+msgstr ""
+
+#: NAVIGATION.md:11
+msgid ""
+"We will present the case study for this tutorial, the DNA/RNA processing "
+"protein TDP-43 which undergoes both functional and pathogennic aggregation "
+"in amyotrophic lateral sclerosis (ALS) and other neurodegenerative "
+"conditions. To enable a rapid structural ensemble generation on a "
+"laptop/workstation, AF-MI is coupled to the CALVADOS-2 coarse-grained "
+"forcefield."
+msgstr ""
+
+#: NAVIGATION.md:13
+msgid "[Input files preparation](input.md)"
+msgstr "[入力ファイルの準備](input.md)"
+
+#: NAVIGATION.md:14
+msgid ""
+"We will discuss all the preliminary steps to set up AF-MI, from generating "
+"the AF2 distance-map restraints data, to preparing PLUMED inputes, and "
+"running energy minimization and production runs"
+msgstr ""
+
+#: NAVIGATION.md:16
+msgid ""
+"[Structural ensemble generation and post-processing "
+"analysis](postprocessing.md)"
+msgstr ""
+
+#: NAVIGATION.md:17
+msgid ""
+"Finally, we will discuss how to generate the unbiased structural ensemble of"
+" TDP-43, estimate free energy surfaces along collective variables (CVs) and "
+"predict ensemble averaged properties such as secondary structureand RMSF."
+msgstr ""
+
+#: NAVIGATION.md:19
+msgid ""
+"___NB:___ This tutorial assumes that you know metadynamics theory and "
+"practice in PLUMED (if not, please visit [PLUMED "
+"tutorial](https://www.plumed-"
+"tutorials.org/lessons/21/004/data/NAVIGATION.html))."
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:24
+msgid "PLUMED syntax"
+msgstr "PLUMED の構文"
+
+#. mermaid node label
+#: NAVIGATION.md:24
+msgid "Theory"
+msgstr "理論"
+
+#. mermaid node label
+#: NAVIGATION.md:25
+msgid "Parallel Bias Metadynamics"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:26
+msgid "Metainference"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:27
+msgid "Case study"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:28 NAVIGATION.md:30
+msgid "Jupyter/Colab"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:29
+msgid "Inputs"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:31
+msgid "Post-processing"
+msgstr "後処理"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:33
+msgid "This lesson teaches you the basic features of the PLUMED input syntax"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:34 NAVIGATION.md:35
+msgid ""
+"This lesson teaches you how to perform and analyze Metadynamics simulations"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:36
+msgid "AlphaFold-Metainference theory intro & overview"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:37
+msgid "Case study: TDP-43 monomer dyamics"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:38
+msgid ""
+"AF-MI colab performing software installation, system preparation, AF-MI "
+"simulation and post-processing analysis"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:39
+msgid "Input: Protein sequence, AF-MI simulation data and parameters"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:40
+msgid "Structural ensemble generation and post-processing analysis"
+msgstr ""

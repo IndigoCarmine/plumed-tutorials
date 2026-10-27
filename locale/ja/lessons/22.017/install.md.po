@@ -1,0 +1,188 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: install.md:1
+msgid "Hardware requirements"
+msgstr ""
+
+#: install.md:3
+msgid "To complete this tutorial you need:"
+msgstr ""
+
+#: install.md:5
+msgid ""
+"A Linux workstation with a multi-core CPU (6-8 cores should be enough);"
+msgstr ""
+
+#: install.md:6
+msgid "For ensemble modelling, access to a Linux cluster is preferable;"
+msgstr ""
+
+#: install.md:7
+msgid ""
+"a GPU to accelerate both the Molecular Dynamics simulation and the "
+"calculation of the cryo-EM restraint."
+msgstr ""
+
+#: install.md:9
+msgid "Software requirements"
+msgstr ""
+
+#: install.md:11
+msgid "Make sure you have installed:"
+msgstr ""
+
+#: install.md:13
+msgid "A modern C++ compiler that supports OpenMP parallelization and C++17."
+msgstr ""
+
+#: install.md:14
+msgid "MPI library/compilers for multi-replica ensemble simulations."
+msgstr ""
+
+#: install.md:15
+msgid ""
+"Cuda, needed by both GROMACS and PLUMED. The exact version depends a bit on "
+"how old your GPUs are."
+msgstr ""
+
+#: install.md:16
+msgid ""
+"[LibTorch](https://pytorch.org/get-started/locally/). Make sure you download"
+" the C++ version (LibTorch, not pytorch) that is supported by the Cuda "
+"version you installed;"
+msgstr ""
+
+#: install.md:17
+msgid ""
+"[Phenix](https://phenix-online.org/documentation/index.html) (any recent "
+"version), if you want to validate single-structure refinement. Not really "
+"needed for ensemble modelling."
+msgstr ""
+
+#: install.md:18
+msgid ""
+"[Conda](https://www.anaconda.com) to install the python libraries needed by "
+"the pre- and post-processing scripts: see installation instructions below."
+msgstr ""
+
+#: install.md:19
+msgid ""
+"[GROMACS](https://www.gromacs.org) and [PLUMED](https://www.plumed.org): see"
+" installation instructions below."
+msgstr ""
+
+#: install.md:20
+msgid ""
+"UCSF [Chimera](https://www.cgl.ucsf.edu/chimera/download.html) or "
+"[ChimeraX](https://www.cgl.ucsf.edu/chimerax/) to visualize structural "
+"models and cryo-EM density maps."
+msgstr ""
+
+#: install.md:22
+msgid "Setting up the Conda environment for pre/post-processing scripts"
+msgstr ""
+
+#: install.md:24
+msgid ""
+"You can create a conda environment to install all the python libraries "
+"needed to run pre- and post-processing tools."
+msgstr "conda 環境を作成し、前処理・後処理ツールの実行に必要な Python ライブラリをすべてインストールできる。"
+
+#: install.md:26
+msgid "`conda create --name emmivox`"
+msgstr "`conda create --name emmivox`"
+
+#: install.md:28
+msgid "`conda activate emmivox`"
+msgstr "`conda activate emmivox`"
+
+#: install.md:30
+msgid "`conda install -c conda-forge mrcfile mdanalysis biopython`"
+msgstr "`conda install -c conda-forge mrcfile mdanalysis biopython`"
+
+#: install.md:32
+msgid "Make sure you are installing MDAnalysis version >= 2.0.0."
+msgstr "MDAnalysis 2.0.0 以上をインストールしていることを確認する。"
+
+#: install.md:34
+msgid ""
+"In this environment, you also need to install `pytorch` using the "
+"instructions available [here](https://pytorch.org). Make sure you select a "
+"version compatible with the Cuda version installed on your machine or "
+"alternatively the CPU version. These instructions are for pytorch version "
+"1.13.0 with Cuda 11.6:"
+msgstr ""
+"この環境には、[こちら](https://pytorch.org)の手順に従って `pytorch` もインストールする必要がある。マシン上の CUDA"
+" のバージョンに対応するもの、または CPU 版を選ぶ。以下は CUDA 11.6 を使用する PyTorch 1.13.0 の手順である。"
+
+#: install.md:38
+msgid ""
+"`conda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch "
+"-c nvidia`"
+msgstr ""
+"`conda install pytorch torchvision torchaudio pytorch-cuda=11.6 -c pytorch "
+"-c nvidia`"
+
+#: install.md:41
+msgid "PLUMED installation"
+msgstr ""
+
+#: install.md:43
+msgid "1. Getting PLUMED"
+msgstr ""
+
+#: install.md:45
+msgid ""
+"EMMIVox is currently implemented in the GitHub master branch of PLUMED, "
+"which you can obtain with:"
+msgstr ""
+
+#: install.md:47
+msgid "`git clone https://github.com/plumed/plumed2.git`"
+msgstr "`git clone https://github.com/plumed/plumed2.git`"
+
+#: install.md:49
+msgid "or downloading the following zip archive:"
+msgstr ""
+
+#: install.md:51
+msgid "`wget https://github.com/plumed/plumed2/archive/refs/heads/master.zip`"
+msgstr ""
+"`wget https://github.com/plumed/plumed2/archive/refs/heads/master.zip`"
+
+#: install.md:53
+msgid "2. Configuring and compiling PLUMED"
+msgstr ""
+
+#: install.md:55
+msgid ""
+"Please have a look [here](https://www.plumed.org/doc-master/user-"
+"doc/html/_i_s_d_b.html) for detailed instructions about compiling PLUMED "
+"with Libtorch support. The main point is to enable Libtorch with:"
+msgstr ""
+
+#: install.md:58
+msgid "`./configure --enable-libtorch`"
+msgstr "`./configure --enable-libtorch`"
+
+#: install.md:60
+msgid "GROMACS installation"
+msgstr ""
+
+#: install.md:62
+msgid ""
+"Detailed instructions about patching GROMACS with PLUMED, configuration and "
+"installation are available [here](https://www.plumed.org/doc-master/user-"
+"doc/html/_installation.html)."
+msgstr ""
+
+#: install.md:64
+msgid "[Back to EMMIVox home](NAVIGATION.md)"
+msgstr "[EMMIVox のホームに戻る](NAVIGATION.md)"

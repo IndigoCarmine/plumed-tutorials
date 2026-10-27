@@ -1,0 +1,30 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lesson.yml:title
+msgid "Replica exchange methods"
+msgstr "Replica Exchange 法"
+
+#: lesson.yml:description
+msgid ""
+"Running umbrella sampling with replica exchange, bias exchange metadynamics "
+"and parallel tempering metadynamics"
+msgstr ""
+"Replica Exchange を組み合わせた Umbrella Sampling、Bias Exchange "
+"Metadynamics、Parallel Tempering Metadynamics の実行"
+
+#. video title
+#: EMBED.yml:video1
+msgid "Lecture I"
+msgstr "講義 I"
+
+#. video title
+#: EMBED.yml:video2
+msgid "Lecture II"
+msgstr "講義 II"

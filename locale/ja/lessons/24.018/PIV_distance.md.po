@@ -1,0 +1,46 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: PIV_distance.md:1
+msgid "Associating PIVs to system configurations"
+msgstr ""
+
+#: PIV_distance.md:2
+msgid ""
+"The following example shows how to associate a PIV to a system "
+"configuration:"
+msgstr ""
+
+#: PIV_distance.md:22
+msgid ""
+"Oxigen atoms (ATOMTYPES=O) are used for the PIV construction, and neighbor "
+"lists (NLIST) are used for the calculation of atom-atom distances. Distances"
+" are then mapped into numbers from 0 to 1 usign a switching function "
+"(SWITCH1={RATIONAL R_0=0.4 MM=12 NN=4}) with a precision of $10^{-3}$ "
+"(PRECISION=1000). A complete description of all the keywords can be found "
+"[here](https://www.plumed.org/doc-v2.9/user-doc/html/_p_i_v.html)."
+msgstr ""
+
+#: PIV_distance.md:24
+msgid ""
+"When including the example above into a file (e.g. plumed.dat) and running"
+msgstr ""
+
+#: PIV_distance.md:29
+msgid ""
+"one gets the PIV distance between the configurations specified in the Ih.pdb"
+" and Liq.pdb files. Please note that the order of atoms in Ih.pdb and "
+"Liq.pdb files must be the same."
+msgstr ""
+
+#: PIV_distance.md:31
+msgid ""
+"Check that if one computes the distance between two identical configurations"
+" the result is zero."
+msgstr ""

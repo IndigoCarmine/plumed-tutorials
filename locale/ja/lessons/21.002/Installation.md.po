@@ -1,0 +1,43 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Installation.md:1
+msgid "Installation advice"
+msgstr ""
+
+#: Installation.md:3
+msgid ""
+"Everything in this tutorial can be performed using PLUMED only. In other "
+"words, none of the exercises in this tutorial require you to run an "
+"molecular dynamics code and call PLUMED from it. All the molecular dynamics "
+"in this tutorial is performed using PLUMED's internal MD code - `simplemd`. "
+"You thus only need to install PLUMED using the instructions you can find "
+"[here](https://www.plumed-"
+"tutorials.org/lessons/20/001/data/NAVIGATION.html)."
+msgstr ""
+
+#: Installation.md:8
+msgid ""
+"I think the quickest way to get PLUMED running on your computer so you can "
+"do the tutorial is to install it with [conda](https://anaconda.org). You can"
+" create and activate a conda environment to run the tutorial exercises by "
+"issuing the following commands:"
+msgstr ""
+
+#: Installation.md:16
+msgid ""
+"You can then install PLUMED into this environment with the following "
+"command:"
+msgstr ""
+
+#: Installation.md:22
+msgid ""
+"You should then be able to run all the commands that use PLUMED in the "
+"tutorial."
+msgstr ""

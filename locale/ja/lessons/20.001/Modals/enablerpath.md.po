@@ -1,0 +1,24 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Modals/enablerpath.md:2
+msgid "--enable-rpath option"
+msgstr ""
+
+#: Modals/enablerpath.md:20
+msgid ""
+"You can resolve this issue by using the command below when configuring "
+"PLUMED:"
+msgstr ""
+
+#: Modals/enablerpath.md:24
+msgid ""
+"This command will hard code the paths defined in <code>LIBRARY_PATH</code> "
+"into the PLUMED library and is equivalent to the command:"
+msgstr ""

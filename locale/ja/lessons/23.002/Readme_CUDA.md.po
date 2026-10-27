@@ -1,0 +1,125 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Readme_CUDA.md:1
+msgid "EXTRA: GPU offloading with Cuda"
+msgstr ""
+
+#: Readme_CUDA.md:2
+msgid ""
+"To get the cuda code compiled I set up an ad hoc alternative to `plumed "
+"mklib`, that uses nvcc to compile the kernel and to link the shared object. "
+"The example is extremely simplified and should not be used in the real world"
+" as is, because it contains a collection of **bad ideas**."
+msgstr ""
+
+#: Readme_CUDA.md:4
+msgid "The calculate insterface is simple:"
+msgstr ""
+
+#: Readme_CUDA.md:12
+msgid ""
+"it calls `getCoordination(pos, R_0)`, that is an interface to the kernel:"
+msgstr ""
+
+#: Readme_CUDA.md:36
+msgid ""
+"there the data is initialized and loaded on the GPU with a combination of "
+"`cudaMalloc` and `cudaMemcpy` and then the two kernels are called with the "
+"`<<<NBlocks,threadPerBlock>>>` syntax."
+msgstr ""
+
+#: Readme_CUDA.md:38
+msgid "Citing the Nvidia blog:"
+msgstr ""
+
+#: Readme_CUDA.md:39
+msgid ""
+"A group of threads is called a CUDA block. CUDA blocks are grouped into a "
+"grid. A kernel is executed as a grid of blocks of threads."
+msgstr ""
+
+#: Readme_CUDA.md:41
+msgid "Each thread execute the instructions in the kernel."
+msgstr ""
+
+#: Readme_CUDA.md:43
+msgid ""
+"In this case we have a kernel for calculation the `ncoord` value of each "
+"atom:"
+msgstr ""
+
+#: Readme_CUDA.md:66
+msgid ""
+"You have to imagine that the kernel is more or less the body of the outer "
+"for loop of the previous examples and to get the outer index you have to "
+"check in which thread you are: `threadIdx` and `blockIdx` that contains the "
+"information about the index of the thread or of the block. In this case the "
+"kernel is called as a block of `nat` threads (and that is a very **bad "
+"idea**, since `nat` may be not a power of 2 or be bigger than the maximum "
+"number of thread avaiable in the gpu)."
+msgstr ""
+
+#: Readme_CUDA.md:69
+msgid "EXTRA REMARKS"
+msgstr ""
+
+#: Readme_CUDA.md:71
+msgid ""
+"Also the kernel is made in order that can be called with `<<<1, nat>>>` or "
+"`<<<nat, 1>>>` without any error, due to the index bein calculated always as"
+" a sum `const int i = threadIdx.x + blockIdx.x;` that is `0+something` or "
+"`something+0`if the threads or the blocks are 1. This is a **bad idea**."
+msgstr ""
+
+#: Readme_CUDA.md:74
+msgid ""
+"Then the coordination must be summed (in a very simple case like this it may"
+" be faster doing the process in for loop on the cpu) with a reduction "
+"algorithm:"
+msgstr ""
+
+#: Readme_CUDA.md:91
+msgid "`blockDim` contains the number of thread in the block"
+msgstr ""
+
+#: Readme_CUDA.md:93
+msgid ""
+"The sum is made in pair to each element of the passed array and stored in "
+"one of the two used indexes of the array. And the operation is repeaded on "
+"half of the array, and so on until we are reduced to one element that is the"
+" result."
+msgstr ""
+
+#: Readme_CUDA.md:95
+msgid ""
+"Visually the operation is the following: <!-- source: "
+"https://riptutorial.com/cuda/topic/6566/parallel-reduction--e-g--how-to-sum-"
+"an-array- --> <img src=\"./Imgs/reduction.png\" alt= “” width=\"50%\">"
+msgstr ""
+
+#: Readme_CUDA.md:100
+msgid "HOMEWORK"
+msgstr ""
+
+#: Readme_CUDA.md:102
+msgid "the reduction algorithm does not return the correct result: why?"
+msgstr ""
+
+#: Readme_CUDA.md:106
+msgid "[back](Readme.md)"
+msgstr "[戻る](Readme.md)"
+
+#: Readme_CUDA.md:108
+msgid ""
+"See also: [serial](Readme_Serial.md) [openMP](Readme_OMP.md) "
+"[MPI](Readme_MPI.md) [Cuda](Readme_CUDA.md)"
+msgstr ""
+"関連資料：[Serial](Readme_Serial.md) [OpenMP](Readme_OMP.md) [MPI](Readme_MPI.md)"
+" [CUDA](Readme_CUDA.md)"

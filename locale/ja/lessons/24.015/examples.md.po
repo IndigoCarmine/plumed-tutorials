@@ -1,0 +1,132 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: examples.md:1
+msgid "Examples"
+msgstr "例"
+
+#: examples.md:3
+msgid ""
+"All the example are run within the same environment of the installation "
+"procedure"
+msgstr ""
+
+#: examples.md:7
+msgid "Things to know:"
+msgstr ""
+
+#: examples.md:8
+msgid ""
+"I am always using \"path/to\" for indication the directory that contain a "
+"file"
+msgstr ""
+
+#: examples.md:9
+msgid ""
+"Python will communicate with plumed using a module called "
+"\"plumedCommunications\" that is embedded with `PythonCVInterface.so`"
+msgstr ""
+
+#: examples.md:10
+msgid ""
+"The string `path/to/PythonCVInterface.so` can be obtained by running `python"
+" -m pycv`"
+msgstr ""
+
+#: examples.md:11
+msgid ""
+"The string `path/to/PythonCVInterface.so` can be obtained within a python "
+"script with"
+msgstr ""
+
+#: examples.md:17
+msgid "Getting the manual"
+msgstr ""
+
+#: examples.md:19
+msgid "This is a bonus, but can be helpful:"
+msgstr ""
+
+#: examples.md:21 examples.md:77 examples.md:110 examples.md:145
+msgid "plumed.dat"
+msgstr ""
+
+#: examples.md:28
+msgid "pyhelp.py"
+msgstr ""
+
+#: examples.md:51
+msgid "Then run with `plumed driver --plumed plumed.dat --ixyz traj.xyz`"
+msgstr ""
+
+#: examples.md:54
+msgid ""
+"This thing will not have any results on the trajectory, but you will get the"
+" manual of the interface in a few txt files."
+msgstr ""
+
+#: examples.md:56
+msgid "Or alternatively you can run:"
+msgstr ""
+
+#: examples.md:57
+msgid "pyhelp_html.py"
+msgstr ""
+
+#: examples.md:70
+msgid ""
+"To get an extreme bare-bones HTML documentation, that you can browse by "
+"running `python -m http.server` and then going to the address that appears "
+"on the terminal, that usually is 0.0.0.0:8000, with your internet browser."
+msgstr ""
+
+#: examples.md:73
+msgid "Distance (with PBC)"
+msgstr ""
+
+#: examples.md:75
+msgid "In this example we show how to use the PBCs in a calculation:"
+msgstr ""
+
+#: examples.md:87
+msgid "pydistancePBCs.py"
+msgstr ""
+
+#: examples.md:105
+msgid ""
+"Here we are getting the pbc calculator from plumed and \"patching\" the "
+"distances with it by using the method `apply` like in C++ plumed, but on a "
+"`list/np.ndarray` that must be shaped `[nat,3]`"
+msgstr ""
+
+#: examples.md:107
+msgid "Periodicity"
+msgstr ""
+
+#: examples.md:109
+msgid ""
+"This is just an example on how the user can work with the periodicity of the"
+" retuned variables"
+msgstr ""
+
+#: examples.md:119
+msgid "periodicity.py"
+msgstr ""
+
+#: examples.md:143
+msgid "Getting simulation information"
+msgstr ""
+
+#: examples.md:154
+msgid "mdInfo.py"
+msgstr ""
+
+#: examples.md:174
+msgid "Using PyCV when in a plumed-python script"
+msgstr ""

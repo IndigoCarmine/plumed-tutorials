@@ -1,0 +1,70 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:1
+msgid "`maze` Tutorial"
+msgstr ""
+
+#: README.md:2
+msgid ""
+"A PLUMED tutorial to run ligand unbinding trajectories with `maze`. The "
+"original work, which explains the background of `maze` simulations, is "
+"published in [[1]](#1). Implementation details are summarized in [[2]](#2)."
+msgstr ""
+
+#: README.md:4
+msgid ""
+"**This tutoral uses a recent implementation of `maze` which differs from the"
+" original one**."
+msgstr ""
+
+#: README.md:6
+msgid ""
+"The new version is accessible [here](https://github.com/jakryd/plumed2-maze)"
+" and will be merged into PLUMED soon. For information on how to compile it, "
+"see [here](https://www.plumed.org/doc-v2.4/user-"
+"doc/html/_installation.html). The `maze` module must be enabled during "
+"compilation."
+msgstr ""
+
+#: README.md:8
+msgid "This tutorial covers the following:"
+msgstr ""
+
+#: README.md:10
+msgid "[Background](background.md)"
+msgstr ""
+
+#: README.md:11
+msgid "A brief introduction to the background behind the use of `maze`."
+msgstr ""
+
+#: README.md:13
+msgid "[L99A T4 Lysozyme-Benzene](system.md)"
+msgstr ""
+
+#: README.md:14
+msgid "A case study for this tutorial is a small protein that binds benzene."
+msgstr ""
+
+#: README.md:16
+msgid "[Input files preparation](input.md)"
+msgstr "[入力ファイルの準備](input.md)"
+
+#: README.md:17
+msgid "Input setup for `maze`."
+msgstr ""
+
+#: README.md:19
+msgid "[Results](results.md)"
+msgstr ""
+
+#: README.md:20
+msgid "Presentation of results obtained with `maze`."
+msgstr ""

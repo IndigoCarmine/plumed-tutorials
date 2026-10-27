@@ -1,0 +1,134 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Defining custom machine learning CV with metatomic"
+msgstr "metatomic による独自の Machine Learning CV の定義"
+
+#: NAVIGATION.md:3
+msgid ""
+"[Metatomic](https://docs.metatensor.org/metatomic/) is a library to use "
+"arbitrary machine learning models together with arbitrary simulation tools. "
+"Here we show how to use the interface between metatomic and plumed to define"
+" fully custom collective variables (CV). These CV can be defined using "
+"typical machine learning tools, but any Python function based on PyTorch "
+"will also work, allowing to define new CV extremely easily."
+msgstr ""
+
+#: NAVIGATION.md:10
+msgid ""
+"Through the use of PyTorch, you can focus on defining the CV itself, and "
+"automatically get its gradients. You can also execute the code computing "
+"your CV on GPUs and other accelerators."
+msgstr ""
+
+#: NAVIGATION.md:14
+msgid ""
+"Other tools are able to interact with CV defined as metatomic models, most "
+"notably [chemiscope](https://chemiscope.org). You can therefore visualize "
+"how complex CV act on representative structures before even starting a "
+"simulation, and improve the Cv interactively."
+msgstr ""
+
+#: NAVIGATION.md:19
+msgid "Free-energy surface of LJ38 cluster"
+msgstr ""
+
+#: NAVIGATION.md:21
+msgid ""
+"The cluster of 38 atoms interacting through a Lennard-Jones potential is an "
+"interesting benchmark system for collective variables, because its global "
+"minimum energy structure is a truncated octahedron with `O_h` symmetry. The "
+"potential energy surface also has a multi-funnel landscape, meaning the "
+"system can easily get trapped in other local minima."
+msgstr ""
+
+#: NAVIGATION.md:27
+msgid ""
+"This tutorial contains a hands-on interactive tutorial (that you can also "
+"download and run locally) that defines two different collective variables to"
+" drive metadynamics for this system. The first CV is based on the histogram "
+"of coordination number, and the second one uses a machine learning "
+"representation (the SOAP spherical expansion) as a basis to define "
+"Steinhardt oder parameters-like CVs."
+msgstr ""
+
+#: NAVIGATION.md:67
+msgid ""
+"Depending on your previous experience, you may want to follow the lessons on"
+" metadynamics first."
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:73
+msgid "Basic plumed syntax"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:73
+msgid "Metadynamics"
+msgstr "Metadynamics"
+
+#. mermaid node label
+#: NAVIGATION.md:74
+msgid "Defining and using custom CVs with metatomic"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:75
+msgid "Reference documentation"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:76
+msgid "LAMMPS"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:77
+msgid "i-PI"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:78
+msgid "metatomic"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:83
+msgid ""
+"Follow this lecture for an introduction to PLUMED and enhanced sampling"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:84
+msgid "Follow this lecture if you have never heard of metadynamics before"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:85
+msgid ""
+"An interactive tutorial defining custom CV with metatomic and using them to "
+"run metadynamics in both i-PI and LAMMPS"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:86
+msgid "More information about the interface between LAMMPS and PLUMED"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:87
+msgid "More information about the interface between i-PI and PLUMED"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:88
+msgid "More information about metatomic"
+msgstr ""

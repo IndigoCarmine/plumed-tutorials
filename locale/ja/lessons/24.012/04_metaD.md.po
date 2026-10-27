@@ -1,0 +1,134 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 04_metaD.md:1
+msgid "Using MACE to run Metadynamics over Two Collective Variables"
+msgstr ""
+
+#: 04_metaD.md:3
+msgid ""
+"Now that we've run some simple MD, let us move on to the main task for this "
+"tutorial. In this section, we will be using PLUMED to drive a conformational"
+" change in our carbonic acid molecule. This molecule exists in three main "
+"conformations: cis-cis (CC), cis-trans (CT), and trans-trans (TT). It's up "
+"to you to determine which of these conformers is most stable, and which is "
+"least stable."
+msgstr ""
+
+#: 04_metaD.md:5
+msgid ""
+"The files needed to complete this part of the tutorial are located in the "
+"`resources` subdirectory (https://github.com/water-ice-"
+"group/plumed_tutorial_mace.git)."
+msgstr ""
+
+#: 04_metaD.md:9
+msgid ""
+"Like in the previous task, we have a configuration file `init.xyz` and our "
+"ase file `run.py`. Looking at the latter, you should see some noticeable "
+"changes to the code. The code below gives the PLUMED input needed to perform"
+" our enhanced sampling:"
+msgstr ""
+
+#: 04_metaD.md:15
+msgid "Converting from python to PLUMED format:"
+msgstr ""
+
+#: 04_metaD.md:26
+msgid ""
+"Line 1 gives the units used by PLUMED. Lines 2 and 3 define the collective "
+"variables (torsion) that we will use to probe the conformation change. Line "
+"4 is used to define the parameters used in running metadynamics, including "
+"gaussian heights, widths, and the rate at which they are deposited. Line 5 "
+"tells us to print the important collective variable information."
+msgstr ""
+
+#: 04_metaD.md:28
+msgid ""
+"For this system, we differentiate between our three conformers using two "
+"torsional collective variables, $\\phi$ and $\\theta$, corresponding to the "
+"H1-O2-C1-O1 and H2-O3-C1-O1 dihedrals (see below for reference positions). "
+"When $\\phi$ = $\\theta$ = 0, we have the CC conformer. When $\\phi$ = 0 "
+"(180) and $\\theta$ = 180 (0), we have the CT conformer. And when both "
+"$\\phi$ = $\\theta$ = 180, we have the TT conformer."
+msgstr ""
+
+#: 04_metaD.md:32
+msgid "Calling PLUMED during the run is achieved by the following block:"
+msgstr ""
+
+#: 04_metaD.md:40
+msgid ""
+"where we define the MACE calculator, PLUMED input, the starting "
+"configuration, timestep, and *kT*."
+msgstr ""
+
+#: 04_metaD.md:42
+msgid ""
+"Run the simulation using `python run.py`. Notice that two additional files "
+"will now be output alongside a trajectory and a log file. The `COLVAR` file "
+"gives details on the values of the two collective variable at each timestep."
+" `HILLS` records the gaussians deposited at each step; this will be "
+"important for reconstructing the potential energy surface later."
+msgstr ""
+
+#: 04_metaD.md:44
+msgid ""
+"We can use `COLVAR` to build up a picture of what is happening as the "
+"metadynamics proceeds. We encourage you to plot both $\\phi$ and $\\theta$ "
+"as a function of time to understand which states the molecule occupies and "
+"their relative proportions. How many transitions have there been between CC,"
+" CT, and TT?"
+msgstr ""
+
+#: 04_metaD.md:46
+msgid ""
+"We have set the number of steps in this simulation to be 100,000. This "
+"should take around 1-2 hours to complete depending on your hardware. You can"
+" speed up computation by switching `device='cpu'` to `'cuda'`, if GPU "
+"computation is available. Feel free to increase the number of steps in this "
+"simulation to improve the convergence of our profile and obtain more "
+"accurate free energies."
+msgstr ""
+
+#: 04_metaD.md:48
+msgid ""
+"Following the completion of the simulation, we can look to extract a "
+"potential energy surface for the conformational changes of carbonic acid."
+msgstr ""
+
+#: 04_metaD.md:49
+msgid "Copy `HILLS` to a new directory."
+msgstr ""
+
+#: 04_metaD.md:50
+msgid ""
+"Source your installed version of PLUMED and type `plumed sum_hills --hills "
+"HILLS --kt 0.02585`. This will add up the deposited gaussians and output the"
+" potential energies in `fes.dat`."
+msgstr ""
+
+#: 04_metaD.md:51
+msgid ""
+"Use the data in `fes.dat` to plot the 2D energy surface for our molecule. We"
+" have provided scripts for you to do this, though we encourage you to try "
+"coding this yourself."
+msgstr ""
+
+#: 04_metaD.md:53
+msgid "You profile should resemble something like this:"
+msgstr ""
+
+#: 04_metaD.md:57
+msgid ""
+"We can see four basins on this profile (if fewer, try running the "
+"simulations for longer). Are you able to identify which basin corresponds to"
+" which conformer? What is the most stable conformer? Can we provide a "
+"chemical rationale for these relative stabilities?"
+msgstr ""

@@ -1,0 +1,58 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: VirtualAtoms.md:1
+msgid "Dealing with virtual atoms"
+msgstr ""
+
+#: VirtualAtoms.md:3
+msgid ""
+"Virtual atoms are used to refer to the positions used in calculating CVs but"
+" where no atoms can be found. The most commonly used example of a virtual "
+"atom is a centre of mass."
+msgstr ""
+
+#: VirtualAtoms.md:6
+msgid ""
+"In older versions of PLUMED, these virtual atom positions were passed back "
+"to the Atoms class. Consequently, if the MD code passed $n$ atoms to PLUMED,"
+" and PLUMED went on to define $k$ virtual atom positions; you could choose "
+"from amongst $n+k$ positions when deciding how to calculate your CVs."
+msgstr ""
+
+#: VirtualAtoms.md:10
+msgid ""
+"You can do the same in newer versions of PLUMED. Now, however, the virtual "
+"atom positions are stored in three PLMD::Value objects so the passing is "
+"consistent with the ideas discussed [here](Passing.md). To make this "
+"possible PLMD::ActionWithValue contains the following code in its "
+"constructor:"
+msgstr ""
+
+#: VirtualAtoms.md:38
+msgid ""
+"This code ensures that every Action that inherits from ActionAtomistic has "
+"five std::vector objects of pointers to PLMD::Value objects called `xpos`, "
+"`ypos`, `zpos`, `masv` and `chargev`. These std::vector objects contain "
+"pointers to the PLMD::Value objects that contain information about the atoms"
+" passed from the MD code and the positions of the virtual atoms."
+msgstr ""
+
+#: VirtualAtoms.md:42
+msgid ""
+"PLUMED works out the dependencies for this new ActionAtomistic object in "
+"`requestAtoms` by using the following code:"
+msgstr ""
+
+#: VirtualAtoms.md:66
+msgid ""
+"The advantage of this new arrangement over the old one is that the code for "
+"applying forces on virtual atom positions is the same as the code for "
+"applying forces on CVs."
+msgstr ""

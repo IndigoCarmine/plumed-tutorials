@@ -1,0 +1,48 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: PassingEnergy.md:1
+msgid "Passing energy to PLUMED"
+msgstr ""
+
+#: PassingEnergy.md:3
+msgid ""
+"Several enhanced sampling methods apply a bias potential on the potential "
+"energy that is calculated by the MD code. If the potential energy that is "
+"passed to PLUMED is $V$, and the force from the bias on the potential energy"
+" is $f_e$, then the corresponding forces on position component $j$ of atom "
+"$i$ can be calculated as:"
+msgstr ""
+
+#: PassingEnergy.md:10
+msgid ""
+"$\\frac{\\partial V}{\\partial x_{ij} }$ is simply the negative of the force"
+" on position component $j$ of atom $i$ due to the potential $E$. We can thus"
+" calculate the total force on position component $j$ of atom $i$ from both "
+"the potential $E$ and the bias potential that is acting upon the potential "
+"energy as:"
+msgstr ""
+
+#: PassingEnergy.md:17
+msgid ""
+"In other words, we need to multiply the forces passed from the MD code to "
+"PLUMED by $\\left( 1 - f_e \\right)$ to calculate the total force on the "
+"atoms."
+msgstr ""
+
+#: PassingEnergy.md:19
+msgid ""
+"You can see how this mechanism for determining the total force due to the "
+"potential and a bias on the potential is used within `colvar/Energy.cpp.` As"
+" I was writing this Could similar code be employed elsewhere within the "
+"interface? For example, if you calculated some properties of each atom in "
+"the MD code and passed these properties through the DOMAIN_DECOMPOSITION, "
+"could you then use something like this to gather the forces on the sum of "
+"the individual atomic properties?"
+msgstr ""

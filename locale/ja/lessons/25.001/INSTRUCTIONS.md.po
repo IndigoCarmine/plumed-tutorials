@@ -1,0 +1,103 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: INSTRUCTIONS.md:1
+msgid "INSTRUCTIONS"
+msgstr ""
+
+#: INSTRUCTIONS.md:6
+msgid "<b>Clone the Github repository for this tutorial.</b>"
+msgstr ""
+
+#: INSTRUCTIONS.md:11
+msgid ""
+"<b>Ensure dependencies are installed by creating or updating your Python "
+"environment with `environment.yml`. </b>"
+msgstr ""
+
+#: INSTRUCTIONS.md:13
+msgid "Dependencies include NumPy, matplotlib, Pickle, Flask, ffmpeg, etc."
+msgstr ""
+
+#: INSTRUCTIONS.md:15
+msgid "Create a new environment:"
+msgstr ""
+
+#: INSTRUCTIONS.md:19
+msgid "or update an existing environment:"
+msgstr ""
+
+#: INSTRUCTIONS.md:24
+msgid "<b>Navigate to the home directory and launch the static webpage. </b>"
+msgstr ""
+
+#: INSTRUCTIONS.md:30
+msgid ""
+"This *should* automatically launch the tutorial in your browser. If you are "
+"having issues and <b> restarting the app does not work</b>, there is also a "
+"simple CLI. Here are a couple of example commands."
+msgstr ""
+
+#: INSTRUCTIONS.md:32
+msgid ""
+"Achieve better sampling with a longer metadynamics simulation and more even "
+"sampling:"
+msgstr ""
+
+#: INSTRUCTIONS.md:37
+msgid "Or just watch the ball go back and forth with an unbiased simulation:"
+msgstr ""
+
+#: INSTRUCTIONS.md:42
+msgid ""
+"<b>Build an intution for choosing MD simulation and metadynamics parameters."
+" </b>"
+msgstr ""
+
+#: INSTRUCTIONS.md:44
+msgid ""
+"Play with the sliders and visualize the effects of poor parameters, "
+"undersampling, oversampling, and much more. There is no one right answer for"
+" this tutorial. Rather, users are encouraged to address the following "
+"questions (also found on the webpage):"
+msgstr ""
+
+#: INSTRUCTIONS.md:46
+msgid ""
+"How do the metadynamics parameters affect resolution of the free energy "
+"surface?"
+msgstr ""
+
+#: INSTRUCTIONS.md:48
+msgid "How do the metadynamics parameters affect simulation performance?"
+msgstr ""
+
+#: INSTRUCTIONS.md:50
+msgid "Am I wasting time adding really small Gaussians?"
+msgstr ""
+
+#: INSTRUCTIONS.md:52
+msgid "How does the starting point of the simulation affect sampling?"
+msgstr ""
+
+#: INSTRUCTIONS.md:54
+msgid "What does good sampling look like?"
+msgstr ""
+
+#: INSTRUCTIONS.md:56
+msgid ""
+"If the underlying potential is NOT known, how could these results be "
+"misinterpreted?"
+msgstr ""
+
+#: INSTRUCTIONS.md:58
+msgid ""
+"<b>How can I get an adequate estimate of the free energy surface with the "
+"lowest computational cost?</b>"
+msgstr ""

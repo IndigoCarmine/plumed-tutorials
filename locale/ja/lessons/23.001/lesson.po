@@ -1,0 +1,23 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lesson.yml:title
+msgid "Developments in PLUMED"
+msgstr "PLUMED の開発"
+
+#: lesson.yml:description
+msgid ""
+"A series of articles were I outline some development work that I have been "
+"doing with PLUMED over the last few years"
+msgstr "著者がここ数年 PLUMED で取り組んできた開発の概要を紹介する一連の記事"
+
+#. video title
+#: EMBED.yml:dummy
+msgid "Not real"
+msgstr "実際の動画ではない"

@@ -1,0 +1,42 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/0.unbiased/README.md:1
+msgid "Unbiased"
+msgstr ""
+
+#: data/0.unbiased/README.md:3
+msgid ""
+"This folder contains the seeding simulations needed for training the "
+"autoencoder and tuning the switching function."
+msgstr ""
+
+#: data/0.unbiased/README.md:5
+msgid "Contents"
+msgstr ""
+
+#: data/0.unbiased/README.md:7
+msgid ""
+"**1_solvate**: Creating the simulation box with 1 NaCl ion solvated in TIP3P"
+" water."
+msgstr ""
+
+#: data/0.unbiased/README.md:8
+msgid ""
+"**2_em**: Minimizing the simulation box to relax non-physical structures "
+"followed by a short NVT simulation for equilibration."
+msgstr ""
+
+#: data/0.unbiased/README.md:9
+msgid "**3_md**: An unbiased MD run to seed the autoencoder training."
+msgstr ""
+
+#: data/0.unbiased/README.md:10
+msgid "**4_calcPIV**: Computing PIV vector of the unbiased MD trajectory"
+msgstr ""

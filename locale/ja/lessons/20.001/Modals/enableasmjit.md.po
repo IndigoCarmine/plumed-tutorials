@@ -1,0 +1,19 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Modals/enableasmjit.md:2
+msgid "--enable-asmjit option"
+msgstr ""
+
+#: Modals/enableasmjit.md:11
+msgid ""
+"If, for any reason, you want to disable ASMJIT at runtime you can do by "
+"setting the <code>PLUMED_USE_ASMJIT</code> environment variable as shown "
+"below:"
+msgstr ""

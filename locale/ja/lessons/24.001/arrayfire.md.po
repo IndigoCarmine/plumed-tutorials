@@ -1,0 +1,340 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: arrayfire.md:1
+msgid "Installing PLUMED2 with ARRAYFIRE support"
+msgstr ""
+
+#: arrayfire.md:2
+msgid ""
+"The purpose of this tutorial is to guide the user step-by-step through the "
+"process of compiling and installing PLUMED with ARRAYFIRE, an open-source "
+"library that supports a wide range of hardware accelerators for parallel "
+"computing."
+msgstr ""
+
+#: arrayfire.md:4
+msgid ""
+"In this specific scenario, the library is used to take advantage of CUDA-"
+"based GPUs to speed up the SAS calculation (ATOMISTIC / MARTINI / PARAMETERS"
+" / ONEBEAD representations). Furthermore, in order to show a real-life limit"
+" case, this installation example is performed on Leonardo, an HPC hosted by "
+"CINECA and managed by the SLURM scheduler."
+msgstr ""
+
+#: arrayfire.md:6
+msgid ""
+"To keep the working environment clean and compatible with other setups, in "
+"this guide the modules are not automatically loaded via .bashrc, "
+".bash_aliases, or other configuration files, but are invoked during "
+"installation and then managed via the SLURM batch script used to submit jobs"
+" to the HPC."
+msgstr ""
+
+#: arrayfire.md:8
+msgid "1. Loading essential modules"
+msgstr ""
+
+#: arrayfire.md:10
+msgid ""
+"To install ArrayFire, certain dependencies are required. Often, these "
+"dependencies are already available on HPC systems and can be loaded through "
+"modules. It is important to note that dependencies may also have their own "
+"dependencies, such as compilers or essential libraries. In general, to view "
+"the available modules on a SLURM-based HPC, you can use the command:"
+msgstr ""
+
+#: arrayfire.md:14
+msgid ""
+"For a comprehensive list of requirements and additional installation "
+"suggestions, please visit the [official ARRAYFIRE GitHub "
+"page](https://github.com/arrayfire/arrayfire/wiki/Build-Instructions-for-"
+"Linux). Continuing with the Leonardo example, here is the list of basic "
+"modules that can be loaded directly from the shell:"
+msgstr ""
+
+#: arrayfire.md:28
+msgid ""
+"Other required modules are available from Leonardo, but for general purposes"
+" and to provide useful examples, the other dependencies will be installed "
+"manually in the next steps. It is assumed that the downloads are stored in "
+"the home folder."
+msgstr ""
+
+#: arrayfire.md:30
+msgid "2. Building dependencies from source"
+msgstr ""
+
+#: arrayfire.md:31
+msgid ""
+"Let's start by creating a folder where all the codes will be installed:"
+msgstr ""
+
+#: arrayfire.md:35
+msgid "FFTW"
+msgstr ""
+
+#: arrayfire.md:36
+msgid ""
+"Download the \"Fastest Fourier Transform in the West\" package version "
+"3.3.10:"
+msgstr ""
+
+#: arrayfire.md:41 arrayfire.md:87
+msgid "Extract the archive:"
+msgstr ""
+
+#: arrayfire.md:45
+msgid "Copy the extracted folder to fftw-3.3.10_f and move into it:"
+msgstr ""
+
+#: arrayfire.md:49
+msgid ""
+"The FFTW libraries must be built separately with single and double precision"
+" support. The next command configures the installation with 32-bit floating "
+"point support:"
+msgstr ""
+
+#: arrayfire.md:53 arrayfire.md:174 arrayfire.md:215
+msgid "Configuration details:"
+msgstr ""
+
+#: arrayfire.md:61 arrayfire.md:74 arrayfire.md:126
+msgid "Compile and install the source code:"
+msgstr ""
+
+#: arrayfire.md:65
+msgid ""
+"In case of slowdowns, specify the number of processors to use, in this case "
+"8:"
+msgstr ""
+
+#: arrayfire.md:69
+msgid ""
+"Move to the fftw-3.3.10 folder and configure new instructions with the "
+"64-bit floating point support:"
+msgstr ""
+
+#: arrayfire.md:78
+msgid "Set the LD_LIBRARY_PATH environment variable directly in the shell:"
+msgstr ""
+
+#: arrayfire.md:82
+msgid "Boost"
+msgstr ""
+
+#: arrayfire.md:83
+msgid ""
+"Return to the download folder. Download the \"Boost C++\" libraries version "
+"1.85.0:"
+msgstr ""
+
+#: arrayfire.md:91
+msgid "Move into the boost folder:"
+msgstr ""
+
+#: arrayfire.md:95
+msgid "Initialise the Boost build system:"
+msgstr ""
+
+#: arrayfire.md:99
+msgid ""
+"Install Boost libraries specifying the directory where Boost will be "
+"installed:"
+msgstr ""
+
+#: arrayfire.md:103
+msgid ""
+"Add the Boost library path to the LD_LIBRARY_PATH and the include path to "
+"the PATH:"
+msgstr ""
+
+#: arrayfire.md:108
+msgid "Spdlog"
+msgstr ""
+
+#: arrayfire.md:109
+msgid ""
+"Return to the download folder. Clone and move into the spdlog repository:"
+msgstr ""
+
+#: arrayfire.md:114
+msgid "Checkout the specific version 1.9.2:"
+msgstr ""
+
+#: arrayfire.md:118
+msgid "Create build directory and navigate into it:"
+msgstr ""
+
+#: arrayfire.md:122
+msgid "Run CMake to configure the build:"
+msgstr ""
+
+#: arrayfire.md:130
+msgid "Set the environment variables:"
+msgstr ""
+
+#: arrayfire.md:135
+msgid "Link to libcuda library"
+msgstr ""
+
+#: arrayfire.md:136
+msgid ""
+"The next step can be tricky as it involves identifying a specific CUDA "
+"library on the cluster and linking it to your home directory. As the "
+"installation takes place on the login node, the CUDA drivers may not be "
+"directly available during code compilation. As an alternative, the stub "
+"library `libcuda.so` must be found on the HPC system. If the location is not"
+" clear, use the following command to find it:"
+msgstr ""
+
+#: arrayfire.md:140
+msgid ""
+"For Leonardo, the `libcuda.so` compatible with toolkit version 11.8 is "
+"located at:"
+msgstr ""
+
+#: arrayfire.md:144
+msgid "Create a folder in your home directory to link the library:"
+msgstr ""
+
+#: arrayfire.md:148
+msgid "Link the library:"
+msgstr ""
+
+#: arrayfire.md:152 arrayfire.md:198
+msgid "Update the LD_LIBRARY_PATH environment variable:"
+msgstr ""
+
+#: arrayfire.md:156
+msgid "3. Building and installing ArrayFire from source"
+msgstr ""
+
+#: arrayfire.md:157
+msgid "Return to the download folder. Clone the ArrayFire repository:"
+msgstr ""
+
+#: arrayfire.md:161
+msgid ""
+"Move into the arrayfire directory and checkout the specific version "
+"(v3.9.0):"
+msgstr ""
+
+#: arrayfire.md:166
+msgid "Create a build directory and navigate into it:"
+msgstr ""
+
+#: arrayfire.md:170
+msgid "Configure the build system with CMake:"
+msgstr ""
+
+#: arrayfire.md:190
+msgid "Build and install ArrayFire:"
+msgstr ""
+
+#: arrayfire.md:194
+msgid ""
+"Check that `libafcuda.so` is correctly built, all the required shared "
+"libraries must be resolved:"
+msgstr ""
+
+#: arrayfire.md:202
+msgid "4. Installing PLUMED2 with ArrayFire support"
+msgstr ""
+
+#: arrayfire.md:203
+msgid "Clone the PLUMED repository:"
+msgstr ""
+
+#: arrayfire.md:207
+msgid "Navigate to the PLUMED directory:"
+msgstr ""
+
+#: arrayfire.md:211
+msgid "Configure the build system:"
+msgstr ""
+
+#: arrayfire.md:232
+msgid "Build and install PLUMED:"
+msgstr ""
+
+#: arrayfire.md:236
+msgid "5. Logout & login"
+msgstr ""
+
+#: arrayfire.md:237
+msgid ""
+"To prevent compatibility issues caused by exporting the stub library, "
+"completely logout of the HPC shell and perform a clean login. Avoiding this "
+"step could result in \"CUDA device native identification\" errors."
+msgstr ""
+
+#: arrayfire.md:239
+msgid "6. Write & run the SLURM batch script"
+msgstr ""
+
+#: arrayfire.md:240
+msgid "Create a SLURM batch file, e.g. `RUN.sh`, using a text editor:"
+msgstr ""
+
+#: arrayfire.md:244
+msgid ""
+"Set the job configuration, the modules, the environment variables and run "
+"the PLUMED driver command:"
+msgstr ""
+
+#: arrayfire.md:291
+msgid ""
+"In this example, the plumed command launches the driver to analyse the "
+"molecular dynamics trajectory `trj.xtc` according to the `plumed.dat` file. "
+"For the details regarding the `plumed.dat`instructions, refer to the "
+"Tutorial 1 of this guide."
+msgstr ""
+
+#: arrayfire.md:293
+msgid "Run the SLURM script file:"
+msgstr ""
+
+#: arrayfire.md:298
+msgid "7. Running GROMACS with PLUMED support"
+msgstr ""
+
+#: arrayfire.md:299
+msgid ""
+"In addition to analysing a PDB or MD trajectory with the driver, it is "
+"possible to generate a conformational ensemble that agrees with SAS data "
+"using an MD engine. To enable this feature in GROMACS, it must be patched "
+"with the plumed-patch module and compiled with MPI support. Here is an "
+"example of a SLURM script that, after loading dependencies and environment "
+"variables, launches GROMACS with PLUMED support:"
+msgstr ""
+
+#: arrayfire.md:359
+msgid ""
+"In this example a single node is dedicated to perform a multidir simulation "
+"of 4 replicas, one for each GPU."
+msgstr ""
+
+#: arrayfire.md:361
+msgid "8. Final notes"
+msgstr ""
+
+#: arrayfire.md:362
+msgid ""
+"This guide was written and verified in June 2024, using the latest version "
+"of PLUMED available at that time. The names, paths, and versions of the "
+"modules can vary between HPC systems. Even for Leonardo, a software stack "
+"update might make this guide partially incompatible. However, all provided "
+"examples should offer a broad logic to customize and adapt the installation "
+"on local machines or other HPC systems."
+msgstr ""
+
+#: arrayfire.md:364
+msgid "[Back to hySAS home](NAVIGATION.md)"
+msgstr "[hySAS のホームに戻る](NAVIGATION.md)"

@@ -1,0 +1,223 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: PART2.md:1
+msgid "Part 2: Design a barrier-flattening potential"
+msgstr ""
+
+#: PART2.md:3
+msgid ""
+"Now that we have a clear picture about the free-energy surface (FES) we can "
+"devise a strategy to accelerate the dynamics along the most probable "
+"reaction pathway."
+msgstr ""
+
+#: PART2.md:5
+msgid ""
+"The idea behind this approach is to lower the free energy barrier between "
+"the bound and the unbound states in the hope of increasing the reaction rate"
+" in both directions. In the language of transition state theory (TST), this "
+"corresponds to decreasing the (Gibbs) free energy of activation for both the"
+" forward and backward processes ($\\Delta^\\ddagger G_\\pm$) in order to "
+"increase the corresponding rate constants,"
+msgstr ""
+
+#: PART2.md:13
+msgid ""
+"We will use the FES previously computed to craft a barrier-flattening bias. "
+"For this, no further simulation is needed as we can directly predict the "
+"shape of the FES for any bias potential that is a function of the same "
+"variables,"
+msgstr ""
+
+#: PART2.md:21
+msgid "Choosing a functional form"
+msgstr ""
+
+#: PART2.md:23
+msgid ""
+"The choice of $U_\\text{bias}$ is rather free, but we need to take some "
+"constraints into account:"
+msgstr ""
+
+#: PART2.md:24
+msgid "It should be continuous"
+msgstr ""
+
+#: PART2.md:25
+msgid ""
+"Far away from the barrier, the bias should be flat so as to minimally affect"
+" the thermodynamic ensemble"
+msgstr ""
+
+#: PART2.md:26
+msgid "The bias should avoid creating stable intermediates"
+msgstr ""
+
+#: PART2.md:28 PART2.md:74 PART2.md:150
+msgid "Instructions"
+msgstr "演習の手順"
+
+#: PART2.md:30
+msgid "Propose a candidate functional form matching the above criteria."
+msgstr ""
+
+#: PART2.md:32
+msgid ""
+"[!TIP] Tip 1 Try to transform the input variables so as to make it easier to"
+" fit the barrier with common functions (exp, cos, polynomials, etc.)"
+msgstr ""
+
+#: PART2.md:35
+msgid ""
+"[!TIP] Tip 2 Use Heaviside step functions to restrict the bias to the "
+"section of the CV-space you are interested in. Make sure the resulting "
+"potential is continuous (and it’s probably a good idea if it’s "
+"differentiable too) everywhere the system can go."
+msgstr ""
+
+#: PART2.md:38
+msgid ""
+"Using the reweighted FES computed in [Part 1](PART1.md), predict the shape "
+"of the biased FES and plot it."
+msgstr ""
+
+#: PART2.md:40
+msgid ""
+"Adjust the parameters and/or the functional form until you are satisfied "
+"with the resulting free-energy barrier."
+msgstr ""
+
+#: PART2.md:42 PART2.md:118
+msgid "Results"
+msgstr "結果"
+
+#: PART2.md:44
+msgid ""
+"Here is our proposition. For convenience, we defined new variables $X$ and "
+"$Y$ as:"
+msgstr ""
+
+#: PART2.md:53
+msgid ""
+"where $X$ can be interpreted as the advancement of the "
+"O<sub>W</sub>/O<sub>P</sub> exchange ($X = 0$ is the unbound state, $X = 1$ "
+"represents the addition of O<sub>P</sub> to the inner-sphere, and $X = 2$ "
+"complete departure of the supranumerary O<sub>W</sub> atom) and $Y$ is the "
+"excess coordination relative to the basal $n = 6$."
+msgstr ""
+
+#: PART2.md:55
+msgid "![Bias design figure](solutions/figures/bias_design_xy.png)"
+msgstr ""
+
+#: PART2.md:65
+msgid "![Bias design figure](solutions/figures/bias_design_XY.png)"
+msgstr ""
+
+#: PART2.md:68
+msgid ""
+"Your solution will probably look different, and that's OK since precise "
+"shape of the barrier should not matter too much."
+msgstr ""
+
+#: PART2.md:70
+msgid "Testing the barrier-flattening bias"
+msgstr ""
+
+#: PART2.md:72
+msgid ""
+"Once you are satisfied with functional form of your bias, you can implement "
+"it in a Plumed file."
+msgstr ""
+
+#: PART2.md:76
+msgid ""
+"Prepare a new directory for the bias testing simulation (you can reuse the "
+"same input files as previously)."
+msgstr ""
+
+#: PART2.md:78
+msgid ""
+"Write a `plumed_bias.dat` file implementing the chosen bias. You will to "
+"define a [`CUSTOM`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_c_u_s_t_o_m.html) collective variable and turn its output value "
+"into a biasing potential with "
+"[`BIASVALUE`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_b_i_a_s_v_a_l_u_e.html)."
+msgstr ""
+
+#: PART2.md:80
+msgid ""
+"To avoid wasting time with free diffusion of the ion in the simulation box, "
+"restrain the Mg<sup>2+</sup> in the vicinity of the O<sub>P</sub> atoms. For"
+" example you can use an upper wall on the minimum Mg—O<sub>P</sub> distance "
+"to restrain it under $1~\\text{nm}$ using the "
+"[`DISTANCES`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_d_i_s_t_a_n_c_e_s.html) multicolvar with the appropriate keyword."
+msgstr ""
+
+#: PART2.md:82
+msgid "Run the simulation."
+msgstr ""
+
+#: PART2.md:84
+msgid ""
+"In a Python notebook, plot the timeseries for the two CVs of interest as "
+"well as $U_\\text{bias}(t)$."
+msgstr ""
+
+#: PART2.md:86
+msgid "Template PLUMED file"
+msgstr ""
+
+#: PART2.md:120
+msgid "![Bias test timeseries figure](solutions/figures/bias_timeseries.png)"
+msgstr ""
+
+#: PART2.md:122
+msgid "Reweighting"
+msgstr ""
+
+#: PART2.md:124
+msgid ""
+"If we want to recover the original statistics implied by the force field, we"
+" need to reweight out the contribution of our accelerating bias. Each frame "
+"of the biased trajectory will receive a weight"
+msgstr ""
+
+#: PART2.md:132
+msgid ""
+"Any observable we are interested in can then be estimated using a weighted "
+"average on the $N$ frames from our biased trajectory as"
+msgstr ""
+
+#: PART2.md:140
+msgid ""
+"The quality of our estimation, however, will depend on the phase space "
+"overlap between the biased and unbiased ensembles. A generic way of "
+"evaluating the efficiency of our reweighting scheme is to use the Kish "
+"effective sample size,"
+msgstr ""
+
+#: PART2.md:148
+msgid ""
+"We can interpret $N_\\text{Kish}$ as the effective number of sample frames "
+"that contribute to the weighted average. In the worst case scenario, "
+"$N_\\text{Kish} = 1$ and only one frame has a non-zero weight, resulting in "
+"a very poor estimate of $\\langle \\mathcal{O} \\rangle_{p_0}$. The higher "
+"$N_\\text{Kish}$, the better the statistics, with a maximum value at "
+"$N_\\text{Kish} = N$ for trivial reweighting (e.g. for a constant bias)."
+msgstr ""
+
+#: PART2.md:152
+msgid ""
+"Compute the Kish effective sample size corresponding to reweighting the "
+"simulation to the original force field."
+msgstr ""

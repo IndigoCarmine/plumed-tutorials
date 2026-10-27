@@ -1,0 +1,106 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 02.md:1
+msgid ""
+"Tutorial 2:<br> Generating a conformational ensemble with GMX and hySAS"
+msgstr ""
+
+#: 02.md:2
+msgid ""
+"The main purpose of hySAS is to allow an MD engine, independently of the "
+"force field, to generate a conformational ensemble that is in agreement with"
+" the experimental data. To achieve this, a potential is added to the system "
+"to discourage conformations that do not match the measured signal. Here, we "
+"propose two examples of coupling methods to introduce this energy penalty "
+"during the MD simulation."
+msgstr ""
+
+#: 02.md:4
+msgid ""
+"Most of the SAS options have been discussed in Tutorial 1, here we present "
+"two additional flags: EXPINT and SCALE_EXPINT. For each QVALUE is required "
+"an EXPINT value, which consists in the experimental intensity measured at "
+"that specific momentum transfer. All the EXPINT values must be rescaled to "
+"the SAXS intensity at q = 0. To facilitate this operation, it is possible to"
+" automatically rescale all the experimental intensity entries with "
+"SCALE_EXPINT, which allows to provide the intensity at q = 0. In this way, "
+"each EXPINT is divided by SCALE_EXPINT."
+msgstr ""
+
+#: 02.md:6
+msgid ""
+"In general, the more the q-values and the corresponding experimental "
+"intensities, the more intensive the calculation."
+msgstr ""
+
+#: 02.md:8
+msgid "HARMONIC / LINEAR RESTRAINT"
+msgstr ""
+
+#: 02.md:10
+msgid ""
+"In this example, the SAXS profile is calculated using the ONEBEAD mapping, "
+"specifying a solvent electron density of 334 electrons/nm<sup>3</sup> and a "
+"correction of 80 electrons/nm<sup>3</sup> for the beads exposed to the "
+"solvent. The solvent-accessible surface calculation, which is required to "
+"assess the beads' exposure to the solvent, is performed every 10 steps of "
+"the simulation. The theoretical intensity at q = 0 is defined by "
+"SCALE_EXPINT, while the experimentally determined intensity for a given "
+"QVALUE is reported by EXPINT. All the EXPINT values are rescaled by the "
+"SCALE_EXPINT value."
+msgstr ""
+
+#: 02.md:12
+msgid ""
+"The STATS action is then used to calculate statistical properties between "
+"the intensities computed from the coordinates of the simulated system for "
+"each QVALUE and the corresponding experimental references defined with "
+"EXPINT. Specifically, the correlation between the *in silico* intensities "
+"and the experimental intensities is considered as an argument for RESTRAINT,"
+" an action from the BIAS module. As additional information useful to follow "
+"the evolution of the simulation, the radius of gyration of the system is "
+"printed every 100 steps. Additional `{}` brackets have been added to prevent"
+" a readability issue, they are optional to run the code. When curly brackets"
+" are used, ensure that the entire list of arguments is enclosed within one "
+"set of curly brackets."
+msgstr ""
+
+#: 02.md:14
+msgid ""
+"Detailed information on STATS, RESTRAINT and GYRATION can be found in the "
+"PLUMED manual."
+msgstr ""
+
+#: 02.md:60
+msgid "METAINFERENCE"
+msgstr ""
+
+#: 02.md:61
+msgid ""
+"Changing the coupling method does not affect the main SAXS/SANS actions, "
+"which remain unchanged. In this example we use metainference, a Bayesian "
+"replica-averaging framework that restrain the average predicted data, in "
+"this case the SAXS signal calculated from the system coordinates, to be "
+"close to the experimental observable, generating an ensemble in accordance "
+"to the maximum entropy principle. METAINFERENCE is part of the ISDB module, "
+"see the PLUMED manual and the "
+"[manuscript](https://doi.org/10.1126/sciadv.1501177) for full details."
+msgstr ""
+
+#: 02.md:63
+msgid ""
+"Unlike the previous example, we do not use the SCALE_EXPINT flag because the"
+" EXPINT values have already been rescaled. In both the examples the maximum "
+"momentum transfer accepted for the ONEBEAD mapping is 0.3 Å<sup>-1</sup>."
+msgstr ""
+
+#: 02.md:123
+msgid "[Back to hySAS home](NAVIGATION.md)"
+msgstr "[hySAS のホームに戻る](NAVIGATION.md)"

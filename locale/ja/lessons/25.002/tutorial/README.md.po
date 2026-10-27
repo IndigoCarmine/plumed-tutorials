@@ -1,0 +1,349 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tutorial/README.md:1
+msgid "bAIes-SM Tutorial"
+msgstr ""
+
+#: tutorial/README.md:3
+msgid ""
+"In this tutorial, you will learn how to use **bAIes** to refine protein "
+"complex structures for improved virtual screening performance. **bAIes** is "
+"a powerful tool based on Bayesian inference that integrates AlphaFold2 (AF2)"
+" local pairwise distance confidence scores with state-of-the-art molecular "
+"mechanics force fields."
+msgstr ""
+
+#: tutorial/README.md:6
+msgid ""
+"You will begin by generating an initial protein complex structure and "
+"residue-level distance confidence information using AlphaFold2. Next, we "
+"will perform a molecular dynamics (MD) relaxation with Gromacs. Following "
+"this, we will use bAIes to refine the protein models in a Bayesian way, "
+"where the MD simulations are guided jointly by MD force fields and the AF-"
+"derived local distance confidences. From the resulting trajectories, one or "
+"more refined structures will be selected and used as targets for small "
+"molecule (SM) docking."
+msgstr ""
+
+#: tutorial/README.md:11
+msgid ""
+"This workflow is a critical and enabling step in structure-based drug "
+"discovery, as it enhances the accuracy and reliability of protein targets "
+"for virtual screening, ultimately increasing the likelihood of identifying "
+"promising therapeutic compounds."
+msgstr ""
+
+#: tutorial/README.md:14
+msgid ""
+"Let's begin! We will use the example of a human estrogen receptor ([PDB "
+"3ERD](https://www.rcsb.org/structure/3ERD)). This system comprises the "
+"ligand-binding domain (LBD) of the receptor (herα) in complex with "
+"diethylstilbestrol (DES) and a peptide derived from the NR box II region of "
+"the coactivator GRIP1, as well as the crystal structure of the hERα LBD "
+"bound to the selective antagonist 4-hydroxytamoxifen (OHT). We focus on the "
+"DES-LBD-peptide complex."
+msgstr ""
+
+#: tutorial/README.md:22
+msgid ""
+"<em>The entire protein complex and a close-up view of the binding pocket "
+"showing the protein molecular bonds, with the native ligand inside it.</em>"
+msgstr ""
+
+#: tutorial/README.md:25
+msgid "1 AF"
+msgstr ""
+
+#: tutorial/README.md:26 tutorial/README.md:60 tutorial/README.md:104
+#: tutorial/README.md:223 tutorial/README.md:267
+msgid ""
+"Please go into the relevant directory for this step from the repository "
+"root:"
+msgstr ""
+
+#: tutorial/README.md:30
+msgid ""
+"As 3ERD is a protein complex, we will use AF multimer for its structure "
+"prediction. We will use the standard full MSA, and run it as follows:"
+msgstr ""
+
+#: tutorial/README.md:50
+msgid ""
+"Note the following: `ALPHAFOLD_DATA` is the path to the standard AF "
+"databases which are searched during the execution, and should be specified "
+"if not default. `ALPHAFOLD_DATA_EXT` is a user-specific location of Uniref30"
+" database that includes data till 30-02-2023, which may have to be "
+"downloaded separately to allow the full database `full_dbs` search."
+msgstr ""
+
+#: tutorial/README.md:55
+msgid ""
+"As this is a time-consuming and expensive process to set up and run, we have"
+" already provided you with the relevant results. As you can see, we asked AF"
+" to relax only the highest ranked structure. Among the produced files, our "
+"interest lies in that one relaxed structure file (`relaxed.pdb`) and the "
+"metric file (`result.pkl`). Please note that due to storage space "
+"constraints, we have omitted any extra information from `result.pkl` that "
+"bAIes will not need in the later steps. We will use the metric file for "
+"bAIes in step 3."
+msgstr ""
+
+#: tutorial/README.md:59
+msgid "2 MD relaxation"
+msgstr ""
+
+#: tutorial/README.md:65
+msgid ""
+"We will now equilibrate the AF predicted structure in water as solvent with "
+"vanilla MD using the AMBER forcefield. For this, we will first need to set "
+"up the system for MD. We use GROMACS as the MD software. We create the "
+"topology of the AF model as:"
+msgstr ""
+
+#: tutorial/README.md:71
+msgid ""
+"Note that we use `gmx_mpi` for executing GROMACS because it is the MPI-"
+"enabled version, allowing for parallel execution across multiple processors."
+" We recommend you to use the MPI version to handle these typically large "
+"systems which you may have already installed before starting the tutorial. "
+"If not, you can find instructions [here](../install.md). Note that "
+"`temp.gro` may have changed indices of the atoms, but we will take care of "
+"this when indexing our files. Note that we have included in the topology "
+"description a positional restraint on all heavy atoms. We will use this in "
+"the steps of relaxing the system. We place the AF model in a cubic box of "
+"suitable dimensions, and solvate the protein with TIP3P water molecules, and"
+" add NA+ and CL- and 0.15M concentration ensuring neutrality:"
+msgstr ""
+
+#: tutorial/README.md:89
+msgid ""
+"We will now use a steepest-descent algorithm to minimize the energy of this "
+"system, followed by relaxation in NVT conditions (T=300K) and then in NPT "
+"conditions (P=1 bar, T=300K) for 100ps each. Note that the equilibration is "
+"carried out with positional restraints (we ensured this in the topology "
+"creation step) on all heavy atoms of the system (defined as `DPOSRES` in "
+"`nvt.mdp` and `npt.mdp`, and described in `topol_Protein_chain_X.itp` "
+"(X=A,B,C,D))"
+msgstr ""
+
+#: tutorial/README.md:103
+msgid "3.1 bAIes setup"
+msgstr ""
+
+#: tutorial/README.md:108
+msgid ""
+"bAIes uses Bayesian inference to perform MD with the knowledge of AF-"
+"predicted local distance confidence. For this, bAIes needs to have a direct "
+"on-the-fly communication with the distance confidence information that is "
+"available in `../1-AF/result.pkl`. AF distograms are distance distributions "
+"between every pair of C_β (C_α for glycine) atoms."
+msgstr ""
+
+#: tutorial/README.md:114
+msgid "More about how the distance confidence information is stored:"
+msgstr ""
+
+#: tutorial/README.md:116
+msgid ""
+"`result.pkl` can be read as a Python dictionary. Its entry `distogram` "
+"comprises an array (`bin_edges`) specifying the edges of 64 equispaced "
+"distance bins (in Angstroms), which define the possible pairwise "
+"C<sub>β</sub> atom distances of the protein residues (C<sub>α</sub> for "
+"Glycine) which range from 0.2 to 2.2 nm."
+msgstr ""
+
+#: tutorial/README.md:119
+msgid ""
+"Corresponding to these bin edges, there is an array (`logits`) specifying "
+"the probability (in a raw output form) of observing each such distance. In "
+"summary:"
+msgstr ""
+
+#: tutorial/README.md:121
+msgid ""
+"result.pkl: { &nbsp;&nbsp; 'distogram': { &nbsp;&nbsp;&nbsp;&nbsp; "
+"'bin_edges': (64,), &nbsp;&nbsp;&nbsp;&nbsp; 'logits': (N_residues, "
+"N_residues, 64,), &nbsp;&nbsp;} }"
+msgstr ""
+
+#: tutorial/README.md:131
+msgid ""
+"The communication between bAIes and AF comprises 3 kinds of information: i) "
+"A list of residue pairs for which bAIes will need the distance confidence "
+"information."
+msgstr ""
+
+#: tutorial/README.md:136
+msgid ""
+"Every C<sub>β</sub>-C<sub>β</sub> atom pair is associated with a distance "
+"probability distribution, but not all of them are accounted for by bAIes. "
+"bAIes filters only those pairs which are more likely to have strong "
+"interactions, and uses their pairwise distance confidence information from "
+"AF to augment the force field in a Bayesian framework."
+msgstr ""
+
+#: tutorial/README.md:139
+msgid ""
+"bAIes selects those residue pairs which: a) have the most probable distance "
+"(in their distogram) less than a residue pair-specific cut-off, handled by a"
+" map from the Baker lab (Methods in article), and, b) are separated by at "
+"least 3 residues in sequence."
+msgstr ""
+
+#: tutorial/README.md:146
+msgid ""
+"ii) The most probable distance between the C_β atoms of those residue pairs."
+msgstr ""
+
+#: tutorial/README.md:150
+msgid ""
+"The distograms provide a raw distance probabilty as `logits`. We convert "
+"them to probability distributions with the `softmax` function. For each "
+"selected residue pair, the most probable distance can now be directly "
+"obtained as the distance corresponding to the peak of the probability "
+"distribution."
+msgstr ""
+
+#: tutorial/README.md:156
+msgid "iii) A measure of confidence in those pairwise distributions."
+msgstr ""
+
+#: tutorial/README.md:160
+msgid ""
+"The probability distribution of each selected residue pair is fitted with a "
+"lognormal curve. The standard deviation of this fitted curve is then used as"
+" a quantitative measure of uncertainty -— a higher standard deviation "
+"indicates lower confidence in the predicted distance."
+msgstr ""
+
+#: tutorial/README.md:166
+msgid "Let us back up the provided results:"
+msgstr ""
+
+#: tutorial/README.md:173
+msgid ""
+"We will now extract these 3 pieces of information all at once by using the "
+"`../../scripts/preprocess.py` script as follows:"
+msgstr ""
+
+#: tutorial/README.md:187
+msgid ""
+"Note that we need to be careful here about the indexing of the atoms which "
+"are altered by GROMACS. We need the distogram information that was indexed "
+"by AF (as in `relaxed.pdb`) to be correctly read by GROMACS. The mapping is "
+"provided to the preprocessing script by a GROMACS format pdb (`mdpdb.pdb`) "
+"obtained by:"
+msgstr ""
+
+#: tutorial/README.md:195
+msgid "File contents example:"
+msgstr ""
+
+#: tutorial/README.md:210
+msgid ""
+"Column 1: &nbsp;&nbsp; Field identity of selected pairwise residues Column "
+"2: &nbsp;&nbsp; Atom i of selected pair ij Column 3: &nbsp;&nbsp; Atom j of "
+"selected pair ij Column 4: &nbsp;&nbsp; Logarithm of mean distance value of "
+"fitted lognormal curve Column 5: &nbsp;&nbsp; Standard deviation of fitted "
+"lognormal curve <br>"
+msgstr ""
+
+#: tutorial/README.md:217
+msgid ""
+"The output of this script (`logn.out` and `index.ndx`) is already provided "
+"to you. The latter file contains redundant information about the selected "
+"residues, but in a different format. It is the unique list of C_β atoms (not"
+" atom pairs) belonging to the selected pairwise residues."
+msgstr ""
+
+#: tutorial/README.md:222
+msgid "3.2 bAIes production"
+msgstr ""
+
+#: tutorial/README.md:228
+msgid ""
+"To run bAIes, you will need a PLUMED actions script that specifies how the "
+"C_β-C_β distances should be incorporated. We have provided this to you "
+"(`logn_jeff.dat`)."
+msgstr ""
+
+#: tutorial/README.md:232
+msgid "**File contents** Example:"
+msgstr ""
+
+#: tutorial/README.md:248
+msgid ""
+"Line 1: Defines keyword `batoms` by reading the group `batoms` from the "
+"index file `index.ndx` Line 2: Defines action `baies` to operate on `batoms`"
+" using input `logn.out`, and employing the error prior of type `JEFFREYS` "
+"Line 3: Defines logging information Line 4: Applies a biasing potential to "
+"the simulation based on the value of `baies.ene` every 4 steps"
+msgstr ""
+
+#: tutorial/README.md:256
+msgid ""
+"Starting from the MD equilibrated structure, we run bAIes for 5ns as "
+"follows:"
+msgstr ""
+
+#: tutorial/README.md:262
+msgid ""
+"Note that to execute the above, you will need the PLUMED-patch of GROMACS to"
+" be installed, which you may have already done before starting the tutorial."
+" If not, you can find instructions [here](../install.md). Note that you need"
+" to set the number of CPU cores to use ($OMP_NUM_THREADS=10, for instance)."
+msgstr ""
+
+#: tutorial/README.md:266
+msgid "3.3 Model(s) selection as docking targets"
+msgstr ""
+
+#: tutorial/README.md:272
+msgid ""
+"We now have the trajectory generated by bAIes, and it is time to select "
+"suitable models from it that will form the docking targets. For this, we "
+"will cluster the trajectory according to their binding pocket structure as "
+"follows: We define the pocket as the set of heavy protein atoms within 6Å of"
+" any heavy atom of the ligand in the X-ray structure. Then we employed the "
+"<em>gromos</em> clustering approach using the RMSD calculated on the C_β "
+"pocket atoms as metric."
+msgstr ""
+
+#: tutorial/README.md:277
+msgid ""
+"We will need a structure file (we use `mdpdb.pdb`) and we will need the "
+"pocket selection in the index file."
+msgstr ""
+
+#: tutorial/README.md:291
+msgid ""
+"For this example, we choose a cutoff of 0.040 nm to ensure a balance between"
+" conformationally distinct and homogeneous model. Note that a range of "
+"cutoffs is usually tested to find the correct balance. In our experience, "
+"while very large/small cutoffs can obviously cause problems, the approach is"
+" insensitive to differences of around ±0.02 nm. To perform the model "
+"selection, we cluster the trajectory as follows:"
+msgstr ""
+
+#: tutorial/README.md:302
+msgid ""
+"Finally, the different clusters can be split into individual models as:"
+msgstr ""
+
+#: tutorial/README.md:308
+msgid ""
+"The bAIes-refined models are now located in the `clusters/frames` "
+"subdirectory, ranked according to sampled population. Typically, the highest"
+" rank (`model_1.pdb`) is considered a highly accurate target model against "
+"which virtual screening of small molecules can be performed. In our study "
+"(to be published), we have showed that our test cases produce an enrichment,"
+" in particular early enrichment, significantly higher than both raw AF "
+"models as well as MD-refined models."
+msgstr ""

@@ -1,0 +1,95 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Applications.md:1
+msgid "Current Existing Applications"
+msgstr ""
+
+#: Applications.md:4
+msgid "TOC"
+msgstr ""
+
+#: Applications.md:4
+msgid "Topic"
+msgstr ""
+
+#: Applications.md:4
+msgid "Article & Data"
+msgstr ""
+
+#: Applications.md:6
+msgid "**Ligand Binding**"
+msgstr ""
+
+#: Applications.md:6
+msgid ""
+"[JCTC 2024](https://pubs.acs.org/doi/full/10.1021/acs.jctc.4c01112) "
+"&nbsp;&#124;&nbsp; [PLUMED NEST](https://www.plumed-nest.org/eggs/24/024/) "
+"&nbsp; [PLUMED TUTORIALS](https://www.plumed-"
+"tutorials.org/lessons/24/016/data/NAVIGATION.html)<br>[JPCL "
+"2024](https://pubs.acs.org/doi/full/10.1021/acs.jpclett.4c02352) "
+"&nbsp;&#124;&nbsp; [PLUMED NEST](https://www.plumed-nest.org/eggs/24/017/)"
+msgstr ""
+
+#: Applications.md:7
+msgid "**Protein Folding**"
+msgstr ""
+
+#: Applications.md:7
+msgid ""
+"[JPCL 2025](https://pubs.acs.org/doi/full/10.1021/acs.jpclett.5c02079) "
+"&nbsp;&#124;&nbsp; [PLUMED NEST](https://www.plumed-nest.org/eggs/25/019/)"
+msgstr ""
+
+#: Applications.md:8
+msgid "**Nucleic acid Dynamics**"
+msgstr ""
+
+#: Applications.md:8
+msgid ""
+"[JCIM 2024](https://pubs.acs.org/doi/full/10.1021/acs.jcim.4c01166) "
+"&nbsp;&#124;&nbsp; [PLUMED NEST](https://www.plumed-nest.org/eggs/24/023/)"
+msgstr ""
+
+#: Applications.md:9
+msgid "**Surface Binding**"
+msgstr ""
+
+#: Applications.md:9
+msgid ""
+"[Langmuir 2024](https://pubs.acs.org/doi/abs/10.1021/acs.langmuir.4c03301) "
+"&nbsp;&#124;&nbsp; [Github](https://github.com/alec-glisman/Simulation-Two-"
+"Chain-PAA)"
+msgstr ""
+
+#: Applications.md:10
+msgid "**GPCR Activation**"
+msgstr ""
+
+#: Applications.md:10
+msgid ""
+"[JCTC 2025](https://pubs.acs.org/doi/full/10.1021/acs.jctc.5c00600) "
+"&nbsp;&#124;&nbsp; [PLUMED NEST](https://www.plumed-"
+"nest.org/eggs/25/020/)<br>[JPCL "
+"2026](https://pubs.acs.org/doi/full/10.1021/acs.jpclett.5c03834) "
+"&nbsp;&#124;&nbsp; [PLUMED NEST](https://www.plumed-"
+"nest.org/eggs/26/002/)<br>[biorXiv "
+"2026](https://www.biorxiv.org/content/10.64898/2026.06.12.731880) "
+"&nbsp;&#124;&nbsp; [Github](https://github.com/saureli/MOR_OneOPES)"
+msgstr ""
+
+#: Applications.md:11
+msgid "**Ion Channel Modulation**"
+msgstr ""
+
+#: Applications.md:11
+msgid ""
+"[NatCom 2026](https://www.nature.com/articles/s41467-026-77935-w) "
+"&nbsp;&#124;&nbsp; [Zenodo](https://zenodo.org/records/21624644)"
+msgstr ""

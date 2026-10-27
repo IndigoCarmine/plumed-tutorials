@@ -9,23 +9,30 @@ msgstr ""
 
 #: INSTRUCTIONS.md:1
 msgid "PLUMED Masterclass 21.3: Umbrella sampling"
-msgstr "PLUMED マスタークラス 21.3：アンブレラサンプリング"
+msgstr "PLUMED Masterclass 21.3：Umbrella Sampling"
 
 #: INSTRUCTIONS.md:3
 msgid "Origin"
-msgstr "由来"
+msgstr "作成について"
 
 #: INSTRUCTIONS.md:5
 msgid "This masterclass was authored by Giovanni Bussi on February 15, 2021."
-msgstr "このマスタークラスは 2021 年 2 月 15 日に Giovanni Bussi によって作成されました。"
+msgstr "このMasterclassは 2021 年 2 月 15 日に Giovanni Bussi によって作成されました。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"
 msgstr "目的"
 
 #: INSTRUCTIONS.md:9
-msgid "In this Masterclass, we will discuss how to perform and analyze umbrella sampling simulations. We will learn how to introduce a bias potential with PLUMED, how to compute the free energy landscapes, and how to reweight the resulting ensembles. We will also learn how to compute statistical errors on the computed quantities."
-msgstr "このマスタークラスでは、アンブレラサンプリングのシミュレーションの実行方法と解析方法を扱います。PLUMED でバイアスポテンシャルを導入する方法、自由エネルギー地形を計算する方法、得られたアンサンブルを再重み付けする方法を学びます。また、計算した量の統計誤差を求める方法も学びます。"
+msgid ""
+"In this Masterclass, we will discuss how to perform and analyze umbrella "
+"sampling simulations. We will learn how to introduce a bias potential with "
+"PLUMED, how to compute the free energy landscapes, and how to reweight the "
+"resulting ensembles. We will also learn how to compute statistical errors on"
+" the computed quantities."
+msgstr ""
+"このMasterclassでは、Umbrella Samplingのシミュレーションの実行方法と解析方法を扱います。PLUMED "
+"でBiasPotentialを導入する方法、自由エネルギー地形を計算する方法、得られたEnsembleをReweightingする方法を学びます。また、計算した量の統計誤差を求める方法も学びます。"
 
 #: INSTRUCTIONS.md:11
 msgid "Objectives"
@@ -33,344 +40,687 @@ msgstr "到達目標"
 
 #: INSTRUCTIONS.md:13
 msgid "Once you have completed this Masterclass you will be able to:"
-msgstr "このマスタークラスを終えると、次のことができるようになります："
+msgstr "この Masterclass を終えると、次のことができるようになる。"
 
 #: INSTRUCTIONS.md:15
-msgid "Use PLUMED to run simulations using static bias potentials with different functional forms."
-msgstr "PLUMED を使って、さまざまな関数形の静的バイアスポテンシャルを用いたシミュレーションを実行する。"
+msgid ""
+"Use PLUMED to run simulations using static bias potentials with different "
+"functional forms."
+msgstr "PLUMED を使って、さまざまな関数形の静的BiasPotentialを用いたシミュレーションを実行する。"
 
 #: INSTRUCTIONS.md:16
-msgid "Use WHAM to combine multiple simulations performed with different bias potentials."
-msgstr "WHAM を使って、異なるバイアスポテンシャルで行った複数のシミュレーションを統合する。"
+msgid ""
+"Use WHAM to combine multiple simulations performed with different bias "
+"potentials."
+msgstr "WHAM を使って、異なるBiasPotentialで行った複数のシミュレーションを統合する。"
 
 #: INSTRUCTIONS.md:17
-msgid "Reweight the resulting ensembles so as to obtain the free-energy profile as a function of a different variable."
-msgstr "得られたアンサンブルを再重み付けし、別の変数の関数として自由エネルギープロファイルを求める。"
+msgid ""
+"Reweight the resulting ensembles so as to obtain the free-energy profile as "
+"a function of a different variable."
+msgstr "得られたEnsembleをReweightingし、別の変数の関数として自由エネルギー Profileを求める。"
 
 #: INSTRUCTIONS.md:18
 msgid "Calculate error bars on free energies and populations."
-msgstr "自由エネルギーと存在確率の誤差棒を計算する。"
+msgstr "自由エネルギーと存在確率のError Barsを計算する。"
 
 #: INSTRUCTIONS.md:20
 msgid "Setting up PLUMED"
 msgstr "PLUMED のセットアップ"
 
 #: INSTRUCTIONS.md:22
-msgid "If you have not yet set up PLUMED, you can find information about installing it [here](https://www.plumed.org/doc-v2.7/user-doc/html/masterclass-21-1.html)."
-msgstr "PLUMED をまだセットアップしていない場合、インストール方法は[こちら](https://www.plumed.org/doc-v2.7/user-doc/html/masterclass-21-1.html)にあります。"
+msgid ""
+"If you have not yet set up PLUMED, you can find information about installing"
+" it [here](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/masterclass-21-1.html)."
+msgstr ""
+"PLUMED をまだセットアップしていない場合、インストール方法は[こちら](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/masterclass-21-1.html)にあります。"
 
 #: INSTRUCTIONS.md:24
-msgid "Once you have installed PLUMED, you will need to install GROMACS as well. In particular, you will need a special version of GROMACS that has been patched with PLUMED. You can obtain it by using conda with the following command"
+msgid ""
+"Once you have installed PLUMED, you will need to install GROMACS as well. In"
+" particular, you will need a special version of GROMACS that has been "
+"patched with PLUMED. You can obtain it by using conda with the following "
+"command"
 msgstr ""
+"PLUMED のインストール後、GROMACS もインストールする必要がある。特に、PLUMED のパッチを適用した専用の GROMACS "
+"が必要である。次の conda コマンドで入手できる。"
 
 #: INSTRUCTIONS.md:30
-msgid "The `--strict-channel-priority` is necessary as it prevents your conda install from downloading packages from the `bioconda` channel. `bioconda` contains a version of GROMACS that is **not** patched with PLUMED and would not work here."
+msgid ""
+"The `--strict-channel-priority` is necessary as it prevents your conda "
+"install from downloading packages from the `bioconda` channel. `bioconda` "
+"contains a version of GROMACS that is **not** patched with PLUMED and would "
+"not work here."
 msgstr ""
+"`--strict-channel-priority` は、conda が `bioconda` Channel "
+"からパッケージを取得するのを防ぐために必要である。`bioconda` の GROMACS には PLUMED "
+"のパッチが**適用されていない**ため、ここでは使用できない。"
 
 #: INSTRUCTIONS.md:32
 msgid "On Linux, the command above should install the following packages:"
-msgstr ""
+msgstr "Linux では、上記のコマンドで次のパッケージがインストールされるはずである。"
 
 #: INSTRUCTIONS.md:44
-msgid "The exact versions might be different. Notice, however, that GROMACS comes from the `plumed/label/masterclass` channel, whereas the required libraries come from the `conda-forge` channel. To be sure the installed GROMACS is patched with PLUMED, try the following shell command:"
+msgid ""
+"The exact versions might be different. Notice, however, that GROMACS comes "
+"from the `plumed/label/masterclass` channel, whereas the required libraries "
+"come from the `conda-forge` channel. To be sure the installed GROMACS is "
+"patched with PLUMED, try the following shell command:"
 msgstr ""
+"実際のバージョンは異なる場合がある。ただし、GROMACS は `plumed/label/masterclass` Channel "
+"から、必要なライブラリは `conda-forge` Channel から取得される。インストールした GROMACS に PLUMED "
+"のパッチが適用されていることを確認するため、次の Shell コマンドを実行する。"
 
 #: INSTRUCTIONS.md:50
 msgid "It should print `ok`."
-msgstr ""
+msgstr "`ok` と表示されるはずである。"
 
 #: INSTRUCTIONS.md:52
-msgid "Please ensure that you have setup PLUMED and GROMACS on your machine before starting the exercises. Also notice that in order to obtain a good performance it is better to compile GROMACS from source on the machine where you are running your simulations. You can find out from the PLUMED documention how to patch GROMACS with PLUMED so as to be able to install it from source. For this tutorial, the conda precompiled binaries will be sufficient."
+msgid ""
+"Please ensure that you have setup PLUMED and GROMACS on your machine before "
+"starting the exercises. Also notice that in order to obtain a good "
+"performance it is better to compile GROMACS from source on the machine where"
+" you are running your simulations. You can find out from the PLUMED "
+"documention how to patch GROMACS with PLUMED so as to be able to install it "
+"from source. For this tutorial, the conda precompiled binaries will be "
+"sufficient."
 msgstr ""
+"演習を始める前に、マシン上で PLUMED と GROMACS "
+"のセットアップを完了しておく。また、良好な性能を得るには、シミュレーションを実行するマシン上で GROMACS "
+"をソースからコンパイルすることが望ましい。GROMACS に PLUMED のパッチを適用してソースからインストールする手順は、PLUMED "
+"のドキュメントを参照してほしい。このチュートリアルでは、conda のビルド済みバイナリで十分である。"
 
 #: INSTRUCTIONS.md:54
 msgid "Resources"
-msgstr ""
+msgstr "資料"
 
 #: INSTRUCTIONS.md:56
-msgid "The data needed to execute the exercises of this Masterclass can be found on [GitHub](https://github.com/plumed/masterclass-21-3). You can clone this repository locally on your machine using the following command:"
+msgid ""
+"The data needed to execute the exercises of this Masterclass can be found on"
+" [GitHub](https://github.com/plumed/masterclass-21-3). You can clone this "
+"repository locally on your machine using the following command:"
 msgstr ""
+"この Masterclass の演習に必要なデータは "
+"[GitHub](https://github.com/plumed/masterclass-21-3) "
+"にある。次のコマンドで、このリポジトリを自分のマシンに clone できる。"
 
 #: INSTRUCTIONS.md:63
-msgid "The files you need for the exercise are in the folder called `data`. You will find the following files in that folder:"
-msgstr ""
+msgid ""
+"The files you need for the exercise are in the folder called `data`. You "
+"will find the following files in that folder:"
+msgstr "演習に必要なファイルは `data` フォルダにある。このフォルダには次のファイルが含まれる。"
 
 #: INSTRUCTIONS.md:65
-msgid "`topolA.tpr`: an input file that can be used to run a GROMACS simulation of alanine dipeptide starting from one of the two main free-energy minima"
+msgid ""
+"`topolA.tpr`: an input file that can be used to run a GROMACS simulation of "
+"alanine dipeptide starting from one of the two main free-energy minima"
 msgstr ""
+"`topolA.tpr`：Alanine Dipeptide の2つの主要な自由エネルギー極小の一方を初期状態として、GROMACS "
+"シミュレーションを実行するための入力ファイル。"
 
 #: INSTRUCTIONS.md:67
-msgid "`topolB.tpr`: same as `topolA.tpr`, but starting from the other minimum."
-msgstr ""
+msgid ""
+"`topolB.tpr`: same as `topolA.tpr`, but starting from the other minimum."
+msgstr "`topolB.tpr`：`topolA.tpr` と同様だが、もう一方の極小を初期状態とする。"
 
 #: INSTRUCTIONS.md:68
-msgid "`wham.py`: a python script that can be used to perform binless WHAM analysis"
-msgstr ""
+msgid ""
+"`wham.py`: a python script that can be used to perform binless WHAM analysis"
+msgstr "`wham.py`：Binless WHAM 解析を実行するための Python スクリプト。"
 
 #: INSTRUCTIONS.md:69
-msgid "`reference.pdb`: a pdb file of alanine dipeptide (the system under study) that can be used as input for your MOLINFO commands"
+msgid ""
+"`reference.pdb`: a pdb file of alanine dipeptide (the system under study) "
+"that can be used as input for your MOLINFO commands"
 msgstr ""
+"`reference.pdb`：解析対象の Alanine Dipeptide の PDB ファイル。MOLINFO コマンドの入力に使える。"
 
 #: INSTRUCTIONS.md:71
-msgid "Notice that PLUMED input files have not been provided in the GitHub repository. You must prepare these input files yourself using the templates below."
-msgstr ""
+msgid ""
+"Notice that PLUMED input files have not been provided in the GitHub "
+"repository. You must prepare these input files yourself using the templates "
+"below."
+msgstr "GitHub リポジトリには PLUMED の入力ファイルは含まれていない。以下のテンプレートを使って自分で作成する必要がある。"
 
 #: INSTRUCTIONS.md:73
-msgid "We would recommend that you run each exercise in separate sub-directories inside the root directory `masterclass-21-3`."
-msgstr ""
+msgid ""
+"We would recommend that you run each exercise in separate sub-directories "
+"inside the root directory `masterclass-21-3`."
+msgstr "各演習は、ルートディレクトリ `masterclass-21-3` 内の個別のサブディレクトリで実行することを推奨する。"
 
 #: INSTRUCTIONS.md:75
-msgid "_All the exercises were tested with PLUMED version 2.7.0 and GROMACS 2019.6_"
-msgstr ""
+msgid ""
+"_All the exercises were tested with PLUMED version 2.7.0 and GROMACS 2019.6_"
+msgstr "_すべての演習は PLUMED 2.7.0 と GROMACS 2019.6 で動作確認されている。_"
 
 #: INSTRUCTIONS.md:77
 msgid "Exercises"
-msgstr ""
+msgstr "演習"
 
 #: INSTRUCTIONS.md:79
-msgid "Throughout this tutorial we will run simulations of alanine dipeptide in vacuum using GROMACS and PLUMED. Whereas this system is too simple to be considered a proper benchmark for enhanced sampling methods, it is complex enough to be used when learning about them. Some of the commands below are specific for GROMACS, but all the PLUMED input files are compatible with other MD engines as well."
+msgid ""
+"Throughout this tutorial we will run simulations of alanine dipeptide in "
+"vacuum using GROMACS and PLUMED. Whereas this system is too simple to be "
+"considered a proper benchmark for enhanced sampling methods, it is complex "
+"enough to be used when learning about them. Some of the commands below are "
+"specific for GROMACS, but all the PLUMED input files are compatible with "
+"other MD engines as well."
 msgstr ""
+"このチュートリアルでは、GROMACS と PLUMED を用いて真空中の Alanine Dipeptide をシミュレーションする。この系は "
+"Enhanced Sampling 法の本格的な Benchmark とするには単純すぎるが、手法を学ぶには十分な複雑さを持つ。以下の一部のコマンドは "
+"GROMACS 専用だが、PLUMED の入力ファイルはすべて他の MD エンジンでも使用できる。"
 
 #: INSTRUCTIONS.md:81
 msgid "Exercise 1: Running an unbiased simulation with PLUMED"
-msgstr ""
+msgstr "演習1：PLUMED による Unbiased シミュレーションの実行"
 
 #: INSTRUCTIONS.md:83
-msgid "In other masterclasses you learned how to analyze trajectories a posteriori. One of the nice features of PLUMED is that the very same analysis can be done on the fly. In other words, you might compute your collective variables while GROMACS is running instead of waiting for the simulation to end. This can could be convenient if you want to run a large number of simulations, you already know what to compute, and you do not want to use too much disk space."
+msgid ""
+"In other masterclasses you learned how to analyze trajectories a posteriori."
+" One of the nice features of PLUMED is that the very same analysis can be "
+"done on the fly. In other words, you might compute your collective variables"
+" while GROMACS is running instead of waiting for the simulation to end. This"
+" can could be convenient if you want to run a large number of simulations, "
+"you already know what to compute, and you do not want to use too much disk "
+"space."
 msgstr ""
+"他の Masterclass では、シミュレーション後に Trajectories を解析する方法を学んだ。PLUMED "
+"の便利な点の1つは、まったく同じ解析を On-the-fly で行えることである。つまり、終了を待たずに GROMACS の実行中に "
+"Collective Variables "
+"を計算できる。多数のシミュレーションを実行し、計算する量があらかじめ決まっていて、ディスク使用量を抑えたい場合に便利である。"
 
 #: INSTRUCTIONS.md:85
-msgid "To run a simulation with GROMACS you have to type this command in the shell:"
-msgstr ""
+msgid ""
+"To run a simulation with GROMACS you have to type this command in the shell:"
+msgstr "GROMACS でシミュレーションを実行するには、Shell で次のコマンドを入力する。"
 
 #: INSTRUCTIONS.md:91
-msgid "Notice that the file `topolA.tpr` contains all the relevant information (simulation parameters, initial conditions, etc.). In this tutorial we will just need to play with the number of steps (200000 in the example above) and we will tune the name of the trajectory saved by GROMACS (traj_unbiased.xtc in the example above)."
+msgid ""
+"Notice that the file `topolA.tpr` contains all the relevant information "
+"(simulation parameters, initial conditions, etc.). In this tutorial we will "
+"just need to play with the number of steps (200000 in the example above) and"
+" we will tune the name of the trajectory saved by GROMACS (traj_unbiased.xtc"
+" in the example above)."
 msgstr ""
+"`topolA.tpr` "
+"には、シミュレーションのパラメータや初期条件など、必要な情報がすべて含まれる。このチュートリアルでは、ステップ数（上の例では200000）と "
+"GROMACS が保存する Trajectory の名前（上の例では traj_unbiased.xtc）のみを調整する。"
 
 #: INSTRUCTIONS.md:93
-msgid "Also consider that GROMACS and PLUMED will never delete your files. They will take backups when you try to overwrite them. GROMCAS backup files start with `#`, whereas PLUMED backup files start with `bck.`. Both GROMACS and PLUMED will complain if you try to create too many backups of the same file. It is thus recommended to regularly clean your directory with a command such as `rm -f \\#* bck.*`"
+msgid ""
+"Also consider that GROMACS and PLUMED will never delete your files. They "
+"will take backups when you try to overwrite them. GROMCAS backup files start"
+" with `#`, whereas PLUMED backup files start with `bck.`. Both GROMACS and "
+"PLUMED will complain if you try to create too many backups of the same file."
+" It is thus recommended to regularly clean your directory with a command "
+"such as `rm -f \\#* bck.*`"
 msgstr ""
+"GROMACS と PLUMED はファイルを削除せず、上書き時にバックアップを作成する。GROMACS のバックアップ名は `#` で、PLUMED "
+"のバックアップ名は `bck.` で始まる。同じファイルのバックアップを作りすぎると、どちらもエラーを出す。このため、`rm -f \\#* "
+"bck.*` などのコマンドで定期的にディレクトリを整理することを推奨する。"
 
 #: INSTRUCTIONS.md:95
-msgid "The command above will only succeed if a file named `plumed.dat` exists in the current directory. You should already know to create such file from having completed other (more basic) tutorials. Those other tutorials should also have taught you how to compute histograms. You should be thus able to complete the template below and put it in a file named `plumed.dat`."
+msgid ""
+"The command above will only succeed if a file named `plumed.dat` exists in "
+"the current directory. You should already know to create such file from "
+"having completed other (more basic) tutorials. Those other tutorials should "
+"also have taught you how to compute histograms. You should be thus able to "
+"complete the template below and put it in a file named `plumed.dat`."
 msgstr ""
+"上のコマンドが成功するには、現在のディレクトリに `plumed.dat` が存在する必要がある。より基本的なチュートリアルで、このファイルの作成方法と"
+" Histogram の計算方法は学習済みのはずである。それらを踏まえて以下のテンプレートを完成させ、`plumed.dat` という名前で保存する。"
 
 #: INSTRUCTIONS.md:121
-msgid "You can then monitor what happened during the simulation using the python script below."
-msgstr ""
+msgid ""
+"You can then monitor what happened during the simulation using the python "
+"script below."
+msgstr "次の Python スクリプトで、シミュレーション中に何が起きたかを確認できる。"
 
 #: INSTRUCTIONS.md:165
-msgid "In this manner you will be able to see (a) the time series of $\\phi$ and $\\psi$, (b) which portion of the $(\\phi,\\psi)$ space has been explored (c) the free energy as a function of $\\phi$ and (d) the free energy as a function of $\\psi$. In particular, you should be able to identify two minima separated by a moderate barrier. Several transitions between these minima will be visible in the simulated time scale."
+msgid ""
+"In this manner you will be able to see (a) the time series of $\\phi$ and "
+"$\\psi$, (b) which portion of the $(\\phi,\\psi)$ space has been explored "
+"(c) the free energy as a function of $\\phi$ and (d) the free energy as a "
+"function of $\\psi$. In particular, you should be able to identify two "
+"minima separated by a moderate barrier. Several transitions between these "
+"minima will be visible in the simulated time scale."
 msgstr ""
+"これにより、(a) $\\phi$ と $\\psi$ の時系列、(b) $(\\phi,\\psi)$ 空間の探索された範囲、(c) $\\phi$ "
+"の関数としての自由エネルギー、(d) $\\psi$ の関数としての自由エネルギーを確認できる。特に、中程度の Barrier "
+"で隔てられた2つの極小を識別できるはずである。シミュレーション時間内に、これらの極小間の遷移が数回見られる。"
 
 #: INSTRUCTIONS.md:167
 msgid "Exercise 2: Running biased simulations with PLUMED"
-msgstr ""
+msgstr "演習2：PLUMED による Biased シミュレーションの実行"
 
 #: INSTRUCTIONS.md:169
-msgid "We are now ready to use PLUMED to perform the task it was originally designed for: biasing a simulation on the fly. We will first try to add simple bias potentials that change the balance between the two minima we have obtained in the previous exercise. Biasing is not particularly useful here since both minima were sampled anyways. However, it is instructive since we will be able to test the types of analysis we did in [masterclass-21-2](https://plumed-school.github.io/lessons/21/002/data/). The two minima observed in the previous exercise are located at $\\phi$ approximately equal to -2.5 and -1.5and are separated by a barrier located at $\\phi$ approximately equal to -2. We can predict that adding a bias potential in the form `-A*sin(x+2)`, with $A$ being positive and large enough, should favor the minimum at -1.5 at the expense of the other."
+msgid ""
+"We are now ready to use PLUMED to perform the task it was originally "
+"designed for: biasing a simulation on the fly. We will first try to add "
+"simple bias potentials that change the balance between the two minima we "
+"have obtained in the previous exercise. Biasing is not particularly useful "
+"here since both minima were sampled anyways. However, it is instructive "
+"since we will be able to test the types of analysis we did in "
+"[masterclass-21-2](https://plumed-school.github.io/lessons/21/002/data/). "
+"The two minima observed in the previous exercise are located at $\\phi$ "
+"approximately equal to -2.5 and -1.5and are separated by a barrier located "
+"at $\\phi$ approximately equal to -2. We can predict that adding a bias "
+"potential in the form `-A*sin(x+2)`, with $A$ being positive and large "
+"enough, should favor the minimum at -1.5 at the expense of the other."
 msgstr ""
+"ここで、PLUMED が当初設計された目的である、シミュレーションへの On-the-fly の Bias "
+"付加を行う。まず、前の演習で得られた2つの極小のバランスを変える単純な BiasPotential を加える。どちらの極小もすでに Sampling "
+"できているため、ここで Bias を加える実用上の利点は大きくない。しかし、[masterclass-21-2](https://plumed-"
+"school.github.io/lessons/21/002/data/) の解析手法を試すうえで有用である。前の演習で見られた2つの極小は "
+"$\\phi$ が約 -2.5 と -1.5 の位置にあり、その間の $\\phi$ が約 -2 の位置に Barrier がある。正で十分に大きい "
+"$A$ を用いて `-A*sin(x+2)` の BiasPotential を加えると、もう一方の極小に比べて -1.5 "
+"の極小が有利になると予測できる。"
 
 #: INSTRUCTIONS.md:172
-msgid "We can try this type of calculation with A=10 by using an input file like the following one:"
-msgstr ""
+msgid ""
+"We can try this type of calculation with A=10 by using an input file like "
+"the following one:"
+msgstr "次のような入力ファイルを使い、A=10 としてこの計算を試す。"
 
 #: INSTRUCTIONS.md:210
-msgid "Call this file `plumed_biased1.dat` and run the simulation using this command:"
-msgstr ""
+msgid ""
+"Call this file `plumed_biased1.dat` and run the simulation using this "
+"command:"
+msgstr "このファイルを `plumed_biased1.dat` として保存し、次のコマンドでシミュレーションを実行する。"
 
 #: INSTRUCTIONS.md:216
-msgid "Notice that we are storing the trajectory on a separate file. We will need both the unbiased and the biased trajectory later."
+msgid ""
+"Notice that we are storing the trajectory on a separate file. We will need "
+"both the unbiased and the biased trajectory later."
 msgstr ""
+"Trajectory は別のファイルに保存している。後で Unbiased と Biased の両方の Trajectories が必要になる。"
 
 #: INSTRUCTIONS.md:218
-msgid "You can then monitor what happened during the simulation using these commands"
-msgstr ""
+msgid ""
+"You can then monitor what happened during the simulation using these "
+"commands"
+msgstr "次のコマンドで、シミュレーション中に何が起きたかを確認できる。"
 
 #: INSTRUCTIONS.md:261
-msgid "The free-energy plots here will include three lines: (a) the original one (as obtained from the previous exercise), (b) the one sampled in this second simulation, where the minimum at higher phi appears more stable, and (c) the reweighted free-energy from the second simulation. This final free energy surface should look closer to the original one. Notice that the relationship between plots (b) and (c) is straightforward when the analyzed variable is phi: the third line could have been obtained by just adding $-10 \\sin(x+2)$ to the second line. However, when analyzing psi the effect is less obvious."
+msgid ""
+"The free-energy plots here will include three lines: (a) the original one "
+"(as obtained from the previous exercise), (b) the one sampled in this second"
+" simulation, where the minimum at higher phi appears more stable, and (c) "
+"the reweighted free-energy from the second simulation. This final free "
+"energy surface should look closer to the original one. Notice that the "
+"relationship between plots (b) and (c) is straightforward when the analyzed "
+"variable is phi: the third line could have been obtained by just adding $-10"
+" \\sin(x+2)$ to the second line. However, when analyzing psi the effect is "
+"less obvious."
 msgstr ""
+"自由エネルギーのグラフには3本の線が現れる。(a) 前の演習で得た元の曲線、(b) 今回のシミュレーションで Sampling された曲線（phi "
+"が大きい側の極小がより安定に見える）、(c) 今回のシミュレーションを Reweighting "
+"して得た曲線である。最後の自由エネルギー面は元のものに近づくはずである。解析する変数が phi の場合、(b) と (c) "
+"の関係は単純であり、2本目の線に $-10 \\sin(x+2)$ を加えるだけで3本目が得られる。一方、psi "
+"を解析する場合、この効果はそれほど自明ではない。"
 
 #: INSTRUCTIONS.md:263
 msgid "Exercise 3: Combining statistics from biased and unbiased simulations"
-msgstr ""
+msgstr "演習3：Biased と Unbiased のシミュレーションの統計を統合する"
 
 #: INSTRUCTIONS.md:265
-msgid "We will now run a new simulation that is even more biased by choosing the prefactor A=20. This will further favour the minimum at higher values of phi. Please prepare a `plumed_biased2.dat` input file that is identical to `plumed_biased1.dat` except that:"
+msgid ""
+"We will now run a new simulation that is even more biased by choosing the "
+"prefactor A=20. This will further favour the minimum at higher values of "
+"phi. Please prepare a `plumed_biased2.dat` input file that is identical to "
+"`plumed_biased1.dat` except that:"
 msgstr ""
+"係数 A=20 を選び、さらに強い Bias を加えたシミュレーションを実行する。これにより、phi が大きい側の極小がさらに有利になる。次の点以外は "
+"`plumed_biased1.dat` と同じ内容の入力ファイル `plumed_biased2.dat` を作成する。"
 
 #: INSTRUCTIONS.md:267
 msgid "it applies a bias with -20*sin(phi+2)"
-msgstr ""
+msgstr "-20*sin(phi+2) の Bias を加える。"
 
 #: INSTRUCTIONS.md:268
-msgid "all the written files are named with a `2` suffix (e.g. `fes_phi_biased2.dat`)."
-msgstr ""
+msgid ""
+"all the written files are named with a `2` suffix (e.g. "
+"`fes_phi_biased2.dat`)."
+msgstr "出力されるすべてのファイル名に接尾辞 `2` を付ける（例：`fes_phi_biased2.dat`）。"
 
 #: INSTRUCTIONS.md:270
 msgid "Then run the new simulation using the following command:"
-msgstr ""
+msgstr "次のコマンドで新しいシミュレーションを実行する。"
 
 #: INSTRUCTIONS.md:276
-msgid "You can analyze this new simulation as you did the previous one. You should notice that the peak at higher $\\phi$ is even more favored now."
-msgstr ""
+msgid ""
+"You can analyze this new simulation as you did the previous one. You should "
+"notice that the peak at higher $\\phi$ is even more favored now."
+msgstr "前のシミュレーションと同様に解析できる。$\\phi$ が大きい側のピークが、さらに有利になっていることを確認する。"
 
 #: INSTRUCTIONS.md:278
-msgid "We will now use WHAM to combine the three simulations we have done so far, namely:"
-msgstr ""
+msgid ""
+"We will now use WHAM to combine the three simulations we have done so far, "
+"namely:"
+msgstr "ここまでに実行した次の3つのシミュレーションを、WHAM を使って統合する。"
 
 #: INSTRUCTIONS.md:280
 msgid "unbiased (`traj_comp_unbiased.xtc`),"
-msgstr ""
+msgstr "Unbiased（`traj_comp_unbiased.xtc`）、"
 
 #: INSTRUCTIONS.md:281
 msgid "biased (`traj_comp_biased1.xtc`), and"
-msgstr ""
+msgstr "Biased（`traj_comp_biased1.xtc`）、"
 
 #: INSTRUCTIONS.md:282
 msgid "more biased (`traj_comp_biased2.xtc`)."
-msgstr ""
+msgstr "より強い Biased（`traj_comp_biased2.xtc`）。"
 
 #: INSTRUCTIONS.md:284
-msgid "The first thing we have to do is to concatenate the three files usinig:"
-msgstr ""
+msgid ""
+"The first thing we have to do is to concatenate the three files usinig:"
+msgstr "まず、次のコマンドで3つのファイルを連結する。"
 
 #: INSTRUCTIONS.md:290
-msgid "Notice that this new trajectory contains all the simulated frames, and we __do not__ explicitly track which of the simulation each frame originated from."
+msgid ""
+"Notice that this new trajectory contains all the simulated frames, and we "
+"__do not__ explicitly track which of the simulation each frame originated "
+"from."
 msgstr ""
+"この新しい Trajectory には、シミュレーションで得たすべての Frame が含まれる。各 Frame "
+"がどのシミュレーションに由来するかは、明示的には追跡**しない**。"
 
 #: INSTRUCTIONS.md:292
-msgid "We then have to compute the bias that would have been felt in each of the three runs above by each of the frames in the concatenated trajectory. We could do this reusing the three plumed input files we used above, but it is perhaps clearer to do it with a single input file in this case. You can use an input like this one:"
+msgid ""
+"We then have to compute the bias that would have been felt in each of the "
+"three runs above by each of the frames in the concatenated trajectory. We "
+"could do this reusing the three plumed input files we used above, but it is "
+"perhaps clearer to do it with a single input file in this case. You can use "
+"an input like this one:"
 msgstr ""
+"次に、連結した Trajectory の各 Frame について、上記3つの計算それぞれで受けるはずの Bias を計算する。先ほどの3つの "
+"PLUMED 入力ファイルを再利用してもよいが、ここでは1つの入力ファイルにまとめた方が分かりやすい。次のような入力を使う。"
 
 #: INSTRUCTIONS.md:308
-msgid "If you call your input file `plumed_wham.dat` you can then use the following command"
-msgstr ""
+msgid ""
+"If you call your input file `plumed_wham.dat` you can then use the following"
+" command"
+msgstr "入力ファイルを `plumed_wham.dat` として保存すると、次のコマンドを実行できる。"
 
 #: INSTRUCTIONS.md:314
-msgid "We are now ready to use binless WHAM to compute the weights associated to the concatenated trajectory. This can be done using the following script"
+msgid ""
+"We are now ready to use binless WHAM to compute the weights associated to "
+"the concatenated trajectory. This can be done using the following script"
 msgstr ""
+"これで Binless WHAM を用いて、連結した Trajectory の各 Weight を計算する準備が整った。次のスクリプトで実行できる。"
 
 #: INSTRUCTIONS.md:336
-msgid "The procedure above computes the weights that can be associated to the concatenated trajectory so as to recover an unbiased distribution. Notice that, although we did not explicitly enforce it, the weights only depend on the value of $\\phi$ as only $\\phi$ was biased in our simulations. Thus, if we plot the weight as a function of $\\phi$ all the points will collapse on a line. This will not happen if we plot the weights as a function of $\\psi$:"
+msgid ""
+"The procedure above computes the weights that can be associated to the "
+"concatenated trajectory so as to recover an unbiased distribution. Notice "
+"that, although we did not explicitly enforce it, the weights only depend on "
+"the value of $\\phi$ as only $\\phi$ was biased in our simulations. Thus, if"
+" we plot the weight as a function of $\\phi$ all the points will collapse on"
+" a line. This will not happen if we plot the weights as a function of "
+"$\\psi$:"
 msgstr ""
+"上の手順では、連結した Trajectory から Unbiased 分布を復元するための Weight "
+"を計算する。明示的に制約を課してはいないが、シミュレーションで Bias を加えたのが $\\phi$ のみなので、Weight は $\\phi$ "
+"の値のみに依存する。したがって、$\\phi$ の関数として Weight を描くと、すべての点が1本の曲線上に重なる。$\\psi$ "
+"の関数として描いた場合には、そうはならない。"
 
 #: INSTRUCTIONS.md:347
-msgid "Also notice the form of the weights as a function of $\\phi$. This graph is telling us that points at larger $\\phi$ are weighted less. This makes sense, since in two simulations out of three we were biasing the ensemble so as to visit those points **more** frequently than in the Boltzmann ensemble. However, the curve is not exactly a sin function. This precise curve can only be obtained by solving the WHAM equations self-consistently."
+msgid ""
+"Also notice the form of the weights as a function of $\\phi$. This graph is "
+"telling us that points at larger $\\phi$ are weighted less. This makes "
+"sense, since in two simulations out of three we were biasing the ensemble so"
+" as to visit those points **more** frequently than in the Boltzmann "
+"ensemble. However, the curve is not exactly a sin function. This precise "
+"curve can only be obtained by solving the WHAM equations self-consistently."
 msgstr ""
+"$\\phi$ の関数としての Weight の形にも注目する。このグラフは、$\\phi$ が大きい点ほど Weight "
+"が小さいことを示している。3つのシミュレーションのうち2つでは、Boltzmann Ensemble よりもその領域を**高い**頻度で訪れるように "
+"Ensemble に Bias を加えていたので、これは妥当である。ただし曲線は厳密な sin 関数ではない。正確な曲線は、WHAM "
+"方程式を自己無撞着に解くことでのみ得られる。"
 
 #: INSTRUCTIONS.md:349
-msgid "We can then read the obtained weights and use them in an analysis similar to the ones we have done above"
-msgstr ""
+msgid ""
+"We can then read the obtained weights and use them in an analysis similar to"
+" the ones we have done above"
+msgstr "得られた Weight を読み込み、これまでと同様の解析に用いる。"
 
 #: INSTRUCTIONS.md:376
-msgid "Use the template above to produce a file names `plumed_wham.dat` and run the following command:"
-msgstr ""
+msgid ""
+"Use the template above to produce a file names `plumed_wham.dat` and run the"
+" following command:"
+msgstr "上のテンプレートから `plumed_wham.dat` というファイルを作成し、次のコマンドを実行する。"
 
 #: INSTRUCTIONS.md:382
 msgid "You can now show the result by using the following script"
-msgstr ""
+msgstr "次のスクリプトで結果を表示できる。"
 
 #: INSTRUCTIONS.md:425
-msgid "When you look at the first graph (i.e., the concatenated time series) you should notice that as you proceed towards the end the frames are coming from the most biased simulation, and thus will have a systematically larger value of $\\phi$. The reweighted ensemble will be quite similar to the original one in the end."
+msgid ""
+"When you look at the first graph (i.e., the concatenated time series) you "
+"should notice that as you proceed towards the end the frames are coming from"
+" the most biased simulation, and thus will have a systematically larger "
+"value of $\\phi$. The reweighted ensemble will be quite similar to the "
+"original one in the end."
 msgstr ""
+"最初のグラフ、すなわち連結した時系列では、後半ほど強い Bias を加えたシミュレーションの Frame が現れるため、$\\phi$ "
+"の値が系統的に大きくなる。一方、Reweighting 後の Ensemble は、最終的に元のものとよく似たものになる。"
 
 #: INSTRUCTIONS.md:427
-msgid "Exercise 4: Enhancing conformational transitions with multiple-windows umbrella sampling"
-msgstr ""
+msgid ""
+"Exercise 4: Enhancing conformational transitions with multiple-windows "
+"umbrella sampling"
+msgstr "演習4：Multiple-Windows Umbrella Sampling による構造遷移の促進"
 
 #: INSTRUCTIONS.md:429
-msgid "So far we only considered the fast transition between the two minima at negative values of $\\phi$. However, alanine dipeptide has another metastable state at positive $\\phi$, that is separated by the minima we have seen by a large barrier. In line of principle, one could use the trick above to discount the effect of any arbitrary biasing potential. For instance, if one had an estimate of a relevant free-energy barrier, a bias potential approximately equal to the negative of the barrier would make the residual free energy basically barrierless. However, this procedure requires knowing the free energy profile in advance. As we will see in the next Masterclass, metadynamics provides exactly a self-healing method that adjusts the bias until dynamics becomes diffusive."
+msgid ""
+"So far we only considered the fast transition between the two minima at "
+"negative values of $\\phi$. However, alanine dipeptide has another "
+"metastable state at positive $\\phi$, that is separated by the minima we "
+"have seen by a large barrier. In line of principle, one could use the trick "
+"above to discount the effect of any arbitrary biasing potential. For "
+"instance, if one had an estimate of a relevant free-energy barrier, a bias "
+"potential approximately equal to the negative of the barrier would make the "
+"residual free energy basically barrierless. However, this procedure requires"
+" knowing the free energy profile in advance. As we will see in the next "
+"Masterclass, metadynamics provides exactly a self-healing method that "
+"adjusts the bias until dynamics becomes diffusive."
 msgstr ""
+"ここまでは、$\\phi$ が負の領域にある2つの極小間の速い遷移のみを扱った。しかし Alanine Dipeptide には、$\\phi$ "
+"が正の領域にも別の Metastable State があり、これまでの極小とは大きな Barrier で隔てられている。原理的には、上述の手順で任意の"
+" BiasPotential の影響を取り除ける。例えば、重要な自由エネルギー Barrier を推定できれば、その負値にほぼ等しい "
+"BiasPotential を加えることで、残る自由エネルギーをほぼ Barrier のないものにできる。ただし、自由エネルギー Profile "
+"を事前に知る必要がある。次の Masterclass で学ぶ Metadynamics は、Dynamics が Diffusive になるまで "
+"Bias を調整する、まさにこの自己修復的な手法を提供する。"
 
 #: INSTRUCTIONS.md:431
-msgid "In the context of the static potentials that we are using here, this is a very difficult approach. In the tutorial [lugano-2](https://www.plumed.org/doc-v2.7/user-doc/html/lugano-2.html) you can find an attempt to derive a potential that cancels the large barrier between the states. When this bias is used the number of transitions between the important metastable states increases dramatically. In this class we will take a more pragmatic approach and directly introduce the method that is commonly used in these situations, namely \"multiple windows umbrella sampling\"."
+msgid ""
+"In the context of the static potentials that we are using here, this is a "
+"very difficult approach. In the tutorial "
+"[lugano-2](https://www.plumed.org/doc-v2.7/user-doc/html/lugano-2.html) you "
+"can find an attempt to derive a potential that cancels the large barrier "
+"between the states. When this bias is used the number of transitions between"
+" the important metastable states increases dramatically. In this class we "
+"will take a more pragmatic approach and directly introduce the method that "
+"is commonly used in these situations, namely \"multiple windows umbrella "
+"sampling\"."
 msgstr ""
+"ここで使っている Static Potentials "
+"でこの方針を実現するのは難しい。[lugano-2](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/lugano-2.html) には、状態間の大きな Barrier を打ち消す Potential "
+"の導出を試みるチュートリアルがある。この Bias を用いると、重要な Metastable States 間の遷移回数が大幅に増える。この "
+"Masterclass では、より実用的な方針として、このような状況で広く用いられる Multiple Windows Umbrella "
+"Sampling 法を直接導入する。"
 
 #: INSTRUCTIONS.md:433
-msgid "To do so we will have to run a number of separate simulations, each of them with a bias potential designed to maintain the $\\phi$ variable in a narrow range. If the consecutive windows overlap sufficiently, and if the windows span the relevant region in the $\\phi$ variable, we will be able to reconstruct the full free-energy profile."
+msgid ""
+"To do so we will have to run a number of separate simulations, each of them "
+"with a bias potential designed to maintain the $\\phi$ variable in a narrow "
+"range. If the consecutive windows overlap sufficiently, and if the windows "
+"span the relevant region in the $\\phi$ variable, we will be able to "
+"reconstruct the full free-energy profile."
 msgstr ""
+"そのために、$\\phi$ を狭い範囲に保つように設計した BiasPotential を用いて、複数の独立したシミュレーションを実行する。隣接する "
+"Windows に十分な重なりがあり、Windows 全体が $\\phi$ の重要な領域を覆っていれば、自由エネルギー Profile "
+"全体を再構成できる。"
 
 #: INSTRUCTIONS.md:435
-msgid "We will use 32 simulations, with `RESTRAINT` potentials centered at uniformly spaced values of $\\phi$ in the range between -pi and pi. In order to avoid the repetition of the first potential, recalling that $\\phi$ is periodic, we can generate the list with the command"
+msgid ""
+"We will use 32 simulations, with `RESTRAINT` potentials centered at "
+"uniformly spaced values of $\\phi$ in the range between -pi and pi. In order"
+" to avoid the repetition of the first potential, recalling that $\\phi$ is "
+"periodic, we can generate the list with the command"
 msgstr ""
+"-pi から pi の範囲で等間隔に選んだ $\\phi$ の値を中心とする `RESTRAINT` Potentials "
+"を用いて、32個のシミュレーションを実行する。$\\phi$ は周期的なので、最初の Potential "
+"と重複しないよう、次のコマンドで値の一覧を生成する。"
 
 #: INSTRUCTIONS.md:443
-msgid "Now you should write a python script that generate 32 plumed input files (you can call them `plumed_0.dat`, `plumed_1.dat`, etc) that look like this one"
+msgid ""
+"Now you should write a python script that generate 32 plumed input files "
+"(you can call them `plumed_0.dat`, `plumed_1.dat`, etc) that look like this "
+"one"
 msgstr ""
+"次のような内容の PLUMED 入力ファイルを32個（`plumed_0.dat`、`plumed_1.dat` など）生成する Python "
+"スクリプトを作成する。"
 
 #: INSTRUCTIONS.md:458
 msgid "Now run the 32 simulations with commands like these ones"
-msgstr ""
+msgstr "次のようなコマンドで32個のシミュレーションを実行する。"
 
 #: INSTRUCTIONS.md:466
-msgid "As we did before, you should now concatenate the resulting trajectories"
-msgstr ""
+msgid ""
+"As we did before, you should now concatenate the resulting trajectories"
+msgstr "前と同様に、得られた Trajectories を連結する。"
 
 #: INSTRUCTIONS.md:472
 msgid "and analyze them with plumed driver:"
-msgstr ""
+msgstr "次に plumed driver で解析する。"
 
 #: INSTRUCTIONS.md:480
-msgid "Notice the `--trajectory-stride` option: we are telling the driver that the trajectory was saved every 100 frames. In this manner, we will be able to recycle the same plumed input file that we used while running the simulations. This approach is more robust than the one we used above, where a single plumed file was used to reproduce all the biases, and is thus recommended in production cases. Also notice that it is common practice to ignore the initial part of each simulation, since it typically contains a transient that would make the final result less robust. For simplicitly, we are not doing it here. Finally, notice that in the last exercise we wrote a new input file just for writing the three biases. Here instea we recycled the input files used to run the 32 simulations."
+msgid ""
+"Notice the `--trajectory-stride` option: we are telling the driver that the "
+"trajectory was saved every 100 frames. In this manner, we will be able to "
+"recycle the same plumed input file that we used while running the "
+"simulations. This approach is more robust than the one we used above, where "
+"a single plumed file was used to reproduce all the biases, and is thus "
+"recommended in production cases. Also notice that it is common practice to "
+"ignore the initial part of each simulation, since it typically contains a "
+"transient that would make the final result less robust. For simplicitly, we "
+"are not doing it here. Finally, notice that in the last exercise we wrote a "
+"new input file just for writing the three biases. Here instea we recycled "
+"the input files used to run the 32 simulations."
 msgstr ""
+"`--trajectory-stride` オプションに注目する。Trajectory を100 Frame ごとに保存したことを driver "
+"に伝えている。これにより、シミュレーション中と同じ PLUMED 入力ファイルを再利用できる。単一の PLUMED ファイルですべての Bias "
+"を再現した先ほどの方法より堅牢なので、本計算ではこちらを推奨する。また、通常はシミュレーションの初期部分を除外する。初期部分には過渡状態が含まれることが多く、最終結果の信頼性を下げるためである。ここでは簡単のため除外しない。最後に、前の演習では3つの"
+" Bias を出力する専用の入力ファイルを作成したが、ここでは32個のシミュレーションに使った入力ファイルを再利用している。"
 
 #: INSTRUCTIONS.md:483
-msgid "We can now read the produced files and process them with our WHAM script"
-msgstr ""
+msgid ""
+"We can now read the produced files and process them with our WHAM script"
+msgstr "生成されたファイルを読み込み、WHAM スクリプトで処理する。"
 
 #: INSTRUCTIONS.md:507
 msgid "Now you can do something similar to what we did before, namely:"
-msgstr ""
+msgstr "前と同様に、次の作業を行う。"
 
 #: INSTRUCTIONS.md:509
 msgid "write a file to be read by PLUMED."
-msgstr ""
+msgstr "PLUMED が読み込むファイルを作成する。"
 
 #: INSTRUCTIONS.md:510
-msgid "process it with plumed driver so as to compute the free energy with respect to $\\phi$ and $\\psi$"
-msgstr ""
+msgid ""
+"process it with plumed driver so as to compute the free energy with respect "
+"to $\\phi$ and $\\psi$"
+msgstr "plumed driver で処理し、$\\phi$ および $\\psi$ に関する自由エネルギーを計算する。"
 
 #: INSTRUCTIONS.md:511
 msgid "plot the free energy as a function of $\\phi$ and $\\psi$"
-msgstr ""
+msgstr "$\\phi$ および $\\psi$ の関数として自由エネルギーを描く。"
 
 #: INSTRUCTIONS.md:513
-msgid "How do the resulting free-energy profiles compares with the one we obtained before?"
-msgstr ""
+msgid ""
+"How do the resulting free-energy profiles compares with the one we obtained "
+"before?"
+msgstr "得られた自由エネルギー Profiles は、先ほどの結果と比べてどうだろうか。"
 
 #: INSTRUCTIONS.md:515
 msgid "Exercise 5: Computing populations and errors"
-msgstr ""
+msgstr "演習5：Populations と誤差の計算"
 
 #: INSTRUCTIONS.md:517
-msgid "Now that you have a simulation that sampled all the relevant metastable states, you can analyze them in many different ways. In particular, you can compute the average of any quantity just using the weights that we obtained. This can be done directly with PLUMED, as we have seen in other masterclasses, by using the [AVERAGE](https://www.plumed.org/doc-master/user-doc/html/_a_v_e_r_a_g_e.html) command. However, we will use Python to compute averages here as this will make it easier to compute their statistical errors with bootstrap."
+msgid ""
+"Now that you have a simulation that sampled all the relevant metastable "
+"states, you can analyze them in many different ways. In particular, you can "
+"compute the average of any quantity just using the weights that we obtained."
+" This can be done directly with PLUMED, as we have seen in other "
+"masterclasses, by using the [AVERAGE](https://www.plumed.org/doc-"
+"master/user-doc/html/_a_v_e_r_a_g_e.html) command. However, we will use "
+"Python to compute averages here as this will make it easier to compute their"
+" statistical errors with bootstrap."
 msgstr ""
+"重要な Metastable States をすべて Sampling したシミュレーションが得られたので、さまざまな解析ができる。特に、得られた "
+"Weight を使えば任意の量の平均を計算できる。他の Masterclass で学んだように、PLUMED の "
+"[AVERAGE](https://www.plumed.org/doc-master/user-"
+"doc/html/_a_v_e_r_a_g_e.html) コマンドで直接計算することもできる。ただし、ここでは Bootstrap "
+"で統計誤差を計算しやすくするため、Python で平均を求める。"
 
 #: INSTRUCTIONS.md:520
-msgid "To complete this exercise you should compute the average value and the statistical error of the following quantities:"
-msgstr ""
+msgid ""
+"To complete this exercise you should compute the average value and the "
+"statistical error of the following quantities:"
+msgstr "この演習では、次の量の平均値と統計誤差を計算する。"
 
 #: INSTRUCTIONS.md:522
-msgid "The population of the metastable state B defined as $0<\\phi<2$. Notice that the exact definition is not very important if the minimum is clearly delimited by high free-energy barriers (i.e., low probability regions)."
+msgid ""
+"The population of the metastable state B defined as $0<\\phi<2$. Notice that"
+" the exact definition is not very important if the minimum is clearly "
+"delimited by high free-energy barriers (i.e., low probability regions)."
 msgstr ""
+"$0<\\phi<2$ で定義される Metastable State B の Population。極小が高い自由エネルギー "
+"Barrier、すなわち確率の低い領域で明確に区切られていれば、境界の厳密な定義はそれほど重要ではない。"
 
 #: INSTRUCTIONS.md:523
-msgid "Free-energy difference between the state B defined as $0<\\phi<2$ and the state A defined as $-pi<\\phi<0$. Notice that the free-energy difference is defined as $-k_B T \\log\\left( \\frac{P_B}{P_A}\\right)$, where $P_B$ is the population of state B and $P_A$ the population of state A."
+msgid ""
+"Free-energy difference between the state B defined as $0<\\phi<2$ and the "
+"state A defined as $-pi<\\phi<0$. Notice that the free-energy difference is "
+"defined as $-k_B T \\log\\left( \\frac{P_B}{P_A}\\right)$, where $P_B$ is "
+"the population of state B and $P_A$ the population of state A."
 msgstr ""
+"$0<\\phi<2$ で定義される状態 B と、$-pi<\\phi<0$ で定義される状態 A の自由エネルギー差。自由エネルギー差は $-k_B "
+"T \\log\\left( \\frac{P_B}{P_A}\\right)$ と定義される。ここで $P_B$ は状態 B、$P_A$ は状態 A "
+"の Population である。"
 
 #: INSTRUCTIONS.md:524
-msgid "Average value of $\\phi$ in state A and in state B. Warning: be careful computing the average of an angle? Remember this quantity is periodic and that must be taken into account."
+msgid ""
+"Average value of $\\phi$ in state A and in state B. Warning: be careful "
+"computing the average of an angle? Remember this quantity is periodic and "
+"that must be taken into account."
 msgstr ""
+"状態 A と状態 B それぞれにおける $\\phi$ "
+"の平均値。注意：角度の平均を計算するときには注意が必要である。この量には周期性があり、それを考慮しなければならない。"
 
 #: INSTRUCTIONS.md:526
-msgid "For each of these quantities, you should also compute the standard error. It is here recommended to compute the error using boostrap. You can do so by adjusting the following script"
+msgid ""
+"For each of these quantities, you should also compute the standard error. It"
+" is here recommended to compute the error using boostrap. You can do so by "
+"adjusting the following script"
 msgstr ""
+"各量について Standard Error も計算する。誤差の計算には Bootstrap を推奨する。次のスクリプトを調整して実行できる。"
 
 #: INSTRUCTIONS.md:553
 msgid "Exercise 6: Effect of initial conditions"
-msgstr ""
+msgstr "演習6：初期条件の影響"
 
 #: INSTRUCTIONS.md:555
-msgid "Repeat the second to last exercise above using `topolB.tpr` as an input file. This will make the simulations start from the minimum in B. Plot the free energy as a function of $\\phi$ and as a function of $\\psi$. How does the result you obtain differ from the one you obtained when you performed the earlier exercise?"
+msgid ""
+"Repeat the second to last exercise above using `topolB.tpr` as an input "
+"file. This will make the simulations start from the minimum in B. Plot the "
+"free energy as a function of $\\phi$ and as a function of $\\psi$. How does "
+"the result you obtain differ from the one you obtained when you performed "
+"the earlier exercise?"
 msgstr ""
+"入力ファイルを `topolB.tpr` として、上の演習4を繰り返す。これにより、状態 B の極小からシミュレーションが始まる。$\\phi$ "
+"の関数、および $\\psi$ の関数として自由エネルギーを描く。先ほどの演習で得た結果と、どのように異なるだろうか。"

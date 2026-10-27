@@ -1,0 +1,42 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Clusters.md:1
+msgid "Clustering"
+msgstr ""
+
+#: Clusters.md:3
+msgid ""
+"When studying nucleation it is often useful to use a clustering atoms to "
+"determine how many atoms are in the largest crystalline nucleus. The "
+"implementation of this approach in PLUMED is detailed in [this "
+"paper](https://pubs.acs.org/doi/abs/10.1021/acs.jctc.6b01073). A typical "
+"input in that paper for calcluating the number of atoms in the largest "
+"cluster is shown below:"
+msgstr ""
+
+#: Clusters.md:18
+msgid ""
+"This input is fine but it is also somewhat unweildy and a little confusing. "
+"The problem is that you have to calculate the coordination numbers of all "
+"the atoms in order to do the clustering and (unless you have a deep "
+"understanding of the way the code is implemented) it is not clear why. With "
+"the new sytax you can achieve the same result as follows:"
+msgstr ""
+
+#: Clusters.md:44
+msgid ""
+"This new syntax is much more clear as the clustering operation is performed "
+"on the CONTACT_MATRIX directly. The vector returned by the DFSCLUSTERING "
+"object then tells you which cluster each atom belongs to. You can thus use "
+"simple logical operations on this vector to determine the properties for all"
+" your clusters. Furthermore, you don't even need to use the coordination "
+"numbers. If you simply want to calculate the number of atoms in the largest "
+"cluster you can use the following input:"
+msgstr ""

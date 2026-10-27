@@ -1,0 +1,42 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Modals/enablemolfileplugins.md:2
+msgid "--enable-molfile-plugins option"
+msgstr ""
+
+#: Modals/enablemolfileplugins.md:8
+msgid ""
+"To be clear the PLUMED source code contains VMD plugins for a small number "
+"of trajectory formats (dcd, gromacs files, pdb and amber files) so you will "
+"most likely not need this flag. You will only need it you would like to be "
+"able to read in some a particularly exotic trajectory file type. If you do "
+"need to work with these other types of file can get the molfile plugins by "
+"downloading the SOURCE of VMD. This sourcecode contains a plugins directory."
+" You will need to adapt the build.sh script within this directory and then "
+"compile the code within the directory. Once this process is completed you "
+"should get the molfile plugins compiled as a static library called "
+"<code>libmolfile_plugin.a</code>. The location of this library, the "
+"<code>libmolfile_plugin.h</code> and the <code>molfile_plugin.h</code> "
+"include files will then need to be passed to configure using a command "
+"similar to:</p>"
+msgstr ""
+
+#: Modals/enablemolfileplugins.md:17
+msgid ""
+"It may also be necessary to add the location of the TCL interpreter to the "
+"<code>LDFLAGS</code> using a command such as:"
+msgstr ""
+
+#: Modals/enablemolfileplugins.md:22
+msgid ""
+"To be clear, however, some of the molfile plugin sourcecode is included in "
+"PLUMED and you can thus use some of the most common types of trajectory file"
+" even if you do not download VMD on your machine."
+msgstr ""

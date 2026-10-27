@@ -1,0 +1,494 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: INSTRUCTIONS.md:1
+msgid "PLUMED Masterclass 21.7: Optimizing PLUMED performances"
+msgstr ""
+
+#: INSTRUCTIONS.md:3
+msgid "Origin"
+msgstr "作成について"
+
+#: INSTRUCTIONS.md:5
+msgid ""
+"This masterclass was authored by Giovanni Bussi and Max Bonomi on April 21, "
+"2021"
+msgstr ""
+
+#: INSTRUCTIONS.md:7
+msgid "Aims"
+msgstr "目的"
+
+#: INSTRUCTIONS.md:9
+msgid ""
+"In this Masterclass, we will discuss how to monitor and optimize the "
+"performances of a PLUMED-enhanced MD simulation."
+msgstr ""
+
+#: INSTRUCTIONS.md:11
+msgid "Objectives"
+msgstr "到達目標"
+
+#: INSTRUCTIONS.md:13
+msgid "Once you have completed this Masterclass you will be able to:"
+msgstr "この Masterclass を終えると、次のことができるようになる。"
+
+#: INSTRUCTIONS.md:15
+msgid ""
+"measure the performances of a PLUMED-enhanced simulation using the "
+"[DEBUG](https://www.plumed.org/doc-v2.8/user-doc/html/_d_e_b_u_g.html) "
+"action;"
+msgstr ""
+
+#: INSTRUCTIONS.md:16
+msgid "optimize a metadynamics simulation;"
+msgstr ""
+
+#: INSTRUCTIONS.md:17
+msgid "optimize GROMACS parallelization;"
+msgstr ""
+
+#: INSTRUCTIONS.md:18
+msgid ""
+"define complex CVs in the PLUMED input file in a computationally efficient "
+"manner."
+msgstr ""
+
+#: INSTRUCTIONS.md:20
+msgid "Setting up PLUMED"
+msgstr "PLUMED のセットアップ"
+
+#: INSTRUCTIONS.md:22
+msgid ""
+"For this masterclass you will need versions of PLUMED and GROMACS that are "
+"compiled using the MPI library. You shoudl thus follow the instructions that"
+" are reported for [this earlier "
+"masterclass](../../../21/005/data/NAVIGATION.html)."
+msgstr ""
+
+#: INSTRUCTIONS.md:24
+msgid ""
+"Natively-compiled GROMACS and PLUMED will be significantly faster than the "
+"conda versions that we are providing. Since we are focusing on performance "
+"here, this might be the right time to learn how to install them on your own."
+msgstr ""
+
+#: INSTRUCTIONS.md:26
+msgid "Resources"
+msgstr "資料"
+
+#: INSTRUCTIONS.md:28
+msgid ""
+"The data needed to execute the exercises of this Masterclass can be found on"
+" [GitHub](https://github.com/plumed/masterclass-21-7). You can clone this "
+"repository locally on your machine using the following command:"
+msgstr ""
+
+#: INSTRUCTIONS.md:34
+msgid ""
+"__All the exercises were tested with PLUMED version 2.7.0 and GROMACS "
+"2019.6__"
+msgstr ""
+
+#: INSTRUCTIONS.md:36
+msgid "Exercises"
+msgstr "演習"
+
+#: INSTRUCTIONS.md:38
+msgid ""
+"Notice that the results of these exercises might depend on the details of "
+"the hardware and software you are using. It is thus instructive to test them"
+" on different architectures, or with different PLUMED or GROMACS versions."
+msgstr ""
+
+#: INSTRUCTIONS.md:40
+msgid "Measuring performance"
+msgstr ""
+
+#: INSTRUCTIONS.md:42
+msgid ""
+"In these exercises you will have to maximise the performance of your "
+"simulation. When using GROMACS, the common way to report performances is to "
+"check at how many ns/day the simulation can produce. At the end of the log "
+"file you should find lines like these ones"
+msgstr ""
+
+#: INSTRUCTIONS.md:53
+msgid ""
+"Here, the higher the ns/day the faster your simulation will be. Another "
+"important information it the wallclock time, that indicates how many seconds"
+" elapsed since the start of your simulation. If you then run the same input "
+"file using PLUMED as well you will instead see something like this:"
+msgstr ""
+
+#: INSTRUCTIONS.md:72
+msgid "Notice that:"
+msgstr ""
+
+#: INSTRUCTIONS.md:73
+msgid "The performance has decreased."
+msgstr ""
+
+#: INSTRUCTIONS.md:74
+msgid "The wallclock time has increased."
+msgstr ""
+
+#: INSTRUCTIONS.md:75
+msgid "PLUMED is reporting some information about the time spent using it."
+msgstr ""
+
+#: INSTRUCTIONS.md:77
+msgid ""
+"Notice that the total time spent using PLUMED is approximately equal to the "
+"increment in the wallclock time. This might be different when using a GPU "
+"(and indeed the increment in the wallclock time should be smaller). This "
+"extra time measures the cost of using PLUMED. The goal of this Masterclass "
+"is to understand how to decrease this extra time without impacting the "
+"result of your simulation."
+msgstr ""
+
+#: INSTRUCTIONS.md:79
+msgid ""
+"Notice that PLUMED gives a breakdown of the time spent. Some rows correspond"
+" to communication, and might become important if you run with a lot of MPI "
+"processes. Usually, most of the time is spent in the forward loop, where "
+"collective variables are calculated."
+msgstr ""
+
+#: INSTRUCTIONS.md:81
+msgid ""
+"You can obtain a more detailed breakdown adding to your input this line:"
+msgstr ""
+
+#: INSTRUCTIONS.md:87
+msgid "The tail of the log will then look like this:"
+msgstr ""
+
+#: INSTRUCTIONS.md:113
+msgid ""
+"Notice that for both the forward and the backward loop you are shown with a "
+"breakdown of the time required for each of the actions included in the input"
+" file. You should recognize the name of the actions that you defined, "
+"whereas unnamed actions are referred to with a generic `@`-number that "
+"corresponds to their position in the input file. From this detailed log you "
+"can also appreciate how often each action has been performed. PLUMED tries "
+"to optimize this, e.g., only computing variables when they are needed. This "
+"breakdown is very useful to know where you should direct your effort."
+msgstr ""
+
+#: INSTRUCTIONS.md:115
+msgid "Exercise 1: Dissociation of NaCl in water"
+msgstr ""
+
+#: INSTRUCTIONS.md:117
+msgid ""
+"As a first test system we will consider a single Na Cl pair in a water box. "
+"The two ions are expected to attract each other, so that the bound "
+"conformation should be stable. The free energy as a function of the distance"
+" between the two ions should thus have a minimum followed by a barrier. At "
+"larger distances, it is not expected to become flat but rather to decrease "
+"as $-2k_BT \\log d, due to the entropic contribution, and then to grow again"
+" when reaching the boundaries of the simulation box. In this exercise we "
+"will compute the free-energy as a function of the distance between the two "
+"ions. As collective variables we will use the distance between the two ions "
+"as well as the number of water oxygens that are coordinated with the sodium "
+"ion."
+msgstr ""
+
+#: INSTRUCTIONS.md:119
+msgid ""
+"In the `data/exercise1` folder of the `GitHub` repository of this "
+"Masterclass, you will find a `topol.tpr` file, which is needed to perform a "
+"MD simulation of this system with GROMACS. You can then create a "
+"`plumed.dat` file like this one as a starting point:"
+msgstr ""
+
+#: INSTRUCTIONS.md:132
+msgid "As usual, you can run a simulation with the following command"
+msgstr ""
+
+#: INSTRUCTIONS.md:138
+msgid ""
+"For the first three points, you can run relatively short simulations, so "
+"choose nsteps based on what you can quickly test on your machine. For the "
+"fourth point instead you will need to reach convergence. A time on the order"
+" of a ns should be more the sufficient."
+msgstr ""
+
+#: INSTRUCTIONS.md:140
+msgid "Exercise 1a: Optimizing the calculation of a metadynamics bias"
+msgstr ""
+
+#: INSTRUCTIONS.md:142
+msgid ""
+"For this first point, we will focus on the calculation and update of the "
+"metadynamics bias. We will try to have a simulation that runs faster without"
+" changing significantly the result. Check the manual of "
+"[METAD](https://www.plumed.org/doc-v2.8/user-doc/html/_m_e_t_a_d.html) and "
+"find out how to speed up this calculation. A few hints:"
+msgstr ""
+
+#: INSTRUCTIONS.md:145
+msgid ""
+"What matters is the deposition rate (that is: height/pace). Increasing the "
+"pace and height by the same factor should not change the result "
+"significantly."
+msgstr ""
+
+#: INSTRUCTIONS.md:146
+msgid ""
+"Grids will make calculation faster (especially for long runs) but update "
+"slower."
+msgstr ""
+
+#: INSTRUCTIONS.md:148 INSTRUCTIONS.md:157 INSTRUCTIONS.md:166
+msgid ""
+"Notice that these changes are not expected to impact the convergence of the "
+"algorithm. Thus, you do not need a converged simulation to measure the "
+"impact on performances."
+msgstr ""
+
+#: INSTRUCTIONS.md:150
+msgid "Exercise 1b: Optimizing the calculation of a coordination number"
+msgstr ""
+
+#: INSTRUCTIONS.md:152
+msgid ""
+"For this second point, we will focus on the calculation of one of the two "
+"biased collective variables, namely the coordination of the Na ion with "
+"water oxygens. We will try to have a simulation that runs faster without "
+"changing significantly the result. Check the manual of "
+"[COORDINATION](https://www.plumed.org/doc-v2.8/user-"
+"doc/html/_c_o_o_r_d_i_n_a_t_i_o_n.html) and find out how to speed up this "
+"calculation. A few hints:"
+msgstr ""
+
+#: INSTRUCTIONS.md:154
+msgid "Neighbor lists might help, but be very careful with parameters."
+msgstr ""
+
+#: INSTRUCTIONS.md:155
+msgid ""
+"Starting with PLUMED v2.7 the construction of neighbor lists is "
+"parallelized. Performances might thus be very different if you test your "
+"input with PLUMED v2.6 or earlier."
+msgstr ""
+
+#: INSTRUCTIONS.md:159
+msgid "Exercise 1c: Optimizing GROMACS parallelization"
+msgstr ""
+
+#: INSTRUCTIONS.md:161
+msgid ""
+"For this third point, we will try to make sure that GROMACS runs at its "
+"maximum speed. For this you will have to check GROMACS manual. A few hints:"
+msgstr ""
+
+#: INSTRUCTIONS.md:163
+msgid ""
+"Based on the number of processors in your computer, play with the number of "
+"OpenMP threads and of MPI processes."
+msgstr ""
+
+#: INSTRUCTIONS.md:164
+msgid "Check if the `-pin on` option improves performances."
+msgstr ""
+
+#: INSTRUCTIONS.md:168
+msgid "Exercise 1d: Optimizing metadynamics parameters"
+msgstr ""
+
+#: INSTRUCTIONS.md:170
+msgid ""
+"We will now make modifications to the algorithm so as to be able to arrive "
+"to the same result running a shorter simulation. Try to play with "
+"[METAD](https://www.plumed.org/doc-v2.8/user-doc/html/_m_e_t_a_d.html) "
+"parameters and see if you can improve them. A few hints:"
+msgstr ""
+
+#: INSTRUCTIONS.md:172
+msgid ""
+"Changing hills width might affect that speed at which you fill free-energy "
+"basins."
+msgstr ""
+
+#: INSTRUCTIONS.md:173
+msgid ""
+"Limiting the domain of the collective variables that you explore might help,"
+" if you can predict what happens in the portion of the domain that the "
+"simulation does not explore."
+msgstr ""
+
+#: INSTRUCTIONS.md:175
+msgid "You can even try to reduce the number of CVs."
+msgstr ""
+
+#: INSTRUCTIONS.md:177
+msgid ""
+"Notice that these changes are expected to impact the convergence of the "
+"algorithm. Thus, you do not need a converged simulation to measure the "
+"impact on performances, and you have to make sure that the statistical "
+"accuracy is comparable."
+msgstr ""
+
+#: INSTRUCTIONS.md:179
+msgid "Exercise 1e: Computing the binding free energy"
+msgstr ""
+
+#: INSTRUCTIONS.md:181
+msgid ""
+"As a final step, analyze the simulations performed so far to compute the "
+"standard binding free energy between the two species. Notice that even "
+"though this is defined at 1M concentration, the calculations that you are "
+"running are actually at infinite dilution."
+msgstr ""
+
+#: INSTRUCTIONS.md:183
+msgid ""
+"Exercise 2: Folding of the C-terminal domain (CTD) of the RfaH virulence "
+"factor"
+msgstr ""
+
+#: INSTRUCTIONS.md:185
+msgid ""
+"In this exercise, we will work with the C-terminal domain (CTD) of the RfaH "
+"virulence factor from _Escherichia coli_ that was introduced in the fourth "
+"exercise of [this lesson](../../../21/004/data/NAVIGATION.html). This part "
+"of the system, which we refer to as RfaH-CTD, undergoes a dramatic "
+"conformational transformation from β-barrel to α-helical, which is "
+"stabilized by the N-terminal domain of the RfaH virulence factor. This "
+"transition is illustrated in the following figure:"
+msgstr ""
+
+#: INSTRUCTIONS.md:187
+msgid ""
+"![Structural transformation of the RfaH-CTD. Domain dissociation is "
+"triggered upon binding of the NTD (gray) to its target ops (operon polarity "
+"suppressor) element DNA, relieving the autoinhibited state and allowing the "
+"transformation of the CTD (colored) from an α-helical hairpin (A) towards a "
+"five-stranded β-barrel (B). Note that the NTD and CTD are connected by a "
+"linker that does not order within the crystals and therefore is not shown in"
+" the figure.](figures/RfaH-CTD.png)"
+msgstr ""
+
+#: INSTRUCTIONS.md:189
+msgid ""
+"RfaH-CTD is simulated using a simplified, structure-based potential, called "
+"[SMOG](https://smog-server.org). The SMOG energy function has been designed "
+"to have two local minima corresponding to the β-barrel and α-helical states "
+"of RfaH-CTD. To achieve this goal, the SMOG energy function promotes native "
+"contacts, i.e. interactions that are present in the native structure(s). "
+"When using structure-based force fields, a function of the coordinates that "
+"is correlated with the energy of the system, such as the total number of "
+"native contacts, has been shown to be a good CV for enhanced-sampling "
+"simulations. Unfortunately, these types of CVs often involve a large number "
+"of atoms and are therefore computationally expensive to calculate at every "
+"step of the simulation. In this exercise, we will learn how to write and "
+"optimize these types of CVs."
+msgstr ""
+
+#: INSTRUCTIONS.md:191
+msgid ""
+"In the `data/exercise2` folder of the "
+"[GitHub](https://github.com/plumed/masterclass-21-7) repository of this "
+"Masterclass, you will find:"
+msgstr ""
+
+#: INSTRUCTIONS.md:193
+msgid ""
+"two PDB files of RfaH-CTD in the β-barrel (`stateA.pdb`) and α-helical "
+"(`stateB.pdb`) states;"
+msgstr ""
+
+#: INSTRUCTIONS.md:194
+msgid ""
+"a `topol.tpr` file, which is needed to perform a MD simulation of this "
+"system with GROMACS;"
+msgstr ""
+
+#: INSTRUCTIONS.md:195
+msgid ""
+"a template PLUMED input file (`plumed.dat`) to perform a metadynamics "
+"simulation using the total number of native contacts as CV. These contacts "
+"are defined using only the β-barrel conformation, which is the most "
+"populated state in the conditions we are simulating."
+msgstr ""
+
+#: INSTRUCTIONS.md:198
+msgid "The provided PLUMED input file looks as follows:"
+msgstr ""
+
+#: INSTRUCTIONS.md:241
+msgid "The objectives of this exercise are to:"
+msgstr ""
+
+#: INSTRUCTIONS.md:243
+msgid ""
+"optimize the distance-based CV provided in the template PLUMED input file. "
+"**The user should report the speedup obtained with the optimized CV with "
+"respect to the one defined in the provided input file**;"
+msgstr ""
+
+#: INSTRUCTIONS.md:244
+msgid "optimize the performances of well-tempered metadynamics."
+msgstr ""
+
+#: INSTRUCTIONS.md:245
+msgid ""
+"evaluate the stability of the β-barrel state of RfaH-CTD (with error "
+"estimate). Have a look at [this earlier "
+"lessonr](../../../21/004/data/NAVIGATION.html) for more info."
+msgstr ""
+
+#: INSTRUCTIONS.md:247
+msgid "Suggestions:"
+msgstr ""
+
+#: INSTRUCTIONS.md:248
+msgid ""
+"the users should consult the PLUMED manual in order to optimize the proposed"
+" CV;"
+msgstr ""
+
+#: INSTRUCTIONS.md:249
+msgid ""
+"the COORDINATION CV can be defined using a custom switching function, whose "
+"calculation can be made faster by using [AsmJit](https://asmjit.com). For "
+"more information, have a look [here](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/_lepton.html);"
+msgstr ""
+
+#: INSTRUCTIONS.md:250
+msgid ""
+"try [Multiple time stepping](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/_m_t_s.html) to apply the metadynamics bias every 2 or 4 steps "
+"using the `STRIDE` option on the "
+"[METAD](https://www.plumed.org/doc-v2.8/user-doc/html/_m_e_t_a_d.html) line."
+msgstr ""
+
+#: INSTRUCTIONS.md:252
+msgid "Please keep in mind that:"
+msgstr ""
+
+#: INSTRUCTIONS.md:253
+msgid ""
+"SMOG is significantly less computational demanding than all-atoms, explicit "
+"solvent force fields. However, the simulation of this system might take a "
+"few hours, so allocate enough time to complete this exercise;"
+msgstr ""
+
+#: INSTRUCTIONS.md:254
+msgid ""
+"due to the special nature of the force field, please execute GROMACS using "
+"the following command: `gmx mdrun -plumed plumed.dat -ntomp 4 -noddcheck`. "
+"You can adjust the number of CPU cores you want to use (here 4, OpenMP "
+"parallelization), based on the available resources. The system is not "
+"particularly big, therefore using a large number of cores might be "
+"inefficient."
+msgstr ""

@@ -1,0 +1,132 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: input.md:1
+msgid "[&larr; Home](NAVIGATION.md)"
+msgstr "[&larr; ホーム](NAVIGATION.md)"
+
+#: input.md:3
+msgid "Input"
+msgstr ""
+
+#: input.md:5
+msgid ""
+"Files needed to complete this tutorial are provided in the `data` directory "
+"available in the [GitHub repository](https://github.com/jakryd/plumed2-maze-"
+"tutorial)."
+msgstr ""
+
+#: input.md:7
+msgid "Groups"
+msgstr ""
+
+#: input.md:9
+msgid ""
+"We first define the groups of atoms consisting of T4L (atoms 1-2634) and "
+"benzene (atoms 2635-2646) and their center of masses. These definitions will"
+" be passed to an optimizer later."
+msgstr ""
+
+#: input.md:19
+msgid "Optimizer and Loss Function"
+msgstr ""
+
+#: input.md:21
+msgid ""
+"Next, we declare an optimizer that will find a suboptimal (in terms of loss "
+"function) unbinding direction for the ligand. For this purpose, we will use "
+"the simulated annealing algorithm (`MAZE_OPT_ANNEALING`). The optimization "
+"will be run during the MD simulation every `STRIDE` MD steps (here 1 ns) "
+"with 1000 iterations to converge (`N_ITER`)."
+msgstr ""
+
+#: input.md:55
+msgid ""
+"The `BETA` options are required to select an annealing scheme. Here, we will"
+" start with an inverse temperature parameter $\\beta=0.9$ multiplied by a "
+"factor of 1.005 every iteration (`BETA_SCHEDULE=GEOM`). This is a standard "
+"setup -- interested readers can read more about it "
+"[here](https://en.wikipedia.org/wiki/Simulated_annealing))."
+msgstr ""
+
+#: input.md:57
+msgid ""
+"To speed up calculations, we will use a neighbor list `NLIST` with a cutoff "
+"of 0.6 nm for distances between ligand-protein atom pairs (see [PLUMED "
+"Neighbor Lists](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_neighbour.html)). The neighbor list will be recalculated every 100"
+" steps (`NL_STRIDE`)."
+msgstr ""
+
+#: input.md:59
+msgid ""
+"The `SWITCH` keyword specifies the loss function to optimize. The same "
+"functionality is provided for switching functions required to define "
+"collective variables such as coordination numbers. See "
+"[here](https://www.plumed.org/doc-v2.9/user-doc/html/switchingfunction.html)"
+" for switching functions available in PLUMED. Here, we will use an "
+"exponential loss function as explained in [Background](background.md)."
+msgstr ""
+
+#: input.md:61
+msgid "Bias"
+msgstr ""
+
+#: input.md:63
+msgid ""
+"Having defined the optimizer, we will pass it to the adaptive bias potential"
+" (see [here](background.md#adaptive-biasing)). The bias will be used to "
+"steer benzene in the optimal direction found by simulated annealing. This "
+"also requires a collective variable with Cartesian components to drive the "
+"ligand toward solvent."
+msgstr ""
+
+#: input.md:65
+msgid ""
+"*Note* Biasing absolute positions of any system can result in problems (see "
+"a detailed explanation [here](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_p_o_s_i_t_i_o_n.html)) and may require additional position "
+"restraints. Thus, it is required that it must be a distance with "
+"`COMPONENTS`. As such, the biasing corresponds to a relative position, and "
+"additional restraints are not required."
+msgstr ""
+
+#: input.md:67
+msgid ""
+"The `HEIGHT` and `RATE` keywords give the scale constant and rate, "
+"respectively."
+msgstr ""
+
+#: input.md:115
+msgid ""
+"We will also define a committor indicator to halt the simulation once "
+"benzene enters the solvent, which occurs approximately when the distance "
+"between the ligand and the protein exceeds 3 nm."
+msgstr ""
+
+#: input.md:135
+msgid "Simulation"
+msgstr ""
+
+#: input.md:137
+msgid "We are ready to run the simulation."
+msgstr ""
+
+#: input.md:139
+msgid ""
+"The simulation will save two files: `colvar.dat` and `optimizer.dat`. The "
+"`colvar.dat` file contains all the information we want to save using the "
+"`PRINT` action, while the `optimizer.dat` file contains data related to the "
+"optimization results (see [here](https://github.com/jakryd/plumed2-maze-"
+"tutorial/tree/main/data))."
+msgstr ""
+
+#: input.md:141
+msgid "[Results &rarr;](results.md)"
+msgstr ""

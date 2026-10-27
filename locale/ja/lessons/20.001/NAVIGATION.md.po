@@ -1,0 +1,266 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "PLUMED Installation: An interactive guide"
+msgstr ""
+
+#: NAVIGATION.md:3
+msgid ""
+"There are a variety of different ways of getting your hands on PLUMED. For "
+"example you can:"
+msgstr ""
+
+#: NAVIGATION.md:5
+msgid ""
+"Install it from [Conda](conda.md). See "
+"[here](https://docs.conda.io/en/latest/miniconda.html) for more info on "
+"Conda."
+msgstr ""
+
+#: NAVIGATION.md:6
+msgid ""
+"Install it from [MacPorts](macports.md). See "
+"[here](https://www.macports.org) for more information on macports."
+msgstr ""
+
+#: NAVIGATION.md:7
+msgid "Compile it yourself"
+msgstr ""
+
+#: NAVIGATION.md:9
+msgid ""
+"If you just want to run the code on your local machine to do the exercises "
+"for the tutorials here we would recommend installing PLUMED from Conda. "
+"However, if you want to use PLUMED to do production calculations we would "
+"recommend compiling it yourself."
+msgstr ""
+
+#: NAVIGATION.md:13
+msgid ""
+"If you are impatient the short version of the installation process is to use"
+" the following three commands:"
+msgstr ""
+
+#: NAVIGATION.md:21
+msgid ""
+"Notice that you can set the location to install plumed using the `--prefix` "
+"option when you call configure and that further details on these three "
+"commands is available on [this page](installation_old.md). Alternatively, "
+"[this page](Installation.md) presents the same information in a way that "
+"some people find easier to navigate."
+msgstr ""
+
+#: NAVIGATION.md:25
+msgid ""
+"You will most likely want to use PLUMED in tandem with an MD code. For some "
+"MD codes we regularly test the interfaces between them and PLUMED. We "
+"display the results obtained from these tests and the installation scripts "
+"that we use for thse tests [here](http://plumed-testcenter.github.io). If "
+"you are using an MD code that doesn't appear on that website you can find "
+"the information we have on using it in tandem with PLUMED from the following"
+" chart."
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:32
+msgid "MD codes"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:32
+msgid "Using with ABIN"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:33
+msgid "Using with AceMD"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:34
+msgid "Using with AmberTools"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:35
+msgid "Using with CP2K"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:36
+msgid "Using with DL_POLY4"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:37
+msgid "Using with ESPResSo"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:38
+msgid "Using with IPHIGENIE"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:39
+msgid "Using with LAMMPS"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:40
+msgid "Using with OpenMM"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:41
+msgid "Using with PINYMD"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:42
+msgid "Using with VNLATK"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:43
+msgid "Using with Yaff"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:44
+msgid "Using with ipi"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:45
+msgid "Using with gromacs"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:46
+msgid "Using with namd"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:47
+msgid "Using with qespresso"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:48
+msgid "Using with other"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:49
+msgid "You can find the interface to PLUMED for this code <a href="
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:50
+msgid "AceMD is a code authored by Toni Giorgino"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:51
+msgid "PLUMED can be used with the sander module from version 15 onwards"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:52
+msgid "PLUMED has been available in CP2K since Feb 2015"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:53
+msgid ""
+"Information on how to use and install PLUMED with DLPOLY can be found in the"
+" manual."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:54
+msgid "Plumed was inserted into ESPResSo by Davide Branduardi"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:55
+msgid "IPhigenie is a fast and versatile MD program"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:56
+msgid ""
+"There has been a native implementation of PLUMED in LAMMPS since Nov 2018. "
+"Details on how to use PLUMED with LAMMPS is available <a href="
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:57
+msgid ""
+"To use openMM and PLUMED you need to download the openmp-plumed plugin."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:58
+msgid ""
+"PINY is a code from the Tuckerman group. You can use PLUMED with PINY if you"
+" download the plumed branch."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:59
+msgid "VNL-ATK is an MD code from quantumwise"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:60
+msgid "An interface to PLUMED has been available in Yaff since Jul 2019"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:61
+msgid ""
+"IPi is a ring polymer molecular dynamics code (and more) from the group of "
+"Michele Ceriotti."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:62
+msgid ""
+"To use PLUMED with gromacs you need to patch the gromacs source code as "
+"described here"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:63
+msgid ""
+"To use PLUMED with namd you need to patch the namd source code as described "
+"here"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:64
+msgid ""
+"To use PLUMED with qespresso you need to patch the qespresso source code as "
+"described here"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:65
+msgid "Instructions for linking your own code with PLUMED"
+msgstr ""
+
+#: NAVIGATION.md:68
+msgid ""
+"No actions were used in this tutorial so if you click on the link below "
+"(which is generated automatically) you will be taken to an empty version of "
+"the action list page of the PLUMED manual."
+msgstr ""

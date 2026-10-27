@@ -1,0 +1,395 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: PART1.md:1
+msgid "Part 1: Characterize the free-energy landscape with 2D Metadynamics"
+msgstr ""
+
+#: PART1.md:3
+msgid ""
+"Our strategy will consist first in characterizing on a simple system "
+"(diuridine) the rate-limiting step in Magnesium binding to the backbone "
+"phosphate groups."
+msgstr ""
+
+#: PART1.md:5
+msgid "Description of the approach"
+msgstr ""
+
+#: PART1.md:7
+msgid ""
+"We make the assumption that the binding dynamics are well described by the "
+"two following collective variables (CVs):"
+msgstr ""
+
+#: PART1.md:8
+msgid ""
+"Coordination number of Mg<sup>2+</sup> with water oxygen atoms "
+"(O<sub>W</sub>)"
+msgstr ""
+
+#: PART1.md:9
+msgid ""
+"Coordination number of Mg<sup>2+</sup> with free phosphate oxygen atoms "
+"(O<sub>P</sub>)"
+msgstr ""
+
+#: PART1.md:15
+msgid ""
+"[!NOTE] We could also simply use the distance between Mg<sup>2+</sup> and "
+"the *closest* O<sub>P</sub>, but it turns out convenient to treat both "
+"exchanging ligands in a similar way and has the additional advantage to "
+"allow binding to multiple O<sub>P</sub> in complex RNA motifs."
+msgstr ""
+
+#: PART1.md:18
+msgid ""
+"To be used as biasing CVs, the coordination numbers are defined as smooth "
+"functions of the Mg—O<sub>x</sub> pairwise distances. More precisely:"
+msgstr ""
+
+#: PART1.md:26
+msgid ""
+"where $s(r)$ is a switching function between 1 and 0. In the following we "
+"will use a cosine switching function"
+msgstr ""
+
+#: PART1.md:40
+msgid ""
+"with parameters $d_0 = 0.18~\\text{nm}$ (to include with some margin the "
+"Mg—O<sub>W</sub> and Mg—O<sub>P</sub> equilibrium distance in the first "
+"shell, $r_\\text{eq} = 0.21~\\text{nm}$) and $r_0 = 0.24~\\text{nm}$ (to "
+"reach the density peak of the second hydration shell)."
+msgstr ""
+
+#: PART1.md:42
+msgid ""
+"[!NOTE] Since we are using a $d_0$ slightly below the equilibrium distance "
+"in the first shell ($r_\\text{eq}$), we can rescale the final value by "
+"$s(r_\\text{eq})^{-1} = 1.039661$ to recover \"nice\" integer values for the"
+" coordination states."
+msgstr ""
+
+#: PART1.md:45
+msgid "Implementation"
+msgstr "実装"
+
+#: PART1.md:47
+msgid "Simulation set-up"
+msgstr ""
+
+#: PART1.md:51
+msgid "We provide as input files:"
+msgstr ""
+
+#: PART1.md:52
+msgid ""
+"`input.gro`: equilibrated simulation box with a diuridine molecule and a "
+"single Mg²⁺ ion in water"
+msgstr ""
+
+#: PART1.md:53
+msgid "`run.mdp`: GROMACS MD parameter file"
+msgstr ""
+
+#: PART1.md:54
+msgid "`topol.top`: Standalone GROMACS topology file"
+msgstr ""
+
+#: PART1.md:56
+msgid "[They can be downloaded here.](diuridine/diuridine.zip)"
+msgstr ""
+
+#: PART1.md:58
+msgid ""
+"[!NOTE] The simulation box has one net positive charge that will be "
+"compensated with a uniform background charge. This might lead to artifacts "
+"which are likely irrelevant for our purpose here of estimating free-energy "
+"barriers."
+msgstr ""
+
+#: PART1.md:61
+msgid ""
+"[!NOTE] The provided topology uses [*microMg* force field "
+"parameters](https://github.com/bio-phys/optimizedMgFFs) from [Grotz *et al.*"
+" (2021)](https://doi.org/10.1021/acs.jctc.0c01281) [[1]](#references) for "
+"Mg<sup>2+</sup>. It was parameterized to reproduce solvation free energy, "
+"distance to oxygens in the first hydration shell, hydration number, activity"
+" coefficient derivative in MgCl₂ solutions, and the binding affinity and "
+"distance to the phosphate oxygens on nucleic acids."
+msgstr ""
+
+#: PART1.md:64
+msgid ""
+"For now we can just preprocess the input files (`-maxwarn 1` is needed for "
+"the non-zero total charge):"
+msgstr ""
+
+#: PART1.md:70 PART1.md:147
+msgid "Instructions"
+msgstr "演習の手順"
+
+#: PART1.md:72
+msgid ""
+"In a new file `plumed_metad.dat`, declare the atom groups that will be used "
+"in CVs. You will need one for the Mg<sup>2+</sup>, one for the free "
+"phosphate oxygen atoms (O1P/O2P in the GRO file), and one for all the water "
+"oxygen atoms (OW)."
+msgstr ""
+
+#: PART1.md:74
+msgid ""
+"[!TIP] When working with GROMACS, an easy way is to use an `index.ndx` file."
+" This limits errors and increase legibility when specifying large atom "
+"groups."
+msgstr ""
+
+#: PART1.md:79
+msgid "To create a group for water oxygen atoms:"
+msgstr ""
+
+#: PART1.md:83
+msgid ""
+"Finally we can rename this group for clarity, then save the index file:"
+msgstr ""
+
+#: PART1.md:88
+msgid "To use in a PLUMED file:"
+msgstr ""
+
+#: PART1.md:92
+msgid ""
+"Another way is to use the "
+"[```MOLINFO```](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_m_o_l_i_n_f_o.html) selection features."
+msgstr ""
+
+#: PART1.md:94
+msgid ""
+"Declare a CV for Mg<sup>2+</sup> coordination number with non-bridging "
+"phosphate oxygens using the "
+"[`COORDINATION`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_c_o_o_r_d_i_n_a_t_i_o_n.html) action. As explained "
+"[above](#description-of-the-approach), will use a `COSINE` [switching "
+"function](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/switchingfunction.html). However, free to experiment with other "
+"possibilities!"
+msgstr ""
+
+#: PART1.md:96
+msgid ""
+"Similarly, declare a CV for Mg<sup>2+</sup> coordination number with "
+"O<sub>W</sub> using the "
+"[`COORDINATION`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_c_o_o_r_d_i_n_a_t_i_o_n.html) action."
+msgstr ""
+
+#: PART1.md:98
+msgid ""
+"Declare a (well-tempered) Metadynamics bias on the two CVs with "
+"[`METAD`](https://www.plumed.org/doc-v2.9/user-doc/html/_m_e_t_a_d.html)."
+msgstr ""
+
+#: PART1.md:99
+msgid ""
+"[!NOTE] The choice of the Gaussian widths is an important parameter. Chosing"
+" a too large $\\sigma$ can oversmooth the underlying free-energy landscape, "
+"while a too small $\\sigma$ will dramatically increase convergence time. A "
+"good rule of thumb is to take $\\sigma$ on the scale of the smallest "
+"features you expect to resolve along the CV. We suggest $\\sigma = 0.05$ for"
+" the coordination CV."
+msgstr ""
+
+#: PART1.md:102
+msgid ""
+"The metadynamics will encourage the system to explore the whole range of "
+"accessible coordination numbers. To avoid exploring a priori irrelevant "
+"areas of the configuration space and accelerate convergence we will add "
+"semiharmonic potential walls. Use "
+"[`LOWER_WALLS`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_l_o_w_e_r__w_a_l_l_s.html) and "
+"[`UPPER_WALLS`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_u_p_p_e_r__w_a_l_l_s.html) to restrain the O<sub>W</sub> "
+"coordination CV between $4$ and $7$."
+msgstr ""
+
+#: PART1.md:104
+msgid "Template PLUMED input file"
+msgstr ""
+
+#: PART1.md:133
+msgid "Run simulation"
+msgstr ""
+
+#: PART1.md:135
+msgid ""
+"If no mistakes were made (an exceedingly hypothetical scenario) we should be"
+" able to start our metadynamics simulation!"
+msgstr ""
+
+#: PART1.md:141
+msgid ""
+"This should generate about 4 Gb of data and take a couple of hours on a GPU-"
+"accelerated node."
+msgstr ""
+
+#: PART1.md:143
+msgid "Analysis"
+msgstr "解析"
+
+#: PART1.md:145
+msgid ""
+"Once the simulation is completed, we can analyze the free-energy landscape "
+"on the selected CV-space. One way of doing that is to trust the summed "
+"Gaussian hills as the opposite of the converged free-energy landscape. A "
+"somewhat more precise (yet simple) way is to reweight the entire trajectory "
+"assuming it was generated with the final metadynamics bias [[2, "
+"3]](#references)."
+msgstr ""
+
+#: PART1.md:149
+msgid ""
+"Using [`plumed sum_hills`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/sum_hills.html), extract the free-energy surface (FES) from the "
+"accumulated gaussians stored in the `HILLS` file."
+msgstr ""
+
+#: PART1.md:151
+msgid ""
+"Using [`plumed driver`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/driver.html), recompute the instantaneous value of the metadynamics"
+" bias for every trajectory frame, restarting from the final `HILLS` file."
+msgstr ""
+
+#: PART1.md:153
+msgid ""
+"[!TIP] You will need a new plumed input file (you can call it "
+"`plumed_static.dat`) identical to the previous one but with the following "
+"modifications:"
+msgstr ""
+
+#: PART1.md:155
+msgid "`METAD` component should contain the `RESTART=YES` option"
+msgstr ""
+
+#: PART1.md:156
+msgid ""
+"To avoid modifying the `HILLS` file, set the `HEIGHT` parameter to 0 and the"
+" `PACE` to a large number (e.g. 10⁹)"
+msgstr ""
+
+#: PART1.md:158
+msgid "Using a Python script or notebook, plot:"
+msgstr ""
+
+#: PART1.md:159
+msgid ""
+"The timeseries for both CVs, the adaptive bias value during metadynamics, "
+"and the static bias value"
+msgstr ""
+
+#: PART1.md:160
+msgid "The FES as output by `sum_hills`"
+msgstr ""
+
+#: PART1.md:161
+msgid ""
+"The FES as computed with a weighted histogram, using the weights from the "
+"final bias"
+msgstr ""
+
+#: PART1.md:163
+msgid "Results"
+msgstr "結果"
+
+#: PART1.md:165
+msgid "You should obtain something like that:"
+msgstr ""
+
+#: PART1.md:167
+msgid ""
+"![Metadynamics timeseries figure](solutions/figures/metad_timeseries.png)"
+msgstr ""
+
+#: PART1.md:169
+msgid ""
+"![Metadynamics free-energy surface figure](solutions/figures/metad_fes.png)"
+msgstr ""
+
+#: PART1.md:171
+msgid ""
+"[!NOTE] On these plots, the raw values for $n_\\mathrm{O_P}$ and "
+"$n_\\mathrm{O_W}$ have been [scaled to integral values](#description-of-the-"
+"approach)."
+msgstr ""
+
+#: PART1.md:174
+msgid ""
+"We can see that the metadynamics covered most of the space within the "
+"restraints. The reweighting overall agrees with the summed hills FES but "
+"resolves better sharp features that are otherwise smoothed by the chosen "
+"Gaussian $\\sigma$-value. The deep band on the left (at $n_\\mathrm{O_P} = "
+"0$) is the unbound state. A pre-bound (or outer-sphere bound) state is "
+"visible for $n_\\mathrm{O_W} \\approx 6$ and small non-zero values of "
+"$n_\\mathrm{O_P}$, and is separated from the bound state ($n_\\mathrm{O_W} "
+"\\approx 5$ and $n_\\mathrm{O_P} \\approx 1$) by a minimum free-energy path "
+"whose saddle point is located around a 7-coordinated transition state "
+"($n_\\mathrm{O_W} \\approx 6$, $n_\\mathrm{O_P} \\approx 1$). This "
+"corresponds to an associative interchange (*I<sub>a</sub>*) mechanism "
+"already observed for this force-field [[4]](#references)."
+msgstr ""
+
+#: PART1.md:176
+msgid ""
+"[!NOTE] The experimentally suggested mechanism is an interchange "
+"dissociative one (*I<sub>d</sub>*), suggesting that the observed associative"
+" pathway is an artifact of the particular force field we use."
+msgstr ""
+
+#: PART1.md:179
+msgid ""
+"The [next section](PART2.md) of the tutorial will focus on exploiting this "
+"data to design a bias that reduces the free-energy barrier while minimally "
+"affecting the remaining part of the FES."
+msgstr ""
+
+#: PART1.md:181
+msgid "References"
+msgstr "参考文献"
+
+#: PART1.md:183
+msgid ""
+"[1] [Kara K. Grotz, Sergio Cruz-León, and Nadine Schwierz. Optimized "
+"Magnesium Force Field Parameters for Biomolecular Simulations with Accurate "
+"Solvation, Ion-Binding, and Water-Exchange Properties. *Journal of Chemical "
+"Theory and Computation* **2021** 17 (4), "
+"2530-2540.](https://doi.org/10.1021/acs.jctc.0c01281)"
+msgstr ""
+
+#: PART1.md:185
+msgid ""
+"[2] [Davide Branduardi, Giovanni Bussi, and Michele Parrinello. Metadynamics"
+" with Adaptive Gaussians. *Journal of Chemical Theory and Computation* "
+"**2012** 8 (7), 2247-2254.](https://doi.org/10.1021/ct3002464)"
+msgstr ""
+
+#: PART1.md:187
+msgid ""
+"[3] [Timo M. Schäfer and Giovanni Settanni. Data Reweighting in Metadynamics"
+" Simulations.*Journal of Chemical Theory and Computation* **2020** 16 (4), "
+"2042-2052.](https://doi.org/10.1021/acs.jctc.9b00867)"
+msgstr ""
+
+#: PART1.md:189
+msgid ""
+"[4] [Sebastian Falkner and Nadine Schwierz. Kinetic pathways of water "
+"exchange in the first hydration shell of magnesium: Influence of water model"
+" and ionic force field. *Journal of Chemical Physics* **2021** 155 (8), "
+"084503.](https://doi.org/10.1063/5.0060896)"
+msgstr ""

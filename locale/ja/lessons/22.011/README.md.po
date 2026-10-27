@@ -1,0 +1,69 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:1
+msgid "PLUMED Masterclass-22-11"
+msgstr ""
+
+#: README.md:2
+msgid ""
+"Simulation files for PLUMED "
+"[Masterclass](https://www.plumed.org/masterclass)-22-11 on how to run "
+"variationally enhanced sampling simulations with PLUMED."
+msgstr ""
+
+#: README.md:4
+msgid ""
+"The video from the lecture on July 4, 2022 can be found "
+"[here](https://youtu.be/Cmw_v2Y8o9k)"
+msgstr ""
+
+#: README.md:6
+msgid ""
+"The slides from the lecture on July 4, 2022 can be found "
+"[here](https://github.com/valsson-"
+"group/masterclass-22-11/blob/main/Slides/PLUMED-"
+"Masterclass-22-11-July4-2022.pdf)."
+msgstr ""
+
+#: README.md:8
+msgid ""
+"The tutorial can be found [here](https://www.plumed.org/doc-master/user-"
+"doc/html/masterclass-22-11.html)."
+msgstr ""
+
+#: README.md:10
+msgid ""
+"The video from the solutions on July 11, 2022 can be found "
+"[here](https://youtu.be/rVFEF4YNLnk)."
+msgstr ""
+
+#: README.md:12
+msgid ""
+"The jupyter notebook used during the solutions on July 11, 2022 can be found"
+" [here](https://github.com/valsson-"
+"group/masterclass-22-11/blob/main/Solutions-July11-2022/Analysis_Solutions-"
+"July11-2022.ipynb)"
+msgstr ""
+
+#: README.md:14
+msgid ""
+"The [Solutions-July11-2022](https://github.com/valsson-"
+"group/masterclass-22-11/tree/main/Solutions-July11-2022) folder includes the"
+" runs analyzed during the the solutions on July 11, 2022."
+msgstr ""
+
+#: README.md:16
+msgid ""
+"For this tutorial you will need versions of PLUMED (with the VES module "
+"enabled) and GROMACS that are compiled using the MPI library. All the "
+"exercises were tested with PLUMED version 2.8.0 and GROMACS 2020.6. In order"
+" to obtain the these versions, please follow the instructions at [this "
+"link](https://github.com/plumed/masterclass-2022)."
+msgstr ""

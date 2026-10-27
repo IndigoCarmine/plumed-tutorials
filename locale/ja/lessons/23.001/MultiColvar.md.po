@@ -1,0 +1,176 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: MultiColvar.md:1
+msgid "Reimplementing MultiColvar"
+msgstr ""
+
+#: MultiColvar.md:3
+msgid ""
+"The original idea for the MultiColvar class came from a conversation I had "
+"with Fabio Pietrucci. The line of thought went something like this:"
+msgstr ""
+
+#: MultiColvar.md:6
+msgid ""
+"When calculating many collective variables you calculate the same function "
+"$f$ for multiple sets of atomic positions $\\{X\\}_i$."
+msgstr ""
+
+#: MultiColvar.md:7
+msgid "The sum of the functions is then computed. The final CV is thus:"
+msgstr ""
+
+#: MultiColvar.md:13
+msgid ""
+"As it is straightforward to parallelise the sum in the above expression, why"
+" should we not write a base class for calculating CVs like this?"
+msgstr ""
+
+#: MultiColvar.md:14
+msgid ""
+"If this base class is implemented, developers can inherit from it and only "
+"need to implement the $f(\\{X\\})$ part of the expression above."
+msgstr ""
+
+#: MultiColvar.md:16
+msgid ""
+"The MultiColvarBase class I implemented after this conversation was designed"
+" with this line of thinking in mind. With this class, you can thus use a "
+"command like:"
+msgstr ""
+
+#: MultiColvar.md:23
+msgid ""
+"to calculate and print the number of the five distances above that are less "
+"than 0.1 nm."
+msgstr ""
+
+#: MultiColvar.md:25
+msgid ""
+"A problem with the code I wrote quickly emerged. Many users and developers "
+"wanted access to the full vector of $f(\\{X\\})_i$ values rather than access"
+" to sums of these values. I had to add code into the base class to give them"
+" access to this vector of values. This tinkering complicated the "
+"MultiColvarBase class, making using or developing features where the "
+"MultiColvarBase class was involved difficult. Much of the rewriting I have "
+"done has aimed to simplify the MultiColvarBase class and resolve these "
+"issues. This is why I have added functionality to pass vectors between "
+"actions. Giving users and developers direct access to the vectors reduces "
+"the amount of code that needs to be in the MultiColvarBase class. This "
+"functionality can be moved to other actions, and complicated CVs can be "
+"implemented directly from the input file (or using shortcuts). For example, "
+"The number of distances less than 0.1 nm that I calculated above is now "
+"calculated using the following input:"
+msgstr ""
+
+#: MultiColvar.md:40
+msgid ""
+"If you look at the flowchart representation for this input, you can "
+"understand how it works more clearly:"
+msgstr ""
+
+#: MultiColvar.md:50
+msgid ""
+"The first action above calculates the five distances and passes a vector "
+"with five elements to the LESS_THAN action that follows it. This LESS_THAN "
+"action then applies a function elementwise to the five components of the "
+"vector. The output PLMD::Value object from this action is thus another "
+"vector. This vector is then converted to a scalar by the SUM action, which "
+"adds all the elements of the vector together."
+msgstr ""
+
+#: MultiColvar.md:54
+msgid ""
+"The derivatives present a problem when implementing CVs using the method "
+"described above. The derivative for a vector of CVs is a matrix. For "
+"complicated CVs that depend on the positions of many atoms, this matrix "
+"quickly gets too large to be stored. I have resolved this problem by "
+"calculating the CV once during the forward (calculate) loop and a second "
+"time during the backwards (apply) loop. This turns out to be much faster "
+"than what was done in the older version of PLUMED where the derivative of "
+"the sum with respect to the atoms is accumulated in the forward loop by "
+"using the chain rule. The flowchart representations that describe how forces"
+" are applied are thus similar to those that show how the forces are applied "
+"on scalar quantities."
+msgstr ""
+
+#: MultiColvar.md:68
+msgid ""
+"Exposing the vector of CV values calculated by a MultiColvar by putting them"
+" in the output PLMD::Value object has dramatically simplified this base "
+"class. I have been able to write the base class of a MultiColvar as a "
+"template. If you have written a method that inherits from Colvar, you can "
+"thus also write an action to calculate a vector that contains multiple "
+"instances of your CV as well as the usual scalar-valued CV by adding the "
+"following lines to your Colvar's cpp file:"
+msgstr ""
+
+#: MultiColvar.md:88
+msgid ""
+"You must implement Colvars slightly differently if you want to use the above"
+" functionality. In particular, you need to write three static methods:"
+msgstr ""
+
+#: MultiColvar.md:90
+msgid ""
+"`void parseAtomList( const int& num, std::vector<AtomNumber>& t, "
+"ActionAtomistic* aa )` reads the atoms that are used to calculate the CV by "
+"parsing the keywords that have type `atom`."
+msgstr ""
+
+#: MultiColvar.md:91
+msgid ""
+"`unsigned getModeAndSetupValues( ActionWithValue* av )` creates the named "
+"components passed between PLUMED actions."
+msgstr ""
+
+#: MultiColvar.md:92
+msgid ""
+"`void calculateCV( const unsigned& mode, const std::vector<double>& masses, "
+"const std::vector<double>& charges, const std::vector<Vector>& pos, "
+"std::vector<double>& vals, std::vector<std::vector<Vector> >& derivs, "
+"std::vector<Tensor>& virial, const ActionAtomistic* aa )` calculates the CV."
+msgstr ""
+
+#: MultiColvar.md:94
+msgid ""
+"As you can see by looking at what was done in `colvar/Distance.cpp`, for "
+"example, this is not particularly hard. Implementing these methods is "
+"usually a matter of moving code that you would have to write in the "
+"constructor of calculate methods of the Colvar to the functions above. "
+"Furthermore, you can still inherit from Colvar and implement a single, "
+"scalar-valued CV as you did in the past."
+msgstr ""
+
+#: MultiColvar.md:97
+msgid ""
+"Similar changes were also required to deal with Function actions, as these "
+"actions can now have scalar or vector input and output. For functions, I "
+"implemented two template classes `FunctionOfScalar` and FunctionOfVector`. "
+"The template parameters for these classes should inherit from "
+"`FunctionTemplateBase` and an action that applies a switching function act "
+"on a scalar or vector can then be written as follows:"
+msgstr ""
+
+#: MultiColvar.md:168
+msgid ""
+"As you can see, the key methods here are `read`, which reads the parameters "
+"of the function from the input line, and `calc`, which calculates the value "
+"of the function and the derivative at the point specified in `args`."
+msgstr ""
+
+#: MultiColvar.md:171
+msgid ""
+"As with Colvars, the code above is just a reordering of what you would have "
+"done in the old version of PLUMED. Furthermore, you don't need to implement "
+"functions using the new method outlined above. You can still inherit from "
+"`Function` and implement a scalar-valued function that takes scalar "
+"arguments only in the way that you always did"
+msgstr ""

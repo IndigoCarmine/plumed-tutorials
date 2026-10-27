@@ -1,0 +1,80 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: postprocessing.md:2
+msgid "Analysis"
+msgstr "解析"
+
+#: postprocessing.md:4
+msgid "Copy relevant scripts in the analysis folder"
+msgstr ""
+
+#: postprocessing.md:15
+msgid "Run ```script.sh``` which:"
+msgstr ""
+
+#: postprocessing.md:16
+msgid "Convert dcds to xtc (dcd2xtc.py)"
+msgstr ""
+
+#: postprocessing.md:17
+msgid ""
+"Concatenate xtcs to a single xtc ```gmx trjcat -f nosolv_*.xtc -cat -o "
+"cat_trjcat.xtc -settime```"
+msgstr ""
+
+#: postprocessing.md:18
+msgid ""
+"Calculate the Torrie-Valeau weights (Fullbias.dat) and the CVs (COLVAR) ``` "
+"plumed driver --plumed plumed_analysis.dat --mf_xtc cat_trjcat.xtc ``` which"
+" are afterwards used to calculate Free Energy Surfaces."
+msgstr ""
+
+#: postprocessing.md:19
+msgid ""
+"Generate a structural ensemble by sampling the concatenated trajectory by "
+"weights. ``` python resample.py ```"
+msgstr ""
+
+#: postprocessing.md:20
+msgid ""
+"Backmap coarse grained structural ensemble by using PULCHRA ``` python "
+"backmap.py $nrep sh pulchra.sh sh keepH.sh ```"
+msgstr ""
+
+#: postprocessing.md:32
+msgid ""
+"Plot the free energy surface per CV of interest. Note that the order of CVs "
+"in: ``` for i in $(echo CV1 CV2 CV3 etc);do .. ``` needs to follow the order"
+" these CVs appear as columns in the ```COLVAR``` file."
+msgstr ""
+
+#: postprocessing.md:54
+msgid "Calculation of the Root Mean Square Fluctuations (RMSF) per residue."
+msgstr ""
+
+#: postprocessing.md:77
+msgid "![png](images/AF-IDP_colab_29_1.png)"
+msgstr ""
+
+#: postprocessing.md:79
+msgid ""
+"Finally,to showcase the advantage of AF-MI, we show pair-distance "
+"distribution function (PDDF) from SAXS data, based on a single AF PDB "
+"structure and AF-MI structural ensemble "
+"[Ref](https://www.biorxiv.org/content/10.1101/2023.01.19.524720v1.full)."
+msgstr ""
+
+#: postprocessing.md:88
+msgid "Download files"
+msgstr ""
+
+#: postprocessing.md:102
+msgid "[Back to AlphaFold-Metainference home](NAVIGATION.md)"
+msgstr "[AlphaFold-Metainference のホームに戻る](NAVIGATION.md)"

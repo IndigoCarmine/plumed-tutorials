@@ -1,0 +1,37 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. mermaid node label
+#: NAVIGATION.md:3
+msgid "PLUMED Masterclass 21.4: Metadynamics"
+msgstr "PLUMED Masterclass 21.4：Metadynamics"
+
+#. mermaid node label
+#: NAVIGATION.md:3
+msgid "Installation and Usage"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:4 NAVIGATION.md:8
+msgid "Github Repository"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:6
+msgid ""
+"You should understand the fundamentals of molecular dynamics simulations and"
+" complete this masterclass before moving on"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:7
+msgid ""
+"Instructions for installation, guided questions, and troubleshooting steps "
+"for this resource"
+msgstr ""

@@ -1,0 +1,303 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Implementation.md:1
+msgid "Implementation"
+msgstr "実装"
+
+#: Implementation.md:3
+msgid ""
+"Small disclaimer: the code I am presenting here is a simplified version of "
+"the actual code that is available as an example implementation in this "
+"[repository](https://github.com/Iximiel/cudaOnPlumed). However for "
+"production runs I would suggest to use the version that are hosted in the "
+"main plumed repository, at time of writing this in version "
+"[v2.10](https://github.com/plumed/plumed2/tree/v2.10/plugins/cudaCoord) or "
+"the more updated version in "
+"[master](https://github.com/plumed/plumed2/tree/master/plugins/cudaCoord) "
+"these versions depend on C++17. The actual implementation has type templates"
+" and supports pbcs. These particulars are not useful in understanding the "
+"basis for a plumed implementation of a simple CV."
+msgstr ""
+
+#: Implementation.md:14
+msgid ""
+"If this is not the first time you read this I have updated the code on the "
+"repository to use the NVIDIA's [CCCL](https://github.com/NVIDIA/cccl) API. "
+"You may find some changes in the code. The code changes are not radical and "
+"I may have missed something while updating the page, always refer to the "
+"code present in the main [plumed "
+"repository](https://github.com/plumed/plumed2/tree/master/plugins/cudaCoord)"
+" for an up-to-date code."
+msgstr ""
+
+#: Implementation.md:21 Implementation.md:152
+msgid "The switching function"
+msgstr ""
+
+#: Implementation.md:22
+msgid ""
+"In this case the coordination is calculated with $\\frac{1}{2} "
+"\\sum_{i\\lt{}nat}^{i} \\sum_{j\\lt{}nat,j\\neq i}^{j} f(d_{ij})$, where "
+"$d_{ij}$ is the distances between atom $i$ and $j$, and $f(x)$ is a function"
+" that usually has the form"
+msgstr ""
+
+#: Implementation.md:35
+msgid ""
+"and $s(x)$ is a switching function that links smoothly 1 to 0 between $d_0$ "
+"and $d_{max}$"
+msgstr ""
+
+#: Implementation.md:37
+msgid ""
+"In this case, I used the RATIONAL function like in the default Plumed "
+"implementation: $s(r)=\\frac{ 1 - \\left(\\frac{ r - d_0 }{ r_0 "
+"}\\right)^{n} }{ 1 - \\left(\\frac{ r - d_0 }{ r_0 }\\right)^{m} }$."
+msgstr ""
+
+#: Implementation.md:40
+msgid ""
+"But in this case, for simplicity, the implementation that I am showing will "
+"not use the parameter $d_0$, so $s(r)=\\frac{ 1 - \\left(\\frac{ r }{ r_0 "
+"}\\right)^{n} }{ 1 - \\left(\\frac{ r }{ r_0 }\\right)^{m} }$."
+msgstr ""
+
+#: Implementation.md:44
+msgid ""
+"Like in standard plumed implementation, the switching has a stretch "
+"parameter: if $s(d_{max}) = shift $ and "
+"$stretch=\\frac{1}{s(0)-s(d_{max})}$, $s(x)$ becomes "
+"$s^s(x)=s(x)*stretch+shift$"
+msgstr ""
+
+#: Implementation.md:48
+msgid "The kernel and the \\_\\_device\\_\\_ functions"
+msgstr ""
+
+#: Implementation.md:49
+msgid "The coord kernel"
+msgstr ""
+
+#: Implementation.md:51
+msgid ""
+"In the following code snippets, the comments help read the flow of the code."
+" Here the code is presented in a simplified way, without templates for type "
+"and without the pbc calculations."
+msgstr ""
+
+#: Implementation.md:55
+msgid ""
+"The simplest kernel for calculating the coordination in a group of atoms is:"
+msgstr ""
+
+#: Implementation.md:134
+msgid ""
+"You can view this kernel as the inner body of the nested for loop that can "
+"be used to write the most naive serial implementation of the coordination "
+"(the outer loop would run on the `i` variable)."
+msgstr ""
+
+#: Implementation.md:138
+msgid ""
+"The use of global memory should be limited in a kernel, because accessing "
+"global memory is far slower than working on shared memory (that it is not "
+"used in this case, shared memory is shared between kernels within a group) "
+"or the variables, (the \"local memory\") declared within each kernel."
+msgstr ""
+
+#: Implementation.md:143
+msgid ""
+"Here within each kernel, I have accumulated the values in local variables "
+"and not on the global memory and then update the global memory only at the "
+"end of the calculation. Using `mycoord += coord;` instead of `ncoordOut[i] "
+"+= coord;` within the loop will speed up the calculations."
+msgstr ""
+
+#: Implementation.md:148
+msgid ""
+"In the actual implementation the `float myVirial[9];` and `float d[3];` are "
+"presented as a collection of 9 and 3 single declared values to use the "
+"registers of the kernels, here are declared as an array for clarity."
+msgstr ""
+
+#: Implementation.md:154
+msgid ""
+"The switching parameters are stored in a simple struct: when called, kernels"
+" accept struct variables as inputs, making it simpler to pass parameters to "
+"functions:"
+msgstr ""
+
+#: Implementation.md:167
+msgid ""
+"`calculateSqr` is a simple interface to the actual switching function and "
+"takes the squared distance and prepares it for the actual rational function "
+"(by precalculating $\\left(\\frac{ r }{ r_0 }\\right)$). It is a rewriting "
+"of the `PLMD::SwitchingFunction::calculateSqr` method as a `__device__` "
+"function:"
+msgstr ""
+
+#: Implementation.md:192
+msgid ""
+"Also `pcuda_Rational` is a rewrite to the method "
+"`PLMD::SwitchingFunction::do_rational` for the GPU:"
+msgstr ""
+
+#: Implementation.md:220
+msgid ""
+"From what I [understood](https://docs.nvidia.com/cuda/cuda-c-programming-"
+"guide/index.html#noinline-and-forceinline) the compilers tend to inline "
+"`__device__` functions. It is possible to enforce the behaviour with "
+"`__forceinline__` or `__inline_hint__`"
+msgstr ""
+
+#: Implementation.md:225
+msgid "Interfacing to cuda: invoking the kernel and the reductions"
+msgstr ""
+
+#: Implementation.md:226
+msgid ""
+"This section has changed heavily since the previous version Go to the "
+"[helpers](Helpers.md) page for details on the reduction and on how the CCCL "
+"interface."
+msgstr ""
+
+#: Implementation.md:230
+msgid "Calling the kernel in the calculate() method"
+msgstr ""
+
+#: Implementation.md:232
+msgid "As in any other `PLMD::Action` we have a `calculate()` method."
+msgstr ""
+
+#: Implementation.md:234
+msgid ""
+"We start with getting the positions of the atoms, and we immediately load "
+"them into the GPU:"
+msgstr ""
+
+#: Implementation.md:241
+msgid ""
+"during the construction of the action the number of atoms has already been "
+"initialized, so no need to resize `cudaPositions` (for safety reasons "
+"`plmdDataToGPU` will do it for you) or `cudaDerivatives`. Moreover, we are "
+"using the async version of `plmdDataToGPU`, so we can set up other things on"
+" the CPU while the data is copied."
+msgstr ""
+
+#: Implementation.md:247
+msgid ""
+"Then we fetch the number of atoms and we prepare the memory and the number "
+"of groups for calling the kernel:"
+msgstr ""
+
+#: Implementation.md:260
+msgid ""
+"`cudaCoordination` and `cudaVirial` are the outputs of the kernel and will "
+"need to be reduced after."
+msgstr ""
+
+#: Implementation.md:263
+msgid ""
+"the kernel is called with the `<<<>>>` syntax, between the three brackets we"
+" specify 2 to 4 information:"
+msgstr ""
+
+#: Implementation.md:265
+msgid "the number of groups to use"
+msgstr ""
+
+#: Implementation.md:266
+msgid "the number of threads per group"
+msgstr ""
+
+#: Implementation.md:267
+msgid "the eventual quantity of shared memory"
+msgstr ""
+
+#: Implementation.md:268
+msgid "the eventual stream to enqueue the kernel into"
+msgstr ""
+
+#: Implementation.md:270
+msgid "(specify the shared memory and the stream is optional):"
+msgstr ""
+
+#: Implementation.md:281
+msgid "Moving the derivatives to the host RAM"
+msgstr ""
+
+#: Implementation.md:283
+msgid ""
+"Before moving the data again on the CPU's RAM we want to be sure that the "
+"[kernel](#the-coord-kernel) has finished its calculations by calling "
+"`cudaDeviceSynchronize();`."
+msgstr ""
+
+#: Implementation.md:286
+msgid "Then we enqueue an async copy of the derivatives."
+msgstr ""
+
+#: Implementation.md:292
+msgid "Calling the reductions in the calculate() method"
+msgstr ""
+
+#: Implementation.md:294
+msgid ""
+"After the [kernel](#the-coord-kernel) finishes we have the virial and the "
+"coordination accumulated for each atom: we proceed to accumulate the results"
+" for the whole system with the utilities in _cudaHelpers.cuh_, which are "
+"written using the building blocks of CCCL/cub. The reduction algorithm is "
+"recursively called by the following loop."
+msgstr ""
+
+#: Implementation.md:341
+msgid ""
+"The last iteration (where `nGroups == 1`) enqueue the async version of the "
+"GPU to CPU copies."
+msgstr ""
+
+#: Implementation.md:343
+msgid ""
+"The swaps of the memory are there because the output of an iteration "
+"reduction became the input of the next iteration and we want to use the "
+"already allocated data as the next result recipient. These swap operations "
+"do not move the memory, but should exchange the addresses and the data "
+"between the two variables."
+msgstr ""
+
+#: Implementation.md:348
+msgid ""
+"The ND-reduction expects the data to be organized as a series of "
+"concatenated arrays (this is also known as a block arrangement, at least in "
+"the cub manual): `[x0, x1, x2, ..., xn-2, xn-1, y0, y1, y2, ..., yn-2, yn-1,"
+" z0,... ]` and so on."
+msgstr ""
+
+#: Implementation.md:352
+msgid "Finalizing the results"
+msgstr ""
+
+#: Implementation.md:354
+msgid ""
+"After the reduction/accumulation, the data is then uploaded to Plumed with "
+"the standard procedure, again we use `cudaDeviceSynchronize();` to be sure "
+"that all the data have been moved to the CPU:"
+msgstr ""
+
+#: Implementation.md:365
+msgid "Other implementations"
+msgstr ""
+
+#: Implementation.md:367
+msgid ""
+"I also set up the explanation for the implementation of the coordination for"
+" [two groups](ImplementationTwoGroups) and the [pair](ImplementationPair) "
+"version"
+msgstr ""

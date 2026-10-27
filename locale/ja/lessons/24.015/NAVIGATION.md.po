@@ -1,0 +1,36 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "How to use PyCV"
+msgstr ""
+
+#: NAVIGATION.md:3
+msgid "The lesson contains a guide to set up PyCV and some simple examples."
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:8
+msgid "PyCV"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:9
+msgid "Examples"
+msgstr "例"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:13
+msgid "An introduction to PyCV"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:14
+msgid "Some basic examples for PyCV"
+msgstr ""

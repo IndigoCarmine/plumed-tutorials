@@ -1,0 +1,43 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ImplementationPair.md:1
+msgid "Implement the pair coordination"
+msgstr ""
+
+#: ImplementationPair.md:3
+msgid ""
+"See the main [coordination implementation](Implementation.md), the code "
+"there is uses as a starting point for this variant."
+msgstr ""
+
+#: ImplementationPair.md:5
+msgid ""
+"This should be the easiest implementation: If each kernel will run only on a"
+" couple it could be written like this:"
+msgstr ""
+
+#: ImplementationPair.md:69
+msgid ""
+"The efficiency of this approach is not high, because we lose time in "
+"spinning up `ncouples` of threads, each one that does a single small task, "
+"the coordination of a single pair."
+msgstr ""
+
+#: ImplementationPair.md:71
+msgid ""
+"An attempt to make it quicker could be to slightly change the kernel with a "
+"for loop on some pairs."
+msgstr ""
+
+#: ImplementationPair.md:134
+msgid ""
+"This kernel works on `couplesPerThread` per thread. The problem with this "
+"prototype is that nearly all the operations are done in the global memory."
+msgstr ""

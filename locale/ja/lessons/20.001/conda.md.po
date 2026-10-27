@@ -1,0 +1,142 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: conda.md:1
+msgid "Installing PLUMED with conda"
+msgstr ""
+
+#: conda.md:3
+msgid ""
+"If you use the conda package manager you can install a pre-compiled PLUMED "
+"binary using the following command:"
+msgstr ""
+
+#: conda.md:9
+msgid "Similarly, the python wrappers can be installed with"
+msgstr ""
+
+#: conda.md:15
+msgid ""
+"These packages are part of [conda-forge](https://anaconda.org/conda-forge) "
+"and as such should be binary compatible with other codes from the same "
+"distribution. Notice that it should also be possible to combine the "
+"installed plumed kernel with an MD code compiled outside of conda (or within"
+" a different conda environment) if plumed is linked in runtime mode. The "
+"only variable that you need to set in order to access to the installed "
+"plumed kernel is `PLUMED_KERNEL` (e.g., `export "
+"PLUMED_KERNEL=/conda/prefix/lib/libplumedKernel.so`)."
+msgstr ""
+
+#: conda.md:22
+msgid ""
+"Notice that binaries are only available for Linux and MacOS and that they "
+"have a limited number of features. In particular, they do not support MPI "
+"and do not include optional modules. However, they can be used to quickly "
+"install a working PLUMED version without the need to have a compiler."
+msgstr ""
+
+#: conda.md:26
+msgid ""
+"Notice that there are additional conda packages on the "
+"[plumed](https://anaconda.org/plumed/plumed) channel. Those packages are for"
+" testing only."
+msgstr ""
+
+#: conda.md:29
+msgid "Masterclass 2022"
+msgstr ""
+
+#: conda.md:31
+msgid ""
+"If you want to work through the tutorials on this site we recommend using "
+"conda. This section explains how you can insall a version of PLUMED from "
+"conda that you can use to work through the tutorial exercises. Unfortunately"
+" we can only provide precompiled conda packages for x64 architecture, Linux "
+"and MacOS. This means that if you want to run the exercise on a different "
+"architecture (e.g., a new Mac with a ARM processor) you should install the "
+"software on your own."
+msgstr ""
+
+#: conda.md:36
+msgid "First, make sure conda is installed by typing:"
+msgstr ""
+
+#: conda.md:40
+msgid ""
+"If the command is not found, please refer to these [instructions to install "
+"conda on your machine](https://docs.conda.io/en/latest/miniconda.html). "
+"Alternatively, if you use the [Homebrew package manager](https://brew.sh/), "
+"you can install conda with:"
+msgstr ""
+
+#: conda.md:48
+msgid "Now we can create a conda environment for the PLUMED Masterclass:"
+msgstr ""
+
+#: conda.md:53
+msgid "and activate it with:"
+msgstr ""
+
+#: conda.md:58
+msgid ""
+"Finally, we can proceed with the installation of the required software:"
+msgstr ""
+
+#: conda.md:63
+msgid ""
+"If the Masterclass requires Gromacs, you can then run the following command:"
+msgstr ""
+
+#: conda.md:68
+msgid ""
+"If the Masterclass requires LAMMPS instead (for instance, Masterclass "
+"22.12), the appropriate command is:"
+msgstr ""
+
+#: conda.md:73
+msgid ""
+"If the Masterclass requires AMBER (for instance, Masterclass 22.13), you "
+"should first create a separate AMBER environment:"
+msgstr ""
+
+#: conda.md:80
+msgid "And you should then stack the PLUMED and AMBER environments:"
+msgstr ""
+
+#: conda.md:88
+msgid ""
+"Conda will install a number of packages. On MacOS, for instance, you should "
+"see something similar to this:"
+msgstr ""
+
+#: conda.md:105
+msgid ""
+"Make sure that `gromacs` and `plumed` packages are installed from "
+"`plumed/label/masterclass-2022`."
+msgstr ""
+
+#: conda.md:107
+msgid ""
+"**Do not forget to activate the plumed-masterclass-2022 environment every "
+"time you open a new terminal/shell.**"
+msgstr ""
+
+#: conda.md:109
+msgid ""
+"Notice that with some outdated conda version you might receive an error due "
+"to the fact that conda confuses python 3.1 with python 3.10. If you find an "
+"error like this one:"
+msgstr ""
+
+#: conda.md:117
+msgid ""
+"Make sure that you have at least conda 4.11.0 (or update conda with `conda "
+"update conda`). More at [this "
+"link](https://github.com/conda/conda/issues/11065)"
+msgstr ""

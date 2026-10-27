@@ -1,0 +1,383 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:1
+msgid "Using plumed benchmark"
+msgstr ""
+
+#: README.md:3
+msgid "Options"
+msgstr ""
+
+#: README.md:5
+msgid ""
+"Let's go through the options one by one, By inputting `plumed benchmark "
+"--help` in the terminal we get"
+msgstr ""
+
+#: README.md:35
+msgid ""
+"[`--plumed`](#input-files) is used to pass one or more input files to the "
+"benchmark"
+msgstr ""
+
+#: README.md:36
+msgid "[`--kernel`](#kernels) is used to pass one or more plumed kernels"
+msgstr ""
+
+#: README.md:37
+msgid "`--natoms` sets the number of atoms"
+msgstr ""
+
+#: README.md:38
+msgid "`--nsteps` sets the number of steps"
+msgstr ""
+
+#: README.md:39
+msgid ""
+"[`--maxtime`](#time-limit) stops gracefully the benchmark after the a "
+"certain amount of time has elapsed."
+msgstr ""
+
+#: README.md:40
+msgid ""
+"`--sleep` add a sleep timer during the loop, simulating an MD program doing "
+"its calculations"
+msgstr ""
+
+#: README.md:41
+msgid ""
+"[`--atom-distribution`](#atom-distributions) chose between a few different "
+"kinds of atom distributions: \"line\", \"cube\", \"sphere\", \"globs\" and "
+"\"sc\""
+msgstr ""
+
+#: README.md:42
+msgid ""
+"[`--domain-decomposition`](#domain-decomposition-and-shuffled-atoms) "
+"emulates a domain decomposition and forces the `--shuffled` option"
+msgstr ""
+
+#: README.md:43
+msgid ""
+"[`--shuffled`](#domain-decomposition-and-shuffled-atoms) shuffles the atom "
+"indexes"
+msgstr ""
+
+#: README.md:44
+msgid "`--dump-trajectory` dumps the trajectory to a file"
+msgstr ""
+
+#: README.md:47
+msgid "A few words on the execution order."
+msgstr ""
+
+#: README.md:49
+msgid ""
+"When specifying more than 1 input file or more than 1 plumed kernels the "
+"benchmark will store more than one kernel-file combination (see below "
+"[here](#input-files),[here](#kernels) and [here](#combining---kernel-and---"
+"plumed)) and run the benchmark on each one of these."
+msgstr ""
+
+#: README.md:51
+msgid ""
+"Each benchmark step will compute the atomic distribution only once and then "
+"execute the plumed command chain with all the specified kernels, so if you "
+"ask for 100 steps and 5 kernels and/or 5 input files, your machine will run "
+"500 plumed steps."
+msgstr ""
+
+#: README.md:53
+msgid ""
+"The order of execution of the kernel-file combinations is randomly "
+"determined at each benchmark step, this should remove skew due to the "
+"execution order."
+msgstr ""
+
+#: README.md:55
+msgid "In the following paragraphs, the more complex options are explained."
+msgstr ""
+
+#: README.md:57
+msgid "Time limit"
+msgstr ""
+
+#: README.md:59
+msgid ""
+"With `--maxtime` you can control how much time the benchmark will run for. "
+"This option is useful if you are using an HPC queue system as it ensures "
+"that the benchmark will exit gracefully and then produce the final output "
+"with the times report when the asked time has elapsed."
+msgstr ""
+
+#: README.md:61
+msgid ""
+"The input string is parsed by plumed, so you can even ask for \"pi\" "
+"seconds, or, on a more practical example you can ask for "
+"`--maxtime=\"60*5\"` to ask for 5 minutes of benchmark. **Remember the "
+"quotes**, since the asterisk will be used as a wildcard by your shell."
+msgstr ""
+
+#: README.md:63
+msgid "Input files"
+msgstr "入力ファイル"
+
+#: README.md:65
+msgid ""
+"With `--plumed` we can specify a series of input files, column separated, "
+"like `--plumed \"plumed.dat:coord.dat:third.dat\"`, without any other "
+"options this will run the \"this\" kernel as three separated instances "
+"against the 3 input files"
+msgstr ""
+
+#: README.md:68 README.md:99 README.md:128 README.md:174
+msgid "Examples"
+msgstr "例"
+
+#: README.md:71
+msgid "`plumed benchmark --kernel \"this:./other.so:./new.so\"`"
+msgstr "`plumed benchmark --kernel \"this:./other.so:./new.so\"`"
+
+#. mermaid node label
+#: README.md:76 README.md:87 README.md:106 README.md:135 README.md:146
+msgid "this"
+msgstr ""
+
+#. mermaid node label
+#: README.md:76 README.md:106 README.md:117 README.md:135 README.md:146
+msgid "/plumed.dat/"
+msgstr ""
+
+#. mermaid node label
+#: README.md:77 README.md:88 README.md:136
+msgid "./other.so"
+msgstr ""
+
+#. mermaid node label
+#: README.md:78 README.md:89 README.md:117 README.md:137 README.md:148
+msgid "./new.so"
+msgstr ""
+
+#: README.md:82
+msgid ""
+"`plumed benchmark --kernel \"this:./other.so:./new.so\" --plumed "
+"\"coord.dat\"`"
+msgstr ""
+"`plumed benchmark --kernel \"this:./other.so:./new.so\" --plumed "
+"\"coord.dat\"`"
+
+#. mermaid node label
+#: README.md:87 README.md:107 README.md:118 README.md:136 README.md:147
+msgid "/coord.dat/"
+msgstr ""
+
+#: README.md:93
+msgid "Kernels"
+msgstr ""
+
+#: README.md:94
+msgid ""
+"You can use the `--kernel` option to specify a series of **paths** to "
+"various libplumedKernel.so or \"this\", \"this\" is the kernel \"bundled\" "
+"with the plumed installation from which you are running plumed benchmark. "
+"The benchmark will run the specified kernels (like `--kernel "
+"\"this:./kenel1.so:../../src/lib/install/libplumedKernel.so`) against the "
+"specified plumed file."
+msgstr ""
+
+#: README.md:97
+msgid ""
+"If you have moved the kernels in the working directory please specify the "
+"kernel using `./kernelName.so`, as if you use `kernelName.so` plumed "
+"benchmark searches for the so file in the LD_LIBRARY_PATH and not in your "
+"local directory, usually this brings a crash, but if a library with the same"
+" name is in the LD_LIBRARY_PATH that will be loaded!."
+msgstr ""
+
+#: README.md:101
+msgid "`plumed benchmark --plumed \"plumed.dat:coord.dat:third.dat\"`"
+msgstr "`plumed benchmark --plumed \"plumed.dat:coord.dat:third.dat\"`"
+
+#. mermaid node label
+#: README.md:108 README.md:119 README.md:137
+msgid "/third.dat/"
+msgstr ""
+
+#: README.md:112
+msgid ""
+"`plumed benchmark --kernel \"./new.so\" --plumed "
+"\"plumed.dat:coord.dat:third.dat\"`"
+msgstr ""
+"`plumed benchmark --kernel \"./new.so\" --plumed "
+"\"plumed.dat:coord.dat:third.dat\"`"
+
+#: README.md:123
+msgid "Combining --kernel and --plumed"
+msgstr ""
+
+#: README.md:125
+msgid ""
+"You can specify multiple kernels **and** multiple input files together. In "
+"this case, the number of kernels and input files must be equal: the kernel "
+"in the first position will be used with the file in the first position, the "
+"kernel in the second position will be used with the file in the second "
+"position and so on."
+msgstr ""
+
+#: README.md:130
+msgid ""
+"`plumed benchmark --kernel \"this:./other.so:./new.so\" --plumed "
+"\"plumed.dat:coord.dat:third.dat\"`"
+msgstr ""
+"`plumed benchmark --kernel \"this:./other.so:./new.so\" --plumed "
+"\"plumed.dat:coord.dat:third.dat\"`"
+
+#: README.md:141
+msgid ""
+"`plumed benchmark --kernel \"this:this:./new.so\" --plumed "
+"\"plumed.dat:coord.dat:coord.dat\"`"
+msgstr ""
+"`plumed benchmark --kernel \"this:this:./new.so\" --plumed "
+"\"plumed.dat:coord.dat:coord.dat\"`"
+
+#: README.md:152
+msgid "Domain decomposition and shuffled atoms"
+msgstr ""
+
+#: README.md:154
+msgid ""
+"The `--shuffled` option simply shuffles the indices of the atoms before "
+"starting the benchmark. This will force plumed to adopt a more complex "
+"communication with the \"MD engine\""
+msgstr ""
+
+#: README.md:156
+msgid ""
+"The `--domain-decomposition` option will emulate a domain decomposition from"
+" an MD engine. With this option the `--shuffled` option is forced"
+msgstr ""
+
+#: README.md:158
+msgid ""
+"If the user wants to run a benchmark with more than 1 mpi threads (with "
+"`mpirun -np x plumed benchmark ...`) the `--domain-decomposition` option and"
+" the `--shuffled` options will be forced on automatically."
+msgstr ""
+
+#: README.md:161
+msgid "Atom Distributions"
+msgstr ""
+
+#: README.md:162
+msgid ""
+"When specifying `--atom-distribution` you can choose one among \"line\", "
+"\"cube\", \"sphere\", \"globs\" and \"sc\""
+msgstr ""
+
+#: README.md:164
+msgid "The atom distribution can be divided into two categories:"
+msgstr ""
+
+#: README.md:165
+msgid ""
+"standard: the base is that each atom is in a grid with each atom at a "
+"distance of 1 nm (so that the atom radius is 0.5nm)."
+msgstr ""
+
+#: README.md:166
+msgid ""
+"\"line\" the atoms are displaced in a line at 1nm from each other, then at "
+"each step they are displaced in a sphere or radius 0.5nm around the initial "
+"position"
+msgstr ""
+
+#: README.md:167
+msgid ""
+"\"sc\" the atoms are displaced in a simple cubic crystal, as of the time of "
+"writing this there are no extra movements, the cube is always a perfect cube"
+" (1,8,27,64...) but it is filled bottom-up with the number of atoms "
+"requested"
+msgstr ""
+
+#: README.md:168
+msgid ""
+"Random distributions: the atoms are distributed uniformly with a density of "
+"1 atom per nm^3 (the total volume is equal to the number of atoms). In these"
+" distributions, the atoms are randomly displaced in the available volume at "
+"each step, so they are **not** compatible with a neighbor list that updates "
+"every n>1 steps :"
+msgstr ""
+
+#: README.md:169
+msgid "\"sphere\" the atoms are uniformly distributed in a sphere"
+msgstr ""
+
+#: README.md:170
+msgid "\"cube\" the atoms are uniformly distributed in a cube"
+msgstr ""
+
+#: README.md:171
+msgid "\"globs\" the atoms are uniformly distributed in two spheres"
+msgstr ""
+
+#: README.md:175
+msgid "In the examples here the atoms are visualized with a radius of 0.5nm."
+msgstr ""
+
+#: README.md:177
+msgid ""
+"In the cube, sphere and globs example, atom 0 is highlighted in red to show "
+"that is randomly displaced at each step"
+msgstr ""
+
+#: README.md:179
+msgid "line"
+msgstr ""
+
+#: README.md:180
+msgid ""
+"The first 50 frames of a line with 10 atoms, the atoms are colored by their "
+"index to underline that they move around their initial position "
+"![](line.gif)"
+msgstr ""
+
+#: README.md:183
+msgid "sc"
+msgstr ""
+
+#: README.md:184
+msgid ""
+"How the simple cubic system is made with the increasing number of atoms "
+"![](sc.gif)"
+msgstr ""
+
+#: README.md:187
+msgid "cube"
+msgstr ""
+
+#: README.md:188
+msgid "![](cube.gif)"
+msgstr ""
+
+#: README.md:190
+msgid "sphere"
+msgstr ""
+
+#: README.md:191
+msgid "![](sphere.gif)"
+msgstr ""
+
+#: README.md:193
+msgid "globs"
+msgstr ""
+
+#: README.md:194
+msgid "![](globs.gif)"
+msgstr ""

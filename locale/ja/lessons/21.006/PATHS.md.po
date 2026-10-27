@@ -1,0 +1,567 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: PATHS.md:1
+msgid "PLUMED Masterclass 21.6: Dimensionality reduction"
+msgstr "PLUMED Masterclass 21.6：Dimensionality Reduction"
+
+#: PATHS.md:3
+msgid "Aims"
+msgstr "目的"
+
+#: PATHS.md:5
+msgid ""
+"The primary aim of this Masterclass is to show you how you might use PLUMED "
+"in your work. We will see how to call PLUMED from a python notebook and "
+"discuss some strategies for selecting collective variables."
+msgstr ""
+"この Masterclass の主な目的は、自身の研究で PLUMED をどのように活用できるかを示すことである。Python Notebook から "
+"PLUMED を呼び出す方法を学び、Collective Variables を選ぶための戦略を検討する。"
+
+#: PATHS.md:9
+msgid "Objectives"
+msgstr "到達目標"
+
+#: PATHS.md:11
+msgid "Once this Masterclass is completed, users will be able to:"
+msgstr "この Masterclass を終えると、次のことができるようになる。"
+
+#: PATHS.md:13
+msgid "Use the projection of a vector as a CV."
+msgstr ""
+
+#: PATHS.md:14
+msgid "Use path collective variables."
+msgstr ""
+
+#: PATHS.md:16
+msgid "Resources"
+msgstr "資料"
+
+#: PATHS.md:18
+msgid ""
+"The data needed to complete this Masterclass can be found on "
+"[GitHub](https://github.com/plumed/masterclass-21-6). You can clone this "
+"repository locally on your machine using the following command:"
+msgstr ""
+"この Masterclass に必要なデータは [GitHub](https://github.com/plumed/masterclass-21-6)"
+" にある。次のコマンドで、このリポジトリを自分のマシンに clone できる。"
+
+#: PATHS.md:25
+msgid ""
+"I recommend that you run each exercise in a separate sub-directory (i.e. "
+"Exercise-1, Exercise-2, ...), which you can create inside the root directory"
+" `masterclass-21-6`. Organizing your data this way will help you to keep "
+"things clean."
+msgstr ""
+"各演習は、`masterclass-21-6` "
+"のルートディレクトリ内に作成した個別のサブディレクトリ（Exercise-1、Exercise-2、…）で実行することを推奨する。このように整理すると、データを管理しやすくなる。"
+
+#: PATHS.md:27
+msgid "_All the exercises have been tested with PLUMED version 2.7.0._"
+msgstr "_すべての演習は PLUMED 2.7.0 で動作確認されている。_"
+
+#: PATHS.md:29
+msgid "Acknowledgements"
+msgstr "謝辞"
+
+#: PATHS.md:31
+msgid ""
+"Throughout this exercise, we use the [atomistic simulation "
+"environment](https://wiki.fysik.dtu.dk/ase/) and "
+"[chemiscope](https://chemiscope.org/). Please look at the information at the"
+" links I have provided here for more information about these codes."
+msgstr ""
+"この演習では [atomistic simulation environment](https://wiki.fysik.dtu.dk/ase/) と "
+"[chemiscope](https://chemiscope.org/) を用いる。これらのコードの詳細は、各リンク先の情報を参照してほしい。"
+
+#: PATHS.md:35
+msgid "Exercises"
+msgstr "演習"
+
+#: PATHS.md:37
+msgid ""
+"In many papers in this area, you will hear people talk about the distinction"
+" between collective variables and the reaction coordinate. The distinction "
+"these authors are trying emphasize when they use this language is between a "
+"descriptor that takes different values for the various important basins in "
+"the energy landscape (the collective variable) and the actual pathway the "
+"reaction proceeds along (the reaction coordinate). Furthermore, the authors "
+"of such papers will often argue that the reaction coordinate is simply some "
+"linear/non-linear combination of collective variables. In this exercise, we "
+"will study alanine dipeptide with path collective variables to show you one "
+"way of thinking about this distinction between collective variables and "
+"reaction coordinates. By studying a system that is this simple, you will "
+"also hopefully come to understand how we can interpret the coordinates that "
+"we extract using the dimensionality reduction algorithms that were discussed"
+" in the previous exercise."
+msgstr ""
+
+#: PATHS.md:43
+msgid ""
+"To remind you, the free energy surface as a function of the $\\phi$ and "
+"$\\psi$ angles for alanine dipeptide is shown below:"
+msgstr ""
+
+#: PATHS.md:45
+msgid ""
+"![The Free energy landscape of alanine dipeptide in Ramachandran angles in "
+"the CHARMM27 force field](figures/belfast-2-rama.png)"
+msgstr ""
+
+#: PATHS.md:47
+msgid ""
+"In other masterclasses, we have discussed how there are two critical states "
+"in the above energy landscape. These states are labelled C7eq and C7ax "
+"above. The two Ramachandran angles plotted on the x and y axes of the free "
+"energy surface above are examples of what we have called collective "
+"variables. Both of these angles can be used to distinguish between C7eq and "
+"C7ax configurations. The reaction coordinate is the path that the system "
+"actually takes as it moves from the C7ax to the C7eq configuration. Based on"
+" the shape of the free energy surface, we might suppose that this reaction "
+"coordinate looks something like the black line shown below:"
+msgstr ""
+
+#: PATHS.md:52
+msgid ""
+"![Paths that connect the C7eq and C7ax "
+"configuration](figures/belfast-2-good-bad-path.png)"
+msgstr ""
+
+#: PATHS.md:54
+msgid ""
+"The file called alanine-transformation.pdb that you can find in the data "
+"directory of the GitHub repository contains a series of configurations that "
+"lie close to the transition path that is illustrated in black in the figure "
+"above. Below are plots that show how $\\phi$ and $\\psi$ change as the "
+"system moves along this path. __Try to see if you can use what you have "
+"learned in previous masterclasses to reproduce the figure above before "
+"continuing.__"
+msgstr ""
+
+#: PATHS.md:57
+msgid ""
+"![Changes in the Ramachandran angles as the protein transitions from the "
+"C7ax to C7eq state](figures/masterclass-21-6-rama-transition.png)"
+msgstr ""
+
+#: PATHS.md:59
+msgid "RMSD distances"
+msgstr ""
+
+#: PATHS.md:61
+msgid ""
+"We know what structures correspond to the various stable states of our "
+"system. We might, therefore, be tempted to ask ourselves if we can not just "
+"use the RMSD distance from a structure as the reaction coordinate. This "
+"approach will work if there is a single important configuration in the "
+"energy landscape. We could use the RMSD distance from this lowest energy "
+"structure as a CV to extract this configuration's free energy relative to "
+"everything else. How well does this work if we have two distinct states, "
+"though, as we have for alanine dipeptide? To investigate this question, fill"
+" in the PLUMED input below that calculates the RMSD distances from the C7ax "
+"and C7eq configurations:"
+msgstr ""
+
+#: PATHS.md:73
+msgid ""
+"You can run an MD simulation to monitor these distances using the python "
+"script below."
+msgstr ""
+
+#: PATHS.md:111
+msgid ""
+"I ran simulations at 300K and 1000K using the above script. When the "
+"simulations completed, I was able to construct the figures below:"
+msgstr ""
+
+#: PATHS.md:113
+msgid ""
+"![The black points are the configurations visited in MD simulations at 300K "
+"(left) and 1000K (right). The top panel shows these trajectories in the "
+"Ramachandran plane. In the lower panel, I have projected the trajectories on"
+" the RMSD distances from the two reference "
+"states.](figures/masterclass-21-6-rmsd-distances.png)"
+msgstr ""
+
+#: PATHS.md:115
+msgid ""
+"The black points above are the RMSD values for the trajectories. I have also"
+" shown the RMSD values for the frames in alanine-transformation in red. "
+"Notice that all the configurations explored in the MD are very distant from "
+"the C7ax and C7eq states. __Try now to reproduce the above figure "
+"yourself.__"
+msgstr ""
+
+#: PATHS.md:119
+msgid ""
+"You can see that at 300K, the simulation we ran did not visit the C7eq "
+"state. Furthermore, you can also clearly see this from the projections of "
+"the trajectories on the RMSD distances from these two configurations. Notice"
+" in these figures, however, that the distances from these two reference "
+"configurations were often considerably larger than the distance between "
+"these reference configurations and the configurations on the reference path "
+"in alanine-transformation.pdb."
+msgstr ""
+
+#: PATHS.md:123
+msgid "Using dot products to calculate CVs"
+msgstr ""
+
+#: PATHS.md:125
+msgid ""
+"Instead of calculating two distances, we might ask ourselves if the linear "
+"combination of $\\phi$ and $\\psi$ that is illustrated in the figure below:"
+msgstr ""
+
+#: PATHS.md:127
+msgid ""
+"![An illustration showing how PCAVARS coordinates work. The vector "
+"connecting some reference state to any state the system is in can be in "
+"(purple and orange points) can be projected onto the vector connecting the "
+"two states of interest (black arrow) by using the dot product of the vectors"
+" shown here.](figures/marvel-2-pca-coordinates.png)"
+msgstr ""
+
+#: PATHS.md:129
+msgid ""
+"gives a better description for the transition. We can define this CV as "
+"follows:"
+msgstr ""
+
+#: PATHS.md:135
+msgid ""
+"In this expression $(\\phi_1,\\psi_1)$ are the Ramachandran angles in the "
+"$C_7eq$ configuration and $(\\phi_2,\\psi_2)$ are the Ramachandran angles in"
+" the $C_7ax$. $(\\phi_3,\\psi_3)$ is the instantaneous configuration. You "
+"should thus be able to see that we have arrived at the above expression by "
+"using our knowledge of the dot product between two vectors."
+msgstr ""
+
+#: PATHS.md:140
+msgid ""
+"__See if you can write an input to re-analyse the data in alanine-"
+"transformation.pdb and the MD simulations from the previous section using "
+"this CV.__ You should be able to get plots of the value of this CV as a "
+"function of step number that looks like the ones shown below:"
+msgstr ""
+
+#: PATHS.md:142
+msgid ""
+"![The black points are the configurations visited in MD simulations at 300K "
+"(left) and 1000K (right). The top panel shows these trajectories in the "
+"Ramachandran plane. In the lower panel, I have projected the trajectories on"
+" vector in the Ramachandran plane shown "
+"above.](figures/masterclass-21-6-pcavars-transition.png)"
+msgstr ""
+
+#: PATHS.md:144
+msgid ""
+"I implemented this CV using a combination of TORSION and COMBINE. I also "
+"ignored the fact that the torsions are periodic variables when calculating "
+"the linear combination. You can't use the sort of linear algebra above with "
+"periodic variables, but it is OK for these illustrative purposes."
+msgstr ""
+
+#: PATHS.md:146
+msgid ""
+"Notice that the first frame in alanine-transformation.pdb has the molecule "
+"in the $C_7ax$ configuration. The last frame has the molecule in the $C_7eq$"
+" state."
+msgstr ""
+
+#: PATHS.md:148
+msgid "PCA Collective Variables"
+msgstr ""
+
+#: PATHS.md:150
+msgid ""
+"In a previous section we saw how we can construct a new collective variables"
+" by taking a linear combination of two other variables. This idea can be "
+"extended to higher dimensions, however. As long as we can find the vector "
+"that connectes the $C_7eq$ and $C_7ax$ states we can project our current "
+"coordinates on that particular vector. We can even define this vector in the"
+" space of the coordinates of the atoms. In other words, if the 3$N$ "
+"coordinate of atomic positions is $\\mathbf{x}^{(1)}$ for the $C_7eq$ "
+"configuration and $\\mathbf{x}^{(2)}$ for the $C_7ax$ configuration and if "
+"the instantaneous configuration of the atoms is $\\mathbf{x}^{(3)}$ we can "
+"use the following as a CV:"
+msgstr ""
+
+#: PATHS.md:161
+msgid ""
+"as long as rotational and translational movement is removed before "
+"calculating the two displacement vectors above."
+msgstr ""
+
+#: PATHS.md:163
+msgid ""
+"We can also get some sense of how far the system has moved from this vector "
+"by computing:"
+msgstr ""
+
+#: PATHS.md:169
+msgid "which follows by applying Pythagoras theorem."
+msgstr ""
+
+#: PATHS.md:171
+msgid ""
+"You can calculate this collective variable using PLUMED by using the input "
+"below:"
+msgstr ""
+
+#: PATHS.md:179
+msgid ""
+"__Use this input to re-analyse the data in `alanine-transformation.pdb` and "
+"your MD simulations before continuing.__ The figure below shows the results "
+"that I obtained by analyzing the data using the PCAVARS command above."
+msgstr ""
+
+#: PATHS.md:182
+msgid ""
+"![The black points are the configurations visited in MD simulations at 300K "
+"(left) and 1000K (right). The top panel shows these trajectories in the "
+"Ramachandran plane. The projection on the vector connecting the C7ax and "
+"C7eq states (left) and the perpendicular distance from this vector (right) "
+"and shown in the bottom panels.](figures/masterclass-21-6-pcavars.png)"
+msgstr ""
+
+#: PATHS.md:184
+msgid ""
+"The figure above shows that this coordinate is good. We move quite far from "
+"this initial vector when we move to the C7ax state, however."
+msgstr ""
+
+#: PATHS.md:186
+msgid "Two PCA Collective variables"
+msgstr ""
+
+#: PATHS.md:188
+msgid ""
+"Instead of using a single PCA variable and calculating the projection on the"
+" vector connecting these two points, we can instead use the projection of "
+"the instantaneous coordinates in the plane that contains three reference "
+"configurations. You can calculate these collective variables using PLUMED by"
+" using the input below:"
+msgstr ""
+
+#: PATHS.md:197
+msgid ""
+"Notice that there are now three structures within `pca2-reference.pdb`, and "
+"thus two vectors are defined. __Use this input to re-analyse the data in "
+"`alanine-transformation.pdb` and your MD simulations before continuing.__ "
+"The figure below shows the results that I obtained by analyzing the data "
+"using the PCAVARS command above."
+msgstr ""
+
+#: PATHS.md:201
+msgid ""
+"![The black points are the configurations visited in MD simulations at 300K "
+"(left) and 1000K (right). The top panel shows these trajectories in the "
+"Ramachandran plane. The projection on the vectors defined using the "
+"configurations in pca2-reference.pdb is shown in the bottom panel. The green"
+" points in the top panel give the Ramachandran angles for the configurations"
+" used to define the reference "
+"configurations.](figures/masterclass-21-6-pcavars2.png)"
+msgstr ""
+
+#: PATHS.md:203
+msgid "Path collective variables"
+msgstr ""
+
+#: PATHS.md:205
+msgid ""
+"Instead of using the projection on more than one vector, we can extend the "
+"ideas in the previous section and use curvilinear paths rather than linear "
+"paths. This trick is what is done with the PATH CVs that are illustrated in "
+"the figure below:"
+msgstr ""
+
+#: PATHS.md:207
+msgid ""
+"![The S variable can be thought as the length of the red segment, while the "
+"Z variable is the length of the green one](figures/belfast-2-ab-sz.png)"
+msgstr ""
+
+#: PATHS.md:209
+msgid ""
+"As you can see, there are two path collective variables, $S(X)$ measures "
+"your position on a path and is calculated using:"
+msgstr ""
+
+#: PATHS.md:215
+msgid "$Z(x)$, meanwhile, measures the distance from the path using:"
+msgstr ""
+
+#: PATHS.md:221
+msgid ""
+"We can calculate these CVs using a filled-in version of the input that is "
+"shown below:"
+msgstr ""
+
+#: PATHS.md:229
+msgid ""
+"The figure below shows the $\\phi$ and $\\psi$ angles for the configurations"
+" that define the path as red dots. Meanwhile, the black dots are the $\\phi$"
+" and $\\psi$ angles that are visited during a high temperature, unbiased MD "
+"trajectory. The green dots are then the configurations in alanine-"
+"transformation.pdb You can clearly see that the red dots lie along the "
+"transition path that connects the C7eq and C7ax configurations and that the "
+"green dots follow this pathway:"
+msgstr ""
+
+#: PATHS.md:233
+msgid ""
+"![The path that we have defined for our transition in the Ramachandran "
+"plane. Black dots are the configurations visited at 300 K (left) and 1000 K "
+"(right)](figures/masterclass-21-6-path-angles.png)"
+msgstr ""
+
+#: PATHS.md:235
+msgid ""
+"When we calculate the path collective variables for the black and red data "
+"points in the above figure, we get the result shown on the right. The panel "
+"on the left shows the output from a 300 K simulation during which the C7eq "
+"configuration was not visited:"
+msgstr ""
+
+#: PATHS.md:238
+msgid ""
+"![An analysis of the path CV values visited during trajectories at 300 K and"
+" 1000 K.](figures/masterclass-21-6-path-path.png)"
+msgstr ""
+
+#: PATHS.md:240
+msgid ""
+"You can see that the majority of configurations have very small z values. It"
+" would thus seem that we have identified our reaction coordinate. We can use"
+" the S-path coordinate to tell us where we are on the transition pathway "
+"between the two states. Furthermore, in defining this coordinate, we have "
+"used the positions of all the heavy atoms in the protein."
+msgstr ""
+
+#: PATHS.md:243
+msgid "The isocommittor"
+msgstr ""
+
+#: PATHS.md:245
+msgid ""
+"Notice that when we talk about the reaction coordinate, we are not talking "
+"about a single set of configurations that connect the two states. The "
+"previous sections have shown that there are always multiple pathways that "
+"connect the two states. The task of identifying a single reaction coordinate"
+" thus appears impossible. How, after all, can there be a single reaction "
+"path if we know that there are multiple pathways that connect the two "
+"states?"
+msgstr ""
+
+#: PATHS.md:249
+msgid ""
+"One way of answering this question is to look at how far the transitions you"
+" observe deviate from the reference transition path using the Z-coordinate. "
+"An alternative answer can be found by considering so-called isocommittor "
+"surfaces. When using this method, you suppose there is a saddle point "
+"between the two states of interest (the $C_7ax$ and $C_7eq$ configurations "
+"in our alanine dipeptide example)."
+msgstr ""
+
+#: PATHS.md:253
+msgid ""
+"Let's suppose that we now start a simulation with the system balanced "
+"precariously on this saddle point. The system will, very-rapidly, fall off "
+"the maximum and move towards either the left or the right basin. If we are "
+"exactly at the saddle, 50% of the trajectories will fall to the right, and "
+"50% will fall to the left."
+msgstr ""
+
+#: PATHS.md:256
+msgid ""
+"We can use the idea of the isocommittor to identify whether any collective "
+"variable is giving a good description of the transition state ensemble's "
+"location. The idea in such simulations is to define regions of space that "
+"correspond to the various stable states in the free energy landscape. We "
+"then launch lots of simulations from configurations that are not within "
+"these basins and identify the basin that these calculations visit first. We "
+"can then make graphs like those shown below. These graphs show the fraction "
+"of times a particular CV value was visited in a trajectory that visited the "
+"c7eq basin before it visited the c7ax basin."
+msgstr ""
+
+#: PATHS.md:261
+msgid ""
+"![Probabilities of visiting the C7eq basin before the C7ax basin if you are "
+"differents points on each of the CV "
+"ranges](figures/masterclass-21-6-committor.png)"
+msgstr ""
+
+#: PATHS.md:263
+msgid ""
+"The PLUMED input that I used when making the figure above is a filled in "
+"version of the following:"
+msgstr ""
+
+#: PATHS.md:275
+msgid ""
+"I deployed the input above within the following python script that launches "
+"a large number of gromacs simulations:"
+msgstr ""
+
+#: PATHS.md:304
+msgid ""
+"Notice how the above script stores the CV values from trajectories that "
+"finished in the C7eq basin in the NumPy array called `bas_data`. We can use "
+"the data in this file to construct the (unnormalized) histograms of CV value"
+" that finished in C7eq and the total histogram. The script I used to "
+"construct these histograms is shown below. This script also shows how we can"
+" arrive at the final conditional probability distributions from the figure "
+"above by dividing by the total number of configurations that moves to C7eq "
+"first by the total number of configuration that visited a point."
+msgstr ""
+
+#: PATHS.md:331
+msgid ""
+"Notice that the script above does not compute the error bars I included in "
+"the figure. __Your task in this exercise is to reproduce this figure with "
+"the error bars.__ I generated the error bars in my figure by running 10 sets"
+" of 500 simulations. I constructed separate histograms from each of these "
+"batches of simulations and calculated the mean and variance from these ten "
+"sets of samples."
+msgstr ""
+
+#: PATHS.md:335
+msgid "Conclusions"
+msgstr "結論"
+
+#: PATHS.md:337
+msgid ""
+"The exercises in this section aimed to discuss the difference between "
+"collective variables and the reaction coordinate. I have argued that "
+"collective variables are developed by researchers thinking about coordinates"
+" that can distinguish between the important states. Reaction coordinates, "
+"meanwhile, are the actual pathways that reactions proceed along. These "
+"reaction coordinates are found by probing the data we get from simulations."
+msgstr ""
+
+#: PATHS.md:340
+msgid ""
+"I am not convinced that the distinction between reaction coordinates and "
+"collective variables is very important. Every coordinate we have tried in "
+"the previous sections has allowed us to determine whether we are in the C7eq"
+" or the C7ax basin. My view is that when we do science, we impose structure "
+"on our results by asking questions. Our question has been to determine the "
+"relative free energies of the C7ax and C7eq basins in this exercise. To do "
+"this, we have to define what configurations are in the C7ax basin and what "
+"configurations are in the C7eq basin. The distinction between these two "
+"structures is an arbitrary figment of our imagination. If we use different "
+"variables, we might be defining these states differently, and we might get "
+"slightly different answers. We should not be surprised by the fact that we "
+"get different answers if we ask the question differently. The important "
+"thing is to develop an interesting question and to tell a good story about "
+"whatever you find out."
+msgstr ""

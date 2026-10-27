@@ -1,0 +1,29 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Inputs.md:1
+msgid "Some other inputs that we have used when benchmarking plumed include:"
+msgstr ""
+
+#: Inputs.md:3
+msgid ""
+"The inputs below were all tested using the `--atom-distribution=sc` option."
+msgstr ""
+
+#: Inputs.md:5
+msgid "Coordination number using multicolvar"
+msgstr ""
+
+#: Inputs.md:16
+msgid "Steinhardt order parameters"
+msgstr ""
+
+#: Inputs.md:24
+msgid "Local Steinhard parameters"
+msgstr ""

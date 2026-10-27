@@ -1,0 +1,82 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Readme_MPI.md:1
+msgid "Processes: MPI"
+msgstr ""
+
+#: Readme_MPI.md:24
+msgid ""
+"In this case the parallelization strategy passes through parallel processes:"
+" with `unsigned rank = comm.Get_rank()` we inform the function wich is the "
+"this process, with `unsigned stride = comm.Get_size()` we want to know the "
+"number of processes that partecipate to the calculation."
+msgstr ""
+
+#: Readme_MPI.md:27
+msgid ""
+"The strategy here is to split the outer for cycle between the processes, so "
+"that each process will do only part of the loop. We are doing by hand what "
+"the `#pragma for` does behind the curtains in the threaded example. The "
+"original cycle `for (unsigned int i0 = 0; i0 < nn; ++i0)` became `for "
+"(unsigned int i0 = rank; i0 < nn; i0 += stride)`: `stride` ensures that the "
+"calculation won't overlap."
+msgstr ""
+
+#: Readme_MPI.md:30
+msgid ""
+"We have less risk of having a data race because all the variable are "
+"instantiated for each different processor, meaning that non only the for "
+"loop is executed in parallel but that the change in data in a process won't "
+"affect other processes!"
+msgstr ""
+
+#: Readme_MPI.md:32
+msgid ""
+"We have then the problem of obtaining the correct result: we have to set "
+"`ncoord` to the sum of all the `ncoord` in the various processes. To do this"
+" sum we use the Plumed mpi inteface: `comm.Sum(ncoord)` this will call the "
+"reduction sum algorithm of the MPI library with no complications. Plumed "
+"tools used:"
+msgstr ""
+
+#: Readme_MPI.md:36
+msgid ""
+"`tools/Communicator.h` is present as the variable `comm` that is inherited "
+"through `PLMD::Action`. `PLMD::Communicator` is an interface to some of the "
+"functionalities of the C API of mpi.h"
+msgstr ""
+
+#: Readme_MPI.md:38
+msgid ""
+"`PLMD::Communicator::Get_size()` to get the number of the processes spawned "
+"by mpirun"
+msgstr ""
+
+#: Readme_MPI.md:39
+msgid "`PLMD::Communicator::Get_rank()` to get the id of the process"
+msgstr ""
+
+#: Readme_MPI.md:40
+msgid ""
+"`PLMD::Communicator::Sum()` to obtain the correct sum of `ncoord` from all "
+"the processes"
+msgstr ""
+
+#: Readme_MPI.md:42
+msgid "[back](Readme.md)"
+msgstr "[戻る](Readme.md)"
+
+#: Readme_MPI.md:44
+msgid ""
+"See also: [serial](Readme_Serial.md) [openMP](Readme_OMP.md) "
+"[MPI](Readme_MPI.md) [Cuda](Readme_CUDA.md)"
+msgstr ""
+"関連資料：[Serial](Readme_Serial.md) [OpenMP](Readme_OMP.md) [MPI](Readme_MPI.md)"
+" [CUDA](Readme_CUDA.md)"

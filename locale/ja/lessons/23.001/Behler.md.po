@@ -1,0 +1,190 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Behler.md:1
+msgid "Implementing Behler-Parinello symmetry functions"
+msgstr ""
+
+#: Behler.md:3
+msgid ""
+"There are other codes that implement the [Behler-Parinello symmetry "
+"functions](https://pubs.aip.org/aip/jcp/article/134/7/074106/954787/Atom-"
+"centered-symmetry-functions-for-constructing) and to my knowledge no one has"
+" used these functions as a CV for a metadynamics simulation. It is, "
+"therefore, not unreasonable to ask if an implementation of these CVs in "
+"PLUMED is really necessary. The implementation I will describe below was "
+"done relatively quickly and I hope it demonstrates how new functionality can"
+" be quickly prototyped in the modified version of PLUMED that I have "
+"described in these pages."
+msgstr ""
+
+#: Behler.md:8
+msgid "Implementing $G^1$ symmetry functions"
+msgstr ""
+
+#: Behler.md:10
+msgid ""
+"The $G^1$ symmetry function that Behler introduces in the paper that I have "
+"linked above is:"
+msgstr ""
+
+#: Behler.md:16
+msgid ""
+"In this expression, $f_c$ is a switching function and $R_{ij}$ is the "
+"distance between atom $i$ and $j$. We have seen this function already, "
+"however, it is just the coordination number. To calculate it using PLUMED we"
+" can use the following input."
+msgstr ""
+
+#: Behler.md:27
+msgid ""
+"We have thus already implemented the first of Behler's symmetry functions."
+msgstr ""
+
+#: Behler.md:29
+msgid "Implmenting radial symmetry functions"
+msgstr ""
+
+#: Behler.md:31
+msgid ""
+"The $G^2$ and $G^3$ symmetry functions that Behler introduces in his paper "
+"are:"
+msgstr ""
+
+#: Behler.md:37
+msgid ""
+"$\\nu$, $R_s$ and $\\kappa$ here are parameters, while $f_c$ is a switching "
+"function that acts on the distance $R_{ij}$ between atom $i$ and $j$. In "
+"calculating these two functions we need to do a sum of a function of all the"
+" $R_{ij}$ values. We thus have everything we need to calculate these "
+"variables within PLUMED and need to implement nothing new. We can simply use"
+" the following code to compute $G^2$ and $G^3$ with $\\nu=1$, $r_s=3$ and "
+"$\\kappa=1$:"
+msgstr ""
+
+#: Behler.md:66
+msgid ""
+"Notice the flexibility of this implementation for the Behler symmetry "
+"function you can basically compute any weighted function of the bond vectors"
+" in the first coordination sphere using an input like this one. A similar "
+"input (see below) could be used to calculate the FCC cubic parameter:"
+msgstr ""
+
+#: Behler.md:99
+msgid ""
+"The code is faster if the calculations that are done with CUSTOM keywords in"
+" the input above are implemented directly in C++. Even so the fact that you "
+"can so quickly prototype complicated CVs like these is (I hope) useful."
+msgstr ""
+
+#: Behler.md:102
+msgid "Implementing angular symmetry functionsa"
+msgstr ""
+
+#: Behler.md:104
+msgid "One of the angular symmetry functions that Behler introduces is:"
+msgstr ""
+
+#: Behler.md:110
+msgid ""
+"In this expression $\\zeta$, $\\nu$ and $\\lambda$ are all parameters. $f_c$"
+" is a switching function which acts upon $R_{ij}$, the distance between atom"
+" $i$ and atom $j$, and $R_{ik}$, the distance between atom $i$ and atom $k$."
+" $\\theta_{ijk}$ is then the angle between the vector that points from atom "
+"$i$ to atom $j$ and the vector that points from atom $i$ to atom $k$."
+msgstr ""
+
+#: Behler.md:114
+msgid ""
+"Even this complicated function can be calculated directly in PLUMED. The "
+"input below caluclates the $G^5_i$ value for atom 1 with $\\zeta=3$, "
+"$\\lambda=3$ and $\\nu=0.1$."
+msgstr ""
+
+#: Behler.md:153
+msgid ""
+"This input computes $G^5$ for a single atom and is rather cumbersome. The "
+"calculation here is not particularly well optimised as we have to calculate "
+"the distance between atom 1 and all the other atoms. In other words, when an"
+" input similar to this one is used PLUMED is not using link cells or "
+"neighbour lists to optimse the calculation. This way of implementing $G^5$ "
+"is thus not really suited to production applications. I thus wrote a second "
+"implementation of the $G^5$ function. The input for this alternative "
+"implementation is as follows:"
+msgstr ""
+
+#: Behler.md:177
+msgid ""
+"The GSYMFUNC_THREEBODY action sums over all the distinct triples of atoms "
+"that are identified in the contact matrix. This action auses lepton and can "
+"thus compute any function of the following four quantities:"
+msgstr ""
+
+#: Behler.md:180
+msgid "`rij` - the distance between atom $i$ and atom $j$"
+msgstr ""
+
+#: Behler.md:181
+msgid "`rik` - the distance between atom $i$ and atom $k$"
+msgstr ""
+
+#: Behler.md:182
+msgid "`rjk` - the distance between atom $j$ and atom $k$"
+msgstr ""
+
+#: Behler.md:183
+msgid ""
+"`ajik` - the angle between the vector connecting atom $i$ to atom $j$ and "
+"the vector connecting atom $i$ to atom $k$."
+msgstr ""
+
+#: Behler.md:185
+msgid ""
+"Furthermore we can calculate more than one function of these four quantities"
+" at a time as illustrated by the input below:"
+msgstr ""
+
+#: Behler.md:209
+msgid ""
+"As we saw for the radial symmetry function, we thus again have an "
+"implementation of these angular symmetry functions that can be quickly used "
+"to prototype new function types."
+msgstr ""
+
+#: Behler.md:211
+msgid "Conclusions"
+msgstr "結論"
+
+#: Behler.md:213
+msgid ""
+"I hope the examples above have convinced you that the PLUMED input file now "
+"provides the flexibility required to prototype CVs that are really rather "
+"complicated. Using CUSTOM actions when implementing these CVs is probably "
+"not optimal when it comes to computational performance but I am not "
+"convinced that this matters. I think our objective should always be to have "
+"less code as this makes PLUMED easier to maintain."
+msgstr ""
+
+#: Behler.md:217
+msgid ""
+"It is also the case that many of the CVs that are implemented in PLUMED are "
+"not used by many people. The understanding of what particular actions do is "
+"thus lost with time. When CVs are implemented in the way above the series of"
+" action that are performed within them are more transparent. This "
+"transparency allows allows other to understand what has been done in the "
+"past and reduces the requirements to write large amounts of documentation."
+msgstr ""
+
+#: Behler.md:221
+msgid ""
+"Lastly, if users need code that runs faster they can always reimplement "
+"expensive CVs that are implemented in PLUMED. Furthermore, in any effort to "
+"reimplement CVs they are helped by the fact that PLUMED offers reference "
+"values that they can test their new code against."
+msgstr ""

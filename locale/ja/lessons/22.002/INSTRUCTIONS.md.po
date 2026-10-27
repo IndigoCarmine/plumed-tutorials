@@ -1,0 +1,670 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: INSTRUCTIONS.md:1
+msgid "PLUMED Masterclass 22.2: Analysis of Plumed output by Metadynminer"
+msgstr ""
+
+#: INSTRUCTIONS.md:3
+msgid "Origin"
+msgstr "作成について"
+
+#: INSTRUCTIONS.md:5
+msgid "This masterclass was authored by Vojtech Spiwok on February 14, 2022"
+msgstr ""
+
+#: INSTRUCTIONS.md:7
+msgid "Aims"
+msgstr "目的"
+
+#: INSTRUCTIONS.md:9
+msgid ""
+"The aim of this Masterclass is to introduce users to the R package "
+"Metadynminer for analysis of results from metadynamics in Plumed."
+msgstr ""
+
+#: INSTRUCTIONS.md:12
+msgid "Objectives"
+msgstr "到達目標"
+
+#: INSTRUCTIONS.md:14
+msgid "Once this Masterclass is completed, users will be able to:"
+msgstr "この Masterclass を終えると、次のことができるようになる。"
+
+#: INSTRUCTIONS.md:16
+msgid "Install R and its packages."
+msgstr ""
+
+#: INSTRUCTIONS.md:17
+msgid "Load metadynamics results (`HILLS` file) to Metadynminer."
+msgstr ""
+
+#: INSTRUCTIONS.md:18
+msgid "Calculate a free energy surface and plot it in a publication quality."
+msgstr ""
+
+#: INSTRUCTIONS.md:19
+msgid "Locate free energy minima and evaluate their relative free energies."
+msgstr ""
+
+#: INSTRUCTIONS.md:20
+msgid "Make an animation of the evolution of a free energy surface."
+msgstr ""
+
+#: INSTRUCTIONS.md:21
+msgid ""
+"Use data in Metadynminer objects to do advanced calculations (e.g., "
+"reweighting)."
+msgstr ""
+
+#: INSTRUCTIONS.md:23
+msgid "Setting up the software"
+msgstr "ソフトウェアのセットアップ"
+
+#: INSTRUCTIONS.md:25
+msgid "Installation"
+msgstr "インストール"
+
+#: INSTRUCTIONS.md:27
+msgid ""
+"We will use [R](https://www.r-project.org/) installed from "
+"[CRAN](https://cloud.r-project.org/). Go to "
+"[CRAN](https://cloud.r-project.org/) and follow the installation "
+"instructions for your operating system. R is Open Source. It is not "
+"necessary to use a graphical user interface but it is very useful, "
+"especially for making illustrations."
+msgstr ""
+
+#: INSTRUCTIONS.md:32
+msgid ""
+"If you plan to use a graphical user interface, the best option is "
+"[Rstudio](https://www.rstudio.com/). [Desktop version of "
+"Rstudio](https://www.rstudio.com/products/rstudio/) is Open Source. Follow "
+"the installation instructions for your operating system."
+msgstr ""
+
+#: INSTRUCTIONS.md:36
+msgid ""
+"To install metadynminer, open R (in commandline type `R` or open GUI by "
+"typing `rstudio` or using an icon) and type:"
+msgstr ""
+
+#: INSTRUCTIONS.md:43
+msgid ""
+"The output should contain: `* DONE (metadynminer)`. If you have an output: "
+"`installation of package metadynminer had non-zero exit status` there was a "
+"problem with installation. You may try:"
+msgstr ""
+
+#: INSTRUCTIONS.md:46
+msgid "On MS Windows install `Rtools`."
+msgstr ""
+
+#: INSTRUCTIONS.md:47
+msgid ""
+"If you have permission issues, you can try the commands "
+"`Sys.getenv(\"R_HOME\")` and `Sys.getenv(\"R_LIBS_USER\")` and check the "
+"permission of the printed directories. You may change installation "
+"directories by corresponding `Sys.setenv(...)` commands."
+msgstr ""
+
+#: INSTRUCTIONS.md:51
+msgid "You may check whether Metadynminer was installed correctly by typing:"
+msgstr ""
+
+#: INSTRUCTIONS.md:57
+msgid ""
+"This command should have no output. Installation is done only once (or can "
+"be repreated for version upgrades). Loading of the package by `library` "
+"command must be done in every R seance."
+msgstr ""
+
+#: INSTRUCTIONS.md:60
+msgid "Resources"
+msgstr "資料"
+
+#: INSTRUCTIONS.md:62
+msgid ""
+"The data needed for this Masterclass can be found on "
+"[GitHub](https://github.com/plumed/masterclass-22-02). You can clone this "
+"repository using the following command:"
+msgstr ""
+
+#: INSTRUCTIONS.md:69
+msgid ""
+"The repository contains hills and colvar files, respectively, from 10 or 1 "
+"ns metadynamics simulations of alanine dipeptide in water calculated in "
+"Plumed. Other input data are available from "
+"[Zenodo](https://doi.org/10.5281/zenodo.6056060) but are not required in "
+"this tutorial. The repo contains:"
+msgstr ""
+
+#: INSTRUCTIONS.md:72
+msgid ""
+"`HILLS.cv12` and `COLVAR.cv12` - hills and collective variable + bias report"
+" from metadynamics with phi and psi dihedral angles"
+msgstr ""
+
+#: INSTRUCTIONS.md:73
+msgid ""
+"`HILLS.cv1` and `COLVAR.cv1` - hills and collective variable + bias report "
+"from metadynamics with phi dihedral angle"
+msgstr ""
+
+#: INSTRUCTIONS.md:74
+msgid ""
+"`HILLS.cv2` and `COLVAR.cv2` - hills and collective variable + bias report "
+"from metadynamics with psi dihedral angle"
+msgstr ""
+
+#: INSTRUCTIONS.md:76
+msgid "This data are independent of Plumed version (for version >=2.0)."
+msgstr ""
+
+#: INSTRUCTIONS.md:78
+msgid "Using R"
+msgstr ""
+
+#: INSTRUCTIONS.md:80
+msgid ""
+"R is a program and scrpting language predominantly developed for statistical"
+" data analysis. It is popular in statistics, economy, ecology, "
+"bioinformatics, and other fields. Let us quickly introduce R. Open R as "
+"described above and type:"
+msgstr ""
+
+#: INSTRUCTIONS.md:91
+msgid ""
+"This shows addition, subtraction, multiplication, and division. Numbers and "
+"other objects can be saved to variables. We advice users to avoid the names "
+"of variables that can be confused with existing functions in R. In this "
+"masterclass, we will use the prefix \"my\" (e.g., `myhills`) to avoid this. "
+"Variable names are case-sensitive. The operator used to save something to is"
+" an arrow `<-` (less than followed by minus sign). You may see R codes with "
+"a normal equal sign, but we will be puristic in this. Let us show the "
+"variables in R:"
+msgstr ""
+
+#: INSTRUCTIONS.md:103
+msgid ""
+"In the outputs above, there is an unexpected string `[1]`. This is the index"
+" of the first item on the line. This is useful when dealing with vectors. "
+"Vector can be created by implicitly typing its elements to the function "
+"`c()`, by `:` operator and other ways:"
+msgstr ""
+
+#: INSTRUCTIONS.md:116
+msgid ""
+"R can also work with 2D and multidimensional matrices. R can work with "
+"strings (written in quotes, e.g. \"blue\"), Booleans (`TRUE` and `FALSE`, or"
+" shortened as `T` and `F`)."
+msgstr ""
+
+#: INSTRUCTIONS.md:119
+msgid ""
+"R uses functions written as the name of function followed by its arguments "
+"in brackets:"
+msgstr ""
+
+#: INSTRUCTIONS.md:126
+msgid "Functions can be applied element-wise:"
+msgstr ""
+
+#: INSTRUCTIONS.md:133
+msgid ""
+"Functions with more variables use the specifications set by `=`, separated "
+"by `,`:"
+msgstr ""
+
+#: INSTRUCTIONS.md:142
+msgid ""
+"Important difference from many other programming environments is that R can "
+"freely change number types, e.g. `3/2` is evaluated as 1.5, unlike Pyhton, "
+"which gives 1, because 3 and 2 are integers, and not floats."
+msgstr ""
+
+#: INSTRUCTIONS.md:146
+msgid ""
+"Another important difference is that R uses indexes of vector items starting"
+" with 1 (not 0 line in C/C++, Python etc.). For example:"
+msgstr ""
+
+#: INSTRUCTIONS.md:159
+msgid ""
+"Finally, R can use other types of objects, including objects defined by a "
+"user. Their instances can be accessed by a string operator. For example, the"
+" function `prcomp` performs a principal component analysis. Its output is an"
+" object with multiple instances, for example, with a rotation matrix:"
+msgstr ""
+
+#: INSTRUCTIONS.md:169
+msgid ""
+"Finally, to quit R you can use the function `q()`. The program asks the user"
+" whether he/she wants to save the data (i.e., variables created in the "
+"previous course of the run). We advise users to NOT save data, i.e. choose "
+"the option \"n\" or function `q(save=\"n\")`."
+msgstr ""
+
+#: INSTRUCTIONS.md:173
+msgid ""
+"Exercise 1: Calculation of the free energy surface from metadynamics hills"
+msgstr ""
+
+#: INSTRUCTIONS.md:175
+msgid "Open R (in Rstudio or command line) and load Metadynminer:"
+msgstr ""
+
+#: INSTRUCTIONS.md:181
+msgid "Now load the file `HILLS.cv12` into Metadynminer:"
+msgstr ""
+
+#: INSTRUCTIONS.md:187
+msgid ""
+"At this point, it is necessary to set the periodicity of CVs. The free "
+"energy surface was calculated using torsion angles as CVs, which are "
+"periodic. It is necessary to set the periodicity to `TRUE` (or simplified as"
+" `T`) as a vector `per`. If you get an error message that the file was not "
+"found, it means that the home directory is not set properly. In Linux "
+"command line, the home is the directory where you start R by the command "
+"`R`. In Rstudio, you may navigate to the directory with the file using the "
+"File menu in the right bottom frame. Alternatively, you can use `getwd()` "
+"and `setwd(\"/path/to/your/dir\")`."
+msgstr ""
+
+#: INSTRUCTIONS.md:194
+msgid ""
+"Hills can be also loaded from a HILLS file posted online by replacing the "
+"file name by an URL."
+msgstr ""
+
+#: INSTRUCTIONS.md:196
+msgid ""
+"To get help to any function in R, for example, `read.hills`, you can use "
+"either `help(read.hills)` or `?read.hills)`."
+msgstr ""
+
+#: INSTRUCTIONS.md:199
+msgid ""
+"If you type the name of the hills file variable `myhills12` you get an "
+"information about the number of hills and CVs. The function `summary` "
+"(`summary(myhills12)`) returns the same information plus the ranges of CVs."
+msgstr ""
+
+#: INSTRUCTIONS.md:203
+msgid ""
+"A hills file can be plotted by the `plot` function, i.e., `plot(myhills12)`."
+" For a metadynamics with one CV it plots the evolution of the CV as a "
+"function of time. For a metadynamics with two CVs it plots a scatter plot "
+"with CV1 on the horizontal axis and CV2 on the vertical axis. The plot "
+"function applied on metadynamics hills file is an extension of the standard "
+"plot function in R. You may set parameters `xlab`, `ylab`, `main`, `sub`, "
+"`xlim`, `ylim`, `pch`, `col`, `bg`, `cex`, `lwd` and `asp` (see "
+"`?plot.hillsfile`). It is possible to stack plots on top of each other by "
+"using the command `plot(...)`, followed by a command `points(...)` or "
+"`lines(...)`."
+msgstr ""
+
+#: INSTRUCTIONS.md:211
+msgid ""
+"For well-tempered metadynamics, it may be useful to check the evolution of "
+"heights of hills. This can be done by the command:"
+msgstr ""
+
+#: INSTRUCTIONS.md:218
+msgid ""
+"Hills files are often obtained from multiple metadynamics runs. This may "
+"cause that time collumn does not correspond to the real time. The option "
+"`ignoretime=T` used either in `read.hills` or in `plotheights` replaces time"
+" by the hill number."
+msgstr ""
+
+#: INSTRUCTIONS.md:222
+msgid ""
+"The main point is the calculation of the free energy surface from the hills "
+"file as an negatve image of the sum of Gaussian hills (scaled in well-"
+"tempered metadynamics, which is pre-scaled in the Plumed output)."
+msgstr ""
+
+#: INSTRUCTIONS.md:226
+msgid ""
+"This may be time consuming with hundreds of thousands of hills. In "
+"metadynminer you can use two functions for this purpose, `fes` and `fes2`. "
+"The former is fast and approximative, the latter is slow and more accurate. "
+"The function `fes` uses a pre-computed Gaussian hill which is simply being "
+"shifted on the canvas of the CV space for each hill and the bias potential "
+"is summed. The function `fes2` explicitly evaluates the Gaussian function. "
+"The function `fes` cannot be used in metadynamics with variable hills widths"
+" (the user would be warned)."
+msgstr ""
+
+#: INSTRUCTIONS.md:234
+msgid "In our tutorial we can do:"
+msgstr ""
+
+#: INSTRUCTIONS.md:240
+msgid ""
+"(or the same with `fes2` for analyses, final illustations etc). Typing the "
+"name of the free energy surface variable `myfes12` returns the number of "
+"CVs, number of bins (by default 256 for one CV, and 256x256 for two CVs), "
+"free energy maximum and minimum."
+msgstr ""
+
+#: INSTRUCTIONS.md:244
+msgid ""
+"It is possible to calculate the value of minimum and maximum of the free "
+"energy surface by functions `min` and `max`, respectively. You may add, "
+"subtract, multiply, and divide the free energy surface by a constant. For "
+"example, you can set the free energy minimum to zero by subtracting the "
+"minimum:"
+msgstr ""
+
+#: INSTRUCTIONS.md:253
+msgid ""
+"Similarly, to convert the free energy surface from kJ/mol to kcal/mol you "
+"may divide it by 4.18."
+msgstr ""
+
+#: INSTRUCTIONS.md:256
+msgid ""
+"It is also possible to sum and subtract two free energy surfaces. This will "
+"be demonstrated later."
+msgstr ""
+
+#: INSTRUCTIONS.md:259
+msgid ""
+"The important function of Metadynaminer is plotting of the free energy "
+"surface. You can use:"
+msgstr ""
+
+#: INSTRUCTIONS.md:266
+msgid ""
+"Again, you may use options `xlim`, `ylim`, `zlim`, `main`, `sub`, `xlab`, "
+"`ylab`, `labcex` and `drawlabels` (see `?plot.fes`). You may control the "
+"type of the plot by the `plottype`. The option `plottype=\"image\"` plots a "
+"heat map, `plottype=\"contour\"` plots contours, and `plottype=\"both\"` "
+"plots both."
+msgstr ""
+
+#: INSTRUCTIONS.md:271
+msgid "It is possible to switch on the free energy scale by:"
+msgstr ""
+
+#: INSTRUCTIONS.md:277
+msgid "You may change the title of the scale by `colscalelab=\"your label\"`."
+msgstr ""
+
+#: INSTRUCTIONS.md:279
+msgid ""
+"It is often necessary to control the levels of contours. For example, to "
+"plot the free energy surface with 20 contours by 10 kJ/mol type:"
+msgstr ""
+
+#: INSTRUCTIONS.md:287
+msgid ""
+"You may also explicitly set levels as a vector by the parameter `levels`."
+msgstr ""
+
+#: INSTRUCTIONS.md:289
+msgid ""
+"The default color palette for a 2D free energy surface in Metadynminer is "
+"`rainbow(135)[100:1]` (i.e., rainbow without violet color). If you prefer "
+"your own color palette, you may set it as `col` paramtere. For example, this"
+" command plots the free energy surface in gray colors:"
+msgstr ""
+
+#: INSTRUCTIONS.md:298
+msgid ""
+"Metadynminer can identify minima on the free energy surface. This can be "
+"done by the function:"
+msgstr ""
+
+#: INSTRUCTIONS.md:306
+msgid ""
+"The program should find approximately five free energy minima for alalnine "
+"dipeptide in water and print their idetifier (letters A, B, C, ... followed "
+"by AA, AB, AC, ...), location on the free energy surface (in bin ID and in "
+"CVs), and the free energy (for the final free energy surface). The function "
+"`summary` prints also populations (temperature and energy units can be "
+"controlled by `temp` and `eunit`, respectively)."
+msgstr ""
+
+#: INSTRUCTIONS.md:314
+msgid ""
+"Some metadynamics simulations may result in rough free energy surfaces with "
+"hundreds of free energy minima. It is not useful to identify all of them. It"
+" is better to find a reasonable number of minima scattered on the whole free"
+" energy surface. The function `fesminima` splits the canvas of the free "
+"energy surface into a certain number of sections (by default 8x8 for 2D and "
+"8 for 1D free energy surfaces, it may be controled by `nbins`). A global "
+"minimum is found in each section and then it is checked whether it is a "
+"local minimum of the entire free energy surface. If not, it is discarded."
+msgstr ""
+
+#: INSTRUCTIONS.md:323
+msgid ""
+"It may happen that the function `fesminima` cannot identify some minimum or "
+"it is necessary to add a reference point on a free energy surface, which is "
+"not a minimum. For this purpose, it is possible to make a minimum by "
+"`oneminimum` function and add it to the existing minima (by addition "
+"operation)."
+msgstr ""
+
+#: INSTRUCTIONS.md:328
+msgid ""
+"The output of `fesminima` can be plotted by `plot` function. The plot is "
+"similar to the free energy surface and it contains additional letters in the"
+" points of minima."
+msgstr ""
+
+#: INSTRUCTIONS.md:336
+msgid ""
+"Convergency of metadynamics can be assessed by the time profile of the "
+"differences between free energy minima. Stable difference between free "
+"energy minima indicates that the free energy surface is converged and thus "
+"accurate. It must be kept in mind that this is a necessary but not the only "
+"requirement of convergence. Please follow the [PLUMED Masterclass 21.2: "
+"Statistical errors in MD ](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/masterclass-21-2.html) for more details. The time profile of the "
+"differences between free energy minima can be caluclated and plotted as:"
+msgstr ""
+
+#: INSTRUCTIONS.md:350
+msgid ""
+"The program takes free energy minima (as identified by the function "
+"`fesminima`) and calculates the values of free energy in the same point in "
+"the CV space along the simulation. Typing the name of the time profile "
+"returns the same output as for minima. The function `summary` prints the "
+"same output as the summary of free energy minima together with minimal and "
+"maximal free energy relative to the global free energy minimum. The minimum "
+"A is always the global minimum and its relative free energy is 0 (also its "
+"minimum and maximum is zero). The column `tail` contains the relative free "
+"energy at the end of the simulation. It is possible to specify the time "
+"window in which the minimum and maximum are calculated, for example the "
+"second half of the simulation, by `imind` and `imaxd`. By default they are "
+"set to 1 and the number of hills, respectively, i.e. to whole simulation."
+msgstr ""
+
+#: INSTRUCTIONS.md:363
+msgid "Finally, metadynminer provides a function for the nudged elastic band:"
+msgstr ""
+
+#: INSTRUCTIONS.md:373
+msgid "Exercise 2: Making high resolution plots and movies"
+msgstr ""
+
+#: INSTRUCTIONS.md:375
+msgid ""
+"In Rstudio it is possible to save plotted figures in different vector and "
+"bitmap formats and it is possible to customize their resolution. As an "
+"alternative, it is possible to save figures by the functions `png`, `bmp`, "
+"`jpeg`, `tiff`, `svg`, `pdf` or `eps`. These functions use the file name as "
+"an argument and it switches the plotting environment, so that the file is "
+"plotted into the file and not on the screen. This option must be switched "
+"off by the function `dev.off()`. These functions work in the basic R (i.e., "
+"without Rstudio) and can be used for example at high-performance computing "
+"clusters, grids, and clouds without GUI. Our suggestion to make a nice "
+"publication quality figure in the size of 8x8 cm (typical half page) is:"
+msgstr ""
+
+#: INSTRUCTIONS.md:392
+msgid ""
+"The functions for image saving can be used with regular expressions. This is"
+" useful for making movies. A movie of free energy evolution can be simply "
+"made by:"
+msgstr ""
+
+#: INSTRUCTIONS.md:407
+msgid ""
+"Functions `imin` and `imax` make it possible to restrict the summation to "
+"certain hill range. The first line calculates the sum of the first 50 hills."
+" The second call of the `fes` function calculates the sum of hills 51 to 100"
+" and adds it to the total free energy surface. The resulting 200 files named"
+" `snap0001.png`, `snap0002.png`, etc can be concatenated to a movie by means"
+" of some movie editing software."
+msgstr ""
+
+#: INSTRUCTIONS.md:414
+msgid "Exercise 3: Making a movie of flooding"
+msgstr ""
+
+#: INSTRUCTIONS.md:416
+msgid ""
+"The first task in this tutorial is to calculate the free energy surface of "
+"alanine dipeptide calculated in the space of two collective variables phi "
+"and psi. This can be done by typing:"
+msgstr ""
+
+#: INSTRUCTIONS.md:427
+msgid ""
+"The 2D free energy surface can be converted to 1D by conversion of the free "
+"energy to probability, integration of probabilities along one CV and "
+"conversion back to free energy. In metadynminer you can do this by the "
+"function `fes2d21d`:"
+msgstr ""
+
+#: INSTRUCTIONS.md:435
+msgid ""
+"The option `remdim` sets which CV should be removed (`remdim=2` removes "
+"psi). It is also possible to set the temperature and energy units by `temp` "
+"and `eunit`, respectively."
+msgstr ""
+
+#: INSTRUCTIONS.md:439
+msgid ""
+"Now we will use this free energy surface (calculated from 10 ns "
+"metadynamics) as the \"ground truth\" and we will try how this free energy "
+"surface was flooded by 1 ns metadynamics with a single CV, either phi or "
+"psi."
+msgstr ""
+
+#: INSTRUCTIONS.md:443
+msgid "Hills file from the other two simulations can be loaded by:"
+msgstr ""
+
+#: INSTRUCTIONS.md:450
+msgid "Replace `_FILL_` by the correct expression."
+msgstr ""
+
+#: INSTRUCTIONS.md:452
+msgid ""
+"Next, for time 10 ps to 1 ns (hills 10 to 1000, with an increment of 10), "
+"calculate the free energy surface, convert it to a bias potential by "
+"multiplication by minus (biasfactor - 1)/biasfactor and add it to the ground"
+" truth free energy surface. The bias factor was 15 in this simulation. Plot "
+"the result (in black) together with the ground truth free energy surface in "
+"red:"
+msgstr ""
+
+#: INSTRUCTIONS.md:474
+msgid ""
+"Again, replace each `_FILL_` by a suitable expression. Keep in mind that it "
+"is possible to compose the plot from multiple plots. The function `plot` "
+"creates the first plot and functions `lines` or `points` add to this plot."
+msgstr ""
+
+#: INSTRUCTIONS.md:479
+msgid ""
+"The meaning of the line `flooded$hills <- c()` is following. Objects in R "
+"may contain different instances stored as `variable$instance` The object of "
+"the free energy surface contains the free energy surface, information about "
+"the axes and their periodicity and other information, but also the original "
+"hills from which the free energy surface was calculated. Something similar "
+"applies also to the object of free energy minima. The reason for this is "
+"that the function `feprof` needs hills data. Summation of free energy "
+"surfaces is equivalent to concatenation of hills, so the sum of two free "
+"energy surfaces contains concatenated hills as its `$hills` instance. "
+"However, in the line `flooded <- flooded + _FILL_*myfes1` it is not possible"
+" to concatenate 1D and 2D hills. For this reason we erased hills from the "
+"variable `flooded`."
+msgstr ""
+
+#: INSTRUCTIONS.md:493
+msgid ""
+"If possible, make a movie or visually inspect the resulting files. Evaluate "
+"the flooding by the 1D potential in terms of convergence."
+msgstr ""
+
+#: INSTRUCTIONS.md:496
+msgid "Exercise 4: Reweighing"
+msgstr ""
+
+#: INSTRUCTIONS.md:498
+msgid ""
+"It would be also interesting to see the performance of metadynamics with psi"
+" torsion as the only CV. Unfortunately, it is not possible to calculate the "
+"free energy surface in the space of phi torsion from this simulation simply "
+"by summing hills. This can be done by reweighing. This will also demonstrate"
+" the advanced features of metadynminer."
+msgstr ""
+
+#: INSTRUCTIONS.md:504
+msgid ""
+"Reweighing predicts what would have been the distribution of a CV or CVs in "
+"the biased simulation, if it had not been biased. [Umbrella sampling "
+"reweighing](https://doi.org/10.1016%2F0021-9991%2877%2990121-8) weights the "
+"distribution of the states by exp(+bias/kT). This can be applied to "
+"metadynamics bias potential with a correction to the time-dependence of the "
+"bias potential. We will use the correction introduced by [Tiwari and "
+"Parrinello](https://doi.org/10.1021/jp504920s). The main idea is the bias "
+"potential is divided into time-independent and the time-dependent component."
+" The time-dependent component is calculated by the following procedure:"
+msgstr ""
+
+#: INSTRUCTIONS.md:533
+msgid ""
+"The variable `bf` contains the bias factor. The R function `rep` generates a"
+" vector by repeating an element. Here it generates a vector with `nframes` "
+"(50) elements equal to zero. The variable `step` is equal to the number of "
+"hills divided by 50 in the first step, twice as many in the second step, "
+"etc. The free energy surface is calculated for this number of hills. Next, "
+"exp(-G/kT) and exp(-G/kDeltaT) is calculated and stored in vectors `s1` and "
+"`s2`, respectively. Finally, `s1` and `s2` are divided elementwise and "
+"stored to `ebetac`."
+msgstr ""
+
+#: INSTRUCTIONS.md:543
+msgid ""
+"Next, we open the colvar file and calculate the probabilities of the phi "
+"torsion. This can be done by:"
+msgstr ""
+
+#: INSTRUCTIONS.md:563
+msgid ""
+"The function `read.table` is a standard function of R for reading tabular "
+"data. The first CV is extracted from the table and converted to bin number "
+"(with 64 bins). Next, the probability vector `prob` is generated. The "
+"program then runs across all lines of the colvar file and adds "
+"`exp(bias[i]/temp/8.314)/ebetac[step]` to the probability in the bin of phi "
+"angle in i-th line. The resulting probabilities are converted to free energy"
+" and the free energy of unsampled bins is converted to 100 kJ/mol (instead "
+"of infinity, for better handling). Finally, a free energy surface with 64 "
+"bins is calculated from the first hill and the free energy surface object is"
+" replaced by our `fes`. This free energy surface is plotted. Compare free "
+"energy surfaces calculated with phi CV and psi CV."
+msgstr ""

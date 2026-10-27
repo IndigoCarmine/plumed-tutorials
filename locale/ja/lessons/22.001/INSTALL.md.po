@@ -1,0 +1,75 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: INSTALL.md:1
+msgid "Requested installation to work with the Funnel Metadynamics (FM)"
+msgstr ""
+
+#: INSTALL.md:3
+msgid "Plumed installation"
+msgstr ""
+
+#: INSTALL.md:4
+msgid ""
+"In order to use FM with Plumed it is possible to follow the Plumed tutorial "
+"20.001 \"Installing PLUMED\" by Tribello G., making sure to add the flag "
+"during the configure:"
+msgstr ""
+
+#: INSTALL.md:8
+msgid "or"
+msgstr ""
+
+#: INSTALL.md:13
+msgid "Third-party applications"
+msgstr ""
+
+#: INSTALL.md:14
+msgid ""
+"FM requires a set of files as input with a well-defined syntax, which might "
+"result difficult to to produce for inexperienced user. For this reason, we "
+"have created two ways to automatically create FM inputs:"
+msgstr ""
+
+#: INSTALL.md:16
+msgid ""
+"using a tcl plug in, to be used together with the visualization software "
+"VMD;"
+msgstr ""
+
+#: INSTALL.md:17
+msgid "a software-free server called Funnel Metadynamics Pre-Processing Tool."
+msgstr ""
+
+#: INSTALL.md:19
+msgid ""
+"For the former, you will need to download the tooltip library for tcl "
+"together with the plug-in file funnel.tcl and load them through the *source*"
+" command in the tk terminal of VMD. The full description of the installation"
+" procedure and the links to the necessary code can be found in the paper of "
+"the Funnel Metadynamics Advanced Protocol (FMAP) "
+"(doi:10.1038/s41596-020-0342-4). Otherwise, the tcl files can be found in "
+"the library folder of the "
+"[Github](https://github.com/h2nch2co2h/masterclass-22-1.git)."
+msgstr ""
+
+#: INSTALL.md:22
+msgid ""
+"If you wish instead to use the server, there will be no necessity to "
+"download the tcl plug in and having a version of VMD installed in your "
+"computer."
+msgstr ""
+
+#: INSTALL.md:24
+msgid ""
+"To be noted that the server still can not run the post-processing analyses, "
+"therefore any calculation should either be performed manually by the user "
+"(as will be shown in this tutorial) or using the second plug in for VMD "
+"ffs.tcl. In this second case, requirements are the same as for funnel.tcl."
+msgstr ""

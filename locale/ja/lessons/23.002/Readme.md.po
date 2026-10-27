@@ -1,0 +1,131 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Readme.md:1
+msgid ""
+"Plumed Flagship meeting: Lecture: Parallel and GPUs programming in PLUMED"
+msgstr ""
+
+#: Readme.md:3
+msgid "We have some simple examples for using parallelism in plumed:"
+msgstr ""
+
+#: Readme.md:5
+msgid ""
+"`SerialCoordination.cpp` is a ~~vandalized~~ simplified version of the cv "
+"`Coordination`"
+msgstr ""
+
+#: Readme.md:6
+msgid ""
+"`OMPCoordination.cpp` is an example on how openMP can be used in Plumed"
+msgstr ""
+
+#: Readme.md:7
+msgid "`MPICoordination.cpp` is an example on how MPI can be used in Plumed"
+msgstr ""
+
+#: Readme.md:8
+msgid ""
+"`CUDACoordination.cpp` is an example on trying to user Cuda for solving this"
+" problem (it needs an ad hoc compiler queue and the kernel "
+"`CUDACoordinationkernel.cu` )"
+msgstr ""
+
+#: Readme.md:10
+msgid "(The original `Coordination` combines the use of both openMP and MPI)"
+msgstr ""
+
+#: Readme.md:12
+msgid "Plumed helps the developer with some tools for parallelism:"
+msgstr ""
+
+#: Readme.md:13
+msgid ""
+"`tools/OpenMP.h` contains some function that are useful in working with "
+"openMP. In the example we are using `OpenMP::getNumThreads()` to get the "
+"number of threads from the environmental variable `PLUMED_NUM_THREADS`"
+msgstr ""
+
+#: Readme.md:16
+msgid ""
+"`tools/Communicator.h` is present as the variable `comm` that is inherited "
+"through `PLMD::Action`. `PLMD::Communicator` is an interface to some of the "
+"functionalities of the C API of `mpi.h`. In the example we are using "
+"`PLMD::Communicator::Get_size()` to get the number of the processes spawned "
+"by mpirun, `PLMD::Communicator::Get_rank()` to get the id of the process, "
+"and `PLMD::Communicator::Sum()` to sum the result of the coordination and "
+"make the correct value avayable for further calculations."
+msgstr ""
+
+#: Readme.md:22
+msgid "Intro"
+msgstr ""
+
+#: Readme.md:24
+msgid ""
+"The exercise uses `Base.hpp` to give a very base version of the COORDINATION"
+" CV, in this case it is returning the sum of the number of atoms that are "
+"within R_0 from each atom. For simplicity it the pbcs will be ignored "
+"throught all of the examples. `MyCoordinationBase` in `Base.hpp` do not have"
+" the calculate method and so the example will have more or less the "
+"following structure:"
+msgstr ""
+
+#: Readme.md:45
+msgid ""
+"For automation purposes (see the `Makefile`) we are using the same key "
+"`PLUMED_REGISTER_ACTION(MyCoordination, \"MYCOORDINATION\")` for all of the "
+"examples."
+msgstr ""
+
+#: Readme.md:46
+msgid "Prerequisites"
+msgstr "前提条件"
+
+#: Readme.md:47
+msgid ""
+"Plumed 2.9.0 configured and installed with `--enable-modules=all` and MPI"
+msgstr ""
+
+#: Readme.md:48
+msgid "in my workstation I am using gcc 9.4.0 and openmpi 4.1.1"
+msgstr ""
+
+#: Readme.md:49
+msgid "For the GPU offloading the example is written with Nvdia's Cuda"
+msgstr ""
+
+#: Readme.md:50
+msgid "In my workstation I am using cuda 11.7 with a T1000 card"
+msgstr ""
+
+#: Readme.md:53
+msgid "[The serial code](Readme_Serial.md)"
+msgstr ""
+
+#: Readme.md:55
+msgid "[Threading: openMP](Readme_OMP.md)"
+msgstr ""
+
+#: Readme.md:57
+msgid "[Processes: MPI](Readme_MPI.md)"
+msgstr ""
+
+#: Readme.md:59
+msgid "[EXTRA: GPU offloading with Cuda](Readme_CUDA.md)"
+msgstr ""
+
+#: Readme.md:61
+msgid "Closing information"
+msgstr ""
+
+#: Readme.md:63
+msgid "The file in the `Solution` directory give the correct results"
+msgstr ""

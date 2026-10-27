@@ -1,0 +1,347 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:1
+msgid "Using PyCV"
+msgstr ""
+
+#: README.md:2
+msgid "Installation"
+msgstr "インストール"
+
+#: README.md:4
+msgid ""
+"It should be sufficient to run, ideally in a virtual or conda environment. "
+"From the plumed source directory run:"
+msgstr ""
+
+#: README.md:10
+msgid ""
+"You will need to have plumed avaiable in your path or through `pkg-config`"
+msgstr ""
+
+#: README.md:12
+msgid ""
+"Required dependencies `numpy` and `pybind11` are installed as part of the "
+"installation process."
+msgstr ""
+
+#: README.md:14
+msgid ""
+"[!NOTE] Note that an in-place installation, `pip install -e .`, won't work."
+msgstr ""
+
+#: README.md:17
+msgid ""
+"[!NOTE] To get the position of the shared object to load with the LOAD "
+"action, call `python -m pycv`, see [the examples](examples.md)"
+msgstr ""
+
+#: README.md:20
+msgid "Known runtime problems"
+msgstr ""
+
+#: README.md:22
+msgid ""
+"On some platforms, *embedded* Python interpreters (such as the one used in "
+"PYCV) appear to behave differently than the plain ones, raising surprising "
+"errors. For example:"
+msgstr ""
+
+#: README.md:25
+msgid ""
+"[!NOTE] Some Python configurations (e.g. Conda under Linux) require the"
+msgstr ""
+
+#: README.md:27
+msgid ""
+"Python shared library to be found in the LD_LIBRARY_PATH, ignoring the "
+"activated environment. This manifests itself with an error like:"
+msgstr ""
+
+#: README.md:35
+msgid ""
+"[!NOTE] Similarly, some Python configurations (e.g. MacOS) ignore the "
+"current"
+msgstr ""
+
+#: README.md:37
+msgid ""
+"environment when searching for packages (e.g. `numpy`). Hence, one should "
+"set PYTHONPATH manually. This manifests itself with an error like:"
+msgstr ""
+
+#: README.md:45
+msgid "The basics"
+msgstr ""
+
+#: README.md:47
+msgid ""
+"When using PyCV the user will need to create a module[^1] that must at least"
+" contain an initialization dictionary and a calculate function"
+msgstr ""
+
+#: README.md:49
+msgid ""
+"[^1]: a module is a `.py` file or a directory that contains a `__init__.py`,"
+" here we will only show `py` files"
+msgstr ""
+
+#: README.md:51
+msgid "What to write in the plumed.dat (PYCVINTERFACE)"
+msgstr ""
+
+#: README.md:57 README.md:75
+msgid ""
+"`IMPORT` this is the only mandatory keyword, this indicates the python "
+"module to load"
+msgstr ""
+
+#: README.md:58 README.md:76
+msgid ""
+"`INIT` indicates the function to call at initialization. Defaults to "
+"`plumedInit`"
+msgstr ""
+
+#: README.md:59 README.md:77
+msgid "`COMPONENTS` can be specified either in python or in the plumed.dat"
+msgstr ""
+
+#: README.md:60
+msgid "`NOPBC` can be specified either in python or in the plumed.dat"
+msgstr ""
+
+#: README.md:61
+msgid ""
+"`ATOMS`, `GROUPA`,`GROUPB`, using `GROUP*` will make plumed set up a "
+"neighbor list between the groups, or group A, whereas with ATOMS all the "
+"atom will be passed"
+msgstr ""
+
+#: README.md:62
+msgid ""
+"`PAIR`,`NLIST`,`NL_CUTOFF`,`NL_STRIDE` can only be specified in the "
+"plumed.dat ~to be verified~"
+msgstr ""
+
+#: README.md:63 README.md:78
+msgid ""
+"`CALCULATE` indicates the function to call at calculate time. Defaults to "
+"`plumedCalculate`"
+msgstr ""
+
+#: README.md:64
+msgid ""
+"`PREPARE` indicates the function to call at prepare time. Ignored if not "
+"specified"
+msgstr ""
+
+#: README.md:65
+msgid ""
+"`UPDATE` indicates the function to call at update time. Ignored if not "
+"specified"
+msgstr ""
+
+#: README.md:67
+msgid "What to write in the plumed.dat (PYFUNCTION)"
+msgstr ""
+
+#: README.md:79
+msgid "`ARG` the list of arguments, to be specified in the plumed.dat"
+msgstr ""
+
+#: README.md:81
+msgid ""
+"PYFUNCTION is simpler: but needs to get the arguments from the plumed object"
+msgstr ""
+
+#: README.md:93
+msgid "The functions"
+msgstr ""
+
+#: README.md:95
+msgid ""
+"For both PYFUNCTION and PYCVINTERFACE the function called by plumed must "
+"accept a specific object."
+msgstr ""
+
+#: README.md:96
+msgid ""
+"PYCVINTERFACE functions will expect a "
+"`plumedCommunications.PythonCVInterface` object"
+msgstr ""
+
+#: README.md:97
+msgid ""
+"PYFUNCTION functions will expect a `plumedCommunications.PythonFunction` "
+"object"
+msgstr ""
+
+#: README.md:99
+msgid ""
+"These objects are used to retrieve data and settings from plumed. Plumed "
+"will get data back with the `data` attribute (see [below](#the-data-"
+"attribute)) but mainly with the use of returned dictionaries."
+msgstr ""
+
+#: README.md:101
+msgid ""
+"In the [examples](examples.md#getting-the-manual) I show how to retrieve the"
+" manual for those objects"
+msgstr ""
+
+#: README.md:104
+msgid "Initialization"
+msgstr ""
+
+#: README.md:106
+msgid ""
+"If in the plumed.dat `INIT` is not specified, plumed will search for an "
+"object \"plumedInit\", that can be either a function that returns a dict or "
+"a dict This dict MUST contain at least the information about the presence of"
+" the derivatives and on the periodicity of the variable. We will refer to "
+"this dict as \"the _init dict_\" from now."
+msgstr ""
+
+#: README.md:112
+msgid ""
+"The _init dict_ will tell plumed how many components the calculate function "
+"will return and how they shall behave. Along this the dict can contain all "
+"the keyword that are compatible with PYCVINTERFACE. Mind that if the same "
+"keyword is specified both in the _init dict_ and in the plumed file the "
+"calculation will be aborted to avoid unwanted settings conflicts. In case of"
+" flags the dict entry must be a boolean, differently from the standard "
+"plumed input."
+msgstr ""
+
+#: README.md:122
+msgid ""
+"The only keyword that can only be specified in python is `COMPONENTS`. The "
+"`COMPONENTS` key must point to a dict that has as keys the names of the "
+"components. Each component dictionary must have two keys:"
+msgstr ""
+
+#: README.md:126
+msgid ""
+"`\"period\"`: `None` of a list of two values, min and max (like `[0,1]` or "
+"also strings like `[\"0.5*pi\",\"2*pi\"]`)"
+msgstr ""
+
+#: README.md:128
+msgid ""
+"`\"derivative\"`: `True` or `False` If you want to use a single component "
+"you can create the `\"COMPONENTS\"` dict with as single key, the name will "
+"be ignored. In the previous example the key `\"Value\"` is used instead of "
+"`\"COMPONENTS\"`: it is a shorter form for `\"COMPONENTS\":{\"any\":{...}}`."
+" To avoid confusion you cannot specify both `\"COMPONENTS\"` and `\"Value\"`"
+" in the same dict."
+msgstr ""
+
+#: README.md:136
+msgid ""
+"To speed up the declarations of the components the `plumedCommunications` "
+"module contains a submodule `defaults` with the default dictionaries already"
+" set up:"
+msgstr ""
+
+#: README.md:138
+msgid ""
+"`plumedCommunications.defaults.COMPONENT={\"period\":None, "
+"\"derivative\":True}`"
+msgstr ""
+"`plumedCommunications.defaults.COMPONENT={\"period\":None, "
+"\"derivative\":True}`"
+
+#: README.md:139
+msgid ""
+"`plumedCommunications.defaults.COMPONENT_NODEV={\"period\":None, "
+"\"derivative\":False}`"
+msgstr ""
+"`plumedCommunications.defaults.COMPONENT_NODEV={\"period\":None, "
+"\"derivative\":False}`"
+
+#: README.md:141
+msgid "Calculate"
+msgstr ""
+
+#: README.md:143
+msgid ""
+"If `CALCULATE` is not specified, plumed will search for a function named "
+"\"plumedCalculate\" plumed will read the variable returned accordingly to "
+"what it was specified in the initialization dict."
+msgstr ""
+
+#: README.md:147
+msgid ""
+"The calculate function must, as all the other functions accept a "
+"`plumedCommunications.PythonCVInterface` (or a "
+"`plumedCommunications.PythonFunction` in case of a pyfunction) object as "
+"only input."
+msgstr ""
+
+#: README.md:150
+msgid ""
+"The calculate function must either return a float or a tuple or, in the case"
+" of multiple components, a dict whose keys are the name of the components, "
+"whose elements are either float or tuple."
+msgstr ""
+
+#: README.md:154
+msgid ""
+"Plumed will assign automatically the result to the CV (to the key named "
+"element), if the name of the component is missing the calculation will be "
+"interrupted with an error message. If derivatives are disabled it will "
+"expect a float(or a double). In case of activated derivatives it will "
+"interrupt the calculation if the return value would not be a tuple. The "
+"tuple should be (float, ndArray(nat,3),ndArray(3,3)) with the first elements"
+" the value, the second the atomic derivatives and the third the box "
+"derivative (that can also have shape(9), with format (x_x, x_y, x_z, y_x, "
+"y_y, y_z, z_x, z_y, z_z)), if the box derivative are not present a WARNING "
+"will be raised, but the calculation won't be interrupted."
+msgstr ""
+
+#: README.md:166
+msgid "Prepare"
+msgstr ""
+
+#: README.md:168
+msgid ""
+"If the `PREPARE` keyword is used, the defined function will be called at "
+"prepare time, before calculate. The returned \"prepare\" dictionary can "
+"contain a `\"setAtomRequest\"` key with a parseable ATOM string, like in the"
+" standard plumed input (or a list of indexes, 0 based)."
+msgstr ""
+
+#: README.md:180
+msgid "Update"
+msgstr ""
+
+#: README.md:182
+msgid ""
+"If the `UPDATE` keyword is used, the defined function will be called at "
+"update time, after calculate. As now plumed will ignore the return of this "
+"function (but it stills need to return a dict) and it is intended to "
+"accumulate things or post process data afer calculate"
+msgstr ""
+
+#: README.md:187
+msgid ""
+"In the example `plmdAction.data[\"pycv\"]=0` is initialized in `pyinit` and "
+"its value is updated in calculate."
+msgstr ""
+
+#: README.md:191
+msgid "The `data` attribute"
+msgstr ""
+
+#: README.md:192
+msgid ""
+"The plumedCommunications.PythonCVInterface has a `data` attribute that is a "
+"dictionary and can be used to store data during the calculations"
+msgstr ""

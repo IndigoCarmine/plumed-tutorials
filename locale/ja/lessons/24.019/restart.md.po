@@ -1,0 +1,39 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: restart.md:1
+msgid "Restart Note"
+msgstr ""
+
+#: restart.md:3
+msgid ""
+"To restart your simulation for additional steps, you have to configure the "
+"atoms object in the last state of the previous simulation and to set the "
+"steps value in the Plumed calculator. This means you would have to change "
+"the initialization of the `atoms` object as follows:"
+msgstr ""
+
+#: restart.md:15
+msgid "and the definition of the calculator becomes"
+msgstr ""
+
+#: restart.md:22
+msgid ""
+"where the three points must be replaced by the other arguments of the "
+"calculator. Alternatively, you can initialize your calculator using the "
+"following script"
+msgstr ""
+
+#: restart.md:35
+msgid "[&larr; Biased simulation: Well Tempered Metadynamics](MTD.md)"
+msgstr ""
+
+#: restart.md:36
+msgid "[Ab-initio: Small Silver Cluster &rarr;](SC.md)"
+msgstr ""

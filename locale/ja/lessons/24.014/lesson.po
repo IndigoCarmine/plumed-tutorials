@@ -1,0 +1,23 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lesson.yml:title
+msgid ""
+"Alpha-Fold Metainference for structural ensemble prediction of a partially "
+"disordered protein"
+msgstr ""
+"Alpha-Fold Metainference による Partially Disordered Protein の構造 Ensemble の予測"
+
+#: lesson.yml:description
+msgid ""
+"A tutorial about how metainference can be used in tandem with Alpha-fold to "
+"predict the ensemble of structures for a partially disordered protein."
+msgstr ""
+"Metainference と Alpha-fold を組み合わせて Partially Disordered Protein の構造 Ensemble"
+" を予測する方法を学ぶチュートリアル。"

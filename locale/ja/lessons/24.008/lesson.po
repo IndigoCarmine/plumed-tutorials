@@ -1,0 +1,16 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lesson.yml:title
+msgid "Using the maze module"
+msgstr "maze モジュールの使い方"
+
+#: lesson.yml:description
+msgid "Sampling ligand-protein dissociation using the maze module"
+msgstr "maze モジュールを用いた Ligand-Protein Dissociation の Sampling"

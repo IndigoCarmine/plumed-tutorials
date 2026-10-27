@@ -1,0 +1,122 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: SC.md:1
+msgid "Ab-initio Metadynamics: Small Silver Cluster"
+msgstr ""
+
+#: SC.md:3
+msgid ""
+"In the same way as we analyzed the toy model, we can also obtain the free "
+"energy profile using an Ab-initio calculator. In this part of the tutorial, "
+"we show how to find the free energy surface of an Ag-6 cluster presented in "
+"the paper [D. Sucerquia *et. al.*, JCP, "
+"2022](https://doi.org/10.1063/5.0082332). There, we showed that this cluster"
+" is the smallest silver cluster where entropic effects at room temperature "
+"boost the non-planar isomer probability to a competing state."
+msgstr ""
+
+#: SC.md:5
+msgid "Collective variables"
+msgstr ""
+
+#: SC.md:7
+msgid ""
+"To obtain a proper exploration of the different states of the silver "
+"cluster, we can use the coordination number (C) and the radius of gyration "
+"(R) as collective variables. These Collective variables are defined as"
+msgstr ""
+
+#: SC.md:13 SC.md:27
+msgid "and"
+msgstr ""
+
+#: SC.md:19
+msgid ""
+"where $r_i$ is the position of atom $i$, $r_{CM}$ is the center of mass of "
+"the cluster and $N_a$ is the number of atoms of the cluster. This CV gives "
+"information about how disperse the system is with respect to the center of "
+"mass. $C$ and $R$ enable extracting information about the shape of the "
+"cluster and permit differentiating the free-energy minima found by DFT "
+"optimization, which are expected to be metastable states in the free energy "
+"landscape."
+msgstr ""
+
+#: SC.md:21
+msgid ""
+"By performing short WT-MTD along these CVs, we noticed that there were "
+"isomers with broken bonds or that formed linear clusters, which are not of "
+"interest in the isomerisation process. Therefore, there are regions of the "
+"space that are thermodynamically insignificant. Considering how expensive "
+"Ab-initio calculations are, and to avoid enhancing the exploration toward "
+"these regions, we created a new set of CVs (CV1 and CV2) that are a rotation"
+" of C and R, which allow us to easily apply a constraint, as in the previous"
+" example. The rotated CVs are defined as"
+msgstr ""
+
+#: SC.md:33
+msgid ""
+"Using this CV setup for WT-MTD, we added walls using repulsive semi-harmonic"
+" potentials that act when CV1 is lower than 8 with harmonic constant 10 eV "
+"and values of CV2 greater than 3.3 with harmonic constant 50 eV."
+msgstr ""
+
+#: SC.md:35
+msgid "Running the Simulation"
+msgstr ""
+
+#: SC.md:37
+msgid "**WARNING**"
+msgstr "**注意**"
+
+#: SC.md:39
+msgid ""
+"The aim of this tutorial is to show an example of the capabilities of the "
+"ASE-PLUMED calculatory. To obtain a full reconstruction of the free energy "
+"surface, metadynamics must to run for a long time to reach convergence. This"
+" could take many hours (or even days) to be completed. The code presented "
+"here runs for 1000 time steps, which gives an estimate of the free energy "
+"surface, although real convergence cannot yet be guaranteed. For more "
+"details on how we achieved convergence in this case, check the paper [D. "
+"Sucerquia *et. al.*, JCP, 2022](https://doi.org/10.1063/5.0082332). For "
+"longer simulations, you have to change the argument of the function `run` in"
+" the last line, and you might need to use High Performance Computing in "
+"order to complete it in a feasible time."
+msgstr ""
+
+#: SC.md:41
+msgid ""
+"You need to create a file called "
+"[`plumedSC.dat`](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/plumedSC.dat) containing the lines,"
+msgstr ""
+
+#: SC.md:55
+msgid ""
+"Once this file is created, we can start the simulation from one of the DFT-"
+"optimized configurations, here called "
+"[isomerSC.xyz](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/isomerSC.xyz). Note that for this part of "
+"the tutorial you need to set up [GPAW](https://gpaw.readthedocs.io/), which "
+"is a DFT code. You can choose the QM code that you prefer. This can be done "
+"as shown in the file [MTD-SC.py](https://github.com/Sucerquia/ASE-"
+"PLUMED_tutorial/blob/master/files/MTD-SC.py):"
+msgstr ""
+
+#: SC.md:111
+msgid ""
+"After running this same code but changing the temperature and the number of "
+"time steps, you can obtain the free energy surfaces shown in Figure 4."
+msgstr ""
+
+#: SC.md:117
+msgid ""
+"**Figure 4.** Free energy surface of a Ag6 cluster at three different "
+"temperatures."
+msgstr ""

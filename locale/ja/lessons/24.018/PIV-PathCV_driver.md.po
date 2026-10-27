@@ -1,0 +1,44 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: PIV-PathCV_driver.md:1
+msgid "Mapping a trajectory into PIV-PathCV space"
+msgstr ""
+
+#: PIV-PathCV_driver.md:3
+msgid ""
+"The simplest version of PathCV needs the specification of two reference "
+"configurations, and for each of them one can compute the PIV as follows"
+msgstr ""
+
+#: PIV-PathCV_driver.md:44
+msgid ""
+"here the PIV is computed using Hydrogen (HW) and Oxygen (OW) atoms as named "
+"in the Ih.pdb and Liq.pdb files. The PIV version of the example above uses "
+"distances scaled by the cubic root of the ratio between a reference volume "
+"(VOLUME=4.589575) and the volume of the cell along the trajectory."
+msgstr ""
+
+#: PIV-PathCV_driver.md:46
+msgid ""
+"PIV-PathCV collective variables (s and z) can then be computed by adding to "
+"the plumed.dat file the following lines:"
+msgstr ""
+
+#: PIV-PathCV_driver.md:53
+msgid ""
+"Compute the the values of the PIV-PathCV along the provided trajectory "
+"(traj.xtc) as a function of time using the plumed driver:"
+msgstr ""
+
+#: PIV-PathCV_driver.md:58
+msgid ""
+"Please note that atoms need to be listed in the same order in all reference "
+"files and in the trajectory."
+msgstr ""

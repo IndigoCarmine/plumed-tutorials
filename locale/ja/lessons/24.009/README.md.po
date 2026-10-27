@@ -1,0 +1,95 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: README.md:1
+msgid ""
+"Running Multiple Walkers Metadynamics Simulations with ASE and PLUMED Using "
+"a MACE Potential"
+msgstr ""
+
+#: README.md:3
+msgid ""
+"The following is the workflow to run multiple walkers metadynamics "
+"simulation with MACE as the interatomic potential and ASE as the MD engine:"
+msgstr ""
+
+#: README.md:5
+msgid "Train the MACE Potential and Prepare the System:"
+msgstr ""
+
+#: README.md:6
+msgid "Follow the external tutorials to train your MACE potential."
+msgstr ""
+
+#: README.md:7
+msgid ""
+"Decide the number of walkers and the starting configuration of each walker."
+msgstr ""
+
+#: README.md:8
+msgid "Create a separate directory for each walker."
+msgstr ""
+
+#: README.md:9
+msgid ""
+"Equilibrate the system at its local minimum structure from the training set "
+"to ensure that the potential is stable."
+msgstr ""
+
+#: README.md:10
+msgid ""
+"If the walkers start from different local minima, perform additional "
+"equilibration for each local minimum if necessary."
+msgstr ""
+
+#: README.md:12
+msgid "Setup the Multiple Walkers Metadynamics Simulations:"
+msgstr ""
+
+#: README.md:13
+msgid "Create a directory to store all the bias potentials being added."
+msgstr ""
+
+#: README.md:14
+msgid ""
+"Write a separate PLUMED input file for each walker to define the CVs and "
+"metadynamics setup."
+msgstr ""
+
+#: README.md:16
+msgid "Run the Simulations:"
+msgstr ""
+
+#: README.md:17
+msgid "Run all the walkers with the MD engine of choice."
+msgstr ""
+
+#: README.md:18
+msgid ""
+"Monitor the simulations of all the walkers to ensure that all the metastable"
+" states and transitions of interest are being explored."
+msgstr ""
+
+#: README.md:20
+msgid "Analyze the Results and Post-Processing:"
+msgstr ""
+
+#: README.md:21
+msgid "Use PLUMED tools to analyze the CVs and the bias potentials."
+msgstr ""
+
+#: README.md:22
+msgid ""
+"Generate the free energy surface by summing up all the bias potentials or "
+"reweighing the biases applied."
+msgstr ""
+
+#: README.md:23
+msgid "Check the convergence of the results."
+msgstr ""

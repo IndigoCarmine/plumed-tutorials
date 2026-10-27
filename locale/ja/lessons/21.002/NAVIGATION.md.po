@@ -1,0 +1,162 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "PLUMED Masterclass 21.2: Statistical errors in MD"
+msgstr ""
+
+#: NAVIGATION.md:3
+msgid ""
+"This lesson was given as part of the PLUMED masterclass series in 2021. It "
+"includes:"
+msgstr "このレッスンは、2021年の PLUMED Masterclass シリーズの一環として実施された。内容は次のとおりである。"
+
+#: NAVIGATION.md:5
+msgid ""
+"A video that explain the theory covered and a second video which shows you "
+"how the exercises should be completed."
+msgstr "扱う理論を解説する動画と、演習の解き方を示す2本目の動画。"
+
+#: NAVIGATION.md:6
+msgid "A series of exercises that you should try to complete yourself."
+msgstr "自分で取り組む一連の演習。"
+
+#: NAVIGATION.md:7
+msgid ""
+"Some supplementary python notebooks that provide further background "
+"information on the exercise."
+msgstr "演習の背景知識を補う Python Notebooks。"
+
+#: NAVIGATION.md:9
+msgid ""
+"The flow chart shown below indicates the order in which you should consult "
+"the resources. You can click on the nodes to access the various resources. "
+"Follow the thick black lines for the best results. The resources that are "
+"connected by dashed lines are supplmentary resources that you may find "
+"useful when completing the exercise."
+msgstr ""
+"下のフローチャートは資料を参照する順序を示している。各ノードをクリックすると資料を開ける。太い黒線に沿って進めることを推奨する。破線でつながる資料は、演習に取り組む際に役立つ補足資料である。"
+
+#: NAVIGATION.md:11
+msgid ""
+"This lesson was the second masterclass in the 2021 series. You will likely "
+"be able to complete the exercise without completing all the exercises in the"
+" first masterclass in the series. However, the earlier masterclass contains "
+"instructions for installing PLUMED using conda that you may need to consult "
+"if you have not installed it already."
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:15
+msgid "PLUMED intro"
+msgstr "PLUMED 入門"
+
+#. mermaid node label
+#: NAVIGATION.md:15
+msgid "Lecture I"
+msgstr "講義 I"
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "Instructions"
+msgstr "演習の手順"
+
+#. mermaid node label
+#: NAVIGATION.md:17
+msgid "how data was generated"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:18
+msgid "template notebook"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:19
+msgid "Lecture II"
+msgstr "講義 II"
+
+#. mermaid node label
+#: NAVIGATION.md:22
+msgid "solution"
+msgstr "解答"
+
+#. mermaid node label
+#: NAVIGATION.md:23
+msgid "alternative solution"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:24
+msgid "installation advice"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:25
+msgid ""
+"This elementary lesson shows you how to install PLUMED and some basic and "
+"more advanced syntax. You will only need to complete up to exercise 1 of "
+"this earlier lesson to complete these exercises on statistical errors."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:26
+msgid ""
+"A lecture that was given on February 1st 2021 as part of the plumed "
+"masterclass series that introduces you to the exercises in this lesson"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:27
+msgid "The instructions for the exercises"
+msgstr "演習の手順"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:28
+msgid ""
+"A python notebook that shows how the data sets in the files "
+"uncorrelated_data, correlated_data and weighted data that are all used in "
+"the exericses was generated"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:29
+msgid ""
+"A python notebook file that explains how you can work on the exercises from "
+"a python notebook. Advice on running PLUMED from a notebook and on plotting "
+"the data that is generated is given."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:30
+msgid ""
+"A lecture that was given on February 8th 2021 as part of the plumed "
+"masterclass series that goes through the solutions to the exercises in the "
+"lesson"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:31
+msgid ""
+"A python notebook file that provides a complete set of solutions to the "
+"exercises"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:32
+msgid ""
+"A second python notebook file that contains solutions to the exercises. In "
+"this notebook a different method has been used to generate the figures "
+"showing the final free energy surfaces."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:33
+msgid "Some advice on installing PLUMED so you can do this exercise"
+msgstr ""

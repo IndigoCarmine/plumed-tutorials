@@ -1,0 +1,52 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 2dmeta.md:1
+msgid ""
+"Bi-dimensional metadynamics simulation of the cis-trans isomerization of a "
+"Prolyl Peptide"
+msgstr ""
+
+#: 2dmeta.md:3
+msgid ""
+"Input for PLUMED specifying a two-dimensional metadynamics simulation of the"
+" cis-trans isomerization in a Prolyl peptide. The collective variables are "
+"the dihedral angles omega and psi. Omega captures the cis-trans transition "
+"across the peptide bond, while psi serves as an auxiliary collective "
+"variable, aiding in the exploration and equilibration of the peptide's "
+"conformational space during the isomerization process."
+msgstr ""
+
+#: 2dmeta.md:28
+msgid ""
+"The numbers in the *keyword* ```ATOMS``` are the atom numbers that define "
+"the two torsion angles, omega and psi."
+msgstr ""
+
+#: 2dmeta.md:30
+msgid ""
+"The *keyword* ```METAD``` directs *PLUMED* to perform a metadynamics "
+"calculation with a Gaussian height of ```HEIGHT=0.2``` and widths of "
+"```SIGMA=0.17,0.24```. The vaules of ```SIGMA``` roughly correspond to the "
+"standard deviation of each torsion angle, as computed in unbiased "
+"simulations."
+msgstr ""
+
+#: 2dmeta.md:32
+msgid ""
+"The line starting with ```PRINT``` instruct plumed to write collective "
+"variables and bias potential every 500 step to the file ```COLVAR```. The "
+"line starting with ```DUMPFORCES``` instruct plumed to write the applied "
+"biasing forces on the collective variables,```omega,psi``` to the file "
+"```forces.dat```. Writing these forces is useful for calculating the "
+"unbiased free energy using the force correction analysis method (FCAM, "
+"Marinelli et al. JCTC 2021, https://github.com/FCAM-NIH/FCAM). Detailed "
+"documentation on setup and analysis is provided on the Tutorial "
+"Instructions."
+msgstr ""

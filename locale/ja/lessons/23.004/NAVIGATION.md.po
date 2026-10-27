@@ -1,0 +1,61 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Rewriting the coordination for plumed in Cuda"
+msgstr ""
+
+#: NAVIGATION.md:3
+msgid ""
+"Here I am showing how to set up a plug-in that is compiled with the cuda "
+"compiler and that can be LOADed in plumed. The project consists in two "
+"parts: the actual [coordination implementation](Implementation.md) and a "
+"[helper module](Helpers.md) with the reduction algorithm and a tool for "
+"easing memory management."
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:13
+msgid "Introduction"
+msgstr "はじめに"
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "GROUPA,GROUPB"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:28
+msgid "The introduction"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:29
+msgid "The coordination implementation"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:30
+msgid "The coordination between two groups"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:31
+msgid "The coordination in pairs"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:32
+msgid "A simple manual with the helper library"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:33
+msgid "Pushing the GPU"
+msgstr ""

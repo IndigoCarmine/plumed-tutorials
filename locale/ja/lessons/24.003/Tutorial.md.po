@@ -1,0 +1,239 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Tutorial.md:1
+msgid "A simple benchmark example"
+msgstr ""
+
+#: Tutorial.md:4
+msgid "Now we'll get our hands dirty."
+msgstr ""
+
+#: Tutorial.md:6
+msgid ""
+"I will make a short demonstration only using the COORDINATION command in "
+"plumed, since it is available with a zero-configuration plumed."
+msgstr ""
+
+#: Tutorial.md:8
+msgid "We will use the following input as a base for the benchmark"
+msgstr ""
+
+#: Tutorial.md:17
+msgid ""
+"I will also remove the backups of the output files by using the command "
+"`export PLUMED_MAXBACKUP=0`"
+msgstr ""
+
+#: Tutorial.md:19
+msgid "First look at the output"
+msgstr ""
+
+#: Tutorial.md:25
+msgid ""
+"The first lines of the output are a header with the information needed to "
+"reproduce the benchmark run:"
+msgstr ""
+
+#: Tutorial.md:38
+msgid ""
+"The header makes it easier to reproduce and store the result of the "
+"benchmark."
+msgstr ""
+
+#: Tutorial.md:40
+msgid ""
+"The final lines contain the time information collected by the internal "
+"plumed timers. For each kernel+input combination, we have the usual plumed "
+"time report plus a few lines that show if the cost of the analysis varies "
+"along the run."
+msgstr ""
+
+#: Tutorial.md:63
+msgid "Most of our conclusions will be taken from these parts of the output"
+msgstr ""
+
+#: Tutorial.md:65
+msgid "Benchmarking the COORDINATION with OpenMP"
+msgstr ""
+
+#: Tutorial.md:85
+msgid ""
+"My CPU has 6 physical cores but can execute 12 threads. By looking at all "
+"the possibilities we can see how plumed performs with different numbers of "
+"threads."
+msgstr ""
+
+#: Tutorial.md:87
+msgid "To extract the data we can use a bash script like:"
+msgstr ""
+
+#: Tutorial.md:102
+msgid "and obtain for each set of threads (here with 6) a table like this :"
+msgstr ""
+
+#: Tutorial.md:109
+msgid "Using the following simple Python script:"
+msgstr ""
+
+#: Tutorial.md:141
+msgid "We can then obtain:"
+msgstr ""
+
+#: Tutorial.md:143
+msgid "![](CoordinationVSthreads.png)"
+msgstr ""
+
+#: Tutorial.md:145
+msgid ""
+"If we use a logarithmic y-axis we can better visualize the timings for the "
+"the 100 atoms runs: ![](CoordinationVSthreads_log.png)"
+msgstr ""
+
+#: Tutorial.md:148
+msgid ""
+"We can see how the number of threads can speed up the calculation. Using all"
+" the threads might not be a good idea if you are editing files or if you "
+"have a browser opened on the same computer."
+msgstr ""
+
+#: Tutorial.md:150
+msgid "How to wrongly set up the neighbor list"
+msgstr ""
+
+#: Tutorial.md:153
+msgid "The choice of the switching function"
+msgstr ""
+
+#: Tutorial.md:155
+msgid ""
+"I choose `SWITCH={EXP D_0=1 R_0=0.25 D_MAX=2}` as a switching function not "
+"to demonstrate something physical, but to have a small cutoff and to use it "
+"with the neighbor list (NL), since only using R_0=1 will result in needing "
+"at least 6 nm of cutoff."
+msgstr ""
+
+#: Tutorial.md:157
+msgid "![](Switches.png)"
+msgstr ""
+
+#: Tutorial.md:161
+msgid ""
+"Computing the NL is costly, but the coordination calculation can be sped up "
+"considerably if the NL is set up correctly. The neighbor list operation "
+"compiles a list of atom pairs within the cutoff every `NL_STRIDE` steps, "
+"this makes the calculation of the coordination more efficient since it will "
+"be run on a subset of the total possible pairs of atoms."
+msgstr ""
+
+#: Tutorial.md:164
+msgid ""
+"`NL_STRIDE` should be set up with the system in mind: if the system is "
+"expected to show low atom mobility it is possible to choose a higher stride "
+"In the following run we can see how the benchmark can help when choosing the"
+" correct settings for your analysis/run."
+msgstr ""
+
+#: Tutorial.md:167
+msgid ""
+"Now we prepare two series of inputs with the neighbor list cutoff at 110, "
+"150 and 200% of `R_0`, and with `NL_STRIDE` set to 100 or 10 steps."
+msgstr ""
+
+#: Tutorial.md:169
+msgid ""
+"The files will be called `plumedNL%.dat` and `plumedNL%_shortstride.dat`, "
+"for example `plumedNL200_shortstride.dat` will be:"
+msgstr ""
+
+#: Tutorial.md:179
+msgid "The script to run all the benchmarks looks like this:"
+msgstr ""
+
+#: Tutorial.md:197
+msgid "The results obtained are: ![](CoordinationNL.png)"
+msgstr ""
+
+#: Tutorial.md:200
+msgid ""
+"In this image, the lighter part of each column is the time that plumed "
+"passes in the calculate() part of the analysis. And for each \"number of "
+"atoms\" the times are divided by the total time in the calculation without "
+"the NL."
+msgstr ""
+
+#: Tutorial.md:202
+msgid ""
+"As stated before the NL will reduce the number of computations done, but if "
+"set up incorrectly (too few steps between NL calculations or too much NL "
+"cutoff) it can hinder the performance."
+msgstr ""
+
+#: Tutorial.md:204
+msgid ""
+"This example mainly demonstrates the speedup and the costs of the NL: if you"
+" know your system an NL can be used to speed up the calculations "
+"significantly without changing the results."
+msgstr ""
+
+#: Tutorial.md:206
+msgid ""
+"There is something odd about this: see the notebook for some "
+"[details](Tutorial_notebook.ipynb#extra-cache)"
+msgstr ""
+
+#: Tutorial.md:209
+msgid "Script to produce the image"
+msgstr ""
+
+#: Tutorial.md:212
+msgid ""
+"`plumed_bench_pp` is a python package (`pip install -U plumed-bench-pp`) "
+"that I wrote to speed up the post-processing of the result of the benchmark"
+msgstr ""
+
+#: Tutorial.md:275
+msgid "Extra: NL and mobility"
+msgstr ""
+
+#: Tutorial.md:277
+msgid ""
+"I have prepared an extra run just to show that if a system is too mobile a "
+"poorly calibrated NL could hurt the results."
+msgstr ""
+
+#: Tutorial.md:287
+msgid ""
+"This is of course an exaggerated situation, but here is the outcome of the "
+"run:"
+msgstr ""
+
+#: Tutorial.md:289
+msgid "Time"
+msgstr ""
+
+#: Tutorial.md:289
+msgid "no NL"
+msgstr ""
+
+#: Tutorial.md:289
+msgid "with NL"
+msgstr ""
+
+#: Tutorial.md:322
+msgid ""
+"Since the NL is calculated every 10 steps and the atoms are always randomly "
+"displaced the results are correct only every 10 steps."
+msgstr ""
+
+#: Tutorial.md:324
+msgid ""
+"NB.: at the time of writing this, \"sc\" is not mobile at all, while "
+"\"cube\" randomly displaces all the atoms at each single step"
+msgstr ""

@@ -1,0 +1,165 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contactMatrix.md:1
+msgid "Contact matices and coordination numbers"
+msgstr ""
+
+#: contactMatrix.md:3
+msgid ""
+"The $i$, $j$ element of the conntact matrix, $\\mathbf{C}_{ij}$, is one if "
+"atoms $i$ and $j$ are within a certain distance $r_c$ of each other and zero"
+" otherwise. Consequently, if $\\mathbf{C}$ is multiplied from the back by a "
+"vector of ones the $i$th element of the resulting matrix tells you the "
+"number of atoms that are within $r_c$ of atom $i$. In other words, the "
+"coordination numbers of the atoms can be calculated from the contact matrix "
+"by doing matrix vector multiplication."
+msgstr ""
+
+#: contactMatrix.md:7
+msgid ""
+"This realisation about the relationship between the contact map and the "
+"coordination number is heavily used in the new version of PLUMED. For "
+"example, to calculate and print the coordination numbers of the first 7 "
+"atoms in the system with themselves you would use an input something like "
+"this:"
+msgstr ""
+
+#: contactMatrix.md:17
+msgid ""
+"Implmenting the coordination number this way is useful as there are many "
+"different ways to define whether two atoms/molecules and to construct a "
+"\"contact\" matrix based on the result. For example:"
+msgstr ""
+
+#: contactMatrix.md:20
+msgid ""
+"You could say that two molecules are connected if they are within a certain "
+"distance of each other and if they have the same orientation."
+msgstr ""
+
+#: contactMatrix.md:21
+msgid ""
+"You could say that two water molecules are connected if they are hydrogen "
+"bonded to each other."
+msgstr ""
+
+#: contactMatrix.md:22
+msgid ""
+"You could say that two atoms are connected if they are within a certain "
+"distance of each other and if they have similar values for a CV."
+msgstr ""
+
+#: contactMatrix.md:24
+msgid ""
+"When the coordination numbers is implemented in the way described above (by "
+"doing the matrix-vector multiplication) you have the flexibility to define "
+"the contact matrix that is used in the multiplication in whatever way you "
+"choose. In other words, the newer implementation of the coordination number "
+"is much more flexible."
+msgstr ""
+
+#: contactMatrix.md:27
+msgid "Contact map chains"
+msgstr ""
+
+#: contactMatrix.md:29
+msgid ""
+"As discussed on [this page](MultiColvar.md), PLUMED avoids storing the "
+"derivatives for each element of a vector by recalculating each element of "
+"the vector during the backwards apply loop. We also use this trick when "
+"working with matrices that are passed between action. When we compute the CV"
+" defined by the input below:"
+msgstr ""
+
+#: contactMatrix.md:46
+msgid ""
+"for example, the diagram showing how data passes through the PLUMED actions "
+"as the values calculated is as follows:"
+msgstr ""
+
+#: contactMatrix.md:63
+msgid ""
+"When the forces from the biasvalue are applied on s they are passed through "
+"the actions as shown below:"
+msgstr ""
+
+#: contactMatrix.md:80
+msgid ""
+"During this backwards pass through the actions the elements of the contact "
+"matrix are recalculated so we can accumulate the derivatives."
+msgstr ""
+
+#: contactMatrix.md:82
+msgid "Optimisation details"
+msgstr ""
+
+#: contactMatrix.md:84
+msgid ""
+"The contact matrix is sparse. Each atom is only be connected to a small "
+"number of neighbours and the vast majority of the elements of the contact "
+"matrix are thus zero. To reduce the amount of memory that PLUMED requires I "
+"have thus implemented sparse matrix storage. If you do calculate and store a"
+" contact matrix only the elements of the matrix that are non-zero are "
+"stored."
+msgstr ""
+
+#: contactMatrix.md:88
+msgid ""
+"We can also use the sparsity of the contact matrix to make the time required"
+" to compute a contact matrix scale linearly rather than quadratically with "
+"the number of atoms. Element $i,j$ of the contact matrix is only non-zero if"
+" two atoms are within a cutoff, $r_c$. We can determine that many pairs of "
+"atoms are further appart than $r_c$ without computing the distance between "
+"these atoms by using divide and conquer strategies such as linked lists and "
+"neighbour lists. These optimisation tricks are implemented in the base class"
+" AgencyMatrixBase. This class therefore ensures that only the subset of "
+"elements of the contact matrix that are definitely non-zero are computed. "
+"Furthermore, because coordination numbers are computed within the chain of "
+"actions only the non-zero elements of the matrix are propegated onwards "
+"through the chain when we multiply by the vector of ones. In the flowchart "
+"diagrams that I have shown previously the blue subgraphs illustrate how data"
+" is passed through actions as the elements of the matrix row are evaluated."
+msgstr ""
+
+#: contactMatrix.md:95
+msgid "A complicated CV"
+msgstr ""
+
+#: contactMatrix.md:97
+msgid ""
+"Consider the CV that was used to study perovskite nucleation in [this "
+"paper](https://pubs.acs.org/doi/abs/10.1021/acs.chemmater.9b04259). The CV "
+"here measures the number of methylamonium molecules that are attached to at "
+"least 5 other methylamoniusm molecules, at least 7 lead atoms and at least "
+"11 ionide ions. We can calculate something akin to this CV and apply a "
+"restraint on the resulting quantity by using the following input file:"
+msgstr ""
+
+#: contactMatrix.md:143
+msgid ""
+"When the forward loop through the actions in the above input file is "
+"performed data is passed as follows:"
+msgstr ""
+
+#: contactMatrix.md:188
+msgid ""
+"We then calculate the derivatives of ff with respect to the input atomic "
+"positions by passing backwards through the actions as follows and "
+"recalculating the elements of the various matrices are vectors that are used"
+" in the calculation:"
+msgstr ""
+
+#: contactMatrix.md:235
+msgid ""
+"In other words, we can quickly prototype a really rather complicated CV "
+"directly from the input file. Furthermore, because this complicated CV is "
+"constructed from simpler pieces it is hopefully easier for other researchers"
+" to quickly understand what the CV is calculating."
+msgstr ""

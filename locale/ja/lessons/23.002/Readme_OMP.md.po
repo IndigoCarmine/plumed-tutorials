@@ -1,0 +1,92 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Readme_OMP.md:1
+msgid "Threading: openMP"
+msgstr ""
+
+#: Readme_OMP.md:24
+msgid ""
+"This is nearly identical to the serial version. With few differences: We are"
+" asking the system if we want to run with more threads with `unsigned nt = "
+"OpenMP::getNumThreads()`, (if is the first time that it is called stores and"
+" return the number in the environmental variable `PLUMED_NUM_THREADS`, "
+"otherwise it will return the stored number)."
+msgstr ""
+
+#: Readme_OMP.md:27
+msgid ""
+"Then with that information we open a parallel environment with `#pragma omp "
+"parallel num_threads(nt)` in which we explicilty specify the number of "
+"threads (otherwise il will use the number in the environmntal variable "
+"`OMP_NUM_THREADS`). Note that the pragma is prepended to a scope delimited "
+"by curly braces: the code within them will be distribuited between the "
+"threads."
+msgstr ""
+
+#: Readme_OMP.md:30
+msgid ""
+"Then we have the next pragma instruction: `#pragma omp for`: this pragma "
+"will tranform the `for` in order to make it work in the multithreaded "
+"environment."
+msgstr ""
+
+#: Readme_OMP.md:33
+msgid "SPOILER"
+msgstr ""
+
+#: Readme_OMP.md:35
+msgid "There is at least a race condition here: can you spot it?"
+msgstr ""
+
+#: Readme_OMP.md:38
+msgid "ANSWER"
+msgstr ""
+
+#: Readme_OMP.md:40
+msgid ""
+"`ncoord` is the race condition: each time two threads or more threads "
+"execute the `+=` simultaneusly they will increment the `ncoord` from the "
+"same value, meaning the the number saved in memory has been incremented only"
+" once instead of twice or more."
+msgstr ""
+
+#: Readme_OMP.md:42
+msgid ""
+"The solution is to append `reduction(+:)` to for pragma: `#pragma for "
+"reduction(+:)`"
+msgstr ""
+
+#: Readme_OMP.md:46
+msgid "Plumed tools used:"
+msgstr ""
+
+#: Readme_OMP.md:47
+msgid ""
+"`tools/OpenMP.h` contains some function that are useful in working with "
+"openMP."
+msgstr ""
+
+#: Readme_OMP.md:48
+msgid ""
+"`OpenMP::getNumThreads()` to get the number of threads from the "
+"environmental variable `PLUMED_NUM_THREADS"
+msgstr ""
+
+#: Readme_OMP.md:50
+msgid "[back](Readme.md)"
+msgstr "[戻る](Readme.md)"
+
+#: Readme_OMP.md:52
+msgid ""
+"See also: [serial](Readme_Serial.md) [openMP](Readme_OMP.md) "
+"[MPI](Readme_MPI.md) [Cuda](Readme_CUDA.md)"
+msgstr ""
+"関連資料：[Serial](Readme_Serial.md) [OpenMP](Readme_OMP.md) [MPI](Readme_MPI.md)"
+" [CUDA](Readme_CUDA.md)"

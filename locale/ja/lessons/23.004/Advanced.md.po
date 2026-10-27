@@ -1,0 +1,423 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Advanced.md:1
+msgid "Advanced implementation"
+msgstr ""
+
+#: Advanced.md:3
+msgid ""
+"I am assuming that you have at least read the [base "
+"version](Implementation.md) of the implementation procedure."
+msgstr ""
+
+#: Advanced.md:5
+msgid "Here I will introduce a few much more advanced concepts:"
+msgstr ""
+
+#: Advanced.md:7
+msgid ""
+"the link cells algorithm, as described by Allen, and as implemented in "
+"plumed in the LinkCells class (you can get it with `\"#include "
+"\"plumed/tools/LinkCells.h\"`)"
+msgstr ""
+
+#: Advanced.md:8
+msgid "What is the shared memory in Cuda"
+msgstr ""
+
+#: Advanced.md:10
+msgid "How does LinkCells work?"
+msgstr ""
+
+#: Advanced.md:12
+msgid ""
+"The `LinkCells` algorithm is similar to the `NeighborList` one, but the list"
+" of neighbors will be shared by a group of atoms. In a few words: every _N_ "
+"steps, typically `N==1`, the following algorithm is run:"
+msgstr ""
+
+#: Advanced.md:15
+msgid "Divide the simulation box into cells"
+msgstr ""
+
+#: Advanced.md:16
+msgid "Assign each atom to the cell in which it is contained"
+msgstr ""
+
+#: Advanced.md:17
+msgid ""
+"Determine the list of “neighbor” cells for each cell (the adjacent ones, "
+"also in diagonal, for example, in the image below, for `6` are `1 2 3 5 7 9 "
+"10 11`), in 3D, the neighbor cells will be 26 -or fewer if the box is sliced"
+" into fewer boxes-"
+msgstr ""
+
+#: Advanced.md:18
+msgid ""
+"Assign to each cell the _candidate neighbors_ atoms by merging the list of "
+"atoms of the central cell and the ones of the neighbors cells."
+msgstr ""
+
+#: Advanced.md:20
+msgid ""
+"For example in the image below all the atoms in cell `6` share the list of "
+"_candidate neighbors_ that are the atoms contained in the e `1 2 3 5 6 7 9 "
+"10 11` cells."
+msgstr ""
+
+#: Advanced.md:22
+msgid ""
+"In this way for collection of atoms assigned to a specific cell we will have"
+" a shared neighbors list. Thil will be used to make the GPU process less "
+"data and to save some memory."
+msgstr ""
+
+#: Advanced.md:25
+msgid "![](./grid.svg)"
+msgstr ""
+
+#: Advanced.md:27
+msgid "Shared memory in Cuda"
+msgstr ""
+
+#: Advanced.md:29
+msgid ""
+"The shared memory in Cuda is a (small) portion of memory that is shared "
+"between the threads in a group of a kernel. It acts as a sort of level 3 "
+"cache for those kernels, so that accessing the data in the shared memory is "
+"significantly faster than accessing the data in the RAM of the GPU."
+msgstr ""
+
+#: Advanced.md:31
+msgid ""
+"Moreover, you can build the shared memory in order to access it in a less "
+"sparse way than you would access the standard RAM. This “massage” of the "
+"memory is a small tradeoff and usually ends up giving a huge advantage in "
+"speed."
+msgstr ""
+
+#: Advanced.md:33
+msgid "Running the coordination with LinkCells"
+msgstr ""
+
+#: Advanced.md:35
+msgid ""
+"Now I will explain a simplified version of the CudaCoordination "
+"implementation that will be shipped with PLUMED v2.11."
+msgstr ""
+
+#: Advanced.md:37
+msgid "We want to do a few things:"
+msgstr ""
+
+#: Advanced.md:39
+msgid "On the CPU:"
+msgstr ""
+
+#: Advanced.md:40
+msgid "We calculate the linkCells"
+msgstr ""
+
+#: Advanced.md:41
+msgid "We assign the addresses of the atoms to the various cells"
+msgstr ""
+
+#: Advanced.md:42
+msgid ""
+"We create the _candidate neighbors_ list for each cell and we store it on "
+"the CPU"
+msgstr ""
+
+#: Advanced.md:43
+msgid "We transfer all the data from CPU to GPU"
+msgstr ""
+
+#: Advanced.md:44
+msgid ""
+"We instruct the GPU on the dimensions of the cells an of the _candidate "
+"neighbors_ lists"
+msgstr ""
+
+#: Advanced.md:46
+msgid "On the GPU:"
+msgstr ""
+
+#: Advanced.md:47
+msgid "We load the shared memory"
+msgstr ""
+
+#: Advanced.md:48
+msgid "We calculate the Coordination, \"as usual\""
+msgstr ""
+
+#: Advanced.md:49
+msgid "Back on the CPU:"
+msgstr ""
+
+#: Advanced.md:50
+msgid ""
+"We collect and we reduce coordination and virial, as we did in the "
+"implementation example."
+msgstr ""
+
+#: Advanced.md:52
+msgid "Declaring some helpers"
+msgstr ""
+
+#: Advanced.md:54
+msgid ""
+"We declare the classes we will use to setup and calculate the LinkCells:"
+msgstr ""
+
+#: Advanced.md:61
+msgid "And we also setup the companion class:"
+msgstr ""
+
+#: Advanced.md:132
+msgid ""
+"this `cellSetup` is a trick class to pack all the cell index data used for "
+"calculation the coordination in a single array. All of this data will be "
+"passed to the GPU in with a single function call."
+msgstr ""
+
+#: Advanced.md:134
+msgid ""
+"Below you will see a NL variable in a few places, it is defined like this:"
+msgstr ""
+
+#: Advanced.md:143
+msgid "Setting up the list of _candidate neighbors_"
+msgstr ""
+
+#: Advanced.md:145
+msgid "Note that here I removed all the MPI safeguard for clarity."
+msgstr ""
+
+#: Advanced.md:147
+msgid ""
+"`LinkCells` must run on all the MPI processes, but the calculations usually "
+"needs to run ONLY on a limited subset (1) of GPUs, so it is possible to run "
+"the \"memory preparation\" instructions only on the main process."
+msgstr ""
+
+#: Advanced.md:158
+msgid "LinkCells needs the list of the indexes of the atoms:"
+msgstr ""
+
+#: Advanced.md:166
+msgid ""
+"We proceed with resetting the cells setup to update in which cell each atom "
+"is:"
+msgstr ""
+
+#: Advanced.md:186
+msgid ""
+"And lastly we take the cells informations and we prepare the list of indexes"
+" to be tranferred on the GPU:"
+msgstr ""
+
+#: Advanced.md:208
+msgid "`updateCellist` has the following shape:"
+msgstr ""
+
+#: Advanced.md:226
+msgid ""
+"We are going to extract the data from the CellCollections into the "
+"cellSetup, the two lists `nat_[InCells/otherAtoms]` store how long are the "
+"rispective list of atoms (`atomsIncells` and `otherAtoms`)."
+msgstr ""
+
+#: Advanced.md:228
+msgid ""
+"The data within `otherAtoms` and `atomsIncells` is organized like this: "
+"`c_0_id_0,c_0_id_1,...,c_0_id_N0` starting at position `0`, "
+"`c_n_id_0,c_n_id_1,...,c_n_id_Nn` starting at position `n*(biggestCell or "
+"maxNNExpected)`"
+msgstr ""
+
+#: Advanced.md:231
+msgid ""
+"In this way, we only need to store the dimension of the sublist and not the "
+"starting positions, that can be calculated when needed, this makes the "
+"algorithm slighly easier to set up at a small cost in memory"
+msgstr ""
+
+#: Advanced.md:264
+msgid "Moving the data on the GPU, and calling the kernel"
+msgstr ""
+
+#: Advanced.md:266
+msgid ""
+"Then we finally move the atomic neighbors data stored in "
+"`cellConfiguration_coord` on the GPU:"
+msgstr ""
+
+#: Advanced.md:275
+msgid ""
+"We will pass the position of the data with the helper methods of `cellSetup`"
+" we defined [above](#declaring-some-helpers)"
+msgstr ""
+
+#: Advanced.md:286
+msgid "We can prepare for submitting the kernel:"
+msgstr ""
+
+#: Advanced.md:289
+msgid "We set the number of parallel group to the number of cells"
+msgstr ""
+
+#: Advanced.md:295
+msgid ""
+"Each single group will run with a number of threads equal to the number of "
+"atoms in the cell with more atoms"
+msgstr ""
+
+#: Advanced.md:301
+msgid ""
+"We will work on the shared memory in chunks of data. We set the tiling size "
+"based on the maximum allowed shared memory size. The `maxAtomsPerCell` has "
+"been preempively determined by interrogating the CUDA API about the kernel."
+msgstr ""
+
+#: Advanced.md:309
+msgid ""
+"And finally we determine the size of the necessary shared memory, that it is"
+" proportional to the tile of _candidate neigbors_ atoms per iteration:"
+msgstr ""
+
+#: Advanced.md:316
+msgid "And finally we can submit the kernel:"
+msgstr ""
+
+#: Advanced.md:342
+msgid "The kernel"
+msgstr ""
+
+#: Advanced.md:344
+msgid ""
+"`calcType` is an helper class that hides the implementation details of the "
+"_dual_/_self_ calculation, the switching function and the pbcs."
+msgstr ""
+
+#: Advanced.md:365
+msgid "We setup the calculations:"
+msgstr ""
+
+#: Advanced.md:367
+msgid ""
+"We identify the current cell by detemining the block we are running in "
+"(remember 1 cell = 1 block)"
+msgstr ""
+
+#: Advanced.md:368
+msgid ""
+"We setup the shared memory from the allocated one (see [below](#appendix) "
+"for the Arena)"
+msgstr ""
+
+#: Advanced.md:369
+msgid ""
+"We understand if this thread will partecipate in the calculations or only in"
+" the memory loading"
+msgstr ""
+
+#: Advanced.md:370
+msgid ""
+"and from that we detemine which is the index of the atom on this thread"
+msgstr ""
+
+#: Advanced.md:371
+msgid ""
+"we setup some local memory (that should be allocated to register local to "
+"the thread)"
+msgstr ""
+
+#: Advanced.md:402
+msgid "Then we start the true calculation:"
+msgstr ""
+
+#: Advanced.md:404
+msgid ""
+"All the thread in the group will collectively load part of the global memory"
+" into the shared memory"
+msgstr ""
+
+#: Advanced.md:405
+msgid ""
+"Then the active threads will loop on the shared memory to calculate "
+"coordination and derivatives"
+msgstr ""
+
+#: Advanced.md:406
+msgid ""
+"If the number of _candidate neighbors_ is not finished we go back to loading"
+" data into the shared memory"
+msgstr ""
+
+#: Advanced.md:408
+msgid "We loop until we finished the _candidate neighbors_:"
+msgstr ""
+
+#: Advanced.md:414
+msgid ""
+"In each iteration we load the shared memory with the data from the global "
+"memory. Note that in this first loop each thread will run on a subset of the"
+" `tile_size` so that the effort of copying the the data is shared between "
+"all the threads in the group"
+msgstr ""
+
+#: Advanced.md:431
+msgid ""
+"The active threads will loop in the current loaded _candidate neighbors_, "
+"then every thread will wait for all the other before iterating in the "
+"subsequent memory loading (to avoid changing the values while the active "
+"threads are still working on that data)."
+msgstr ""
+
+#: Advanced.md:455
+msgid ""
+"Finally we copy the result in the global array, like in the base example."
+msgstr ""
+
+#: Advanced.md:477
+msgid "Appendix"
+msgstr ""
+
+#: Advanced.md:478
+msgid "Arena"
+msgstr ""
+
+#: Advanced.md:479
+msgid ""
+"The `sharedArena` class copies the idea of the _arena allocator_ to assign "
+"the shared memory data to specific types. The class is made up to not "
+"overlap the suballocation on each other."
+msgstr ""
+
+#: Advanced.md:495
+msgid ""
+"Here the \"arena\" concept is used on a chunk of memory that is already "
+"allocatea and that will automatically be deallocated after the kernel has "
+"finished its job. We are just using a toy version of the tecnique to treat "
+"subsequent chunks of \"generically\" allocated memory as if it of a certain "
+"type."
+msgstr ""
+
+#: Advanced.md:497
+msgid ""
+"The standard Arena allocator tecnique is more complex and aims at managing "
+"the memory with minimizing the number of `malloc` and `free` used. In a few "
+"words you allocate a big chunk of memory once and then you manage it by "
+"assigning part of it to different array or other structures, then the point "
+"become that you can reutilize the already allocated memory without asking "
+"for new allocation or deallocation. You just need to apply some more care in"
+" what you are asking doing with the initialization of the date and "
+"expecially in avoinding the reutilization of old pointers."
+msgstr ""

@@ -1,0 +1,70 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. mermaid node label
+#: NAVIGATION.md:3
+msgid "Metadynamics Intro"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:3
+msgid "CpH-Metadynamics intro"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:4
+msgid "CpH-MetaD source"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:5
+msgid "Conformational Analysis"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:6
+msgid "Protonation Analysis"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:7
+msgid "Solution"
+msgstr "解答"
+
+#. mermaid click tooltip
+#: NAVIGATION.md:9
+msgid ""
+"A brief introduction to metadynamics is useful before executing this "
+"tutorial"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:10
+msgid "A theoretical introduction to the CpH-Metadynamics method"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:11
+msgid "Take a look into the source page and material for the CpH-Metadynamics"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:12
+msgid "Perform the conformation analysis of CpH-Metadynamics."
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:13
+msgid "Perform the protonation analysis of CpH-Metadynamics"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:14
+msgid "A python notebook containing a full set of solutions for the exercise"
+msgstr ""

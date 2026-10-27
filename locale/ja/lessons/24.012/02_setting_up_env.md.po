@@ -1,0 +1,38 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 02_setting_up_env.md:1
+msgid "Download PLUMED"
+msgstr ""
+
+#: 02_setting_up_env.md:3
+msgid ""
+"Before proceeding, ensure that you have installed and compiled a working "
+"version of PLUMED. This will be important for later on during post analysis."
+" Details on installation can be found here: "
+"https://www.plumed.org/doc-v2.9/user-doc/html/_installation.html"
+msgstr ""
+
+#: 02_setting_up_env.md:5
+msgid "Create MACE environment"
+msgstr ""
+
+#: 02_setting_up_env.md:6
+msgid ""
+"Setting up the MACE-ASE-PLUMED interface is most easily achieved by using "
+"`conda` to create a new virtual environment. Follow the instructions below "
+"to create this environment and install the necessary modules for running our"
+" calculations. Ensure that you have `python3.9` or higher."
+msgstr ""
+
+#: 02_setting_up_env.md:25
+msgid ""
+"And that's it. When performing the tutorial tasks, always ensure to activate"
+" the virtual environment: `conda activate plumed_mace`."
+msgstr ""

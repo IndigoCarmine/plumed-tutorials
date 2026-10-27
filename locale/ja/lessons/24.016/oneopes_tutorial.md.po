@@ -1,0 +1,199 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: oneopes_tutorial.md:1
+msgid "Complete OneOPES Tutorial for Host-Guest Systems"
+msgstr ""
+
+#: oneopes_tutorial.md:3
+msgid "Table of Contents"
+msgstr ""
+
+#: oneopes_tutorial.md:4
+msgid "[System Preparation](#1-system-preparation)"
+msgstr ""
+
+#: oneopes_tutorial.md:5
+msgid ""
+"[Initial PLUMED Setup for Unbiased Run](#2-initial-plumed-setup-for-"
+"unbiased-run)"
+msgstr ""
+
+#: oneopes_tutorial.md:6
+msgid "[Running Unbiased Simulation](#3-running-unbiased-simulation)"
+msgstr ""
+
+#: oneopes_tutorial.md:7
+msgid "[Setting Up OneOPES Replicas](#4-setting-up-oneopes-replicas)"
+msgstr ""
+
+#: oneopes_tutorial.md:8
+msgid "[Running OneOPES Simulation](#5-running-oneopes-simulation)"
+msgstr ""
+
+#: oneopes_tutorial.md:10
+msgid "1. System Preparation"
+msgstr ""
+
+#: oneopes_tutorial.md:12
+msgid "Calculate atomic Charges"
+msgstr ""
+
+#: oneopes_tutorial.md:13
+msgid "Parameterize System"
+msgstr ""
+
+#: oneopes_tutorial.md:14
+msgid "Obtain initial binding pose"
+msgstr ""
+
+#: oneopes_tutorial.md:15
+msgid "Generate topology files"
+msgstr ""
+
+#: oneopes_tutorial.md:16
+msgid "Add water model and ions"
+msgstr ""
+
+#: oneopes_tutorial.md:17
+msgid "Run unbiased simulations"
+msgstr ""
+
+#: oneopes_tutorial.md:19
+msgid "1.6.1. Energy minimization"
+msgstr ""
+
+#: oneopes_tutorial.md:21
+msgid "1.6.2. NVT equilibration"
+msgstr ""
+
+#: oneopes_tutorial.md:23
+msgid "1.6.3. NPT equilibration"
+msgstr ""
+
+#: oneopes_tutorial.md:25
+msgid "1.6.4. Generate .tpr file for production"
+msgstr ""
+
+#: oneopes_tutorial.md:27
+msgid "2. Initial PLUMED Setup for Unbiased Run"
+msgstr ""
+
+#: oneopes_tutorial.md:29
+msgid "2.1 Define Groups"
+msgstr ""
+
+#: oneopes_tutorial.md:30
+msgid "First, identify correct atom numbers from your .gro file:"
+msgstr ""
+
+#: oneopes_tutorial.md:50
+msgid "2.2 Set Up Virtual Atoms and Basic CVs"
+msgstr ""
+
+#: oneopes_tutorial.md:51
+msgid "Place virtual atoms along the Z-axis of the host"
+msgstr ""
+
+#: oneopes_tutorial.md:86
+msgid "2.3 Define Water Coordination"
+msgstr ""
+
+#: oneopes_tutorial.md:87
+msgid ""
+"Define water coordination between water oxygen atoms and the selected ligand"
+" atoms and virtual atoms."
+msgstr ""
+
+#: oneopes_tutorial.md:139
+msgid "2.4 Define Funnel, Walls, and Additional CVs"
+msgstr ""
+
+#: oneopes_tutorial.md:207
+msgid "3. Running Unbiased Simulation"
+msgstr ""
+
+#: oneopes_tutorial.md:209
+msgid "Run 1 ns simulation:"
+msgstr ""
+
+#: oneopes_tutorial.md:214
+msgid "Calculate standard deviations of CVs from COLVAR file"
+msgstr ""
+
+#: oneopes_tutorial.md:215
+msgid "These values will be used as SIGMA values in the biased simulations"
+msgstr ""
+
+#: oneopes_tutorial.md:217
+msgid "4. Setting Up OneOPES Replicas"
+msgstr ""
+
+#: oneopes_tutorial.md:219
+msgid "Create 8 replica directories and prepare a plumed.dat file for each:"
+msgstr ""
+
+#: oneopes_tutorial.md:221
+msgid "Replica 0 (Base)"
+msgstr ""
+
+#: oneopes_tutorial.md:303
+msgid "Replica 1"
+msgstr ""
+
+#: oneopes_tutorial.md:304 oneopes_tutorial.md:394 oneopes_tutorial.md:495
+msgid "Add CV to previous replica:"
+msgstr ""
+
+#: oneopes_tutorial.md:393
+msgid "Replica 2"
+msgstr ""
+
+#: oneopes_tutorial.md:494
+msgid "Replica 3"
+msgstr ""
+
+#: oneopes_tutorial.md:604
+msgid "Replica 4"
+msgstr ""
+
+#: oneopes_tutorial.md:605
+msgid "Add ECV_MULTITHERMAL to previous replica:"
+msgstr ""
+
+#: oneopes_tutorial.md:731
+msgid "Replica 5"
+msgstr ""
+
+#: oneopes_tutorial.md:732
+msgid "Increase temperature of ECV_MULTITHERMAL:"
+msgstr ""
+
+#: oneopes_tutorial.md:869
+msgid "Replica 6"
+msgstr ""
+
+#: oneopes_tutorial.md:870 oneopes_tutorial.md:1019
+msgid "Increase temperature:"
+msgstr ""
+
+#: oneopes_tutorial.md:1018
+msgid "Replica 7"
+msgstr ""
+
+#: oneopes_tutorial.md:1178
+msgid "5. Running OneOPES Simulation"
+msgstr ""
+
+#: oneopes_tutorial.md:1179
+msgid ""
+"Create 8 directories, named from 0 to 7. Copy the tpr, topology and gro "
+"files, the host_template.pdb and the corresponding plumed.dat file to each "
+"folder. Then run OneOpes multireplica with the displayed mpirun command."
+msgstr ""

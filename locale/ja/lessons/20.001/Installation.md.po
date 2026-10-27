@@ -1,0 +1,635 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Installation.md:1
+msgid "Installation"
+msgstr "インストール"
+
+#: Installation.md:3
+msgid ""
+"The instructions that follow explain how to configure, compile and install a"
+" single version of plumed on a local machine. For most users the "
+"instructions below will work fine. A small fraction of users will want to do"
+" something more complicated at install time. Such users can use the \"How "
+"would you like to build PLUMED\" button below to get instructions on what to"
+" do in these more exotic cases."
+msgstr ""
+
+#: Installation.md:7
+msgid ""
+"It is perhaps easiest to install PLUMED using the macports or conda package "
+"manager. For instructions on how to install PLUMED in this way \"How would "
+"you like to build PLUMED\" button."
+msgstr ""
+
+#: Installation.md:9
+msgid ""
+"You will find a \"show defaults\" button by the boxes that shows a configure"
+" command below. If you click this button the default flags that are used "
+"when that command is executed are shown. Information on what is controlled "
+"by each flag is provided through tooltips, which you are shown if you hover "
+"over the flag."
+msgstr ""
+
+#: Installation.md:12
+msgid ""
+"Some flags are shown in bold in the short versions of the configure commands"
+" below. Clicking on these commands will open a pop-up window that contains "
+"further information about the flag. You will most likely not need to worry "
+"about the information in these pop ups but it may be worth considering as "
+"these options can affect the performance of the compiled code."
+msgstr ""
+
+#: Installation.md:16
+msgid ""
+"PLUMED can be used in tandem with the MD codes shown in the table on the "
+"right below. To see instructions on what you must do in order have versions "
+"of these codes that work with PLUMED click the checkbox associated with the "
+"code you require. Instructions on patching the code you select with PLUMED "
+"will appear at the bottom of the web page."
+msgstr ""
+
+#: Installation.md:75 Installation.md:337 Installation.md:397
+msgid "Testing PLUMED"
+msgstr ""
+
+#: Installation.md:86
+msgid ""
+"To determine the version of PLUMED that has been run using the commands "
+"above you can use the command:"
+msgstr ""
+
+#: Installation.md:90
+msgid ""
+"When you do this you might get certain <a "
+"onclick='showData(\"testerrors\",\"errdiv\")'>innocous errors</a>"
+msgstr ""
+
+#: Installation.md:94
+msgid ""
+"If you see errors when you run the regression tests using the commands:"
+msgstr ""
+
+#: Installation.md:111
+msgid "Calling PLUMED from python"
+msgstr ""
+
+#: Installation.md:112
+msgid ""
+"It is possible to call PLUMED 2.5 and later versions in a python script. If "
+"you would like to do so you simply add the command below in your python "
+"script:"
+msgstr ""
+
+#: Installation.md:113
+msgid ""
+"<a name=\"l00001\"></a><span class=\"lineno\"> 1</span>&#160;<span "
+"class=\"keyword\">import</span> plumed"
+msgstr ""
+
+#: Installation.md:117 Installation.md:164 Installation.md:294
+#: Installation.md:371 Installation.md:386 Installation.md:423
+#: Installation.md:439 Installation.md:452 Installation.md:475
+#: Installation.md:525 Installation.md:557 Installation.md:639
+msgid "Click on the options in the command shown below for more information"
+msgstr ""
+
+#: Installation.md:118
+msgid ""
+"<button type=\"button\" id=\"python1_button\" "
+"onclick='swapConfigure(\"python1\")'>show defaults</button>"
+msgstr ""
+
+#: Installation.md:153
+msgid ""
+"You are highly recommended to use a virtualenv when installing the "
+"development version as you will then ensure that the code you install does "
+"not interfere with the released pacakages."
+msgstr ""
+
+#: Installation.md:154
+msgid "Customising your complation environment"
+msgstr ""
+
+#: Installation.md:157
+msgid "Building multiple PLUMED versions"
+msgstr ""
+
+#: Installation.md:158 Installation.md:290 Installation.md:366
+#: Installation.md:420 Installation.md:636
+msgid "Configuring PLUMED"
+msgstr ""
+
+#: Installation.md:165
+msgid ""
+"<button type=\"button\" id=\"multiinp1_button\" "
+"onclick='swapConfigure(\"multiinp1\")'>show defaults</button>"
+msgstr ""
+
+#: Installation.md:196
+msgid "Setting up your environment"
+msgstr ""
+
+#: Installation.md:200
+msgid ""
+"use the <code>plumed</code> executable from the command line. Notice that "
+"you can also use this executable before installing."
+msgstr ""
+
+#: Installation.md:201
+msgid ""
+"link against the PLUMED library using the <code>-lplumed</code> flag for the"
+" linker. If this flag can be employed then it is possible to use PLUMED "
+"library in general purpose programs"
+msgstr ""
+
+#: Installation.md:206
+msgid "The most important variables to edit in the Makefile.conf file are:"
+msgstr ""
+
+#: Installation.md:212
+msgid ""
+"LIBS : the libraries that are needed to patching the MD codes (typically "
+"only <code>-ldl</code> which is needed to have functions for dynamic "
+"loading) are specified here."
+msgstr ""
+
+#: Installation.md:213
+msgid ""
+"CPPFLAGS : definitions that are needed to enable specific optional functions"
+" (e.g. -D__PLUMED_HAS_XDRFILE to enable the xdrfile library) are specified "
+"here."
+msgstr ""
+
+#: Installation.md:219
+msgid "Building PLUMED with macports"
+msgstr ""
+
+#: Installation.md:223
+msgid "Install <a href=\"https://www.macports.org/\">MacPorts</a>"
+msgstr ""
+
+#: Installation.md:224
+msgid "Type <code>sudo port install plumed</code>"
+msgstr ""
+
+#: Installation.md:266
+msgid ""
+"If, by contract, the objective was to use a version of gromacs patched with "
+"the development version of PLUMED you would use the commands:"
+msgstr ""
+
+#: Installation.md:280
+msgid ""
+"If gromacs is run and if the <code>PLUMED_KERNEL</code> environment variable"
+" is unset (or set to empty), then the version of PLUMED that was installed "
+"using MacPorts is used."
+msgstr ""
+
+#: Installation.md:289
+msgid "Building PLUMED on a local machine"
+msgstr ""
+
+#: Installation.md:292
+msgid ""
+"The first step in building PLUMED is to configure the makefiles based on the"
+" setup of your computer. You can do this by issuing the following command:"
+msgstr ""
+
+#: Installation.md:295
+msgid ""
+"<button type=\"button\" id=\"localinp1_button\" "
+"onclick='swapConfigure(\"localinp1\")'>show defaults</button>"
+msgstr ""
+
+#: Installation.md:305
+msgid "Installing PLUMED"
+msgstr "PLUMED のインストール"
+
+#: Installation.md:306
+msgid "You can install PLUMED using the command:"
+msgstr ""
+
+#: Installation.md:310
+msgid "or the command:"
+msgstr ""
+
+#: Installation.md:319
+msgid ""
+"<code>$(prefix)</code> here is the directory specified using the <a "
+"onclick=\"openModal('prefix')\">--prefix</a> keyword of the configure "
+"script."
+msgstr ""
+
+#: Installation.md:325
+msgid "Running PLUMED"
+msgstr ""
+
+#: Installation.md:333
+msgid ""
+"Running this command ensures that the \"plumed\" executable appears in your "
+"path. To test this executable you might run:"
+msgstr ""
+
+#: Installation.md:338
+msgid ""
+"You can test if plumed has been compiled correctly by using the commands:"
+msgstr ""
+
+#: Installation.md:342
+msgid "Alternatively, you can run all tests using the following command:"
+msgstr ""
+
+#: Installation.md:348
+msgid ""
+"You can even run a particular test by changing to the directory that "
+"contains it and by running the command <code>make</code> within that "
+"directory."
+msgstr ""
+
+#: Installation.md:349
+msgid "Merging your changes"
+msgstr ""
+
+#: Installation.md:357
+msgid ""
+"Write suitable <a href=\"../../developer-"
+"doc/html/using_doxygen.html\">documentation</a> for your new feature"
+msgstr ""
+
+#: Installation.md:358
+msgid ""
+"Add a new <a href=\"../../developer-doc/html/regtests.html\">regtest or "
+"modified an existing regtest</a> to validate your changes"
+msgstr ""
+
+#: Installation.md:359
+msgid ""
+"<a href=\"../../developer-doc/html/_using_external_libs.html\">Modify the "
+"configure script</a> so that any libraries your feature uses can be setup at"
+" configure time"
+msgstr ""
+
+#: Installation.md:365
+msgid "Building PLUMED for development purposes"
+msgstr ""
+
+#: Installation.md:372
+msgid ""
+"<button type=\"button\" id=\"devinp1_button\" "
+"onclick='swapConfigure(\"devinp1\")'>show defaults</button>"
+msgstr ""
+
+#: Installation.md:381
+msgid ""
+"Once you are confident that your feature is working correctly you can then "
+"reconfigure and compile an optimized version of the code."
+msgstr ""
+
+#: Installation.md:387
+msgid ""
+"<button type=\"button\" id=\"devinp2_button\" "
+"onclick='swapConfigure(\"devinp2\")'>show defaults</button>"
+msgstr ""
+
+#: Installation.md:405
+msgid "Patching MD codes with a cross compiled code"
+msgstr ""
+
+#: Installation.md:419
+msgid "Cross compiling PLUMED"
+msgstr ""
+
+#: Installation.md:421
+msgid ""
+"If you are cross compiling PLUMED on a different machine than you intend to "
+"run it on then you will need to begin by configuring using the usual "
+"command."
+msgstr ""
+
+#: Installation.md:424
+msgid ""
+"<button type=\"button\" id=\"cross1_button\" "
+"onclick='swapConfigure(\"cross1\")'>show defaults</button>"
+msgstr ""
+
+#: Installation.md:433
+msgid ""
+"You will likely need to use the options detailed below from controlling the "
+"compilers and compiler flags as detailed below, however."
+msgstr ""
+
+#: Installation.md:440
+msgid ""
+"<button type=\"button\" id=\"copts1_button\" "
+"onclick='swapConfigure(\"copts1\")'>show defaults</button>"
+msgstr ""
+
+#: Installation.md:453
+msgid ""
+"<button type=\"button\" id=\"copts2_button\" "
+"onclick='swapConfigure(\"copts2\")'>show defaults</button>"
+msgstr ""
+
+#: Installation.md:463
+msgid "Installing PLUMED with conda"
+msgstr ""
+
+#: Installation.md:464
+msgid ""
+"If you use the conda package manager you can quictkly install a pre-compiled"
+" PLUMED binary by using the following command:"
+msgstr ""
+
+#: Installation.md:466
+msgid "Similarly, the python wrappers can be installed by using the command:"
+msgstr ""
+
+#: Installation.md:473
+msgid ""
+"Conda binaries are only available for Linux and macOS. The installed conda "
+"binaries were configured using the command:"
+msgstr ""
+
+#: Installation.md:476
+msgid ""
+"<button type=\"button\" id=\"condaconf1_button\" "
+"onclick='swapConfigure(\"condaconf1\")'>show defaults</button>"
+msgstr ""
+
+#: Installation.md:489
+msgid "Compiling PLUMED"
+msgstr ""
+
+#: Installation.md:490
+msgid ""
+"PLUMED can be compiled using the following command once the "
+"<code>configure</code> script has finished running:"
+msgstr ""
+
+#: Installation.md:502
+msgid "Building PLUMED on a cluster"
+msgstr ""
+
+#: Installation.md:503
+msgid "Some general advice"
+msgstr ""
+
+#: Installation.md:504
+msgid ""
+"If you are compiling PLUMED on a cluster and if several users will take "
+"advantage of the code we would recomment that you:"
+msgstr ""
+
+#: Installation.md:506
+msgid ""
+"Follow the advice given below about using modules and the module file that "
+"PLUMED provides to set up the environment. N.B you will need to edit this "
+"file to make it suitable for your environment."
+msgstr ""
+
+#: Installation.md:507
+msgid ""
+"Compile with all the modules enabled so that users can use the full range of"
+" features. In addition, ensure that features that are provided by specific "
+"libraries are enabled. For example, users employing gromacs will likely want"
+" to use libxdrfile to write trr/xtc files. If gromacs is installed before "
+"PLUMED, and if the location of libxdrfile is provided to PLUMED during the "
+"configure stage then this feature will be available."
+msgstr ""
+
+#: Installation.md:510
+msgid ""
+"Keep track of the version of PLUMED you used to patch each of the MD codes. "
+"You might do this by giving the MD code modules names such as "
+"<code>gromacs/4.6.7p2.2.0</code> to indicate that this is gromacs patched "
+"with PLUMED 2.2.0. By keeping track of this information you make it more "
+"straightforward for users to report errors on our forum."
+msgstr ""
+
+#: Installation.md:511
+msgid ""
+"Use the environment variables descsribed below to control the compiler flags"
+" and to build an optimized executable."
+msgstr ""
+
+#: Installation.md:526
+msgid ""
+"<button type=\"button\" id=\"diffLev1_button\" "
+"onclick='swapConfigure(\"diffLev1\")'>show defaults</button>"
+msgstr ""
+
+#: Installation.md:558
+msgid ""
+"<button type=\"button\" id=\"intel1_button\" "
+"onclick='swapConfigure(\"intel1\")'>show defaults</button>"
+msgstr ""
+
+#: Installation.md:580
+msgid "Our thanks to Marco De La Pierre for reporting this requirement"
+msgstr ""
+
+#: Installation.md:592
+msgid ""
+"when you run <code>make</code> please configure PLUMED again using the flag "
+"<code>--disable-ld-r</code>"
+msgstr ""
+
+#: Installation.md:637
+msgid ""
+"As a bare minimum we would recommend using a command like the one shown "
+"below when configuring PLUMED on a cluster"
+msgstr ""
+
+#: Installation.md:640
+msgid ""
+"<button type=\"button\" id=\"clustp1_button\" "
+"onclick='swapConfigure(\"clustp1\")'>show defaults</button>"
+msgstr ""
+
+#: Installation.md:656
+msgid "--standalone-executable option"
+msgstr ""
+
+#: Installation.md:663
+msgid ""
+"The path to the PLUMED root directory is hard coded in the plumed executable"
+" as can be verified by using the command:"
+msgstr ""
+
+#: Installation.md:673
+msgid ""
+"You can force plumed to ignore this error and to run anyway by using the "
+"option --standalone-executable as shown below"
+msgstr ""
+
+#: Installation.md:677
+msgid ""
+"Many features are not be available if you run in this way. This is currently"
+" the only way to use the PLUMED static executable on Windows, however."
+msgstr ""
+
+#: Installation.md:683
+msgid "--prefix option"
+msgstr ""
+
+#: Installation.md:705
+msgid "--enable-rpath option"
+msgstr ""
+
+#: Installation.md:723
+msgid ""
+"You can resolve this issue by using the command below when configuring "
+"PLUMED:"
+msgstr ""
+
+#: Installation.md:727
+msgid ""
+"This command will hard code the paths defined in <code>LIBRARY_PATH</code> "
+"into the PLUMED library and is equivalent to the command:"
+msgstr ""
+
+#: Installation.md:736
+msgid "--enable-mpi option"
+msgstr ""
+
+#: Installation.md:755
+msgid "--enable-molfile-plugins option"
+msgstr ""
+
+#: Installation.md:761
+msgid ""
+"To be clear the PLUMED source code contains VMD plugins for a small number "
+"of trajectory formats (dcd, gromacs files, pdb and amber files) so you will "
+"most likely not need this flag. You will only need it you would like to be "
+"able to read in some a particularly exotic trajectory file type. If you do "
+"need to work with these other types of file can get the molfile plugins by "
+"downloading the SOURCE of VMD. This sourcecode contains a plugins directory."
+" You will need to adapt the build.sh script within this directory and then "
+"compile the code within the directory. Once this process is completed you "
+"should get the molfile plugins compiled as a static library called "
+"<code>libmolfile_plugin.a</code>. The location of this library, the "
+"<code>libmolfile_plugin.h</code> and the <code>molfile_plugin.h</code> "
+"include files will then need to be passed to configure using a command "
+"similar to:</p>"
+msgstr ""
+
+#: Installation.md:770
+msgid ""
+"It may also be necessary to add the location of the TCL interpreter to the "
+"<code>LDFLAGS</code> using a command such as:"
+msgstr ""
+
+#: Installation.md:775
+msgid ""
+"To be clear, however, some of the molfile plugin sourcecode is included in "
+"PLUMED and you can thus use some of the most common types of trajectory file"
+" even if you do not download VMD on your machine."
+msgstr ""
+
+#: Installation.md:781
+msgid "--enable-modules option"
+msgstr ""
+
+#: Installation.md:796
+msgid "--enable-external-lapack option"
+msgstr ""
+
+#: Installation.md:819
+msgid ""
+"You can also only disable the external LAPACK. In other words, you can use "
+"the internal version of LAPACK with an external version of BLAS by using the"
+" command:"
+msgstr ""
+
+#: Installation.md:847
+msgid "--enable-debug option"
+msgstr ""
+
+#: Installation.md:859
+msgid "--enable-asmjit option"
+msgstr ""
+
+#: Installation.md:868
+msgid ""
+"If, for any reason, you want to disable ASMJIT at runtime you can do by "
+"setting the <code>PLUMED_USE_ASMJIT</code> environment variable as shown "
+"below:"
+msgstr ""
+
+#: Installation.md:876
+msgid "--disable-libsearch option"
+msgstr ""
+
+#: Installation.md:894
+msgid "STATIC_LIBS Environment Variable"
+msgstr ""
+
+#: Installation.md:905
+msgid "PYTHON_BIN Environment Variable"
+msgstr ""
+
+#: Installation.md:916
+msgid "LIBS Environment Variable"
+msgstr ""
+
+#: Installation.md:940
+msgid "LIBRARY_PATH envrionmental variable"
+msgstr ""
+
+#: Installation.md:951
+msgid "LDFLAGS Environment Variable"
+msgstr ""
+
+#: Installation.md:970
+msgid "CXXFLAGS Environment Variable"
+msgstr ""
+
+#: Installation.md:973
+msgid ""
+"The <code>CXXFLAGS</code> environmental variable allows you to control the "
+"compilation options just as you might expect."
+msgstr ""
+
+#: Installation.md:979
+msgid "CXX Environment Variable"
+msgstr ""
+
+#: Installation.md:995
+msgid ""
+"PLUMED 2.4 requires a compiler that supports C++11. The following compilers "
+"(or later versions) should be sufficient:"
+msgstr ""
+
+#: Installation.md:997
+msgid "gcc 4.8.1"
+msgstr ""
+
+#: Installation.md:998
+msgid "clang 3.3"
+msgstr ""
+
+#: Installation.md:999
+msgid "intel 15"
+msgstr ""
+
+#: Installation.md:1009
+msgid ""
+"We regularly test a number of compilers on <a "
+"href=\"https://github.com/plumed/plumed2/actions\">GitHub Actions</a>. These"
+" compilers should thus always compile PLUMED correctly."
+msgstr ""
+
+#: Installation.md:1015
+msgid "CPPFLAGS Environment Variable"
+msgstr ""
+
+#: Installation.md:1033
+msgid "CC Environment Variable"
+msgstr ""

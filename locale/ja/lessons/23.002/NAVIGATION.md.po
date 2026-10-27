@@ -1,0 +1,88 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:1
+msgid "Parallelism in Plumed2"
+msgstr ""
+
+#: NAVIGATION.md:3
+msgid ""
+"This lesson is a pratical introduction (with some exercises with code to "
+"modify) to the parallel functionality of PLUMED for the developers."
+msgstr ""
+
+#: NAVIGATION.md:5
+msgid ""
+"The code is hosted "
+"[here](https://github.com/Iximiel/PlumedFlagship_parallelism). You can start"
+" from the [introduction](Readme.md), and then read the [serial "
+"example](Readme_Serial.md) that contains the base idea of the CV."
+msgstr ""
+
+#: NAVIGATION.md:7
+msgid ""
+"You can then navigate the three cases ([openMP](Readme_OMP.md), "
+"[MPI](Readme_MPI.md), [Cuda](Readme_CUDA.md)) in any order"
+msgstr ""
+
+#: NAVIGATION.md:9
+msgid ""
+"NB: For this lesson the CV is presented with no explicit derivatives "
+"calculated."
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "Introduction"
+msgstr "はじめに"
+
+#. mermaid node label
+#: NAVIGATION.md:17
+msgid "Serial example"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:18
+msgid "OMP example"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:19
+msgid "MPI example"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:20
+msgid "CUDA example"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:28
+msgid "The introduction to the lessons"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:29
+msgid "The presentation of the base example"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:30
+msgid "The presentation of the openMP example"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:31
+msgid "The presentation of the MPI example"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:32
+msgid "A prototype for a Cuda implementation"
+msgstr ""

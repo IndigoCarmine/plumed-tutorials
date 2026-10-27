@@ -1,0 +1,148 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PLUMED-TUTORIALS\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: NAVIGATION.md:2
+msgid ""
+"Masterclass 22.07: Learning and enhancing fluctuations along information "
+"bottleneck for automated enhanced sampling"
+msgstr ""
+
+#: NAVIGATION.md:4
+msgid ""
+"This lesson was given as part of the PLUMED masterclass series in 2022. It "
+"includes:"
+msgstr "このレッスンは、2022年の PLUMED Masterclass シリーズの一環として実施された。内容は次のとおりである。"
+
+#: NAVIGATION.md:6
+msgid "Two videos that describe the theory."
+msgstr "理論を説明する2本の動画。"
+
+#: NAVIGATION.md:7
+msgid ""
+"Two python notebooks that describe what you can do using these methods."
+msgstr ""
+
+#: NAVIGATION.md:9
+msgid ""
+"The flow chart shown below indicates the order in which you should consult "
+"the resources. You can click on the nodes to access the various resources. "
+"Follow the thick black lines for the best results. The resources that are "
+"connected by dashed lines are supplmentary resources that you may find "
+"useful when completing the exercise."
+msgstr ""
+"下のフローチャートは資料を参照する順序を示している。各ノードをクリックすると資料を開ける。太い黒線に沿って進めることを推奨する。破線でつながる資料は、演習に取り組む際に役立つ補足資料である。"
+
+#: NAVIGATION.md:11
+msgid "This lesson was the seventh masterclass in the 2022 series."
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "ref1"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:16
+msgid "Lecture I"
+msgstr "講義 I"
+
+#. mermaid node label
+#: NAVIGATION.md:17
+msgid "notebook I"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:18
+msgid "Lecture II"
+msgstr "講義 II"
+
+#. mermaid node label
+#: NAVIGATION.md:19
+msgid "notebook II"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:20
+msgid "Metadynamics Theory"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:22
+msgid "Using PyTorch"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:23
+msgid "ref2"
+msgstr ""
+
+#. mermaid node label
+#: NAVIGATION.md:24
+msgid "Variational autoencoder Theory"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:26
+msgid "The paper about the SPIB method introduced in this tutorial"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:27
+msgid ""
+"A paper that describes how the SPIB method was applied to two biophyically "
+"relevant systems"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:28
+msgid ""
+"A lecture that was given on May 9th 2022 as part of the plumed masterclass "
+"series that introduces you to the exercises in this lesson"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:29
+msgid ""
+"A python notebook that describes the exercises that were introdced in the "
+"first video"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:30
+msgid ""
+"A lecture that was given on May 16th 2022 as part of the plumed masterclass "
+"series that goes through the solutions to the exercises in the lesson"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:31
+msgid ""
+"A python notebook that includes the exercises that were introduced in the "
+"second video"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:32
+msgid "Brief introduction to Metadynamics as an enhanced sampling technique"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:33
+msgid ""
+"Paper that introduces the Variational autoencoder with VampPrior neural "
+"network architechture employed in SPIB"
+msgstr ""
+
+#. mermaid click tooltip
+#: NAVIGATION.md:34
+msgid ""
+"Brief tutorial that introduces PyTorch to beginners. For improved "
+"understanding of SPIB implementation, please explore the tutorials hosted on"
+" PyTorch website"
+msgstr ""
