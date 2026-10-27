@@ -24,6 +24,11 @@ msgid ""
 "modifiers are used to prevent the growth of needle-like crystals that are "
 "difficult to work with and have unfavourable properties."
 msgstr ""
+"結合とその Thermodynamics は、Protein-Ligand "
+"Docking、界面化学、結晶成長などで重要です。このモデルは結晶成長を模しますが、Cartesian "
+"方向に種が動くほかの結合にも対応します。結晶成長は、溶液中の "
+"Ion・分子が拡散して界面の結晶表面に加わる過程で、その詳細が最終結晶の形・性質を決めます。例えば Biomineralization で有機不純物が "
+"Ion 結晶の成長を阻害・変更する場合や、工業的に扱いにくい針状結晶の成長を化学的に抑える場合があります。"
 
 #: markdown/system.md:3
 msgid ""
@@ -36,13 +41,16 @@ msgid ""
 "starting point for estimating kinetic processes and paving the way for "
 "larger-scale coarse-grained and Monte Carlo simulation methods."
 msgstr ""
+"Atomistic MD は、結晶を特異的に制御して性質を調整する知見を与えます。結合・非結合状態だけでなく Transition State "
+"も含む全経路で正しい自由エネルギー Profile を目指します。正確な Barrier は Kinetics 推定の出発点となり、大規模 "
+"Coarse-grained・Monte Carlo につながります。"
 
 #: markdown/system.md:5
 msgid ""
 "This tutorial will take a simple system consisting of a surface in the xy-"
 "plane, with a binding ligand restrained along the z-direction, as shown "
 "below:"
-msgstr ""
+msgstr "xy 平面の表面と、z に沿って制限された Ligand の単純な系を使います。"
 
 #: markdown/system.md:11
 msgid ""
@@ -53,6 +61,8 @@ msgid ""
 "z-direction, which is used as the collective variable in the Metadynamics "
 "runs."
 msgstr ""
+"表面結合モデルの模式図。表面は xy、黄色の円柱は Ligand の Harmonic Restraint です。Ligand は z "
+"に自由に動き、Metadynamics の CV にします。"
 
 #: markdown/system.md:14
 msgid ""
@@ -68,6 +78,9 @@ msgid ""
 "the binding ligand from moving into where the surface would be. The "
 "resulting potential energy surface looks as follows:"
 msgstr ""
+"Argon 1原子と Global Potential Energy Surface で、実際の表面結合の重要部分を再現します。表面・Adsorbate"
+" の引力による結合極小、引力と表面の秩序立った拡散の遅い溶媒を越えるための Barrier を設けます。また表面内に入るのを防ぐ反発 Potential"
+" が必要です。結果は次のとおりです。"
 
 #: markdown/system.md:20
 msgid ""
@@ -81,6 +94,9 @@ msgid ""
 "repulsive surface region (green). The combined potential energy surface is "
 "shown using the dotted black line."
 msgstr ""
+"2 Gaussian と片側 Harmonic Wall によるモデルの1次元表示です。Box 中心に高さ30 kJ/mol の反転3次元 "
+"Gaussian を置いて極小（青）、z 方向0.3 nm に高さ15 kJ/mol の Gaussian を置いて Dissolution "
+"Barrier（橙）、極小から-0.125 nm に反発 Wall（緑）を作ります。合計は黒点線です。"
 
 #: markdown/system.md:23
 msgid ""
@@ -92,6 +108,8 @@ msgid ""
 "reasonable speeds. However, all of the underlying principles remain the same"
 " for a real system."
 msgstr ""
+"実装は [入力](inputs.md) で説明します。溶媒と実表面を使わず、複雑・大量のファイルを避けて、ほぼどの Hardware "
+"でも適度な速さで実行できます。基本原理は実系と同じです。"
 
 #: markdown/system.md:27
 msgid "[Back to binding tutorial main page.](../NAVIGATION.md)"

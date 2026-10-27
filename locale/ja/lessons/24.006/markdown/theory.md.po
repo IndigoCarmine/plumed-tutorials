@@ -12,7 +12,7 @@ msgid ""
 "The in-depth underlying theory for obtaining standard binding free energies "
 "is explained in the original paper by Doudou <em>et al.</em> (1). However, a"
 " brief summary is given below."
-msgstr ""
+msgstr "詳細な理論は Doudou らの原著 (1) にあります。以下は要約です。"
 
 #: markdown/theory.md:3
 msgid ""
@@ -27,12 +27,15 @@ msgid ""
 "been done for systems of halite and calcite surfaces (2, 3) where the "
 "z-direction represents the surface normal for a solid-liquid interface."
 msgstr ""
+"表面・界面・任意の結合 Site と Ligand の垂直距離を CV にします。簡単のため Cartesian z 成分とします。x・y に "
+"Harmonic Restraint を置き、結合位置に係留し、全体を十分探索できる既知体積に制限します。Halite・Calcite "
+"の固液界面の法線を z とする実装は論文 (2,3) を参照してください。"
 
 #: markdown/theory.md:5
 msgid ""
 "Once the simulation is sufficiently converged, the PMF as a function of the "
 "z-distance collective variable is constructed."
-msgstr ""
+msgstr "十分収束したら、z の関数として PMF を再構成します。"
 
 #: markdown/theory.md:11
 msgid ""
@@ -42,14 +45,14 @@ msgid ""
 " along the profile where the ligand is bound to the surface. The green-"
 "shaded region indicates the section along the profile where the ligand is "
 "unbound and no longer interacts with the surface."
-msgstr ""
+msgstr "理想的な表面結合の1次元 PMF。各重要点の物理的意味を示します。赤は表面に結合した領域、緑は非結合で相互作用しない領域です。"
 
 #: markdown/theory.md:14
 msgid ""
 "The free energy change between regions along the PMF defined as bound and "
 "unbound is calculated from the ratio of the integrals of these regions as "
 "given by the following equation:"
-msgstr ""
+msgstr "結合・非結合領域の自由エネルギー差は、次の積分比から求めます。"
 
 #: markdown/theory.md:20
 msgid ""
@@ -62,38 +65,42 @@ msgid ""
 "in the x and y plane is given by the partition function of the cylindrical "
 "restraining potential:"
 msgstr ""
+"$W_R{(z)}$ は CV（z 距離）の PMF です。$\\Delta G_{PMF}$ "
+"は探索できる結合・非結合体積に依存するため、$\\Delta G_{PMF}$ "
+"を体積で標準化して計算・実験間で比較します。まず非結合領域を補正します。xy 面で探索する面積は円柱 Restraint の Partition "
+"Function です。"
 
 #: markdown/theory.md:39
 msgid ""
 "which is identical to the definition given by Doudou <em>et al.</em> in "
 "Equation 8. We follow the same derivation for the area explored by a flat-"
 "bottom harmonic restraining potential in 2D:"
-msgstr ""
+msgstr "これは Doudou らの式8と同じです。同じ導出を2次元 Flat-bottom Harmonic に適用します。"
 
 #: markdown/theory.md:49
 msgid "2D"
-msgstr ""
+msgstr "2D"
 
 #: markdown/theory.md:65
 msgid ""
 "The corresponding quantities for orthogonal direction(s) explored by a flat-"
 "bottom harmonic restraining potential in 1D and 3D can be similarly derived."
-msgstr ""
+msgstr "1次元と3次元の直交方向についても同様に導けます。"
 
 #: markdown/theory.md:67
 msgid "1D"
-msgstr ""
+msgstr "1D"
 
 #: markdown/theory.md:81
 msgid "3D"
-msgstr ""
+msgstr "3D"
 
 #: markdown/theory.md:97
 msgid ""
 "The 1D length and 3D volume will become relevant when estimating the free "
 "energy correction for the bound region in the simple toy system, which will "
 "be discussed in more detail later."
-msgstr ""
+msgstr "1次元の長さと3次元の体積は、このモデルの結合領域補正で後に使います。"
 
 #: markdown/theory.md:99
 msgid ""
@@ -104,6 +111,8 @@ msgid ""
 "explored by a flat-bottom harmonic restraining potential in 2D. When R = 0, "
 "i.e., there is no flat-bottom, our equation reduces to the original one."
 msgstr ""
+"円柱体積は2次元の面積に高さを掛けます。Doudou ら (1) の式8を、この Flat-bottom の面積の式に置き換えられます。R = 0 では"
+" Flat-bottom がなくなり原式に戻ります。"
 
 #: markdown/theory.md:101
 msgid ""
@@ -111,6 +120,7 @@ msgid ""
 "given by the ratio of our unbound volume ($V_u$) to the standard-state "
 "volume ($V^{⦵} = 1661~Å^3 $) of a 1 M solution."
 msgstr ""
+"非結合体積の補正 ($\\Delta G_V$) は、$V_u$ と1 M の標準状態体積 ($V^{⦵} = 1661~Å^3 $) の比で求めます。"
 
 #: markdown/theory.md:107
 msgid ""
@@ -125,6 +135,10 @@ msgid ""
 "binding ligand remains in the binding site to give a free energy correction "
 "for the bound volume ($\\Delta G_R$):"
 msgstr ""
+"結合領域の体積変化を正確かつ簡単に補正するには、Alchemical Free Energy Perturbation "
+"を使います。理論は範囲外なので教科書や [オンライン資料](https://alchemistry.org/wiki/Main_Page) "
+"を参照してください。Ligand を Site に保ちながら Scale パラメータ ($\\lambda$) で Restraint "
+"を徐々に切り、補正 ($\\Delta G_R$) を得ます。"
 
 #: markdown/theory.md:113
 msgid ""
@@ -145,18 +159,27 @@ msgid ""
 "See the sections on [system setup](system.md) and [analysis](analysis.md) "
 "for more detail. Here the focus will remain on PLUMED and Metadynamics."
 msgstr ""
+"より高精度な [Bennett Acceptance "
+"Ratio](https://alchemistry.org/wiki/Bennett_Acceptance_Ratio) (4) "
+"もあります。[LAMMPS](https://docs.lammps.org/compute_fep.html) "
+"などに実装済みで、[OpenMM](http://docs.openmm.org/7.4.0/api-"
+"python/generated/simtk.openmm.app.simulation.Simulation.html) なら Simulation "
+"の Custom Reporter で実装できます。[pymbar](https://github.com/choderalab/pymbar) は "
+"Alchemical Perturbation のエネルギー変化を解析し、Bennett "
+"法で自由エネルギーを求めます。このモデルは単純なので解析的推定に置き換えます。詳細は [系の設定](system.md) と "
+"[解析](analysis.md) に譲り、ここでは PLUMED と Metadynamics に注目します。"
 
 #: markdown/theory.md:116
 msgid ""
 "Finally, the standard binding free energy is obtained from the PMF free "
 "energy in combination with the two volume correction steps:"
-msgstr ""
+msgstr "最後に PMF と2つの体積補正を合わせ、標準結合自由エネルギーを得ます。"
 
 #: markdown/theory.md:122
 msgid ""
 "Standardising this quantity allows it to be compared with other simulations "
 "and experiments."
-msgstr ""
+msgstr "標準化により、ほかの計算・実験と比較できます。"
 
 #: markdown/theory.md:124
 msgid "References"
@@ -168,6 +191,9 @@ msgid ""
 "one-dimensional potential of mean force. Journal of Chemical Theory and "
 "Computation. 2009 Apr 14;5(4):909-18."
 msgstr ""
+"Doudou S, Burton NA, Henchman RH. Standard free energy of binding from a "
+"one-dimensional potential of mean force. Journal of Chemical Theory and "
+"Computation. 2009 Apr 14;5(4):909-18."
 
 #: markdown/theory.md:127
 msgid ""
@@ -176,6 +202,10 @@ msgid ""
 "kink site stability. Journal of Chemical Theory and Computation. 2022 Sep "
 "8;18(10):5901-19."
 msgstr ""
+"Silvestri A, Raiteri P, Gale JD. Obtaining consistent free energies for ion "
+"binding at surfaces from solution: pathways versus alchemy for determining "
+"kink site stability. Journal of Chemical Theory and Computation. 2022 Sep "
+"8;18(10):5901-19."
 
 #: markdown/theory.md:128
 msgid ""
@@ -183,12 +213,17 @@ msgid ""
 "the complete stability of calcite kink sites: Real vs ideal. The Journal of "
 "Physical Chemistry C. 2023 Jul 5;127(28):13958-68."
 msgstr ""
+"Armstrong BI, Silvestri A, De La Pierre M, Raiteri P, Gale JD. Determining "
+"the complete stability of calcite kink sites: Real vs ideal. The Journal of "
+"Physical Chemistry C. 2023 Jul 5;127(28):13958-68."
 
 #: markdown/theory.md:129
 msgid ""
 "Bennett CH. Efficient estimation of free energy differences from Monte Carlo"
 " data. Journal of Computational Physics. 1976 Oct 1;22(2):245-68."
 msgstr ""
+"Bennett CH. Efficient estimation of free energy differences from Monte Carlo"
+" data. Journal of Computational Physics. 1976 Oct 1;22(2):245-68."
 
 #: markdown/theory.md:133
 msgid "[Back to binding tutorial main page.](../NAVIGATION.md)"

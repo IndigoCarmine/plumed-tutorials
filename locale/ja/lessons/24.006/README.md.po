@@ -16,13 +16,17 @@ msgid ""
 "[contribution instructions](https://www.plumed-"
 "tutorials.org/contribute.html) outined by PLUMED."
 msgstr ""
+"[PLUMED-TUTORIALS](https://www.plumed-tutorials.org/) "
+"用の、[PLUMED](https://www.plumed.org/) と [OpenMM](https://openmm.org/) の "
+"Metadynamics による標準結合自由エネルギー計算の Tutorial です。[投稿手順](https://www.plumed-"
+"tutorials.org/contribute.html) に従う構成です。"
 
 #: README.md:3
 msgid ""
 "Contained in the `ZIPS/` directory as `tutorial.zip` are all the files "
 "required to begin and complete the tutorials, which can be downloaded using "
 "`curl`:"
-msgstr ""
+msgstr "全必要ファイルは `ZIPS/` の `tutorial.zip` にあり、`curl` で取得できます。"
 
 #: README.md:9
 msgid ""
@@ -32,31 +36,39 @@ msgid ""
 "[Large File Storage](https://github.com/git-lfs/git-lfs) extension. This can"
 " also be downloaded with `curl`:"
 msgstr ""
+"`ZIPS/` の `reference_data.tar.gz` は全手順の出力を含み、GitHub の [Large File "
+"Storage](https://github.com/git-lfs/git-lfs) に置いています。こちらも `curl` で取得できます。"
 
 #: README.md:15
 msgid ""
 "Once `tutorial.zip` has been downloaded and unzipped, the tutorial begins at"
 " the [NAVIGATION.md](NAVIGATION.md) file."
-msgstr ""
+msgstr "`tutorial.zip` を取得・展開し、[NAVIGATION.md](NAVIGATION.md) から始めてください。"
 
 #: README.md:17
 msgid "This tutorial was created by the following contributors:"
-msgstr ""
+msgstr "寄稿者："
 
 #: README.md:18
 msgid ""
 "[Blake I. "
 "Armstrong](https://scholar.google.com.au/citations?hl=en&user=tSmIxswAAAAJ)"
 msgstr ""
+"[Blake I. "
+"Armstrong](https://scholar.google.com.au/citations?hl=en&user=tSmIxswAAAAJ)"
 
 #: README.md:19
 msgid ""
 "[Paolo "
 "Raiteri](https://scholar.google.com.au/citations?user=jCfhENwAAAAJ&hl=en)"
 msgstr ""
+"[Paolo "
+"Raiteri](https://scholar.google.com.au/citations?user=jCfhENwAAAAJ&hl=en)"
 
 #: README.md:20
 msgid ""
 "[Julian D. "
 "Gale](https://scholar.google.com.au/citations?user=HJqJtDQAAAAJ&hl=en)"
 msgstr ""
+"[Julian D. "
+"Gale](https://scholar.google.com.au/citations?user=HJqJtDQAAAAJ&hl=en)"

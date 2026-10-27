@@ -17,12 +17,14 @@ msgid ""
 "repository](https://github.com/blake-armstrong/binding-tutorial-PLUMED). "
 "They can either be accessed by cloning the repository to your machine;"
 msgstr ""
+"全ファイルは [GitHub](https://github.com/blake-armstrong/binding-tutorial-PLUMED) "
+"にあり、Clone するか、"
 
 #: markdown/inputs.md:9
 msgid ""
 "or by following the download instructions in the `README.md` page on the "
 "repository to download the basic ZIP file."
-msgstr ""
+msgstr "リポジトリの `README.md` の手順で基本 ZIP を取得できます。"
 
 #: markdown/inputs.md:11
 msgid ""
@@ -36,10 +38,13 @@ msgid ""
 "directory. We will discuss how that data was produced and analysed so you "
 "can do it all yourself."
 msgstr ""
+"OpenMM・PLUMED の入力は `simulation_files` にあります。`scripts` の Bash は Multiple "
+"Walker の設定と出力解析を自動化しますが、手動でもできるため必須ではありません。計算・解析済みデータは data "
+"にあります。生成・解析の方法を、自分でも行えるよう説明します。"
 
 #: markdown/inputs.md:13
 msgid "OpennMM & PLUMED Installation"
-msgstr ""
+msgstr "OpenMM と PLUMED のインストール"
 
 #: markdown/inputs.md:15
 msgid ""
@@ -52,6 +57,11 @@ msgid ""
 "conda](https://conda.io/projects/conda/en/latest/user-"
 "guide/install/index.html). After testing the installation with:"
 msgstr ""
+"まず OpenMM と openmmplumed を動かせるようにします。[OpenMM "
+"の詳細手順](http://docs.openmm.org/latest/userguide/application/01_getting_started.html)"
+" を参照してください。依存を扱いやすい `conda` "
+"を推奨します（[導入手順](https://conda.io/projects/conda/en/latest/user-"
+"guide/install/index.html)）。次で確認します。"
 
 #: markdown/inputs.md:21
 msgid ""
@@ -63,14 +73,17 @@ msgid ""
 "using conda. This will also install the command line plumed tool which will "
 "be used for analysis later on."
 msgstr ""
+"利用可能な Platform が表示されます。ここでは、通常誰でも使える CPU を入力で指定しています。conda なら [OpenMM PLUMED"
+" Plugin](https://github.com/openmm/openmm-plumed) も簡単に入れられ、後の解析用 PLUMED "
+"コマンドも入ります。"
 
 #: markdown/inputs.md:23
 msgid "Running a simulation"
-msgstr ""
+msgstr "シミュレーションの実行"
 
 #: markdown/inputs.md:25
 msgid "Running the bash script `setup_walkers.sh`"
-msgstr ""
+msgstr "`setup_walkers.sh` を実行すると、"
 
 #: markdown/inputs.md:31
 msgid "or"
@@ -89,10 +102,13 @@ msgid ""
 "By default, it will create directories and setups for four walkers. The "
 "details on how to run a single walker are discussed further later."
 msgstr ""
+"`data` に半径0.0〜0.5 nm のディレクトリを作ります。`NUMWALKERS` は Walker "
+"数の整数で、既定は4です。Multiple Walker では1超にします。各半径の Flat-bottom 円柱の実行先です。Walker "
+"数を容易に変えて試せます。Single Walker は後述します。"
 
 #: markdown/inputs.md:39
 msgid "If we navigate to the directory for a radius of 0.0 nm,"
-msgstr ""
+msgstr "半径0.0 nm のディレクトリに移ると、"
 
 #: markdown/inputs.md:45
 msgid ""
@@ -104,6 +120,9 @@ msgid ""
 "handle the analysis of our simulation output, which is discussed "
 "[here](analysis.md)."
 msgstr ""
+"各 Walker の run.py を投入する `run.sh` があります。`simulation_files` の `run.py` は "
+"OpenMM Python API で実行します。`plumed.inp` は PLUMED の設定です。出力解析用 analysis.sh "
+"もあり、[こちら](analysis.md) で説明します。"
 
 #: markdown/inputs.md:47
 msgid ""
@@ -112,6 +131,9 @@ msgid ""
 " which we direct you to if you cannot understand some component of the "
 "`run.py` file while we briefly discuss it here."
 msgstr ""
+"ここで `run.py` を簡単に説明します。不明な部分は [OpenMM Python API "
+"の詳細](http://docs.openmm.org/latest/userguide/application/02_running_sims.html)"
+" を参照してください。"
 
 # Literal notation or identifier intentionally preserved.
 #: markdown/inputs.md:49
@@ -123,7 +145,7 @@ msgid ""
 "These lines give us access to the OpenMM code, and the OpenMM PLUMED plugin "
 "that can parse a PLUMED input file, interpret it, and provide the "
 "instructions to OpenMM."
-msgstr ""
+msgstr "これらの行で OpenMM と、PLUMED 入力を解釈して OpenMM に指示を渡す Plugin を使えるようにします。"
 
 #: markdown/inputs.md:74
 msgid ""
@@ -134,46 +156,51 @@ msgid ""
 "converged to analyse for our purposes due to the simplicity of the model "
 "system."
 msgstr ""
+"後で使うパラメータを定義します。次元のある量には OpenMM Unit Object を使います。既定で各 Walker は2 "
+"ns、約5〜10分です。単純な系なので目的に十分収束した PMF が得られるはずです。"
 
 #: markdown/inputs.md:93 markdown/inputs.md:165
 msgid ""
 "The details of this section are better explained in the [OpenMM "
 "docs](http://docs.openmm.org/latest/userguide/application/02_running_sims.html)."
 msgstr ""
+"この部分の詳細は "
+"[OpenMM](http://docs.openmm.org/latest/userguide/application/02_running_sims.html)"
+" を参照してください。"
 
 #: markdown/inputs.md:102
 msgid ""
 "This section is needed to prevent the thermal energy from being removed from"
 " the system as we have only one particle. It is not important to understand,"
 " as it would not generally be necessary for a real simulation."
-msgstr ""
+msgstr "1粒子だけなので熱エネルギーが除去されるのを防ぐ部分です。通常の実系には不要なので、理解は必須ではありません。"
 
 #: markdown/inputs.md:109
 msgid ""
 "This is where a PLUMED input script is read and our forces will be created "
 "and added to the system."
-msgstr ""
+msgstr "PLUMED 入力を読み、力を生成して系に加えます。"
 
 #: markdown/inputs.md:167
 msgid "plumed.inp"
-msgstr ""
+msgstr "plumed.inp"
 
 #: markdown/inputs.md:169
 msgid ""
 "Here we will discuss all of the sections of the PLUMED input file "
 "(plumed.inp)."
-msgstr ""
+msgstr "PLUMED 入力 plumed.inp の全部分を説明します。"
 
 #: markdown/inputs.md:175
 msgid ""
 "Required for multiple walkers. Ensures each walker reads HILLS from all "
 "walkers when initialised."
-msgstr ""
+msgstr "Multiple Walkers に必要で、初期化時に全 Walker の HILLS を読むようにします。"
 
 #: markdown/inputs.md:180
 msgid ""
 "Simulation units. Same as OpenMM units for consistency. Not a necessity."
-msgstr ""
+msgstr "単位を OpenMM に合わせます。必須ではありません。"
 
 #: markdown/inputs.md:186
 msgid ""
@@ -181,7 +208,7 @@ msgid ""
 "We define a fixed point at the middle of our cubic simulation box (50 Å in "
 "each direction) and calculate the distance between the fixed point and our "
 "one particle, and save it to the `d1` variable."
-msgstr ""
+msgstr "CV の z 距離を定義します。各方向50 Å の立方体 Box の中心に固定点を置き、1粒子との距離を `d1` に保存します。"
 
 #: markdown/inputs.md:203
 msgid ""
@@ -190,6 +217,7 @@ msgid ""
 "actually use the potential to apply forces throughout the simulation, and "
 "not just record its value."
 msgstr ""
+"d1 の x・y 成分から Flat-bottom 円柱 Potential `rd` を作り、値の記録だけでなく実際に力を加えるよう指定します。"
 
 #: markdown/inputs.md:214
 msgid ""
@@ -199,6 +227,8 @@ msgid ""
 "from going too far from the `surface` in the z-direction, and starts acting "
 "at 1.5 nm."
 msgstr ""
+"z に上下の Harmonic Wall を定義します。下は表面の反発を模し、-0.125 nm から働きます。上は `surface` "
+"から離れすぎないよう1.5 nm から働きます。"
 
 #: markdown/inputs.md:252
 msgid ""
@@ -208,19 +238,21 @@ msgid ""
 "maximum at [2.5, 2.5, 2.8] nm to represent a barrier for leaving the "
 "surface."
 msgstr ""
+"表面法線方向の結合を模す Potential Energy Surface を作ります。[2.5, 2.5, 2.5] nm の極小が安定な表面 "
+"Site、[2.5, 2.5, 2.8] nm の極大が解離 Barrier です。"
 
 #: markdown/inputs.md:291
 msgid ""
 "This will output a collective variable file to monitor that everything in "
 "the simulation is proceeding as expected."
-msgstr ""
+msgstr "CV を出力して、意図した挙動か監視します。"
 
 #: markdown/inputs.md:296
 msgid ""
 "This will flush the output every 1000 steps, allowing us to monitor that "
 "everything within PLUMED is working as it should while the simulation is "
 "running."
-msgstr ""
+msgstr "1000 Step ごとに出力を Flush し、実行中も PLUMED の動作を確認できます。"
 
 #: markdown/inputs.md:320
 msgid ""
@@ -235,16 +267,19 @@ msgid ""
 "dedicated `BIAS` directory. The analysis scripts will then need to be "
 "modified accordingly."
 msgstr ""
+"`d1` の z 成分を CV とする Multiple Walker Metadynamics を指定します。WALKERS_ID、WALKERS_N"
+" の仮名は `run.sh` が置換します。実行中 HILLS は BIAS で読み書きします。Single Walker では `RESTART` と"
+" `METAD` の最後の4行を除きます。`HILLS` は `BIAS` ではなく現ディレクトリに出るので、解析スクリプトも調整します。"
 
 #: markdown/inputs.md:322
 msgid "run.sh"
-msgstr ""
+msgstr "run.sh"
 
 #: markdown/inputs.md:324
 msgid ""
 "The `run.sh` file will handle submitting all of the walkers for a given "
 "simulation."
-msgstr ""
+msgstr "`run.sh` は全 Walker を投入します。"
 
 #: markdown/inputs.md:329
 msgid ""
@@ -253,6 +288,8 @@ msgid ""
 " all of your available CPU cores. In our case where our system only has one "
 "atom, it is the most efficient to run with only one thread per walker."
 msgstr ""
+"`OPENMM_CPU_THREADS` は Job ごとの CPU Thread 数です。未設定では全 Core "
+"を使います。1原子のこの系では、Walker ごとに1 Thread が最も効率的です。"
 
 #: markdown/inputs.md:343
 msgid ""
@@ -264,10 +301,13 @@ msgid ""
 "systems you can run either the `top` or `htop` command to monitor the "
 "background processes."
 msgstr ""
+"For Loop が各 Walker に移り、`python3 ../../simulation_files/run.py` を `&` で "
+"Background 実行します。問題時に終了しやすいよう Process ID を保存・表示します。UNIX 系では `top`、`htop` "
+"で監視できます。"
 
 #: markdown/inputs.md:345
 msgid "Beginning the simulation"
-msgstr ""
+msgstr "開始"
 
 #: markdown/inputs.md:347
 msgid ""
@@ -278,6 +318,8 @@ msgid ""
 " to run for longer to get an even smoother profile! Once your simulations "
 "have finished running, it is time to [analyse](analysis.md)."
 msgstr ""
+"各半径の `data/radius_0.x` で `bash run.sh` を実行します。`run.py` が既定なら各 Walker が100 "
+"ns、計400 ns で、PMF の収束には十分です。さらに滑らかにしたければ長くできます。終了後は [解析](analysis.md) します。"
 
 #: markdown/inputs.md:351
 msgid "[Back to binding tutorial main page.](../NAVIGATION.md)"
