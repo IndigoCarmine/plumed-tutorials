@@ -9,7 +9,7 @@ msgstr ""
 
 #: Installation.md:1
 msgid "Installation advice"
-msgstr ""
+msgstr "インストールの助言"
 
 #: Installation.md:3
 msgid ""
@@ -21,6 +21,9 @@ msgid ""
 "[here](https://www.plumed-"
 "tutorials.org/lessons/20/001/data/NAVIGATION.html)."
 msgstr ""
+"全演習は PLUMED だけで実行でき、外部の MD コードから呼ぶ必要はありません。MD は内蔵の `simplemd` "
+"で行います。[こちら](https://www.plumed-"
+"tutorials.org/lessons/20/001/data/NAVIGATION.html) に従って PLUMED だけを入れてください。"
 
 #: Installation.md:8
 msgid ""
@@ -28,16 +31,16 @@ msgid ""
 "do the tutorial is to install it with [conda](https://anaconda.org). You can"
 " create and activate a conda environment to run the tutorial exercises by "
 "issuing the following commands:"
-msgstr ""
+msgstr "手早く使うには [conda](https://anaconda.org) がよいでしょう。次で演習用の環境を作成・有効化します。"
 
 #: Installation.md:16
 msgid ""
 "You can then install PLUMED into this environment with the following "
 "command:"
-msgstr ""
+msgstr "次で PLUMED を入れます。"
 
 #: Installation.md:22
 msgid ""
 "You should then be able to run all the commands that use PLUMED in the "
 "tutorial."
-msgstr ""
+msgstr "これで Tutorial の全 PLUMED コマンドを使えるはずです。"

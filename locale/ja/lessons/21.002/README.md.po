@@ -23,6 +23,8 @@ msgid ""
 "must characterize the distribution that has been sampled. It is not "
 "sufficient to report the averages."
 msgstr ""
+"この Masterclass では、分子シミュレーション結果の報告方法を扱います。どの結果も Random Variable です。再現可能にするには "
+"Sampling した分布の特徴付けが必要で、平均だけの報告では不十分です。"
 
 #: README.md:10
 msgid "Objectives"
@@ -36,11 +38,11 @@ msgstr "この Masterclass を終えると、次のことができるように�
 msgid ""
 "Use PLUMED to calculate time averages and histograms from biased and "
 "unbiased simulation data."
-msgstr ""
+msgstr "Bias あり・なしのデータから PLUMED で時間平均と Histogram を計算する。"
 
 #: README.md:15
 msgid "Use PLUMED to perform block averaging."
-msgstr ""
+msgstr "PLUMED で Block Averaging を行う。"
 
 #: README.md:16
 msgid ""
@@ -48,6 +50,8 @@ msgid ""
 "simulation data using the central limit theorem and non-parametric "
 "bootstrap."
 msgstr ""
+"Central Limit Theorem と Non-parametric Bootstrap で、Bias あり・なしの時間平均の Error "
+"Bar を求める。"
 
 #: README.md:18
 msgid "Setting up PLUMED"
@@ -58,7 +62,7 @@ msgid ""
 "If you have not yet set up PLUMED, you can find information about installing"
 " it [here](Installation.md). Please ensure that you have setup PLUMED on "
 "your machine before starting the exercises."
-msgstr ""
+msgstr "未設定なら [インストール](Installation.md) を参照し、演習前に PLUMED を準備してください。"
 
 #: README.md:22
 msgid "Resources"
@@ -70,26 +74,28 @@ msgid ""
 " [GitHub](https://github.com/plumed/masterclass-21-2). You can clone this "
 "repository locally on your machine using the following command:"
 msgstr ""
+"データは [GitHub](https://github.com/plumed/masterclass-21-2) にあり、次で自分のマシンに "
+"Clone できます。"
 
 #: README.md:31
 msgid ""
 "The data you need is in the folder called `data`. You will find the "
 "following files in that folder:"
-msgstr ""
+msgstr "`data` に次があります。"
 
 #: README.md:33
 msgid ""
 "`uncorrelated_data`: you will analyze this data set in the first six "
 "exercises that follow"
-msgstr ""
+msgstr "`uncorrelated_data`：演習1〜6で解析するデータ。"
 
 #: README.md:34
 msgid "`correlated_data`: you will analyze this data set in exercise 7"
-msgstr ""
+msgstr "`correlated_data`：演習7のデータ。"
 
 #: README.md:35
 msgid "`weighted_data`: you will analyze this data in exercise 8"
-msgstr ""
+msgstr "`weighted_data`：演習8のデータ。"
 
 #: README.md:37
 msgid ""
@@ -99,18 +105,19 @@ msgid ""
 "the free energy surface. In the `data` folder, you will thus also find the "
 "following files, which are the input for the metadynamics simulation:"
 msgstr ""
+"演習9では Metadynamics を実行し、自由エネルギー表面を抽出して1〜8の考え方を統合します。`data` にその入力もあります。"
 
 #: README.md:40
 msgid ""
 "in: The input file for simplemd that contains the parameters for the MD "
 "simulation."
-msgstr ""
+msgstr "in：MD パラメータを含む simplemd 入力。"
 
 #: README.md:41
 msgid ""
 "input.xyz: An initial configuration for the cluster that we are studying in "
 "this tutorial."
-msgstr ""
+msgstr "input.xyz：対象 Cluster の初期 Configuration。"
 
 #: README.md:43
 msgid ""
@@ -123,7 +130,7 @@ msgstr "GitHub リポジトリには PLUMED の入力ファイルは含まれて
 msgid ""
 "We would recommend that you run each exercise in separate sub-directories "
 "inside the root directory `masterclass-21-2`."
-msgstr ""
+msgstr "`masterclass-21-2` 内の別サブディレクトリで各演習を行うことを推奨します。"
 
 #: README.md:47
 msgid "Background"
@@ -142,6 +149,10 @@ msgid ""
 "(NVT) ensemble](https://www.notion.so/The-canonical-NVT-"
 "ensemble-112c3f99f215472cae55d5f6c36f4599):"
 msgstr ""
+"ほかの Lesson では、原子位置 $\\mathbf{x}$ から CV $s(\\mathbf{x})$ を計算し、MD 中の "
+"Conformational Change や化学反応を記述しました。定温 MD の各 Frame の CV は、[Canonical (NVT) "
+"Ensemble](https://www.notion.so/The-canonical-NVT-"
+"ensemble-112c3f99f215472cae55d5f6c36f4599) の確率分布からの Sample です。"
 
 #: README.md:59
 msgid ""
@@ -154,6 +165,11 @@ msgid ""
 " the $3N$ momentum ( $p$ ) and $3N$ position ( $x$ ) coordinates when "
 "calculating these integrals."
 msgstr ""
+"$k_B$ は Boltzmann 定数、$T$ は温度、$H(x,p)$ は Hamiltonian、$\\delta$ は Dirac Delta "
+"Function です。分子・分母とも全 [Phase Space](https://www.notion.so/Microstates-phase-"
+"space-and-the-principle-of-equal-a-priori-"
+"probabilities-9dbd484a47654bff858313634f01d875) の積分です。$N$ 原子なら、$3N$ の "
+"Momentum（$p$）と $3N$ の Position（$x$）の全座標で積分します。"
 
 #: README.md:64
 msgid ""
@@ -174,6 +190,15 @@ msgid ""
 " random](https://www.notion.so/Sample-"
 "mean-583d58d7001343c68a7956a1b9f19f4b)."
 msgstr ""
+"この積分を厳密に求められるのは単純な物理系だけです。複雑な系では MD や Monte Carlo で繰り返し Sampling "
+"し、[統計](https://www.notion.so/940bd09c5be343888244beb21ed4a166?v=6bb0bd98d8fc47a081164069121ee396)"
+" で $P(s')$ の情報を得ます。ただし結果はすべて [Random Variable](https://www.notion.so/Random-"
+"variables-8aad5b4c3453423da3069168228fe890) "
+"です。<b>[再現可能](https://www.notion.so/Reproducibility-2494dddd51a14d34bddbb40bb32f7ebc)"
+" にするには、Sampling した [分布](https://www.notion.so/The-cumulative-probability-"
+"distribution-function-dc346bc8b4f1440b8d075f8c8d2b0f53) "
+"を特徴付ける必要があります。</b>[平均も Random](https://www.notion.so/Sample-"
+"mean-583d58d7001343c68a7956a1b9f19f4b) なので、平均値だけでは不十分です。"
 
 #: README.md:73
 msgid "Exercises"
@@ -181,7 +206,7 @@ msgstr "演習"
 
 #: README.md:75
 msgid "Exercise 1: Calculating the average value of a CV"
-msgstr ""
+msgstr "演習1：CV の平均値"
 
 #: README.md:77
 msgid ""
@@ -189,6 +214,9 @@ msgid ""
 "[ensemble](https://www.notion.so/Ensembles-7b8b836f8ce44f9b8830ebb0fd00fea8)"
 " average of the CV. The ensemble average for $s(x)$ is given by:"
 msgstr ""
+"CV の "
+"[Ensemble](https://www.notion.so/Ensembles-7b8b836f8ce44f9b8830ebb0fd00fea8)"
+" Average を推定します。$s(x)$ の Ensemble Average は、"
 
 #: README.md:83
 msgid ""
@@ -202,20 +230,27 @@ msgid ""
 "$X_i$ and computing a [sample mean](https://www.notion.so/Sample-"
 "mean-583d58d7001343c68a7956a1b9f19f4b) as follows:"
 msgstr ""
+"統計では、統計力学の Ensemble Average を Random Variable の "
+"[分布](https://www.notion.so/The-cumulative-probability-distribution-function-"
+"dc346bc8b4f1440b8d075f8c8d2b0f53) の "
+"[期待値](https://www.notion.so/Expectation-c877d8e2ab444b818fae6c053598e0af) "
+"と呼びます。同じ分布から複数の Sample $X_i$ を取り、次の [Sample "
+"Mean](https://www.notion.so/Sample-mean-583d58d7001343c68a7956a1b9f19f4b) "
+"で推定します。"
 
 #: README.md:91
 msgid ""
 "We can do the same with the data from our MD trajectory. We replace the "
 "$X_i$ in the equation above with the CV values calculated for each of our "
 "trajectory frames."
-msgstr ""
+msgstr "MD でも、$X_i$ を各 Frame の CV に置き換えて同様にできます。"
 
 #: README.md:93
 msgid ""
 "To calculate averages using PLUMED, you can use the input file below. This "
 "input calculates averages for the data in the `uncorrelated_data` file you "
 "downloaded when you collected the GitHub repository."
-msgstr ""
+msgstr "次の PLUMED 入力は、GitHub からの `uncorrelated_data` の平均を計算します。"
 
 #: README.md:108
 msgid ""
@@ -224,13 +259,13 @@ msgid ""
 "thus be able to use the data in `colvar` to produce a graph that shows the "
 "average as a function of the number of variables it is computed from as "
 "shown below."
-msgstr ""
+msgstr "`colvar` はデータ数を徐々に増やした平均を含みます。`colvar` から、使うデータ数に対する平均を次のように描けます。"
 
 #: README.md:111
 msgid ""
 "![Average CV as a function of the number of variables it is computed "
 "from](figures/masterclass-21-2-average.png)"
-msgstr ""
+msgstr "![計算に使う変数数に対する CV 平均](figures/masterclass-21-2-average.png)"
 
 #: README.md:113
 msgid ""
@@ -238,10 +273,11 @@ msgid ""
 "from larger numbers of random variables. We say that the average thus "
 "converges to the ensemble average, which is zero for the graph above."
 msgstr ""
+"Random Variable の数を増やすと平均の揺らぎが減ります。Ensemble Average に収束するといい、この例では0です。"
 
 #: README.md:115
 msgid "Exercise 2: Calculating the free energy"
-msgstr ""
+msgstr "演習2：自由エネルギー"
 
 #: README.md:117
 msgid ""
@@ -258,6 +294,14 @@ msgid ""
 "dd0dcbab15cd437b91e803ac7fbd1bf8), $F(s')$ as a function of $s(x)$ as "
 "$F(s')$ is related to $P(s')$ by:"
 msgstr ""
+"[Histogram](https://www.notion.so/Histogram-2d2527795f0140008b318d3bc958ee4c)"
+" で CV 分布 $P(s')$ を推定できます。Histogram は [Multinomial "
+"Distribution](https://www.notion.so/Multinomial-"
+"distribution-f378b34a38564f6999e184cd2df53f5c) の Sample なので、[Maximum "
+"Likelihood](https://www.notion.so/Maximum-"
+"likelihood-e74a16b691284896bb2bbd5cff502f6d) でパラメータを推定できます。周辺分布 $P(s')$ "
+"から、$s(x)$ の関数である [自由エネルギー](https://www.notion.so/Thermodynamic-potentials-"
+"dd0dcbab15cd437b91e803ac7fbd1bf8) $F(s')$ を求めます。$F(s')$ と $P(s')$ の関係は、"
 
 #: README.md:126
 msgid ""
@@ -266,32 +310,35 @@ msgid ""
 " the data in `uncorrelated_data` using PLUMED in this way we can use the "
 "input file:"
 msgstr ""
+"$P(s')$ の Maximum Likelihood 推定から自由エネルギー表面を得られます。`uncorrelated_data` "
+"には次の入力を使います。"
 
 #: README.md:145
 msgid ""
 "The `--noatoms` flag here is needed since `plumed driver` is commonly used "
 "to analize a trajectory of atomic coordinates, but here we are using it to "
 "directly analyze a collective variable."
-msgstr ""
+msgstr "`plumed driver` は通常原子座標を解析しますが、今回は CV を直接解析するので `--noatoms` が必要です。"
 
 #: README.md:147
 msgid ""
 "You should see that the free energy curve for this data set looks like this:"
-msgstr ""
+msgstr "次の曲線になるはずです。"
 
 #: README.md:149
 msgid ""
 "![The free energy as a function of the CV for the data in "
 "uncorrelated_data](figures/masterclass-21-2-fes1.png)"
 msgstr ""
+"![uncorrelated_data の CV に対する自由エネルギー](figures/masterclass-21-2-fes1.png)"
 
 #: README.md:151
 msgid "As you can see, there is a single minimum in this free energy surface."
-msgstr ""
+msgstr "極小は1つです。"
 
 #: README.md:153
 msgid "Exercise 3: Calculating the fluctuations for a CV"
-msgstr ""
+msgstr "演習3：CV の揺らぎ"
 
 #: README.md:155
 msgid ""
@@ -300,6 +347,7 @@ msgid ""
 "and lets use the Taylor series to write an expression for the free energy at"
 " $s'$ as follows:"
 msgstr ""
+"物理系は多くの時間を自由エネルギー極小の周囲の揺らぎに費やします。極小を $\\mu$ とし、$s'$ の自由エネルギーを Taylor 展開します。"
 
 #: README.md:162
 msgid ""
@@ -308,10 +356,12 @@ msgid ""
 "there is a minimum at $\\mu$ so $F'(\\mu)=0$. If we truncate the expansion "
 "at second order we can, therefore, write:"
 msgstr ""
+"$F'(\\mu)$、$F''(\\mu)$、$F^{(n)}(\\mu)$ は $\\mu$ での1、2、n階微分です。$\\mu$ が極小なので "
+"$F'(\\mu)=0$ です。2次で打ち切ると、"
 
 #: README.md:169
 msgid "We now recall that $F(s) = - k_B T \\ln P(s')$ and thus write:"
-msgstr ""
+msgstr "$F(s) = - k_B T \\ln P(s')$ を使い、"
 
 #: README.md:175
 msgid ""
@@ -326,6 +376,11 @@ msgid ""
 " normal distribution, it is fully characterized if we have the two "
 "parameters $\\mu$ and $\\sigma$."
 msgstr ""
+"最終積の第1項は $s$ によらない定数、第2項は $\\mu$ を中心とし $\\sigma^2 = \\frac{k_B "
+"T}{F''(\\mu)}$ の Gaussian です。定数項が正規化すると考えられます。CV は [Normal "
+"Distribution](https://www.notion.so/Normal-random-"
+"variable-86cae0d838314a3cb8aead626dc6647e) の Sample とみなせ、$P(s')$ の Histogram"
+" は不要になります。$P(s')$ が正規なら、$\\mu$ と $\\sigma$ で完全に特徴付けられます。"
 
 #: README.md:181
 msgid ""
@@ -335,6 +390,10 @@ msgid ""
 "deviation](https://www.notion.so/Variance-3688f3132bd64d3fbc2f022d7ee17e88) "
 "$\\sigma$ using:"
 msgstr ""
+"$N$ 個の同じ正規分布の $X_i$ から、[平均](https://www.notion.so/Sample-"
+"mean-583d58d7001343c68a7956a1b9f19f4b) $\\mu$ と "
+"[標準偏差](https://www.notion.so/Variance-3688f3132bd64d3fbc2f022d7ee17e88) "
+"$\\sigma$ を次で推定できます。"
 
 #: README.md:188
 msgid ""
@@ -345,12 +404,15 @@ msgid ""
 " the input below input we assume that $N$ is large and that the Bessel "
 "Correction, $\\frac{N}{N-1}$, is equal to one"
 msgstr ""
+"$\\mu$ の推定は演習1で学びました。`uncorrelated_data` の $\\sigma^2$ は次の PLUMED "
+"入力で求めます。ただし $\\sigma^2$ の式は上と少し異なり、$N$ が大きいとして Bessel Correction "
+"$\\frac{N}{N-1}$ を1とします。"
 
 #: README.md:208 README.md:239
 msgid ""
 "*Copy this input to a file called plumed.dat, fill in the blanks and run the"
 " calculation by executing the following command:*"
-msgstr ""
+msgstr "*plumed.dat に Copy し、空欄を埋めて次で実行してください。*"
 
 #: README.md:214
 msgid ""
@@ -359,13 +421,13 @@ msgid ""
 "of CVs used in its calculation. As you can see from the graph below, "
 "$\\sigma^2$ quantity behaves similarly to the mean that we studied in "
 "exercise 1"
-msgstr ""
+msgstr "使用 CV 数に対する $\\sigma^2$ の推定を描けます。下図のように $\\sigma^2$ は演習1の平均と似た挙動です。"
 
 #: README.md:217
 msgid ""
 "![Estimate of the standard deviation for the CV as a function of the number "
 "of samples it is computed from](figures/masterclass-21-2-var.png)"
-msgstr ""
+msgstr "![Sample 数に対する CV の標準偏差推定](figures/masterclass-21-2-var.png)"
 
 #: README.md:219
 msgid ""
@@ -385,10 +447,19 @@ msgid ""
 "form expression between the variance* ( $\\sigma^2$ ) *and the second "
 "derivative of the free energy at* $\\mu$ *though.*"
 msgstr ""
+"*自由エネルギーの Taylor 展開を2次で切るのは、CV の揺らぎを [Harmonic "
+"Oscillator](https://www.notion.so/Harmonic-"
+"Oscillator-92855b39d13945dabb73cb831dc1234e) で記述する仮定に相当します。[Partition "
+"Function](https://www.notion.so/Generalised-partition-"
+"function-10ed8ca2b3c943aa82dff2116ae955e5)、Ensemble Average、分布を厳密に求められ、MD "
+"は不要です。非調和でも* $\\sigma^2$ *は分布の "
+"[Variance](https://www.notion.so/Variance-3688f3132bd64d3fbc2f022d7ee17e88) "
+"の推定として有用です。ただし Variance*（$\\sigma^2$）*と* $\\mu$ "
+"*での自由エネルギー2階微分には、簡単な閉形式の関係はありません。*"
 
 #: README.md:226
 msgid "Exercise 4: Calculating block averages"
-msgstr ""
+msgstr "演習4：Block Average"
 
 #: README.md:228
 msgid ""
@@ -401,19 +472,25 @@ msgid ""
 "calculate an average from sets of 500 random variables using the ideas "
 "discussed in exercise 1."
 msgstr ""
+"次の入力は CV を Block に分け、別々に [平均](https://www.notion.so/Sample-"
+"mean-583d58d7001343c68a7956a1b9f19f4b) を計算します。演習1のように500個の Random Variable "
+"を平均したときの [分布](https://www.notion.so/The-cumulative-probability-distribution-"
+"function-dc346bc8b4f1440b8d075f8c8d2b0f53) を調べられます。"
 
 #: README.md:245
 msgid ""
 "Plot a graph showing the original data from `uncorrelated_data` and the "
 "averages in the `colvar` file. You should be able to see something similar "
 "to this graph."
-msgstr ""
+msgstr "`uncorrelated_data` と `colvar` の平均を重ねて描くと、次のようになります。"
 
 #: README.md:247
 msgid ""
 "![The yellow points are block averages computed from the data points shown "
 "in black](figures/masterclass-21-2-block-average.png)"
 msgstr ""
+"![黒のデータ点から求めた Block Average を黄色で表示](figures/masterclass-21-2-block-"
+"average.png)"
 
 #: README.md:249
 msgid ""
@@ -425,12 +502,16 @@ msgid ""
 "[precise estimator](https://www.notion.so/Point-"
 "estimation-d4225267e03e4539a2e85d08b9e9efad) for this quantity."
 msgstr ""
+"黒の元データも黄色の平均も、同じ値を中心に分布します。いずれも期待値の [正確な推定量](https://www.notion.so/Point-"
+"estimation-d4225267e03e4539a2e85d08b9e9efad) ですが、黄色の Block Average の方が "
+"[精密](https://www.notion.so/Point-"
+"estimation-d4225267e03e4539a2e85d08b9e9efad) です。"
 
 #: README.md:253
 msgid ""
 "The reason the block average is a more precise estimator is connected to a "
 "well known result in statistics. If we compute a mean as follows:"
-msgstr ""
+msgstr "理由は統計のよく知られた結果です。次の平均について、"
 
 #: README.md:259
 msgid ""
@@ -442,16 +523,24 @@ msgid ""
 "mean-583d58d7001343c68a7956a1b9f19f4b) that the expectation and variance of "
 "this random quantity are given by:"
 msgstr ""
+"$X_i$ が "
+"[独立](https://www.notion.so/Independence-00fd3064fd3e4aa3b677d7fec6ecedcd) で "
+"[同一分布](https://www.notion.so/Random-"
+"variables-8aad5b4c3453423da3069168228fe890) なら、期待値と Variance が次になることを "
+"[容易に示せます](https://www.notion.so/Sample-"
+"mean-583d58d7001343c68a7956a1b9f19f4b)。"
 
 #: README.md:266
 msgid ""
 "where $\\mathbb{E}(X)$ and $\\textrm{var}(X)$ are the expectation and "
 "variance of the random variable $X_i$ from which the mean was computed."
 msgstr ""
+"$\\mathbb{E}(X)$ と $\\textrm{var}(X)$ は、平均元の Random Variable $X_i$ の期待値と "
+"Variance です。"
 
 #: README.md:268
 msgid "Exercise 5: Free energy from block averages"
-msgstr ""
+msgstr "演習5：Block Average から自由エネルギー"
 
 #: README.md:270
 msgid ""
@@ -460,6 +549,8 @@ msgid ""
 "the data in `uncorrelated_data` with 100 bins starting at -4 and finishing "
 "at +4 using PLUMED we can use the input file:"
 msgstr ""
+"演習4の方法で自由エネルギーの Error Bar を求めます。`uncorrelated_data` を10 Histogram "
+"にし、-4〜+4を100 Bin に分ける入力は、"
 
 #: README.md:291
 msgid ""
@@ -471,6 +562,9 @@ msgid ""
 "histogram, $P(s)$, and the free energy surface, $F(s)$, by using the "
 "following python script:"
 msgstr ""
+"analysis.0.hist.dat、analysis.1.hist.dat などに各 Block の Histogram "
+"が生成されます。統合し、Histogram $P(s)$ と自由エネルギー表面 $F(s)$ の関係で最終表面を求めます。次の Python "
+"を使います。"
 
 #: README.md:332
 msgid ""
@@ -478,7 +572,7 @@ msgid ""
 "data. You may need to adjust the names of the files that are being read to "
 "suit your machine's setup. The graph shown in the figure below shows the "
 "free energy surface generated from the python script."
-msgstr ""
+msgstr "Notebook の Cell に Copy して実行します。読み込む名前は環境に合わせて変更してください。結果は下図です。"
 
 #: README.md:335
 msgid ""
@@ -486,10 +580,12 @@ msgid ""
 " The shaded region shows the errors on this estimate. These errors were "
 "computed using block averaging](figures/masterclass-21-2-fes2.png)"
 msgstr ""
+"![uncorrelated_data の自由エネルギー。影は Block Averaging "
+"による推定誤差](figures/masterclass-21-2-fes2.png)"
 
 #: README.md:337
 msgid "The value of the free energy in the $i$th bin is calculated using:"
-msgstr ""
+msgstr "$i$ 番目の Bin の自由エネルギーは、"
 
 #: README.md:343
 msgid ""
@@ -497,12 +593,14 @@ msgid ""
 "ith bin in the jth estimate of the histogram. The above expression is thus "
 "calculating the logarithm of the histogram's average value in bin $i$."
 msgstr ""
+"和は $N$ 個の Histogram にわたり、$H_i^{(j)}$ は j 番目の Histogram の i 番目の Bin 値です。Bin "
+"$i$ の平均値の対数を求めています。"
 
 #: README.md:346
 msgid ""
 "The error on the free energy, which is illustrated using the shaded region "
 "in the figure above, is calculated using:"
-msgstr ""
+msgstr "影で示す自由エネルギー誤差は、"
 
 #: README.md:352
 msgid ""
@@ -513,24 +611,26 @@ msgid ""
 "that were discussed in exercise 4. To get the error on the free energy, we "
 "then have to propagate the errors through the expression:"
 msgstr ""
+"平方根内は Bin $i$ の Histogram 平均の誤差です。演習4の [平均](https://www.notion.so/Sample-"
+"mean-583d58d7001343c68a7956a1b9f19f4b) の式で求め、自由エネルギーへの誤差伝播を次の式に適用します。"
 
 #: README.md:360
 msgid "to get the expression above."
-msgstr ""
+msgstr "これにより上の式を得ます。"
 
 #: README.md:362
 msgid ""
 "Lastly, notice that it is often useful to average the error over the grid "
 "using:"
-msgstr ""
+msgstr "Grid 上の誤差平均も有用です。"
 
 #: README.md:368
 msgid "where the sum runs over the $M$ bins in the histogram."
-msgstr ""
+msgstr "和は Histogram の $M$ Bin にわたります。"
 
 #: README.md:370
 msgid "Exercise 6: Calculating bootstrap averages"
-msgstr ""
+msgstr "演習6：Bootstrap Average"
 
 #: README.md:372
 msgid ""
@@ -541,6 +641,8 @@ msgid ""
 "generate more data, which we can either do by running longer simulations, "
 "which is expensive, or by bootstrapping, which is cheaper."
 msgstr ""
+"演習4は平均分布の Sampling 法の1つです。前節では $M$ 個の平均推定を正規としましたが、Non-parametric "
+"法も使えます。追加データは高コストな長時間 MD でも、低コストな Bootstrap でも得られます。"
 
 #: README.md:376
 msgid ""
@@ -550,6 +652,8 @@ msgid ""
 " the data points. We then take new means by repeatedly sampling sets of 500 "
 "points with replacement from the data and calculating new means."
 msgstr ""
+"次は `uncorrelated_data` "
+"の最初の500点を使う例です。全点の平均を求め、次に復元抽出で500点ずつを繰り返し選び、新たな平均を作ります。"
 
 #: README.md:397
 msgid ""
@@ -558,41 +662,41 @@ msgid ""
 "now calculate the variance from all your bootstrapped averages you should "
 "see that it close to the value you got from the expression below which was "
 "introduced in exercise 4:"
-msgstr ""
+msgstr "`bootstraps` に Bootstrap の平均が保存されます。その Variance は、演習4の次の式と近いはずです。"
 
 #: README.md:403
 msgid ""
 "To use this expression you can insert the value of $\\textrm{var}(X)$ you "
 "computed in exercise 3 with $N=500$."
-msgstr ""
+msgstr "演習3の $\\textrm{var}(X)$ と $N=500$ を代入できます。"
 
 #: README.md:408
 msgid "Exercise 7: Dealing with correlated data"
-msgstr ""
+msgstr "演習7：相関したデータ"
 
 #: README.md:410
 msgid ""
 "In this exercise, you will review everything you have done in the previous "
 "two exercises. <b>You should</b>:"
-msgstr ""
+msgstr "前の2演習を復習します。<b>次を行ってください</b>。"
 
 #: README.md:412
 msgid ""
 "Calculate block averages for the data in `correlated_data`. Calculate the "
 "error on the average of the block average."
-msgstr ""
+msgstr "`correlated_data` の Block Average を求め、その平均の誤差を計算する。"
 
 #: README.md:413
 msgid ""
 "Calculate bootstrap averages for the data in `correlated_data`. Calculate "
 "the error from the bootstrap averages."
-msgstr ""
+msgstr "`correlated_data` の Bootstrap Average を求め、その誤差を計算する。"
 
 #: README.md:415
 msgid ""
 "You will see that the variance you obtain from the bootstrap averages is "
 "less than the variance you get by block averaging."
-msgstr ""
+msgstr "Bootstrap の Variance の方が Block Averaging より小さくなるはずです。"
 
 #: README.md:417
 msgid ""
@@ -600,7 +704,7 @@ msgid ""
 "data points in `correlated_data`. Such correlations were not present in the "
 "data set you have examined in all the exercises that appeared previously to "
 "this one. The reason this matters is that the expression:"
-msgstr ""
+msgstr "`correlated_data` の点の相関が原因です。前の演習のデータにはありませんでした。次の式は、"
 
 #: README.md:424
 msgid ""
@@ -611,6 +715,10 @@ msgid ""
 " This expression is thus not valid for correlated data. To be clear, "
 "however, we can still write:"
 msgstr ""
+"$\\overline{X}$ の元の変数が [同一分布](https://www.notion.so/Random-"
+"variables-8aad5b4c3453423da3069168228fe890) かつ "
+"[<b>独立</b>](https://www.notion.so/Independence-00fd3064fd3e4aa3b677d7fec6ecedcd)"
+" の場合だけ有効で、相関データには使えません。ただし次は成り立ちます。"
 
 #: README.md:431
 msgid ""
@@ -619,13 +727,16 @@ msgid ""
 "variables-8aad5b4c3453423da3069168228fe890). When we use this expression, "
 "the random variables only need to be independent and can be correlated."
 msgstr ""
+"$\\overline{X}$ の元が [同一分布](https://www.notion.so/Random-"
+"variables-8aad5b4c3453423da3069168228fe890) "
+"なら成り立つためです。この式では変数は独立であるだけでよく、相関していてもかまいません。"
 
 #: README.md:437
 msgid ""
 "For the remainder of this exercise, you should use the data in "
 "`correlated_data` and what you have learned in the previous exercises to "
 "calculate block averages for different block sizes. For each block size"
-msgstr ""
+msgstr "残りは `correlated_data` で Block Size を変え、各 Size について次を行います。"
 
 #: README.md:440
 msgid ""
@@ -634,6 +745,9 @@ msgid ""
 "\\frac{1}{N} \\sum_{i=1}^N X_i^2 - \\left( \\frac{1}{N}\\sum_{i=1}^N X_i "
 "\\right)^2 \\right] $"
 msgstr ""
+"$N$ 個の Block Average（$X_i$）の平均と Variance を、$\\mu = \\frac{1}{N} \\sum X_i$ と"
+" $\\sigma^2 = \\frac{N}{N-1} \\left[ \\frac{1}{N} \\sum_{i=1}^N X_i^2 - "
+"\\left( \\frac{1}{N}\\sum_{i=1}^N X_i \\right)^2 \\right] $ で求める。"
 
 #: README.md:441
 msgid ""
@@ -641,6 +755,8 @@ msgid ""
 "error bar on your estimate for $\\mu$: $\\epsilon = "
 "\\sqrt{\\frac{\\sigma^2}{N}}$"
 msgstr ""
+"Variance を $\\mu$ の Error Bar の式 $\\epsilon = \\sqrt{\\frac{\\sigma^2}{N}}$ "
+"に代入する。"
 
 #: README.md:443
 msgid ""
@@ -653,6 +769,10 @@ msgid ""
 "average and the associated error barm $\\epsilon$, as a function of the size"
 " of the blocks similar to the one shown below:"
 msgstr ""
+"詳細は [この演習](https://colab.research.google.com/github/autofeedback-"
+"exercises/exercises/blob/main/New-"
+"MTH4332/SingleParticleMD/SingleParticleMD.ipynb) の後半を参照してください。平均と Error Bar "
+"$\\epsilon$ を Block Size に対して、下図のように描けるはずです。"
 
 #: README.md:447
 msgid ""
@@ -660,6 +780,8 @@ msgid ""
 "data. The bar shows the size of the error on the estimate of the "
 "average](figures/masterclass-21-2-corr-baverage.png)"
 msgstr ""
+"![相関データの Block Size に対する平均と Error Bar](figures/masterclass-21-2-corr-"
+"baverage.png)"
 
 #: README.md:449
 msgid ""
@@ -671,10 +793,13 @@ msgid ""
 "that your block averages are no longer correlated and the expression "
 "$\\textrm{var}(\\overline{X}) = \\frac{\\textrm{var}(X)}{N}$ is thus valid."
 msgstr ""
+"小さな Block では相関によって誤差を過小評価します。十分な点数を入れると一定値に達し、Size に依存しなくなります。そのとき Block "
+"Average は相関しておらず、$\\textrm{var}(\\overline{X}) = "
+"\\frac{\\textrm{var}(X)}{N}$ を使えます。"
 
 #: README.md:455
 msgid "Exercise 8: Weighted averages"
-msgstr ""
+msgstr "演習8：Weighted Average"
 
 #: README.md:457
 msgid ""
@@ -684,10 +809,12 @@ msgid ""
 "calculated from the frames of such biased MD simulations thus samples from "
 "the following distribution:"
 msgstr ""
+"PLUMED は Umbrella Sampling や Metadynamics に広く使われます。Hamiltonian に "
+"BiasPotential $V(x)$ を加えて Phase Space の探索を強化するため、CV は次の分布を Sampling します。"
 
 #: README.md:464
 msgid "To get information on the unbiased distribution:"
-msgstr ""
+msgstr "次の Unbiased 分布の情報には、"
 
 #: README.md:470
 msgid ""
@@ -695,37 +822,39 @@ msgid ""
 "averages](https://www.notion.so/Weighted-"
 "averages-81a28555cc3149f78047f80bb9dbba91) using:"
 msgstr ""
+"次の [Weighted Average](https://www.notion.so/Weighted-"
+"averages-81a28555cc3149f78047f80bb9dbba91) が必要です。"
 
 #: README.md:476
 msgid ""
 "where the $w_i$ are (random) weights that counteract the effect of the bias."
 " The way the weights are calculated is described in other lessons)"
-msgstr ""
+msgstr "$w_i$ は Bias を打ち消す Random Weight で、計算法はほかの Lesson で説明します。"
 
 #: README.md:478
 msgid ""
 "In this exercise we are going to reweight the data in `weighted_data`, which"
 " consists of samples from the following distribution:"
-msgstr ""
+msgstr "`weighted_data` を Reweighting します。次の分布からの Sample です。"
 
 #: README.md:484
 msgid ""
 "with $\\mu=0.6$ and $\\sigma=0.5$ with and the additional constrant that $ x"
 " $ is between 0 and 1. Given this information the following weighted "
 "average:"
-msgstr ""
+msgstr "$\\mu=0.6$、$\\sigma=0.5$ で、$ x $ は0〜1に制限します。このとき次の Weighted Average は、"
 
 #: README.md:490
 msgid ""
 "should be an estimator for the expectation of a uniform random variable "
 "between 0 and 1. Furthermore, the expression below:"
-msgstr ""
+msgstr "0〜1の一様な Random Variable の期待値を推定します。さらに次は、"
 
 #: README.md:496
 msgid ""
 "gives an estimate for the variance of <b>the distribution</b> after "
 "reweighting (i.e. the variance of the uniform random variable)."
-msgstr ""
+msgstr "Reweighting 後の <b>分布</b>（一様な Random Variable）の Variance を推定します。"
 
 #: README.md:498
 msgid ""
@@ -734,6 +863,9 @@ msgid ""
 "average</b>](https://www.notion.so/Weighted-"
 "averages-81a28555cc3149f78047f80bb9dbba91):"
 msgstr ""
+"統計から <b>Weighted Average</b> の [期待値と "
+"Variance](https://www.notion.so/Weighted-"
+"averages-81a28555cc3149f78047f80bb9dbba91) も得られます。"
 
 #: README.md:504
 msgid ""
@@ -743,6 +875,8 @@ msgid ""
 "weighted average <b>is not</b> a function of the variance for the variable "
 "as was the case for the unweighted averages in exercise 4."
 msgstr ""
+"元の $X_i$ が独立同一分布なら成り立ちます。ただし演習4の重みなし平均と異なり、平均の Variance は元の変数の Variance の関数 "
+"<b>ではありません</b>。"
 
 #: README.md:507
 msgid ""
@@ -755,52 +889,58 @@ msgid ""
 "the histogram we are also going to extract error bars by reweighting. To "
 "calculate these quantities using PLUMED we will use an input like this:"
 msgstr ""
+"Unbiased（ここでは一様）分布の CV 平均・揺らぎ・自由エネルギーを求めます。データから Weighted Average と "
+"[Weighted Histogram](https://www.notion.so/Weighted-"
+"histograms-546d0b3837ce43a3b9de0dcf7a741353) を作り、Histogram の Error Bar も "
+"Reweighting で求めます。PLUMED 入力は、"
 
 #: README.md:542
 msgid ""
 "I obtained the following graphs showing how the mean and variance change "
 "with sample size."
-msgstr ""
+msgstr "Sample Size ごとの平均と Variance は、"
 
 #: README.md:544
 msgid ""
 "![Average value of the random variable and the fluctuations as a function of"
 " sample size](figures/masterclass-21-2-average8.png)"
 msgstr ""
+"![Sample Size に対する Random Variable "
+"の平均と揺らぎ](figures/masterclass-21-2-average8.png)"
 
 #: README.md:546
 msgid "The free energy with errors from this data looks like this:"
-msgstr ""
+msgstr "誤差付きの自由エネルギーは、"
 
 #: README.md:548
 msgid ""
 "![Free energy (with errors) as a function of the CV computed by "
 "reweighting](figures/masterclass-21-2-fes8.png)"
-msgstr ""
+msgstr "![Reweighting で求めた自由エネルギーと誤差](figures/masterclass-21-2-fes8.png)"
 
 #: README.md:553
 msgid "Exercise 9: The free energy from a biased simulation"
-msgstr ""
+msgstr "演習9：Bias 付き MD の自由エネルギー"
 
 #: README.md:555
 msgid ""
 "We can now bring all this together by running a metadynamics simulation and "
 "extracting the free energy surface by reweighting. The other exercises in "
 "this tutorial have shown us that when we do this, it is essential to:"
-msgstr ""
+msgstr "Metadynamics を実行し、Reweighting で自由エネルギー表面を抽出して統合します。これまでの演習から、次が不可欠です。"
 
 #: README.md:557
 msgid ""
 "Quote error bars on the estimates of the free energy we obtain as the values"
 " we get from our simulation will be random variables. Quoting error bars is "
 "thus essential in terms of making our results reproducible."
-msgstr ""
+msgstr "結果は Random Variable なので、再現性のため自由エネルギー推定に Error Bar を示す。"
 
 #: README.md:558
 msgid ""
 "Calculate weighted averages using the ideas discussed in exercise 8 as we "
 "need to account for the effect the bias has on the sampling of phase space."
-msgstr ""
+msgstr "Bias の Sampling への影響を考慮し、演習8の Weighted Average を使う。"
 
 #: README.md:559
 msgid ""
@@ -808,7 +948,7 @@ msgid ""
 "estimates for the free energy. Notice that we need to use block averaging "
 "because, as discussed in exercise 7, there are correlations between the CV "
 "values the system visits during the trajectory."
-msgstr ""
+msgstr "演習4の Block Averaging で複数の自由エネルギー推定を得る。演習7のように CV 値が相関するため必要。"
 
 #: README.md:561
 msgid ""
@@ -816,14 +956,14 @@ msgid ""
 " in the exercise that follows. The theory behind the metadynamics method "
 "that we are using is discussed in detail in other lessons if you are "
 "interested."
-msgstr ""
+msgstr "これら3点に注目します。Metadynamics 理論はほかの Lesson で詳しく扱います。"
 
 #: README.md:564
 msgid ""
 "We will study a system of 7 Lennard Jones atoms in two dimensions in what "
 "follows using the MD code <b>simplemd</b> that is part of PLUMED. You can "
 "run this code by issuing the command:"
-msgstr ""
+msgstr "PLUMED の <b>simplemd</b> で、2次元の7 Lennard-Jones 原子を調べます。次で実行します。"
 
 #: README.md:570
 msgid ""
@@ -832,6 +972,8 @@ msgid ""
 "a temperature of $k_B T = 0.1 \\epsilon$ starting from the configuration in "
 "input.xyz."
 msgstr ""
+"<b>in</b> は GitHub の入力です。input.xyz から温度 $k_B T = 0.1 \\epsilon$ で200000 Step"
+" の MD を指定します。"
 
 #: README.md:572
 msgid ""
@@ -842,18 +984,21 @@ msgid ""
 " the calculation above you need to provide a PLUMED input file called "
 "plumed.dat."
 msgstr ""
+"Time Step は0.005 $\\sqrt{\\epsilon}{m\\sigma^2}$、温度は Relaxation Time $0.1 "
+"\\sqrt{\\epsilon}{m\\sigma^2}$ の Langevin Thermostat で一定にします。1000 Step ごとに "
+"trajectory.xyz に出力します。plumed.dat も必要です。"
 
 #: README.md:575
 msgid ""
 "We want to investigate transitions between the four structures of Lennard "
 "Jones 7 that are shown below using metadynamics."
-msgstr ""
+msgstr "Metadynamics で、以下の Lennard-Jones 7 の4構造間の遷移を調べます。"
 
 #: README.md:577
 msgid ""
 "![The four energetic minima in the energy landscape for two-dimensional "
 "Lennard Jones 7](figures/lyon-lj7-minima.png)"
-msgstr ""
+msgstr "![2次元 Lennard-Jones 7 の4つのエネルギー極小](figures/lyon-lj7-minima.png)"
 
 #: README.md:579
 msgid ""
@@ -865,6 +1010,8 @@ msgid ""
 "atoms in the cluster are the same, we can compute the position of the centre"
 " of mass using:"
 msgstr ""
+"Metadynamics 中に Cluster が蒸発して7原子が離れることがあるため、全原子を Center of Mass から "
+"$2\\sigma$ 以内に拘束します。質量はすべて同じなので Center of Mass は、"
 
 #: README.md:586
 msgid ""
@@ -873,6 +1020,8 @@ msgid ""
 "$d_i$, can be computed using Pythagoras' theorem. These distances are then "
 "restrained by using the following potential:"
 msgstr ""
+"$\\mathbf{x}_i$ は原子 i の位置です。Center of Mass との距離 $d_i$ は Pythagoras の定理で求め、次の"
+" Potential で拘束します。"
 
 #: README.md:596
 msgid ""
@@ -880,7 +1029,7 @@ msgid ""
 "distances are less than 2 $\\epsilon$. If an atom is more than 2 $\\epsilon$"
 " from the centre of mass, however, this potential will drive it back towards"
 " the centre of mass."
-msgstr ""
+msgstr "距離が2 $\\epsilon$ 未満では Dynamics に影響せず、2 $\\epsilon$ を超えると中心に戻します。"
 
 #: README.md:599
 msgid ""
@@ -890,12 +1039,14 @@ msgid ""
 "coordination numbers. The nth central moment of a set of numbers, "
 "$\\{X_i\\}$ can be calculated using:"
 msgstr ""
+"4構造間を移動させる Bias は、Coordination Number 分布の第2・第3 Central Moment に作用します。数の集合 "
+"$\\{X_i\\}$ の n 次 Central Moment は、"
 
 #: README.md:606
 msgid ""
 "Furthermore, we can compute the coordination number of our Lennard Jones "
 "atoms using:"
-msgstr ""
+msgstr "Lennard-Jones 原子の Coordination Number は、"
 
 #: README.md:612
 msgid ""
@@ -904,6 +1055,8 @@ msgid ""
 "PLUMED that gets it to perform metadynamics using the second and third "
 "central moments of the distribution of coordination numbers as a CV."
 msgstr ""
+"$r_{ij}$ は原子 $i$ と $j$ の距離です。次の Cell は Coordination Number 分布の第2・第3 Central "
+"Moment を CV にする入力ひな形です。"
 
 #: README.md:664
 msgid ""
@@ -915,6 +1068,9 @@ msgid ""
 "repository to generate a metadynamics trajectory at* $k_B T = 0.1 \\epsilon$"
 " *by running the command:*"
 msgstr ""
+"*plumed.dat に Copy し、両 Moment の Bandwidth を0.1、高さを0.05* $\\epsilon$ *として500 "
+"Step ごとに Gaussian を加えるよう変更します。GitHub の input.xyz と in を使い、* $k_B T = 0.1 "
+"\\epsilon$ *の Trajectory を次で生成します。*"
 
 #: README.md:671
 msgid ""
@@ -926,18 +1082,21 @@ msgid ""
 "histogram. You should thus use the following input file to extract estimates"
 " of the histogram:"
 msgstr ""
+"出力を <b>driver</b> で処理し、[Reweighting](https://www.notion.so/Weighted-"
+"histograms-546d0b3837ce43a3b9de0dcf7a741353) で自由エネルギーを得ます。Block Averaging "
+"のため、Weighted Histogram の複数の推定を次で抽出します。"
 
 #: README.md:707
 msgid ""
 "Once you have filled in the blanks in this input, you can then run the "
 "calculation by using the command:"
-msgstr ""
+msgstr "空欄を埋め、次で実行します。"
 
 #: README.md:713
 msgid ""
 "You must make sure that the HILLS file that was output by your metadynamics "
 "simulation is available in the directory where you run the above command."
-msgstr ""
+msgstr "Metadynamics の HILLS を、実行ディレクトリに置いてください。"
 
 #: README.md:715
 msgid ""
@@ -948,6 +1107,8 @@ msgid ""
 "shows the size of the error bar on the free energy at each point of the free"
 " energy surface."
 msgstr ""
+"残りは自力で行います。これまでの方法で下図を作ってください。左は Block の Weighted Average による自由エネルギー表面、右は各点の"
+" Error Bar です。"
 
 #: README.md:719
 msgid ""
@@ -955,6 +1116,7 @@ msgid ""
 "and the errors on these estimate of the free "
 "energy](figures/masterclass-21-2-fes_errors.png)"
 msgstr ""
+"![Lennard-Jones の自由エネルギー推定（左）と誤差](figures/masterclass-21-2-fes_errors.png)"
 
 #: README.md:721
 msgid ""
@@ -962,7 +1124,7 @@ msgid ""
 "error size depends on the lengths of the blocks as was discussed in exercise"
 " 7. When I did this analysis I found that the error does not have a strong "
 "dependence on the size of the blocks."
-msgstr ""
+msgstr "相関があるため、演習7のように誤差の Block 長依存性を調べてください。私の解析では強い依存はありませんでした。"
 
 #: README.md:724
 msgid ""
@@ -970,17 +1132,19 @@ msgid ""
 "blocks used for the block "
 "averaging](figures/masterclass-21-2-fes_error_blocks.png)"
 msgstr ""
+"![Block Size "
+"に対する自由エネルギーの平均誤差](figures/masterclass-21-2-fes_error_blocks.png)"
 
 #: README.md:726
 msgid ""
 "Finally, if you are struggling to plot the 2D free energy surface, you can "
 "generate free energy as a function of one CV only using the ideas from "
 "earlier exercises."
-msgstr ""
+msgstr "2次元表面の描画が難しければ、前の演習の方法で1 CV の自由エネルギーを作れます。"
 
 #: README.md:730
 msgid "Further reading"
-msgstr ""
+msgstr "さらに読むには"
 
 #: README.md:732
 msgid ""
@@ -991,21 +1155,28 @@ msgid ""
 "will often give you smoother histograms. My full sets of notes are available"
 " here:"
 msgstr ""
+"PLUMED のよい使い方は [この論文](https://arxiv.org/abs/1812.08213) を参照してください。滑らかな "
+"Histogram を得やすい [Kernel Density "
+"Estimation](https://en.wikipedia.org/wiki/Kernel_density_estimation) "
+"も推奨します。全講義ノートは、"
 
 #: README.md:735
 msgid ""
 "[Probability theory "
 "notes](https://www.notion.so/940bd09c5be343888244beb21ed4a166?v=6bb0bd98d8fc47a081164069121ee396)"
 msgstr ""
+"[確率論のノート](https://www.notion.so/940bd09c5be343888244beb21ed4a166?v=6bb0bd98d8fc47a081164069121ee396)"
 
 #: README.md:736
 msgid ""
 "[Thermodynamics "
 "notes](https://www.notion.so/365db6742a81483ba82d27a3c9133eba?v=7859a0ae344042eab8ff6dab16533224)"
 msgstr ""
+"[熱力学のノート](https://www.notion.so/365db6742a81483ba82d27a3c9133eba?v=7859a0ae344042eab8ff6dab16533224)"
 
 #: README.md:737
 msgid ""
 "[Statistical Mechanics "
 "notes](https://www.notion.so/4bc79cd418674ffcb90b6730dbf94b22?v=c6499c1314624bb38869504d0111a024)"
 msgstr ""
+"[統計力学のノート](https://www.notion.so/4bc79cd418674ffcb90b6730dbf94b22?v=c6499c1314624bb38869504d0111a024)"
