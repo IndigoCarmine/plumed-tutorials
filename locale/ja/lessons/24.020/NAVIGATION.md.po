@@ -10,27 +10,27 @@ msgstr ""
 #. mermaid node label
 #: NAVIGATION.md:3
 msgid "Metadynamics Intro"
-msgstr ""
+msgstr "Metadynamics の導入"
 
 #. mermaid node label
 #: NAVIGATION.md:3
 msgid "CpH-Metadynamics intro"
-msgstr ""
+msgstr "CpH-Metadynamics の導入"
 
 #. mermaid node label
 #: NAVIGATION.md:4
 msgid "CpH-MetaD source"
-msgstr ""
+msgstr "CpH-MetaD の Source"
 
 #. mermaid node label
 #: NAVIGATION.md:5
 msgid "Conformational Analysis"
-msgstr ""
+msgstr "Conformation の解析"
 
 #. mermaid node label
 #: NAVIGATION.md:6
 msgid "Protonation Analysis"
-msgstr ""
+msgstr "Protonation の解析"
 
 #. mermaid node label
 #: NAVIGATION.md:7
@@ -42,29 +42,29 @@ msgstr "解答"
 msgid ""
 "A brief introduction to metadynamics is useful before executing this "
 "tutorial"
-msgstr ""
+msgstr "実行前に Metadynamics の簡単な導入を学ぶと役立ちます。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:10
 msgid "A theoretical introduction to the CpH-Metadynamics method"
-msgstr ""
+msgstr "CpH-Metadynamics の理論的な導入"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:11
 msgid "Take a look into the source page and material for the CpH-Metadynamics"
-msgstr ""
+msgstr "CpH-Metadynamics の Source ページと資料を確認してください。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:12
 msgid "Perform the conformation analysis of CpH-Metadynamics."
-msgstr ""
+msgstr "CpH-Metadynamics の Conformation を解析する。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:13
 msgid "Perform the protonation analysis of CpH-Metadynamics"
-msgstr ""
+msgstr "CpH-Metadynamics の Protonation を解析する。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:14
 msgid "A python notebook containing a full set of solutions for the exercise"
-msgstr ""
+msgstr "演習の完全な解答を含む Python Notebook"

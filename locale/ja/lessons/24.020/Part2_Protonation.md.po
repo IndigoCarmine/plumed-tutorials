@@ -9,7 +9,7 @@ msgstr ""
 
 #: Part2_Protonation.md:1
 msgid "Protonation Analysis"
-msgstr ""
+msgstr "Protonation の解析"
 
 #: Part2_Protonation.md:3
 msgid ""
@@ -19,6 +19,8 @@ msgid ""
 " is an another dimension to CpH-Metadynamics simulations which concerns the "
 "protonation analysis."
 msgstr ""
+"Conformation 解析は、極小の特定、CV やほかの Observable の Population の推定を通じて、各 pH "
+"の挙動を評価する基礎です。CpH-Metadynamics には、もう1つ Protonation 解析の側面があります。"
 
 #: Part2_Protonation.md:5
 msgid ""
@@ -29,6 +31,9 @@ msgid ""
 "what is the average protonation of different energy minima. One important "
 "and distinctive property is the pKa."
 msgstr ""
+"pH 条件による挙動を調べるとき、Titration Site の Protonation の釣り合い（平均 Protonation）が "
+"Conformation に与える影響を評価しています。そのため時間変化や各極小の平均 Protonation が重要です。特徴的な重要量が pKa "
+"です。"
 
 #: Part2_Protonation.md:7
 msgid ""
@@ -42,6 +47,9 @@ msgid ""
 "deprotonation probability is equal, thus there is a thermodynamic "
 "equilibrium."
 msgstr ""
+"pKa は Titration Site の50%が Protonated、50%が Deprotonated となる pH で、Proton "
+"結合親和性を表します。一般に pH < pKa では Protonated 状態、pH > pKa では Deprotonated "
+"状態が多くなります。pH=pKa では両確率が等しく、熱力学的に釣り合います。"
 
 #: Part2_Protonation.md:9
 msgid ""
@@ -49,6 +57,7 @@ msgid ""
 "which describes the relationship between the pKa, pH, and the balance "
 "between the protonated and deprotonated populations:"
 msgstr ""
+"Henderson-Hasselbalch 式は pKa、pH、Protonated・Deprotonated Population の関係を表します。"
 
 #: Part2_Protonation.md:13
 msgid ""
@@ -57,16 +66,18 @@ msgid ""
 "G of the protonation-free energies at two distinct pH values. Since the "
 "protonation-free energy can be described as:"
 msgstr ""
+"pKa の変化は通常 pH 単位で表しますが、kJ/mol に変換できます。異なる2 pH の Protonation 自由エネルギーの "
+"$\\Delta\\Delta$ G として表せます。Protonation 自由エネルギーは、"
 
 #: Part2_Protonation.md:17
 msgid ""
 "where R is the gas constant, T is the temperature in Kelvin. Then the energy"
 " associated with a pH unit change is:"
-msgstr ""
+msgstr "R は気体定数、T は Kelvin 単位の温度です。pH 単位変化のエネルギーは、"
 
 #: Part2_Protonation.md:21
 msgid "which for a $ \\Delta pH=1 $ is roughly:"
-msgstr ""
+msgstr "$ \\Delta pH=1 $ では、およそ、"
 
 #: Part2_Protonation.md:25
 msgid ""
@@ -76,6 +87,8 @@ msgid ""
 "able to plot titration curves, estimate pKa values and measure energy "
 "differences using CpH-metaD simulations."
 msgstr ""
+"このエネルギーは熱力学的平衡、Conformation の確率、Population の釣り合いに大きく影響します。これらの関係を使い、CpH-"
+"MetaD から Titration Curve、pKa、エネルギー差を求めます。"
 
 #: Part2_Protonation.md:27
 msgid ""
@@ -88,14 +101,17 @@ msgid ""
 "distinguishable by their average protonation? If so, then why and how does "
 "electrostatics play a role?"
 msgstr ""
+"Uridine の N3 の pKa は9.22です。pH < pKa では多くが Protonated で中性、pH > pKa では "
+"Deprotonated で負電荷を持つはずです。電荷変化は系にどう影響しますか？pH や時間による Protonation "
+"変化を測れますか？各極小は平均 Protonation で区別できますか？その理由と静電相互作用の役割は何ですか？"
 
 #: Part2_Protonation.md:29
 msgid "These are all questions to be addressed in the following section."
-msgstr ""
+msgstr "次の節でこれらを調べます。"
 
 #: Part2_Protonation.md:31
 msgid "Extracting the protonation data"
-msgstr ""
+msgstr "Protonation データの抽出"
 
 #: Part2_Protonation.md:33
 msgid ""
@@ -106,6 +122,9 @@ msgid ""
 "Time_{seg}/\\tau_{p} $, which is the time of segment (1000 ps) over the "
 "frequency of protonation (20 ps)."
 msgstr ""
+".occ から Protonation データを抽出します。各 Segment の各 Titration Site の Proton "
+"Occupation State が保存されています。CpHMD の各 Cycle 後に生成され、行数は $ Time_{seg}/\\tau_{p} "
+"$、すなわち Segment 時間（1000 ps）を Protonation 間隔（20 ps）で割った数です。"
 
 #: Part2_Protonation.md:35
 msgid ""
@@ -126,12 +145,19 @@ msgid ""
 "those cases, each occupation state refers to a different position of the "
 "proton."
 msgstr ""
+"各列は Titration Site、各行は時刻（通常20 ps ごと）です。Occupation State は St-XOL3_DelPHi "
+"のパラメータ化した状態で定義します。Uridine の URN0 は中性 (0) で Protonated、URN1 は荷電 (-1) で "
+"Deprotonated なので、.occ の0は Protonated を意味します。一方 Adenine の AR0 は中性ですが "
+"Deprotonated、AR1 は Protonated (+1) なので、Occupation と Protonation "
+"が一致し補正不要です。通常、二値の Protonable Site（Adenine、Cytidine）は補正不要で、Deprotonable "
+"Site（Uridine、Guanine）は変換が必要です。複数 Tautomer では、Occupation が異なる Proton "
+"位置を表すため常に補正します。"
 
 #: Part2_Protonation.md:38
 msgid ""
 "First, we are going to generate a data frame to store all the data found in "
 "the .occ files for the different pH values."
-msgstr ""
+msgstr "まず各 pH の .occ を格納する DataFrame を作ります。"
 
 #: Part2_Protonation.md:79
 msgid ""
@@ -143,6 +169,9 @@ msgid ""
 "ps, then the protonation states of these intermediate frames correspond to "
 "the state assigned in the previous cycle."
 msgstr ""
+"全データを抽出して時刻を割り当てた後、Protonation の頻度を定義します。計算は20 ps ごとですが、中間 Frame "
+"にも状態を割り当てられます。シミュレーションの刻みが2 ps、$\\tau_{p}$ が20 ps なら、中間 Frame は前の Cycle "
+"の状態です。"
 
 #: Part2_Protonation.md:105
 msgid ""
@@ -152,12 +181,16 @@ msgid ""
 "that their protonation states should also be unbiased. To do that we need to"
 " obtain the weights and correctly assign them to the corresponding frames."
 msgstr ""
+"CpH-Metadynamics なので、蓄積 Bias の重みが必要です。Protonation と Conformation "
+"は本質的に結合しているため、Conformation だけでなく Protonation State の Bias も除きます。重みを取得し、正しい "
+"Frame に割り当てます。"
 
 #: Part2_Protonation.md:142
 msgid ""
 "Q8. Examine the final dataframe. Do the timestamps of the protonation states"
 " match the conformational data? Are all the pH values present?"
 msgstr ""
+"Q8. 最終 DataFrame で、Protonation の時刻は Conformation と一致しますか？全 pH が含まれていますか？"
 
 #: Part2_Protonation.md:144
 msgid ""
@@ -167,6 +200,9 @@ msgid ""
 "we need to redefine the Henderson-Hasselbalch (HH) relationship between pH, "
 "pKa and protonation. We can rewrite the HH function as follows:"
 msgstr ""
+"全 pH、Protonation、Conformation、重みを含む DataFrame から、平均 Protonation、Titration "
+"Curve、pKa を求められます。曲線用に Henderson-Hasselbalch (HH) の pH・pKa・Protonation "
+"関係を書き換えます。"
 
 #: Part2_Protonation.md:148
 msgid ""
@@ -175,3 +211,5 @@ msgid ""
 "However, we are dealing with biased simulations, then we need to calculate "
 "the weighted average protonations:"
 msgstr ""
+"<P> は特定 pH での平均 Protonation、pH は実行時の値、pKa は Fit パラメータです。Bias 付きなので Weighted "
+"Average Protonation を求めます。"

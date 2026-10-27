@@ -13,7 +13,7 @@ msgstr "CpH-Metadynamics シミュレーションの入門"
 
 #: README.md:3
 msgid "Aim"
-msgstr ""
+msgstr "目的"
 
 #: README.md:5
 msgid ""
@@ -30,41 +30,41 @@ msgstr "到達目標"
 
 #: README.md:9
 msgid "Upon completion of this tutorial users will be able to:"
-msgstr ""
+msgstr "終えると、次ができるようになります。"
 
 #: README.md:10
 msgid ""
 "Write and modify both the CpHMD.settings and PLUMED input file to perform "
 "CpH-MetaD simulations ;"
-msgstr ""
+msgstr "CpH-MetaD 用の CpHMD.settings と PLUMED 入力を作成・変更する。"
 
 #: README.md:11
 msgid ""
 "Calculate free energy as a function of the chosen collective variables and "
 "the pH of the simulation ;"
-msgstr ""
+msgstr "CV と pH の関数として自由エネルギーを計算する。"
 
 #: README.md:12
 msgid "Unbias conformational and pH-dependent properties ;"
-msgstr ""
+msgstr "Conformation と pH 依存の性質の Bias を除く。"
 
 #: README.md:13
 msgid "Estimate the errors in average protonations and pKa estimates ;"
-msgstr ""
+msgstr "平均 Protonation と pKa 推定の誤差を求める。"
 
 #: README.md:14
 msgid ""
 "How to combine multiple CpH-MetaD simulations through binless WHAM procedure"
 " ;"
-msgstr ""
+msgstr "Binless WHAM で複数の CpH-MetaD を統合する。"
 
 #: README.md:15
 msgid "Calculate properties using the WHAM pH weights."
-msgstr ""
+msgstr "WHAM の pH Weight で性質を計算する。"
 
 #: README.md:17
 msgid "Software Installation"
-msgstr ""
+msgstr "ソフトウェアのインストール"
 
 #: README.md:19
 msgid ""
@@ -82,6 +82,14 @@ msgid ""
 "PLUMED. Please follow nad cite the relevant papers mentioned in the GitHub "
 "pages."
 msgstr ""
+"PLUMED 2.9.0、PLUMED で Patch した GROMACS 2023、CpHMD v3.0 が必要です。最初の2つは "
+"[こちら](https://github.com/plumed/cecam2023/blob/main/software.md) "
+"の手順を使えます。CpHMD v3.0 は Machuqueiro Group の "
+"[GitHub](https://github.com/NunoFBOliveira/CpHMD_v3/tree/main) で AMBER "
+"版をインストールしてください。次に Tomás F. D. Silva の [CpH-"
+"Metadynamics](https://github.com/Tomfersil/CpH-MetaD/tree/main) で、修正版 AMBER "
+"$\\chi$ OL3 RNA パラメータと PLUMED Metadynamics 対応の Patch 手順に従います。各 GitHub "
+"の関連論文を読み、引用してください。"
 
 #: README.md:21
 msgid "Resources"
@@ -89,37 +97,37 @@ msgstr "資料"
 
 #: README.md:23
 msgid "This tutorial contains the following files:"
-msgstr ""
+msgstr "次のファイルを含みます。"
 
 #: README.md:24
 msgid ".occ files: a type of file that contains protonation data;"
-msgstr ""
+msgstr ".occ：Protonation データ。"
 
 #: README.md:25
 msgid ""
 ".pdb/.xtc: a reference pdb file and the trajectories necessary for the "
 "analysis;"
-msgstr ""
+msgstr ".pdb/.xtc：参照 PDB と解析用 Trajectory。"
 
 #: README.md:26
 msgid "HILLS: files that contain the accumulated bias for each pH simulation;"
-msgstr ""
+msgstr "HILLS：各 pH の蓄積 Bias。"
 
 #: README.md:27
 msgid ""
 ".dat: PLUMED input and output files required for analyses in the notebook."
-msgstr ""
+msgstr ".dat：Notebook の解析に必要な PLUMED 入出力。"
 
 #: README.md:29
 msgid ""
 "Additionally, several scripts are available for preparation of trajectories "
 "and protonation files, to generate PLUMED input files and to obtain their "
 "respective output data."
-msgstr ""
+msgstr "Trajectory・Protonation ファイルの準備、PLUMED 入力の生成、出力データの取得用スクリプトもあります。"
 
 #: README.md:31
 msgid "Introduction to CpH-Metadynamics"
-msgstr ""
+msgstr "CpH-Metadynamics の導入"
 
 #: README.md:33
 msgid ""
@@ -133,10 +141,16 @@ msgid ""
 "approach](https://arxiv.org/pdf/2410.16064) and to do that we will tackle "
 "the st-CpHMD first."
 msgstr ""
+"Constant pH Metadynamics は、[Stochastic Titration Constant pH Molecular "
+"Dynamics](https://doi.org/10.1063/1.1497164) と "
+"[Metadynamics](https://doi.org/10.1038/s42254-020-0153-0) "
+"を統合します。詳細はリンク先を参照してください。ここでは [CpH-"
+"Metadynamics](https://arxiv.org/pdf/2410.16064) の基本的な考え方を扱い、まず st-CpHMD "
+"を説明します。"
 
 #: README.md:35
 msgid "st-CpHMD:"
-msgstr ""
+msgstr "st-CpHMD："
 
 #: README.md:37
 msgid ""
@@ -150,18 +164,21 @@ msgid ""
 "change the protonation state along the simulation partitioned into three "
 "main steps:"
 msgstr ""
+"[st-CpHMD](https://doi.org/10.1063/1.1497164) などは、MD に pH を導入します。通常 MD は残基の "
+"Protonation State を固定しますが、生体内では pH と環境に依存して Titration が起きます。Chemical "
+"Potential の導入法は複数ありますが、ここでは3段階の Start-stop 法で状態を変えます。"
 
 #: README.md:39
 msgid "a Poisson-Boltzmann/Monte Carlo (PB/MC) step ;"
-msgstr ""
+msgstr "Poisson-Boltzmann/Monte Carlo (PB/MC)。"
 
 #: README.md:40
 msgid "a solvent relaxation step ;"
-msgstr ""
+msgstr "溶媒の Relaxation。"
 
 #: README.md:41
 msgid "a MD production step ;"
-msgstr ""
+msgstr "MD 本計算。"
 
 #: README.md:43
 msgid ""
@@ -178,10 +195,15 @@ msgid ""
 "effectively couples discrete protonation states and conformational sampling,"
 " thus allowing a more rich description of a biological system."
 msgstr ""
+"PB/MC では単一 Conformation で Protonation 自由エネルギーを求め、各状態の確率を計算し、基準を満たすまで MC "
+"Sampling します。状態を再割り当てした後、Solute を拘束した短い MD で溶媒を新しい電荷に適応させます。最後に通常20 ps の本計算で"
+" Conformation 空間を Sampling します。目的の長さまで Cycle を繰り返します。Protonation "
+"依存の性質からのエネルギー抽出は解析編で扱います。離散的な Protonation State と Conformation Sampling "
+"を結び付け、生物系をより豊かに記述します。"
 
 #: README.md:45
 msgid "Metadynamics integration:"
-msgstr ""
+msgstr "Metadynamics の統合："
 
 #: README.md:47
 msgid ""
@@ -195,6 +217,10 @@ msgid ""
 "tutorial](https://www.plumed.org/doc-v2.9/user-doc/html/advanced-"
 "methods.html) on metadynamics."
 msgstr ""
+"通常の Metadynamics は、重要な自由度を Collective Variables (CVs) として選び、履歴依存 "
+"BiasPotential を周期的に構築して Conformation Sampling を加速します。CV 空間に Gaussian "
+"を足し合わせて生成します。理論の詳細は [PLUMED Tutorial](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/advanced-methods.html) を参照してください。"
 
 #: README.md:49
 msgid ""
@@ -212,10 +238,14 @@ msgid ""
 "effectively improves the accuracy of average protonation and pKa "
 "calculations as the tutorial will show in later sections."
 msgstr ""
+"Sampling しにくい自由度は重要な Conformation 特性に関わり、pH "
+"感受性残基に制御される場合や、静電環境の変化が大きな遷移を引き起こす場合があります。これらの遅い自由度には Metadynamics と、重要残基の "
+"Protonation を容易に変える CpHMD が有用です。選んだ CV の PLUMED 入力に従い、st-CpHMD の本計算中に PLUMED"
+" を動かします。設定は次節で扱います。後の解析で示すように、統合により平均 Protonation と pKa の精度が向上します。"
 
 #: README.md:51
 msgid "Preparing a CpH-compatible system: an RNA nucleoside"
-msgstr ""
+msgstr "CpH 対応の系の準備：RNA Nucleoside"
 
 #: README.md:53
 msgid ""
@@ -227,14 +257,18 @@ msgid ""
 "protonation dynamics of nucleic acids. The chosen CVs are the $\\chi$ angle "
 "and the sugar puckering."
 msgstr ""
+"単純な Nucleoside、Uridine を準備します。標準 RNA Nucleoside 4種の1つで、実験 pKa は9.22です "
+"[1](https://www.degruyter.com/document/doi/10.1515/znb-1968-0105/html)。単純ですが、核酸の"
+" Conformation・Protonation Dynamics の入門になります。CV は $\\chi$ 角と Sugar Puckering "
+"です。"
 
 #: README.md:57
 msgid "<em>Representation of uridine syn state.</em>"
-msgstr ""
+msgstr "<em>Uridine の syn 状態。</em>"
 
 #: README.md:62
 msgid "<em>Representation of uridine anti state.</em>"
-msgstr ""
+msgstr "<em>Uridine の anti 状態。</em>"
 
 #: README.md:65
 msgid ""
@@ -245,6 +279,9 @@ msgid ""
 "position of the titrable N3, when the moiety is facing the ribose is in the "
 "syn state and when facing the solvent is in the anti state."
 msgstr ""
+"$\\chi$ は Uridine の O4'-C1'-N1-C2 の Torsion で、塩基と Ribose の相対配向を決めます。Base-"
+"flipping の主要状態は syn（-90º〜90º）と anti（90°〜+180°、–90°〜–180°）です。Titration する N3 "
+"が Ribose を向くと syn、溶媒を向くと anti です。"
 
 #: README.md:67
 msgid ""
@@ -256,10 +293,13 @@ msgid ""
 "correlates with the position of the 2'OH and its' interactions with "
 "nucleobases, while also defining the RNA helix form."
 msgstr ""
+"もう1つは Sugar Puckering です。RNA の Ribose 平面に対し、C2' が上なら C2'-endo、C3' が上なら "
+"C3'-endo です（[2](https://doi.org/10.3389/fgene.2022.95925) の図を参照）。2'OH の位置と "
+"Nucleobase との相互作用に関係し、RNA Helix の形も決めます。"
 
 #: README.md:71
 msgid "<em>Representation of the C2' and C3' endo states.</em>"
-msgstr ""
+msgstr "<em>C2'、C3' endo 状態。</em>"
 
 #: README.md:74
 msgid ""
@@ -271,6 +311,10 @@ msgid ""
 "force field (available [here](https://github.com/Tomfersil/CpH-"
 "MetaD/tree/main/CpHMD_metaD/top/XOL3pH.ff))."
 msgstr ""
+"MD では C2'/C3' endo と syn/anti の遷移は遅く収束しにくいため、よい CV です。CpH-Metadynamics "
+"の準備は通常の系設定・Minimization・初期化に従いますが、$\\chi$ OL3pH Force "
+"Field（[こちら](https://github.com/Tomfersil/CpH-"
+"MetaD/tree/main/CpHMD_metaD/top/XOL3pH.ff)）には注意点があります。"
 
 #: README.md:76
 msgid ""
@@ -283,10 +327,14 @@ msgid ""
 "residues. After preparing the CpH-compatible .pdb file, then a standard MD "
 "preparation protocol can be done before setting up the simulation."
 msgstr ""
+"この Force Field は標準 $\\chi$ OL3 と異なり Module 化されているため、入力 .pdb を .rtp の CpH "
+"命名に合わせます。手動または scripts 内の Python で変換できます。スクリプトは各 "
+"Ribose、Phosphate、Nucleobase、Hydroxyl Cap を独立残基として再構成します。CpH 対応 PDB の準備後は通常の "
+"MD 準備を行えます。"
 
 #: README.md:78
 msgid "Setting up a CpH-Metadynamics simulation"
-msgstr ""
+msgstr "CpH-Metadynamics の設定"
 
 #: README.md:80
 msgid ""
@@ -296,6 +344,9 @@ msgid ""
 "doc/html/advanced-methods.html) and/or CpHMD simulations is helpful. Examine"
 " the CpHMD.settings file. For now, let's observe the main defining settings:"
 msgstr ""
+"CpHMD と PLUMED "
+"入力の2部分を設定します。[Metadynamics](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/advanced-methods.html) や CpHMD の知識が役立ちます。CpHMD.settings の主な設定を見ます。"
 
 #: README.md:101
 msgid ""
@@ -311,24 +362,29 @@ msgid ""
 "parametrization](https://github.com/Tomfersil/CpH-"
 "MetaD/tree/main/CpHMD_metaD/top/XOL3pH.ff))."
 msgstr ""
+"Segment 数と各長さを ns で指定します。演習は100 ns を10 ns の10 Segment に分けます。Force Field "
+"の選択も重要です。一般的なものを修正し、複数の Protonation Tautomer "
+"に対応しています（[CpHMD-v3.0](https://github.com/NunoFBOliveira/CpHMD_v3/tree/main)）。Uridine"
+" には XOL3pH を使います（[パラメータ化](https://github.com/Tomfersil/CpH-"
+"MetaD/tree/main/CpHMD_metaD/top/XOL3pH.ff)）。"
 
 #: README.md:103
 msgid ""
 "Then it is possible to choose either to perform a plain CpHMD simulation or "
 "choose different options for a metadynamics simulation:"
-msgstr ""
+msgstr "通常の CpHMD か、次の Metadynamics オプションを選べます。"
 
 #: README.md:105
 msgid ""
 "plumed=yes: performs a metadynamics simulation reading from the HILLS every "
 "cycle;"
-msgstr ""
+msgstr "plumed=yes：Cycle ごとに HILLS を読み、Metadynamics を行う。"
 
 #: README.md:106
 msgid ""
 "plumed=grid: stores both a GRID and HILLS file. Restarting a segment reads "
 "from the GRIDS file. Recommended setting due to speed;"
-msgstr ""
+msgstr "plumed=grid：GRID と HILLS を保存し、Segment 再開時は GRIDS を読む。高速なので推奨。"
 
 #: README.md:107
 msgid ""
@@ -336,6 +392,7 @@ msgid ""
 "HILLS file. No more Gaussians are added and continue to explore the CV "
 "space."
 msgstr ""
+"plumed=static：既存 HILLS の Static Potential を使う。Gaussian を追加せず CV 空間を探索する。"
 
 #: README.md:109
 msgid ""
@@ -346,6 +403,8 @@ msgid ""
 " calculations. For more details on the CpHMD settings, check the work done "
 "by the Machuqueiro Lab in the previously linked GitHub pages."
 msgstr ""
+"「sites=」は入力 PDB の残基番号で Titration Site を指定し、数値または all を使えます。最後に、温度、pH、PB 計算の "
+"Ionic Strength (mol/L) を設定します。詳細は上記の Machuqueiro Lab の GitHub を参照してください。"
 
 #: README.md:111
 msgid ""
@@ -354,6 +413,8 @@ msgid ""
 " this setting since it provides a greater advantage in I/O speed compared to"
 " the HILLS file."
 msgstr ""
+"Metadynamics の詳細パラメータは末尾または PLUMED_GRID.dat を見ます。HILLS より I/O が速いため GRID "
+"設定を推奨します。"
 
 #: README.md:136
 msgid ""
@@ -368,6 +429,10 @@ msgid ""
 "defined parameters are standard for a nucleoside simulation using these "
 "specific CVs."
 msgstr ""
+"主なコマンドは METAD で、ARG に Bias を加える CV を指定します。Uridine では $\\chi$ と Ribose "
+"Puckering です。Gaussian 高さ HEIGHT (kJ/mol)、各 CV の幅 SIGMA、追加間隔 PACE（Time Step "
+"数）を設定します。biasfactor と temp は初期 Barrier の Scale の収束を決める重要な値です。示す値はこの CV の "
+"Nucleoside に標準的です。"
 
 #: README.md:138
 msgid ""
@@ -377,6 +442,8 @@ msgid ""
 "frequency of update is done every GRID_WSTRIDE time steps (it should match "
 "the PACE)."
 msgstr ""
+"BiasPotential を GRID_WFILE で GRID に書き、次 Cycle に GRID_RFILE で読みます。範囲は "
+"GRID_MIN・GRID_MAX、書き出し間隔は GRID_WSTRIDE で、PACE と合わせます。"
 
 #: README.md:140
 msgid ""
@@ -387,63 +454,66 @@ msgid ""
 "MetaD/blob/main/CpHMD_metaD/scripts/). These simulations will generate "
 "several files:"
 msgstr ""
+"PLUMED.dat と CpHMD を適切に設定したら実行できます。[CpH-MetaD "
+"GitHub](https://github.com/Tomfersil/CpH-"
+"MetaD/blob/main/CpHMD_metaD/scripts/) にスクリプトと設定のひな形があります。次のファイルが生成されます。"
 
 #: README.md:142
 msgid "Simulation/Input data:"
-msgstr ""
+msgstr "シミュレーション・入力データ："
 
 #: README.md:143
 msgid ""
 "GRID: the GRID file that is necessary to restart each cycle and segment of "
 "the CpH-MetaD. Do not erase between segments;"
-msgstr ""
+msgstr "GRID：CpH-MetaD の各 Cycle・Segment の再開に必要。Segment 間で削除しない。"
 
 #: README.md:144
 msgid "HILLS: the accumulated bias potential of each segment ;"
-msgstr ""
+msgstr "HILLS：各 Segment の蓄積 BiasPotential。"
 
 #: README.md:145
 msgid ".pHmdp: the general settings for each specific segment ;"
-msgstr ""
+msgstr ".pHmdp：各 Segment の全般設定。"
 
 #: README.md:146
 msgid ""
 ".gro: the last frame of each .xtc segment is stored as a reference to start "
 "the following segment ;"
-msgstr ""
+msgstr ".gro：次 Segment の初期参照として保存する各 .xtc の最終 Frame。"
 
 #: README.md:148
 msgid "Output data:"
-msgstr ""
+msgstr "出力データ："
 
 #: README.md:149
 msgid ""
 ".occ: these files have the protonation data stored. Later we will examine "
 "them;"
-msgstr ""
+msgstr ".occ：Protonation データ。後で調べます。"
 
 #: README.md:150
 msgid ".mocc: average occupancy of each titrable site;"
-msgstr ""
+msgstr ".mocc：各 Titration Site の平均 Occupancy。"
 
 #: README.md:151
 msgid ".xtc: the MD trajectory of each segment is stored as an .xtc file ;"
-msgstr ""
+msgstr ".xtc：各 Segment の MD Trajectory。"
 
 #: README.md:153
 msgid "Simulation information data:"
-msgstr ""
+msgstr "シミュレーション情報："
 
 #: README.md:154
 msgid ".log.gz: log file of the simulation ;"
-msgstr ""
+msgstr ".log.gz：シミュレーションの Log。"
 
 #: README.md:155
 msgid ".err.gz: other data concerning GROMACS, PB and MC log information;"
-msgstr ""
+msgstr ".err.gz：GROMACS、PB、MC のほかの Log 情報。"
 
 #: README.md:156
 msgid ""
 ".info: these files store general information of the cycles performed in each"
 " segment;"
-msgstr ""
+msgstr ".info：各 Segment の Cycle に関する全般情報。"
