@@ -9,7 +9,7 @@ msgstr ""
 
 #: SMD.md:1
 msgid "Generating an unbinding trajectory"
-msgstr ""
+msgstr "解離 Trajectory の生成"
 
 #: SMD.md:3
 msgid ""
@@ -23,6 +23,9 @@ msgid ""
 "(SMD), though other equally valid alternatives, such as adiabatic-bias MD, "
 "are available."
 msgstr ""
+"薬物・標的結合の推定 Path には、初期・最終参照状態と、過程を試しに Sampling したものが必要です。結合状態は実験構造や Docking "
+"予測から得られることが多い一方、標準 MD で自然解離を Sampling するのは時間スケール上困難です。Enhanced Sampling "
+"を利用でき、ここでは Steered MD (SMD) を使います。Adiabatic-bias MD なども有効です。"
 
 #: SMD.md:5
 msgid ""
@@ -31,6 +34,8 @@ msgid ""
 "receptor, which was more extensively studied in this work: "
 "https://doi.org/10.1021/acs.jctc.9b00450"
 msgstr ""
+"テスト系は Alprenolol と $\\beta2$ Adrenergic Receptor の複合体です。詳しくは "
+"https://doi.org/10.1021/acs.jctc.9b00450 を参照してください。"
 
 #: SMD.md:7
 msgid ""
@@ -44,6 +49,10 @@ msgid ""
 "take the residue list from the published work. Fill in the following plumed "
 "template to perform the SMD simulation:"
 msgstr ""
+"結合状態から Ligand と結合部位の距離に沿って引きます。CV は、Receptor の膜内領域の低揺らぎの $\\alpha$ Carbon "
+"(ca) と Ligand の Heavy Atom (alp) の Geometric Center 間距離です。10 ns の SMD "
+"で初期距離から30.0 Å まで増やし、Force Constant は100 kcal/(mol * $Å^2$) とします。Receptor "
+"の残基一覧は論文から得られます。次の入力を完成させてください。"
 
 #: SMD.md:30
 msgid ""
@@ -53,6 +62,8 @@ msgid ""
 "a dumping frequency value of 1 ps in the MD engine should be reasonable for "
 "most applications."
 msgstr ""
+"後の手順には過程の進行を細かく捉える Trajectory が必要なため、MD Snapshot の保存頻度を上げます。多くの場合、MD エンジンで1 "
+"ps 間隔とすれば妥当でしょう。"
 
 #: SMD.md:32
 msgid ""
@@ -61,10 +72,12 @@ msgid ""
 "simulation. For instance, we can inspect how strictly the system follows the"
 " SMD restraint, and the work as a function of the distance CV:"
 msgstr ""
+"終了後、*colvar_SMD.dat* から記録された量を読みます。例えば、系が SMD Restraint にどれほど追従したか、距離 CV "
+"に対する仕事を確認できます。"
 
 #: SMD.md:34
 msgid "![SMD](figures/smd.png \"Figure\")"
-msgstr ""
+msgstr "![SMD](figures/smd.png \"Figure\")"
 
 #: SMD.md:36
 msgid ""
@@ -82,14 +95,19 @@ msgid ""
 "If we compare the work as a function of the distance CV in the three "
 "simulations, we should obtain something like this:"
 msgstr ""
+"距離が増える間も、Ligand と周囲の標的残基はさまざまな Configuration を探索できます。そのため複数の SMD "
+"を行い、仕事が最小のものを選ぶとよいでしょう。第一近似として、Minimum Free Energy Path "
+"をよりよく示すと考えられます。ここでのパラメータは例示用で、別の系では Force Constant "
+"や時間などの調整が必要です。演習として、50、100 ns など時間を延ばした SMD "
+"を1本ずつ実行してください。3条件の仕事を距離に対して比較すると、次のようになります。"
 
 #: SMD.md:39
 msgid "![SMD](figures/smd_times.png \"Figure\")"
-msgstr ""
+msgstr "![SMD](figures/smd_times.png \"Figure\")"
 
 #: SMD.md:41
 msgid ""
 "As expected, allowing more time to the system for readjusting to more "
 "favorable configurations as we pull the ligand outside the binding site "
 "results in lower work."
-msgstr ""
+msgstr "予想どおり、Ligand を引き出す際に有利な Configuration に再調整する時間を与えると、仕事が小さくなります。"

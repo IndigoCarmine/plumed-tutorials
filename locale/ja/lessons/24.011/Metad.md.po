@@ -9,7 +9,7 @@ msgstr ""
 
 #: Metad.md:1
 msgid "Sampling the guessed path"
-msgstr ""
+msgstr "推定 Path の Sampling"
 
 #: Metad.md:3
 msgid ""
@@ -21,6 +21,8 @@ msgid ""
 "to set up and run the simulation, with no intention of achieving here a "
 "converged free energy surface."
 msgstr ""
+"パラメータ化した Path は、CV を使う任意の Sampling 法の本計算に使えます。例えば Metadynamics (metad) で "
+"Path CV 空間の自由エネルギー表面を再構成できます。ここでは設定・実行例だけを示し、表面の収束は目指しません。"
 
 #: Metad.md:5
 msgid ""
@@ -34,6 +36,10 @@ msgid ""
 "we need to achieve such renumbering, we produce a "
 "*REPARAM_FINAL_renumber.pdb* file."
 msgstr ""
+"*REPARAM_FINAL.pdb* の第2列の Atom Number を振り直す必要がある場合があります。*REPARAM_FINAL.pdb* "
+"は水素・Membrane "
+"Lipid・水を除いた軽量な系と整合する番号ですが、これからは全系をシミュレーションするためです。*REPARAM_FINAL.pdb* "
+"内の原子情報、特に Index を全系と一致させます。振り直したファイルを *REPARAM_FINAL_renumber.pdb* とします。"
 
 #: Metad.md:7
 msgid ""
@@ -49,28 +55,33 @@ msgid ""
 "by placing a suitable ``UPPER_WALL`` on $Z(\\mathbf{R})$, e.g. at 3.0 $Å^2$."
 " Fill in the following plumed template to perform such a metad simulation:"
 msgstr ""
+"準備ができたので、$S(\\mathbf{R})$ と $Z(\\mathbf{R})$ に Bias を加えます。パラメータは "
+"https://doi.org/10.1021/acs.jctc.9b00450 に従い、Gaussian 幅を $S(\\mathbf{R})$ "
+"で0.1、$Z(\\mathbf{R})$ で1 $Å^2$、高さを0.2 kcal/mol、温度を310 K、Bias Factor "
+"を15、追加間隔を1 ps とします。元の SMD が探索した領域の近くを再 Sampling するため、$Z(\\mathbf{R})$ に "
+"``UPPER_WALL`` を、例えば3.0 $Å^2$ に置けます。次の入力を完成させてください。"
 
 #: Metad.md:32
 msgid "To run the simulation with the GROMACS md engine, just enter:"
-msgstr ""
+msgstr "GROMACS MD エンジンでは、次で実行します。"
 
 #: Metad.md:37
 msgid ""
 "As in any metad simulation, plumed will produce a *HILLS* file, which you "
 "can use to reconstruct the free energy surface using the **``sum_hills``** "
 "module, as follows:"
-msgstr ""
+msgstr "通常の metad と同じく *HILLS* が生成され、**``sum_hills``** で自由エネルギー表面を再構成できます。"
 
 #: Metad.md:42
 msgid ""
 "This results in a *fes.dat* file, that we can finally plot to visualize the "
 "reconstructed free energy surface. Here is the result of a 50 ns metad "
 "simulation:"
-msgstr ""
+msgstr "*fes.dat* を描画し、再構成した表面を可視化できます。50 ns の metad の結果です。"
 
 #: Metad.md:44
 msgid "![fes](figures/fes_tmp.png \"Figure\")"
-msgstr ""
+msgstr "![FES](figures/fes_tmp.png \"Figure\")"
 
 #: Metad.md:46
 msgid ""
@@ -80,14 +91,16 @@ msgid ""
 "```UPPER_WALL```. Here is the resulting free energy surface using 9.0 $Å^2$,"
 " with the same simulation time of 50 ns:"
 msgstr ""
+"通常の本計算では、参照 Path 周辺をより広く探索してもよいでしょう。例えば ```UPPER_WALL``` を広げます。同じ50 ns で9.0 "
+"$Å^2$ を使うと、次の表面になります。"
 
 #: Metad.md:48
 msgid "![fes](figures/fes_tmp_largerwall.png \"Figure\")"
-msgstr ""
+msgstr "![FES](figures/fes_tmp_largerwall.png \"Figure\")"
 
 #: Metad.md:50
 msgid "Note that:"
-msgstr ""
+msgstr "次の点に注意してください。"
 
 #: Metad.md:52
 msgid ""
@@ -97,6 +110,8 @@ msgid ""
 " they could suggest alternative and possibly more favourable mechanisms for "
 "the binding process."
 msgstr ""
+"$Z(\\mathbf{R})$ の許容範囲を広げると、参照 "
+"Path（$Z(\\mathbf{R})=0$）に沿う別経路を広く非局所的に探せます。適度に近い範囲なら、結合の代替機構や、より有利な機構が見つかる可能性があります。"
 
 #: Metad.md:54
 msgid ""
@@ -105,6 +120,8 @@ msgid ""
 "will become inconvenient and, most remarkably, less efficient the "
 "exploitation of your computational resources."
 msgstr ""
+"$Z(\\mathbf{R})$ が大きいほど $S(\\mathbf{R})$ の写像は意味を失い、縮退が増えます。Sampling "
+"が不便になり、特に計算資源の利用効率が低下します。"
 
 #: Metad.md:56
 msgid ""
@@ -117,3 +134,7 @@ msgid ""
 "metad sampling of approximately 2 $\\mu \\text{s}$ was utilized in this "
 "study https://doi.org/10.1021/acs.jctc.9b00450 to obtain meaningful results."
 msgstr ""
+"50 ns の metad は例示のみです。自由エネルギーの収束や統計誤差は評価しておらず、$S(\\mathbf{R})$ 全範囲さえ完全には "
+"Sampling していません。詳しくは専用の Plumed Tutorial・Masterclass "
+"を参照してください。規模の目安として、https://doi.org/10.1021/acs.jctc.9b00450 では有意な結果に約2 $\\mu"
+" \\text{s}$ の metad を使いました。"

@@ -10,27 +10,27 @@ msgstr ""
 #. mermaid node label
 #: NAVIGATION.md:3
 msgid "PathCVs background & overview"
-msgstr ""
+msgstr "Path CV の背景と概要"
 
 #. mermaid node label
 #: NAVIGATION.md:3
 msgid "Generating an unbinding trajectory"
-msgstr ""
+msgstr "解離 Trajectory の生成"
 
 #. mermaid node label
 #: NAVIGATION.md:4
 msgid "Generating a guess path"
-msgstr ""
+msgstr "推定 Path の生成"
 
 #. mermaid node label
 #: NAVIGATION.md:5
 msgid "Assessing the guessed path"
-msgstr ""
+msgstr "推定 Path の評価"
 
 #. mermaid node label
 #: NAVIGATION.md:6
 msgid "Sampling the guessed path"
-msgstr ""
+msgstr "推定 Path の Sampling"
 
 #. mermaid node label
 #: NAVIGATION.md:7
@@ -45,35 +45,35 @@ msgstr "Metadynamics"
 #. mermaid click tooltip
 #: NAVIGATION.md:10
 msgid "A general introduction on path collective variables."
-msgstr ""
+msgstr "Path Collective Variables の一般的な紹介。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:11
 msgid "Generate a sample unbinding trajectory."
-msgstr ""
+msgstr "解離 Trajectory の例を生成する。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:12
 msgid "Parameterize a guess path."
-msgstr ""
+msgstr "推定 Path をパラメータ化する。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:13
 msgid "Qualitative check of guess path features."
-msgstr ""
+msgstr "推定 Path の特徴を定性的に確認する。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:14
 msgid ""
 "Set up a metadynamics simulation to resample along the generated guess path."
-msgstr ""
+msgstr "生成した推定 Path に沿って再 Sampling する Metadynamics を設定する。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:15
 msgid "Basic features of the PLUMED input syntax."
-msgstr ""
+msgstr "PLUMED 入力構文の基本機能。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:16
 msgid "This lesson teaches you how to run metadynamics simulations."
-msgstr ""
+msgstr "Metadynamics の実行を学ぶ Lesson。"

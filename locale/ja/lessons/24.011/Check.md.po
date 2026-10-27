@@ -9,7 +9,7 @@ msgstr ""
 
 #: Check.md:1
 msgid "Assessing the guessed path"
-msgstr ""
+msgstr "推定 Path の評価"
 
 #: Check.md:3
 msgid ""
@@ -21,6 +21,9 @@ msgid ""
 "re-analyze the SMD trajectory and get the values of $S(\\mathbf{R})$ and "
 "$Z(\\mathbf{R})$:"
 msgstr ""
+"*REPARAM.pdb* を Path CV の参照 Path に使えます。ただし再 Sampling 前に、信頼性を診断することを推奨します。例えば"
+" SMD Trajectory を Path CV 空間に射影し、Configuration がどう写像されるか調べます。次の入力を完成させ、SMD "
+"を再解析して $S(\\mathbf{R})$ と $Z(\\mathbf{R})$ を求めてください。"
 
 #: Check.md:15
 msgid ""
@@ -34,16 +37,20 @@ msgid ""
 "Finally, we want to compute Path CV values for each frame of the SMD "
 "trajectory, so we set a ``PRINT STRIDE`` of 1."
 msgstr ""
+"``LAMBDA`` は **``rmsd_mc.sh``** の最終回で生成した *out_rmsdmc.dat* "
+"から取得できます。``NEIGH_STRIDE`` を1にして各 Frame で Neighbor List "
+"を更新します。本計算では大きくすると性能が上がりますが、ここでは500 Step ごと、すなわち1 ps 間隔で保存した MD を事後解析しています。全"
+" SMD Frame の Path CV を計算するため、``PRINT STRIDE`` も1です。"
 
 #: Check.md:17
 msgid ""
 "We can now plot the data in *colvar_check.dat*, specifically "
 "$S(\\mathbf{R})$ vs $Z(\\mathbf{R})$:"
-msgstr ""
+msgstr "*colvar_check.dat* の $S(\\mathbf{R})$ と $Z(\\mathbf{R})$ を描画します。"
 
 #: Check.md:19
 msgid "![path_projection](figures/path_projection.png \"Figure\")"
-msgstr ""
+msgstr "![Path の射影](figures/path_projection.png \"Figure\")"
 
 #: Check.md:21
 msgid ""
@@ -57,6 +64,10 @@ msgid ""
 "path, allowing us to evaluate its effectiveness in representing the "
 "underlying dissociation process."
 msgstr ""
+"元の SMD の Configuration は、結合状態の $S(\\mathbf{R})=1$ から非結合状態の "
+"$S(\\mathbf{R})=80$ まで、$S(\\mathbf{R})$ 空間全体を覆います。$Z(\\mathbf{R})$ では、大部分が参照"
+" Path（$Z(\\mathbf{R})=0$）から3.0 $Å^2$ 以内にあります。この観測を信頼性の定性的な情報とし、解離過程の表現に Path"
+" が有効か評価できます。"
 
 #: Check.md:23
 msgid ""
@@ -71,3 +82,7 @@ msgid ""
 " reported criterion for assessing the reliability of the path in this "
 "segment of the trajectory."
 msgstr ""
+"結合状態から非結合状態へ進むほど、高い $Z(\\mathbf{R})$ の Configuration が増えます。この例では "
+"$S(\\mathbf{R})=60$ 付近で顕著になり、Ligand "
+"は既に標的から部分的に離れ、弱く相互作用する状態です。結合部位による体積的な閉じ込めがなくなり、Ligand の Configuration "
+"空間が大きく広がります。そのため、この区間では上述の信頼性の基準を厳密には満たせません。"

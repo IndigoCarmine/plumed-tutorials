@@ -9,7 +9,7 @@ msgstr ""
 
 #: Intro.md:1
 msgid "PathCVs background & overview"
-msgstr ""
+msgstr "Path CV の背景と概要"
 
 #: Intro.md:3
 msgid ""
@@ -19,6 +19,9 @@ msgid ""
 "putative reaction coordinate is therefore mapped using two CVs, which are "
 "functions of the configurational space $\\mathbf{R}$:"
 msgstr ""
+"Path Collective Variables (Path CVs) は、少数の標準 CV "
+"では捉えにくい複雑な分子遷移を記述します（https://doi.org/10.1063/1.2432340）。推定 Reaction "
+"Coordinate は、Configuration 空間 $\\mathbf{R}$ の関数である2つの CV で写像します。"
 
 # Literal notation or identifier intentionally preserved.
 #: Intro.md:5
@@ -49,6 +52,9 @@ msgid ""
 "Notably, both the initial and final states should correspond to "
 "thermodynamically stable minima, and should be known in advance."
 msgstr ""
+"$i$ は $1$〜$N$ の Index です。$S(\\mathbf{R})$ は初期から最終参照状態への推定 Path "
+"に沿う進行度、$Z(\\mathbf{R})$ は Path "
+"からの距離を表し、ある程度の非局所性を与えます。初期・最終状態はいずれも熱力学的に安定な極小で、事前にわかっている必要があります。"
 
 #: Intro.md:11
 msgid ""
@@ -61,29 +67,33 @@ msgid ""
 "is a tunable parameter that controls the smoothness of the mapping from the "
 "configurational space to the current set of frames (or frameset)."
 msgstr ""
+"Path CV は、Reaction Coordinate を離散的に表す $N$ Node（Frame）でパラメータ化します。元の実装では "
+"$\\left(\\mathbf{R}-\\mathbf{R}(i)\\right)^{2}$ は原子の部分集合の Cartesian MSD "
+"ですが、別の Metric も使えます。$\\lambda$ は、Configuration 空間から Frameset "
+"への写像の滑らかさを調整するパラメータです。"
 
 #: Intro.md:13
 msgid "For Path CVs to be effective, a set of conditions must be met:"
-msgstr ""
+msgstr "Path CV が有効であるには、次が必要です。"
 
 #: Intro.md:14
 msgid ""
 "The nodal points $\\mathbf{R}(i)$ in the frameset should be as equidistant "
 "as possible"
-msgstr ""
+msgstr "Frameset の Node $\\mathbf{R}(i)$ が可能な限り等間隔である。"
 
 #: Intro.md:15
 msgid ""
 "$\\lambda$ should be commensurate with the inverse of the mean squared "
 "displacement between consecutive frames"
-msgstr ""
+msgstr "$\\lambda$ が隣接 Frame 間 MSD の逆数に見合う。"
 
 #: Intro.md:16
 msgid ""
 "The frameset used to describe the reaction coordinate must provide a good "
 "approximation of the minimum free energy pathway from the initial and final "
 "reference states"
-msgstr ""
+msgstr "Frameset が初期・最終参照状態間の Minimum Free Energy Pathway をよく近似する。"
 
 #: Intro.md:18
 msgid ""
@@ -95,6 +105,9 @@ msgid ""
 "points significantly affect the quality of the resulting Path CVs, "
 "especially in the case of resampling efforts."
 msgstr ""
+"3番目は $S(\\mathbf{R})$ が実際の Reaction Coordinate "
+"をどれほど正確に表すかで、変分最適化で対処できます。一方1・2は、物理的妥当性によらず推定 Path "
+"を適切にパラメータ化する条件です。技術的ですが、特に再 Sampling 時の Path CV の質を大きく左右します。"
 
 #: Intro.md:20
 msgid ""
@@ -110,14 +123,19 @@ msgid ""
 " artifacts in the dynamics or even in the resulting free energy surface, "
 "when such a path is applied in metadynamics resampling."
 msgstr ""
+"例えば、座標 $x$ のみの関数である等間隔の5 Frame を考えます。$S(x)$ は、幅（$\\lambda$ が決定）が同じで高さが異なる "
+"Gaussian の正規化した和と見なせます。**図1** の適切な $\\lambda$ は滑らかな "
+"$S(x)$（黒線）を与えます。最適範囲より大きすぎるなど、不適切な $\\lambda$ では **図2** "
+"のようになります。写像が十分滑らかでないため、Metadynamics による再 Sampling の Dynamics や自由エネルギー表面に "
+"Artifact が生じる可能性があります。"
 
 #: Intro.md:24
 msgid "![path](figures/NewPath_Figure_three_panels.png \"Figure\")"
-msgstr ""
+msgstr "![Path](figures/NewPath_Figure_three_panels.png \"Figure\")"
 
 #: Intro.md:26
 msgid "As a rule of thumb, $\\lambda$ shoud be chosen according to:"
-msgstr ""
+msgstr "$\\lambda$ の選択の目安は、"
 
 # Literal notation or identifier intentionally preserved.
 #: Intro.md:28
@@ -128,7 +146,7 @@ msgstr "$\\lambda=-\\frac{\\ln{0.1}}{\\langle MSD\\rangle}$"
 msgid ""
 "where $\\langle MSD\\rangle$ is the average MSD evaluated along the entire "
 "frameset."
-msgstr ""
+msgstr "$\\langle MSD\\rangle$ は Frameset 全体の平均 MSD です。"
 
 #: Intro.md:32
 msgid ""
@@ -141,6 +159,9 @@ msgid ""
 "maintain sufficiently equidistant consecutive frames leads to poor behavior "
 "of $S(x)$, as illustrated in the plot."
 msgstr ""
+"ただし実際には、特に既存の Configuration を使う場合、等間隔条件は容易に満たせず、**図3** の状況になりがちです。$\\lambda$"
+" は平均 MSD の逆数と整合し、$\\lambda$ の目安を満たしますが、隣接 Frame が十分等間隔でないため、$S(x)$ "
+"の挙動が悪くなります。"
 
 #: Intro.md:34
 msgid ""
@@ -150,6 +171,8 @@ msgid ""
 "generation of the initial guess path we will make use of Tcl scripts kindly "
 "provided by the author of the method (<u>Davide Branduardi</u>)."
 msgstr ""
+"この Tutorial では薬物・標的複合体の結合状態から Steered MD で初期 Frameset を作り、推定 Path "
+"をパラメータ化します。手法の著者 <u>Davide Branduardi</u> が提供した Tcl スクリプトを使います。"
 
 #: Intro.md:36
 msgid ""
@@ -161,3 +184,8 @@ msgid ""
 "trajectory](https://github.com/mbernett/zip_for_tutorials/tree/master/tutorial_binding_path_outputs/SMD_50ns)"
 " from steered MD."
 msgstr ""
+"図を再現する Jupyter Notebook は "
+"[こちら](https://github.com/mbernett/zip_for_tutorials/tree/master/analysis_path_tutorial.ipynb)"
+" にあります。シミュレーション入力と Steered MD の "
+"[出力例](https://github.com/mbernett/zip_for_tutorials/tree/master/tutorial_binding_path_outputs/SMD_50ns)"
+" もあります。"
