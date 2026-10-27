@@ -101,6 +101,27 @@ PRINT ARG=d1,f,f2 FILE=colvar
 
 Students reading this input will only see the last two lines of the input file along with a link above them that students can click on to view the parts of the input from the hidden section.  Most importantly, however, the plumed input is complete and so will be given a green badge on the site.
 
+### Providing your lesson in English and Japanese
+
+The PLUMED-TUTORIALS website has a button in the header that switches between English and Japanese.  If you would like to provide a Japanese version of (parts of) your
+markdown files, you can wrap the English and Japanese text in `div` elements with the classes `lang-en` and `lang-ja` as shown below.  Only the block that corresponds to the language selected by the reader will be shown.
+Text that is not wrapped in such a block (e.g. PLUMED inputs that are the same in both languages) is always shown.
+
+````
+<div class="lang-en" markdown="1">
+
+This text is shown when English is selected.
+
+</div>
+<div class="lang-ja" markdown="1">
+
+この文章は日本語が選択されているときに表示されます。
+
+</div>
+````
+
+Notice that the blank lines and the `markdown="1"` attribute are required for the markdown inside the `div` to be rendered.
+
 ### On cheating 
 
 It is tempting to argue that providing incomplete inputs in the README.md file is pointless if the solutions are available in the repository. When things are organised this way students will 

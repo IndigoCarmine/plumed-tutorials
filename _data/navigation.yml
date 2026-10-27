@@ -1,17 +1,24 @@
 pages:
 - title: Home
+  title_ja: ホーム
   url: /
 #- title: News 
 #  url: /news.html
 - title: PLUMED
+  title_ja: PLUMED
   url: /plumed.html
 - title: Masterclass
+  title_ja: マスタークラス
   url: /masterclass.html
 - title: Browse lessons
+  title_ja: レッスン一覧
   url: /browse.html
 - title: Contribute
+  title_ja: 投稿する
   url: /contribute.html
 - title: Cite
+  title_ja: 引用
   url: /cite.html
 - title: Going further
+  title_ja: さらに学ぶ
   url: /nest.html

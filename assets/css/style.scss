@@ -27,6 +27,22 @@ $hr-border-color: #eff0f1 !default;
 
 @import "{{ site.theme }}";
 
+// Language switching: elements marked with class "lang-en" or "lang-ja" are only
+// shown when the corresponding language is selected (see _layouts/default.html).
+// English is shown when no language has been selected (e.g. JavaScript disabled).
+html:not([data-lang="ja"]) .lang-ja,
+html[data-lang="ja"] .lang-en {
+  display: none !important;
+}
+
+html[lang="ja"] body {
+  font-family: "Open Sans", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", Meiryo, sans-serif;
+}
+
+.page-header .lang-toggle {
+  font-weight: bold;
+}
+
 table.dataTable {
   padding-top: 10px;
 }
