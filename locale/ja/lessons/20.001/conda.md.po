@@ -15,11 +15,11 @@ msgstr "conda による PLUMED のインストール"
 msgid ""
 "If you use the conda package manager you can install a pre-compiled PLUMED "
 "binary using the following command:"
-msgstr ""
+msgstr "conda では次でコンパイル済み Binary を入れます。"
 
 #: conda.md:9
 msgid "Similarly, the python wrappers can be installed with"
-msgstr ""
+msgstr "Python Wrapper は、"
 
 #: conda.md:15
 msgid ""
@@ -32,6 +32,10 @@ msgid ""
 "plumed kernel is `PLUMED_KERNEL` (e.g., `export "
 "PLUMED_KERNEL=/conda/prefix/lib/libplumedKernel.so`)."
 msgstr ""
+"[conda-forge](https://anaconda.org/conda-forge) の Package なので同じ配布のコードと "
+"Binary 互換のはずです。Runtime Link なら conda 外や別環境の MD とも組み合わせられます。設定は "
+"`PLUMED_KERNEL` だけです（例：`export "
+"PLUMED_KERNEL=/conda/prefix/lib/libplumedKernel.so`）。"
 
 #: conda.md:22
 msgid ""
@@ -40,6 +44,7 @@ msgid ""
 "and do not include optional modules. However, they can be used to quickly "
 "install a working PLUMED version without the need to have a compiler."
 msgstr ""
+"Linux・macOS のみで機能は限定され、MPI・Optional Module はありません。ただし Compiler なしで手早く使えます。"
 
 #: conda.md:26
 msgid ""
@@ -47,10 +52,11 @@ msgid ""
 "[plumed](https://anaconda.org/plumed/plumed) channel. Those packages are for"
 " testing only."
 msgstr ""
+"[plumed Channel](https://anaconda.org/plumed/plumed) の追加 Package はテスト専用です。"
 
 #: conda.md:29
 msgid "Masterclass 2022"
-msgstr ""
+msgstr "Masterclass 2022"
 
 #: conda.md:31
 msgid ""
@@ -62,6 +68,8 @@ msgid ""
 "architecture (e.g., a new Mac with a ARM processor) you should install the "
 "software on your own."
 msgstr ""
+"このサイトの演習には conda を推奨します。コンパイル済み Package は x64 の Linux・macOS のみなので、ARM Mac "
+"などは自分でインストールしてください。"
 
 #: conda.md:36
 msgid "First, make sure conda is installed by typing:"
@@ -74,6 +82,8 @@ msgid ""
 "Alternatively, if you use the [Homebrew package manager](https://brew.sh/), "
 "you can install conda with:"
 msgstr ""
+"コマンドがなければ [conda の手順](https://docs.conda.io/en/latest/miniconda.html) "
+"に従います。[Homebrew](https://brew.sh/) なら次でも入れられます。"
 
 #: conda.md:48
 msgid "Now we can create a conda environment for the PLUMED Masterclass:"
@@ -91,48 +101,48 @@ msgstr "最後に必要なソフトウェアをインストールします。"
 #: conda.md:63
 msgid ""
 "If the Masterclass requires Gromacs, you can then run the following command:"
-msgstr ""
+msgstr "GROMACS が必要なら次を実行します。"
 
 #: conda.md:68
 msgid ""
 "If the Masterclass requires LAMMPS instead (for instance, Masterclass "
 "22.12), the appropriate command is:"
-msgstr ""
+msgstr "LAMMPS（Masterclass 22.12など）なら、"
 
 #: conda.md:73
 msgid ""
 "If the Masterclass requires AMBER (for instance, Masterclass 22.13), you "
 "should first create a separate AMBER environment:"
-msgstr ""
+msgstr "AMBER（22.13など）なら別環境を作り、"
 
 #: conda.md:80
 msgid "And you should then stack the PLUMED and AMBER environments:"
-msgstr ""
+msgstr "PLUMED と AMBER の環境を Stack します。"
 
 #: conda.md:88
 msgid ""
 "Conda will install a number of packages. On MacOS, for instance, you should "
 "see something similar to this:"
-msgstr ""
+msgstr "複数 Package が入ります。macOS の例は、"
 
 #: conda.md:105
 msgid ""
 "Make sure that `gromacs` and `plumed` packages are installed from "
 "`plumed/label/masterclass-2022`."
-msgstr ""
+msgstr "`gromacs` と `plumed` が `plumed/label/masterclass-2022` から入ることを確認します。"
 
 #: conda.md:107
 msgid ""
 "**Do not forget to activate the plumed-masterclass-2022 environment every "
 "time you open a new terminal/shell.**"
-msgstr ""
+msgstr "**新しい Terminal/Shell を開くたびに plumed-masterclass-2022 を有効にしてください。**"
 
 #: conda.md:109
 msgid ""
 "Notice that with some outdated conda version you might receive an error due "
 "to the fact that conda confuses python 3.1 with python 3.10. If you find an "
 "error like this one:"
-msgstr ""
+msgstr "古い conda は Python 3.1と3.10を混同し、次のエラーを出す場合があります。"
 
 #: conda.md:117
 msgid ""
@@ -140,3 +150,5 @@ msgid ""
 "update conda`). More at [this "
 "link](https://github.com/conda/conda/issues/11065)"
 msgstr ""
+"conda 4.11.0以降にするか `conda update conda` "
+"で更新します。[詳細](https://github.com/conda/conda/issues/11065) を参照してください。"

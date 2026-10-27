@@ -15,10 +15,10 @@ msgstr "--enable-rpath オプション"
 msgid ""
 "You can resolve this issue by using the command below when configuring "
 "PLUMED:"
-msgstr ""
+msgstr "次の configure で解決できます。"
 
 #: Modals/enablerpath.md:24
 msgid ""
 "This command will hard code the paths defined in <code>LIBRARY_PATH</code> "
 "into the PLUMED library and is equivalent to the command:"
-msgstr ""
+msgstr "<code>LIBRARY_PATH</code> の Path を PLUMED Library に固定し、次と等価です。"

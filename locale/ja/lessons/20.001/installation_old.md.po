@@ -14,11 +14,11 @@ msgstr "インストール"
 #: installation_old.md:3
 msgid ""
 "In this page you can learn how to configure, compile and install PLUMED."
-msgstr ""
+msgstr "このページで設定・ビルド・インストールを学びます。"
 
 #: installation_old.md:5
 msgid "For those of you who are impatient, the following might do the job:"
-msgstr ""
+msgstr "手短には次で十分かもしれません。"
 
 #: installation_old.md:14
 msgid ""
@@ -27,6 +27,7 @@ msgid ""
 "the implementation of new features. However, we strongly recommend to "
 "perform a full install."
 msgstr ""
+"ビルド先から使えるので `make install` は厳密には不要で、新機能の素早いテストに便利です。ただし完全なインストールを強く推奨します。"
 
 #: installation_old.md:18
 msgid ""
@@ -38,6 +39,8 @@ msgid ""
 " patch them with PLUMED before compilation. Again, if you are impatient, "
 "something like this will do this job in many cases:"
 msgstr ""
+"`plumed` が PATH に入り、Trajectory 解析や内蔵 Lennard-Jones コードを使えます。組み込み対応 MD "
+"でも使えますが、別途 Patch が必要なものもあります。多くは次で行えます。"
 
 #: installation_old.md:31
 msgid ""
@@ -49,14 +52,16 @@ msgid ""
 "PLUMED first, then (optionally) install it, then check the MD codes' manual "
 "to discover how to link it."
 msgstr ""
+"この後 MD をコンパイルします。不十分なコードもあるので末尾を参照してください。公式に PLUMED Ready の MD なら、先に PLUMED "
+"をビルドし、任意でインストール後、MD マニュアルの Link 手順に従います。"
 
 #: installation_old.md:40
 msgid "Supported compilers"
-msgstr ""
+msgstr "対応 Compiler"
 
 #: installation_old.md:42
 msgid "As of PLUMED 2.10, we require a compiler that supports C++17."
-msgstr ""
+msgstr "PLUMED 2.10から C++17 対応が必要です。"
 
 #: installation_old.md:44
 msgid ""
@@ -69,6 +74,9 @@ msgid ""
 "travis-ci, and at least those compilers are guaranteed to be able to compile"
 " PLUMED correctly."
 msgstr ""
+"`./configure` が C++17 を確認します。完全対応を宣言しなくても必要機能がある Compiler "
+"もあります。`./configure` で警告が出たら、正しいビルドと、可能なら `make regtest` を確認します。travis-ci "
+"で定期テストする Compiler はビルドできることを保証します。"
 
 #: installation_old.md:52
 msgid "Configuring PLUMED"
@@ -87,24 +95,27 @@ msgid ""
 "the command line. If you have problems on your architecture, please report "
 "them to the mailing list."
 msgstr ""
+"`./configure` は Makefile.conf と sourceme.sh を作ります。2.0では configurations/ "
+"に事前配置していましたが、新版とは完全互換ではありません。2.2で -D が変わり、インストール先の変数も増えたため、`./configure` "
+"を再実行してください。適切な引数で旧設定を再現できるはずです。問題は Mailing List に報告してください。"
 
 #: installation_old.md:67
 msgid "Useful command line options for `./configure` can be found by typing"
-msgstr ""
+msgstr "`./configure` の便利なオプションは、"
 
 #: installation_old.md:73
 msgid ""
 "PLUMED is made up of modules. Some of them are on by default, some others "
 "aren't. Since version 2.3, the activation of modules should be made during "
 "configuration using the `--enable-modules` option."
-msgstr ""
+msgstr "Module は既定有効・無効に分かれ、2.3以降は `--enable-modules` で設定時に選びます。"
 
 #: installation_old.md:77
 msgid ""
 "Notice that some of the methods within PLUMED depend on external libraries "
 "which are looked for by configure. You can typically avoid looking for a "
 "library using the \"disable\" syntax, e.g."
-msgstr ""
+msgstr "一部は configure が探す外部 Library に依存します。通常 disable で探索を止められます。"
 
 #: installation_old.md:85
 msgid ""
@@ -115,12 +126,14 @@ msgid ""
 "searched. Thus, compilers such as \"g++-mp-4.8\" should be explicitly "
 "requested with the CXX option."
 msgstr ""
+"MPI 探索は既定で有効で mpic++・mpicxx を優先します。./configure --disable-mpi なら非 MPI "
+"Compiler を探します。探索名は限られるため、g++-mp-4.8 などは CXX で明示します。"
 
 #: installation_old.md:92
 msgid ""
 "You can better control which compiler is used by setting the variables CXX "
 "and CC. E.g., to use Intel compilers use the following command:"
-msgstr ""
+msgstr "CXX・CC で Compiler を制御できます。Intel の例は、"
 
 #: installation_old.md:99
 msgid ""
@@ -131,6 +144,8 @@ msgid ""
 "CXX is set to a serial compiler and MPICXX to a MPI compiler, to compile "
 "with MPI you should use"
 msgstr ""
+"icpc は MPI Compiler でないため、MPI は無効です。ほかの configure と違い MPICXX は無視します。CXX "
+"が逐次、MPICXX が MPI なら、次を使います。"
 
 #: installation_old.md:110
 msgid ""
@@ -144,23 +159,26 @@ msgid ""
 "using the CXX option. In this way, MPI library is treated similarly to all "
 "the other libraries that PLUMED tries to link by default."
 msgstr ""
+"[!warning] 他プログラムと違うため注意してください。`--enable-mpi` は有効ですが不要です。MPI "
+"呼び出しをコンパイルできれば自動有効化します。対応 Compiler でも無効にするなら `--disable-mpi` です。CXX で MPI "
+"C++ Compiler を渡すのが正しい方法で、他 Library と同様に扱います。"
 
 #: installation_old.md:121
 msgid "To tune the compilation options you can use the CXXFLAGS variable:"
-msgstr ""
+msgstr "CXXFLAGS でオプションを調整します。"
 
 #: installation_old.md:127
 msgid ""
 "If you are implementing new functionality and want to build with debug flags"
 " in place so as to do some checking you can use"
-msgstr ""
+msgstr "新機能の Debug 確認には、"
 
 #: installation_old.md:134
 msgid ""
 "This will perform some extra check during execution (possibly slowing down "
 "PLUMED) and write full symbol tables in the executable (making the final "
 "executable much larger)."
-msgstr ""
+msgstr "実行時の追加検査で遅くなり、完全な Symbol Table で実行ファイルも大きくなります。"
 
 #: installation_old.md:137
 msgid ""
@@ -174,6 +192,8 @@ msgid ""
 " flags and to then check the log so as to see whether or not the libraries "
 "were properly detected."
 msgstr ""
+"configure の主目的は Library 探索です。標準外の場所は環境変数で Linker に伝えます。Compiler "
+"依存で、管理者が設定済みの場合もあります。まず追加 Flag なしで試し、Log で検出結果を確認してください。"
 
 #: installation_old.md:146
 msgid ""
@@ -181,7 +201,7 @@ msgid ""
 "to modify the search path. For example if your gsl libraries is in "
 "`/opt/local` (this is where MacPorts put it) and configure is not able to "
 "find it you can try"
-msgstr ""
+msgstr "見つからなければ探索 Path を変更します。例えば MacPorts の GSL が `/opt/local` にあるなら、"
 
 #: installation_old.md:155
 msgid ""
@@ -192,6 +212,8 @@ msgid ""
 "to use libraries with custom names. So, if your gsl library is called "
 "`/opt/local/lib/libmygsl.so` you can link it with"
 msgstr ""
+"まず Flag なし、次に LIBS に -lgsl を加えて試し、失敗すると GSL "
+"を無効にします。独自名にも対応し、`/opt/local/lib/libmygsl.so` なら、"
 
 #: installation_old.md:169
 msgid ""
@@ -200,6 +222,8 @@ msgid ""
 "that you will always be able to link a specific version of a library by "
 "specifying it using the LIBS variable."
 msgstr ""
+"直接 `/opt/local/lib/libmygsl.so` に Link します。全 Library に同じ規則が使え、LIBS "
+"で特定版を明示できます。"
 
 #: installation_old.md:173
 msgid ""
@@ -209,6 +233,8 @@ msgid ""
 " that in this manner only libraries that are explicitly passed using the "
 "`LIBS` option will be linked. For instance"
 msgstr ""
+"2.3.2以降は `--disable-libsearch` で標準名（例：`-lgsl`）の探索を省き、`LIBS` に明示したものだけ Link "
+"できます。例えば、"
 
 #: installation_old.md:181
 msgid ""
@@ -218,6 +244,8 @@ msgid ""
 "are linked and thus to avoid to introduce spurious dependencies. The only "
 "exception to this rule is `-ldl`, which is anyway a system library on Linux."
 msgstr ""
+"GSL だけを Link し BLAS・LAPACK は使いません。Package Manager で不要な依存を防ぐのに便利です。Linux "
+"System Library の `-ldl` は例外です。"
 
 #: installation_old.md:186
 msgid ""
@@ -234,19 +262,24 @@ msgid ""
 "necessary, being able to produce it means that it will be possible to link "
 "PLUMED dynamically with MD codes later."
 msgstr ""
+"[!warning] OSX は Library に絶対 Path を固定するのが一般的で、Link "
+"後も同じ場所を探します（`libplumed.dylib` も同様）。Linux は通常固定せず、`LDFLAGS` "
+"で指定しても後で見つからない場合があります（例：`./configure LDFLAGS=\"-L/path\"`）。症状は "
+"`src/lib/plumed-shared` の Link 失敗です。これは必須でないものの、作れれば MD と Dynamic Link "
+"できることを示します。"
 
 #: installation_old.md:200
 msgid ""
 "The easiest solution to this problem is to hard code the library search path"
 " in this way:"
-msgstr ""
+msgstr "最も簡単なのは、次のように Library 探索 Path を固定する方法です。"
 
 #: installation_old.md:206
 msgid ""
 "Notice that as of PLUMED v2.4 it is possible to use the configure option "
 "`--enable-rpath` to automatically hard code the path defined in "
 "`LIBRARY_PATH`:"
-msgstr ""
+msgstr "v2.4以降は `--enable-rpath` で `LIBRARY_PATH` を自動的に固定できます。"
 
 #: installation_old.md:213
 msgid ""
@@ -256,6 +289,9 @@ msgid ""
 "(http://modules.sourceforge.net), `LIBRARY_PATH` will be a variable "
 "containing the path to all the modules loaded at compilation time."
 msgstr ""
+"Link 時の `LIBRARY_PATH` と `libplumed.so` の保存 Path が一致します。Environment Modules "
+"(http://modules.sourceforge.net) では通常、`LIBRARY_PATH` にビルド時の全 Module の Path "
+"が入っています。"
 
 #: installation_old.md:219
 msgid ""
@@ -264,7 +300,7 @@ msgid ""
 "them without any link flag, then add \"-lblas\" and \"-llapack\", "
 "respectively). As such if you want to use a specific version of BLAS or "
 "LAPACK you can make them available to configure by using"
-msgstr ""
+msgstr "BLAS・LAPACK は必須で、通常どおり Flag なし、次に -lblas・-llapack で探します。特定版は次で指定できます。"
 
 #: installation_old.md:229
 msgid ""
@@ -276,25 +312,27 @@ msgid ""
 " search for external libraries (e.g. because the system libraries have "
 "problems) this can be done with"
 msgstr ""
+"関数がなければ末尾 Underscore 付きも探します。必須なので、最後には同梱の Internal 版を使います。System Library "
+"に問題があるなど、外部探索を完全に止めるには、"
 
 #: installation_old.md:242
 msgid ""
 "Notice that you can also disable external LAPACK only, that is use internal "
 "LAPACK with external BLAS using"
-msgstr ""
+msgstr "External LAPACK だけ止め、Internal LAPACK と External BLAS も使えます。"
 
 #: installation_old.md:249
 msgid ""
 "Since typically it is the BLAS library that can be heavily optimized, this "
 "configuration should not provide significant slowing down and could be used "
 "on systems where native LAPACK libraries have problems."
-msgstr ""
+msgstr "主に最適化が効くのは BLAS なので、大幅には遅くならず、Native LAPACK に問題がある系に使えます。"
 
 #: installation_old.md:253
 msgid ""
 "As a final resort, you can also edit the resulting Makefile.conf file. "
 "Notable variables in this file include:"
-msgstr ""
+msgstr "最終手段は Makefile.conf の編集です。主な変数は、"
 
 #: installation_old.md:255
 msgid ""
@@ -306,18 +344,21 @@ msgid ""
 "up in this variable. This is a bit misleading but is required to keep the "
 "configuration files compatible with PLUMED 2.0."
 msgstr ""
+"`DYNAMIC_LIB`：PLUMED Library の依存（例：`-L/path/to/gsl -lgsl`）。Shared 版には "
+"Dynamic Library が必要で、BLAS・LAPACK を優先します。`configure LIBS=something` "
+"もここに入り、紛らわしいですが2.0互換のためです。"
 
 #: installation_old.md:262
 msgid ""
 "`LIBS` : these are the libraries needed when patching an MD code; typically "
 "only \"-ldl\" (needed to have functions for dynamic loading)."
-msgstr ""
+msgstr "`LIBS`：MD Patch の依存。通常 Dynamic Loading 用の -ldl のみ。"
 
 #: installation_old.md:263
 msgid ""
 "`CPPFLAGS` : add here definition needed to enable specific optional "
 "functions; e.g. use `-D__PLUMED_HAS_GSL` to enable the gsl library"
-msgstr ""
+msgstr "`CPPFLAGS`：追加機能の定義。例えば `-D__PLUMED_HAS_GSL` で GSL を有効化する。"
 
 #: installation_old.md:265
 msgid ""
@@ -326,10 +367,12 @@ msgid ""
 "dynamic libraries or, for some other reason, you would like a static "
 "executable you can just set this variable to a blank (\"SOEXT=\")."
 msgstr ""
+"`SOEXT`：Shared Library 拡張子（UNIX は so、Mac は dylib）。非対応または Static を望むなら空の "
+"SOEXT= にする。"
 
 #: installation_old.md:269
 msgid "BLAS and LAPACK"
-msgstr ""
+msgstr "BLAS と LAPACK"
 
 #: installation_old.md:271
 msgid ""
@@ -344,6 +387,8 @@ msgid ""
 "system LAPACK or BLAS are not found on your system, PLUMED will use the "
 "internal replacement."
 msgstr ""
+"外部依存はできる限り Optional にしていますが、BLAS・LAPACK は必須です。効率的な実装を別途入れることを強く推奨します。無理なら "
+"Internal 版を使えます。2.1以降 configure が System 版を検出し、なければ Internal に切り替えます。"
 
 #: installation_old.md:279
 msgid ""
@@ -351,7 +396,7 @@ msgid ""
 "that PLUMED can link BLAS and LAPACK. The following describes some of the "
 "pitfalls that you can fall into and a set of sensible steps by which you can"
 " check whether or not you have set up the configuration correctly."
-msgstr ""
+msgstr "Link に関する相談は多く、私たちも苦労しました。落とし穴と確認手順を示します。"
 
 #: installation_old.md:284
 msgid ""
@@ -362,10 +407,12 @@ msgid ""
 " machines the BLAS and LAPACK libraries may not be called `-llapack` and "
 "`-lblas`. Everything will depend on your system configuration."
 msgstr ""
+"Makefile.conf の `DYNAMIC_LIB` に必要な Flag（通常 `-llapack -lblas`、時に "
+"`-lgfortran`）が必要です。`-L` による絶対 Path や、`-llapack`・`-lblas` 以外の名前が必要な系もあります。"
 
 #: installation_old.md:290
 msgid "Some simple to fix further problems include:"
-msgstr ""
+msgstr "ほかの簡単な対策は、"
 
 #: installation_old.md:291
 msgid ""
@@ -374,6 +421,8 @@ msgid ""
 "libraries or switch to static compilation of PLUMED by stopping to set the "
 "SOEXT variable in the configuration file."
 msgstr ""
+"`-fPIC` で LAPACK を再ビルドせよと出るなら Static 版です。Dynamic 版を入れるか、SOEXT を設定せず PLUMED を"
+" Static にします。"
 
 #: installation_old.md:294
 msgid ""
@@ -383,6 +432,8 @@ msgid ""
 "libraries by default. These libraries are required for LAPACK and BLAS to "
 "work. Please check the documentation of your compiler."
 msgstr ""
+"for_ などの関数がないなら Fortran Library も Link します。C++ Linker は通常自動では含めません。Compiler "
+"の説明を参照してください。"
 
 #: installation_old.md:298
 msgid ""
@@ -390,10 +441,11 @@ msgid ""
 "`-DF77_NO_UNDERSCORE` to CPPFLAGS Notice that \"./configure\" should "
 "automatically try this solution."
 msgstr ""
+"dsyevr_ がなければ CPPFLAGS に `-DF77_NO_UNDERSCORE` を試します。configure も自動的に試すはずです。"
 
 #: installation_old.md:302
 msgid "VMD trajectory plugins"
-msgstr ""
+msgstr "VMD Trajectory Plugin"
 
 #: installation_old.md:304
 msgid ""
@@ -410,30 +462,34 @@ msgid ""
 "`molfile_plugin.h`, which should be in `/pathtovmdplugins/include`. Then "
 "customize the configure command with something along the lines of:"
 msgstr ""
+"dcd、GROMACS、pdb、AMBER 用の一部は同梱です。全形式には VMD Source の plugins を取得し、build.sh "
+"を調整してビルドします。`libmolfile_plugin.a` と `libmolfile_plugin.h` は "
+"`/pathtovmdplugins/ARCH/molfile`（例：`/pathtovmdplugins/MACOSXX86_64/molfile`）、`molfile_plugin.h`"
+" は `/pathtovmdplugins/include` にあります。configure を次のように調整します。"
 
 #: installation_old.md:322
 msgid ""
 "Notice that it might be necessary to add to `LDFLAGS` the path to your TCL "
 "interpreter, e.g."
-msgstr ""
+msgstr "TCL Interpreter の Path を `LDFLAGS` に加える場合もあります。"
 
 #: installation_old.md:329
 msgid "Then, rebuild plumed."
-msgstr ""
+msgstr "その後 PLUMED を再ビルドします。"
 
 #: installation_old.md:331
 msgid "Configure PLUMED"
-msgstr ""
+msgstr "PLUMED の設定"
 
 #: installation_old.md:333
 msgid ""
 "Once the environment variables are set, we can configure PLUMED with the "
 "`--enable-libtorch` keyword:"
-msgstr ""
+msgstr "環境変数を設定したら `--enable-libtorch` を使います。"
 
 #: installation_old.md:339
 msgid "**Notes**"
-msgstr ""
+msgstr "**注**"
 
 #: installation_old.md:340
 msgid ""
@@ -441,12 +497,15 @@ msgid ""
 "master/user-doc/html/module_pytorch/) one needs to add `--enable-"
 "modules=pytorch` or `--enable-modules=all`."
 msgstr ""
+"[PYTORCH Module](https://www.plumed.org/doc-master/user-"
+"doc/html/module_pytorch/) には `--enable-modules=pytorch` または `--enable-"
+"modules=all` が必要です。"
 
 #: installation_old.md:341
 msgid ""
 "`--enable-libtorch` will first try first to link the CUDA-enabled library "
 "and if it does not found it will try to link the CPU-only version."
-msgstr ""
+msgstr "`--enable-libtorch` はまず CUDA 版、なければ CPU-only を試します。"
 
 #: installation_old.md:342
 msgid ""
@@ -459,6 +518,9 @@ msgid ""
 "output of the above commands in the config.log file to understand the reason"
 " (e.g. it cannot find the required libraries)."
 msgstr ""
+"出力の `checking libtorch[cpu/cuda] [without extra libs/with -ltorch_cpu ... ]`"
+" を見て、いずれかが `... yes` なら成功です。失敗はエラーでなく `configure: WARNING: cannot enable "
+"__PLUMED_HAS_LIBTORCH` という警告です。config.log で原因（Library が見つからないなど）を確認してください。"
 
 #: installation_old.md:343
 msgid ""
@@ -470,23 +532,30 @@ msgid ""
 " add the following option to the configure: "
 "`CXXFLAGS=\"-D_GLIBCXX_USE_CXX11_ABI=0\"`."
 msgstr ""
+"HPC などで Pre-cxx11 ABI Binary を使うなら、PyTorch の対応版（例：<a "
+"href=\"https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-"
+"deps-2.0.0%2Bcpu.zip\"> `libtorch-shared-with-"
+"deps-2.0.0%2Bcpu.zip`</a>）を取得し、`CXXFLAGS=\"-D_GLIBCXX_USE_CXX11_ABI=0\"` "
+"を加えます。"
 
 #: installation_old.md:345
 msgid "Additional Modules"
-msgstr ""
+msgstr "追加 Module"
 
 #: installation_old.md:347
 msgid ""
 "PLUMED includes some additional modules that by default are not compiled, "
 "but can be enabled during configuration. You can use the option `--enable-"
 "modules` to activate some of them, e.g."
-msgstr ""
+msgstr "既定で無効の Module は `--enable-modules` で有効化できます。例えば、"
 
 #: installation_old.md:354
 msgid ""
 "For more information on modules see [the modules "
 "page](https://www.plumed.org/doc-master/user-doc/html/modules/)."
 msgstr ""
+"詳細は [Module 一覧](https://www.plumed.org/doc-master/user-doc/html/modules/) "
+"を参照してください。"
 
 #: installation_old.md:356
 msgid "Compiling PLUMED"
@@ -494,7 +563,7 @@ msgstr "PLUMED のコンパイル"
 
 #: installation_old.md:358
 msgid "Once configured, PLUMED can be compiled using the following command:"
-msgstr ""
+msgstr "設定後、次でコンパイルします。"
 
 #: installation_old.md:364
 msgid ""
@@ -504,6 +573,8 @@ msgid ""
 "should also be present. Notice that the extension could be '.dylib' on a "
 "Mac."
 msgstr ""
+"src/lib に全コードをビルドし、src/lib/plumed などを生成します。Shared 有効なら "
+"src/lib/libKernel.so、Mac なら .dylib もあります。"
 
 #: installation_old.md:370
 msgid ""
@@ -515,10 +586,12 @@ msgid ""
 " good idea to source it now, so that you can play with the just compiled "
 "PLUMED:"
 msgstr ""
+"_インストールせず_ ビルド先から使うには、Main の sourceme.sh を Source します。現在 Bash のみです。_インストール前_"
+" の実行に使い、今も Source して試せます。"
 
 #: installation_old.md:382
 msgid "Now a \"plumed\" executable should be in your path. Try to type"
-msgstr ""
+msgstr "plumed が PATH に入り、次を実行できます。"
 
 #: installation_old.md:388
 msgid ""
@@ -526,6 +599,8 @@ msgid ""
 "As a consequence, you won't be able to run regtests or compile the manual. "
 "This is not a problem."
 msgstr ""
+"[!warning] Cross-compile の実行ファイルはビルド先で動かず、Regression Test "
+"やマニュアル作成はできませんが、問題ありません。"
 
 #: installation_old.md:393
 msgid ""
@@ -535,22 +610,24 @@ msgid ""
 "test the `plumed` executable that you just compiled (prior to installing it)"
 " you can use the following command"
 msgstr ""
+"Regression Test で確認できます。マシン間の数値精度差で失敗するものもあります。2.4以降、インストール前の `plumed` "
+"は次でテストします。"
 
 #: installation_old.md:402
 msgid ""
 "On the other hand, in order to test the `plumed` executable that you just "
 "installed you should type"
-msgstr ""
+msgstr "インストール済み `plumed` は、"
 
 #: installation_old.md:409
 msgid ""
 "In addition, similarly to previous versions of PLUMED, you can test the "
 "`plumed` executable that is in your current path with"
-msgstr ""
+msgstr "現在 PATH にある `plumed` は、"
 
 #: installation_old.md:417
 msgid "You can check the exact version they will use by using the command"
-msgstr ""
+msgstr "使用する厳密な版は次で確認します。"
 
 #: installation_old.md:423
 msgid ""
@@ -560,12 +637,13 @@ msgid ""
 " with a test suite from a different version you can expect two possible "
 "kinds of innocuous errors:"
 msgstr ""
+"PATH を変えれば旧版など別の PLUMED もテストできます。ただし Test Suite と版が違う場合、2種類の問題のないエラーがあり得ます。"
 
 #: installation_old.md:428
 msgid ""
 "If `plumed` executable is older than the test suite, the tests might fail "
 "since they rely on some feature introduced in PLUMED in a newer version."
-msgstr ""
+msgstr "`plumed` が古いと新機能がなく失敗する。"
 
 #: installation_old.md:430
 msgid ""
@@ -574,7 +652,7 @@ msgid ""
 " the number of non-backward compatible changes small, but as you can see "
 "from the change log that there are typically a few of them at every new "
 "major release."
-msgstr ""
+msgstr "`plumed` が新しいと非互換変更で失敗する。数は抑えていますが、各 Major Release に多少あります。"
 
 #: installation_old.md:436
 msgid ""
@@ -584,6 +662,9 @@ msgid ""
 "not show up on travis. So please always perform the regtests when you "
 "install PLUMED."
 msgstr ""
+"[!attention] [Travis-CI](http://travis-ci.org/plumed/plumed2) "
+"で定期テストしていても、強い最適化や Architecture 依存の不具合はあり得ます。インストール時は必ず Regression Test "
+"を行ってください。"
 
 #: installation_old.md:442
 msgid ""
@@ -593,6 +674,8 @@ msgid ""
 "or delete it. In fact the path to the PLUMED root directory is hard coded in"
 " the plumed executable as can be verified using"
 msgstr ""
+"src/lib/plumed はビルド先の Resource に依存するため、Directory を移動・削除しないでください。Root Path "
+"は実行ファイルに固定され、次で確認できます。"
 
 #: installation_old.md:452
 msgid ""
@@ -600,19 +683,19 @@ msgid ""
 "directory in place (e.g. you move away the src/lib/plumed static executable "
 "and delete or rename the compilation directory) PLUMED will not work "
 "correctly and will give you an error message"
-msgstr ""
+msgstr "Static 実行ファイルだけ移すなど、ビルド先をなくすと正しく動かずエラーになります。"
 
 #: installation_old.md:462
 msgid ""
 "You can force plumed to run anyway by using the option `--standalone-"
 "executable`:"
-msgstr ""
+msgstr "`--standalone-executable` で強制実行できます。"
 
 #: installation_old.md:468
 msgid ""
 "Many features will not be available if you run in this way. However, this is"
 " currently the only way to use the PLUMED static executable on Windows."
-msgstr ""
+msgstr "多くの機能が使えませんが、Windows で Static 実行ファイルを使う現在唯一の方法です。"
 
 #: installation_old.md:471
 msgid "Installing PLUMED"
@@ -622,17 +705,17 @@ msgstr "PLUMED のインストール"
 msgid ""
 "It is strongly suggested to install PLUMED in a predefined location. This is"
 " done using"
-msgstr ""
+msgstr "決まった場所へのインストールを強く推奨します。"
 
 #: installation_old.md:481
 msgid ""
 "This will allow you to remove the original compilation directory, or to "
 "recompile a different PLUMED version in the same place."
-msgstr ""
+msgstr "元のビルド先を除去したり、別版のビルドに使ったりできるようになります。"
 
 #: installation_old.md:484
 msgid "To install PLUMED one should first decide the location:"
-msgstr ""
+msgstr "まずインストール先を決めます。"
 
 #: installation_old.md:492
 msgid ""
@@ -642,6 +725,8 @@ msgid ""
 "permissions (e.g. \"sudo make install\") if you want to install PLUMED on a "
 "system directory."
 msgstr ""
+"2.5以降はインストール時に変更できません。configure の `--prefix` 未指定なら `/usr/local` です。System "
+"Directory なら sudo make install など Root 権限が必要です。"
 
 #: installation_old.md:497
 msgid ""
@@ -651,6 +736,8 @@ msgid ""
 "install`. If root user does not have access to compilers, \"sudo -E make "
 "install\" might solve the issue."
 msgstr ""
+"インストール中に Relink が必要な場合があります。2.1までは常に、2.2では `make install` 時に Prefix "
+"を変える場合だけです。Root が Compiler にアクセスできないなら sudo -E make install が役立つ場合があります。"
 
 #: installation_old.md:503
 msgid ""
@@ -662,6 +749,10 @@ msgid ""
 "customized using standard autoconf directories (e.g. `./configure "
 "--bindir=/usr/bin64`)."
 msgstr ""
+"実行ファイルは `$prefix/bin`、Library は `$prefix/lib`、Include は "
+"`$prefix/include`、文書は `$prefix/shared/doc/plumed` に入ります。`$prefix/lib/plumed`"
+" に Patch・Object なども置きます。`./configure --bindir=/usr/bin64` など標準 Autoconf "
+"Directory でも調整できます。"
 
 #: installation_old.md:511
 msgid ""
@@ -675,38 +766,41 @@ msgid ""
 " know which environment variables should be set for PLUMED to work "
 "correctly."
 msgstr ""
+"環境は Environment Modules (http://modules.sourceforge.net) "
+"を推奨します。`$prefix/lib/plumed/src/lib/modulefile` を編集して Module Directory "
+"に置けば複数版を切り替えられます。Module を使わなくても必要な環境変数の参考になります。"
 
 #: installation_old.md:520
 msgid ""
 "If the environment is properly configured one should be able to do the "
 "following things:"
-msgstr ""
+msgstr "正しく設定すれば、次ができます。"
 
 #: installation_old.md:523
 msgid ""
 "use the \"plumed\" executable from the command line. This is also possible "
 "before installing."
-msgstr ""
+msgstr "コマンドラインの plumed を使う。インストール前も可能。"
 
 #: installation_old.md:524
 msgid ""
 "link against the PLUMED library using the \"-lplumed\" flag for the linker. "
 "This allows one to use PLUMED library in general purpose programs"
-msgstr ""
+msgstr "-lplumed で Link し、汎用プログラムから使う。"
 
 #: installation_old.md:526
 msgid ""
 "use PLUMED internal functionality (C++ classes) including header files such "
 "as \"#include <plumed/tools/Vector.h>\". This is useful as it may be "
 "expedient to exploit the PLUMED library in general purpose programs"
-msgstr ""
+msgstr "#include <plumed/tools/Vector.h> などで C++ Class を利用する。汎用プログラムにも有用。"
 
 #: installation_old.md:530
 msgid ""
 "As a final note, if you want to install several PLUMED versions without "
 "using modules then you should provide a different suffix and/or prefix at "
 "configure time:"
-msgstr ""
+msgstr "Module なしで複数版を入れるなら、configure で異なる Prefix・Suffix を指定します。"
 
 #: installation_old.md:538
 msgid ""
@@ -721,10 +815,16 @@ msgid ""
 "more info). These options are useful if you do not want to set up modules, "
 "but we believe that using modules as described above is more flexible."
 msgstr ""
+"実行ファイルは `mpi-plumed_2.2`、Link は `-lmpi-plumed_2.2`、Include は `#include <mpi-"
+"plumed_2.2/tools/Vector.h>` などになります。`--program-transform-name=PROGRAM` "
+"でも名前を編集できます（<a "
+"href=\"http://www.gnu.org/software/autoconf/manual/autoconf-2.69/html_node/Transformation-"
+"Examples.html#Transformation-Examples\">Autoconf</a>）。便利ですが、Module "
+"の方が柔軟だと考えます。"
 
 #: installation_old.md:547
 msgid "Patching your MD code"
-msgstr ""
+msgstr "MD コードの Patch"
 
 #: installation_old.md:549
 msgid ""
@@ -733,13 +833,13 @@ msgid ""
 "PLUMED. In case your MD code is not supporting PLUMED already, you should "
 "modify it. We provide scripts to adjust some of the most popular MD codes so"
 " as to provide PLUMED support."
-msgstr ""
+msgstr "無変更で対応する MD も増えています。使い方は各マニュアルを参照し、未対応なら提供 Script で変更します。"
 
 #: installation_old.md:555
 msgid ""
 "You can find information specific for each MD code from the [navigation "
 "page](NAVIGATION.md) for this tutorial."
-msgstr ""
+msgstr "コード別の情報は [Navigation](NAVIGATION.md) にあります。"
 
 #: installation_old.md:557
 msgid ""
@@ -747,51 +847,51 @@ msgid ""
 "This is necessary as you need to have the command \"plumed\" in your "
 "execution path. As described above this executable will be in your paths if "
 "plumed was installed or if you have run sourceme.sh"
-msgstr ""
+msgstr "Patch には plumed が PATH に必要です。インストールまたは sourceme.sh で準備します。"
 
 #: installation_old.md:562
 msgid ""
 "Once you have a compiled and working version of plumed, follow these steps "
 "to add it to an MD code"
-msgstr ""
+msgstr "動作する版ができたら、"
 
 #: installation_old.md:565
 msgid ""
 "Configure and compile your MD engine (look for the instructions in its "
 "documentation)."
-msgstr ""
+msgstr "MD を文書に従い設定・ビルドする。"
 
 #: installation_old.md:566
 msgid "Test if the MD code is working properly."
-msgstr ""
+msgstr "MD が正しく動くかテストする。"
 
 #: installation_old.md:567
 msgid "Go to the root directory for the source code of the MD engine."
-msgstr ""
+msgstr "MD Source の Root に移る。"
 
 #: installation_old.md:568
 msgid "Patch with PLUMED using:"
-msgstr ""
+msgstr "次で Patch する。"
 
 #: installation_old.md:572
 msgid "The script will interactively ask which MD engine you are patching."
-msgstr ""
+msgstr "Script が対話的に MD を尋ねます。"
 
 #: installation_old.md:573
 msgid ""
 "Once you have patched recompile the MD code (if dependencies are set up "
 "properly in the MD engine, only modified files will be recompiled)"
-msgstr ""
+msgstr "Patch 後に再ビルドします。依存が正しければ変更部分だけです。"
 
 #: installation_old.md:576
 msgid ""
 "There are different options available when patching. You can check all of "
 "them using"
-msgstr ""
+msgstr "全オプションは、"
 
 #: installation_old.md:582
 msgid "Particularly interesting options include:"
-msgstr ""
+msgstr "特に重要なのは、"
 
 #: installation_old.md:583
 msgid ""
@@ -803,6 +903,8 @@ msgid ""
 " but sometime it cannot solve the problem. Additionally, this patching mode "
 "has been reported not to work properly on OSX."
 msgstr ""
+"`--static` は Object File として Link し、Static "
+"必須の場合だけ推奨します。全依存の指定で設定が難しく、`./configure` でも解決できない場合や OSX の不具合報告があります。"
 
 #: installation_old.md:588
 msgid ""
@@ -813,6 +915,7 @@ msgid ""
 "the directory where PLUMED is installed also the MD code will not run "
 "anymore."
 msgstr ""
+"`--shared` は既定で、更新時の MD 再ビルドが不要、依存も自動 Link されます。ただしインストール先を除くと MD も動きません。"
 
 #: installation_old.md:591
 msgid ""
@@ -825,6 +928,8 @@ msgid ""
 "We also recommend to use the provided modulefile (see above) to properly set"
 " the runtime environment."
 msgstr ""
+"`--runtime` は PLUMED_KERNEL で実行時に場所を選べ、共有設備に推奨する最も柔軟な方法です。MD と PLUMED "
+"を別々に更新し任意に組み合わせられます。付属 Modulefile も推奨します。"
 
 #: installation_old.md:597
 msgid ""
@@ -835,6 +940,9 @@ msgid ""
 "try to link against this static library. Creation of the `libplumed.a` "
 "library can be avoided with `./configure --disable-static-archive`."
 msgstr ""
+"2.5未満は Static Library がありません。以降は `./configure` が `libplumed.a` "
+"を作り、`--static` で Link します。`libplumed.a` を作らないなら `./configure --disable-"
+"static-archive` を使います。"
 
 #: installation_old.md:602
 msgid ""
@@ -842,10 +950,12 @@ msgid ""
 " it. Refer to the <a href=\"../../developer-doc/html/index.html\"> developer"
 " manual </a>."
 msgstr ""
+"未対応なら Interface を実装できます。<a href=\"../../developer-"
+"doc/html/index.html\">開発者マニュアル</a>を参照してください。"
 
 #: installation_old.md:605
 msgid "Cross compiling"
-msgstr ""
+msgstr "Cross-compilation"
 
 #: installation_old.md:607
 msgid ""
@@ -862,6 +972,9 @@ msgid ""
 "combination with an MD software should work if both PLUMED and the MD "
 "software have been properly compiled."
 msgstr ""
+"別マシン用の `plumed` はビルド環境で動かず、Test やマニュアル作成はできません。Compute Node で Test "
+"するにも制約に合わせた工夫が必要です。`plumed` の patch などは `plumed` 実行ファイル内部から Shell Script "
+"を起動するため、Fork 禁止などでは動きません。それでも MD と両方を正しくビルドすれば Library 連携は使えるはずです。"
 
 #: installation_old.md:618
 msgid ""
@@ -870,16 +983,18 @@ msgid ""
 "instead of `plumed patch` (notice that it should be written as a single "
 "word)."
 msgstr ""
+"ビルド先では `plumed patch` を実行できません。`plumed patch` の代わりに、1語の `plumed-patch` "
+"を使います。"
 
 #: installation_old.md:622
 msgid "Try e.g.:"
-msgstr ""
+msgstr "例えば、"
 
 #: installation_old.md:628
 msgid ""
 "This script provides a \"shell only\" implementation of `plumed patch` that "
 "will skip the launch of the `plumed` executable."
-msgstr ""
+msgstr "`plumed` 実行ファイルを起動しない、Shell-only の `plumed patch` です。"
 
 #: installation_old.md:630
 msgid ""
@@ -889,29 +1004,31 @@ msgid ""
 "execution path (prefix/bin) to avoid clashes, but can be executed also when "
 "plumed is cross compiled and the main plumed executable cannot be launched."
 msgstr ""
+"ほかのツールは `prefix/lib/progname/`、既定なら `/usr/local/lib/plumed/plumed-*` "
+"にあります。衝突防止のため PATH（prefix/bin）には入りませんが、Cross-compile でも実行できます。"
 
 #: installation_old.md:635
 msgid "Installing PLUMED on a cluster"
-msgstr ""
+msgstr "Cluster へのインストール"
 
 #: installation_old.md:637
 msgid ""
 "If you are installing PLUMED on a cluster and you want several users to take"
 " advantage of it consider the following suggestions."
-msgstr ""
+msgstr "複数ユーザーで使う場合の助言です。"
 
 #: installation_old.md:640
 msgid ""
 "First of all, we highly recommend using the module file that PLUMED provides"
 " to set up the environment. Just edit it as necessary to make it suitable "
 "for your environment."
-msgstr ""
+msgstr "付属 Modulefile を環境に合わせて使うことを強く推奨します。"
 
 #: installation_old.md:643
 msgid ""
 "Notice that PLUMED can take advantage of many additional features if "
 "specific libraries are available upon compiling it."
-msgstr ""
+msgstr "ビルド時に特定 Library があれば多くの追加機能を使えます。"
 
 #: installation_old.md:646
 msgid ""
@@ -924,6 +1041,8 @@ msgid ""
 "issues. PLUMED is written in C++, thus required the appropriate C++ library "
 "to be linked, and might require additional libraries (e.g. libgsl)."
 msgstr ""
+"全 MD を `--runtime` で Patch し、独立更新と任意版の組み合わせを可能にしてください。経験上 Static "
+"が高速とは限りません。必須なら C++・GSL などの非自明な Link 問題に備えてください。"
 
 #: installation_old.md:652
 msgid ""
@@ -935,6 +1054,8 @@ msgid ""
 "`gromacs/4.6.7p2.2.0`. In this way, when we report a bug on the mailing "
 "list, users will know if the version they are using is affected by it."
 msgstr ""
+"Patch に小修正が入るため、使用版を記録します。`gromacs/4.6.7p1`・`gromacs/4.6.7p2` と Module "
+"に記すか、`gromacs/4.6.7p2.2.0` などにします。不具合報告時に対象か判断できます。"
 
 #: installation_old.md:658
 msgid ""
@@ -944,13 +1065,15 @@ msgid ""
 "invoked without `--no-mpi`. In many machines it is thus sufficient to run "
 "the plumed executable on the login node as"
 msgstr ""
+"通常 MPI・非 MPI の両版は不要です。Library は MD が MPI の場合だけ、実行ファイルは `--no-mpi` なしの場合だけ "
+"MPI を呼びます。多くの Login Node では、"
 
 #: installation_old.md:666
 msgid ""
 "even though PLUMED was compiled with MPI and the login node does not support"
 " MPI. The only case where you might need two different PLUMED installation "
 "for compute and login node is when you are cross compiling."
-msgstr ""
+msgstr "MPI ビルドでも MPI なしで実行できます。Compute・Login 用に2つ必要なのは主に Cross-compile です。"
 
 #: installation_old.md:670
 msgid ""
@@ -958,14 +1081,14 @@ msgid ""
 "PLUMED binary to run efficiency on machines with different levels of "
 "hardware (e.g.: some of your workstations support AVX and some do not), with"
 " intel compiler you can use something like"
-msgstr ""
+msgstr "効率には最適化が必要です。AVX 有無など Hardware の異なるマシンで1 Binary を使うには、Intel なら、"
 
 #: installation_old.md:678
 msgid ""
 "It will take more time to compile but it will allow you to use a single "
 "module. Otherwise, you should install two PLUMED version with different "
 "optimization levels."
-msgstr ""
+msgstr "ビルドは長くなりますが1 Module にできます。それ以外は最適化レベル別に2版を入れます。"
 
 #: installation_old.md:681
 msgid ""
@@ -978,6 +1101,9 @@ msgid ""
 "fundamental libraries such as C++ and MPI library. As a consequence, usually"
 " the PLUMED module should load the compiler and MPI modules."
 msgstr ""
+"Module に Library 依存を明示する必要はありません。`libgsl` をロードしてビルドし、`--enable-rpath` "
+"を渡すと場所を記憶し、実行時の GSL Module は不要です。ただし C++・MPI など基本 Library では使えないことが多く、通常その "
+"Module はロードします。"
 
 #: installation_old.md:688
 msgid ""
@@ -986,10 +1112,12 @@ msgid ""
 "send it to the mailing list, or ask as to update this paragraph in the "
 "manual, we will be happy to do so."
 msgstr ""
+"[!attention] 特殊 Architecture のビルドに成功したら、Blog・Mailing "
+"List、マニュアル更新依頼などで方法を共有してください。"
 
 #: installation_old.md:693
 msgid "Installing Python wrappers"
-msgstr ""
+msgstr "Python Wrapper のインストール"
 
 #: installation_old.md:695
 msgid ""
@@ -997,15 +1125,15 @@ msgid ""
 "wrappers. Notice that this is not something for end users but rather for "
 "developers. The interface is very similar to the one used in MD codes linked"
 " with PLUMED."
-msgstr ""
+msgstr "2.5以降は Python Wrapper を使えます。主に開発者向けで、MD Interface とよく似ています。"
 
 #: installation_old.md:697
 msgid "There are two ways to install Python wrappers."
-msgstr ""
+msgstr "方法は2つです。"
 
 #: installation_old.md:699
 msgid "Installing Python wrappers within PLUMED"
-msgstr ""
+msgstr "PLUMED 内へのインストール"
 
 #: installation_old.md:701
 msgid ""
@@ -1016,23 +1144,26 @@ msgid ""
 "python interpreter has a different name you might have to pass it to "
 "`./configure` with `PYTHON_BIN=python3.6`. The whole thing would then be:"
 msgstr ""
+"`./configure` が `cython` のある `python` を見つけると `/prefix/lib/plumed/python` "
+"に入れます。`PYTHONPATH` に追加してください。別名なら `./configure` に `PYTHON_BIN=python3.6` "
+"を渡します。全手順は、"
 
 #: installation_old.md:711
 msgid ""
 "Notice that in this manner you will have to commit to a specific python "
 "version **before** installing PLUMED."
-msgstr ""
+msgstr "この方法は PLUMED のインストール __前__ に Python 版を決める必要があります。"
 
 #: installation_old.md:713
 msgid "Installing Python wrappers outside PLUMED"
-msgstr ""
+msgstr "PLUMED 外へのインストール"
 
 #: installation_old.md:715
 msgid ""
 "If you use multiple python versions, you might find it easier to install the"
 " Python wrappers separately from PLUMED. The simplest way is to do it with "
 "`pip`:"
-msgstr ""
+msgstr "複数 Python なら別に入れる方が便利です。最も簡単には `pip` を使います。"
 
 #: installation_old.md:721
 msgid ""
@@ -1042,6 +1173,8 @@ msgid ""
 "wrappers where PLUMED is by setting the `PLUMED_KERNEL` environment "
 "variable:"
 msgstr ""
+"`--user` は Home に入れます。Wrapper の導入だけなら PLUMED "
+"取得は不要ですが、使用には必要です。`PLUMED_KERNEL` で場所を指定します。"
 
 #: installation_old.md:729
 msgid ""
@@ -1050,22 +1183,23 @@ msgid ""
 "want to install using pip the development version of the wrappers you should"
 " download the PLUMED repository and use the following commands:"
 msgstr ""
+"この方法は [PyPI](https://pypi.org/project/plumed/) 版です。開発版ならリポジトリを取得し、次を使います。"
 
 #: installation_old.md:740
 msgid ""
 "If you want to install the development version it is recommended to use a "
 "virtualenv so that it will not interfere with the released packages."
-msgstr ""
+msgstr "開発版は Release と干渉しない virtualenv を推奨します。"
 
 #: installation_old.md:742
 msgid "Other hints"
-msgstr ""
+msgstr "その他の助言"
 
 #: installation_old.md:744
 msgid ""
 "We here collect a list of suggestions that might be useful on particular "
 "machines."
-msgstr ""
+msgstr "特定マシンで有用な情報です。"
 
 #: installation_old.md:747
 msgid ""
@@ -1073,10 +1207,11 @@ msgid ""
 "working properly. There is no easy way to detect this at configure time. If "
 "during `make` you receive an error in the form"
 msgstr ""
+"Blue Gene Q（おそらく AIX）では `ld -r` の Prelink が動かず、自動検出も困難です。`make` で次のエラーなら、"
 
 #: installation_old.md:753
 msgid "please configure plumed again with the following flag"
-msgstr ""
+msgstr "次の Flag で再設定します。"
 
 #: installation_old.md:757
 msgid ""
@@ -1084,6 +1219,7 @@ msgid ""
 "before configuring and building both PLUMED and the MD code that you want to"
 " patch with PLUMED (kindly reported by Marco De La Pierre):"
 msgstr ""
+"Cray では PLUMED と対象 MD の設定・ビルド前に次の環境変数が必要な場合があります（Marco De La Pierre の報告）。"
 
 #: installation_old.md:763
 msgid ""
@@ -1091,6 +1227,8 @@ msgid ""
 "linking and the flag `-DMPICH_IGNORE_CXX_SEEK` for compiling (kindly "
 "reported by Abhishek Acharya). You might want to try to configure using"
 msgstr ""
+"Intel MPI は Compile・Link に `-lmpi_mt -mt_mpi`、Compile に "
+"`-DMPICH_IGNORE_CXX_SEEK` が必要なようです（Abhishek Acharya の報告）。次を試せます。"
 
 #: installation_old.md:769
 msgid ""
@@ -1100,3 +1238,8 @@ msgid ""
 "users/CAB1aw3y0m%3D5qwzsZY4ZB-"
 "aBevsL5iuS%3DmQuSWK_cw527zCMqzg%40mail.gmail.com?utm_medium=email&utm_source=footer)."
 msgstr ""
+"`STATIC_LIBS` は全 Link 段階、`LIBS` は Kernel Library の Link "
+"だけに使います。[議論](https://groups.google.com/d/msgid/plumed-"
+"users/CAB1aw3y0m%3D5qwzsZY4ZB-"
+"aBevsL5iuS%3DmQuSWK_cw527zCMqzg%40mail.gmail.com?utm_medium=email&utm_source=footer)"
+" を参照してください。"

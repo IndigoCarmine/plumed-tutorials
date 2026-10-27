@@ -9,14 +9,14 @@ msgstr ""
 
 #: gromacs.md:1
 msgid "Patching gromacs"
-msgstr ""
+msgstr "GROMACS の Patch"
 
 #: gromacs.md:2
 msgid ""
 "To use PLUMED with gromacs you need to use the `plumed patch` script to "
 "modify gromacs before compiling. This process is not difficult you can "
 "simply issue the command:"
-msgstr ""
+msgstr "ビルド前に `plumed patch` で Source を変更します。次を実行します。"
 
 #: gromacs.md:6
 msgid ""
@@ -24,7 +24,7 @@ msgid ""
 "codes that are output. PLUMED currently supports the following versions of "
 "gromacs: Once this script has completed you then proceed to compile gromacs "
 "as you would normally do."
-msgstr ""
+msgstr "表示される対応版から選び、終了後に通常どおり GROMACS をビルドします。現在の対応版は次です。"
 
 #: gromacs.md:8
 msgid "Patching options"
@@ -35,7 +35,7 @@ msgid ""
 "The way PLUMED is linked is controlled by a flag that is given to the "
 "`plumed patch` command. This flag can be set to any one of the following "
 "three options:"
-msgstr ""
+msgstr "`plumed patch` の Flag で Link 方法を3つから選びます。"
 
 #: gromacs.md:10
 msgid ""
@@ -48,6 +48,8 @@ msgid ""
 "example, we have had reports that this patching mode does not work properly "
 "on OSX."
 msgstr ""
+"_--static_ Object File として Link し、Static 実行ファイルが必須の場合だけ推奨します。全依存 Library "
+"を明示するため MD 設定が難しくなります。`./configure` も支援しますが全問題は解決できず、OSX の不具合報告もあります。"
 
 #: gromacs.md:11
 msgid ""
@@ -59,6 +61,8 @@ msgid ""
 "later remove the directory where the version of PLUMED that you linked with "
 "then then MD code will not run anymore."
 msgstr ""
+"_--shared_ 既定の Shared Library Link です。PLUMED 更新時に MD の再ビルドが不要で、依存 Library "
+"も自動 Link されます。ただし Link 先の PLUMED Directory を削除すると MD が動かなくなります。"
 
 #: gromacs.md:12
 msgid ""
@@ -80,3 +84,7 @@ msgid ""
 "version-2.5 behaviour and to just link with the object files you will need "
 "to configure PLUMED using the command:"
 msgstr ""
+"_--runtime_ 実行時に PLUMED_KERNEL で場所を選べる最も柔軟な方法で、共有設備の管理者に推奨します。MD と Library "
+"を別々に更新し、ユーザーが版を選べます。Modulefile も推奨します。なお `--static` の挙動は版依存です。2.5未満は Static "
+"Library を作れませんでした。2.5以降は `./configure` が `libplumed.a` を作り、`--static` はそれを "
+"Link します。従来の Object File 方式に戻すには、"

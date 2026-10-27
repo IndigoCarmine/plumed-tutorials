@@ -27,16 +27,21 @@ msgid ""
 "include files will then need to be passed to configure using a command "
 "similar to:</p>"
 msgstr ""
+"PLUMED は dcd、GROMACS、pdb、AMBER の VMD Plugin を含むため、通常この Flag は不要です。特殊な形式には "
+"VMD Source の plugins を取得し、build.sh を調整してビルドします。Static Library "
+"<code>libmolfile_plugin.a</code> と Include "
+"<code>libmolfile_plugin.h</code>・<code>molfile_plugin.h</code> の場所を、次のように "
+"configure に渡します。</p>"
 
 #: Modals/enablemolfileplugins.md:17
 msgid ""
 "It may also be necessary to add the location of the TCL interpreter to the "
 "<code>LDFLAGS</code> using a command such as:"
-msgstr ""
+msgstr "TCL Interpreter の場所を <code>LDFLAGS</code> に加える必要もあります。"
 
 #: Modals/enablemolfileplugins.md:22
 msgid ""
 "To be clear, however, some of the molfile plugin sourcecode is included in "
 "PLUMED and you can thus use some of the most common types of trajectory file"
 " even if you do not download VMD on your machine."
-msgstr ""
+msgstr "一部の Molfile Plugin は PLUMED に含まれ、VMD を取得せずとも一般的な形式を読めます。"

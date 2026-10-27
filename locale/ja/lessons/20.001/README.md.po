@@ -9,13 +9,13 @@ msgstr ""
 
 #: README.md:1
 msgid "A tutorial on installing PLUMED"
-msgstr ""
+msgstr "PLUMED インストール Tutorial"
 
 #: README.md:3
 msgid ""
 "This repository contains instructions with various levels of detail for "
 "installing PLUMED."
-msgstr ""
+msgstr "このリポジトリには、詳しさの異なるインストール手順があります。"
 
 #: README.md:5
 msgid ""
@@ -27,6 +27,8 @@ msgid ""
 "an interface between PLUMED and another MD code please feel free to modify "
 "this file. It should be self explanatory."
 msgstr ""
+"サイトの NAVIGATION.md は、ここのものを `build.py` で変更しています。`md_notes.yml` から対応 MD の "
+"Graph を作ります。新しい Interface を実装したら、このファイルを編集してください。形式は見ればわかるはずです。"
 
 #: README.md:11
 msgid ""
@@ -35,6 +37,8 @@ msgid ""
 "information in the file `Installation.md` and the directories `computers`, "
 "`sections` and `Modals` and merges it all together."
 msgstr ""
+"サイトの `Installation.md` は `build.py.` "
+"が、`Installation.md`、`computers`、`sections`、`Modals` を統合して作ります。"
 
 #: README.md:15
 msgid ""
@@ -42,7 +46,7 @@ msgid ""
 "machine you can add an additional file in the `computers` directory. The "
 "option to show that information will appear in the dropdown menu that "
 "appears when the user asks to see how to install PLUMED on a cluster."
-msgstr ""
+msgstr "特定マシンの情報は `computers` にファイルを追加できます。Cluster インストールの Drop-down に表示されます。"
 
 #: README.md:18
 msgid ""
@@ -51,7 +55,7 @@ msgid ""
 "file in that directory (please ensure that the file has no special "
 "characters in the name and that it is named <name>.md). You then need to add"
 " an instruction on when to open that pop up."
-msgstr ""
+msgstr "`Modals` は Pop-up の内容です。追加するには、特殊文字なしの <name>.md を置き、開く条件を指定します。"
 
 #: README.md:22
 msgid ""
@@ -62,3 +66,5 @@ msgid ""
 "various sections in here refer to files that are contained in the `sections`"
 " directory."
 msgstr ""
+"`options.yml` はビルド方法の Drop-down を定義します。Question が選択肢、sections "
+"が選択後の表示で、`sections` 内のファイルに対応します。"

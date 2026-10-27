@@ -15,16 +15,16 @@ msgstr "--standalone-executable オプション"
 msgid ""
 "The path to the PLUMED root directory is hard coded in the plumed executable"
 " as can be verified by using the command:"
-msgstr ""
+msgstr "Root Directory の Path は実行ファイルに固定されており、次で確認できます。"
 
 #: Modals/standaloneexecutable.md:19
 msgid ""
 "You can force plumed to ignore this error and to run anyway by using the "
 "option --standalone-executable as shown below"
-msgstr ""
+msgstr "次の --standalone-executable でエラーを無視して実行できます。"
 
 #: Modals/standaloneexecutable.md:23
 msgid ""
 "Many features are not be available if you run in this way. This is currently"
 " the only way to use the PLUMED static executable on Windows, however."
-msgstr ""
+msgstr "多くの機能が使えなくなりますが、Windows で Static 実行ファイルを使う現在唯一の方法です。"

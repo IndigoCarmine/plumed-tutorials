@@ -9,13 +9,13 @@ msgstr ""
 
 #: NAVIGATION.md:1
 msgid "PLUMED Installation: An interactive guide"
-msgstr ""
+msgstr "PLUMED インストール：対話型ガイド"
 
 #: NAVIGATION.md:3
 msgid ""
 "There are a variety of different ways of getting your hands on PLUMED. For "
 "example you can:"
-msgstr ""
+msgstr "PLUMED の入手法はいくつもあります。例えば、"
 
 #: NAVIGATION.md:5
 msgid ""
@@ -23,16 +23,19 @@ msgid ""
 "[here](https://docs.conda.io/en/latest/miniconda.html) for more info on "
 "Conda."
 msgstr ""
+"[Conda](conda.md) から入れる。[Conda "
+"の説明](https://docs.conda.io/en/latest/miniconda.html) も参照してください。"
 
 #: NAVIGATION.md:6
 msgid ""
 "Install it from [MacPorts](macports.md). See "
 "[here](https://www.macports.org) for more information on macports."
 msgstr ""
+"[MacPorts](macports.md) から入れる。[詳細](https://www.macports.org) も参照してください。"
 
 #: NAVIGATION.md:7
 msgid "Compile it yourself"
-msgstr ""
+msgstr "自分でコンパイルする。"
 
 #: NAVIGATION.md:9
 msgid ""
@@ -40,13 +43,13 @@ msgid ""
 "for the tutorials here we would recommend installing PLUMED from Conda. "
 "However, if you want to use PLUMED to do production calculations we would "
 "recommend compiling it yourself."
-msgstr ""
+msgstr "ローカルで Tutorial を行うだけなら Conda、本計算には自分でコンパイルすることを推奨します。"
 
 #: NAVIGATION.md:13
 msgid ""
 "If you are impatient the short version of the installation process is to use"
 " the following three commands:"
-msgstr ""
+msgstr "手短には次の3コマンドです。"
 
 #: NAVIGATION.md:21
 msgid ""
@@ -56,6 +59,8 @@ msgid ""
 "[this page](Installation.md) presents the same information in a way that "
 "some people find easier to navigate."
 msgstr ""
+"configure の `--prefix` でインストール先を指定できます。詳細は "
+"[こちら](installation_old.md)、別の見やすい構成は [こちら](Installation.md) です。"
 
 #: NAVIGATION.md:25
 msgid ""
@@ -67,200 +72,202 @@ msgid ""
 "the information we have on using it in tandem with PLUMED from the following"
 " chart."
 msgstr ""
+"通常は MD コードと連携します。一部は定期テストし、結果とインストール Script を [公開](http://plumed-"
+"testcenter.github.io) しています。載っていないコードの情報は次の Chart にあります。"
 
 #. mermaid node label
 #: NAVIGATION.md:32
 msgid "MD codes"
-msgstr ""
+msgstr "MD コード"
 
 #. mermaid node label
 #: NAVIGATION.md:32
 msgid "Using with ABIN"
-msgstr ""
+msgstr "連携：ABIN"
 
 #. mermaid node label
 #: NAVIGATION.md:33
 msgid "Using with AceMD"
-msgstr ""
+msgstr "連携：AceMD"
 
 #. mermaid node label
 #: NAVIGATION.md:34
 msgid "Using with AmberTools"
-msgstr ""
+msgstr "連携：AmberTools"
 
 #. mermaid node label
 #: NAVIGATION.md:35
 msgid "Using with CP2K"
-msgstr ""
+msgstr "連携：CP2K"
 
 #. mermaid node label
 #: NAVIGATION.md:36
 msgid "Using with DL_POLY4"
-msgstr ""
+msgstr "連携：DL_POLY4"
 
 #. mermaid node label
 #: NAVIGATION.md:37
 msgid "Using with ESPResSo"
-msgstr ""
+msgstr "連携：ESPResSo"
 
 #. mermaid node label
 #: NAVIGATION.md:38
 msgid "Using with IPHIGENIE"
-msgstr ""
+msgstr "連携：IPHIGENIE"
 
 #. mermaid node label
 #: NAVIGATION.md:39
 msgid "Using with LAMMPS"
-msgstr ""
+msgstr "連携：LAMMPS"
 
 #. mermaid node label
 #: NAVIGATION.md:40
 msgid "Using with OpenMM"
-msgstr ""
+msgstr "連携：OpenMM"
 
 #. mermaid node label
 #: NAVIGATION.md:41
 msgid "Using with PINYMD"
-msgstr ""
+msgstr "連携：PINYMD"
 
 #. mermaid node label
 #: NAVIGATION.md:42
 msgid "Using with VNLATK"
-msgstr ""
+msgstr "連携：VNLATK"
 
 #. mermaid node label
 #: NAVIGATION.md:43
 msgid "Using with Yaff"
-msgstr ""
+msgstr "連携：Yaff"
 
 #. mermaid node label
 #: NAVIGATION.md:44
 msgid "Using with ipi"
-msgstr ""
+msgstr "連携：ipi"
 
 #. mermaid node label
 #: NAVIGATION.md:45
 msgid "Using with gromacs"
-msgstr ""
+msgstr "連携：gromacs"
 
 #. mermaid node label
 #: NAVIGATION.md:46
 msgid "Using with namd"
-msgstr ""
+msgstr "連携：namd"
 
 #. mermaid node label
 #: NAVIGATION.md:47
 msgid "Using with qespresso"
-msgstr ""
+msgstr "連携：qespresso"
 
 #. mermaid node label
 #: NAVIGATION.md:48
 msgid "Using with other"
-msgstr ""
+msgstr "連携：other"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:49
 msgid "You can find the interface to PLUMED for this code <a href="
-msgstr ""
+msgstr "このコードの PLUMED Interface は <a href="
 
 #. mermaid click tooltip
 #: NAVIGATION.md:50
 msgid "AceMD is a code authored by Toni Giorgino"
-msgstr ""
+msgstr "AceMD の著者は Toni Giorgino です。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:51
 msgid "PLUMED can be used with the sander module from version 15 onwards"
-msgstr ""
+msgstr "sander の15以降で PLUMED を使えます。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:52
 msgid "PLUMED has been available in CP2K since Feb 2015"
-msgstr ""
+msgstr "CP2K は2015年2月から対応しています。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:53
 msgid ""
 "Information on how to use and install PLUMED with DLPOLY can be found in the"
 " manual."
-msgstr ""
+msgstr "DLPOLY のインストール・使用法はマニュアルにあります。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:54
 msgid "Plumed was inserted into ESPResSo by Davide Branduardi"
-msgstr ""
+msgstr "Davide Branduardi が ESPResSo に導入しました。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:55
 msgid "IPhigenie is a fast and versatile MD program"
-msgstr ""
+msgstr "IPhigenie は高速で柔軟な MD です。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:56
 msgid ""
 "There has been a native implementation of PLUMED in LAMMPS since Nov 2018. "
 "Details on how to use PLUMED with LAMMPS is available <a href="
-msgstr ""
+msgstr "LAMMPS は2018年11月から Native 対応しています。詳細は <a href="
 
 #. mermaid click tooltip
 #: NAVIGATION.md:57
 msgid ""
 "To use openMM and PLUMED you need to download the openmp-plumed plugin."
-msgstr ""
+msgstr "OpenMM には openmp-plumed Plugin を取得します。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:58
 msgid ""
 "PINY is a code from the Tuckerman group. You can use PLUMED with PINY if you"
 " download the plumed branch."
-msgstr ""
+msgstr "Tuckerman Group の PINY は plumed Branch を取得すると連携できます。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:59
 msgid "VNL-ATK is an MD code from quantumwise"
-msgstr ""
+msgstr "VNL-ATK は QuantumWise の MD です。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:60
 msgid "An interface to PLUMED has been available in Yaff since Jul 2019"
-msgstr ""
+msgstr "Yaff は2019年7月から対応しています。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:61
 msgid ""
 "IPi is a ring polymer molecular dynamics code (and more) from the group of "
 "Michele Ceriotti."
-msgstr ""
+msgstr "i-PI は Michele Ceriotti Group の Ring Polymer MD などのコードです。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:62
 msgid ""
 "To use PLUMED with gromacs you need to patch the gromacs source code as "
 "described here"
-msgstr ""
+msgstr "GROMACS は、ここの手順で Source を Patch します。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:63
 msgid ""
 "To use PLUMED with namd you need to patch the namd source code as described "
 "here"
-msgstr ""
+msgstr "NAMD は、ここの手順で Source を Patch します。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:64
 msgid ""
 "To use PLUMED with qespresso you need to patch the qespresso source code as "
 "described here"
-msgstr ""
+msgstr "Qespresso は、ここの手順で Source を Patch します。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:65
 msgid "Instructions for linking your own code with PLUMED"
-msgstr ""
+msgstr "自分のコードを PLUMED に Link する手順"
 
 #: NAVIGATION.md:68
 msgid ""
 "No actions were used in this tutorial so if you click on the link below "
 "(which is generated automatically) you will be taken to an empty version of "
 "the action list page of the PLUMED manual."
-msgstr ""
+msgstr "この Tutorial は Action を使わないため、自動生成の下のリンク先は空の Action 一覧です。"

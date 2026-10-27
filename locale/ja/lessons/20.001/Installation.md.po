@@ -20,6 +20,9 @@ msgid ""
 "would you like to build PLUMED\" button below to get instructions on what to"
 " do in these more exotic cases."
 msgstr ""
+"以下はローカルで単一バージョンの PLUMED "
+"を設定・ビルド・インストールする手順です。大部分のユーザーには十分です。より複雑な設定が必要なら、下の「How would you like to "
+"build PLUMED」ボタンから詳細を確認できます。"
 
 #: Installation.md:7
 msgid ""
@@ -27,6 +30,8 @@ msgid ""
 "manager. For instructions on how to install PLUMED in this way \"How would "
 "you like to build PLUMED\" button."
 msgstr ""
+"MacPorts または conda が最も簡単でしょう。その方法は「How would you like to build "
+"PLUMED」ボタンで確認してください。"
 
 #: Installation.md:9
 msgid ""
@@ -36,6 +41,8 @@ msgid ""
 "by each flag is provided through tooltips, which you are shown if you hover "
 "over the flag."
 msgstr ""
+"configure の欄の「show defaults」で、コマンドの既定 Flag を表示できます。各 Flag に Mouse を重ねると "
+"Tooltip で役割を確認できます。"
 
 #: Installation.md:12
 msgid ""
@@ -45,6 +52,7 @@ msgid ""
 "about the information in these pop ups but it may be worth considering as "
 "these options can affect the performance of the compiled code."
 msgstr ""
+"短い configure コマンドの太字 Flag をクリックすると詳細が開きます。通常は気にする必要はありませんが、性能に影響する場合があります。"
 
 #: Installation.md:16
 msgid ""
@@ -54,72 +62,77 @@ msgid ""
 "code you require. Instructions on patching the code you select with PLUMED "
 "will appear at the bottom of the web page."
 msgstr ""
+"PLUMED は右下の表の MD コードと連携できます。必要なものを Check すると、対応版を準備し Patch する手順がページ下部に出ます。"
 
 #: Installation.md:75 Installation.md:337 Installation.md:397
 msgid "Testing PLUMED"
-msgstr ""
+msgstr "PLUMED のテスト"
 
 #: Installation.md:86
 msgid ""
 "To determine the version of PLUMED that has been run using the commands "
 "above you can use the command:"
-msgstr ""
+msgstr "実行した PLUMED のバージョンは次で確認します。"
 
 #: Installation.md:90
 msgid ""
 "When you do this you might get certain <a "
 "onclick='showData(\"testerrors\",\"errdiv\")'>innocous errors</a>"
-msgstr ""
+msgstr "この際、<a onclick='showData(\"testerrors\",\"errdiv\")'>問題のないエラー</a>が出る場合があります。"
 
 #: Installation.md:94
 msgid ""
 "If you see errors when you run the regression tests using the commands:"
-msgstr ""
+msgstr "次の Regression Test でエラーが出る場合は、"
 
 #: Installation.md:111
 msgid "Calling PLUMED from python"
-msgstr ""
+msgstr "Python からの PLUMED 呼び出し"
 
 #: Installation.md:112
 msgid ""
 "It is possible to call PLUMED 2.5 and later versions in a python script. If "
 "you would like to do so you simply add the command below in your python "
 "script:"
-msgstr ""
+msgstr "PLUMED 2.5以降は Python から呼べます。スクリプトに次を加えます。"
 
 #: Installation.md:113
 msgid ""
 "<a name=\"l00001\"></a><span class=\"lineno\"> 1</span>&#160;<span "
 "class=\"keyword\">import</span> plumed"
 msgstr ""
+"<a name=\"l00001\"></a><span class=\"lineno\"> 1</span>&#160;<span "
+"class=\"keyword\">import</span> plumed"
 
 #: Installation.md:117 Installation.md:164 Installation.md:294
 #: Installation.md:371 Installation.md:386 Installation.md:423
 #: Installation.md:439 Installation.md:452 Installation.md:475
 #: Installation.md:525 Installation.md:557 Installation.md:639
 msgid "Click on the options in the command shown below for more information"
-msgstr ""
+msgstr "次のコマンドのオプションをクリックすると詳細を確認できます。"
 
 #: Installation.md:118
 msgid ""
 "<button type=\"button\" id=\"python1_button\" "
 "onclick='swapConfigure(\"python1\")'>show defaults</button>"
 msgstr ""
+"<button type=\"button\" id=\"python1_button\" "
+"onclick='swapConfigure(\"python1\")'>既定値を表示</button>"
 
 #: Installation.md:153
 msgid ""
 "You are highly recommended to use a virtualenv when installing the "
 "development version as you will then ensure that the code you install does "
 "not interfere with the released pacakages."
-msgstr ""
+msgstr "開発版は virtualenv を強く推奨します。Release Package との干渉を防げます。"
 
 #: Installation.md:154
 msgid "Customising your complation environment"
-msgstr ""
+msgstr "ビルド環境の調整"
 
 #: Installation.md:157
 msgid "Building multiple PLUMED versions"
-msgstr ""
+msgstr "複数の PLUMED バージョンのビルド"
 
 #: Installation.md:158 Installation.md:290 Installation.md:366
 #: Installation.md:420 Installation.md:636
@@ -131,6 +144,8 @@ msgid ""
 "<button type=\"button\" id=\"multiinp1_button\" "
 "onclick='swapConfigure(\"multiinp1\")'>show defaults</button>"
 msgstr ""
+"<button type=\"button\" id=\"multiinp1_button\" "
+"onclick='swapConfigure(\"multiinp1\")'>既定値を表示</button>"
 
 #: Installation.md:196
 msgid "Setting up your environment"
@@ -140,7 +155,7 @@ msgstr "環境の設定"
 msgid ""
 "use the <code>plumed</code> executable from the command line. Notice that "
 "you can also use this executable before installing."
-msgstr ""
+msgstr "コマンドラインから <code>plumed</code> を使う。インストール前でも使えます。"
 
 #: Installation.md:201
 msgid ""
@@ -148,10 +163,11 @@ msgid ""
 " linker. If this flag can be employed then it is possible to use PLUMED "
 "library in general purpose programs"
 msgstr ""
+"Linker の <code>-lplumed</code> で Library に Link する。利用できれば汎用プログラムから使えます。"
 
 #: Installation.md:206
 msgid "The most important variables to edit in the Makefile.conf file are:"
-msgstr ""
+msgstr "Makefile.conf の重要な変数は、"
 
 #: Installation.md:212
 msgid ""
@@ -159,31 +175,32 @@ msgid ""
 "only <code>-ldl</code> which is needed to have functions for dynamic "
 "loading) are specified here."
 msgstr ""
+"LIBS：MD Patch に必要な Library。通常は Dynamic Loading 用の <code>-ldl</code> だけです。"
 
 #: Installation.md:213
 msgid ""
 "CPPFLAGS : definitions that are needed to enable specific optional functions"
 " (e.g. -D__PLUMED_HAS_XDRFILE to enable the xdrfile library) are specified "
 "here."
-msgstr ""
+msgstr "CPPFLAGS：追加機能を有効にする定義。例えば xdrfile 用 -D__PLUMED_HAS_XDRFILE です。"
 
 #: Installation.md:219
 msgid "Building PLUMED with macports"
-msgstr ""
+msgstr "MacPorts によるビルド"
 
 #: Installation.md:223
 msgid "Install <a href=\"https://www.macports.org/\">MacPorts</a>"
-msgstr ""
+msgstr "<a href=\"https://www.macports.org/\">MacPorts</a> をインストールする。"
 
 #: Installation.md:224
 msgid "Type <code>sudo port install plumed</code>"
-msgstr ""
+msgstr "<code>sudo port install plumed</code> を実行する。"
 
 #: Installation.md:266
 msgid ""
 "If, by contract, the objective was to use a version of gromacs patched with "
 "the development version of PLUMED you would use the commands:"
-msgstr ""
+msgstr "一方、開発版 PLUMED で Patch した GROMACS を使うなら、"
 
 #: Installation.md:280
 msgid ""
@@ -191,22 +208,25 @@ msgid ""
 " is unset (or set to empty), then the version of PLUMED that was installed "
 "using MacPorts is used."
 msgstr ""
+"GROMACS 実行時に <code>PLUMED_KERNEL</code> が未設定または空なら、MacPorts で入れた版を使います。"
 
 #: Installation.md:289
 msgid "Building PLUMED on a local machine"
-msgstr ""
+msgstr "ローカルでのビルド"
 
 #: Installation.md:292
 msgid ""
 "The first step in building PLUMED is to configure the makefiles based on the"
 " setup of your computer. You can do this by issuing the following command:"
-msgstr ""
+msgstr "まずマシンに合わせて Makefile を設定します。次を実行します。"
 
 #: Installation.md:295
 msgid ""
 "<button type=\"button\" id=\"localinp1_button\" "
 "onclick='swapConfigure(\"localinp1\")'>show defaults</button>"
 msgstr ""
+"<button type=\"button\" id=\"localinp1_button\" "
+"onclick='swapConfigure(\"localinp1\")'>既定値を表示</button>"
 
 #: Installation.md:305
 msgid "Installing PLUMED"
@@ -214,11 +234,11 @@ msgstr "PLUMED のインストール"
 
 #: Installation.md:306
 msgid "You can install PLUMED using the command:"
-msgstr ""
+msgstr "次でインストールできます。"
 
 #: Installation.md:310
 msgid "or the command:"
-msgstr ""
+msgstr "または、"
 
 #: Installation.md:319
 msgid ""
@@ -226,48 +246,54 @@ msgid ""
 "onclick=\"openModal('prefix')\">--prefix</a> keyword of the configure "
 "script."
 msgstr ""
+"<code>$(prefix)</code> は configure の <a "
+"onclick=\"openModal('prefix')\">--prefix</a> で指定したディレクトリです。"
 
 #: Installation.md:325
 msgid "Running PLUMED"
-msgstr ""
+msgstr "PLUMED の実行"
 
 #: Installation.md:333
 msgid ""
 "Running this command ensures that the \"plumed\" executable appears in your "
 "path. To test this executable you might run:"
-msgstr ""
+msgstr "これで plumed が PATH に入ります。例えば次で確認します。"
 
 #: Installation.md:338
 msgid ""
 "You can test if plumed has been compiled correctly by using the commands:"
-msgstr ""
+msgstr "正しくビルドできたかは、"
 
 #: Installation.md:342
 msgid "Alternatively, you can run all tests using the following command:"
-msgstr ""
+msgstr "全テストは次でも実行できます。"
 
 #: Installation.md:348
 msgid ""
 "You can even run a particular test by changing to the directory that "
 "contains it and by running the command <code>make</code> within that "
 "directory."
-msgstr ""
+msgstr "特定のテストは、そのディレクトリで <code>make</code> を実行します。"
 
 #: Installation.md:349
 msgid "Merging your changes"
-msgstr ""
+msgstr "変更の Merge"
 
 #: Installation.md:357
 msgid ""
 "Write suitable <a href=\"../../developer-"
 "doc/html/using_doxygen.html\">documentation</a> for your new feature"
 msgstr ""
+"新機能の適切な <a href=\"../../developer-"
+"doc/html/using_doxygen.html\">ドキュメント</a>を書く。"
 
 #: Installation.md:358
 msgid ""
 "Add a new <a href=\"../../developer-doc/html/regtests.html\">regtest or "
 "modified an existing regtest</a> to validate your changes"
 msgstr ""
+"<a href=\"../../developer-doc/html/regtests.html\">Regression Test "
+"を追加・変更</a>して検証する。"
 
 #: Installation.md:359
 msgid ""
@@ -275,67 +301,79 @@ msgid ""
 "configure script</a> so that any libraries your feature uses can be setup at"
 " configure time"
 msgstr ""
+"<a href=\"../../developer-doc/html/_using_external_libs.html\">configure "
+"を変更</a>し、必要な Library を設定時に扱えるようにする。"
 
 #: Installation.md:365
 msgid "Building PLUMED for development purposes"
-msgstr ""
+msgstr "開発用ビルド"
 
 #: Installation.md:372
 msgid ""
 "<button type=\"button\" id=\"devinp1_button\" "
 "onclick='swapConfigure(\"devinp1\")'>show defaults</button>"
 msgstr ""
+"<button type=\"button\" id=\"devinp1_button\" "
+"onclick='swapConfigure(\"devinp1\")'>既定値を表示</button>"
 
 #: Installation.md:381
 msgid ""
 "Once you are confident that your feature is working correctly you can then "
 "reconfigure and compile an optimized version of the code."
-msgstr ""
+msgstr "正しく動くことを確認したら、最適化版を再設定・ビルドできます。"
 
 #: Installation.md:387
 msgid ""
 "<button type=\"button\" id=\"devinp2_button\" "
 "onclick='swapConfigure(\"devinp2\")'>show defaults</button>"
 msgstr ""
+"<button type=\"button\" id=\"devinp2_button\" "
+"onclick='swapConfigure(\"devinp2\")'>既定値を表示</button>"
 
 #: Installation.md:405
 msgid "Patching MD codes with a cross compiled code"
-msgstr ""
+msgstr "Cross-compile 版による MD Patch"
 
 #: Installation.md:419
 msgid "Cross compiling PLUMED"
-msgstr ""
+msgstr "PLUMED の Cross-compilation"
 
 #: Installation.md:421
 msgid ""
 "If you are cross compiling PLUMED on a different machine than you intend to "
 "run it on then you will need to begin by configuring using the usual "
 "command."
-msgstr ""
+msgstr "実行先と別マシンでビルドする場合も、まず通常どおり設定します。"
 
 #: Installation.md:424
 msgid ""
 "<button type=\"button\" id=\"cross1_button\" "
 "onclick='swapConfigure(\"cross1\")'>show defaults</button>"
 msgstr ""
+"<button type=\"button\" id=\"cross1_button\" "
+"onclick='swapConfigure(\"cross1\")'>既定値を表示</button>"
 
 #: Installation.md:433
 msgid ""
 "You will likely need to use the options detailed below from controlling the "
 "compilers and compiler flags as detailed below, however."
-msgstr ""
+msgstr "ただし、以下の Compiler と Flag のオプションが必要になるでしょう。"
 
 #: Installation.md:440
 msgid ""
 "<button type=\"button\" id=\"copts1_button\" "
 "onclick='swapConfigure(\"copts1\")'>show defaults</button>"
 msgstr ""
+"<button type=\"button\" id=\"copts1_button\" "
+"onclick='swapConfigure(\"copts1\")'>既定値を表示</button>"
 
 #: Installation.md:453
 msgid ""
 "<button type=\"button\" id=\"copts2_button\" "
 "onclick='swapConfigure(\"copts2\")'>show defaults</button>"
 msgstr ""
+"<button type=\"button\" id=\"copts2_button\" "
+"onclick='swapConfigure(\"copts2\")'>既定値を表示</button>"
 
 #: Installation.md:463
 msgid "Installing PLUMED with conda"
@@ -345,23 +383,25 @@ msgstr "conda による PLUMED のインストール"
 msgid ""
 "If you use the conda package manager you can quictkly install a pre-compiled"
 " PLUMED binary by using the following command:"
-msgstr ""
+msgstr "conda なら、次でコンパイル済み Binary を手早く入れられます。"
 
 #: Installation.md:466
 msgid "Similarly, the python wrappers can be installed by using the command:"
-msgstr ""
+msgstr "Python Wrapper も次で入れます。"
 
 #: Installation.md:473
 msgid ""
 "Conda binaries are only available for Linux and macOS. The installed conda "
 "binaries were configured using the command:"
-msgstr ""
+msgstr "conda Binary は Linux・macOS のみです。次の設定でビルドされています。"
 
 #: Installation.md:476
 msgid ""
 "<button type=\"button\" id=\"condaconf1_button\" "
 "onclick='swapConfigure(\"condaconf1\")'>show defaults</button>"
 msgstr ""
+"<button type=\"button\" id=\"condaconf1_button\" "
+"onclick='swapConfigure(\"condaconf1\")'>既定値を表示</button>"
 
 #: Installation.md:489
 msgid "Compiling PLUMED"
@@ -371,28 +411,28 @@ msgstr "PLUMED のコンパイル"
 msgid ""
 "PLUMED can be compiled using the following command once the "
 "<code>configure</code> script has finished running:"
-msgstr ""
+msgstr "<code>configure</code> 終了後、次でコンパイルします。"
 
 #: Installation.md:502
 msgid "Building PLUMED on a cluster"
-msgstr ""
+msgstr "Cluster 上のビルド"
 
 #: Installation.md:503
 msgid "Some general advice"
-msgstr ""
+msgstr "一般的な助言"
 
 #: Installation.md:504
 msgid ""
 "If you are compiling PLUMED on a cluster and if several users will take "
 "advantage of the code we would recomment that you:"
-msgstr ""
+msgstr "Cluster で複数ユーザーが使う場合、次を推奨します。"
 
 #: Installation.md:506
 msgid ""
 "Follow the advice given below about using modules and the module file that "
 "PLUMED provides to set up the environment. N.B you will need to edit this "
 "file to make it suitable for your environment."
-msgstr ""
+msgstr "以下の Environment Module と付属 Module File の説明に従い、環境に合うよう編集する。"
 
 #: Installation.md:507
 msgid ""
@@ -403,6 +443,8 @@ msgid ""
 "PLUMED, and if the location of libxdrfile is provided to PLUMED during the "
 "configure stage then this feature will be available."
 msgstr ""
+"全 Module と Library 依存機能を有効にする。例えば GROMACS ユーザーは trr/xtc 出力に libxdrfile "
+"を使いたいでしょう。先に GROMACS を入れ、configure 時に libxdrfile の場所を渡すと使えます。"
 
 #: Installation.md:510
 msgid ""
@@ -412,46 +454,54 @@ msgid ""
 "with PLUMED 2.2.0. By keeping track of this information you make it more "
 "straightforward for users to report errors on our forum."
 msgstr ""
+"各 MD の Patch に使った PLUMED 版を記録する。例えば <code>gromacs/4.6.7p2.2.0</code> で "
+"PLUMED 2.2.0 の Patch と示すと、Forum で不具合を報告しやすくなります。"
 
 #: Installation.md:511
 msgid ""
 "Use the environment variables descsribed below to control the compiler flags"
 " and to build an optimized executable."
-msgstr ""
+msgstr "以下の環境変数で Flag を調整し、最適化版をビルドする。"
 
 #: Installation.md:526
 msgid ""
 "<button type=\"button\" id=\"diffLev1_button\" "
 "onclick='swapConfigure(\"diffLev1\")'>show defaults</button>"
 msgstr ""
+"<button type=\"button\" id=\"diffLev1_button\" "
+"onclick='swapConfigure(\"diffLev1\")'>既定値を表示</button>"
 
 #: Installation.md:558
 msgid ""
 "<button type=\"button\" id=\"intel1_button\" "
 "onclick='swapConfigure(\"intel1\")'>show defaults</button>"
 msgstr ""
+"<button type=\"button\" id=\"intel1_button\" "
+"onclick='swapConfigure(\"intel1\")'>既定値を表示</button>"
 
 #: Installation.md:580
 msgid "Our thanks to Marco De La Pierre for reporting this requirement"
-msgstr ""
+msgstr "要件を報告してくれた Marco De La Pierre に感謝します。"
 
 #: Installation.md:592
 msgid ""
 "when you run <code>make</code> please configure PLUMED again using the flag "
 "<code>--disable-ld-r</code>"
-msgstr ""
+msgstr "<code>make</code> 時には <code>--disable-ld-r</code> で再設定してください。"
 
 #: Installation.md:637
 msgid ""
 "As a bare minimum we would recommend using a command like the one shown "
 "below when configuring PLUMED on a cluster"
-msgstr ""
+msgstr "Cluster では最低限、次のような設定を推奨します。"
 
 #: Installation.md:640
 msgid ""
 "<button type=\"button\" id=\"clustp1_button\" "
 "onclick='swapConfigure(\"clustp1\")'>show defaults</button>"
 msgstr ""
+"<button type=\"button\" id=\"clustp1_button\" "
+"onclick='swapConfigure(\"clustp1\")'>既定値を表示</button>"
 
 #: Installation.md:656
 msgid "--standalone-executable option"
@@ -461,19 +511,19 @@ msgstr "--standalone-executable オプション"
 msgid ""
 "The path to the PLUMED root directory is hard coded in the plumed executable"
 " as can be verified by using the command:"
-msgstr ""
+msgstr "Root Directory の Path は実行ファイルに固定されており、次で確認できます。"
 
 #: Installation.md:673
 msgid ""
 "You can force plumed to ignore this error and to run anyway by using the "
 "option --standalone-executable as shown below"
-msgstr ""
+msgstr "次の --standalone-executable でエラーを無視して実行できます。"
 
 #: Installation.md:677
 msgid ""
 "Many features are not be available if you run in this way. This is currently"
 " the only way to use the PLUMED static executable on Windows, however."
-msgstr ""
+msgstr "多くの機能が使えなくなりますが、Windows で Static 実行ファイルを使う現在唯一の方法です。"
 
 #: Installation.md:683
 msgid "--prefix option"
@@ -487,13 +537,13 @@ msgstr "--enable-rpath オプション"
 msgid ""
 "You can resolve this issue by using the command below when configuring "
 "PLUMED:"
-msgstr ""
+msgstr "次の configure で解決できます。"
 
 #: Installation.md:727
 msgid ""
 "This command will hard code the paths defined in <code>LIBRARY_PATH</code> "
 "into the PLUMED library and is equivalent to the command:"
-msgstr ""
+msgstr "<code>LIBRARY_PATH</code> の Path を PLUMED Library に固定し、次と等価です。"
 
 #: Installation.md:736
 msgid "--enable-mpi option"
@@ -519,19 +569,24 @@ msgid ""
 "include files will then need to be passed to configure using a command "
 "similar to:</p>"
 msgstr ""
+"PLUMED は dcd、GROMACS、pdb、AMBER の VMD Plugin を含むため、通常この Flag は不要です。特殊な形式には "
+"VMD Source の plugins を取得し、build.sh を調整してビルドします。Static Library "
+"<code>libmolfile_plugin.a</code> と Include "
+"<code>libmolfile_plugin.h</code>・<code>molfile_plugin.h</code> の場所を、次のように "
+"configure に渡します。</p>"
 
 #: Installation.md:770
 msgid ""
 "It may also be necessary to add the location of the TCL interpreter to the "
 "<code>LDFLAGS</code> using a command such as:"
-msgstr ""
+msgstr "TCL Interpreter の場所を <code>LDFLAGS</code> に加える必要もあります。"
 
 #: Installation.md:775
 msgid ""
 "To be clear, however, some of the molfile plugin sourcecode is included in "
 "PLUMED and you can thus use some of the most common types of trajectory file"
 " even if you do not download VMD on your machine."
-msgstr ""
+msgstr "一部の Molfile Plugin は PLUMED に含まれ、VMD を取得せずとも一般的な形式を読めます。"
 
 #: Installation.md:781
 msgid "--enable-modules option"
@@ -547,6 +602,7 @@ msgid ""
 "the internal version of LAPACK with an external version of BLAS by using the"
 " command:"
 msgstr ""
+"External LAPACK だけを無効にし、Internal LAPACK と External BLAS を組み合わせることもできます。"
 
 #: Installation.md:847
 msgid "--enable-debug option"
@@ -561,7 +617,7 @@ msgid ""
 "If, for any reason, you want to disable ASMJIT at runtime you can do by "
 "setting the <code>PLUMED_USE_ASMJIT</code> environment variable as shown "
 "below:"
-msgstr ""
+msgstr "実行時の ASMJIT は <code>PLUMED_USE_ASMJIT</code> で無効にできます。"
 
 #: Installation.md:876
 msgid "--disable-libsearch option"
@@ -595,7 +651,7 @@ msgstr "環境変数 CXXFLAGS"
 msgid ""
 "The <code>CXXFLAGS</code> environmental variable allows you to control the "
 "compilation options just as you might expect."
-msgstr ""
+msgstr "<code>CXXFLAGS</code> でコンパイルオプションを制御します。"
 
 #: Installation.md:979
 msgid "CXX Environment Variable"
@@ -605,7 +661,7 @@ msgstr "環境変数 CXX"
 msgid ""
 "PLUMED 2.4 requires a compiler that supports C++11. The following compilers "
 "(or later versions) should be sufficient:"
-msgstr ""
+msgstr "PLUMED 2.4 は C++11 対応 Compiler が必要です。次以降の版で十分です。"
 
 # Compiler name and version intentionally preserved.
 #: Installation.md:997
@@ -628,6 +684,8 @@ msgid ""
 "href=\"https://github.com/plumed/plumed2/actions\">GitHub Actions</a>. These"
 " compilers should thus always compile PLUMED correctly."
 msgstr ""
+"<a href=\"https://github.com/plumed/plumed2/actions\">GitHub Actions</a> "
+"で定期テストする Compiler は、常に正しくビルドできるはずです。"
 
 #: Installation.md:1015
 msgid "CPPFLAGS Environment Variable"
