@@ -12,6 +12,8 @@ msgid ""
 "PLUMED Masterclass 22.13: SASA module and the application of PLUMED for "
 "implicit solvent simulations"
 msgstr ""
+"PLUMED Masterclass 22.13：SASA Module と Implicit Solvent シミュレーションへの PLUMED "
+"の適用"
 
 #: INSTRUCTIONS.md:3
 msgid "Origin"
@@ -30,6 +32,7 @@ msgid ""
 "This Masterclass is an introduction to the use of the SASA module of Plumed "
 "for the execution of implicit solvent simulations."
 msgstr ""
+"この Masterclass では、Plumed の SASA Module を使う Implicit Solvent シミュレーションを紹介します。"
 
 #: INSTRUCTIONS.md:11
 msgid "Objectives"
@@ -41,24 +44,24 @@ msgstr "この Masterclass の到達目標は次のとおりである。"
 
 #: INSTRUCTIONS.md:14
 msgid "Learn how the SASA module of PLUMED works"
-msgstr ""
+msgstr "PLUMED の SASA Module の仕組みを学ぶ。"
 
 #: INSTRUCTIONS.md:15
 msgid ""
 "Learn how to run an implicit solvent simulation of a protein using PLUMED"
-msgstr ""
+msgstr "PLUMED でタンパク質の Implicit Solvent シミュレーションを実行する方法を学ぶ。"
 
 #: INSTRUCTIONS.md:16
 msgid ""
 "Learn how to introduce the effect of temperature, pressure and osmolytes on "
 "protein stability in implicit solvent simulations"
-msgstr ""
+msgstr "Implicit Solvent シミュレーションにおけるタンパク質の安定性に、温度・圧力・Osmolyte の影響を導入する方法を学ぶ。"
 
 #: INSTRUCTIONS.md:17
 msgid ""
 "Understand the advantages and limitations of implicit solvent simulations "
 "using PLUMED"
-msgstr ""
+msgstr "PLUMED による Implicit Solvent シミュレーションの利点と限界を理解する。"
 
 #: INSTRUCTIONS.md:19
 msgid "Prerequisites"
@@ -71,6 +74,8 @@ msgid ""
 "the metadynamics enhanced sampling technique is recommended. Familiarity "
 "with gnuplot and xmgrace (or python with matplotlib) is recommended."
 msgstr ""
+"Linux Terminal、AMBER、PLUMED の基本機能に慣れていることを前提とします。Enhanced Sampling 法である "
+"Metadynamics の知識と、gnuplot、xmgrace（または Python と matplotlib）の使用経験を推奨します。"
 
 #: INSTRUCTIONS.md:25
 msgid "Setting up PLUMED"
@@ -84,6 +89,9 @@ msgid ""
 "link](https://github.com/plumed/masterclass-2022). Make sure to install the "
 "conda package for AMBER."
 msgstr ""
+"計算には AMBER と PLUMED を使います。必要なソフトウェアの conda Package "
+"が用意されており、[こちら](https://github.com/plumed/masterclass-2022) "
+"の手順でインストールできます。AMBER の conda Package も忘れずにインストールしてください。"
 
 #: INSTRUCTIONS.md:31
 msgid ""
@@ -91,6 +99,8 @@ msgid ""
 "module manually by adding '--enable-modules=sasa' to your './configure' "
 "command when building PLUMED."
 msgstr ""
+"PLUMED を自分でコンパイルする場合は、ビルド時の './configure' コマンドに '--enable-modules=sasa' "
+"を追加し、SASA Module を手動で有効にする必要があります。"
 
 #: INSTRUCTIONS.md:33
 msgid ""
@@ -98,6 +108,8 @@ msgid ""
 "[GitHub](https://github.com/andrea-arsiccio/masterclass-22-13). You can "
 "clone this repository locally on your machine using the following command:"
 msgstr ""
+"演習に必要なデータは [GitHub](https://github.com/andrea-arsiccio/masterclass-22-13) "
+"にあります。次のコマンドでリポジトリを自分のマシンに Clone できます。"
 
 #: INSTRUCTIONS.md:40
 msgid ""
@@ -105,6 +117,8 @@ msgid ""
 "transfer, available on [GitHub] (https://github.com/andrea-arsiccio/DeltaG-"
 "calculation)."
 msgstr ""
+"移行自由エネルギーの計算用 Python スクリプトも必要です。[GitHub] (https://github.com/andrea-"
+"arsiccio/DeltaG-calculation) で入手できます。"
 
 #: INSTRUCTIONS.md:42
 msgid "Summary of theory"
@@ -117,16 +131,21 @@ msgid ""
 "SASA as a collective variable in metadynamics simulations, and for implicit "
 "solvent simulations."
 msgstr ""
+"SASA Module には、タンパク質の Solvent Accessible Surface Area (SASA) "
+"を計算する方法が含まれます。Metadynamics で SASA を Collective Variable として使う場合や、Implicit "
+"Solvent シミュレーションに利用できます。"
 
 #: INSTRUCTIONS.md:47
 msgid "There are two SASA functions that could be used:"
-msgstr ""
+msgstr "使用できる SASA 関数は2つあります。"
 
 #: INSTRUCTIONS.md:49
 msgid ""
 "SASA_HASEL: computates the SASA using the algorithm described "
 "[here](https://www.sciencedirect.com/science/article/abs/pii/0898552988900152)"
 msgstr ""
+"SASA_HASEL：[こちら](https://www.sciencedirect.com/science/article/abs/pii/0898552988900152)"
+" のアルゴリズムで SASA を計算します。"
 
 #: INSTRUCTIONS.md:51
 msgid ""
@@ -134,6 +153,8 @@ msgid ""
 "[here](https://onlinelibrary.wiley.com/doi/10.1002/%28SICI%291096-987X%2819990130%2920%3A2%3C217%3A%3AAID-"
 "JCC4%3E3.0.CO%3B2-A)"
 msgstr ""
+"SASA_LCPO：[こちら](https://onlinelibrary.wiley.com/doi/10.1002/%28SICI%291096-987X%2819990130%2920%3A2%3C217%3A%3AAID-"
+"JCC4%3E3.0.CO%3B2-A) のアルゴリズムで SASA を計算します。"
 
 #: INSTRUCTIONS.md:53
 msgid ""
@@ -144,6 +165,9 @@ msgid ""
 " compute their derivative, which is a necessary step to apply a bias based "
 "on the SASA to a molecular dynamics simulation."
 msgstr ""
+"Hasel らのアルゴリズムは LCPO (Linear Combination of Pairwise Overlaps) "
+"より約2〜3倍高速ですが、精度は少し低くなります。どちらも簡単な解析関数で SASA を計算するため、微分を容易に計算できます。これは、SASA "
+"に基づく Bias を Molecular Dynamics に適用するために必要です。"
 
 #: INSTRUCTIONS.md:55
 msgid ""
@@ -151,12 +175,14 @@ msgid ""
 " ATOMS, and a pdb file of the protein must be provided in input with the "
 "MOLINFO keyword. Two types of calculations are possible:"
 msgstr ""
+"SASA を求める原子を Keyword ATOMS で指定し、タンパク質の pdb ファイルを MOLINFO "
+"で入力します。計算には2つの種類があります。"
 
 #: INSTRUCTIONS.md:57
 msgid ""
 "TOTAL: the total SASA is computed, which is the desired type of calculation "
 "if one wants to use the SASA as a CV in metadynamics simulations."
-msgstr ""
+msgstr "TOTAL：全 SASA を計算します。Metadynamics で SASA を CV として使う場合に選びます。"
 
 #: INSTRUCTIONS.md:59
 msgid ""
@@ -164,24 +190,31 @@ msgid ""
 "computed according to the transfer model (TRANSFER). This keyword can be "
 "used, for instance, to compute:"
 msgstr ""
+"TRANSFER：Transfer Model (TRANSFER) に従ってタンパク質の移行自由エネルギーを計算します。例えば次の計算に使えます。"
 
 #: INSTRUCTIONS.md:61
 msgid ""
 "The transfer of a protein to different temperatures as in [this "
 "paper](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.1c01694)"
 msgstr ""
+"[この論文](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.1c01694) "
+"のような、異なる温度へのタンパク質の移行。"
 
 #: INSTRUCTIONS.md:62
 msgid ""
 "The transfer of a protein to different pressures as in [this "
 "paper](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.1c04398)"
 msgstr ""
+"[この論文](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.1c04398) "
+"のような、異なる圧力へのタンパク質の移行。"
 
 #: INSTRUCTIONS.md:63
 msgid ""
 "The transfer of a protein to different osmolyte solutions as in [this "
 "paper](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.2c00889)"
 msgstr ""
+"[この論文](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.2c00889) のような、異なる "
+"Osmolyte 溶液へのタンパク質の移行。"
 
 #: INSTRUCTIONS.md:65
 msgid ""
@@ -191,12 +224,14 @@ msgid ""
 "module, can use the SASA functions mentioned above similarly to any other CV"
 " in PLUMED."
 msgstr ""
+"タンパク質の SASA を Metadynamics の CV に使うことや、シミュレーション中または Trajectory の後処理で SASA "
+"を監視することは簡単です。SASA Module を有効にすれば、上記の SASA 関数を PLUMED のほかの CV と同様に使えます。"
 
 #: INSTRUCTIONS.md:67
 msgid ""
 "For instance, the following input tells plumed to print the total SASA for "
 "atoms 10 to 20 in a protein chain:"
-msgstr ""
+msgstr "例えば次の入力は、タンパク質鎖の原子10〜20の全 SASA を出力するよう plumed に指示します。"
 
 #: INSTRUCTIONS.md:74
 msgid ""
@@ -211,13 +246,18 @@ msgid ""
 "improved by using the concept of free energy of transfer, which is at the "
 "basis of the SASA module."
 msgstr ""
+"この Tutorial では、SASA Module を使って PLUMED で Implicit Solvent "
+"シミュレーションを実行します。Implicit Solvent では、溶媒を原子・Coarse-grained レベルで記述せず、連続体として Mean"
+" Field で記述します。溶媒の自由度がないため計算コストが低く、粘性摩擦もないためタンパク質の Conformational Space "
+"の探索が速くなる利点があります。一方、溶媒効果の記述精度は低下します。SASA Module "
+"の基礎となる移行自由エネルギーの概念を使うと、精度を改善できます。"
 
 #: INSTRUCTIONS.md:78
 msgid ""
 "The common implementation of implicit solvent simulations relies on the "
 "computation of the free energy of a protein as the sum of three "
 "contributions:"
-msgstr ""
+msgstr "一般的な Implicit Solvent シミュレーションの実装では、タンパク質の自由エネルギーを3つの寄与の和として計算します。"
 
 #: INSTRUCTIONS.md:84
 msgid ""
@@ -231,22 +271,27 @@ msgid ""
 "solvation of a protein in pure water, at ambient temperature (298 K) and "
 "pressure (1 atm)."
 msgstr ""
+"$E^{vac}$ は真空中の分子のエネルギーで、内部寄与（結合・角度の伸縮、Dihedral Angle の相互作用）と van der Waals "
+"エネルギー項の和です。$G^{np}$ は Non-polar Solvation の寄与、すなわちすべての電荷を除いた分子の Solvation "
+"自由エネルギーです。$G^{el}$ は静電的な部分で、溶液中で Partial Charge "
+"を有効にする自由エネルギーとして計算します。この方法は、常温 (298 K)・常圧 (1 atm) の純水中でのタンパク質の Solvation "
+"を暗黙的に記述するために開発されました。"
 
 #: INSTRUCTIONS.md:86
 msgid ""
 "The idea behind the SASA module is the addition of a free energy of transfer"
 " term $G^{tr}(T,P,c)$:"
-msgstr ""
+msgstr "SASA Module の考え方は、移行自由エネルギー項 $G^{tr}(T,P,c)$ を追加することです。"
 
 #: INSTRUCTIONS.md:92
 msgid ""
 "that describes the transfer of the protein to any given temperature $T$, "
 "pressure $P$ and concentration $c$ of an osmolyte."
-msgstr ""
+msgstr "これは、任意の温度 $T$、圧力 $P$、Osmolyte 濃度 $c$ へのタンパク質の移行を記述します。"
 
 #: INSTRUCTIONS.md:94
 msgid "The free energy of transfer term has the following functional form:"
-msgstr ""
+msgstr "移行自由エネルギー項は、次の関数形を持ちます。"
 
 #: INSTRUCTIONS.md:100
 msgid ""
@@ -255,25 +300,29 @@ msgid ""
 " amino acid side chains (subscript sc) and by the peptide backbone "
 "(subscript bb)."
 msgstr ""
+"$n$ はタンパク質の残基数です。アミノ酸側鎖（添字 sc）と Peptide Backbone（添字 bb）の寄与 ($g^{tr}$) "
+"を足し合わせて全体の移行自由エネルギーを求めます。"
 
 #: INSTRUCTIONS.md:102
 msgid ""
 "Each contribution is weighed by the fractional solvent accessible surface "
 "area $SASA_{j}$ of residue $j$,"
-msgstr ""
+msgstr "各寄与は、残基 $j$ の Solvent Accessible Surface Area の比 $SASA_{j}$ で重み付けします。"
 
 #: INSTRUCTIONS.md:108
 msgid ""
 "where $SASA_{j, Gly-X-Gly}$ is the solvent accessibility of amino acid X in "
 "the tripeptide Gly-X-Gly, and X is the amino acid residue type $j$."
 msgstr ""
+"$SASA_{j, Gly-X-Gly}$ は Tripeptide Gly-X-Gly 内のアミノ酸 X の Solvent "
+"Accessibility で、X は残基 $j$ のアミノ酸種です。"
 
 #: INSTRUCTIONS.md:110
 msgid ""
 "The amino acid side chains and peptide backbone contributions to the "
 "transfer free energy are computed according to the mathematical derivation "
 "described in the papers above."
-msgstr ""
+msgstr "アミノ酸側鎖と Peptide Backbone の移行自由エネルギーへの寄与は、上記の論文の数学的導出に従って計算します。"
 
 #: INSTRUCTIONS.md:112
 msgid ""
@@ -285,6 +334,9 @@ msgid ""
 "relation between energy and probability has then been exploited to compute "
 "the free energy of transfer contributions as a function of temperature."
 msgstr ""
+"簡単にいうと、温度効果を表す移行自由エネルギーの寄与は、異なる温度の Nuclear Magnetic Resonance で決定された多数の "
+"Protein Data Bank (pdb) ファイルを取得し、側鎖・Backbone "
+"基が各温度で表面に露出する確率を計算して導出しました。エネルギーと確率の関係から、移行自由エネルギーの寄与を温度の関数として求めています。"
 
 #: INSTRUCTIONS.md:115
 msgid ""
@@ -296,6 +348,9 @@ msgid ""
 "protein upon unfolding, and 3) the stabilizing excluded volume effect of a "
 "denser solvent."
 msgstr ""
+"圧力効果を表す移行自由エネルギー項は、各側鎖・Backbone 基について3つの寄与を計算して求めました。1）Unfolding に伴う Native "
+"State 内の空隙体積の一定割合の消失、2）Unfolding による SASA 増加に伴う結合水分子の体積減少、3）密度の高い溶媒による安定化の "
+"Excluded Volume 効果です。"
 
 #: INSTRUCTIONS.md:117
 msgid ""
@@ -306,6 +361,8 @@ msgid ""
 "difference in chemical potential between water and the osmolyte solution "
 "itself."
 msgstr ""
+"最後に、Osmolyte の種類・濃度に対する移行自由エネルギーの寄与は、実験研究から得ています。異なる Osmolyte "
+"溶液中でタンパク質のアミノ酸・Peptide Backbone モデルの溶解度を測定し、水と Osmolyte 溶液の化学ポテンシャル差を抽出します。"
 
 #: INSTRUCTIONS.md:119
 msgid ""
@@ -313,7 +370,7 @@ msgid ""
 "which are included in the graph illustrating this tutorial, for a better "
 "understanding of the theory behind the free energy of transfer "
 "contributions."
-msgstr ""
+msgstr "移行自由エネルギーの寄与の理論をよりよく理解するため、この Tutorial の Graph にある原著論文を読んでください。"
 
 #: INSTRUCTIONS.md:121
 msgid ""
@@ -321,12 +378,14 @@ msgid ""
 "values ($g^{tr}$) for the sidechains and backbone atoms should be provided "
 "(using the keyword DELTAGFILE). Such file should have the following format:"
 msgstr ""
+"TRANSFER を使う場合、側鎖と Backbone 原子の移行自由エネルギー ($g^{tr}$) の値を含むファイルを DELTAGFILE "
+"で指定します。形式は次のとおりです。"
 
 #: INSTRUCTIONS.md:150
 msgid ""
 "where the second column is the free energy of transfer for each "
 "sidechain/backbone, in kJ/mol."
-msgstr ""
+msgstr "第2列は、各側鎖・Backbone の移行自由エネルギーで、単位は kJ/mol です。"
 
 #: INSTRUCTIONS.md:152
 msgid ""
@@ -338,6 +397,10 @@ msgid ""
 "Please have a look at the README file of this script to better understand "
 "its usage."
 msgstr ""
+"Osmolyte 濃度・温度・圧力の影響を記述する移行自由エネルギーの計算用 Python スクリプトが "
+"[GitHub](https://github.com/andrea-arsiccio/DeltaG-calculation) "
+"で無料公開されています。上記論文の考え方を使い、SASA Module に対応する DeltaG.dat を自動出力します。使い方はスクリプトの "
+"README を確認してください。"
 
 #: INSTRUCTIONS.md:154
 msgid ""
@@ -347,6 +410,8 @@ msgid ""
 "simulations). The free energy of transfer values are read from a file called"
 " DeltaG.dat:"
 msgstr ""
+"例えば次の入力は、原子10〜20を含むタンパク質鎖の移行自由エネルギーを plumed で計算します。これをシミュレーション（Implicit "
+"Solvent など）の Bias として使います。移行自由エネルギーの値は DeltaG.dat から読み込みます。"
 
 #: INSTRUCTIONS.md:164
 msgid ""
@@ -359,10 +424,14 @@ msgid ""
 "simulations. For this purpose, the keyword APPROACH should be added, and set"
 " to either 2 or 3, as exemplified in the following input:"
 msgstr ""
+"DELTAGFILE を指定しない場合、SASA Module は温度に SASA を使う論文の Approach "
+"2または3に従って、温度効果を考慮する移行自由エネルギーを計算します。両者は移行自由エネルギーを抽出する数学モデルが異なります。Implicit "
+"Solvent の温度効果に Transfer Model を使う場合は、この論文を読んで引用してください。次の例のように APPROACH "
+"を追加し、2または3を設定します。"
 
 #: INSTRUCTIONS.md:174
 msgid "The system: Refolding of a model peptide"
-msgstr ""
+msgstr "対象系：モデル Peptide の Refolding"
 
 #: INSTRUCTIONS.md:176
 msgid ""
@@ -373,120 +442,133 @@ msgid ""
 "composition) it folds back to a $\\alpha$-helix, and which conditions "
 "promote instead an unfolded conformation."
 msgstr ""
+"この Tutorial では $(AAQAA)\\_3$ というモデル Peptide を使います。$(AAQAA)\\_3$ は、既知の "
+"$\\alpha$-helix 構造を持つ短い Peptide です。Unfolded Conformation から開始し、どの温度・圧力・溶液組成で"
+" $\\alpha$-helix に戻り、どの条件で Unfolded Conformation が促進されるかを調べます。"
 
 #: INSTRUCTIONS.md:179
 msgid ""
 "[Starting (unfolded) conformation of the model peptide used for the "
 "simulations](figs/masterclass-22-13-aaqaa_min.png)"
 msgstr ""
+"[シミュレーションに使うモデル Peptide の初期 Unfolded "
+"Conformation](figs/masterclass-22-13-aaqaa_min.png)"
 
 #: INSTRUCTIONS.md:181
 msgid ""
 "We will perform the simulations in implicit solvent, using the AMBER ff03 "
 "force field."
-msgstr ""
+msgstr "AMBER ff03 Force Field を使い、Implicit Solvent で実行します。"
 
 #: INSTRUCTIONS.md:183
 msgid "For this tutorial, the following conditions will be explored:"
-msgstr ""
+msgstr "この Tutorial では次の条件を調べます。"
 
 #: INSTRUCTIONS.md:185
 msgid "298 K, 1 bar, 0 M"
-msgstr ""
+msgstr "298 K, 1 bar, 0 M"
 
 #: INSTRUCTIONS.md:186
 msgid ""
 "228 K (approach 2 in [this "
 "paper](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.1c01694)), 1 bar, 0 M"
 msgstr ""
+"228 K（[この論文](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.1c01694) の "
+"Approach 2）, 1 bar, 0 M"
 
 #: INSTRUCTIONS.md:187
 msgid ""
 "348 K (approach 2 in [this "
 "paper](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.1c01694)), 1 bar, 0 M"
 msgstr ""
+"348 K（[この論文](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.1c01694) の "
+"Approach 2）, 1 bar, 0 M"
 
 #: INSTRUCTIONS.md:188
 msgid "298 K, 1 bar, 10 M urea"
-msgstr ""
+msgstr "298 K, 1 bar, 10 M urea"
 
 #: INSTRUCTIONS.md:189
 msgid "298 K, 3 kbar, 0 M"
-msgstr ""
+msgstr "298 K, 3 kbar, 0 M"
 
 #: INSTRUCTIONS.md:191
 msgid "Each simulation will be performed for 5 ns."
-msgstr ""
+msgstr "各シミュレーションは5 ns 実行します。"
 
 #: INSTRUCTIONS.md:193
 msgid ""
 "Exercise 1: Simulation 1 at 298 K, 1 bar and 0 M osmolyte concentration"
-msgstr ""
+msgstr "演習1：298 K、1 bar、Osmolyte 濃度0 M のシミュレーション1"
 
 #: INSTRUCTIONS.md:195
 msgid ""
 "For the exercises, we will need PLUMED and AMBER. For this purpose, you "
 "should first proceed to their installation using the provided conda "
 "packages:"
-msgstr ""
+msgstr "演習には PLUMED と AMBER が必要です。まず付属の conda Package でインストールしてください。"
 
 #: INSTRUCTIONS.md:216
 msgid ""
 "Then, you should download the folder with the input files for the exercises "
 "using the following command:"
-msgstr ""
+msgstr "次のコマンドで演習用入力ファイルのフォルダをダウンロードします。"
 
 #: INSTRUCTIONS.md:222
 msgid ""
 "In order to perform exercise 1, cd to the folder SASA_module/01_298K. There "
 "you will find a number of files:"
-msgstr ""
+msgstr "演習1では SASA_module/01_298K に cd してください。次のファイルがあります。"
 
 #: INSTRUCTIONS.md:224
 msgid ""
 "-aaqaa.prmtop: a topology file of the protein, described according to the "
 "AMBER ff03 force field."
-msgstr ""
+msgstr "-aaqaa.prmtop：AMBER ff03 Force Field で記述したタンパク質の Topology。"
 
 #: INSTRUCTIONS.md:226
 msgid ""
 "-AAQAA_298.in: an input file for running the simulation through AMBER. I "
 "will go more in detail over this file in the following."
-msgstr ""
+msgstr "-AAQAA_298.in：AMBER でシミュレーションを実行する入力ファイル。後で詳しく説明します。"
 
 #: INSTRUCTIONS.md:228
 msgid ""
 "-aaqaa_min.ncrst/aaqaa_min.pdb: configuration files for the (unfolded) "
 "protein, which we will use as starting point for our simulations."
 msgstr ""
+"-aaqaa_min.ncrst/aaqaa_min.pdb：シミュレーションの初期状態に使う Unfolded タンパク質の "
+"Configuration ファイル。"
 
 #: INSTRUCTIONS.md:230
 msgid ""
 "-histograms.py/picture_rg_alpha.gnu/script_rg_alpha.bash: files that we will"
 " use for the analyses and postprocessing of our trajectories."
 msgstr ""
+"-histograms.py/picture_rg_alpha.gnu/script_rg_alpha.bash：Trajectory "
+"の解析・後処理に使うファイル。"
 
 #: INSTRUCTIONS.md:232
 msgid ""
 "-plumed.dat: PLUMED input file. I will go more in detail over this in the "
 "following."
-msgstr ""
+msgstr "-plumed.dat：PLUMED 入力ファイル。後で詳しく説明します。"
 
 #: INSTRUCTIONS.md:234
 msgid ""
 "The AAQAA_298.in file is an input AMBER file for carrying out our implicit "
 "solvent simulation, and it has the following aspect:"
-msgstr ""
+msgstr "AAQAA_298.in は、Implicit Solvent シミュレーション用の AMBER 入力で、次の内容です。"
 
 #: INSTRUCTIONS.md:248
 msgid "where the different commands have the following meaning:"
-msgstr ""
+msgstr "各コマンドの意味は次のとおりです。"
 
 #: INSTRUCTIONS.md:250
 msgid ""
 "imin = 0: we are running an MD simulation without performing energy "
 "minimization"
-msgstr ""
+msgstr "imin = 0：Energy Minimization を行わず MD を実行します。"
 
 #: INSTRUCTIONS.md:251
 msgid ""
@@ -494,89 +576,91 @@ msgid ""
 "[here](https://doi.org/10.1002/prot.20033) for computing the electrostatic "
 "interactions $G^{el}$"
 msgstr ""
+"igb = 5：[こちら](https://doi.org/10.1002/prot.20033) のモデルで静電相互作用 $G^{el}$ "
+"を計算します。"
 
 #: INSTRUCTIONS.md:252
 msgid "gbsa = 1: the $G^{np}$ term is also computed"
-msgstr ""
+msgstr "gbsa = 1：$G^{np}$ 項も計算します。"
 
 #: INSTRUCTIONS.md:253
 msgid "extdiel = 78.4: the dielectric constant of the solvent"
-msgstr ""
+msgstr "extdiel = 78.4：溶媒の誘電率。"
 
 #: INSTRUCTIONS.md:254
 msgid "ntpr = 1000: we print energy info every 1000 steps"
-msgstr ""
+msgstr "ntpr = 1000：1000 Step ごとにエネルギー情報を出力します。"
 
 #: INSTRUCTIONS.md:255
 msgid "ntwx = 1000: we print coordinates every 1000 steps"
-msgstr ""
+msgstr "ntwx = 1000：1000 Step ごとに座標を出力します。"
 
 #: INSTRUCTIONS.md:256
 msgid "ntwr = 1000: we print the restart file every 1000 steps"
-msgstr ""
+msgstr "ntwr = 1000：1000 Step ごとに再開用ファイルを出力します。"
 
 #: INSTRUCTIONS.md:257
 msgid "ntt = 3: we apply Langevin dynamics"
-msgstr ""
+msgstr "ntt = 3：Langevin Dynamics を適用します。"
 
 #: INSTRUCTIONS.md:258
 msgid "gamma_ln = 1.0: we set the collision frequency for Langevin dynamics"
-msgstr ""
+msgstr "gamma_ln = 1.0：Langevin Dynamics の Collision Frequency を設定します。"
 
 #: INSTRUCTIONS.md:259
 msgid ""
 "ig = -1: seed for pseudo-random number generator. -1 means that the random "
 "seed will be based on the current date and time"
-msgstr ""
+msgstr "ig = -1：疑似乱数生成の Seed。-1の場合、現在の日付・時刻に基づく Random Seed を使います。"
 
 #: INSTRUCTIONS.md:260
 msgid ""
 "nscm = 500: translational/rotational COM motions will be removed every 500 "
 "steps"
-msgstr ""
+msgstr "nscm = 500：500 Step ごとに COM の並進・回転運動を除去します。"
 
 #: INSTRUCTIONS.md:261
 msgid "tempi = 298.0: initial temperature"
-msgstr ""
+msgstr "tempi = 298.0：初期温度。"
 
 #: INSTRUCTIONS.md:262
 msgid "temp0 = 298.0: reference temperature at which the system is to be kept"
-msgstr ""
+msgstr "temp0 = 298.0：系を維持する基準温度。"
 
 #: INSTRUCTIONS.md:263
 msgid "nstlim = 2500000: we will run the system for 2500000 steps"
-msgstr ""
+msgstr "nstlim = 2500000：2500000 Step 実行します。"
 
 #: INSTRUCTIONS.md:264
 msgid "dt = 0.002: we will apply a 2 fs time step"
-msgstr ""
+msgstr "dt = 0.002：Time Step を2 fs とします。"
 
 #: INSTRUCTIONS.md:265
 msgid "ntc = 2: we will constrain bonds linking to a hydrogen"
-msgstr ""
+msgstr "ntc = 2：水素につながる結合を拘束します。"
 
 #: INSTRUCTIONS.md:266
 msgid ""
 "ntf = 2: bond interactions involving H-atoms will be omitted in force "
 "evaluations"
-msgstr ""
+msgstr "ntf = 2：力の評価で H 原子を含む結合相互作用を省略します。"
 
 #: INSTRUCTIONS.md:267
 msgid "cut = 9999.0: no cut off will be applied for nonbonded interactions"
-msgstr ""
+msgstr "cut = 9999.0：Nonbonded 相互作用に Cutoff を適用しません。"
 
 #: INSTRUCTIONS.md:268
 msgid "plumed = 1: we will run PLUMED together with AMBER"
-msgstr ""
+msgstr "plumed = 1：AMBER とともに PLUMED を実行します。"
 
 #: INSTRUCTIONS.md:269
 msgid ""
 "plumedfile = 'plumed.dat': the PLUMED file to read is called plumed.dat"
-msgstr ""
+msgstr "plumedfile = 'plumed.dat'：読み込む PLUMED ファイルは plumed.dat です。"
 
 #: INSTRUCTIONS.md:271
 msgid "The PLUMED input file plumed.dat has, instead, the following aspect:"
-msgstr ""
+msgstr "一方、PLUMED 入力 plumed.dat は次の内容です。"
 
 #: INSTRUCTIONS.md:296
 msgid ""
@@ -588,6 +672,10 @@ msgid ""
 "monitoring also the parallel/antiparallel beta-sheet content in order to "
 "identify potential cases of misfolding."
 msgstr ""
+"MOLINFO でタンパク質構造 (aaqaa_min.pdb) を入力します。Radius of "
+"Gyration、Parallel/Antiparallel Beta-sheet の含有量、Alpha-helix の含有量を計算し、1000 "
+"Integration Step ごとに COLVAR に出力します。$(AAQAA)\\_3$ は Alpha-helix に Fold "
+"するはずですが、Misfolding の可能性を見つけるため、Parallel/Antiparallel Beta-sheet の含有量も監視します。"
 
 #: INSTRUCTIONS.md:300
 msgid ""
@@ -598,16 +686,19 @@ msgid ""
 "include the effect of temperature/pressure/urea concentration on protein "
 "stability."
 msgstr ""
+"最初の例では、298 K・常圧の純水中で $(AAQAA)\\_3$ をシミュレーションするため、移行自由エネルギー項 $G^{tr}(T,P,c)$ "
+"は不要で、PLUMED 入力は SASA Module を呼び出しません。ただし演習2〜5では、温度・圧力・urea "
+"濃度がタンパク質の安定性に与える影響を導入するため SASA Module を使います。"
 
 #: INSTRUCTIONS.md:303
 msgid "To run the simulation, just type the command:"
-msgstr ""
+msgstr "次のコマンドでシミュレーションを実行します。"
 
 #: INSTRUCTIONS.md:309
 msgid ""
 "The simulation should take 1-2 hours on a common laptop, so you should not "
 "need a cluster for this masterclass."
-msgstr ""
+msgstr "一般的な Laptop で1〜2時間程度なので、この Masterclass に Cluster は不要でしょう。"
 
 #: INSTRUCTIONS.md:311
 msgid ""
@@ -616,24 +707,26 @@ msgid ""
 "protein as function of time. Try to plot the columns of the COLVAR file "
 "versus time."
 msgstr ""
+"終了時の COLVAR には、タンパク質の Radius of Gyration と Secondary Structure "
+"含有量の時間変化が記録されます。各列を時間に対して描画してください。"
 
 #: INSTRUCTIONS.md:313
 msgid ""
 "Does the protein fold? If yes, how fast is the process? Do you think the "
 "process would be equally fast in explicit solvent?"
-msgstr ""
+msgstr "タンパク質は Fold しますか？するとしたら、どれほど速いですか？Explicit Solvent でも同じ速さになるでしょうか？"
 
 #: INSTRUCTIONS.md:315
 msgid ""
 "Here is the evolution of the helical content of $(AAQAA)\\_3$ over time "
 "during the simulation:"
-msgstr ""
+msgstr "シミュレーション中の $(AAQAA)\\_3$ の Helix 含有量の時間変化を示します。"
 
 #: INSTRUCTIONS.md:317
 msgid ""
 "[Evolution of helical content over time during the simulation of exercise "
 "1](figs/masterclass-22-13-tvsalpha.png)"
-msgstr ""
+msgstr "[演習1のシミュレーション中の Helix 含有量の時間変化](figs/masterclass-22-13-tvsalpha.png)"
 
 #: INSTRUCTIONS.md:319
 msgid ""
@@ -641,6 +734,8 @@ msgid ""
 "representation of the conformational space explored by the protein during "
 "the simulation. Just type:"
 msgstr ""
+"付属の script_rg_alpha.bash で、シミュレーション中にタンパク質が探索した Conformational Space "
+"を2次元で表せます。次のように入力します。"
 
 #: INSTRUCTIONS.md:326
 msgid ""
@@ -648,6 +743,8 @@ msgid ""
 "gnuplot using the picture_rg_alpha.gnu script provided. You should obtain "
 "something similar to:"
 msgstr ""
+"生成される normFEL.dat は、付属の picture_rg_alpha.gnu で gnuplot "
+"に表示できます。次のような結果になるはずです。"
 
 #: INSTRUCTIONS.md:328
 msgid ""
@@ -655,12 +752,14 @@ msgid ""
 "protein during the simulation of exercise "
 "1](figs/masterclass-22-13-FES_rg_alpha.png)"
 msgstr ""
+"[演習1でのタンパク質の Radius of Gyration と Helix "
+"含有量を表す自由エネルギー表面](figs/masterclass-22-13-FES_rg_alpha.png)"
 
 #: INSTRUCTIONS.md:330
 msgid ""
 "Exercises 2-5: Introducing the free energy of transfer contribution to "
 "implicit solvent simulations"
-msgstr ""
+msgstr "演習2〜5：Implicit Solvent シミュレーションへの移行自由エネルギーの導入"
 
 #: INSTRUCTIONS.md:332
 msgid ""
@@ -672,6 +771,8 @@ msgid ""
 "Exercise 4 includes the presence of a potent denaturant (urea), and exercise"
 " 5 is performed at a high pressure value."
 msgstr ""
+"理論編と演習1で学んだ内容から、演習2〜5は自分で実行できるはずです。違いは、各溶液条件を再現するために移行自由エネルギーの寄与が必要なことです。演習2と3では極端な低温・高温を調べ、演習4では強力な"
+" Denaturant (urea) を加え、演習5では高圧を使います。"
 
 #: INSTRUCTIONS.md:335
 msgid ""
@@ -679,6 +780,8 @@ msgid ""
 "thoretical summary, to introduce the effect of temperature, pressure and "
 "osmolyte concentration within the implicit solvent simulation."
 msgstr ""
+"理論概要で説明した SASA Module を使い、Implicit Solvent シミュレーションに温度・圧力・Osmolyte "
+"濃度の効果を導入する必要があります。"
 
 #: INSTRUCTIONS.md:337
 msgid ""
@@ -694,20 +797,28 @@ msgid ""
 " and a BIASVALUE section to the plumed.dat file, as discussed in the "
 "theoretical section."
 msgstr ""
+"[GitHub](https://github.com/andrea-arsiccio/masterclass-22-13) "
+"から取得したフォルダには、各演習に対応する5つのサブフォルダがあります。plumed.dat 以外のファイルはそのまま使えます。plumed.dat "
+"は演習1をひな形に自分で作成してください。各演習で Radius of Gyration と Secondary Structure "
+"含有量（Alpha-helix、Parallel/Antiparallel Beta-sheet）を監視し、COLVAR "
+"に出力します。また理論編の説明に従い、SASA_HASEL と BIASVALUE を追加します。Hasel "
+"らのアルゴリズムの方が速いため、SASA_LCPO ではなく SASA_HASEL を使ってください。"
 
 #: INSTRUCTIONS.md:340
 msgid "You will need to perform the following steps:"
-msgstr ""
+msgstr "必要な手順は次のとおりです。"
 
 #: INSTRUCTIONS.md:342
 msgid "install the software (PLUMED, AMBER)"
-msgstr ""
+msgstr "ソフトウェア (PLUMED、AMBER) をインストールする。"
 
 #: INSTRUCTIONS.md:343
 msgid ""
 "clone the GitHub folder with input files: git clone "
 "https://github.com/andrea-arsiccio/masterclass-22-13"
 msgstr ""
+"入力ファイルの GitHub フォルダを Clone する：git clone https://github.com/andrea-"
+"arsiccio/masterclass-22-13"
 
 #: INSTRUCTIONS.md:344
 msgid ""
@@ -716,10 +827,13 @@ msgid ""
 "script is available on [GitHub] (https://github.com/andrea-arsiccio/DeltaG-"
 "calculation), please have a look into it)"
 msgstr ""
+"演習1の例に従って、各サブフォルダに PLUMED ファイルを作成する。必要に応じて DeltaG-calculation.py "
+"を使ってください。[GitHub] (https://github.com/andrea-arsiccio/DeltaG-calculation) "
+"にあるスクリプトの README も確認してください。"
 
 #: INSTRUCTIONS.md:345
 msgid "Run the simulations using the command:"
-msgstr ""
+msgstr "次のコマンドでシミュレーションを実行する。"
 
 #: INSTRUCTIONS.md:351
 msgid ""
@@ -727,23 +841,25 @@ msgid ""
 "columns versus time, and use the script_rg_alpha.bash file to get a "
 "representation of the conformational space explored)"
 msgstr ""
+"演習1と同様に Trajectory を解析する（COLVAR の各列を時間に対して描画し、script_rg_alpha.bash で探索した "
+"Conformational Space を表す）。"
 
 #: INSTRUCTIONS.md:353
 msgid "You should ask yourself the following questions:"
-msgstr ""
+msgstr "次の点を考えてください。"
 
 #: INSTRUCTIONS.md:355
 msgid ""
 "what would you expect to occur at the protein structure at extreme values of"
 " temperature/pressure/urea concentration? Are your expections reflected in "
 "the simulation outputs?"
-msgstr ""
+msgstr "極端な温度・圧力・urea 濃度では、タンパク質構造に何が起きると予想しますか？結果は予想を反映していますか？"
 
 #: INSTRUCTIONS.md:356
 msgid ""
 "would you observe similar phenomena also in 5-ns-long explicit solvent "
 "calculations?"
-msgstr ""
+msgstr "5 ns の Explicit Solvent 計算でも同様の現象が観測されるでしょうか？"
 
 #: INSTRUCTIONS.md:358
 msgid "Final thoughts"
@@ -755,6 +871,8 @@ msgid ""
 "implements two algorithms for the computation of the SASA (the faster "
 "algorithm by Hasel et al., and the more accurate LCPO algorithm)."
 msgstr ""
+"この Tutorial では、PLUMED の SASA Module に2つの SASA 計算法（高速な Hasel らのアルゴリズムと、精度の高い "
+"LCPO）が実装されていることを学びました。"
 
 #: INSTRUCTIONS.md:362
 msgid ""
@@ -762,6 +880,8 @@ msgid ""
 "as a collective variable or for monitoring the SASA, but it can furthermore "
 "be employed to perform implicit solvent MD simulations."
 msgstr ""
+"SASA Module は SASA を Collective Variable として導入したり、監視したりするだけでなく、Implicit "
+"Solvent MD にも利用できます。"
 
 #: INSTRUCTIONS.md:364
 msgid ""
@@ -770,6 +890,8 @@ msgid ""
 "ambient temperature and pressure to an osmolyte solution at any desired "
 "value of temperature and pressure)."
 msgstr ""
+"SASA Module による Implicit Solvent シミュレーションは、常温・常圧の純水から任意の温度・圧力の Osmolyte "
+"溶液への「移行」を表す移行自由エネルギーに基づきます。"
 
 #: INSTRUCTIONS.md:366
 msgid ""
@@ -777,6 +899,8 @@ msgid ""
 "solvent counterpart, to speed up conformational transitions, and allow a "
 "faster exploration of conformational space."
 msgstr ""
+"Implicit Solvent は Explicit Solvent に比べ Conformational Transition "
+"を速め、Conformational Space を迅速に探索できる利点があります。"
 
 #: INSTRUCTIONS.md:368
 msgid ""
@@ -785,3 +909,5 @@ msgid ""
 "arsiccio/masterclass-22-13-results), but please do the exercises on your own"
 " before checking on the results!"
 msgstr ""
+"注：演習の解答ファイルも [GitHub](https://github.com/andrea-"
+"arsiccio/masterclass-22-13-results) にありますが、結果を見る前に自分で取り組んでください。"

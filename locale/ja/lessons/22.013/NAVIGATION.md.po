@@ -57,32 +57,32 @@ msgstr "講義 I"
 #. mermaid node label
 #: NAVIGATION.md:15
 msgid "metadynamics"
-msgstr ""
+msgstr "Metadynamics"
 
 #. mermaid node label
 #: NAVIGATION.md:16
 msgid "Hasel algorithm"
-msgstr ""
+msgstr "Hasel アルゴリズム"
 
 #. mermaid node label
 #: NAVIGATION.md:17
 msgid "LCPO algorithm"
-msgstr ""
+msgstr "LCPO アルゴリズム"
 
 #. mermaid node label
 #: NAVIGATION.md:18
 msgid "SASA temperature"
-msgstr ""
+msgstr "SASA と温度"
 
 #. mermaid node label
 #: NAVIGATION.md:19
 msgid "SASA pressure"
-msgstr ""
+msgstr "SASA と圧力"
 
 #. mermaid node label
 #: NAVIGATION.md:20
 msgid "SASA osmolytes"
-msgstr ""
+msgstr "SASA と Osmolytes"
 
 #. mermaid node label
 #: NAVIGATION.md:21
@@ -104,42 +104,42 @@ msgstr "PLUMED の構文の基本を紹介する過去のチュートリアル"
 msgid ""
 "A previous tutorial on metadynamics, which is the method that is used in "
 "this tutorial"
-msgstr ""
+msgstr "この Tutorial で使う Metadynamics を扱う以前の Tutorial"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:25
 msgid ""
 "A paper describing one of the algorithms that is used to calculate the ASA "
 "in the tutorial"
-msgstr ""
+msgstr "この Tutorial で ASA を計算するアルゴリズムの1つを説明する論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:26
 msgid ""
 "A paper describing the other algorithm that is used to calculate the ASA in "
 "the tutorial"
-msgstr ""
+msgstr "この Tutorial で ASA を計算するもう1つのアルゴリズムを説明する論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:27
 msgid ""
 "A paper describing how the transfer free energy change upon a change in "
 "temperature is calculated"
-msgstr ""
+msgstr "温度変化による移行自由エネルギー変化の計算法を説明する論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:28
 msgid ""
 "A paper describing how the transfer free energy change upon a change in "
 "pressure is calculated"
-msgstr ""
+msgstr "圧力変化による移行自由エネルギー変化の計算法を説明する論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:29
 msgid ""
 "A paper describing how the transfer free energy change upon a change in "
 "osmolyte solution is calculated"
-msgstr ""
+msgstr "Osmolyte 溶液の変化による移行自由エネルギー変化の計算法を説明する論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:30

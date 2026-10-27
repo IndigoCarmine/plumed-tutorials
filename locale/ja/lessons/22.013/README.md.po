@@ -9,8 +9,8 @@ msgstr ""
 
 #: README.md:1
 msgid "masterclass-22-13"
-msgstr ""
+msgstr "masterclass-22-13"
 
 #: README.md:2
 msgid "Files required for the Plumed Masterclass-22-13 on the SASA module."
-msgstr ""
+msgstr "SASA Module を扱う Plumed Masterclass-22-13 に必要なファイル。"

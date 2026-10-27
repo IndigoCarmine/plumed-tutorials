@@ -9,7 +9,7 @@ msgstr ""
 
 #: PART1.md:1
 msgid "Part 1: Characterize the free-energy landscape with 2D Metadynamics"
-msgstr ""
+msgstr "Part 1：2次元 Metadynamics による自由エネルギー地形の評価"
 
 #: PART1.md:3
 msgid ""
@@ -17,28 +17,32 @@ msgid ""
 "(diuridine) the rate-limiting step in Magnesium binding to the backbone "
 "phosphate groups."
 msgstr ""
+"まず単純な系 (Diuridine) で、Magnesium が Backbone の Phosphate 基に結合する際の Rate-limiting"
+" Step を特定します。"
 
 #: PART1.md:5
 msgid "Description of the approach"
-msgstr ""
+msgstr "方法の説明"
 
 #: PART1.md:7
 msgid ""
 "We make the assumption that the binding dynamics are well described by the "
 "two following collective variables (CVs):"
-msgstr ""
+msgstr "結合 Dynamics は、次の2つの Collective Variables (CVs) でよく記述できると仮定します。"
 
 #: PART1.md:8
 msgid ""
 "Coordination number of Mg<sup>2+</sup> with water oxygen atoms "
 "(O<sub>W</sub>)"
-msgstr ""
+msgstr "水の酸素原子 (O<sub>W</sub>) に対する Mg<sup>2+</sup> の Coordination Number"
 
 #: PART1.md:9
 msgid ""
 "Coordination number of Mg<sup>2+</sup> with free phosphate oxygen atoms "
 "(O<sub>P</sub>)"
 msgstr ""
+"遊離 Phosphate Oxygen (O<sub>P</sub>) に対する Mg<sup>2+</sup> の Coordination "
+"Number"
 
 #: PART1.md:15
 msgid ""
@@ -47,18 +51,24 @@ msgid ""
 "exchanging ligands in a similar way and has the additional advantage to "
 "allow binding to multiple O<sub>P</sub> in complex RNA motifs."
 msgstr ""
+"[!NOTE] Mg<sup>2+</sup> と *最も近い* O<sub>P</sub> の距離を使うこともできますが、交換する両方の Ligand"
+" を同様に扱う方が便利です。複雑な RNA Motif で複数の O<sub>P</sub> への結合を扱える利点もあります。"
 
 #: PART1.md:18
 msgid ""
 "To be used as biasing CVs, the coordination numbers are defined as smooth "
 "functions of the Mg—O<sub>x</sub> pairwise distances. More precisely:"
 msgstr ""
+"Bias を加える CV として使えるよう、Coordination Number を Mg—O<sub>x</sub> の Pairwise "
+"Distance の滑らかな関数として定義します。具体的には、"
 
 #: PART1.md:26
 msgid ""
 "where $s(r)$ is a switching function between 1 and 0. In the following we "
 "will use a cosine switching function"
 msgstr ""
+"$s(r)$ は1と0の間で切り替わる Switching Function です。以下では Cosine Switching Function "
+"を使います。"
 
 #: PART1.md:40
 msgid ""
@@ -67,6 +77,9 @@ msgid ""
 "shell, $r_\\text{eq} = 0.21~\\text{nm}$) and $r_0 = 0.24~\\text{nm}$ (to "
 "reach the density peak of the second hydration shell)."
 msgstr ""
+"パラメータは $d_0 = 0.18~\\text{nm}$（第1 Shell の Mg—O<sub>W</sub> と "
+"Mg—O<sub>P</sub> の平衡距離 $r_\\text{eq} = 0.21~\\text{nm}$ を余裕を持って含めるため）、$r_0 ="
+" 0.24~\\text{nm}$（第2 Hydration Shell の密度 Peak に届くため）です。"
 
 #: PART1.md:42
 msgid ""
@@ -75,6 +88,9 @@ msgid ""
 "$s(r_\\text{eq})^{-1} = 1.039661$ to recover \"nice\" integer values for the"
 " coordination states."
 msgstr ""
+"[!NOTE] $d_0$ が第1 Shell の平衡距離 ($r_\\text{eq}$) より少し小さいため、最終値を "
+"$s(r_\\text{eq})^{-1} = 1.039661$ 倍すれば、Coordination State "
+"に対応する扱いやすい整数値に戻せます。"
 
 #: PART1.md:45
 msgid "Implementation"
@@ -82,29 +98,29 @@ msgstr "実装"
 
 #: PART1.md:47
 msgid "Simulation set-up"
-msgstr ""
+msgstr "シミュレーションの設定"
 
 #: PART1.md:51
 msgid "We provide as input files:"
-msgstr ""
+msgstr "次の入力ファイルを用意しています。"
 
 #: PART1.md:52
 msgid ""
 "`input.gro`: equilibrated simulation box with a diuridine molecule and a "
 "single Mg²⁺ ion in water"
-msgstr ""
+msgstr "`input.gro`：水中の Diuridine 1分子と Mg²⁺ Ion 1個を含む平衡化済み Box"
 
 #: PART1.md:53
 msgid "`run.mdp`: GROMACS MD parameter file"
-msgstr ""
+msgstr "`run.mdp`：GROMACS の MD パラメータファイル"
 
 #: PART1.md:54
 msgid "`topol.top`: Standalone GROMACS topology file"
-msgstr ""
+msgstr "`topol.top`：単独で使える GROMACS Topology"
 
 #: PART1.md:56
 msgid "[They can be downloaded here.](diuridine/diuridine.zip)"
-msgstr ""
+msgstr "[こちらからダウンロードできます。](diuridine/diuridine.zip)"
 
 #: PART1.md:58
 msgid ""
@@ -113,6 +129,8 @@ msgid ""
 "which are likely irrelevant for our purpose here of estimating free-energy "
 "barriers."
 msgstr ""
+"[!NOTE] Box の正味電荷は正の1で、一様な Background Charge により補償されます。Artifact "
+"が生じる可能性はありますが、ここでの自由エネルギー Barrier の推定には影響しないと考えられます。"
 
 #: PART1.md:61
 msgid ""
@@ -124,12 +142,17 @@ msgid ""
 " coefficient derivative in MgCl₂ solutions, and the binding affinity and "
 "distance to the phosphate oxygens on nucleic acids."
 msgstr ""
+"[!NOTE] 付属の Topology は、Mg<sup>2+</sup> に [Grotz ら "
+"(2021)](https://doi.org/10.1021/acs.jctc.0c01281) [[1]](#references) の "
+"[*microMg* Force Field パラメータ](https://github.com/bio-phys/optimizedMgFFs) "
+"を使います。Solvation 自由エネルギー、第1 Hydration Shell の酸素との距離、Hydration Number、MgCl₂ "
+"溶液の Activity Coefficient の微分、核酸の Phosphate Oxygen への結合親和性と距離を再現するよう調整されています。"
 
 #: PART1.md:64
 msgid ""
 "For now we can just preprocess the input files (`-maxwarn 1` is needed for "
 "the non-zero total charge):"
-msgstr ""
+msgstr "まず入力を前処理します（全電荷が0でないため `-maxwarn 1` が必要です）。"
 
 #: PART1.md:70 PART1.md:147
 msgid "Instructions"
@@ -142,6 +165,8 @@ msgid ""
 "phosphate oxygen atoms (O1P/O2P in the GRO file), and one for all the water "
 "oxygen atoms (OW)."
 msgstr ""
+"新しい `plumed_metad.dat` に、CV で使う原子 Group を宣言します。Mg<sup>2+</sup>、遊離 Phosphate "
+"Oxygen（GRO 内の O1P/O2P）、すべての水の酸素 (OW) の Group が必要です。"
 
 #: PART1.md:74
 msgid ""
@@ -149,19 +174,20 @@ msgid ""
 " This limits errors and increase legibility when specifying large atom "
 "groups."
 msgstr ""
+"[!TIP] GROMACS では `index.ndx` を使うと簡単です。大きな原子 Group の指定ミスを減らし、読みやすくできます。"
 
 #: PART1.md:79
 msgid "To create a group for water oxygen atoms:"
-msgstr ""
+msgstr "水の酸素原子の Group を作るには、"
 
 #: PART1.md:83
 msgid ""
 "Finally we can rename this group for clarity, then save the index file:"
-msgstr ""
+msgstr "最後に、わかりやすい名前に変更して Index ファイルを保存します。"
 
 #: PART1.md:88
 msgid "To use in a PLUMED file:"
-msgstr ""
+msgstr "PLUMED 入力では、次のように使います。"
 
 #: PART1.md:92
 msgid ""
@@ -169,6 +195,8 @@ msgid ""
 "[```MOLINFO```](https://www.plumed.org/doc-v2.9/user-"
 "doc/html/_m_o_l_i_n_f_o.html) selection features."
 msgstr ""
+"[```MOLINFO```](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_m_o_l_i_n_f_o.html) の選択機能を使う方法もあります。"
 
 #: PART1.md:94
 msgid ""
@@ -181,6 +209,12 @@ msgid ""
 "doc/html/switchingfunction.html). However, free to experiment with other "
 "possibilities!"
 msgstr ""
+"[`COORDINATION`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_c_o_o_r_d_i_n_a_t_i_o_n.html) で、Non-bridging Phosphate Oxygen に対する"
+" Mg<sup>2+</sup> の Coordination Number CV を宣言してください。[上記](#description-of-"
+"the-approach) のとおり `COSINE` [Switching "
+"Function](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/switchingfunction.html) を使いますが、ほかの選択肢も自由に試してください。"
 
 #: PART1.md:96
 msgid ""
@@ -189,12 +223,17 @@ msgid ""
 "[`COORDINATION`](https://www.plumed.org/doc-v2.9/user-"
 "doc/html/_c_o_o_r_d_i_n_a_t_i_o_n.html) action."
 msgstr ""
+"同様に、[`COORDINATION`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_c_o_o_r_d_i_n_a_t_i_o_n.html) で O<sub>W</sub> に対する Mg<sup>2+</sup>"
+" の Coordination Number CV を宣言します。"
 
 #: PART1.md:98
 msgid ""
 "Declare a (well-tempered) Metadynamics bias on the two CVs with "
 "[`METAD`](https://www.plumed.org/doc-v2.9/user-doc/html/_m_e_t_a_d.html)."
 msgstr ""
+"[`METAD`](https://www.plumed.org/doc-v2.9/user-doc/html/_m_e_t_a_d.html) "
+"で2つの CV に Well-tempered Metadynamics の Bias を宣言します。"
 
 #: PART1.md:99
 msgid ""
@@ -205,6 +244,9 @@ msgid ""
 "features you expect to resolve along the CV. We suggest $\\sigma = 0.05$ for"
 " the coordination CV."
 msgstr ""
+"[!NOTE] Gaussian の幅は重要です。$\\sigma$ が大きすぎると自由エネルギー地形を過剰に平滑化し、$\\sigma$ "
+"が小さすぎると収束時間が大幅に増えます。CV に沿って解像したい最小の特徴と同程度の $\\sigma$ を選ぶのが目安です。Coordination "
+"CV には $\\sigma = 0.05$ を推奨します。"
 
 #: PART1.md:102
 msgid ""
@@ -218,26 +260,33 @@ msgid ""
 "doc/html/_u_p_p_e_r__w_a_l_l_s.html) to restrain the O<sub>W</sub> "
 "coordination CV between $4$ and $7$."
 msgstr ""
+"Metadynamics は、到達可能な Coordination Number の全範囲を探索するよう促します。関係がないとわかっている "
+"Configuration 空間の探索を避け、収束を速めるため、Semiharmonic Potential Wall "
+"を加えます。[`LOWER_WALLS`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_l_o_w_e_r__w_a_l_l_s.html) と "
+"[`UPPER_WALLS`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_u_p_p_e_r__w_a_l_l_s.html) で O<sub>W</sub> Coordination CV を "
+"$4$〜$7$ に制限してください。"
 
 #: PART1.md:104
 msgid "Template PLUMED input file"
-msgstr ""
+msgstr "PLUMED 入力のひな形"
 
 #: PART1.md:133
 msgid "Run simulation"
-msgstr ""
+msgstr "シミュレーションの実行"
 
 #: PART1.md:135
 msgid ""
 "If no mistakes were made (an exceedingly hypothetical scenario) we should be"
 " able to start our metadynamics simulation!"
-msgstr ""
+msgstr "入力に間違いがなければ（かなり仮定的な話ですが）、Metadynamics を開始できるはずです！"
 
 #: PART1.md:141
 msgid ""
 "This should generate about 4 Gb of data and take a couple of hours on a GPU-"
 "accelerated node."
-msgstr ""
+msgstr "GPU で加速した Node では数時間かかり、約4 Gb のデータが生成されます。"
 
 #: PART1.md:143
 msgid "Analysis"
@@ -252,6 +301,9 @@ msgid ""
 "assuming it was generated with the final metadynamics bias [[2, "
 "3]](#references)."
 msgstr ""
+"終了後、選んだ CV 空間の自由エネルギー地形を解析します。1つの方法は、足し合わせた Gaussian Hill "
+"の符号反転を収束した自由エネルギー地形とみなすことです。もう少し正確で簡単な方法は、最終的な Metadynamics Bias "
+"で生成されたと仮定して全 Trajectory を Reweighting することです [[2, 3]](#references)。"
 
 #: PART1.md:149
 msgid ""
@@ -259,6 +311,9 @@ msgid ""
 "doc/html/sum_hills.html), extract the free-energy surface (FES) from the "
 "accumulated gaussians stored in the `HILLS` file."
 msgstr ""
+"[`plumed sum_hills`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/sum_hills.html) で、`HILLS` に蓄積した Gaussian から自由エネルギー表面 (FES) "
+"を抽出してください。"
 
 #: PART1.md:151
 msgid ""
@@ -266,43 +321,46 @@ msgid ""
 "doc/html/driver.html), recompute the instantaneous value of the metadynamics"
 " bias for every trajectory frame, restarting from the final `HILLS` file."
 msgstr ""
+"最終的な `HILLS` から再開し、[`plumed driver`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/driver.html) で各 Trajectory Frame の Metadynamics Bias "
+"の瞬時値を再計算してください。"
 
 #: PART1.md:153
 msgid ""
 "[!TIP] You will need a new plumed input file (you can call it "
 "`plumed_static.dat`) identical to the previous one but with the following "
 "modifications:"
-msgstr ""
+msgstr "[!TIP] 前の入力と同じ新しい plumed 入力（`plumed_static.dat` など）を用意し、次のように変更します。"
 
 #: PART1.md:155
 msgid "`METAD` component should contain the `RESTART=YES` option"
-msgstr ""
+msgstr "`METAD` に `RESTART=YES` を指定する。"
 
 #: PART1.md:156
 msgid ""
 "To avoid modifying the `HILLS` file, set the `HEIGHT` parameter to 0 and the"
 " `PACE` to a large number (e.g. 10⁹)"
-msgstr ""
+msgstr "`HILLS` を変更しないよう、`HEIGHT` を0、`PACE` を大きな数（例えば10⁹）にする。"
 
 #: PART1.md:158
 msgid "Using a Python script or notebook, plot:"
-msgstr ""
+msgstr "Python スクリプトまたは Notebook で、次を描画してください。"
 
 #: PART1.md:159
 msgid ""
 "The timeseries for both CVs, the adaptive bias value during metadynamics, "
 "and the static bias value"
-msgstr ""
+msgstr "両 CV の時系列、Metadynamics 中の Adaptive Bias、Static Bias の値"
 
 #: PART1.md:160
 msgid "The FES as output by `sum_hills`"
-msgstr ""
+msgstr "`sum_hills` の出力 FES"
 
 #: PART1.md:161
 msgid ""
 "The FES as computed with a weighted histogram, using the weights from the "
 "final bias"
-msgstr ""
+msgstr "最終 Bias による重みを使った Weighted Histogram からの FES"
 
 #: PART1.md:163
 msgid "Results"
@@ -310,17 +368,17 @@ msgstr "結果"
 
 #: PART1.md:165
 msgid "You should obtain something like that:"
-msgstr ""
+msgstr "次のような結果になるはずです。"
 
 #: PART1.md:167
 msgid ""
 "![Metadynamics timeseries figure](solutions/figures/metad_timeseries.png)"
-msgstr ""
+msgstr "![Metadynamics の時系列](solutions/figures/metad_timeseries.png)"
 
 #: PART1.md:169
 msgid ""
 "![Metadynamics free-energy surface figure](solutions/figures/metad_fes.png)"
-msgstr ""
+msgstr "![Metadynamics の自由エネルギー表面](solutions/figures/metad_fes.png)"
 
 #: PART1.md:171
 msgid ""
@@ -328,6 +386,8 @@ msgid ""
 "$n_\\mathrm{O_W}$ have been [scaled to integral values](#description-of-the-"
 "approach)."
 msgstr ""
+"[!NOTE] 図の $n_\\mathrm{O_P}$ と $n_\\mathrm{O_W}$ は、元の値を "
+"[整数値にスケール](#description-of-the-approach) しています。"
 
 #: PART1.md:174
 msgid ""
@@ -344,6 +404,15 @@ msgid ""
 "corresponds to an associative interchange (*I<sub>a</sub>*) mechanism "
 "already observed for this force-field [[4]](#references)."
 msgstr ""
+"Metadynamics が拘束内の大部分の空間を探索したことがわかります。Reweighting は Hill の和からの FES "
+"と全体的に一致し、Gaussian の $\\sigma$ により平滑化される鋭い特徴も、よりよく解像します。左側の深い帯 "
+"($n_\\mathrm{O_P} = 0$) は非結合状態です。$n_\\mathrm{O_W} \\approx "
+"6$、$n_\\mathrm{O_P}$ が小さな非0値の領域には Pre-bound（Outer-sphere Bound）状態があります。結合状態 "
+"($n_\\mathrm{O_W} \\approx 5$、$n_\\mathrm{O_P} \\approx 1$) との間の Minimum "
+"Free Energy Path は、7配位 Transition State ($n_\\mathrm{O_W} \\approx "
+"6$、$n_\\mathrm{O_P} \\approx 1$) 付近に Saddle Point を持ちます。この Force Field "
+"で既に観測された Associative Interchange (*I<sub>a</sub>*) 機構に対応します "
+"[[4]](#references)。"
 
 #: PART1.md:176
 msgid ""
@@ -351,6 +420,8 @@ msgid ""
 "dissociative one (*I<sub>d</sub>*), suggesting that the observed associative"
 " pathway is an artifact of the particular force field we use."
 msgstr ""
+"[!NOTE] 実験で示唆されるのは Interchange Dissociative (*I<sub>d</sub>*) 機構なので、観測された "
+"Associative Pathway は、この Force Field に由来する Artifact と考えられます。"
 
 #: PART1.md:179
 msgid ""
@@ -358,6 +429,8 @@ msgid ""
 "data to design a bias that reduces the free-energy barrier while minimally "
 "affecting the remaining part of the FES."
 msgstr ""
+"[次の節](PART2.md) では、このデータを使い、FES のほかの部分への影響を最小限に抑えて自由エネルギー Barrier を下げる Bias "
+"を設計します。"
 
 #: PART1.md:181
 msgid "References"
@@ -371,6 +444,11 @@ msgid ""
 "Theory and Computation* **2021** 17 (4), "
 "2530-2540.](https://doi.org/10.1021/acs.jctc.0c01281)"
 msgstr ""
+"[1] [Kara K. Grotz, Sergio Cruz-León, and Nadine Schwierz. Optimized "
+"Magnesium Force Field Parameters for Biomolecular Simulations with Accurate "
+"Solvation, Ion-Binding, and Water-Exchange Properties. *Journal of Chemical "
+"Theory and Computation* **2021** 17 (4), "
+"2530-2540.](https://doi.org/10.1021/acs.jctc.0c01281)"
 
 #: PART1.md:185
 msgid ""
@@ -378,6 +456,9 @@ msgid ""
 " with Adaptive Gaussians. *Journal of Chemical Theory and Computation* "
 "**2012** 8 (7), 2247-2254.](https://doi.org/10.1021/ct3002464)"
 msgstr ""
+"[2] [Davide Branduardi, Giovanni Bussi, and Michele Parrinello. Metadynamics"
+" with Adaptive Gaussians. *Journal of Chemical Theory and Computation* "
+"**2012** 8 (7), 2247-2254.](https://doi.org/10.1021/ct3002464)"
 
 #: PART1.md:187
 msgid ""
@@ -385,6 +466,9 @@ msgid ""
 " Simulations.*Journal of Chemical Theory and Computation* **2020** 16 (4), "
 "2042-2052.](https://doi.org/10.1021/acs.jctc.9b00867)"
 msgstr ""
+"[3] [Timo M. Schäfer and Giovanni Settanni. Data Reweighting in Metadynamics"
+" Simulations.*Journal of Chemical Theory and Computation* **2020** 16 (4), "
+"2042-2052.](https://doi.org/10.1021/acs.jctc.9b00867)"
 
 #: PART1.md:189
 msgid ""
@@ -393,3 +477,7 @@ msgid ""
 " and ionic force field. *Journal of Chemical Physics* **2021** 155 (8), "
 "084503.](https://doi.org/10.1063/5.0060896)"
 msgstr ""
+"[4] [Sebastian Falkner and Nadine Schwierz. Kinetic pathways of water "
+"exchange in the first hydration shell of magnesium: Influence of water model"
+" and ionic force field. *Journal of Chemical Physics* **2021** 155 (8), "
+"084503.](https://doi.org/10.1063/5.0060896)"

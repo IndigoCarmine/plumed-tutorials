@@ -26,21 +26,23 @@ msgstr "前提条件"
 
 #: INTRO.md:7
 msgid "[GROMACS basic usage](http://www.mdtutorials.com/gmx/)"
-msgstr ""
+msgstr "[GROMACS の基本操作](http://www.mdtutorials.com/gmx/)"
 
 #: INTRO.md:8
 msgid ""
 "[PLUMED basic syntax and analysis](https://www.plumed-"
 "tutorials.org/lessons/21/001/data/NAVIGATION.html)"
 msgstr ""
+"[PLUMED の基本構文と解析](https://www.plumed-"
+"tutorials.org/lessons/21/001/data/NAVIGATION.html)"
 
 #: INTRO.md:9
 msgid "Python notebooks"
-msgstr ""
+msgstr "Python Notebook"
 
 #: INTRO.md:11
 msgid "Scientific context"
-msgstr ""
+msgstr "科学的背景"
 
 #: INTRO.md:13
 msgid ""
@@ -51,6 +53,10 @@ msgid ""
 "by and large the most frequent in PDB structures and having the strongest "
 "binding affinity [[1, 2]](#references)."
 msgstr ""
+"Magnesium(II) Ion は生細胞に豊富に存在し、RNA と相互作用して Folding、触媒特性、構造 Dynamics "
+"を調節します。Mg<sup>2+</sup> は RNA のさまざまな部位に Inner Sphere で配位します。PDB 構造では Non-"
+"bridging Phosphate Oxygen (OP1, OP2) が圧倒的に多く、最も強い結合親和性を持ちます [[1, "
+"2]](#references)。"
 
 #: INTRO.md:15
 msgid ""
@@ -61,6 +67,10 @@ msgid ""
 " most Molecular Dynamics force fields, which hinders satisfactiory sampling "
 "of the equilibrium properties of Mg-RNA interactions."
 msgstr ""
+"Mg<sup>2+</sup> は電荷密度が高いため Inner-sphere Ligand と強く相互作用し、生体内に豊富なほかの Cation "
+"と比べて Water Exchange の Kinetics が遅く（Sub-microsecond）、Phosphate "
+"基への結合はさらに遅くなります [[3]](#references)。多くの Molecular Dynamics Force Field "
+"ではこの特徴が増幅され、Mg-RNA 相互作用の平衡特性を十分に Sampling することが難しくなります。"
 
 #: INTRO.md:17
 msgid ""
@@ -72,10 +82,13 @@ msgid ""
 "where we selectively bias the MD simulation to accelerate the process of "
 "interest, and that can be adapted in principle to any force field."
 msgstr ""
+"Magnesium の遅い Dynamics を加速する Force Field パラメータも設計できますが、古典 MD Potential "
+"の限られた柔軟性で、Thermodynamics や幾何学的特性を損なわず Kinetics だけを調整できるかは不明です。この Tutorial "
+"では別の方法として、MD に選択的に Bias を加えて目的の過程を加速します。原理的には任意の Force Field に適用できます。"
 
 #: INTRO.md:19
 msgid "Outline"
-msgstr ""
+msgstr "構成"
 
 #: INTRO.md:21
 msgid ""
@@ -83,18 +96,23 @@ msgid ""
 "tempered metadynamics to characterize the binding free-energy landscape of "
 "Mg<sup>2+</sup> to non-bridging phosphate oxygens of the RNA backbone."
 msgstr ""
+"[Part 1](PART1.md) ではモデル Dinucleotide を準備し、Well-tempered Metadynamics で "
+"Mg<sup>2+</sup> と RNA Backbone の Non-bridging Phosphate Oxygen "
+"の結合自由エネルギー地形を調べます。"
 
 #: INTRO.md:23
 msgid ""
 "In [Part 2](PART2.md) we will use the previous simulation to design a "
 "biasing potential that selectively accelerates the binding kinetics."
 msgstr ""
+"[Part 2](PART2.md) では前のシミュレーションを使い、結合 Kinetics を選択的に加速する BiasPotential "
+"を設計します。"
 
 #: INTRO.md:25
 msgid ""
 "In Part 3 we will see how to apply the method to a larger system using "
 "Hamiltonian replica exchange."
-msgstr ""
+msgstr "Part 3 では、Hamiltonian Replica Exchange を使って、より大きな系に適用する方法を見ます。"
 
 #: INTRO.md:27
 msgid "References"
@@ -108,6 +126,11 @@ msgid ""
 "detection. *Nucleic Acids Research* **2015** 43 (7), "
 "3789–3801.](https://doi.org/10.1093/nar/gkv225)"
 msgstr ""
+"[1] [Heping Zheng, Ivan G. Shabalin, Katarzyna B. Handing, Janusz M. "
+"Bujnicki and Wladek Minor. Magnesium-binding architectures in RNA crystal "
+"structures: validation, binding preferences, classification and motif "
+"detection. *Nucleic Acids Research* **2015** 43 (7), "
+"3789–3801.](https://doi.org/10.1093/nar/gkv225)"
 
 #: INTRO.md:32
 msgid ""
@@ -115,6 +138,9 @@ msgid ""
 "binding with atomistic molecular dynamics. *RNA* **2017** 23 (5), "
 "628-638.](https://doi.org/10.1261/rna.060079.116)"
 msgstr ""
+"[2] [Richard A. Cunha and Giovanni Bussi. Unraveling Mg<sup>2+</sup>-RNA "
+"binding with atomistic molecular dynamics. *RNA* **2017** 23 (5), "
+"628-638.](https://doi.org/10.1261/rna.060079.116)"
 
 #: INTRO.md:34
 msgid ""
@@ -123,3 +149,7 @@ msgid ""
 " Theory and Computation* **2012** 8 (4), "
 "1493-1502.](https://doi.org/10.1021/ct3000734)"
 msgstr ""
+"[3] [Olof Allnér, Lennart Nilsson, and Alessandra Villa. Magnesium Ion–Water"
+" Coordination and Exchange in Biomolecular Simulations. *Journal of Chemical"
+" Theory and Computation* **2012** 8 (4), "
+"1493-1502.](https://doi.org/10.1021/ct3000734)"

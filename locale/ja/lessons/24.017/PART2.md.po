@@ -9,7 +9,7 @@ msgstr ""
 
 #: PART2.md:1
 msgid "Part 2: Design a barrier-flattening potential"
-msgstr ""
+msgstr "Part 2：Barrier を平坦化する Potential の設計"
 
 #: PART2.md:3
 msgid ""
@@ -17,6 +17,8 @@ msgid ""
 "devise a strategy to accelerate the dynamics along the most probable "
 "reaction pathway."
 msgstr ""
+"自由エネルギー表面 (FES) が明確になったので、最も確率の高い Reaction Pathway に沿う Dynamics "
+"を加速する戦略を立てられます。"
 
 #: PART2.md:5
 msgid ""
@@ -27,6 +29,9 @@ msgid ""
 " forward and backward processes ($\\Delta^\\ddagger G_\\pm$) in order to "
 "increase the corresponding rate constants,"
 msgstr ""
+"この方法では、結合・非結合状態の間の自由エネルギー Barrier を下げ、両方向の Reaction Rate の増加を狙います。Transition"
+" State Theory (TST) では、正逆両過程の活性化 Gibbs 自由エネルギー ($\\Delta^\\ddagger G_\\pm$) "
+"を下げ、対応する Rate Constant を上げることに相当します。"
 
 #: PART2.md:13
 msgid ""
@@ -35,30 +40,32 @@ msgid ""
 "shape of the FES for any bias potential that is a function of the same "
 "variables,"
 msgstr ""
+"先ほどの FES を使い、Barrier を平坦化する Bias を作ります。同じ変数の関数である任意の BiasPotential に対し、FES "
+"の形を直接予測できるため、追加のシミュレーションは不要です。"
 
 #: PART2.md:21
 msgid "Choosing a functional form"
-msgstr ""
+msgstr "関数形の選択"
 
 #: PART2.md:23
 msgid ""
 "The choice of $U_\\text{bias}$ is rather free, but we need to take some "
 "constraints into account:"
-msgstr ""
+msgstr "$U_\\text{bias}$ は比較的自由に選べますが、次の制約を考慮します。"
 
 #: PART2.md:24
 msgid "It should be continuous"
-msgstr ""
+msgstr "連続であること。"
 
 #: PART2.md:25
 msgid ""
 "Far away from the barrier, the bias should be flat so as to minimally affect"
 " the thermodynamic ensemble"
-msgstr ""
+msgstr "Thermodynamic Ensemble への影響を最小限にするため、Barrier から離れた場所では Bias が平坦であること。"
 
 #: PART2.md:26
 msgid "The bias should avoid creating stable intermediates"
-msgstr ""
+msgstr "安定な中間体を作らないこと。"
 
 #: PART2.md:28 PART2.md:74 PART2.md:150
 msgid "Instructions"
@@ -66,13 +73,14 @@ msgstr "演習の手順"
 
 #: PART2.md:30
 msgid "Propose a candidate functional form matching the above criteria."
-msgstr ""
+msgstr "以上を満たす関数形の候補を提案してください。"
 
 #: PART2.md:32
 msgid ""
 "[!TIP] Tip 1 Try to transform the input variables so as to make it easier to"
 " fit the barrier with common functions (exp, cos, polynomials, etc.)"
 msgstr ""
+"[!TIP] ヒント1：一般的な関数（exp、cos、多項式など）で Barrier を Fit しやすいよう、入力変数を変換してみてください。"
 
 #: PART2.md:35
 msgid ""
@@ -81,18 +89,21 @@ msgid ""
 "potential is continuous (and it’s probably a good idea if it’s "
 "differentiable too) everywhere the system can go."
 msgstr ""
+"[!TIP] ヒント2：Heaviside Step Function で、対象の CV 領域に Bias "
+"を限定してください。系が到達できるすべての場所で Potential が連続であることを確認します。微分可能にもしておくとよいでしょう。"
 
 #: PART2.md:38
 msgid ""
 "Using the reweighted FES computed in [Part 1](PART1.md), predict the shape "
 "of the biased FES and plot it."
 msgstr ""
+"[Part 1](PART1.md) で Reweighting した FES を使い、Bias を加えた FES の形を予測して描画してください。"
 
 #: PART2.md:40
 msgid ""
 "Adjust the parameters and/or the functional form until you are satisfied "
 "with the resulting free-energy barrier."
-msgstr ""
+msgstr "自由エネルギー Barrier が望む形になるまで、パラメータや関数形を調整してください。"
 
 #: PART2.md:42 PART2.md:118
 msgid "Results"
@@ -102,7 +113,7 @@ msgstr "結果"
 msgid ""
 "Here is our proposition. For convenience, we defined new variables $X$ and "
 "$Y$ as:"
-msgstr ""
+msgstr "ここで提案する形を示します。便宜上、新しい変数 $X$、$Y$ を次のように定義しました。"
 
 #: PART2.md:53
 msgid ""
@@ -112,36 +123,39 @@ msgid ""
 "complete departure of the supranumerary O<sub>W</sub> atom) and $Y$ is the "
 "excess coordination relative to the basal $n = 6$."
 msgstr ""
+"$X$ は O<sub>W</sub>/O<sub>P</sub> 交換の進行度と解釈できます。$X = 0$ は非結合状態、$X = 1$ は "
+"Inner Sphere への O<sub>P</sub> の追加、$X = 2$ は余分な O<sub>W</sub> 原子の完全な離脱です。$Y$ "
+"は基準の $n = 6$ に対する過剰な Coordination です。"
 
 #: PART2.md:55
 msgid "![Bias design figure](solutions/figures/bias_design_xy.png)"
-msgstr ""
+msgstr "![Bias の設計](solutions/figures/bias_design_xy.png)"
 
 #: PART2.md:65
 msgid "![Bias design figure](solutions/figures/bias_design_XY.png)"
-msgstr ""
+msgstr "![Bias の設計](solutions/figures/bias_design_XY.png)"
 
 #: PART2.md:68
 msgid ""
 "Your solution will probably look different, and that's OK since precise "
 "shape of the barrier should not matter too much."
-msgstr ""
+msgstr "自分の解答が異なる形でも問題ありません。Barrier の厳密な形は、それほど重要ではないはずです。"
 
 #: PART2.md:70
 msgid "Testing the barrier-flattening bias"
-msgstr ""
+msgstr "Barrier を平坦化する Bias のテスト"
 
 #: PART2.md:72
 msgid ""
 "Once you are satisfied with functional form of your bias, you can implement "
 "it in a Plumed file."
-msgstr ""
+msgstr "Bias の関数形が決まったら、Plumed 入力に実装します。"
 
 #: PART2.md:76
 msgid ""
 "Prepare a new directory for the bias testing simulation (you can reuse the "
 "same input files as previously)."
-msgstr ""
+msgstr "Bias テスト用に新しいディレクトリを用意してください。前と同じ入力ファイルを再利用できます。"
 
 #: PART2.md:78
 msgid ""
@@ -152,6 +166,11 @@ msgid ""
 "[`BIASVALUE`](https://www.plumed.org/doc-v2.9/user-"
 "doc/html/_b_i_a_s_v_a_l_u_e.html)."
 msgstr ""
+"選んだ Bias を実装する `plumed_bias.dat` "
+"を作ります。[`CUSTOM`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_c_u_s_t_o_m.html) Collective Variable を定義し、その出力を "
+"[`BIASVALUE`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_b_i_a_s_v_a_l_u_e.html) で BiasPotential にします。"
 
 #: PART2.md:80
 msgid ""
@@ -162,28 +181,32 @@ msgid ""
 "[`DISTANCES`](https://www.plumed.org/doc-v2.9/user-"
 "doc/html/_d_i_s_t_a_n_c_e_s.html) multicolvar with the appropriate keyword."
 msgstr ""
+"Box 内で Ion が自由拡散する時間を省くため、Mg<sup>2+</sup> を O<sub>P</sub> "
+"近傍に拘束します。例えば、[`DISTANCES`](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_d_i_s_t_a_n_c_e_s.html) Multicolvar と適切な Keyword を使い、最小 "
+"Mg—O<sub>P</sub> 距離に Upper Wall を設けて $1~\\text{nm}$ 未満に制限できます。"
 
 #: PART2.md:82
 msgid "Run the simulation."
-msgstr ""
+msgstr "シミュレーションを実行してください。"
 
 #: PART2.md:84
 msgid ""
 "In a Python notebook, plot the timeseries for the two CVs of interest as "
 "well as $U_\\text{bias}(t)$."
-msgstr ""
+msgstr "Python Notebook で、2つの対象 CV と $U_\\text{bias}(t)$ の時系列を描画してください。"
 
 #: PART2.md:86
 msgid "Template PLUMED file"
-msgstr ""
+msgstr "PLUMED 入力のひな形"
 
 #: PART2.md:120
 msgid "![Bias test timeseries figure](solutions/figures/bias_timeseries.png)"
-msgstr ""
+msgstr "![Bias テストの時系列](solutions/figures/bias_timeseries.png)"
 
 #: PART2.md:122
 msgid "Reweighting"
-msgstr ""
+msgstr "Reweighting"
 
 #: PART2.md:124
 msgid ""
@@ -191,12 +214,16 @@ msgid ""
 " need to reweight out the contribution of our accelerating bias. Each frame "
 "of the biased trajectory will receive a weight"
 msgstr ""
+"Force Field が与える元の統計を復元するには、加速 Bias の寄与を Reweighting で除く必要があります。Bias 付き "
+"Trajectory の各 Frame に次の重みを与えます。"
 
 #: PART2.md:132
 msgid ""
 "Any observable we are interested in can then be estimated using a weighted "
 "average on the $N$ frames from our biased trajectory as"
 msgstr ""
+"求めたい任意の Observable は、Bias 付き Trajectory の $N$ Frame の Weighted Average "
+"として推定できます。"
 
 #: PART2.md:140
 msgid ""
@@ -205,6 +232,8 @@ msgid ""
 "evaluating the efficiency of our reweighting scheme is to use the Kish "
 "effective sample size,"
 msgstr ""
+"ただし推定の質は、Bias がある Ensemble とない Ensemble の Phase Space の重なりに依存します。Reweighting"
+" 効率の一般的な評価には、Kish Effective Sample Size を使います。"
 
 #: PART2.md:148
 msgid ""
@@ -215,9 +244,14 @@ msgid ""
 "$N_\\text{Kish}$, the better the statistics, with a maximum value at "
 "$N_\\text{Kish} = N$ for trivial reweighting (e.g. for a constant bias)."
 msgstr ""
+"$N_\\text{Kish}$ は、Weighted Average に寄与する実効的な Sample Frame 数と解釈できます。最悪の場合は "
+"$N_\\text{Kish} = 1$ で、1 Frame のみが非0の重みを持つため、$\\langle \\mathcal{O} "
+"\\rangle_{p_0}$ の推定は非常に悪くなります。$N_\\text{Kish}$ が高いほど統計はよくなり、自明な "
+"Reweighting（一定 Bias など）では最大値 $N_\\text{Kish} = N$ になります。"
 
 #: PART2.md:152
 msgid ""
 "Compute the Kish effective sample size corresponding to reweighting the "
 "simulation to the original force field."
 msgstr ""
+"元の Force Field への Reweighting に対応する Kish Effective Sample Size を計算してください。"

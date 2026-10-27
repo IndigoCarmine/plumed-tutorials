@@ -26,17 +26,19 @@ msgstr "前提条件"
 
 #: NAVIGATION.md:7
 msgid "[GROMACS basic usage](http://www.mdtutorials.com/gmx/)"
-msgstr ""
+msgstr "[GROMACS の基本操作](http://www.mdtutorials.com/gmx/)"
 
 #: NAVIGATION.md:8
 msgid ""
 "[PLUMED basic syntax and analysis](https://www.plumed-"
 "tutorials.org/lessons/21/001/data/NAVIGATION.html)"
 msgstr ""
+"[PLUMED の基本構文と解析](https://www.plumed-"
+"tutorials.org/lessons/21/001/data/NAVIGATION.html)"
 
 #: NAVIGATION.md:9
 msgid "Python notebooks"
-msgstr ""
+msgstr "Python Notebook"
 
 #. mermaid node label
 #: NAVIGATION.md:13
@@ -46,32 +48,32 @@ msgstr "はじめに"
 #. mermaid node label
 #: NAVIGATION.md:14
 msgid "Metadynamics tutorial"
-msgstr ""
+msgstr "Metadynamics Tutorial"
 
 #. mermaid node label
 #: NAVIGATION.md:15
 msgid "Part 1: 2D Metadynamics"
-msgstr ""
+msgstr "Part 1：2次元 Metadynamics"
 
 #. mermaid node label
 #: NAVIGATION.md:16
 msgid "Part 2: Bias design"
-msgstr ""
+msgstr "Part 2：Bias の設計"
 
 #. mermaid node label
 #: NAVIGATION.md:17
 msgid "Part 3: Application"
-msgstr ""
+msgstr "Part 3：応用"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:22
 msgid "Introduction to the tutorial"
-msgstr ""
+msgstr "Tutorial の導入"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:23
 msgid "If you are new to Metadynamics, you should complete this masterclass"
-msgstr ""
+msgstr "Metadynamics が初めての場合は、この Masterclass を完了してください。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:24
@@ -79,8 +81,9 @@ msgid ""
 "Part 1: Use 2D Metadynamics to characterize the free-energy barriers for "
 "magnesium-phosphate binding"
 msgstr ""
+"Part 1：2次元 Metadynamics による Magnesium-Phosphate 結合の自由エネルギー Barrier の評価"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:25
 msgid "Part 2: Design a barrier-flattening potential and test it"
-msgstr ""
+msgstr "Part 2：Barrier を平坦化する Potential の設計とテスト"
