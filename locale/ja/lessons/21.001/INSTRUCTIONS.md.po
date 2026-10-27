@@ -29,6 +29,8 @@ msgid ""
 "to illustrate how PLUMED can be used to analyze pre-existing molecular "
 "dynamics trajectories."
 msgstr ""
+"この Masterclass の目的は、PLUMED の構文を紹介し、既存の Molecular Dynamics Trajectory の解析に "
+"PLUMED を使う方法を示すことです。"
 
 #: INSTRUCTIONS.md:11
 msgid "Objectives"
@@ -42,29 +44,29 @@ msgstr "この Masterclass を終えると、次のことができるように�
 msgid ""
 "Write a simple PLUMED input file and use it with the driver utility to "
 "analyze a trajectory."
-msgstr ""
+msgstr "簡単な PLUMED 入力を作成し、driver で Trajectory を解析する。"
 
 #: INSTRUCTIONS.md:16
 msgid "Use advanced selection tools with MOLINFO."
-msgstr ""
+msgstr "MOLINFO の高度な選択ツールを使う。"
 
 #: INSTRUCTIONS.md:17
 msgid "Define and use virtual atoms, such as CENTER."
-msgstr ""
+msgstr "CENTER などの Virtual Atom を定義して使う。"
 
 #: INSTRUCTIONS.md:18
 msgid ""
 "Deal with discontinuities in the trajectory due to periodic boundary "
 "conditions."
-msgstr ""
+msgstr "Periodic Boundary Conditions による Trajectory の不連続を扱う。"
 
 #: INSTRUCTIONS.md:19
 msgid "Use RMSD to measure protein conformational changes."
-msgstr ""
+msgstr "RMSD でタンパク質の Conformational Change を測定する。"
 
 #: INSTRUCTIONS.md:20
 msgid "Align the system to a template with FIT_TO_TEMPLATE."
-msgstr ""
+msgstr "FIT_TO_TEMPLATE で系を Template に重ね合わせる。"
 
 #: INSTRUCTIONS.md:22
 msgid "Setting up the software"
@@ -79,38 +81,40 @@ msgid ""
 "We will use [conda](https://docs.conda.io/en/latest/) to install all the "
 "software needed in this Masterclass:"
 msgstr ""
+"[conda](https://docs.conda.io/en/latest/) で、この Masterclass "
+"に必要なソフトウェアをすべてインストールします。"
 
 #: INSTRUCTIONS.md:27
 msgid "[PLUMED](https://www.plumed.org) version 2.7.0"
-msgstr ""
+msgstr "[PLUMED](https://www.plumed.org) バージョン2.7.0"
 
 #: INSTRUCTIONS.md:28
 msgid "[NumPy](https://numpy.org)"
-msgstr ""
+msgstr "[NumPy](https://numpy.org)"
 
 #: INSTRUCTIONS.md:29
 msgid "[pandas](https://pandas.pydata.org)"
-msgstr ""
+msgstr "[pandas](https://pandas.pydata.org)"
 
 #: INSTRUCTIONS.md:30
 msgid "[matplotlib](https://matplotlib.org)"
-msgstr ""
+msgstr "[matplotlib](https://matplotlib.org)"
 
 #: INSTRUCTIONS.md:31
 msgid "[jupyter](https://jupyter.org/index.html)"
-msgstr ""
+msgstr "[jupyter](https://jupyter.org/index.html)"
 
 #: INSTRUCTIONS.md:32
 msgid "[MDTraj](https://mdtraj.org/1.9.4/index.html)"
-msgstr ""
+msgstr "[MDTraj](https://mdtraj.org/1.9.4/index.html)"
 
 #: INSTRUCTIONS.md:33
 msgid "[MDAnalysis](https://www.mdanalysis.org)"
-msgstr ""
+msgstr "[MDAnalysis](https://www.mdanalysis.org)"
 
 #: INSTRUCTIONS.md:34
 msgid "[Git](https://git-scm.com)"
-msgstr ""
+msgstr "[Git](https://git-scm.com)"
 
 #: INSTRUCTIONS.md:36
 msgid "First, make sure conda is installed by typing:"
@@ -123,10 +127,12 @@ msgid ""
 "conda on your machine. Alternatively, if you use the "
 "[Homebrew](https://brew.sh) package manager, you can install conda with:"
 msgstr ""
+"コマンドが見つからない場合は、[こちらの手順](https://docs.conda.io/en/latest/miniconda.html) で "
+"conda をインストールしてください。[Homebrew](https://brew.sh) を使っている場合は、次のようにもインストールできます。"
 
 #: INSTRUCTIONS.md:50
 msgid "Now we can create a conda environment for the PLUMED Masterclass:"
-msgstr ""
+msgstr "次に PLUMED Masterclass 用の conda 環境を作成します。"
 
 #: INSTRUCTIONS.md:56
 msgid "and activate it with:"
@@ -135,17 +141,17 @@ msgstr "次のコマンドで有効化する。"
 #: INSTRUCTIONS.md:62
 msgid ""
 "Finally, we can proceed with the installation of the required software:"
-msgstr ""
+msgstr "最後に必要なソフトウェアをインストールします。"
 
 #: INSTRUCTIONS.md:68
 msgid ""
 "__IMPORTANT: Do not forget to activate the `plumed-masterclass` environment "
 "every time you open a new terminal/shell.__"
-msgstr ""
+msgstr "__重要：新しい Terminal/Shell を開くたびに、`plumed-masterclass` 環境を有効にしてください。__"
 
 #: INSTRUCTIONS.md:70
 msgid "PLUMED overview"
-msgstr ""
+msgstr "PLUMED の概要"
 
 #: INSTRUCTIONS.md:72
 msgid ""
@@ -157,12 +163,15 @@ msgid ""
 "want to use the code in this way, you can run the PLUMED executable by "
 "issuing the command:"
 msgstr ""
+"PLUMED は、比較的単純で詳しく文書化された Interface を追加することで、多くの Molecular Dynamics (MD) "
+"コードに組み込めるライブラリです。組み込むと、MD 中にさまざまな解析を On-the-fly に行い、Sampling に Bias "
+"を加えられます。また、Trajectory 解析用の独立したコードとしても使えます。その場合は、次のコマンドで PLUMED を実行します。"
 
 #: INSTRUCTIONS.md:78
 msgid ""
 "Let's start by getting a feel for the range of calculations that PLUMED can "
 "do. Issue the following command now:"
-msgstr ""
+msgstr "まず PLUMED でできる計算の範囲を把握しましょう。次のコマンドを実行してください。"
 
 #: INSTRUCTIONS.md:84
 msgid ""
@@ -173,12 +182,15 @@ msgid ""
 "the driver command line tool. Let's look at the options of PLUMED driver by "
 "issuing the following command:"
 msgstr ""
+"出力には PLUMED に含まれるツールが一覧表示されます。MD コードへの Patch、Metadynamics "
+"の後処理、マニュアルの作成などのコマンドがあります。この講義では Trajectory の解析に使うため、driver "
+"コマンドラインツールを学びます。次のコマンドで PLUMED driver のオプションを確認しましょう。"
 
 #: INSTRUCTIONS.md:90
 msgid ""
 "As you can see we can do a number of things with driver. For all of these "
 "options, however, we are going to need to write a PLUMED input file."
-msgstr ""
+msgstr "driver では多くのことができます。ただし、どのオプションにも PLUMED 入力ファイルが必要です。"
 
 #: INSTRUCTIONS.md:92
 msgid "Resources"
@@ -190,23 +202,25 @@ msgid ""
 "on [GitHub](https://github.com/plumed/masterclass-21-1). You can clone this "
 "repository locally on your machine using the following command:"
 msgstr ""
+"演習に必要なデータは [GitHub](https://github.com/plumed/masterclass-21-1) "
+"にあります。次のコマンドでリポジトリを自分のマシンに Clone できます。"
 
 #: INSTRUCTIONS.md:101
 msgid ""
 "The MD trajectory that we will analyze can be found in the folder called "
 "`data`. This folder contains the following files:"
-msgstr ""
+msgstr "解析する MD Trajectory は `data` にあります。次のファイルが含まれます。"
 
 #: INSTRUCTIONS.md:103
 msgid ""
 "`5-HT1B.pdb`: reference conformation of the 5-HT1B receptor with the "
 "serotonin ligand."
-msgstr ""
+msgstr "`5-HT1B.pdb`：Serotonin Ligand を含む 5-HT1B Receptor の参照 Conformation。"
 
 #: INSTRUCTIONS.md:104
 msgid ""
 "`5-HT1B.xtc`: trajectory of the 5-HT1B receptor with the serotonin ligand."
-msgstr ""
+msgstr "`5-HT1B.xtc`：Serotonin Ligand を含む 5-HT1B Receptor の Trajectory。"
 
 #: INSTRUCTIONS.md:106
 msgid ""
@@ -215,22 +229,26 @@ msgid ""
 " will also find the complete solution to all exercises in the notebook "
 "`solution.ipynb`."
 msgstr ""
+"PLUMED 出力解析のひな形となる Jupyter Notebook は `notebooks` にあります。全演習の完全な解答 "
+"`solution.ipynb` も同じ場所にあります。"
 
 #: INSTRUCTIONS.md:108
 msgid "Please note that:"
-msgstr ""
+msgstr "次の点に注意してください。"
 
 #: INSTRUCTIONS.md:110
 msgid ""
 "This is a simulation of a membrane receptor, but water, lipids, and ions "
 "have been stripped out of the trajectory."
-msgstr ""
+msgstr "Membrane Receptor のシミュレーションですが、Trajectory から水・Lipid・Ion は除去されています。"
 
 #: INSTRUCTIONS.md:111
 msgid ""
 "This is the raw trajectory generated by [GROMACS](https://www.gromacs.org). "
 "Therefore it is discontinuous due to periodic boundaries conditions (PBCs)."
 msgstr ""
+"[GROMACS](https://www.gromacs.org) が生成した未処理の Trajectory なので、Periodic "
+"Boundary Conditions (PBCs) による不連続があります。"
 
 #: INSTRUCTIONS.md:112
 msgid ""
@@ -239,6 +257,9 @@ msgid ""
 "students can rely on the solution notebook provided in the "
 "[GitHub](https://github.com/plumed/masterclass-21-1) repository."
 msgstr ""
+"下記の PLUMED "
+"入力のひな形を完成させ、自力で演習を解いてください。困った場合は、[GitHub](https://github.com/plumed/masterclass-21-1)"
+" の解答 Notebook を参考にできます。"
 
 #: INSTRUCTIONS.md:114
 msgid ""
@@ -246,6 +267,8 @@ msgid ""
 "sub-directory (i.e. Exercise-1, Exercise-2, ...), which you can create "
 "inside the root directory `masterclass-21-1`."
 msgstr ""
+"整理しやすいよう、`masterclass-21-1` の下に Exercise-1、Exercise-2 "
+"などのサブディレクトリを作り、演習ごとに分けて実行することを推奨します。"
 
 #: INSTRUCTIONS.md:116
 msgid "_All the exercises have been tested with PLUMED version 2.7.0._"
@@ -253,7 +276,7 @@ msgstr "_すべての演習は PLUMED 2.7.0 で動作確認されている。_"
 
 #: INSTRUCTIONS.md:118
 msgid "A sample PLUMED input file"
-msgstr ""
+msgstr "PLUMED 入力の例"
 
 #: INSTRUCTIONS.md:120
 msgid ""
@@ -265,6 +288,10 @@ msgid ""
 " tool. In both cases, you should create an input file with a specific PLUMED"
 " syntax. Have a look at the sample input file below:"
 msgstr ""
+"PLUMED の主な目的は、Collective Variables (CVs) の計算です。CV は系の複雑な記述子で、タンパク質の "
+"Conformational Change や化学反応を記述できます。Molecular Dynamics 中に _On-the-fly_ "
+"に計算することも、後処理ツールとして既存の Trajectory から _事後的に_ 計算することもできます。いずれも PLUMED "
+"固有の構文で入力を作成します。次の例を見てください。"
 
 #: INSTRUCTIONS.md:146
 msgid ""
@@ -282,6 +309,12 @@ msgid ""
 "`STRIDE` keyword and are only calculated when requested. That is, `d` will "
 "be computed every 10 frames, and `phi1` and `phi2` every 100 frames."
 msgstr ""
+"上の入力の各行は Action を定義します。この例では、距離や Dihedral Angle の計算、値のファイル出力を行います。各 Action "
+"は複数の Keyword に対応し、値を指定できます。緑色の Action 名をクリックすると、各 Keyword "
+"を詳しく説明したマニュアルに移動します。`STRIDE` に対応する Action は処理頻度を決めるもので、`STRIDE` "
+"の既定値は常に1です。上の例で `STRIDE` を省略すると、`COLVAR` は解析する Trajectory の全 Frame "
+"で出力されます。それ以外の DISTANCE と TORSION は `STRIDE` に対応せず、要求時だけ計算されます。したがって `d` は10 "
+"Frame ごと、`phi1` と `phi2` は100 Frame ごとに計算されます。"
 
 #: INSTRUCTIONS.md:148
 msgid ""
@@ -290,6 +323,8 @@ msgid ""
 "actions, such as the PRINT command. A lists of atoms should be provided as "
 "comma separated numbers, with no space."
 msgstr ""
+"変数には名前（上の例では `d`、`phi1`、`phi2`）を付け、PRINT など後続の Action "
+"から参照します。原子の一覧は空白を入れず、番号を Comma で区切って指定します。"
 
 #: INSTRUCTIONS.md:150
 msgid ""
@@ -300,41 +335,45 @@ msgid ""
 "variables](https://www.plumed.org/doc-master/user-"
 "doc/html/colvarintro.html)."
 msgstr ""
+"構文の詳細はマニュアルの [syntax](https://www.plumed.org/doc-master/user-"
+"doc/html/_syntax.html) を参照してください。対応する全 Collective Variables "
+"のドキュメントは、[Collective Variables の紹介ページ](https://www.plumed.org/doc-"
+"master/user-doc/html/colvarintro.html) にあります。"
 
 #: INSTRUCTIONS.md:152
 msgid "The PLUMED internal units"
-msgstr ""
+msgstr "PLUMED の内部単位"
 
 #: INSTRUCTIONS.md:154
 msgid ""
 "By default the PLUMED inputs and outputs quantities in the following units:"
-msgstr ""
+msgstr "既定では、PLUMED の入出力量は次の単位を使います。"
 
 #: INSTRUCTIONS.md:156
 msgid "Length: nanometers"
-msgstr ""
+msgstr "長さ：Nanometer"
 
 #: INSTRUCTIONS.md:157
 msgid "Energy: kJ/mol"
-msgstr ""
+msgstr "エネルギー：kJ/mol"
 
 #: INSTRUCTIONS.md:158
 msgid "Time: picoseconds"
-msgstr ""
+msgstr "時間：Picosecond"
 
 #: INSTRUCTIONS.md:159
 msgid "Mass: amu"
-msgstr ""
+msgstr "質量：amu"
 
 #: INSTRUCTIONS.md:160
 msgid "Charge: e"
-msgstr ""
+msgstr "電荷：e"
 
 #: INSTRUCTIONS.md:162
 msgid ""
 "If you want to change these units, you can do this using the \\ref UNITS "
 "keyword."
-msgstr ""
+msgstr "単位を変更するには、\\ref UNITS を使います。"
 
 #: INSTRUCTIONS.md:164
 msgid "Exercises"
@@ -342,7 +381,7 @@ msgstr "演習"
 
 #: INSTRUCTIONS.md:166
 msgid "Exercise 1: Computing and printing simple collective variables"
-msgstr ""
+msgstr "演習1：簡単な Collective Variables の計算と出力"
 
 #: INSTRUCTIONS.md:168
 msgid ""
@@ -350,12 +389,14 @@ msgid ""
 "variables on a pre-calculated MD trajectory. To analyze the trajectory "
 "provided here, we will:"
 msgstr ""
+"この演習では、既存の MD Trajectory で Collective Variables を計算・出力する方法を学びます。付属の "
+"Trajectory を解析するため、次を行います。"
 
 #: INSTRUCTIONS.md:169
 msgid ""
 "create a PLUMED input file with a text editor (typically called "
 "`plumed.dat`);"
-msgstr ""
+msgstr "Text Editor で PLUMED 入力ファイル（通常 `plumed.dat`）を作成する。"
 
 #: INSTRUCTIONS.md:170
 msgid "run the PLUMED driver utility;"
@@ -371,12 +412,14 @@ msgid ""
 "[VMD](https://www.ks.uiuc.edu/Research/vmd/) (always a good idea!). For "
 "example, the trajectory `5-HT1B.xtc` can be visualized with the command:"
 msgstr ""
+"[VMD](https://www.ks.uiuc.edu/Research/vmd/) での Trajectory 可視化も推奨します。例えば "
+"`5-HT1B.xtc` は次のコマンドで表示できます。"
 
 #: INSTRUCTIONS.md:179
 msgid ""
 "When you try this, you will notice that this trajectory is discontinuous due"
 " to PBCs. We need to keep this in mind in our analysis."
-msgstr ""
+msgstr "試すと、PBC による不連続があることに気付きます。解析でも考慮する必要があります。"
 
 #: INSTRUCTIONS.md:181
 msgid "Let's now prepare a PLUMED input file to calculate:"
@@ -386,11 +429,11 @@ msgstr "次の量を計算するための PLUMED 入力ファイルを準備す�
 msgid ""
 "the gyration radius of the CA protein atoms (GYRATION) of the first 40 "
 "N-terminal residues;"
-msgstr ""
+msgstr "N-terminal 側40残基の CA 原子の Radius of Gyration (GYRATION)。"
 
 #: INSTRUCTIONS.md:183
 msgid "the distance (DISTANCE) between CA atoms of residues 1 and 40."
-msgstr ""
+msgstr "残基1と40の CA 原子間距離 (DISTANCE)。"
 
 #: INSTRUCTIONS.md:185
 msgid ""
@@ -403,12 +446,15 @@ msgid ""
 "`5-HT1B.pdb`. The atoms indexes are contained in the second column. Keep in "
 "mind that numbering scheme in PLUMED starts from 1."
 msgstr ""
+"5-HT1B Receptor の最初の40残基は柔軟な細胞外 Loop で、その MD 中の Dynamics を調べます。下の "
+"`plumed.dat` をひな形に使ってください。強調された __FILL__ は置き換える必要があります。入力する Atom Index は "
+"`5-HT1B.pdb` の第2列で確認できます。PLUMED の番号は1から始まることに注意してください。"
 
 #: INSTRUCTIONS.md:199
 msgid ""
 "Once your `plumed.dat` file is complete, you can run the PLUMED driver as "
 "follows:"
-msgstr ""
+msgstr "`plumed.dat` が完成したら、次のように PLUMED driver を実行します。"
 
 #: INSTRUCTIONS.md:205
 msgid ""
@@ -417,23 +463,25 @@ msgid ""
 "it will execute. Please take your time to inspect the log file and check if "
 "PLUMED is actually doing what you intend to do."
 msgstr ""
+"Terminal をスクロールして PLUMED の Log を読んでください。読み込む入力と実行する Action "
+"について、多くの情報が表示されます。時間をかけて Log を確認し、意図した処理になっているか確かめてください。"
 
 #: INSTRUCTIONS.md:207
 msgid ""
 "The command above will create a `COLVAR` file. The first lines should be "
 "identical to these ones:"
-msgstr ""
+msgstr "上のコマンドは `COLVAR` を生成します。先頭は次と同じになるはずです。"
 
 #: INSTRUCTIONS.md:219
 msgid ""
 "Notice that the first line informs you about the content of each column."
-msgstr ""
+msgstr "第1行は各列の内容を示します。"
 
 #: INSTRUCTIONS.md:221
 msgid ""
 "__In case you obtain different numbers, check your input, you might have "
 "made some mistakes!__"
-msgstr ""
+msgstr "__数値が異なる場合は、入力に間違いがないか確認してください。__"
 
 #: INSTRUCTIONS.md:223
 msgid ""
@@ -441,12 +489,14 @@ msgid ""
 "pandas.ipynb` provided in the folder `notebooks`. You can use the following "
 "command to open the notebook:"
 msgstr ""
+"この `COLVAR` は、`notebooks` 内の Jupyter Notebook `plumed-pandas.ipynb` "
+"で解析できます。次のコマンドで開けます。"
 
 #: INSTRUCTIONS.md:230
 msgid ""
 "This notebook allows you to import the `COLVAR` file produced by PLUMED and "
 "to generate the desired figures using the `matplotlib` library:"
-msgstr ""
+msgstr "Notebook で PLUMED の `COLVAR` を読み込み、`matplotlib` で必要な図を生成できます。"
 
 #: INSTRUCTIONS.md:259
 msgid ""
@@ -455,10 +505,12 @@ msgid ""
 "quite correlated? To answer to the latter question, you can inspect the plot"
 " of one CV against the other."
 msgstr ""
+"5-HT1B Receptor のこの領域の Dynamics から何がわかりますか？2つの CV "
+"はそれぞれ有用な情報を与えますか、それとも強く相関していますか？後者には、片方の CV に対してもう片方を描画すると答えられます。"
 
 #: INSTRUCTIONS.md:261
 msgid "Exercise 2: Mastering advanced selection tools"
-msgstr ""
+msgstr "演習2：高度な選択ツールの習得"
 
 #: INSTRUCTIONS.md:263
 msgid ""
@@ -467,6 +519,8 @@ msgid ""
 "reference PDB file. This command is used to provide information on the "
 "molecules that are present in your system."
 msgstr ""
+"PLUMED には、特定の性質を持つ原子を選ぶ Shortcut があります。参照 PDB とともに MOLINFO Action "
+"を指定してください。系に含まれる分子の情報を与えるコマンドです。"
 
 #: INSTRUCTIONS.md:265
 msgid ""
@@ -476,34 +530,39 @@ msgid ""
 "$\\phi$ is defined by these atoms: C(i-1),N(i),CA(i),C(i) as shown in the "
 "figure below:"
 msgstr ""
+"この機能で 5-HT1B Receptor の残基2の Backbone Dihedral Angle $\\phi$ (phi) "
+"を計算しましょう。この CV は TORSION と4原子で定義します。残基 `i` の Dihedral $\\phi$ は、下図の "
+"C(i-1),N(i),CA(i),C(i) で定義されます。"
 
 #: INSTRUCTIONS.md:267
 msgid ""
 "![\"Definition of backbone dihedral angles, with dihedral phi highlighted in"
 " red.\"](figures/masterclass-21-1-dih-fig.png)"
 msgstr ""
+"![Backbone Dihedral Angle の定義。phi を赤色で表示。](figures/masterclass-21-1-dih-"
+"fig.png)"
 
 #: INSTRUCTIONS.md:269
 msgid ""
 "After consulting the manual and inspecting `5-HT1B.pdb`, let's define the "
 "dihedral angle $\\phi$ of residue 2 in two different ways:"
-msgstr ""
+msgstr "マニュアルと `5-HT1B.pdb` を確認し、残基2の Dihedral Angle $\\phi$ を2通りで定義してください。"
 
 #: INSTRUCTIONS.md:271
 msgid "specifying an explicit list of 4 atoms (`t1`)."
-msgstr ""
+msgstr "4原子の一覧を明示する方法 (`t1`)。"
 
 #: INSTRUCTIONS.md:272
 msgid ""
 "using the \\ref MOLINFO shortcut to select quadruplets for dihedral angles "
 "(`t2`);"
-msgstr ""
+msgstr "\\ref MOLINFO の Shortcut で Dihedral Angle の4原子を選ぶ方法 (`t2`)。"
 
 #: INSTRUCTIONS.md:288
 msgid ""
 "After completing the PLUMED input file above, let's use it to analyze the "
 "trajectory `5-HT1B.xtc` using the driver tool:"
-msgstr ""
+msgstr "入力を完成させ、driver で `5-HT1B.xtc` を解析してください。"
 
 #: INSTRUCTIONS.md:294
 msgid ""
@@ -512,6 +571,8 @@ msgid ""
 "file above and written in the `COLVAR` file. If you executed this exercise "
 "correctly, these two trajectories should be identical."
 msgstr ""
+"演習1の Jupyter Notebook を変更し、上の入力で計算して `COLVAR` に出力した2つの CV の Trajectory "
+"を可視化できます。正しく実行できていれば、2つは同じになるはずです。"
 
 #: INSTRUCTIONS.md:297
 msgid ""
@@ -525,16 +586,21 @@ msgid ""
 "[MDTraj](https://mdtraj.org/1.9.4/index.html) documentation if you are not "
 "familiar with these libraries and their syntax."
 msgstr ""
+"MOLINFO の2つ目の例として、[MDAnalysis](https://www.mdanalysis.org) と "
+"[MDTraj](https://mdtraj.org/1.9.4/index.html) の高度な原子選択を使います。演習1をやり直し、今度は "
+"MOLINFO の Shortcut で CA "
+"原子を選んでください。使用するライブラリの構文で次の入力を完成させます。慣れていなければ、[MDAnalysis](https://www.mdanalysis.org)"
+" と [MDTraj](https://mdtraj.org/1.9.4/index.html) のドキュメントを参照してください。"
 
 #: INSTRUCTIONS.md:316
 msgid ""
 "Now, you can compare the `COLVAR` file obtained with the one you obtained "
 "when you completed exercise 1: they should be identical!"
-msgstr ""
+msgstr "得られた `COLVAR` を演習1と比較してください。同じになるはずです！"
 
 #: INSTRUCTIONS.md:318
 msgid "Exercise 3: Using virtual atoms"
-msgstr ""
+msgstr "演習3：Virtual Atom の使用"
 
 #: INSTRUCTIONS.md:320
 msgid ""
@@ -544,6 +610,8 @@ msgid ""
 "atoms. For example you might want to use the center of mass (COM) or the "
 "geometric center (CENTER) of a group of atoms."
 msgstr ""
+"CV の計算で、原子の位置を直接使わず、ほかの原子群の位置から定める Virtual Atom を使いたい場合があります。例えば原子群の Center "
+"of Mass (COM) や Geometric Center (CENTER) です。"
 
 #: INSTRUCTIONS.md:322
 msgid ""
@@ -556,30 +624,34 @@ msgid ""
 " you will find the two glycans defined after the end of the protein, i.e. "
 "after residue SER-390. These two glycans have different length:"
 msgstr ""
+"この演習では Virtual Atom を指定し、CV に使う方法を学びます。Serotonin Ligand（`5-HT1B.pdb` の残基 "
+"`LIG`）の Geometric Center と、N24、N32 の2つの Glycan の Geometric Center "
+"の距離を計算します。Glycan は、タンパク質の特定のアミノ酸に結合することがある糖質の Polymer です。`5-HT1B.pdb` "
+"では、タンパク質の末尾 SER-390 の後に2つの Glycan があります。長さは異なります。"
 
 #: INSTRUCTIONS.md:324
 msgid ""
 "the glycan attached at position N24 ranges from residue BGLC-1 to AFUC-9"
-msgstr ""
+msgstr "N24 に付く Glycan は BGLC-1〜AFUC-9。"
 
 #: INSTRUCTIONS.md:325
 msgid ""
 "the glycan attached at position N32 ranges from residue BGLC-1 to AFUC-10"
-msgstr ""
+msgstr "N32 に付く Glycan は BGLC-1〜AFUC-10。"
 
 #: INSTRUCTIONS.md:327
 msgid ""
 "Let's complete the PLUMED input file below. You can use the advanced "
 "selection tools learned in exercise 2 to specify the atoms belonging to the "
 "ligand and to the two glycans:"
-msgstr ""
+msgstr "次の入力を完成させてください。演習2で学んだ選択ツールで、Ligand と2つの Glycan の原子を指定できます。"
 
 #: INSTRUCTIONS.md:347
 msgid ""
 "Once you have prepared a PLUMED input file containing the above "
 "instructions, you can execute it on the trajectory `5-HT1B.xtc` by making "
 "use of the following command:"
-msgstr ""
+msgstr "上の指示を含む入力を用意したら、次のコマンドで `5-HT1B.xtc` に対して実行します。"
 
 #: INSTRUCTIONS.md:353
 msgid ""
@@ -587,10 +659,11 @@ msgid ""
 "of the two CVs. Can you say if the ligand is overall staying closer to the "
 "first or second glycan?"
 msgstr ""
+"2つの CV の時系列を描画して出力を解析しましょう。Ligand は全体として、1つ目と2つ目のどちらの Glycan に近いでしょうか？"
 
 #: INSTRUCTIONS.md:355
 msgid "Exercise 4: Fixing PBCs discontinuities"
-msgstr ""
+msgstr "演習4：PBC による不連続の修正"
 
 #: INSTRUCTIONS.md:357
 msgid ""
@@ -602,6 +675,9 @@ msgid ""
 "calculation of the CV. In this exercise, you will learn how to use this "
 "action."
 msgstr ""
+"前述のとおり、`5-HT1B.xtc` は GROMACS が生成した未処理の Trajectory で、通常 PBC "
+"による不連続があります。CENTER や DISTANCE など、ここまでの多くの CV は自動的に処理しますが、ほかの CV は計算前に "
+"WHOLEMOLECULES で修正する必要があります。この演習で使い方を学びます。"
 
 #: INSTRUCTIONS.md:359
 msgid ""
@@ -611,22 +687,24 @@ msgid ""
 "course of the MD simulations. In order to do so, we can use the following 3 "
 "CVs:"
 msgstr ""
+"5-HT1B Receptor の N-terminal 側40残基は非常に柔軟でした。この演習では、その部分の MD 中の Secondary "
+"Structure 含有量（Alpha-helix、Beta-sheet）を推定します。次の3つの CV が使えます。"
 
 #: INSTRUCTIONS.md:363
 msgid "ALPHARMSD to measure the alpha-helical content of a protein structure."
-msgstr ""
+msgstr "ALPHARMSD：タンパク質構造の Alpha-helix 含有量を測定。"
 
 #: INSTRUCTIONS.md:364
 msgid "PARABETARMSD to measure the parallel beta-sheet content."
-msgstr ""
+msgstr "PARABETARMSD：Parallel Beta-sheet 含有量を測定。"
 
 #: INSTRUCTIONS.md:365
 msgid "ANTIBETARMSD to measure the antiparallel beta-sheet content."
-msgstr ""
+msgstr "ANTIBETARMSD：Antiparallel Beta-sheet 含有量を測定。"
 
 #: INSTRUCTIONS.md:367
 msgid "Let's first try to complete the following PLUMED input file:"
-msgstr ""
+msgstr "まず次の入力を完成させてください。"
 
 #: INSTRUCTIONS.md:387
 msgid ""
@@ -634,10 +712,12 @@ msgid ""
 "40 N-terminal residues tend to populate more alpha-helical or beta-sheet "
 "conformations?"
 msgstr ""
+"これで `5-HT1B.xtc` を解析してください。N-terminal 側40残基は Alpha-helix と Beta-sheet "
+"のどちらを多く取るでしょうか？"
 
 #: INSTRUCTIONS.md:389
 msgid "Exercise 5: Using RMSD to measure conformational changes"
-msgstr ""
+msgstr "演習5：RMSD による Conformational Change の測定"
 
 #: INSTRUCTIONS.md:391
 msgid ""
@@ -648,34 +728,36 @@ msgid ""
 "this CV, you need to keep in mind that you must specify in the PLUMED input "
 "a PDB file in which you mark the atoms that you want to use to:"
 msgstr ""
+"前述のとおり、5-HT1B Receptor の N-terminal 側40残基は柔軟ですが、残りは MD 中も比較的安定です。ここでは RMSD "
+"で参照構造からのずれを測る方法を学びます。この CV には、次の用途の原子を示した PDB を PLUMED 入力で指定する必要があります。"
 
 #: INSTRUCTIONS.md:393
 msgid "optimally align a conformation to the reference;"
-msgstr ""
+msgstr "Conformation を参照に最適に重ね合わせる。"
 
 #: INSTRUCTIONS.md:394
 msgid ""
 "calculate the displacement from the reference conformation after optimal "
 "alignment."
-msgstr ""
+msgstr "最適な重ね合わせ後に、参照 Conformation からの変位を計算する。"
 
 #: INSTRUCTIONS.md:396
 msgid ""
 "Keep in mind that these two sets of atoms might be different! In fact, the "
 "objective of this exercise is to calculate:"
-msgstr ""
+msgstr "この2つの原子集合は異なっていてもかまいません。この演習では次を計算します。"
 
 #: INSTRUCTIONS.md:398
 msgid ""
 "the RMSD of the backbone atoms of the first 40 N-terminal residues after "
 "aligning the system on the backbone atoms of residues 41 to 390;"
-msgstr ""
+msgstr "残基41〜390の Backbone 原子で重ね合わせた後の、N-terminal 側40残基の Backbone 原子の RMSD。"
 
 #: INSTRUCTIONS.md:399
 msgid ""
 "the RMSD of the backbone atoms of residues 41 to 390 after aligning the "
 "system on the same set of atoms."
-msgstr ""
+msgstr "残基41〜390の Backbone 原子で重ね合わせた後の、同じ原子集合の RMSD。"
 
 #: INSTRUCTIONS.md:401
 msgid ""
@@ -683,23 +765,25 @@ msgid ""
 " from the provided PDB file `5-HT1B.pdb`. Please consult the manual for the "
 "RMSD action, in order to:"
 msgstr ""
+"2つの RMSD CV 用の PDB は、付属の `5-HT1B.pdb` を基に作れます。RMSD Action "
+"のマニュアルを調べ、次を行ってください。"
 
 #: INSTRUCTIONS.md:403
 msgid ""
 "create the PLUMED input file to calculate the two CVs defined above (use "
 "`TYPE=OPTIMAL`);"
-msgstr ""
+msgstr "上記2つの CV を計算する入力を作成する（`TYPE=OPTIMAL` を使う）。"
 
 #: INSTRUCTIONS.md:404
 msgid ""
 "learn how to mark atoms for alignment and displacement in the PDB files;"
-msgstr ""
+msgstr "PDB で重ね合わせ用・変位計算用の原子を指定する方法を学ぶ。"
 
 #: INSTRUCTIONS.md:405
 msgid ""
 "check whether PBCs are automatically taken care of or you need to use the "
 "WHOLEMOLECULES action."
-msgstr ""
+msgstr "PBC が自動処理されるか、WHOLEMOLECULES が必要か確認する。"
 
 #: INSTRUCTIONS.md:407
 msgid ""
@@ -707,10 +791,12 @@ msgid ""
 " the receptor is more flexible and deviates more from the starting "
 "conformation during the course of the simulation?"
 msgstr ""
+"driver で `5-HT1B.xtc` を解析すると、Receptor のどの部分が柔軟で、初期 Conformation "
+"から大きくずれるといえますか？"
 
 #: INSTRUCTIONS.md:409
 msgid "Exercise 6: Aligning conformations to a template"
-msgstr ""
+msgstr "演習6：Template への Conformation の重ね合わせ"
 
 #: INSTRUCTIONS.md:411
 msgid ""
@@ -724,14 +810,18 @@ msgid ""
 "ligand to measure how far it is from the membrane bilayer. However, during "
 "the simulation:"
 msgstr ""
+"PBC による不連続を修正後、MD Trajectory を参照 Conformation に重ね合わせる方法を学びます。目的は、Lipid "
+"Bilayer に対する Serotonin Ligand の垂直位置の計算です。Membrane Protein の MD では通常、Lipid "
+"Bilayer が xy 平面に平行になるよう初期構造を配置します（`5-HT1B.pdb` を見てください）。そのため、初めは Ligand の "
+"Geometric Center の `z` 座標などで Bilayer からの距離を測れます。ただしシミュレーション中には、"
 
 #: INSTRUCTIONS.md:413
 msgid "the system can translate from its original position;"
-msgstr ""
+msgstr "系が元の位置から並進する場合があります。"
 
 #: INSTRUCTIONS.md:414
 msgid "the system can be broken by PBCs;"
-msgstr ""
+msgstr "PBC で系が分断される場合があります。"
 
 #: INSTRUCTIONS.md:416
 msgid ""
@@ -741,6 +831,8 @@ msgid ""
 "re-align it to a reference conformation, and thus to use absolute positions "
 "safely."
 msgstr ""
+"したがって絶対位置で Ligand の場所を追跡することはできません。PLUMED には、PBC の分断を修正し、参照 Conformation "
+"に重ね合わせ、安全に絶対位置を使うための Action があります。"
 
 #: INSTRUCTIONS.md:418
 msgid ""
@@ -749,35 +841,37 @@ msgid ""
 "doc/html/colvarintro.html) to prepare the input file on their own. In the "
 "following, some suggestions will be given:"
 msgstr ""
+"この演習では PLUMED の [マニュアル](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/colvarintro.html) を十分に使い、自分で入力を作成してください。以下にヒントを示します。"
 
 #: INSTRUCTIONS.md:420
 msgid ""
 "first, make sure the entire protein is not broken by PBCs using "
 "WHOLEMOLECULES;"
-msgstr ""
+msgstr "まず WHOLEMOLECULES で、タンパク質全体の PBC による分断を修正する。"
 
 #: INSTRUCTIONS.md:421
 msgid ""
 "then, make sure the ligand is not broken by PBCs and in the same cell as the"
 " protein, using the WRAPAROUND action and the `GROUPBY` option;"
-msgstr ""
+msgstr "WRAPAROUND と `GROUPBY` で Ligand の分断を修正し、タンパク質と同じ Cell に入れる。"
 
 #: INSTRUCTIONS.md:422
 msgid ""
 "to align the _stable_ protein residues (as defined in exercise 5 above, i.e."
 " residues 41 to 390) to the template `5-HT1B.pdb`, you can use "
 "FIT_TO_TEMPLATE;"
-msgstr ""
+msgstr "FIT_TO_TEMPLATE で、_安定な_ 残基（演習5の残基41〜390）を `5-HT1B.pdb` に重ね合わせる。"
 
 #: INSTRUCTIONS.md:423
 msgid ""
 "at this point, you can safely define the position of the geometric center of"
 " the ligand using the POSITION CV with the option `NOPBC`;"
-msgstr ""
+msgstr "その後、POSITION CV と `NOPBC` で Ligand の Geometric Center の位置を安全に定義できる。"
 
 #: INSTRUCTIONS.md:424
 msgid "the requested CV is the `z` component of the POSITION CV."
-msgstr ""
+msgstr "求める CV は POSITION CV の `z` 成分。"
 
 #: INSTRUCTIONS.md:426
 msgid ""
@@ -786,6 +880,8 @@ msgid ""
 "done by WHOLEMOLECULES, WRAPAROUND, and FIT_TO_TEMPLATE by modifying your "
 "input file as follows:"
 msgstr ""
+"入力が正しいかを2通りで確認できます。まず、次のように入力を変更し、WHOLEMOLECULES、WRAPAROUND、FIT_TO_TEMPLATE "
+"による変換後の Conformation を出力します。"
 
 #: INSTRUCTIONS.md:439
 msgid ""
@@ -794,10 +890,12 @@ msgid ""
 "time series of your CV, this should be a continuous trajectory that spans "
 "the range from 9 nm to 18 nm."
 msgstr ""
+"`5-HT1B_aligned.gro` を [VMD](https://www.ks.uiuc.edu/Research/vmd/) "
+"で可視化できます。次に CV の時系列を確認し、9〜18 nm の範囲の連続した Trajectory になっているか確かめてください。"
 
 #: INSTRUCTIONS.md:441
 msgid "Exercise 7: Estimating binding propensity"
-msgstr ""
+msgstr "演習7：結合傾向の推定"
 
 #: INSTRUCTIONS.md:443
 msgid ""
@@ -806,37 +904,39 @@ msgid ""
 "receptor and if there are hot-spots where binding is more favorite. In order"
 " to answer to these questions, the user will:"
 msgstr ""
+"最後に、Serotonin Ligand が 5-HT1B Receptor の N-terminal 側の柔軟な40残基に結合する傾向と、結合しやすい"
+" Hotspot の有無を調べます。そのために次を行います。"
 
 #: INSTRUCTIONS.md:445
 msgid ""
 "compute the fraction of bound conformations over the total number of frames "
 "in the MD trajectory;"
-msgstr ""
+msgstr "MD Trajectory の全 Frame に対する結合 Conformation の割合を計算する。"
 
 #: INSTRUCTIONS.md:446
 msgid ""
 "for each individual residue and glycan, compute the fraction of bound "
 "conformation per residue/glycan;"
-msgstr ""
+msgstr "各残基・Glycan について、結合 Conformation の割合を計算する。"
 
 #: INSTRUCTIONS.md:447
 msgid ""
 "dump all bound conformations to a `gro` file, after fixing PBCs as in "
 "exercise 6 above;"
-msgstr ""
+msgstr "演習6と同様に PBC を修正し、すべての結合 Conformation を `gro` に出力する。"
 
 #: INSTRUCTIONS.md:448
 msgid ""
 "for each individual residue and glycan, dump all bound conformations to a "
 "separate `gro` file, after fixing PBCs."
-msgstr ""
+msgstr "PBC を修正し、各残基・Glycan への結合 Conformation を別々の `gro` に出力する。"
 
 #: INSTRUCTIONS.md:450
 msgid ""
 "To solve this exercise, no template PLUMED input file nor any indication of "
 "the procedure to follow will be given. The users should only keep in mind "
 "that:"
-msgstr ""
+msgstr "この演習では入力のひな形や手順は示しません。次の点だけ考慮してください。"
 
 #: INSTRUCTIONS.md:452
 msgid ""
@@ -844,6 +944,8 @@ msgid ""
 "of atoms of the ligand and of the protein/residue/glycan is closer than 0.4 "
 "nm;"
 msgstr ""
+"Ligand とタンパク質・残基・Glycan の少なくとも1つの原子対の距離が0.4 nm 未満なら、*結合* Conformation "
+"と便宜的に定義する。"
 
 #: INSTRUCTIONS.md:453
 msgid ""
@@ -851,9 +953,11 @@ msgid ""
 "[manual](https://www.plumed.org/doc-v2.7/user-doc/html/colvarintro.html) can"
 " be used;"
 msgstr ""
+"PLUMED の [マニュアル](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/colvarintro.html) にある任意の CV を使える。"
 
 #: INSTRUCTIONS.md:454
 msgid ""
 "any CV defined directly by the user in the PLUMED input file via the CUSTOM "
 "action can be used."
-msgstr ""
+msgstr "CUSTOM で入力内に自分で定義した任意の CV も使える。"
