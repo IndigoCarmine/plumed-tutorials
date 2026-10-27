@@ -18,6 +18,8 @@ msgid ""
 "approach to describe the behavior of light nuclei (e.g. hydrogen) at room "
 "temperature and above."
 msgstr ""
+"Path Integral シミュレーションは、有限温度における Distinguishable Particles の Quantum "
+"Thermodynamics を記述でき、室温以上での軽い原子核（水素など）の振る舞いを記述する最も精密な手法である。"
 
 #: NAVIGATION.md:8
 msgid ""
@@ -26,10 +28,12 @@ msgid ""
 "approximate way) the effect of zero-point energy and tunneling on reaction "
 "rates."
 msgstr ""
+"Metadynamics と組み合わせることで Rare Events の Sampling を加速し、Zero-point Energy と "
+"Tunneling が Reaction Rates に及ぼす影響を近似的に反映した「量子的な自由エネルギー」を計算できる。"
 
 #: NAVIGATION.md:12
 msgid "Free-energy of the Zundel cation"
-msgstr ""
+msgstr "Zundel Cation の自由エネルギー"
 
 #: NAVIGATION.md:14
 msgid ""
@@ -39,17 +43,21 @@ msgid ""
 "dimer. PLUMED is used to compute appropriate collective variables, using an "
 "input as follows"
 msgstr ""
+"この講義は、[i-PI code](http://ipi-code.org) を用いて Zundel Cation（Protonated Water "
+"Dimer）の Path Integral シミュレーションを行う、対話型の実習チュートリアルである。ダウンロードして手元でも実行できる。PLUMED "
+"は、次のような入力を使って適切な Collective Variables を計算するために用いる。"
 
 #: NAVIGATION.md:33
 msgid ""
 "Depending on your previous experience, you may want to follow the lessons on"
 " metadynamics, and the external tutorial on path integral simulations."
 msgstr ""
+"これまでの経験に応じて、Metadynamics のレッスンや Path Integral シミュレーションの外部チュートリアルを先に学ぶとよい。"
 
 #. mermaid node label
 #: NAVIGATION.md:40
 msgid "Basic plumed syntax"
-msgstr ""
+msgstr "PLUMED の基本構文"
 
 #. mermaid node label
 #: NAVIGATION.md:40
@@ -59,25 +67,25 @@ msgstr "Metadynamics"
 #. mermaid node label
 #: NAVIGATION.md:42
 msgid "Introduction to path integrals"
-msgstr ""
+msgstr "Path Integrals の入門"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:43
 msgid ""
 "Follow this lecture for an introduction to PLUMED and enhanced sampling"
-msgstr ""
+msgstr "PLUMED と Enhanced Sampling の入門として、この講義を参照してほしい。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:44
 msgid "Follow this lecture if you have never heard of metadynamics before"
-msgstr ""
+msgstr "Metadynamics を初めて学ぶ場合は、この講義を参照してほしい。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:45
 msgid ""
 "An interactive tutorial on path integral simulations and how to perform them"
 " using i-PI"
-msgstr ""
+msgstr "Path Integral シミュレーションと、i-PI によるその実行方法を学ぶ対話型チュートリアル"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:46
@@ -85,3 +93,4 @@ msgid ""
 "The main tutorial: combine i-PI and PLUMED to compute free energies "
 "including quantum nuclear effects"
 msgstr ""
+"メインのチュートリアル：i-PI と PLUMED を組み合わせ、Nuclear Quantum Effects を含む自由エネルギーを計算する"

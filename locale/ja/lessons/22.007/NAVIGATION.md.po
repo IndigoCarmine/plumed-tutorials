@@ -28,7 +28,7 @@ msgstr "理論を説明する2本の動画。"
 #: NAVIGATION.md:7
 msgid ""
 "Two python notebooks that describe what you can do using these methods."
-msgstr ""
+msgstr "これらの手法で何ができるかを説明する2つの Python Notebooks。"
 
 #: NAVIGATION.md:9
 msgid ""
@@ -47,7 +47,7 @@ msgstr "このレッスンは、2022年シリーズの第7回 Masterclass であ
 #. mermaid node label
 #: NAVIGATION.md:16
 msgid "ref1"
-msgstr ""
+msgstr "参考文献1"
 
 #. mermaid node label
 #: NAVIGATION.md:16
@@ -57,7 +57,7 @@ msgstr "講義 I"
 #. mermaid node label
 #: NAVIGATION.md:17
 msgid "notebook I"
-msgstr ""
+msgstr "Notebook I"
 
 #. mermaid node label
 #: NAVIGATION.md:18
@@ -67,39 +67,39 @@ msgstr "講義 II"
 #. mermaid node label
 #: NAVIGATION.md:19
 msgid "notebook II"
-msgstr ""
+msgstr "Notebook II"
 
 #. mermaid node label
 #: NAVIGATION.md:20
 msgid "Metadynamics Theory"
-msgstr ""
+msgstr "Metadynamics の理論"
 
 #. mermaid node label
 #: NAVIGATION.md:22
 msgid "Using PyTorch"
-msgstr ""
+msgstr "PyTorch の使い方"
 
 #. mermaid node label
 #: NAVIGATION.md:23
 msgid "ref2"
-msgstr ""
+msgstr "参考文献2"
 
 #. mermaid node label
 #: NAVIGATION.md:24
 msgid "Variational autoencoder Theory"
-msgstr ""
+msgstr "Variational Autoencoder の理論"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:26
 msgid "The paper about the SPIB method introduced in this tutorial"
-msgstr ""
+msgstr "このチュートリアルで紹介する SPIB 法の論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:27
 msgid ""
 "A paper that describes how the SPIB method was applied to two biophyically "
 "relevant systems"
-msgstr ""
+msgstr "SPIB 法を生物物理学的に重要な2つの系に適用した論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:28
@@ -113,7 +113,7 @@ msgstr "2022年5月9日に PLUMED Masterclass シリーズの一環として行�
 msgid ""
 "A python notebook that describes the exercises that were introdced in the "
 "first video"
-msgstr ""
+msgstr "1本目の動画で紹介した演習を説明する Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:30
@@ -127,12 +127,12 @@ msgstr "2022年5月16日に PLUMED Masterclass シリーズの一環として行
 msgid ""
 "A python notebook that includes the exercises that were introduced in the "
 "second video"
-msgstr ""
+msgstr "2本目の動画で紹介した演習を収録した Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:32
 msgid "Brief introduction to Metadynamics as an enhanced sampling technique"
-msgstr ""
+msgstr "Enhanced Sampling 手法としての Metadynamics の簡単な入門"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:33
@@ -140,6 +140,8 @@ msgid ""
 "Paper that introduces the Variational autoencoder with VampPrior neural "
 "network architechture employed in SPIB"
 msgstr ""
+"SPIB で用いる VampPrior Neural Network Architecture を備えた Variational Autoencoder"
+" を導入した論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:34
@@ -148,3 +150,5 @@ msgid ""
 "understanding of SPIB implementation, please explore the tutorials hosted on"
 " PyTorch website"
 msgstr ""
+"初心者向けの PyTorch の簡単なチュートリアル。SPIB の実装をより深く理解するため、PyTorch "
+"のウェブサイトにあるチュートリアルも参照してほしい。"

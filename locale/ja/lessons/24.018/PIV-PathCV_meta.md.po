@@ -9,7 +9,7 @@ msgstr ""
 
 #: PIV-PathCV_meta.md:1
 msgid "Biasing a simulation in the PIV-PathCV space"
-msgstr ""
+msgstr "PIV-PathCV 空間でシミュレーションに Bias を加える"
 
 #: PIV-PathCV_meta.md:3
 msgid ""
@@ -19,29 +19,34 @@ msgid ""
 "Molecular MD through metadynamics and simulating the crystallisation of "
 "undercooled homogeneous liquid water."
 msgstr ""
+"Liq.pdb と Ih.pdb には、それぞれ144分子からなる液体の水と Hexagonal Ice のボックスの "
+"Configurations（TIP4P モデル）が含まれる。これらを使って PIV-PathCV 空間を構成し、Classical MD に "
+"Metadynamics で Bias を加えることで、均一な過冷却水の結晶化をシミュレーションできる。"
 
 #: PIV-PathCV_meta.md:5
 msgid ""
 "In order to set up such a metadynamics run one needs to add the following "
 "line to the plumed.dat file"
-msgstr ""
+msgstr "この Metadynamics 計算を設定するには、次の行を plumed.dat に追加する。"
 
 #: PIV-PathCV_meta.md:11
 msgid "and simulation box constraints to avoid too skewed cells:"
-msgstr ""
+msgstr "また、Cell の過度な変形を防ぐため、Simulation Box に制約を加える。"
 
 #: PIV-PathCV_meta.md:40
 msgid ""
 "Finally the PRINT line of keywords needs to be updated in order to print out"
 " the bias potential"
-msgstr ""
+msgstr "最後に、BiasPotential を出力するよう PRINT 行のキーワードを更新する必要がある。"
 
 #: PIV-PathCV_meta.md:46
 msgid "The biased MD can then be run with the GROMCS package"
-msgstr ""
+msgstr "この Biased MD は、GROMACS パッケージで実行できる。"
 
 #: PIV-PathCV_meta.md:53
 msgid ""
 "input files md.mdp and TIP4P.top for gromacs are provided. A run of 24 hours"
 " on a 4-core standard laptop is enough to reproduce a crystallisation event."
 msgstr ""
+"GROMACS 用の入力ファイル md.mdp と TIP4P.top "
+"が提供されている。標準的な4コアのノートPCで24時間実行すれば、結晶化イベントを再現できる。"

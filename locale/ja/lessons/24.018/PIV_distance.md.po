@@ -9,13 +9,13 @@ msgstr ""
 
 #: PIV_distance.md:1
 msgid "Associating PIVs to system configurations"
-msgstr ""
+msgstr "系の Configuration に PIVs を対応付ける"
 
 #: PIV_distance.md:2
 msgid ""
 "The following example shows how to associate a PIV to a system "
 "configuration:"
-msgstr ""
+msgstr "次の例は、系の Configuration に PIV を対応付ける方法を示す。"
 
 #: PIV_distance.md:22
 msgid ""
@@ -26,11 +26,16 @@ msgid ""
 "(PRECISION=1000). A complete description of all the keywords can be found "
 "[here](https://www.plumed.org/doc-v2.9/user-doc/html/_p_i_v.html)."
 msgstr ""
+"PIV の構成には酸素原子（ATOMTYPES=O）を用い、原子間距離の計算には Neighbor "
+"Lists（NLIST）を使う。次に、Switching Function（SWITCH1={RATIONAL R_0=0.4 MM=12 "
+"NN=4}）を用いて、距離を0から1の値に $10^{-3}$ "
+"の精度（PRECISION=1000）で写像する。すべてのキーワードの詳しい説明は[こちら](https://www.plumed.org/doc-v2.9/user-"
+"doc/html/_p_i_v.html)にある。"
 
 #: PIV_distance.md:24
 msgid ""
 "When including the example above into a file (e.g. plumed.dat) and running"
-msgstr ""
+msgstr "上の例をファイル（plumed.dat など）に記載し、次を実行する。"
 
 #: PIV_distance.md:29
 msgid ""
@@ -38,9 +43,11 @@ msgid ""
 " and Liq.pdb files. Please note that the order of atoms in Ih.pdb and "
 "Liq.pdb files must be the same."
 msgstr ""
+"すると、Ih.pdb と Liq.pdb に指定された Configurations 間の PIV Distance が得られる。Ih.pdb と "
+"Liq.pdb では、原子の順序を同一にする必要がある。"
 
 #: PIV_distance.md:31
 msgid ""
 "Check that if one computes the distance between two identical configurations"
 " the result is zero."
-msgstr ""
+msgstr "同一の Configurations 間の距離を計算すると、結果が0になることを確認する。"

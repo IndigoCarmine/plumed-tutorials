@@ -9,7 +9,7 @@ msgstr ""
 
 #: README.md:1
 msgid "SPIB-plumed-masterclass-2022"
-msgstr ""
+msgstr "SPIB-plumed-masterclass-2022"
 
 #: README.md:3
 msgid ""
@@ -31,3 +31,14 @@ msgid ""
 "commands for all the necessary softwares, and libraries including Gromacs, "
 "and PLUMED."
 msgstr ""
+"State Predictive Information Bottleneck (SPIB) は、高次元の分子シミュレーション Trajectories"
+" から Reaction Coordinates を学習する、Deep Learning に基づくフレームワークである。SPIB "
+"を用いる際は、次の論文を読み、引用してほしい：https://aip.scitation.org/doi/abs/10.1063/5.0038198。生物物理学的に重要な2つの実際の系への"
+" SPIB "
+"の応用は、次の論文で示されている：https://pubs.acs.org/doi/abs/10.1021/acs.jctc.2c00058。 <br>"
+" <br> **目的：** この2部構成のチュートリアルでは、SPIB を用いて MD シミュレーションの Trajectories（4-state "
+"Potential と真空中の Alanine Dipeptide）を解析する方法を学ぶ。また、SPIB が学習した Reaction "
+"Coordinates に Bias を加えて Metadynamics を実行する方法も学ぶ。演習には Google Colab（GPU "
+"Accelerator）の利用を推奨する。 <br> <br> **前提条件：** Python の実用的な知識が必要である。SPIB は "
+"PyTorch で実装されているため、その知識も役立つが必須ではない。Notebooks には、GROMACS と PLUMED "
+"を含む、必要なすべてのソフトウェアとライブラリのインストールコマンドを収録している。"
