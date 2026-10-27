@@ -59,7 +59,7 @@ msgstr ""
 #. mermaid node label
 #: NAVIGATION.md:18
 msgid "ref1"
-msgstr ""
+msgstr "参考文献1"
 
 #. mermaid node label
 #: NAVIGATION.md:18

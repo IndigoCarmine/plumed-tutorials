@@ -20,18 +20,25 @@ msgid ""
 "functions of the configurational space $\\mathbf{R}$:"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: Intro.md:5
 msgid ""
 "$S(\\mathbf{R})=\\frac{\\sum_{i=1}^{N}i\\text{e}^{-\\lambda "
 "(\\mathbf{R}-\\mathbf{R}(i))^{2}}}{\\sum_{i=1}^{N}\\text{e}^{-\\lambda "
 "(\\mathbf{R}-\\mathbf{R}(i))^{2}}}$"
 msgstr ""
+"$S(\\mathbf{R})=\\frac{\\sum_{i=1}^{N}i\\text{e}^{-\\lambda "
+"(\\mathbf{R}-\\mathbf{R}(i))^{2}}}{\\sum_{i=1}^{N}\\text{e}^{-\\lambda "
+"(\\mathbf{R}-\\mathbf{R}(i))^{2}}}$"
 
+# Literal notation or identifier intentionally preserved.
 #: Intro.md:7
 msgid ""
 "$Z(\\mathbf{R})=-\\frac{1}{\\lambda}\\ln{\\left(\\sum_{i=1}^{N}\\text{e}^{-\\lambda"
 " (\\mathbf{R}-\\mathbf{R}(i))^{2}}\\right)}$"
 msgstr ""
+"$Z(\\mathbf{R})=-\\frac{1}{\\lambda}\\ln{\\left(\\sum_{i=1}^{N}\\text{e}^{-\\lambda"
+" (\\mathbf{R}-\\mathbf{R}(i))^{2}}\\right)}$"
 
 #: Intro.md:9
 msgid ""
@@ -112,9 +119,10 @@ msgstr ""
 msgid "As a rule of thumb, $\\lambda$ shoud be chosen according to:"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: Intro.md:28
 msgid "$\\lambda=-\\frac{\\ln{0.1}}{\\langle MSD\\rangle}$"
-msgstr ""
+msgstr "$\\lambda=-\\frac{\\ln{0.1}}{\\langle MSD\\rangle}$"
 
 #: Intro.md:30
 msgid ""

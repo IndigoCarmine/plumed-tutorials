@@ -53,13 +53,15 @@ msgstr ""
 msgid "This is a bonus, but can be helpful:"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: examples.md:21 examples.md:77 examples.md:110 examples.md:145
 msgid "plumed.dat"
-msgstr ""
+msgstr "plumed.dat"
 
+# Literal notation or identifier intentionally preserved.
 #: examples.md:28
 msgid "pyhelp.py"
-msgstr ""
+msgstr "pyhelp.py"
 
 #: examples.md:51
 msgid "Then run with `plumed driver --plumed plumed.dat --ixyz traj.xyz`"
@@ -75,9 +77,10 @@ msgstr ""
 msgid "Or alternatively you can run:"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: examples.md:57
 msgid "pyhelp_html.py"
-msgstr ""
+msgstr "pyhelp_html.py"
 
 #: examples.md:70
 msgid ""
@@ -94,9 +97,10 @@ msgstr ""
 msgid "In this example we show how to use the PBCs in a calculation:"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: examples.md:87
 msgid "pydistancePBCs.py"
-msgstr ""
+msgstr "pydistancePBCs.py"
 
 #: examples.md:105
 msgid ""
@@ -115,17 +119,19 @@ msgid ""
 " retuned variables"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: examples.md:119
 msgid "periodicity.py"
-msgstr ""
+msgstr "periodicity.py"
 
 #: examples.md:143
 msgid "Getting simulation information"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: examples.md:154
 msgid "mdInfo.py"
-msgstr ""
+msgstr "mdInfo.py"
 
 #: examples.md:174
 msgid "Using PyCV when in a plumed-python script"

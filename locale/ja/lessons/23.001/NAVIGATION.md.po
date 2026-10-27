@@ -148,10 +148,11 @@ msgstr ""
 msgid "Histograms"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #. mermaid node label
 #: NAVIGATION.md:48
 msgid "RMSD"
-msgstr ""
+msgstr "RMSD"
 
 #. mermaid node label
 #: NAVIGATION.md:49

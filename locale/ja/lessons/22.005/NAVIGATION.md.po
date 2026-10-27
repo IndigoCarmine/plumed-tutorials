@@ -66,10 +66,11 @@ msgstr ""
 msgid "Lecture I"
 msgstr "講義 I"
 
+# Literal notation or identifier intentionally preserved.
 #. mermaid node label
 #: NAVIGATION.md:19
 msgid "OPES"
-msgstr ""
+msgstr "OPES"
 
 #. mermaid node label
 #: NAVIGATION.md:20

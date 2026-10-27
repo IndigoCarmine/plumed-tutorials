@@ -9,7 +9,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:1
 msgid "PLUMED Masterclass 21.5: Simulations with multiple replicas"
-msgstr ""
+msgstr "PLUMED Masterclass 21.5：複数の Replicas を用いたシミュレーション"
 
 #: INSTRUCTIONS.md:3
 msgid "Origin"
@@ -47,7 +47,7 @@ msgstr ""
 msgid ""
 "Use WHAM to combine multiple simulations performed with different bias "
 "potentials."
-msgstr ""
+msgstr "WHAM を使って、異なるBiasPotentialで行った複数のシミュレーションを統合する。"
 
 #: INSTRUCTIONS.md:17
 msgid ""
@@ -79,7 +79,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:30
 msgid "On Linux, the command above should install the following packages:"
-msgstr ""
+msgstr "Linux では、上記のコマンドで次のパッケージがインストールされるはずである。"
 
 #: INSTRUCTIONS.md:40
 msgid ""
@@ -98,7 +98,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:54
 msgid "It should print `ok`."
-msgstr ""
+msgstr "`ok` と表示されるはずである。"
 
 #: INSTRUCTIONS.md:56
 msgid ""
@@ -125,7 +125,7 @@ msgstr ""
 #: INSTRUCTIONS.md:66
 msgid ""
 "_All the exercises were tested with PLUMED version 2.7.0 and GROMACS 2019.6_"
-msgstr ""
+msgstr "_すべての演習は PLUMED 2.7.0 と GROMACS 2019.6 で動作確認されている。_"
 
 #: INSTRUCTIONS.md:68
 msgid "Exercises"

@@ -106,7 +106,7 @@ msgstr ""
 
 #: Readme_CUDA.md:100
 msgid "HOMEWORK"
-msgstr ""
+msgstr "課題"
 
 #: Readme_CUDA.md:102
 msgid "the reduction algorithm does not return the correct result: why?"

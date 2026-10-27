@@ -76,9 +76,10 @@ msgid ""
 "Let's start by creating a folder where all the codes will be installed:"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: arrayfire.md:35
 msgid "FFTW"
-msgstr ""
+msgstr "FFTW"
 
 #: arrayfire.md:36
 msgid ""

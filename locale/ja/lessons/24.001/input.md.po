@@ -148,9 +148,10 @@ msgid ""
 "convert the PDB. Here is a quick step-by-step guide:"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: input.md:35
 msgid "RNA"
-msgstr ""
+msgstr "RNA"
 
 #: input.md:36
 msgid "create a `leapRNA.in` file:"
@@ -182,9 +183,10 @@ msgstr ""
 msgid "Run LEaP:"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: input.md:60
 msgid "DNA"
-msgstr ""
+msgstr "DNA"
 
 #: input.md:61
 msgid "create a `leapDNA.in` file:"

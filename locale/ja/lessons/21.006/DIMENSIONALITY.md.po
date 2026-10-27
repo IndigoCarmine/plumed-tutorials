@@ -134,9 +134,10 @@ msgid ""
 "paper](https://arxiv.org/abs/1907.04170)."
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: DIMENSIONALITY.md:72
 msgid "PCA"
-msgstr ""
+msgstr "PCA"
 
 #: DIMENSIONALITY.md:74
 msgid ""
@@ -197,9 +198,10 @@ msgid ""
 "Look at the beta-sheet content as well."
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: DIMENSIONALITY.md:184
 msgid "MDS"
-msgstr ""
+msgstr "MDS"
 
 #: DIMENSIONALITY.md:186
 msgid ""

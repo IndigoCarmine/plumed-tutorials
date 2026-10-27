@@ -190,9 +190,10 @@ msgid ""
 " computed automatically."
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: INSTRUCTIONS.md:94
 msgid "FISST"
-msgstr ""
+msgstr "FISST"
 
 #: INSTRUCTIONS.md:96
 msgid ""

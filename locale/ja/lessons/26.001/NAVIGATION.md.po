@@ -100,7 +100,7 @@ msgstr "PLUMED Masterclass 21.2：MD における統計誤差"
 #. mermaid click tooltip
 #: NAVIGATION.md:24
 msgid "PLUMED Masterclass 21.5: Simulations with multiple replicas"
-msgstr ""
+msgstr "PLUMED Masterclass 21.5：複数の Replicas を用いたシミュレーション"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:25

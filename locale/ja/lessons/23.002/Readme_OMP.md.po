@@ -39,7 +39,7 @@ msgstr ""
 
 #: Readme_OMP.md:33
 msgid "SPOILER"
-msgstr ""
+msgstr "解答を含む内容"
 
 #: Readme_OMP.md:35
 msgid "There is at least a race condition here: can you spot it?"
@@ -47,7 +47,7 @@ msgstr ""
 
 #: Readme_OMP.md:38
 msgid "ANSWER"
-msgstr ""
+msgstr "解答"
 
 #: Readme_OMP.md:40
 msgid ""

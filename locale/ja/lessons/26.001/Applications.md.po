@@ -13,7 +13,7 @@ msgstr ""
 
 #: Applications.md:4
 msgid "TOC"
-msgstr ""
+msgstr "目次"
 
 #: Applications.md:4
 msgid "Topic"

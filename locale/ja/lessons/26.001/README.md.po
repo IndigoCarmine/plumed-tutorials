@@ -987,7 +987,7 @@ msgstr ""
 
 #: README.md:625
 msgid "TOC"
-msgstr ""
+msgstr "目次"
 
 #: README.md:625
 msgid "Topic"

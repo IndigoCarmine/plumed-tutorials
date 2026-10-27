@@ -9,7 +9,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:1
 msgid "INSTRUCTIONS"
-msgstr ""
+msgstr "手順"
 
 #: INSTRUCTIONS.md:6
 msgid "<b>Clone the Github repository for this tutorial.</b>"

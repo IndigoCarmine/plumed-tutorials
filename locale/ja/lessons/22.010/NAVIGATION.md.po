@@ -51,7 +51,7 @@ msgstr "このレッスンは、2021年シリーズの第1回 Masterclass であ
 #. mermaid node label
 #: NAVIGATION.md:15
 msgid "ref1"
-msgstr ""
+msgstr "参考文献1"
 
 #. mermaid node label
 #: NAVIGATION.md:15
@@ -61,7 +61,7 @@ msgstr "講義 I"
 #. mermaid node label
 #: NAVIGATION.md:16
 msgid "ref2"
-msgstr ""
+msgstr "参考文献2"
 
 #. mermaid node label
 #: NAVIGATION.md:17

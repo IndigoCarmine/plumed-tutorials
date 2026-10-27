@@ -48,7 +48,7 @@ msgstr ""
 #. mermaid node label
 #: NAVIGATION.md:25
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #. mermaid node label
 #: NAVIGATION.md:26

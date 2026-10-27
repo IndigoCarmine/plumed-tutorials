@@ -76,9 +76,10 @@ msgid ""
 " residue $i$ and $j$ are esimated as"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: theory.md:31
 msgid "$\\hat{d_{ij}}=\\sum_{b=1}^{64} d^{b} p_{ij}^{b} $"
-msgstr ""
+msgstr "$\\hat{d_{ij}}=\\sum_{b=1}^{64} d^{b} p_{ij}^{b} $"
 
 #: theory.md:34
 msgid "where $d^{b}$ represents the central value of bin $b$."

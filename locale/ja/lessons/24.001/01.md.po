@@ -103,9 +103,10 @@ msgstr ""
 msgid "**Description**"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:196
 msgid "NOPBC"
-msgstr ""
+msgstr "NOPBC"
 
 #: 01.md:196 01.md:197 01.md:199 01.md:200 01.md:201 01.md:202 01.md:203
 msgid "false"
@@ -115,33 +116,37 @@ msgstr ""
 msgid "Ignore the periodic boundary conditions when calculating distances"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:197
 msgid "SERIAL"
-msgstr ""
+msgstr "SERIAL"
 
 #: 01.md:197
 msgid "Perform the calculation in serial - for debug purpose"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:198
 msgid "DEVICEID"
-msgstr ""
+msgstr "DEVICEID"
 
 #: 01.md:198
 msgid "Identifier of the GPU to be used"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:199
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 #: 01.md:199
 msgid "Calculate SAXS/SANS using ARRAYFIRE on a GPU"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:200
 msgid "ABSOLUTE"
-msgstr ""
+msgstr "ABSOLUTE"
 
 #: 01.md:200
 msgid ""
@@ -149,53 +154,60 @@ msgid ""
 "the intensity at q=0."
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:201
 msgid "ATOMISTIC"
-msgstr ""
+msgstr "ATOMISTIC"
 
 #: 01.md:201
 msgid "Calculate SAXS/SANS using the atomistic model"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:202
 msgid "MARTINI"
-msgstr ""
+msgstr "MARTINI"
 
 #: 01.md:202
 msgid "Calculate SAXS using the Martini model"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:203
 msgid "ONEBEAD"
-msgstr ""
+msgstr "ONEBEAD"
 
 #: 01.md:203
 msgid "Calculate SAXS/SANS for a single bead model"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:204
 msgid "TEMPLATE"
-msgstr ""
+msgstr "TEMPLATE"
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:204
 msgid "template.pdb"
-msgstr ""
+msgstr "template.pdb"
 
 #: 01.md:204
 msgid "A PDB file is required for ONEBEAD mapping"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:205
 msgid "ATOMS"
-msgstr ""
+msgstr "ATOMS"
 
 #: 01.md:205
 msgid "The atoms to be included in the calculation"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:206
 msgid "QVALUE"
-msgstr ""
+msgstr "QVALUE"
 
 #: 01.md:206
 msgid ""
@@ -203,9 +215,10 @@ msgid ""
 "QVALUE2, ..."
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:207
 msgid "PARAMETERS"
-msgstr ""
+msgstr "PARAMETERS"
 
 #: 01.md:207
 msgid ""
@@ -213,58 +226,65 @@ msgid ""
 "calculate the form factor for the *i* <sup>th</sup> atom/bead"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:208
 msgid "PARAMETERSFILE"
-msgstr ""
+msgstr "PARAMETERSFILE"
 
 #: 01.md:208
 msgid "Read the PARAMETERS from a file"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:209
 msgid "DEUTER_CONC"
-msgstr ""
+msgstr "DEUTER_CONC"
 
 #: 01.md:209
 msgid "Fraction of deuterated solvent. For SANS only."
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:210
 msgid "SOLVDENS"
-msgstr ""
+msgstr "SOLVDENS"
 
 #: 01.md:210
 msgid "Density of the solvent"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:211
 msgid "SOLVATION_CORRECTION"
-msgstr ""
+msgstr "SOLVATION_CORRECTION"
 
 #: 01.md:211
 msgid "Solvation layer electron density correction (ONEBEAD only)"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:212
 msgid "SASA_CUTOFF"
-msgstr ""
+msgstr "SASA_CUTOFF"
 
 #: 01.md:212
 msgid ""
 "SASA value to consider a residue as exposed to the solvent (ONEBEAD only)"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:213
 msgid "EXPINT"
-msgstr ""
+msgstr "EXPINT"
 
 #: 01.md:213
 msgid "Experimental intensity for a specific q value"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:214
 msgid "SOLVATION_STRIDE"
-msgstr ""
+msgstr "SOLVATION_STRIDE"
 
 #: 01.md:214
 msgid ""
@@ -272,9 +292,10 @@ msgid ""
 "(ONEBEAD only)"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:215
 msgid "SCALE_EXPINT"
-msgstr ""
+msgstr "SCALE_EXPINT"
 
 #: 01.md:215
 msgid ""
@@ -294,9 +315,10 @@ msgstr ""
 msgid "Finally, run the driver to analyse a:"
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 01.md:224
 msgid "PDB"
-msgstr ""
+msgstr "PDB"
 
 #: 01.md:228
 msgid ""

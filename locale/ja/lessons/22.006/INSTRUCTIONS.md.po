@@ -11,6 +11,7 @@ msgstr ""
 msgid ""
 "PLUMED Masterclass 22.6: EDS module + Coarse-Grained directed simulations"
 msgstr ""
+"PLUMED Masterclass 22.6：EDS モジュールと Coarse-Grained Directed Simulations"
 
 #: INSTRUCTIONS.md:3
 msgid "Origin"
@@ -20,7 +21,7 @@ msgstr "作成について"
 msgid ""
 "This masterclass was authored by Glen Hocky and Andrew White on April 26, "
 "2022"
-msgstr ""
+msgstr "この Masterclass は、2022年4月26日に Glen Hocky と Andrew White によって作成された。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"
@@ -31,6 +32,8 @@ msgid ""
 "This Masterclass describes how to bias simulations to agree with "
 "experimental data using experiment directed simulation."
 msgstr ""
+"この Masterclass では、Experiment Directed Simulation を用いて、実験データと一致するようにシミュレーションに"
+" Bias を加える方法を説明する。"
 
 #: INSTRUCTIONS.md:11
 msgid "Objectives"
@@ -38,16 +41,16 @@ msgstr "到達目標"
 
 #: INSTRUCTIONS.md:13
 msgid "Once this Masterclass is completed, you will know how to:"
-msgstr ""
+msgstr "この Masterclass を終えると、次のことができるようになる。"
 
 #: INSTRUCTIONS.md:15
 msgid "How to bias collective variables to agree with set values"
-msgstr ""
+msgstr "Collective Variables が指定した値と一致するように Bias を加える方法を理解する。"
 
 #: INSTRUCTIONS.md:16
 msgid ""
 "Develop a deeper feeling how parameters in method change learning efficiency"
-msgstr ""
+msgstr "手法の各パラメータが学習効率に及ぼす影響を、より深く理解する。"
 
 #: INSTRUCTIONS.md:18
 msgid "Prerequisites"
@@ -60,12 +63,15 @@ msgid ""
 "to start. In particular, you should be familiar with specifying collective "
 "variables."
 msgstr ""
+"PLUMED と Enhanced Sampling 計算に習熟していることを前提とする。初めての場合は、2021年の PLUMED "
+"Masterclass がよい出発点になる。特に、Collective Variables の指定方法を理解しておく必要がある。"
 
 #: INSTRUCTIONS.md:22
 msgid ""
 "Furthermore, some Python or other programming knowledge is required for this"
 " masterclass to generate plots and perform some analysis calculations."
 msgstr ""
+"また、この Masterclass では、グラフの作成や一部の解析計算のために、Python または他の言語のプログラミングの知識が必要である。"
 
 #: INSTRUCTIONS.md:24
 msgid "Overview"
@@ -81,6 +87,11 @@ msgid ""
 "point. If we further maximize ensemble entropy while matching the set point,"
 " the problem has a unique solution of"
 msgstr ""
+"Experiment Directed Simulation（EDS）は、特定の Collective "
+"Variables（CVs）が指定した値に一致するように Bias を加える Maximum Entropy 法である。指定値には通常、既知の "
+"Radius of Gyration や NMR Chemical Shift などの実験データを用いる。CV に Bias "
+"を加えることは、指定値に一致させるように系の Potential Energy を変える方法が多数あるため、Underdetermined "
+"な問題である。指定値への一致に加えて Ensemble Entropy を最大化すると、次の一意な解が得られる。"
 
 #: INSTRUCTIONS.md:32
 msgid ""
@@ -92,10 +103,15 @@ msgid ""
 "important detail is that EDS/maximum entropy biasing is for matching the set"
 " point on average (in expectation), rather than at every frame."
 msgstr ""
+"ここで $U(x)$ は系の Potential Energy、$f(x)$ は CV、$\\lambda$ は Fitting Parameter "
+"である。EDS は、シミュレーションの実行中に $\\lambda$ "
+"を求める時間依存の手法である。通常は自由エネルギー計算法よりもはるかに速く収束するが、Sampling の不足や Rare Events "
+"が結果に影響しうるという注意点は同じである。もう1つ重要なのは、EDS／Maximum Entropy による Bias は、各 Frame "
+"で指定値に一致させるのではなく、平均、すなわち期待値を一致させるものであるという点である。"
 
 #: INSTRUCTIONS.md:34
 msgid "Software and data"
-msgstr ""
+msgstr "ソフトウェアとデータ"
 
 #: INSTRUCTIONS.md:36
 msgid ""
@@ -106,6 +122,11 @@ msgid ""
 "[GitHub-22-03](https://github.com/invemichele/masterclass-22-03.git/). "
 "Simulations will be performed using PLUMED's pesmd module, and gromacs."
 msgstr ""
+"この Masterclass の演習に必要なデータは、次の GitHub ページの "
+"[data](https://github.com/hockyg/plumed-eds-masterclass) にすべてある。Alanine "
+"の入力は、以前の "
+"[GitHub-22-03](https://github.com/invemichele/masterclass-22-03.git/) "
+"から借用している。シミュレーションには、PLUMED の pesmd モジュールと GROMACS を用いる。"
 
 #: INSTRUCTIONS.md:39
 msgid "Exercises"
@@ -117,13 +138,15 @@ msgstr "以下に演習を示す。"
 
 #: INSTRUCTIONS.md:43
 msgid "Setup 1-dimensional system."
-msgstr ""
+msgstr "1次元の系を設定する。"
 
 #: INSTRUCTIONS.md:45
 msgid ""
 "Set up a plumed file to use with pesmd that has a harmonic potential. Then "
 "run using the 1d input provided in the github. For example:"
 msgstr ""
+"Harmonic Potential を持つ、pesmd 用の PLUMED ファイルを作成する。次に、GitHub "
+"にある1次元用の入力を使って実行する。例を示す。"
 
 #: INSTRUCTIONS.md:59
 msgid ""
@@ -131,23 +154,25 @@ msgid ""
 " this harmonic oscillator. Make sure to normalize your distribution "
 "properly!"
 msgstr ""
+"データの Histogram を作成し、この Harmonic Oscillator の理想的な Boltzmann Distribution "
+"と一致するか確認する。分布を正しく規格化すること。"
 
 #: INSTRUCTIONS.md:61
 msgid ""
 "Now try adding a harmonic bias using the RESTRAINT function, so that the "
 "data becomes centered near $x=1$."
-msgstr ""
+msgstr "次に、データの中心が $x=1$ 付近になるよう、RESTRAINT 関数で Harmonic Bias を加えてみる。"
 
 #: INSTRUCTIONS.md:63
 msgid ""
 "Finally, we will add an EDS bias. Make your EDS bias also be centered at 1."
-msgstr ""
+msgstr "最後に EDS Bias を加える。EDS Bias の中心も1に設定する。"
 
 #: INSTRUCTIONS.md:75
 msgid ""
 "Note, we have to add TEMP=1 because pesmd does not provide the temperature "
 "to the EDS module."
-msgstr ""
+msgstr "pesmd は EDS モジュールに温度を渡さないため、TEMP=1 を追加する必要がある。"
 
 #: INSTRUCTIONS.md:77
 msgid ""
@@ -156,6 +181,10 @@ msgid ""
 "1d oscillator shows how RESTRAINT fails and EDS "
 "wins](figs/masterclass-22-6-comp_rest_eds_hist.png)"
 msgstr ""
+"![位置の時間変化：Unbiased、Harmonic Bias、EDS "
+"Bias](figs/masterclass-22-6-comp_rest_eds.png) ![1次元 Oscillator の位置の "
+"Histogram：RESTRAINT が目標を満たさず、EDS "
+"が満たす様子](figs/masterclass-22-6-comp_rest_eds_hist.png)"
 
 #: INSTRUCTIONS.md:80
 msgid ""
@@ -163,16 +192,20 @@ msgid ""
 "bias from this value, and the value of the position versus time? Look in the"
 " colvar file and the restart file to see what values are there."
 msgstr ""
+"Bias Factor が時間とともにどう変わるかを調べる。この値と位置の時系列から Bias も計算できるだろうか。colvar ファイルと "
+"Restart ファイルに、どの値が出力されているか確認する。"
 
 #: INSTRUCTIONS.md:82
 msgid ""
 "![Value of learned EDS linear coefficient and eds bias versus time in the "
 "simulation](figs/masterclass-22-6-1d_check_bias.png)"
 msgstr ""
+"![シミュレーション中に学習した EDS の線形係数と EDS Bias "
+"の時間変化](figs/masterclass-22-6-1d_check_bias.png)"
 
 #: INSTRUCTIONS.md:84
 msgid "Setup and bias a 2-dimensional system."
-msgstr ""
+msgstr "2次元の系を設定し、Bias を加える。"
 
 #: INSTRUCTIONS.md:86
 msgid ""
@@ -180,6 +213,8 @@ msgid ""
 "effect of biasing x, y, or a combination. Note, there is a different pesmd "
 "input file for this."
 msgstr ""
+"次に2次元の Harmonic Oscillator を扱う。これにより、x、y、またはその組み合わせに Bias "
+"を加えたときの効果を調べられる。この計算には別の pesmd 入力ファイルを使う。"
 
 #: INSTRUCTIONS.md:97
 msgid ""
@@ -189,50 +224,61 @@ msgid ""
 "python program to histogram the x and y data and see. It should look like "
 "below."
 msgstr ""
+"x と y の各方向に、別々に Bias を加えてみる。両者を組み合わせた量にも Bias を加えてみる。ここでは x*y "
+"の平均を1に合わせた。CUSTOM コマンドを使って試す。どのような分布になると思うだろうか。x と y のデータの Histogram を作る "
+"Python プログラムを書いて確認する。次のような結果になるはずである。"
 
 #: INSTRUCTIONS.md:101
 msgid ""
 "![Histogram of positions for 2d oscillator with various EDS biases "
 "applied](figs/masterclass-22-6-2d_bias.png)"
 msgstr ""
+"![さまざまな EDS Bias を加えた2次元 Oscillator の位置の "
+"Histogram](figs/masterclass-22-6-2d_bias.png)"
 
 #: INSTRUCTIONS.md:103
 msgid "Alanine dipeptide"
-msgstr ""
+msgstr "Alanine Dipeptide"
 
 #: INSTRUCTIONS.md:105
 msgid ""
 "Bias alanine dipeptide using gromacs and the input files provided in the "
 "github."
-msgstr ""
+msgstr "GROMACS と GitHub の入力ファイルを用いて、Alanine Dipeptide に Bias を加える。"
 
 #: INSTRUCTIONS.md:118
 msgid ""
 "Try biasing phi and psi independently. Try biasing them at the same time. "
 "What is a good PERIOD to choose?"
-msgstr ""
+msgstr "phi と psi に別々に Bias を加えてみる。同時にも Bias を加えてみる。PERIOD にはどの値を選ぶとよいだろうか。"
 
 #: INSTRUCTIONS.md:120
 msgid ""
 "![Histogram of phi and psi for adp from a very long unbiased "
 "simulation](figs/masterclass-22-6-ala2_unbiased.png)"
 msgstr ""
+"![非常に長い Unbiased シミュレーションで得られた ADP の phi と psi の "
+"Histogram](figs/masterclass-22-6-ala2_unbiased.png)"
 
 #: INSTRUCTIONS.md:122
 msgid ""
 "![Histogram of phi and psi for adp from a very long unbiased simulation with"
 " phi biased to be 1](figs/masterclass-22-6-ala2_eds_phi1.png)"
 msgstr ""
+"![phi の平均を1に合わせる Bias を加えた、非常に長いシミュレーションで得られた ADP の phi と psi の "
+"Histogram](figs/masterclass-22-6-ala2_eds_phi1.png)"
 
 #: INSTRUCTIONS.md:124
 msgid ""
 "![Histogram of phi and psi for adp from a very long unbiased simulation with"
 " psi biased to be 1](figs/masterclass-22-6-ala2_eds_psi1.png)"
 msgstr ""
+"![psi の平均を1に合わせる Bias を加えた、非常に長いシミュレーションで得られた ADP の phi と psi の "
+"Histogram](figs/masterclass-22-6-ala2_eds_psi1.png)"
 
 #: INSTRUCTIONS.md:126
 msgid "Free explore"
-msgstr ""
+msgstr "自由に試す"
 
 #: INSTRUCTIONS.md:128
 msgid ""
@@ -242,3 +288,6 @@ msgid ""
 "them at the same time? Does using COVAR or LM affect the speed of "
 "convergence?"
 msgstr ""
+"関心のあるタンパク質、または Alanine Dipeptide を用い、複数の変数に Bias を加える。CGDS "
+"を試すには、タンパク質のいくつかの部分について Center of Mass を選ぶ。これらの COMs の間の距離と角度に、同時に Bias "
+"を加えられるだろうか。COVAR や LM を使うと収束速度は変わるだろうか。"

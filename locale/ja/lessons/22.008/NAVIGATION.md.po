@@ -10,7 +10,7 @@ msgstr ""
 #: NAVIGATION.md:1
 msgid ""
 "Masterclass 22.08: Modelling Concentration-Driven processes with PLUMED"
-msgstr ""
+msgstr "Masterclass 22.08：PLUMED による Concentration-Driven Processes のモデル化"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -47,7 +47,7 @@ msgstr "このレッスンは、2022年シリーズの第7回 Masterclass であ
 #. mermaid node label
 #: NAVIGATION.md:15
 msgid "ref1"
-msgstr ""
+msgstr "参考文献1"
 
 #. mermaid node label
 #: NAVIGATION.md:15
@@ -62,7 +62,7 @@ msgstr "演習の手順"
 #. mermaid node label
 #: NAVIGATION.md:17
 msgid "Lecture III"
-msgstr ""
+msgstr "講義 III"
 
 #. mermaid node label
 #: NAVIGATION.md:18
@@ -96,4 +96,4 @@ msgstr "2022年6月1日に PLUMED Masterclass シリーズの一環として行�
 #. mermaid click tooltip
 #: NAVIGATION.md:23
 msgid "A python notebook where the answers to the exericses are discussed"
-msgstr ""
+msgstr "演習の解答を説明する Python Notebook"

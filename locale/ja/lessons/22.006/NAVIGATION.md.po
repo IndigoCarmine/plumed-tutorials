@@ -9,7 +9,7 @@ msgstr ""
 
 #: NAVIGATION.md:1
 msgid "Masterclass 22.6: EDS module + Coarse-Grained directed simulations"
-msgstr ""
+msgstr "Masterclass 22.6：EDS モジュールと Coarse-Grained Directed Simulations"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -46,7 +46,7 @@ msgstr "このレッスンは、2022年シリーズの第6回 Masterclass であ
 #. mermaid node label
 #: NAVIGATION.md:15
 msgid "ref1"
-msgstr ""
+msgstr "参考文献1"
 
 #. mermaid node label
 #: NAVIGATION.md:15
@@ -56,17 +56,17 @@ msgstr "講義 I"
 #. mermaid node label
 #: NAVIGATION.md:16
 msgid "ref2"
-msgstr ""
+msgstr "参考文献2"
 
 #. mermaid node label
 #: NAVIGATION.md:17
 msgid "ref3"
-msgstr ""
+msgstr "参考文献3"
 
 #. mermaid node label
 #: NAVIGATION.md:18
 msgid "ref4"
-msgstr ""
+msgstr "参考文献4"
 
 #. mermaid node label
 #: NAVIGATION.md:19
@@ -81,12 +81,12 @@ msgstr "講義 II"
 #. mermaid node label
 #: NAVIGATION.md:21
 msgid "pesmd solutions"
-msgstr ""
+msgstr "pesmd の解答"
 
 #. mermaid node label
 #: NAVIGATION.md:22
 msgid "ala2 solutions"
-msgstr ""
+msgstr "ala2 の解答"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:23
@@ -98,20 +98,20 @@ msgstr "PLUMED の構文の基本を紹介する過去のチュートリアル"
 msgid ""
 "The original paper describing the Experiment Directed Simulation (EDS) "
 "Method"
-msgstr ""
+msgstr "Experiment Directed Simulation（EDS）法を最初に説明した論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:25
 msgid ""
 "A paper applying EDS to DFT water, where the EDS module was implemented"
-msgstr ""
+msgstr "EDS を DFT Water に適用した論文。この研究で EDS モジュールが実装された。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:26
 msgid ""
 "A paper describing the Coarse-Grained Directed Simulation Method (CGDS), "
 "which enhanced the EDS software"
-msgstr ""
+msgstr "EDS ソフトウェアを拡張した Coarse-Grained Directed Simulation（CGDS）法を説明する論文"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:27
@@ -137,11 +137,11 @@ msgstr "2022年5月2日に PLUMED Masterclass シリーズの一環として行�
 msgid ""
 "A python notebook that contains solutions to the first set of exercises that"
 " use pesmd"
-msgstr ""
+msgstr "pesmd を使う最初の演習の解答を収録した Python Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:31
 msgid ""
 "A python notebook where that contains solutions to the second set of "
 "exercises that involve alanine dipeptide"
-msgstr ""
+msgstr "Alanine Dipeptide を扱う2つ目の演習の解答を収録した Python Notebook"

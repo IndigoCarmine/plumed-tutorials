@@ -117,7 +117,7 @@ msgid ""
 "Notice that PLUMED input files have not been provided in the GitHub "
 "repository. You must prepare these input files yourself using the templates "
 "below."
-msgstr ""
+msgstr "GitHub リポジトリには PLUMED の入力ファイルは含まれていない。以下のテンプレートを使って自分で作成する必要がある。"
 
 #: README.md:45
 msgid ""

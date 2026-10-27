@@ -78,9 +78,10 @@ msgid ""
 "PLUMED manual."
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: 02.md:60
 msgid "METAINFERENCE"
-msgstr ""
+msgstr "METAINFERENCE"
 
 #: 02.md:61
 msgid ""

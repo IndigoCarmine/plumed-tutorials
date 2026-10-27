@@ -113,9 +113,10 @@ msgid ""
 "`run.py` file while we briefly discuss it here."
 msgstr ""
 
+# Literal notation or identifier intentionally preserved.
 #: markdown/inputs.md:49
 msgid "run.py"
-msgstr ""
+msgstr "run.py"
 
 #: markdown/inputs.md:58
 msgid ""
