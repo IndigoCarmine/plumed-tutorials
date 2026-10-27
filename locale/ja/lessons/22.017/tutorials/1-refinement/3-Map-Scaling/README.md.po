@@ -9,4 +9,4 @@ msgstr ""
 
 #: tutorials/1-refinement/3-Map-Scaling/README.md:1
 msgid "Scaling factor optimization"
-msgstr ""
+msgstr "Scaling Factor の最適化"

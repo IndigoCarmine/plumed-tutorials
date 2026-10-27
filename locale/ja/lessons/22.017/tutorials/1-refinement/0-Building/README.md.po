@@ -9,4 +9,4 @@ msgstr ""
 
 #: tutorials/1-refinement/0-Building/README.md:1
 msgid "Preparation of topology for GROMACS"
-msgstr ""
+msgstr "GROMACS 用の Topology の準備"

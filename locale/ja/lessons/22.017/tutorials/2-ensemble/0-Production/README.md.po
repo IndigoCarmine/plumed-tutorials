@@ -9,4 +9,4 @@ msgstr ""
 
 #: tutorials/2-ensemble/0-Production/README.md:1
 msgid "Ensemble modelling setup and production"
-msgstr ""
+msgstr "Ensemble Modelling の設定と本計算"

@@ -75,7 +75,7 @@ msgstr "講義 II"
 #. mermaid node label
 #: NAVIGATION.md:20
 msgid "notebook"
-msgstr ""
+msgstr "Notebook"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:21
@@ -92,7 +92,7 @@ msgstr "2022年6月6日に PLUMED Masterclass シリーズの一環として行�
 #. mermaid click tooltip
 #: NAVIGATION.md:23
 msgid "The slides that were used in the lecture on the 6th June"
-msgstr ""
+msgstr "6月6日の講義で使用した Slide"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:24
@@ -111,4 +111,4 @@ msgstr "2022年6月13日に PLUMED Masterclass シリーズの一環として行
 msgid ""
 "A python notebook that shows you how you can analyse some of the simulation "
 "data you generated"
-msgstr ""
+msgstr "生成したシミュレーションデータの解析方法を示す Python Notebook"

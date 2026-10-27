@@ -9,8 +9,8 @@ msgstr ""
 
 #: README.md:1
 msgid "bAIes-SM"
-msgstr ""
+msgstr "bAIes-SM"
 
 #: README.md:2
 msgid "Bayesian refinement of AlphaFold models for virtual screening"
-msgstr ""
+msgstr "Virtual Screening のための、AlphaFold モデルの Bayesian Refinement"

@@ -9,4 +9,4 @@ msgstr ""
 
 #: README.md:1
 msgid "masterclass-22-10"
-msgstr ""
+msgstr "masterclass-22-10"

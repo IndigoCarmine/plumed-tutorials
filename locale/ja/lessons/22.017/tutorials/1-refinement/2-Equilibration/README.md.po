@@ -9,4 +9,4 @@ msgstr ""
 
 #: tutorials/1-refinement/2-Equilibration/README.md:1
 msgid "Energy minimization and equilibration at room temperature"
-msgstr ""
+msgstr "Energy Minimization と室温での Equilibration"

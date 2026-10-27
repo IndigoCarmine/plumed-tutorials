@@ -32,6 +32,9 @@ msgid ""
 "[this](https://www.plumed.org/doc-v2.7/user-doc/html/masterclass-21-5.html) "
 "masterclass in advance."
 msgstr ""
+"この Masterclass では、PLUMED と GROMACS による Hamiltonian Replica Exchange "
+"の実行と、得られた Trajectories の解析を学ぶ。先に[こちら](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/masterclass-21-5.html)の Masterclass を終えることを強く勧める。"
 
 #: INSTRUCTIONS.md:12
 msgid "Objectives"
@@ -45,19 +48,19 @@ msgstr "この Masterclass を終えると、次のことができるように�
 msgid ""
 "Use PLUMED to manipulate GROMACS topologies and prepare a solute tempering "
 "simulation."
-msgstr ""
+msgstr "PLUMED で GROMACS Topologies を操作し、Solute Tempering を準備する。"
 
 #: INSTRUCTIONS.md:17
 msgid ""
 "Use PLUMED and GROMACS to run replica-exchange simulations with multiple "
 "topologies."
-msgstr ""
+msgstr "異なる Topologies を持つ Replica Exchange を、PLUMED と GROMACS で実行する。"
 
 #: INSTRUCTIONS.md:18
 msgid ""
 "Use WHAM to combine multiple simulations performed with different topologies"
 " and/or bias potentials."
-msgstr ""
+msgstr "異なる Topologies や BiasPotentials で実行した計算を、WHAM で統合する。"
 
 #: INSTRUCTIONS.md:20
 msgid "Setting up PLUMED"
@@ -70,6 +73,8 @@ msgid ""
 "please follow the instructions at [this "
 "link](https://github.com/plumed/masterclass-2022)."
 msgstr ""
+"MPI ライブラリでコンパイルした PLUMED と GROMACS "
+"が必要である。適切な版の導入は、[こちら](https://github.com/plumed/masterclass-2022)の手順に従う。"
 
 #: INSTRUCTIONS.md:25
 msgid "Resources"
@@ -81,12 +86,14 @@ msgid ""
 " [GitHub](https://github.com/plumed/masterclass-22-10). You can clone this "
 "repository locally on your machine using the following command:"
 msgstr ""
+"演習に必要なデータは [GitHub](https://github.com/plumed/masterclass-22-10) "
+"にある。次のコマンドでリポジトリを手元に clone できる。"
 
 #: INSTRUCTIONS.md:35
 msgid ""
 "**All the exercises were tested with PLUMED version 2.8.0 and GROMACS "
 "2020.6**"
-msgstr ""
+msgstr "**すべての演習は PLUMED 2.8.0 と GROMACS 2020.6 で動作確認されている。**"
 
 #: INSTRUCTIONS.md:37
 msgid ""
@@ -94,6 +101,8 @@ msgid ""
 " in this Masterclass can be found at [this page](https://www.plumed.org/doc-"
 "master/user-doc/html/hrex.html)."
 msgstr ""
+"この実装の追加説明は、[こちら](https://www.plumed.org/doc-master/user-"
+"doc/html/hrex.html)にある。"
 
 #: INSTRUCTIONS.md:39
 msgid "Exercises"
@@ -108,6 +117,9 @@ msgid ""
 "specific implementation of Hamiltonian replica exchange that is only "
 "available when combining GROMACS and PLUMED."
 msgstr ""
+"全体を通して、GROMACS と PLUMED で**水中の Alanine Dipeptide** を計算する。本格的な Enhanced "
+"Sampling の Benchmark には単純すぎるが、学習には十分な複雑さを持つ。この Masterclass は、GROMACS と "
+"PLUMED を組み合わせた場合にのみ利用できる、特定の Hamiltonian Replica Exchange の実装を扱う。"
 
 #: INSTRUCTIONS.md:46
 msgid ""
@@ -117,10 +129,12 @@ msgid ""
 "might lead to much better performance. In addition, using a GPU will also "
 "make your simulations significantly faster."
 msgstr ""
+"ハードウェアによっては、数時間かかる。配布する conda Channel の GROMACS "
+"は最適化されていないため、自分のマシンでコンパイルすると大幅に速くなる場合がある。GPU の利用も高速化に役立つ。"
 
 #: INSTRUCTIONS.md:51
 msgid "Introduction to Hamiltonian replica exchange"
-msgstr ""
+msgstr "Hamiltonian Replica Exchange の入門"
 
 #: INSTRUCTIONS.md:53
 msgid ""
@@ -137,6 +151,13 @@ msgid ""
 "replicas are subject to different potential energy functions, and thus "
 "different Hamiltonians."
 msgstr ""
+"[masterclass-21-5](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/masterclass-21-5.html) では、各 Replica に異なる Biasing Forces を加える "
+"Replica Exchange を学んだ。典型例は、異なる位置の Restraint を使う Umbrella Sampling と Replica "
+"Exchange の組み合わせである。他にも、各 Replica の異なる CV に Bias を加える Bias-Exchange "
+"Metadynamics がある。異なる温度と、それぞれの History-dependent Potential を用いる Parallel-"
+"Tempering Metadynamics も扱った。どれも Replicas の Potential Energy Functions、すなわち "
+"Hamiltonians が異なるため、Hamiltonian Replica Exchange の一種である。"
 
 #: INSTRUCTIONS.md:63
 msgid ""
@@ -148,6 +169,9 @@ msgid ""
 "can be enabled. We will also spend some time in learning how to edit the "
 "GROMACS topologies, so as to generate the modified force fields."
 msgstr ""
+"今回は、概念的には似ているが、技術的には別の実装を扱う。各 Replica を異なる Force Field Parameters "
+"で計算する。このため演習の大半では、Bias を加えない空の `plumed.dat` を使う。ただし、PLUMED "
+"を有効にするためファイル自体は必要である。変更した Force Fields を作るため、GROMACS Topologies の編集方法も学ぶ。"
 
 #: INSTRUCTIONS.md:69
 msgid ""
@@ -159,6 +183,9 @@ msgid ""
 "typically suboptimal, but we will need it in our lectures to run, e.g., "
 "simulations with 16 replicas even if we have a computer with 4 cores."
 msgstr ""
+"Multi-replica 法は MPI で実行する。コマンドの前に `mpiexec -np N --oversubscribe` を付け、`N` に"
+" Process 数を指定する。`--oversubscribe` は、利用できる Processor 数より多くの Processes を使うための "
+"OpenMPI のオプションである。通常は最適ではないが、4 Cores のマシンで16 Replicas を実行する場合など、講義では必要になる。"
 
 #: INSTRUCTIONS.md:74
 msgid ""
@@ -166,6 +193,8 @@ msgid ""
 "directories names `dir0`, `dir1`, etc and the (possibly empty) `plumed.dat` "
 "file is in the parent directory you will need a command such as"
 msgstr ""
+"例えば、各 Replica のディレクトリを `dir0`、`dir1` などとし、親ディレクトリに、空でもよい `plumed.dat` "
+"を置く場合、次のようなコマンドを使う。"
 
 #: INSTRUCTIONS.md:81
 msgid ""
@@ -174,17 +203,19 @@ msgid ""
 "implemenation discussed in this Masterclass, and informs GROMACS and PLUMED "
 "that there might be different force fields used in different replicas."
 msgstr ""
+"`-replex 200` は Replica Exchange を有効にし、200ステップごとに交換を試行する。`-hrex` "
+"は今回の実装に固有であり、Replicas 間で Force Fields が異なる可能性を GROMACS と PLUMED に伝える。"
 
 #: INSTRUCTIONS.md:86
 msgid ""
 "*If you forget the `-hrex` flag, no error will be issued, but the acceptance"
 " for exchanges will be incorrectly calculated.*"
-msgstr ""
+msgstr "*`-hrex` を忘れてもエラーは出ないが、交換の Acceptance が誤って計算される。*"
 
 #: INSTRUCTIONS.md:88
 msgid ""
 "If you have random crashes on MacOS, try to set this environemnt variable:"
-msgstr ""
+msgstr "macOS で不規則に Crash する場合は、次の環境変数を設定してみる。"
 
 #: INSTRUCTIONS.md:94
 msgid ""
@@ -197,10 +228,14 @@ msgid ""
 "master/user-doc/html/_m_o_l_i_n_f_o.html) action so as to facilitate atom "
 "selections in analysis."
 msgstr ""
+"ルートディレクトリには、初期 Configuration の `conf.gro`、Topology の `topol.top`、妥当な計算パラメータの"
+" `grompp.mdp` がある。また、`conf.gro` を PDB に変換した `ala.pdb` は、解析時の原子選択を簡単にする "
+"[MOLINFO](https://www.plumed.org/doc-master/user-"
+"doc/html/_m_o_l_i_n_f_o.html) で使える。"
 
 #: INSTRUCTIONS.md:99
 msgid "Exercise 1a: Test with different temperatures"
-msgstr ""
+msgstr "演習1a：異なる温度で試す"
 
 #: INSTRUCTIONS.md:101
 msgid ""
@@ -211,41 +246,46 @@ msgid ""
 "forward and backward transitions between the two metastable states of our "
 "system."
 msgstr ""
+"Solute Tempering の前に Parallel Tempering を試す。重要な Energy Barriers "
+"を計算中に越えられるよう、最高温度の Replica を十分に高温にする必要がある。まず、2つの Metastable States "
+"の往復遷移を見るために、どこまで温度を上げる必要があるかを見積もる。"
 
 #: INSTRUCTIONS.md:106
 msgid "To do so:"
-msgstr ""
+msgstr "次のように進める。"
 
 #: INSTRUCTIONS.md:107
 msgid ""
 "Prepare an array of simulations, with temperatures equal to 300, 400, 500, "
 "600, 700, 800, 900, 1000"
-msgstr ""
+msgstr "温度を300、400、500、600、700、800、900、1000とする一連の計算を準備する。"
 
 #: INSTRUCTIONS.md:108
 msgid ""
 "Run each of them for 1 ns and check at which temperature you have at least "
 "one transition from the initial basin to the other one and one backward "
 "transition"
-msgstr ""
+msgstr "各温度で1 ns 計算し、初期 Basin からもう一方への遷移と、戻る遷移が少なくとも1回ずつ起きる温度を調べる。"
 
 #: INSTRUCTIONS.md:110
 msgid "These are serial simulations, so you can run them with this command:"
-msgstr ""
+msgstr "これらは Serial 計算なので、次のコマンドで実行できる。"
 
 #: INSTRUCTIONS.md:119
 msgid "though it is recommended to use a script to run your simulations."
-msgstr ""
+msgstr "ただし、複数の計算はスクリプトで実行することを勧める。"
 
 #: INSTRUCTIONS.md:121
 msgid ""
 "To analyze the resulting trajectories you can use PLUMED "
 "[driver](https://www.plumed.org/doc-master/user-doc/html/driver.html)"
 msgstr ""
+"解析には PLUMED の [driver](https://www.plumed.org/doc-master/user-"
+"doc/html/driver.html) を使える。"
 
 #: INSTRUCTIONS.md:125
 msgid "with the following `plumed.dat` file:"
-msgstr ""
+msgstr "次の `plumed.dat` を使う。"
 
 #: INSTRUCTIONS.md:133
 msgid ""
@@ -254,23 +294,25 @@ msgid ""
 "second basin (phi in range (0.5,1.5)), and back. Answer the following "
 "question:"
 msgstr ""
+"出力 `COLVAR` の2列目を描き、最初の Basin（phi が -3～-1）から、2つ目（phi "
+"が0.5～1.5）への遷移と、その逆を確認する。次の問いに答えてほしい。"
 
 #: INSTRUCTIONS.md:136
 msgid ""
 "How much should you increase the temperature to see a transition back-and-"
 "forth between the two basins?"
-msgstr ""
+msgstr "2つの Basins 間の往復遷移を見るには、どこまで温度を上げる必要があるだろうか。"
 
 #: INSTRUCTIONS.md:138
 msgid ""
 "The result will depend on stochastic factors, but also on the length of the "
 "simulation. I recommend running a 1 ns long simulation (500000 steps), but "
 "you can try with a longer or shorter trajectory."
-msgstr ""
+msgstr "結果は確率的な要因だけでなく、計算時間にも依存する。1 ns、500000ステップを勧めるが、長くしたり短くしたりしてもよい。"
 
 #: INSTRUCTIONS.md:141
 msgid "Exercise 1b: Run a parallel tempering simulation"
-msgstr ""
+msgstr "演習1b：Parallel Tempering の実行"
 
 #: INSTRUCTIONS.md:143
 msgid ""
@@ -280,6 +322,8 @@ msgid ""
 "geometric series (that's the allocation that leads to uniform acceptance in "
 "a system with temperature-independent specific heat)."
 msgstr ""
+"必要な温度が分かったら、Parallel Tempering を行う。T=300からその温度をつなぐ Replicas が必要である。最初は "
+"Geometric Series で配置するとよい。Heat Capacity が温度に依存しない系では、これが一様な Acceptance を与える。"
 
 #: INSTRUCTIONS.md:147
 msgid ""
@@ -289,13 +333,15 @@ msgid ""
 "different temperature in the `grompp.mdp` file. We will not need PLUMED for "
 "this exercise, so the simulation can be run with a command like this one:"
 msgstr ""
+"16 Replicas を試すとする。`dir0`、`dir1`、…、`dir15` の16ディレクトリを作り、それぞれに `topol.tpr` "
+"を置く。各 `topol.tpr` は、`grompp.mdp` の温度を変えて生成する。この演習に PLUMED は不要であり、次のように実行できる。"
 
 #: INSTRUCTIONS.md:156
 msgid ""
 "The `-replex` option tells to GROMACS how frequently exchanges should be "
 "attempted. The average acceptance will be reported at the end of the "
 "`md.log` file."
-msgstr ""
+msgstr "`-replex` で交換の試行頻度を指定する。平均 Acceptance は `md.log` の末尾に出力される。"
 
 #: INSTRUCTIONS.md:159
 msgid ""
@@ -303,6 +349,8 @@ msgid ""
 "states. Thanks to the exchanges, both states will be observed also in the "
 "replica that is kept as T=300K."
 msgstr ""
+"最高温度の Replica では、2つの Metastable States 間の遷移が起きる。交換によって、T=300 K の Replica "
+"でも両状態を観測できる。"
 
 #: INSTRUCTIONS.md:161 INSTRUCTIONS.md:279
 msgid "Now answer the following questions:"
@@ -312,18 +360,18 @@ msgstr "次の問いに答えてほしい。"
 msgid ""
 "How many replicas do you need to have an acceptance that is at least 30%? "
 "(the answer will depend on the maximum temperature you have chosen)"
-msgstr ""
+msgstr "Acceptance を30%以上にするには、いくつの Replicas が必要だろうか。答えは選んだ最高温度に依存する。"
 
 #: INSTRUCTIONS.md:163
 msgid ""
 "How much is the relative population of the two metastable states at T=300? "
 "Plot this population as a function of the temperature (you can just extract "
 "results from the different replicas)."
-msgstr ""
+msgstr "T=300における2状態の相対的な Population はどの程度か。各 Replica の結果から、温度の関数として描いてほしい。"
 
 #: INSTRUCTIONS.md:165
 msgid "Exercise 2a: Setting up scaled Hamiltonians"
-msgstr ""
+msgstr "演習2a：Scaling した Hamiltonians の準備"
 
 #: INSTRUCTIONS.md:167
 msgid ""
@@ -338,6 +386,11 @@ msgid ""
 "energy by a factor 2 is equivalent to multiplying the temperature by a "
 "factor 2."
 msgstr ""
+"異なる Topologies の Hamiltonian Replica Exchange を行うには、まず Topologies "
+"の生成方法を学ぶ。`topol.top` を手で編集するなどの方法もあるが、ここでは PLUMED の "
+"[partial_tempering](https://www.plumed.org/doc-master/user-"
+"doc/html/partial_tempering.html) を使う。選択した原子群の Energy を、指定の係数で Scaling した "
+"Topologies を作れる。Energy を2で割るのは、温度を2倍することに相当する点を思い出してほしい。"
 
 #: INSTRUCTIONS.md:172
 msgid ""
@@ -346,6 +399,8 @@ msgid ""
 "self-contained. The first thing that we have to do is to generate a self-"
 "contained topology file:"
 msgstr ""
+"まず `topol.top` を見る。`#include ...` のような行が多く、これだけでは完結していない。最初に、自己完結した Topology"
+" を作る。"
 
 #: INSTRUCTIONS.md:179
 msgid ""
@@ -353,6 +408,8 @@ msgid ""
 "file does not contain only information about alanine dipeptide, but also "
 "about the generic force-field parameters. It is thus self-contained."
 msgstr ""
+"`processed.top` を Text Editor で確認する。Alanine Dipeptide の情報だけでなく、汎用の Force "
+"Field Parameters も含むため、このファイルだけで完結する。"
 
 #: INSTRUCTIONS.md:183
 msgid ""
@@ -360,10 +417,12 @@ msgid ""
 "want to scale. To do so you have to add an underscore (`_`) to the atom name"
 " of the selected atoms. For instance, this line:"
 msgstr ""
+"次に `processed.top` を編集し、Scaling する原子を指定する。選択した原子の名前に "
+"Underscore（`_`）を付ける。例えば、次の行は、"
 
 #: INSTRUCTIONS.md:188
 msgid "should be modified to this line:"
-msgstr ""
+msgstr "次のように変更する。"
 
 #: INSTRUCTIONS.md:192
 msgid ""
@@ -371,6 +430,8 @@ msgid ""
 "all the solute atoms (look in the `[ atoms ]` section). Once this is done "
 "you can use the following command:"
 msgstr ""
+"Solute Tempering では、すべての Solute Atoms に Underscore を付ける。`[ atoms ]` "
+"を確認してほしい。その後、次を実行する。"
 
 #: INSTRUCTIONS.md:196
 msgid ""
@@ -379,10 +440,12 @@ msgid ""
 " out what has changed. You can also try to apply two different scaling "
 "factors and check the difference:"
 msgstr ""
+"選んだ原子の Hamiltonian を係数1.0、つまり変更なしで Scaling する。`scaled.top` "
+"で何が変わったかを確認する。他の2つの係数も試し、違いを比べられる。"
 
 #: INSTRUCTIONS.md:204
 msgid "Exercise 2b: Sanity check on generated topologies"
-msgstr ""
+msgstr "演習2b：生成した Topologies の妥当性確認"
 
 #: INSTRUCTIONS.md:206
 msgid ""
@@ -393,38 +456,41 @@ msgid ""
 "exercise. We will then used a GROMACS tool named `rerun`, which allows "
 "recomputing the energy along a trajectory using a new topology."
 msgstr ""
+"生成した Topologies は GROMACS で使えるが、`parial_tempering` "
+"は完全ではないため、妥当性を確認する。新しく計算した、または以前の演習の Trajectory を使う。GROMACS の `rerun` は、新しい "
+"Topology で Trajectory の Energy を再計算できる。"
 
 #: INSTRUCTIONS.md:208
 msgid "First, create an energy file corresponding to the original topology:"
-msgstr ""
+msgstr "まず、元の Topology の Energy ファイルを作る。"
 
 #: INSTRUCTIONS.md:214
 msgid ""
 "The resulting `ener.edr` file can be converted to a text file with the "
 "`gmx_mpi energy` command."
-msgstr ""
+msgstr "`ener.edr` は、`gmx_mpi energy` でテキストに変換できる。"
 
 #: INSTRUCTIONS.md:216
 msgid ""
 "Then, generate a new topology with scaling factor 1.0 and compute energies "
 "again:"
-msgstr ""
+msgstr "次に、係数1.0で新しい Topology を作り、再度 Energy を計算する。"
 
 #: INSTRUCTIONS.md:223
 msgid "The resulting energies should be identical!"
-msgstr ""
+msgstr "Energy は一致するはずである。"
 
 #: INSTRUCTIONS.md:225
 msgid ""
 "As a second check, generate a new topology where you scaled *all* atoms "
 "(make sure to also select water!) by a factor 0.5:"
-msgstr ""
+msgstr "2つ目の確認では、水も含めた*すべて*の原子を、係数0.5で Scaling する。"
 
 #: INSTRUCTIONS.md:233
 msgid ""
 "This time, dihedral angles, LJ, and Coulomb energies should be multiplied by"
 " 0.5."
-msgstr ""
+msgstr "この場合、Dihedral、LJ、Coulomb の Energies は0.5倍になるはずである。"
 
 #: INSTRUCTIONS.md:235
 msgid ""
@@ -434,10 +500,13 @@ msgid ""
 "field, you will find inconsistencies in these sanity checks. For the "
 "provided `topol.top` file, everything should work."
 msgstr ""
+"これは非常に重要な確認である。`partial_tempering` は、CHARMM CMAP など一部の関数形式に対応していない。修正方法は "
+"PLUMED Mailing List で探せる。非対応の Force Field では、この確認で不一致が見つかる。付属の `topol.top` "
+"では、正常に動くはずである。"
 
 #: INSTRUCTIONS.md:242
 msgid "Exercise 2c: Sanity check on replica-exchange implementation"
-msgstr ""
+msgstr "演習2c：Replica Exchange 実装の妥当性確認"
 
 #: INSTRUCTIONS.md:244
 msgid ""
@@ -452,10 +521,14 @@ msgid ""
 "everything else, use the same settings you will use in production (ideally, "
 "same number of processes per replica, same GPU settings, etc)."
 msgstr ""
+"Acceptance が正しく計算されるかも確認する。このために GROMACS に加えたコードは単純ではなく、壊れやすい部分がある。元の "
+"`topol.tpr` と係数1.0のものなど、等価な2つの Topologies で短い Hamiltonian Replica Exchange "
+"を行う。初期速度の Seed を変え、できれば異なる `conf.gro` から始める。他の条件は本計算と同じにし、Replica 当たりの "
+"Process 数や GPU の設定もそろえるのが望ましい。"
 
 #: INSTRUCTIONS.md:250
 msgid "Now run a short replica exchange simulation:"
-msgstr ""
+msgstr "短い Replica Exchange を実行する。"
 
 #: INSTRUCTIONS.md:255
 msgid ""
@@ -463,16 +536,18 @@ msgid ""
 "resulting acceptance. Since the Hamiltonians are identical, the acceptance "
 "**should be exactly 1.0**."
 msgstr ""
+"前述のとおり、`plumed.dat` は空でよい。Hamiltonians が同じなので、Acceptance "
+"は**厳密に1.0になるはず**である。"
 
 #: INSTRUCTIONS.md:258
 msgid ""
 "Notice that whereas this is formally true there might be numerical issues "
 "that make this test fail. Specifically:"
-msgstr ""
+msgstr "形式上はそうなるが、数値上の問題で確認に失敗する場合がある。具体例を示す。"
 
 #: INSTRUCTIONS.md:261
 msgid "Dynamic load balancing (can be switched off with `mdrun -dlb no`)"
-msgstr ""
+msgstr "Dynamic Load Balancing。`mdrun -dlb no` で無効にできる。"
 
 #: INSTRUCTIONS.md:262
 msgid ""
@@ -480,16 +555,20 @@ msgid ""
 "optimize the PME calculation dynamically, altering the acceptacte in this "
 "case (can be switched off with `mdrun -notunepme`)."
 msgstr ""
+"GPU や多数の MPI Processes を使うと、GROMACS が PME を動的に最適化し、この場合の Acceptance "
+"を変える可能性がある。`mdrun -notunepme` で無効にできる。"
 
 #: INSTRUCTIONS.md:264
 msgid ""
 "See also [here](https://github.com/plumed/plumed2/issues/1177) on GitHub for"
 " a discussion of this issue."
 msgstr ""
+"この問題の議論は、GitHub "
+"の[こちら](https://github.com/plumed/plumed2/issues/1177)も参照してほしい。"
 
 #: INSTRUCTIONS.md:266
 msgid "Exercise 2d: Find minimum scaling factor needed to cross the barrier"
-msgstr ""
+msgstr "演習2d：Barrier を越えるための最小 Scaling Factor の特定"
 
 #: INSTRUCTIONS.md:268
 msgid ""
@@ -501,16 +580,19 @@ msgid ""
 "simulations, with scaling factors decreasing (e.g., 1.0, 0.9, 0.8, etc). Now"
 " answer the following question:"
 msgstr ""
+"原子群の Energy を Scaling した tpr を生成できるようになった。演習1aと同様に、今度は温度の代わりに Scaling Factor"
+" を変える。Solute Tempering のため、Solute の Alanine Dipeptide "
+"に属する原子を、すべて、かつそれだけを選ぶ。係数を1.0、0.9、0.8などと下げて1 ns ずつ計算し、次の問いに答えてほしい。"
 
 #: INSTRUCTIONS.md:271
 msgid ""
 "How much should you decrease the scaling factor to see transitions between "
 "the two metastable states in the first nanosecond?"
-msgstr ""
+msgstr "最初の1 ns で2つの Metastable States 間の遷移を見るには、係数をどこまで下げる必要があるだろうか。"
 
 #: INSTRUCTIONS.md:274
 msgid "Exercise 3: Run Hamiltonian replica exchange simulations"
-msgstr ""
+msgstr "演習3：Hamiltonian Replica Exchange の実行"
 
 #: INSTRUCTIONS.md:276
 msgid ""
@@ -520,6 +602,9 @@ msgid ""
 "geometric one, but you can experiment. Similarly to parallel tempering, we "
 "can for now just analyze the reference replica (at lambda=1.0)."
 msgstr ""
+"lambda=1.0から前の最小値をつなぐ、複数の Replicas で計算する。lambda は Geometric "
+"でなく線形の配置を勧めるが、他も試してよい。Parallel Tempering と同様に、まずは lambda=1.0 の Reference "
+"Replica だけを解析する。"
 
 #: INSTRUCTIONS.md:280
 msgid ""
@@ -528,6 +613,8 @@ msgid ""
 "lambda you have chosen). Is this smaller or larger than the number of "
 "replicas that you used for exercise 1b above?"
 msgstr ""
+"Acceptance を30%以上にするには、Replicas はいくつ必要で、どの配置が最適だろうか。選んだ最小 lambda "
+"に依存する。演習1bより Replicas は少ないか、多いか。"
 
 #: INSTRUCTIONS.md:281
 msgid ""
@@ -537,22 +624,26 @@ msgid ""
 "dependence on lambda and the dependence on T that we have seen in exercise "
 "1b above?"
 msgstr ""
+"T=300での2状態の相対的な Population を、各 Replica から取り出して lambda "
+"の関数として描く。演習1bの温度依存性とは、何か関係があるだろうか。"
 
 #: INSTRUCTIONS.md:284
 msgid "Exercise 4: Analyze Hamiltonian replica exchange simulations with WHAM"
-msgstr ""
+msgstr "演習4：WHAM による Hamiltonian Replica Exchange の解析"
 
 #: INSTRUCTIONS.md:286
 msgid ""
 "So far we only analized the reference replica (lambda=1.0). We can however "
 "do better and combine all replicas with WHAM. To this aim you should:"
-msgstr ""
+msgstr "ここまでは lambda=1.0 だけを解析したが、WHAM ですべての Replicas を統合できる。次の手順で行う。"
 
 #: INSTRUCTIONS.md:287
 msgid ""
 "Concatenate all trajectories in a single file (`gmx_mpi trjcat -cat -f "
 "dir?/traj_comp.xtc dir??/traj_comp.xtc -o traj_multi.xtc`)."
 msgstr ""
+"全 Trajectories を1ファイルに連結する（`gmx_mpi trjcat -cat -f dir?/traj_comp.xtc "
+"dir??/traj_comp.xtc -o traj_multi.xtc`）。"
 
 #: INSTRUCTIONS.md:288
 msgid ""
@@ -561,6 +652,9 @@ msgid ""
 "energy0.edr`, `gmx_mpi mdrun -rerun traj_multi.xtc -s dir1/topol.tpr -e "
 "ener1.edr`, etc.)."
 msgstr ""
+"各 Replica の tpr で Potential Energy を再計算する（`gmx_mpi mdrun -rerun "
+"traj_multi.xtc -s dir0/topol.tpr -e energy0.edr`、`gmx_mpi mdrun -rerun "
+"traj_multi.xtc -s dir1/topol.tpr -e ener1.edr` など）。"
 
 #: INSTRUCTIONS.md:291
 msgid ""
@@ -568,16 +662,18 @@ msgid ""
 "-xvg no -e energy0.xvg -xvg no`, etc.). 11 should select the potential "
 "energy."
 msgstr ""
+"Energy をテキストに変換する（`echo 11 | gmx_mpi energy -f ener0.edr -xvg no -e "
+"energy0.xvg -xvg no` など）。11は Potential Energy を選択するはずである。"
 
 #: INSTRUCTIONS.md:295
 msgid ""
 "Then you can use the provided python wham script to compute the weight of "
 "all frames with the following python commands:"
-msgstr ""
+msgstr "付属の Python WHAM スクリプトで、次のようにすべての Frames の Weight を計算する。"
 
 #: INSTRUCTIONS.md:319
 msgid "Now plot the `weights` array and answer the following questions:"
-msgstr ""
+msgstr "`weights` Array を描き、次に答えてほしい。"
 
 #: INSTRUCTIONS.md:320
 msgid ""
@@ -585,12 +681,14 @@ msgid ""
 "exchange trajectories were concatenated. Can you recognize those frames "
 "coming from the first, second, etc replica?"
 msgstr ""
+"Weight は Frame の Index にどう依存するか。Trajectories は連結されている点を思い出してほしい。どの Frames "
+"が1番目、2番目などの Replica に由来するかを識別できるだろうか。"
 
 #: INSTRUCTIONS.md:322
 msgid ""
 "Compute the population of the two states by summing the weight of all states"
 " in the two basins."
-msgstr ""
+msgstr "2つの Basins 内の Weight をそれぞれ足し、各状態の Population を求める。"
 
 #: INSTRUCTIONS.md:323
 msgid ""
@@ -598,10 +696,12 @@ msgid ""
 "than the first one, and compute the population of the two states as a "
 "function of lambda."
 msgstr ""
+"最初以外の Replicas に対応する Weight を計算するようスクリプトを変え、lambda の関数として2状態の Population "
+"を求める。"
 
 #: INSTRUCTIONS.md:326
 msgid "Exercise 5: Optimize the lambda ladder"
-msgstr ""
+msgstr "演習5：Lambda Ladder の最適化"
 
 #: INSTRUCTIONS.md:328
 msgid ""
@@ -610,13 +710,15 @@ msgid ""
 "possible. We will do this *without* running new simulations, i.e. just "
 "analyzing the simulation above."
 msgstr ""
+"lambda の値のリストを最適化する。目標は、Acceptance "
+"の積を最大にすることである。新しい計算は*行わず*、これまでのシミュレーションを解析するだけで実現する。"
 
 #: INSTRUCTIONS.md:332
 msgid ""
 "This is a difficult exercise. It will be solved in the solution, but it is "
 "**not** necessary to complete it so as to proceed to the next step. I write "
 "some hints here."
-msgstr ""
+msgstr "難しい演習であり、解答では扱うが、次へ進むために終える必要は**ない**。ヒントを示す。"
 
 #: INSTRUCTIONS.md:334
 msgid ""
@@ -628,6 +730,10 @@ msgid ""
 " any frame, and for any value of lambda (including values not yet "
 "simulated!), returns the energy of the system."
 msgstr ""
+"Solute Tempering の Energy は `sqrt(lambda)` の2次関数である。各 Frame について "
+"`A*lambda+B*sqrt(lambda)+C` と書け、`A`、`B`、`C` は Frame ごとに求める。前の演習の `ene` "
+"を解析して係数を得る。目的は、まだ計算していない値を含む任意の lambda と、任意の Frame に対して Energy "
+"を返す関数を作ることである。"
 
 #: INSTRUCTIONS.md:339
 msgid ""
@@ -636,6 +742,8 @@ msgid ""
 "generate a smooth version of the population vs lambda plot that we did in "
 "the last exercise."
 msgstr ""
+"これらの関数により、任意の lambda に対応する Weight を求められる。例えば、前の Population と lambda "
+"のグラフを滑らかな形で描ける。"
 
 #: INSTRUCTIONS.md:341
 msgid ""
@@ -644,6 +752,8 @@ msgid ""
 "acceptance associated to the neighboring replicas simulated above. Can you "
 "predict the acceptances seen during the simulation?"
 msgstr ""
+"2つの lambda の値があれば、Ensemble Averages で平均 Acceptance を計算できる。計算済みの隣接 Replicas の"
+" Acceptance を予測し、実際の値と合うか確認してほしい。"
 
 #: INSTRUCTIONS.md:345
 msgid ""
@@ -653,16 +763,18 @@ msgid ""
 "that the largest lambda is fixed to 1.0 and the lowest is fixed to "
 "`lambda_min`"
 msgstr ""
+"その関数を `predict_acceptance(lambda1,lambda2)` とすると、次のスクリプトで積を最大にする Ladder "
+"を求められる。最大 lambda を1.0、最小を `lambda_min` に固定するとする。"
 
 #: INSTRUCTIONS.md:386
 msgid ""
 "You can then run a new simulation with the optimal lambdas and check if the "
 "predicted acceptances correspond to the observed ones!"
-msgstr ""
+msgstr "最適な lambda の組で新たに計算し、予測と観測の Acceptances が一致するかを確認してほしい。"
 
 #: INSTRUCTIONS.md:389
 msgid "Exercise 6: Combine with metadynamics on psi"
-msgstr ""
+msgstr "演習6：psi の Metadynamics との組み合わせ"
 
 #: INSTRUCTIONS.md:391
 msgid ""
@@ -675,3 +787,8 @@ msgid ""
 "masterclass](https://www.plumed.org/doc-v2.7/user-"
 "doc/html/masterclass-21-5.html)."
 msgstr ""
+"最後に、明示的な溶媒中の Alanine Dipeptide、Solute Tempering、および最適化した lambda を使い、[こちらの "
+"Masterclass](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/masterclass-21-5.html) "
+"の演習5を繰り返す。追加の指針は示さないが、[こちら](https://www.plumed.org/doc-v2.7/user-"
+"doc/html/masterclass-21-5.html)の提案を使えば難しくないはずである。"

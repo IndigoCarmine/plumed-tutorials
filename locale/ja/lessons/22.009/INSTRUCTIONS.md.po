@@ -25,6 +25,9 @@ msgid ""
 "exercise was originally created by Alberto Pérez de Alba Ortíz for the Cecam"
 " School \"Understanding Molecular Simulation\", held annually in Amsterdam."
 msgstr ""
+"この Masterclass は Bernd Ensing が2022年6月6日に作成しました。演習の多くは、Amsterdam で毎年開催される "
+"Cecam School「Understanding Molecular Simulation」のために Alberto Pérez de Alba "
+"Ortíz が作成したものです。"
 
 #: INSTRUCTIONS.md:10
 msgid "Aims"
@@ -37,6 +40,9 @@ msgid ""
 "processes, and to provide hands-on experience with setting up, running, and "
 "analyzing biased path-CV simulations, such as path-metadynamics."
 msgstr ""
+"この Masterclass の目的は、活性化を伴う分子過程の記述とシミュレーションに Path Collective Variables "
+"を用いる利点を示し、Path-metadynamics など、Path-CV に Bias "
+"を加えるシミュレーションの設定・実行・解析を実践することです。"
 
 #: INSTRUCTIONS.md:18
 msgid "Objectives"
@@ -50,33 +56,33 @@ msgstr "この Masterclass を終えると、次のことができるように�
 msgid ""
 "Use the Plumed PesMD engine to run test simulations of enhanced sampling "
 "methods."
-msgstr ""
+msgstr "Plumed PesMD エンジンで Enhanced Sampling 法のテストシミュレーションを実行する。"
 
 #: INSTRUCTIONS.md:23
 msgid ""
 "Write Plumed input files to run metadynamics and path-metadynamics "
 "simulations."
-msgstr ""
+msgstr "Metadynamics と Path-metadynamics のシミュレーション用に Plumed 入力ファイルを作成する。"
 
 #: INSTRUCTIONS.md:24
 msgid "Tune the adaptive path-CV parameters for optimal efficiency."
-msgstr ""
+msgstr "効率が最適になるよう Adaptive Path-CV のパラメータを調整する。"
 
 #: INSTRUCTIONS.md:25
 msgid ""
 "Analyze the evolution and convergence of the transition path and the free "
 "energy profile."
-msgstr ""
+msgstr "Transition Path と自由エネルギープロファイルの変化・収束を解析する。"
 
 #: INSTRUCTIONS.md:26
 msgid ""
 "Use the multiple walker parallelization of metadynamics and path-"
 "metadynamics."
-msgstr ""
+msgstr "Metadynamics と Path-metadynamics の Multiple Walker 並列化を利用する。"
 
 #: INSTRUCTIONS.md:27
 msgid "Restart a PMD simulation from a previous guess path."
-msgstr ""
+msgstr "以前の推定 Path から PMD シミュレーションを再開する。"
 
 #: INSTRUCTIONS.md:29
 msgid "Prerequisites"
@@ -98,6 +104,8 @@ msgid ""
 "on [GitHub](https://github.com/Ensing-Laboratory/masterclass-22-09). You can"
 " clone this repository locally on your machine using the following command:"
 msgstr ""
+"この Masterclass の演習に必要なデータは [GitHub](https://github.com/Ensing-"
+"Laboratory/masterclass-22-09) にあります。次のコマンドで、このリポジトリを自分のマシンに Clone できます。"
 
 #: INSTRUCTIONS.md:43
 msgid ""
@@ -106,6 +114,8 @@ msgid ""
 "command, you have already downloaded them, and with the following commands "
 "we compile this version of plumed:"
 msgstr ""
+"この演習では、PathCV と PESMD の独自バージョンを組み合わせた Plumed 2.3.0 を使います。上の `git clone` "
+"コマンドで既にダウンロードできています。次のコマンドで、このバージョンの plumed をコンパイルします。"
 
 #: INSTRUCTIONS.md:54
 msgid ""
@@ -113,6 +123,8 @@ msgid ""
 "that, the plumed executable is installed in the folder "
 "`masterclass-22-09/plumed/bin`."
 msgstr ""
+"最近の Laptop や Desktop では約5〜10分かかります。その後、plumed 実行ファイルが "
+"`masterclass-22-09/plumed/bin` にインストールされます。"
 
 #: INSTRUCTIONS.md:58
 msgid ""
@@ -121,6 +133,8 @@ msgid ""
 " open your local version in a browser, which you can find in the following "
 "locations on your computer:"
 msgstr ""
+"これらのバージョンの PathCV と PESMD のオプションは、最新の plumed "
+"オンラインマニュアルと多少異なる場合があります。代わりに、コンピュータ上の次の場所にあるローカル版を Browser で開いてください。"
 
 #: INSTRUCTIONS.md:63
 msgid "`masterclass-22-09/plumed/plumed-2.3.0/user-doc/html/index.html`"
@@ -138,7 +152,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:67
 msgid "The exercises are found in the folder `masterclass-22-09/exercises`."
-msgstr ""
+msgstr "演習は `masterclass-22-09/exercises` にあります。"
 
 #: INSTRUCTIONS.md:69
 msgid "Introduction"
@@ -152,6 +166,9 @@ msgid ""
 "transition state barrier, so that the transition process is a _rare event_ "
 "for ``normal'' (i.e. unbiased) molecular dynamics simulations."
 msgstr ""
+"この演習では、2つの自由エネルギー極小の間を遷移する系の Metadynamics [1] と Path-metadynamics (PMD) "
+"[2-4] を実行します。2つの安定状態は Transition State の Barrier で隔てられているため、「通常の」、すなわち Bias "
+"のない Molecular Dynamics では、この遷移は _Rare Event_ になります。"
 
 #: INSTRUCTIONS.md:78
 msgid ""
@@ -161,6 +178,9 @@ msgid ""
 "This is achieved by performing metadynamics on an adaptive path connecting "
 "the two known stable states."
 msgstr ""
+"PMD は Transition Path（Average Transition Path または Minimum Free Energy Path "
+"(MFEP)）と、その Path に沿う自由エネルギープロファイルを同時かつ効率的に収束させられます。既知の2つの安定状態を結ぶ Adaptive "
+"Path 上で Metadynamics を行うことで実現します。"
 
 #: INSTRUCTIONS.md:84
 msgid ""
@@ -170,6 +190,8 @@ msgid ""
 " adaptive path. To ease computation and visualization, we will employ a "
 "simple model system."
 msgstr ""
+"PMD の原理と利点を理解するため、まず標準的な Metadynamics を実行し、そのパラメータと機能に慣れます。その後、Adaptive Path"
+" に対応する機能を追加します。計算と可視化を容易にするため、簡単なモデル系を使います。"
 
 #: INSTRUCTIONS.md:90
 msgid ""
@@ -179,6 +201,8 @@ msgid ""
 "do not need to know anything about the MD engine of our choice, which might "
 "be different from the one that you are used to."
 msgstr ""
+"この演習では PLUMED [5] 内蔵のエンジン _plumed pesmd_ を使い、実際の分子系を扱う MD "
+"エンジンとは結合しません。シミュレーションが非常に高速で、普段とは異なるかもしれない MD エンジンの使い方を学ぶ必要がないという利点があります。"
 
 #: INSTRUCTIONS.md:96
 msgid ""
@@ -187,6 +211,8 @@ msgid ""
 "(with very little changes) with plumed patched to any MD software, which "
 "means that you can potentially use it for your own research!"
 msgstr ""
+"ここで使う Enhanced Sampling 法と作成する plumed 入力ファイルは、ごくわずかな変更で、任意の MD ソフトウェアに Patch"
+" した plumed でも使えます。自分の研究にも応用できます。"
 
 #: INSTRUCTIONS.md:102
 msgid ""
@@ -197,6 +223,9 @@ msgid ""
 "key descriptive degrees of freedom of the transition, commonly called "
 "_collective variables_ (CVs)."
 msgstr ""
+"MD の時間スケールの制約を克服して重要な分子遷移を観測するため、多くの Enhanced Sampling 法が開発されてきました。その中に "
+"Biasing 法があります。遷移を記述する少数の重要な自由度、一般に _Collective Variables_ (CVs) と呼ばれる変数に、外部"
+" Potential または力を加える方法です。"
 
 #: INSTRUCTIONS.md:110
 msgid ""
@@ -209,6 +238,10 @@ msgid ""
 "canonical equilibrium distribution at temperature $T$ under a potential "
 "$V(\\mathbf{q})$."
 msgstr ""
+"CV の選択と設計は非常に重要です。以下では CV は既知とします。自由エネルギー表面 (FES) が $N$ 個の "
+"CV、$\\{z_i(\\mathbf{q}\\,)\\}$、$i=1... N$ で完全に記述される分子系を考えます。これらはすべて粒子位置 "
+"$\\mathbf{q}(t)$ の関数です。また、粒子位置 $\\mathbf{q}(t)$ は Potential $V(\\mathbf{q})$"
+" の下で、温度 $T$ の Canonical 平衡分布に従って時間発展すると仮定します。"
 
 #: INSTRUCTIONS.md:120
 msgid "Metadynamics"
@@ -221,6 +254,8 @@ msgid ""
 "exert a history-dependent repulsive potential by summing Gaussian kernels "
 "over time:"
 msgstr ""
+"CV $\\{z_i\\}$ が張る空間を探索し、自由エネルギーを定量化することが目的です。Metadynamics では、時間とともに "
+"Gaussian Kernel を足し合わせ、履歴に依存する反発 Potential を加えます。"
 
 #: INSTRUCTIONS.md:132
 msgid ""
@@ -231,6 +266,10 @@ msgid ""
 "function of the CVs: $V_\\text{bias}(\\mathbf{z},t \\rightarrow \\infty) = -"
 " F(\\mathbf{z})$."
 msgstr ""
+"ここで Gaussian の高さは $H$、各 CV に沿う幅は $W_i$、追加間隔は $\\tau$ です。この Bias により、既に訪れた "
+"Configuration から離れ、CV 空間の新しい領域へ移動します。さらに、長時間極限で BiasPotential は CV "
+"の関数としての自由エネルギーの符号を反転したものに収束します：$V_\\text{bias}(\\mathbf{z},t \\rightarrow "
+"\\infty) = - F(\\mathbf{z})$。"
 
 #: INSTRUCTIONS.md:139
 msgid ""
@@ -238,6 +277,8 @@ msgid ""
 "extensions to accelerate convergence and improve computational performance, "
 "such as the multiple-walker and well-tempered versions [6,7]."
 msgstr ""
+"Metadynamics は確立された Sampling 法であり、収束や計算性能を改善する Multiple-walker 版、Well-"
+"tempered 版などの拡張があります [6,7]。"
 
 #: INSTRUCTIONS.md:143
 msgid ""
@@ -249,10 +290,13 @@ msgid ""
 "transitions, the number of CVs is limited to $N\\approx3$, because of the "
 "exponential growth of computational cost with CV dimensionality."
 msgstr ""
+"Metadynamics は少数の CV を容易に同時に扱えるため、完璧な単一の CV を見つける必要がありません。適切な CV "
+"の組を使えば、多次元の自由エネルギー地形を収束させ、安定・準安定状態と、それらを結ぶ MFEP を特定できます。ただし実際には、特に複雑な遷移では、CV"
+" の次元とともに計算コストが指数関数的に増えるため、CV 数は $N\\approx3$ に制限されます。"
 
 #: INSTRUCTIONS.md:152
 msgid "Path-metadynamics"
-msgstr ""
+msgstr "Path-metadynamics"
 
 #: INSTRUCTIONS.md:154
 msgid ""
@@ -265,6 +309,11 @@ msgid ""
 "[0,1]$ yields the progress along the path from $A$ to $B$, such that "
 "$\\mathbf{s}(0) \\in A$ and $\\mathbf{s}(1) \\in B$."
 msgstr ""
+"多数の CV が必要な複雑な遷移を扱うため、Path に基づく方法が開発されました。これらでは Path-CV、すなわち CV が張る空間で2つの "
+"FES Basin（既知の安定状態 $A$ と $B$）を結ぶパラメータ付き曲線 $\\mathbf{s}(\\sigma): \\mathbb{R} "
+"\\rightarrow \\mathbb{R}^N$ を導入します。パラメータ $\\sigma(\\mathbf{z}\\,) | _{s} : "
+"\\mathbb{R}^N \\rightarrow [0,1]$ は、$\\mathbf{s}(0) \\in A$、$\\mathbf{s}(1) "
+"\\in B$ となるよう、$A$ から $B$ への Path に沿う進行度を表します。"
 
 #: INSTRUCTIONS.md:164
 msgid ""
@@ -278,6 +327,12 @@ msgid ""
 " the cumulative average density: $\\mathbf{s}_g(\\sigma_g) = "
 "\\langle\\mathbf{z}\\,\\rangle _{\\sigma_g}$ [3]."
 msgstr ""
+"この進行度パラメータは Reaction Coordinate を模倣し、原理的には Committor 値と関連付けられます。Transition "
+"Path の曲線は事前にわからないため、Path-CV は Adaptive である必要があります。Path 近傍で Iso-committor 平面 "
+"$S_\\sigma$ が $\\mathbf{s}(\\sigma)$ に垂直であり、Configuration の確率が遷移 Flux "
+"密度のよい指標になると仮定すれば、推定 Path を累積平均密度 $\\mathbf{s}_g(\\sigma_g) = "
+"\\langle\\mathbf{z}\\,\\rangle _{\\sigma_g}$ に反復的に適応させることで Average "
+"Transition Path を収束させられます [3]。"
 
 #: INSTRUCTIONS.md:175
 msgid ""
@@ -288,6 +343,9 @@ msgid ""
 " the growth in CV dimensionality (instead of the exponential relation when "
 "not using a path-CV)[4]."
 msgstr ""
+"PMD の主な利点は、$N$ 次元 CV 空間の代わりに、Adaptive Path-CV に沿う1次元の進行度パラメータに Metadynamics "
+"の Bias を加えられることです。PMD では、CV 次元の増加に対する計算コストの増加が線形未満でも、Path "
+"とそれに沿う自由エネルギーを収束させられます。Path-CV を使わない場合は指数関数的に増加します [4]。"
 
 #: INSTRUCTIONS.md:182
 msgid ""
@@ -300,6 +358,11 @@ msgid ""
 "by a reparametrization step after each path update. The update step for the "
 "path nodes is done by:"
 msgstr ""
+"数値的には、Adaptive Path-CV は順序を持つ $M$ 個の Node（CV 空間の座標）の集合 $\\mathbf{s}_g "
+"(\\sigma_g,t) \\rightarrow {\\mathbf{s}^{\\,t_i}_j}$、$j=1,...,M$ "
+"として実装されます。$t_i$ は Path 更新の離散時刻です。任意の点 $\\mathbf{z}$ の Path への射影には最も近い2つの "
+"Node を使い、補間で $\\sigma$ を得ます。この方法では等間隔の Node が必要なため、各 Path 更新後に "
+"Reparametrization を行います。Path の Node は次の式で更新します。"
 
 #: INSTRUCTIONS.md:198
 msgid ""
@@ -316,6 +379,12 @@ msgid ""
 "capture the free energy valleys. Wall potentials can be used to keep the "
 "sampling near the relevant [0,1] $\\sigma$-interval."
 msgstr ""
+"ここで $k$ は現在の MD Step、$w$ は調整の重みであり、平均 CV 密度に最も近い2つの Node 以外では0です。また Fade "
+"Factor $\\xi =\\exp( -\\ln(2) / \\tau_{1/2})$ を導入します。$\\tau_{1/2}$ "
+"は半減期で、Path から測った距離の重みが元の50%になるまでの MD Step 数です。短い半減期では不適切な初期推定を速やかに「忘れる」ため "
+"Path が柔軟になり、長い半減期では Path の揺らぎが抑えられ、最終的に最適な収束に達します。安定状態 $A$、$B$ にある最初と最後の "
+"Node は固定します。自由エネルギーの谷をよりよく捉えるため、Path の両端に Trailing Node を追加できます。Wall "
+"Potential を使えば、対象の [0,1] $\\sigma$ 区間の近くで Sampling を維持できます。"
 
 #: INSTRUCTIONS.md:212
 msgid ""
@@ -330,6 +399,12 @@ msgid ""
 "density-driven to a gradient-driven path optimization leads either to the "
 "average transition path or the MFEP."
 msgstr ""
+"さらに、$|| \\mathbf{z}_k - \\mathbf{s}^{\\,t_{i}} ( \\sigma (\\mathbf{z}_k) ) "
+"||$ に Harmonic Restraint を加えると、複数または不明瞭な Transition Channel がある場合に特定の "
+"Transition Path へ収束させやすくなります。この Restraint を「Tube」Potential と呼びます。無限に細い Tube "
+"Potential の極限では、Path の更新は局所的な自由エネルギー勾配に従い、PMD は Average Transition Path ではなく"
+" MFEP に収束します。このようにアルゴリズムの挙動を制御できる点は利点です。密度に基づく Path "
+"最適化と勾配に基づく最適化を切り替えることで、Average Transition Path または MFEP を得られます。"
 
 #: INSTRUCTIONS.md:223
 msgid ""
@@ -346,6 +421,14 @@ msgid ""
 " also be used to sample along the path, or even in the direction "
 "perpendicular to it."
 msgstr ""
+"Path-CV の Sampling に用いる Metadynamics は、系を Path に沿って往復させ、Transition Path "
+"の位置を特定するのに十分な CV 密度の Sampling を行います。同時に、以前追加した Gaussian の上に新しい Gaussian "
+"を重ねることで、自由エネルギーを継続的に自己修正します。その結果、特定された Path "
+"に沿う自由エネルギーが収束します：$V_\\text{bias}(\\sigma,t \\rightarrow \\infty) = "
+"-F(\\sigma)$。Metadynamics 向けの拡張（Well-tempered、Transition-tempered、Multiple "
+"Walkers など）のほとんどは、Adaptive Path-CV と容易に組み合わせられます。また、Umbrella "
+"Sampling、Constrained MD、Steered MD などの Biasing 法でも、Path に沿って、あるいは垂直方向に "
+"Sampling できます。"
 
 #: INSTRUCTIONS.md:237
 msgid "Model system"
@@ -358,16 +441,21 @@ msgid ""
 "add harmonic walls to limit the sampling within the interesting region of "
 "the PES."
 msgstr ""
+"この演習では、よく知られた M&uuml;ller-Brown (MB) Potential Energy Surface (PES) を "
+"Sampling します。詳細は文献 [8] を参照してください。関心のある PES 領域内に Sampling を制限するため、Harmonic "
+"Wall を加えます。"
 
 #: INSTRUCTIONS.md:244
 msgid ""
 "![The two-dimension M&uuml;ller-Brown potential showing two minima connected"
 " by a curvy reaction channel](mullerbrown.png)"
 msgstr ""
+"![曲がった Reaction Channel で結ばれる2つの極小を持つ2次元 M&uuml;ller-Brown "
+"Potential](mullerbrown.png)"
 
 #: INSTRUCTIONS.md:246
 msgid "Using PLUMED"
-msgstr ""
+msgstr "PLUMED の使い方"
 
 #: INSTRUCTIONS.md:248
 msgid ""
@@ -377,6 +465,10 @@ msgid ""
 "script. If you have issues with the installation you can check: "
 "<https://plumed.github.io/doc-v2.3/user-doc/html/_installation.html>"
 msgstr ""
+"上記の手順でまだ PLUMED をインストールしていない場合は、演習フォルダ内の `plumed` に移動します。`install` スクリプトの "
+"prefix を希望するインストール先に変更し、スクリプトを実行します。問題が起きた場合は "
+"<https://plumed.github.io/doc-v2.3/user-doc/html/_installation.html> "
+"を確認してください。"
 
 #: INSTRUCTIONS.md:255
 msgid ""
@@ -387,6 +479,9 @@ msgid ""
 "metadynamics and path-CV parameters. Of course, feel free to use other "
 "plotting tools, for example pythons matplotlib."
 msgstr ""
+"結果の可視化用に [gnuplot](http://www.gnuplot.info) の描画スクリプト例があります（名前が `plot_` または "
+"`anim_` で始まるファイル）。Metadynamics と Path-CV "
+"のパラメータ設定に合わせて、対応する変数を変更してください。Python の matplotlib など、ほかの描画ツールも自由に使えます。"
 
 #: INSTRUCTIONS.md:262
 msgid ""
@@ -395,12 +490,17 @@ msgid ""
 " the PLUMED pesmd documentation: <https://plumed.github.io/doc-v2.4/user-"
 "doc/html/pesmd.html>."
 msgstr ""
+"MB PES 上で PLUMED pesmd を実行するには、`plumed pesmd < path/to/input` を使います。`input` "
+"は `Exercise` にあります。PLUMED pesmd のドキュメント "
+"<https://plumed.github.io/doc-v2.4/user-doc/html/pesmd.html> も確認してください。"
 
 #: INSTRUCTIONS.md:267
 msgid ""
 "To perform metadynamics, you can review the keywords on: "
 "<https://plumed.github.io/doc-v2.3/user-doc/html/_m_e_t_a_d.html>."
 msgstr ""
+"Metadynamics を実行する際は、<https://plumed.github.io/doc-v2.3/user-"
+"doc/html/_m_e_t_a_d.html> で Keyword を確認できます。"
 
 #: INSTRUCTIONS.md:269
 msgid ""
@@ -410,6 +510,9 @@ msgid ""
 "<PMD_exercise/plumed/plumed-2.3.0/user-doc/html/_p_a_t_h_c_v.html> in a "
 "browser."
 msgstr ""
+"Adaptive Path-CV の Keyword は、演習フォルダの `plumed` 内にある `PathCV.cpp` の Header "
+"で確認できます。Path-CV の HTML ドキュメントを見るには、<PMD_exercise/plumed/plumed-2.3.0/user-"
+"doc/html/_p_a_t_h_c_v.html> を Browser で開いてください。"
 
 #: INSTRUCTIONS.md:274
 msgid ""
@@ -418,6 +521,9 @@ msgid ""
 "<https://plumed.github.io/doc-v2.3/user-doc/html/sum_hills.html>. We "
 "recommend to use `--stride` 1 and `--mintozero`."
 msgstr ""
+"Metadynamics の Hill から FES を構築するには、`plumed sum\\_hills` を使います。機能は "
+"<https://plumed.github.io/doc-v2.3/user-doc/html/sum_hills.html> "
+"を参照してください。`--stride` 1 と `--mintozero` を推奨します。"
 
 #: INSTRUCTIONS.md:279
 msgid "Exercise 1"
@@ -427,7 +533,7 @@ msgstr "演習1"
 msgid ""
 "The first exercise is found in the folder: "
 "`masterclass-22-09/exercises/0_md`."
-msgstr ""
+msgstr "最初の演習は `masterclass-22-09/exercises/0_md` にあります。"
 
 #: INSTRUCTIONS.md:283
 msgid ""
@@ -437,20 +543,23 @@ msgid ""
 "software). To use the `./run.me` script to start the simulation, first make "
 "the script executable using:"
 msgstr ""
+"この最初の演習では、`plumed pesmd` エンジンの実行、入力ファイルの理解、colvar ファイルから "
+"gnuplot（または別の描画ソフトウェア）を使って MB Potential 上の MD Trajectory "
+"を描くことに慣れます。`./run.me` でシミュレーションを開始するには、まず次のように実行権限を与えます。"
 
 #: INSTRUCTIONS.md:293
 msgid "Use PLUMED pesmd to run regular MD on the MB PES."
-msgstr ""
+msgstr "PLUMED pesmd で MB PES 上の通常の MD を実行してください。"
 
 #: INSTRUCTIONS.md:295
 msgid "What do you observe?"
-msgstr ""
+msgstr "何が観測されますか？"
 
 #: INSTRUCTIONS.md:297
 msgid ""
 "How would you change the behaviour of the system without using an enhanced "
 "sampling method (just modifying the MD run parameters)?"
-msgstr ""
+msgstr "Enhanced Sampling 法を使わず、MD の実行パラメータの変更だけで系の挙動を変えるには、どうすればよいでしょうか？"
 
 #: INSTRUCTIONS.md:301
 msgid "Exercise 2"
@@ -460,21 +569,21 @@ msgstr "演習2"
 msgid ""
 "This exercise is found in the folder: "
 "`masterclass-22-09/exercises/1_metadynamics`."
-msgstr ""
+msgstr "この演習は `masterclass-22-09/exercises/1_metadynamics` にあります。"
 
 #: INSTRUCTIONS.md:306
 msgid ""
 "Before you can run the metadynamics simulation, the `plumed.dat` should be "
 "completed:"
-msgstr ""
+msgstr "Metadynamics を実行する前に `plumed.dat` を完成させてください。"
 
 #: INSTRUCTIONS.md:323
 msgid "Use PLUMED pesmd to run metadynamics on the MB PES."
-msgstr ""
+msgstr "PLUMED pesmd で MB PES 上の Metadynamics を実行してください。"
 
 #: INSTRUCTIONS.md:325
 msgid "Here are some hints for defining the `METAD` rule:"
-msgstr ""
+msgstr "`METAD` の定義に関するヒントを示します。"
 
 #: INSTRUCTIONS.md:326
 msgid ""
@@ -483,46 +592,49 @@ msgid ""
 "undergoing a Langevin dynamics on the MB PES. Use these components as the "
 "`ARG` arguments in the `METAD` rule."
 msgstr ""
+"ここでの CV は `DISTANCE` の成分 `cv.x` と `cv.y` で、MB PES 上で Langevin Dynamics "
+"に従う「2次元粒子」の原点に対する座標です。これらの成分を `METAD` の `ARG` 引数に指定します。"
 
 #: INSTRUCTIONS.md:330
 msgid "reasonable widths of the Gaussians (`SIGMA`) are ca. 0.1."
-msgstr ""
+msgstr "Gaussian の幅 (`SIGMA`) は約0.1が妥当です。"
 
 #: INSTRUCTIONS.md:331
 msgid "0.1 is also a reasonable Gaussian height"
-msgstr ""
+msgstr "Gaussian の高さも0.1が妥当です。"
 
 #: INSTRUCTIONS.md:332
 msgid "a good interval for depositing Gaussians is probably around 500"
-msgstr ""
+msgstr "Gaussian の追加間隔は、おそらく500程度が適切です。"
 
 #: INSTRUCTIONS.md:333
 msgid ""
 "don't forget to define an output `FILE`, that can afterward be read using "
 "`plumed sum_hills` to generate and plot the free energy landscape."
 msgstr ""
+"出力 `FILE` の指定を忘れないでください。後で `plumed sum_hills` で読み込み、自由エネルギー地形を生成・描画できます。"
 
 #: INSTRUCTIONS.md:337
 msgid "Try to obtain a good FES reflecting the two minima."
-msgstr ""
+msgstr "2つの極小を反映する良好な FES を得てください。"
 
 #: INSTRUCTIONS.md:339
 msgid ""
 "Vary the width of the Gaussians for each CV in a systematic manner, what "
 "effect do you observe?"
-msgstr ""
+msgstr "各 CV の Gaussian の幅を系統的に変えると、どのような影響が見られますか？"
 
 #: INSTRUCTIONS.md:342
 msgid ""
 "Vary the height and deposition frequency of the Gaussians, what trends do "
 "you observe?"
-msgstr ""
+msgstr "Gaussian の高さと追加頻度を変えると、どのような傾向が見られますか？"
 
 #: INSTRUCTIONS.md:345
 msgid ""
 "How many crossings and recrossings do you sample in a single run for each "
 "choice of parameters?"
-msgstr ""
+msgstr "各パラメータ設定について、1回の実行で何回の Crossing と Recrossing が Sampling されますか？"
 
 #: INSTRUCTIONS.md:349
 msgid "Exercise 3"
@@ -532,7 +644,7 @@ msgstr "演習3"
 msgid ""
 "This exercise is found in the folder: "
 "`masterclass-22-09/exercises/2_fixedpathmetadynamics`."
-msgstr ""
+msgstr "この演習は `masterclass-22-09/exercises/2_fixedpathmetadynamics` にあります。"
 
 #: INSTRUCTIONS.md:354
 msgid ""
@@ -541,26 +653,29 @@ msgid ""
 "Use harmonic walls to keep the sampling within a relevant [-0.2,1.2] "
 "$\\sigma$-range."
 msgstr ""
+"MB PES 上の固定 Path-CV に沿って Metadynamics を実行してください。Transition Node は20個、両端の "
+"Trailing Node はそれぞれ20個（合計60個）を推奨します。Harmonic Wall を使い、対象の [-0.2,1.2] "
+"$\\sigma$ 範囲内に Sampling を維持してください。"
 
 #: INSTRUCTIONS.md:359
 msgid ""
 "Now there's only one dimension for the Gaussian width, how do you interpret "
 "it?"
-msgstr ""
+msgstr "Gaussian の幅が1次元だけになりました。これをどう解釈しますか？"
 
 #: INSTRUCTIONS.md:362
 msgid ""
 "Does the diffusion of the system along $\\sigma$ reflect anything "
 "particular? What could be the reason?"
-msgstr ""
+msgstr "$\\sigma$ に沿う系の拡散に、何か特徴はありますか？その原因は何でしょうか？"
 
 #: INSTRUCTIONS.md:365
 msgid "What happens if you add and strengthen a tube potential?"
-msgstr ""
+msgstr "Tube Potential を追加し、強くすると何が起きますか？"
 
 #: INSTRUCTIONS.md:367
 msgid "What is the final path and free energy that you obtain?"
-msgstr ""
+msgstr "最終的にどのような Path と自由エネルギーが得られますか？"
 
 #: INSTRUCTIONS.md:370
 msgid "Exercise 4"
@@ -570,13 +685,14 @@ msgstr "演習4"
 msgid ""
 "This exercise is found in the folder: "
 "`masterclass-22-09/exercises/3_adaptivepathmetadynamics`."
-msgstr ""
+msgstr "この演習は `masterclass-22-09/exercises/3_adaptivepathmetadynamics` にあります。"
 
 #: INSTRUCTIONS.md:375
 msgid ""
 "First, change the `plumed.dat` input file to make the path adaptive by "
 "changing `PACE`, `STRIDE`, and `HALFLIFE`."
 msgstr ""
+"まず、`plumed.dat` の `PACE`、`STRIDE`、`HALFLIFE` を変更し、Path を Adaptive にしてください。"
 
 #: INSTRUCTIONS.md:378
 msgid ""
@@ -584,30 +700,32 @@ msgid ""
 "simplification, start with the same pace for the metadynamics Gaussians and "
 "the path update."
 msgstr ""
+"MB PES 上の Adaptive Path-CV に沿って Metadynamics を実行してください。簡単のため、最初は "
+"Metadynamics の Gaussian と Path 更新の間隔を同じにします。"
 
 #: INSTRUCTIONS.md:382
 msgid ""
 "For simplification, you can keep only 20 transition nodes, and not use "
 "trailing nodes."
-msgstr ""
+msgstr "簡単のため、Transition Node を20個だけにし、Trailing Node は使わなくてもかまいません。"
 
 #: INSTRUCTIONS.md:385
 msgid ""
 "Use harmonic walls to keep the sampling within a relevant [-0.2,1.2] "
 "$\\sigma$-range."
-msgstr ""
+msgstr "Harmonic Wall を使い、対象の [-0.2,1.2] $\\sigma$ 範囲内に Sampling を維持してください。"
 
 #: INSTRUCTIONS.md:388
 msgid ""
 "What do you expect if you vary the ratio between the metadynamics and the "
 "path update frequency?"
-msgstr ""
+msgstr "Metadynamics と Path 更新の頻度の比を変えると、何が起きると予想しますか？"
 
 #: INSTRUCTIONS.md:391
 msgid ""
 "Vary the tube potential strength and the half-life parameter, what trend do "
 "you observe?"
-msgstr ""
+msgstr "Tube Potential の強さと半減期パラメータを変えると、どのような傾向が見られますか？"
 
 #: INSTRUCTIONS.md:394
 msgid ""
@@ -622,6 +740,11 @@ msgid ""
 "of `GENPATH`) to read the last updated path, which can be taken from the "
 "tail of the path.out file of the first run."
 msgstr ""
+"`HALFLIFE` を小さく（例えば1000 MD Step に）すると Path が柔軟になり、不適切な初期推定 Path "
+"から効率よく離れられます。ただし Transition Channel に到達した後は、Average Transition Path "
+"に収束させるため、非常に大きい値にする方がよいでしょう。まず柔軟な Path と比較的大きい Gaussian で短い PMD を実行し、両方の "
+"Basin が埋まり、初期状態へ戻るまで続けます。次に、小さい Gaussian と大きい半減期で再開します。最初の実行の path.out "
+"末尾から最後に更新された Path を取り出し、`GENPATH` の代わりに `INFILE` で読み込んでください。"
 
 #: INSTRUCTIONS.md:407
 msgid "Exercise 5"
@@ -631,41 +754,45 @@ msgstr "演習5"
 msgid ""
 "This exercise is found in the folder: "
 "`masterclass-22-09/exercises/4_multiplewalkers`."
-msgstr ""
+msgstr "この演習は `masterclass-22-09/exercises/4_multiplewalkers` にあります。"
 
 #: INSTRUCTIONS.md:412
 msgid ""
 "In this final exercise, you will run the parallel \"multiple walker\" "
 "version of path-metadynamics."
-msgstr ""
+msgstr "最後の演習では、Path-metadynamics の並列版「Multiple Walker」を実行します。"
 
 #: INSTRUCTIONS.md:415
 msgid ""
 "Note that with more walkers building the metadynamics simulation, the total "
 "run time can be shorter, and possibly also the Gaussians can be smaller."
-msgstr ""
+msgstr "Metadynamics を構築する Walker が増えると、総実行時間を短くでき、Gaussian も小さくできる可能性があります。"
 
 #: INSTRUCTIONS.md:419
 msgid ""
 "Try several configurations of walkers and try to answer the question if "
 "there is an optimal number of walkers."
-msgstr ""
+msgstr "Walker の構成をいくつか試し、最適な Walker 数があるかを検討してください。"
 
 #: INSTRUCTIONS.md:422
 msgid "Bibliography"
-msgstr ""
+msgstr "参考文献"
 
 #: INSTRUCTIONS.md:424
 msgid ""
 "[1] A. Laio and M. Parrinello, “Escaping free-energy minima,” _Proc. Natl. "
 "Acad. Sci. USA_, vol. 99, no. 20, pp. 12562–12566, 2002."
 msgstr ""
+"[1] A. Laio and M. Parrinello, “Escaping free-energy minima,” _Proc. Natl. "
+"Acad. Sci. USA_, vol. 99, no. 20, pp. 12562–12566, 2002."
 
 #: INSTRUCTIONS.md:427
 msgid ""
 "[2] D. Branduardi, F. Gervasio, and M. Parrinello, “From A to B in free "
 "energy space,” _J. Chem. Phys_, vol. 126, p. 054103, 2007."
 msgstr ""
+"[2] D. Branduardi, F. Gervasio, and M. Parrinello, “From A to B in free "
+"energy space,” _J. Chem. Phys_, vol. 126, p. 054103, 2007."
 
 #: INSTRUCTIONS.md:430
 msgid ""
@@ -673,6 +800,9 @@ msgid ""
 "free energy landscapes,” _Phys. Rev. Lett._, vol. 109, no. 2, p. 020601, "
 "2012."
 msgstr ""
+"[3] G. D&iacute;az Leines and B. Ensing, “Path finding on high-dimensional "
+"free energy landscapes,” _Phys. Rev. Lett._, vol. 109, no. 2, p. 020601, "
+"2012."
 
 #: INSTRUCTIONS.md:434
 msgid ""
@@ -680,6 +810,9 @@ msgid ""
 "and B.Ensing, “Advances in enhanced sampling along adaptive paths of "
 "collective variables,” _ J. Chem. Phys._, vol. 149, no. 7, p. 072320, 2018."
 msgstr ""
+"[4] A. P&eacute;rez de Alba Ort&iacute;z, A. Tiwari, R. C. Puthenkalathil, "
+"and B.Ensing, “Advances in enhanced sampling along adaptive paths of "
+"collective variables,” _ J. Chem. Phys._, vol. 149, no. 7, p. 072320, 2018."
 
 #: INSTRUCTIONS.md:439
 msgid ""
@@ -687,6 +820,9 @@ msgid ""
 "“Plumed2:Newfeathers for an old bird,” _Comp. Phys. Comm._, vol. 185, no. 2,"
 " pp. 604–613, 2014."
 msgstr ""
+"[5] G. A. Tribello, M. Bonomi, D. Branduardi, C. Camilloni, and G. Bussi, "
+"“Plumed2:Newfeathers for an old bird,” _Comp. Phys. Comm._, vol. 185, no. 2,"
+" pp. 604–613, 2014."
 
 #: INSTRUCTIONS.md:443
 msgid ""
@@ -695,6 +831,10 @@ msgid ""
 "walkers metadynamics,” _J. Phys. Chem. B._, vol. 110, no. 8, pp. 3533–3539, "
 "2006."
 msgstr ""
+"[6] P. Raiteri, A. Laio, F. L. Gervasio, C. Micheletti, and M. Parrinello, "
+"“Efficient reconstruction of complex free energy landscapes by multiple "
+"walkers metadynamics,” _J. Phys. Chem. B._, vol. 110, no. 8, pp. 3533–3539, "
+"2006."
 
 #: INSTRUCTIONS.md:448
 msgid ""
@@ -702,6 +842,9 @@ msgid ""
 " smoothly converging and tunable free-energy method,” _Phys. Rev. Lett._, "
 "vol. 100, no. 2, p. 020603, 2008."
 msgstr ""
+"[7] A. Barducci, G. Bussi, and M. Parrinello, “Well-tempered metadynamics: a"
+" smoothly converging and tunable free-energy method,” _Phys. Rev. Lett._, "
+"vol. 100, no. 2, p. 020603, 2008."
 
 #: INSTRUCTIONS.md:452
 msgid ""
@@ -709,3 +852,6 @@ msgid ""
 "energy paths by a constrained simplex optimization procedure,” _Theor. Chim."
 " Acta_, vol. 53, no. 1, pp. 75–93, 1979."
 msgstr ""
+"[8] K. M&uuml;ller and L. D. Brown, “Location of saddle points and minimum "
+"energy paths by a constrained simplex optimization procedure,” _Theor. Chim."
+" Acta_, vol. 53, no. 1, pp. 75–93, 1979."

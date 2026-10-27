@@ -9,11 +9,11 @@ msgstr ""
 
 #: benchmark/README.md:1
 msgid "bAIes-SM benchmark"
-msgstr ""
+msgstr "bAIes-SM の Benchmark"
 
 #: benchmark/README.md:2
 msgid "Data to reproduce the bAIes benchmark"
-msgstr ""
+msgstr "bAIes の Benchmark を再現するデータ"
 
 #: benchmark/README.md:4
 msgid ""
@@ -23,11 +23,14 @@ msgid ""
 "bAIes model for one of these systems can be found "
 "[here](https://github.com/COSBlab/bAIes-SM)."
 msgstr ""
+"Benchmark 系の詳細は次の表にある。[GROMACS](https://www.gromacs.org) と "
+"[PLUMED](https://www.plumed.org) の導入手順、および1つの系の bAIes "
+"モデルを準備するチュートリアルは[こちら](https://github.com/COSBlab/bAIes-SM)にある。"
 
 #: benchmark/README.md:8
 msgid ""
 "**Benchmark systems for structural accuracy and ligand docking accuracy**"
-msgstr ""
+msgstr "**構造精度と Ligand Docking 精度の Benchmark 系**"
 
 #: benchmark/README.md:9 benchmark/README.md:29
 msgid "ID"
@@ -40,31 +43,31 @@ msgstr "PDB"
 
 #: benchmark/README.md:9 benchmark/README.md:29
 msgid "# Protein<br>residues"
-msgstr ""
+msgstr "タンパク質の<br>Residues 数"
 
 #: benchmark/README.md:9 benchmark/README.md:29
 msgid "# protein<br>chains"
-msgstr ""
+msgstr "タンパク質の<br>Chains 数"
 
 #: benchmark/README.md:9
 msgid "# lipids"
-msgstr ""
+msgstr "Lipids 数"
 
 #: benchmark/README.md:9
 msgid "Ligand"
-msgstr ""
+msgstr "Ligand"
 
 #: benchmark/README.md:9
 msgid "AF<br>pLDDT"
-msgstr ""
+msgstr "AF<br>pLDDT"
 
 #: benchmark/README.md:9
 msgid "Resolution<br>[Å]"
-msgstr ""
+msgstr "Resolution<br>[Å]"
 
 #: benchmark/README.md:11
 msgid "1D3G"
-msgstr ""
+msgstr "1D3G"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:11
@@ -73,7 +76,7 @@ msgstr "BRE"
 
 #: benchmark/README.md:12
 msgid "2AM9"
-msgstr ""
+msgstr "2AM9"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:12
@@ -82,7 +85,7 @@ msgstr "TES"
 
 #: benchmark/README.md:13
 msgid "1UDT"
-msgstr ""
+msgstr "1UDT"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:13
@@ -91,7 +94,7 @@ msgstr "VIA"
 
 #: benchmark/README.md:14
 msgid "1SQT"
-msgstr ""
+msgstr "1SQT"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:14
@@ -100,7 +103,7 @@ msgstr "UI3"
 
 #: benchmark/README.md:15
 msgid "2NNQ"
-msgstr ""
+msgstr "2NNQ"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:15
@@ -109,15 +112,15 @@ msgstr "T4B"
 
 #: benchmark/README.md:16
 msgid "2ICA"
-msgstr ""
+msgstr "2ICA"
 
 #: benchmark/README.md:16
 msgid "2IC"
-msgstr ""
+msgstr "2IC"
 
 #: benchmark/README.md:17
 msgid "1UYG"
-msgstr ""
+msgstr "1UYG"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:17
@@ -126,7 +129,7 @@ msgstr "PU2"
 
 #: benchmark/README.md:18
 msgid "4LDO"
-msgstr ""
+msgstr "4LDO"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:18
@@ -135,7 +138,7 @@ msgstr "ALE"
 
 #: benchmark/README.md:19
 msgid "3KBA"
-msgstr ""
+msgstr "3KBA"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:19
@@ -144,7 +147,7 @@ msgstr "WOW"
 
 #: benchmark/README.md:20 benchmark/README.md:32
 msgid "3BGS"
-msgstr ""
+msgstr "3BGS"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:20
@@ -153,7 +156,7 @@ msgstr "DIH"
 
 #: benchmark/README.md:21
 msgid "3G6Z"
-msgstr ""
+msgstr "3G6Z"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:21
@@ -162,7 +165,7 @@ msgstr "A7T"
 
 #: benchmark/README.md:22
 msgid "3PBL"
-msgstr ""
+msgstr "3PBL"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:22
@@ -171,7 +174,7 @@ msgstr "ETQ"
 
 #: benchmark/README.md:23
 msgid "2UZ3"
-msgstr ""
+msgstr "2UZ3"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:23
@@ -180,7 +183,7 @@ msgstr "TTP"
 
 #: benchmark/README.md:24
 msgid "3F9M"
-msgstr ""
+msgstr "3F9M"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:24
@@ -189,7 +192,7 @@ msgstr "MRK"
 
 #: benchmark/README.md:25 benchmark/README.md:31
 msgid "3ERD"
-msgstr ""
+msgstr "3ERD"
 
 # Literal notation or identifier intentionally preserved.
 #: benchmark/README.md:25
@@ -198,24 +201,24 @@ msgstr "DES"
 
 #: benchmark/README.md:28
 msgid "**Benchmark systems for virtual screening of large libraries**"
-msgstr ""
+msgstr "**大規模 Libraries の Virtual Screening の Benchmark 系**"
 
 #: benchmark/README.md:29
 msgid "# active ligands"
-msgstr ""
+msgstr "Active Ligands 数"
 
 #: benchmark/README.md:29
 msgid "# decoys"
-msgstr ""
+msgstr "Decoys 数"
 
 #: benchmark/README.md:33
 msgid "1H00"
-msgstr ""
+msgstr "1H00"
 
 #: benchmark/README.md:36
 msgid "**Contact**"
-msgstr ""
+msgstr "**連絡先**"
 
 #: benchmark/README.md:38
 msgid "For any technical questions, please write to mbonomi_at_pasteur.fr."
-msgstr ""
+msgstr "技術的な質問は、mbonomi_at_pasteur.fr へ連絡してほしい。"

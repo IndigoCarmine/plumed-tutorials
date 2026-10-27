@@ -9,4 +9,4 @@ msgstr ""
 
 #: tutorials/1-refinement/4-Production/README.md:1
 msgid "Single-structure production run"
-msgstr ""
+msgstr "Single-structure の本計算"

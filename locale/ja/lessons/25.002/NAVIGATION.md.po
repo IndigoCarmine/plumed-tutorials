@@ -11,7 +11,7 @@ msgstr ""
 msgid ""
 "Structural refinement of protein targets with Bayesian inference for "
 "improved druggability"
-msgstr ""
+msgstr "Druggability の改善に向けた、Bayesian Inference による標的タンパク質の構造 Refinement"
 
 #: NAVIGATION.md:3
 msgid "Aims"
@@ -23,10 +23,12 @@ msgid ""
 "PLUMED to refine protein complexes for enhanced virtual screening of small "
 "molecules, critical for advancing drug discovery."
 msgstr ""
+"このチュートリアルでは、PLUMED を通じて Bayesian Inference を使い、タンパク質複合体を Refinement して Small"
+" Molecules の Virtual Screening を改善する方法を学ぶ。これは創薬を進めるうえで重要である。"
 
 #: NAVIGATION.md:6
 msgid "Theoretical background"
-msgstr ""
+msgstr "理論的背景"
 
 #: NAVIGATION.md:7
 msgid ""
@@ -36,6 +38,8 @@ msgid ""
 "fields to optimally improve the physico-chemical properties of the system. A"
 " more detailed theory is described in the following publication:"
 msgstr ""
+"Bayesian Inference に基づく bAIes を使う。AlphaFold（AF）予測の局所的な構造の不確実性と、現在の Molecular"
+" Mechanics Force Fields を統合し、系の物理化学的性質を最適に改善する。理論の詳細は次の論文にある。"
 
 #: NAVIGATION.md:10
 msgid ""
@@ -43,6 +47,9 @@ msgid ""
 "silico drug design with Bayesian refinement of AlphaFold "
 "models.](https://doi.org/10.1101/2025.06.25.661454 )"
 msgstr ""
+"[S. Sen, S. E. Hoff, T. Morozova, V. Schnapka, M. Bonomi. Advancing in "
+"silico drug design with Bayesian refinement of AlphaFold "
+"models.](https://doi.org/10.1101/2025.06.25.661454 )"
 
 #: NAVIGATION.md:13 NAVIGATION.md:47
 msgid "Installation"
@@ -52,7 +59,7 @@ msgstr "インストール"
 msgid ""
 "Installation instructions of the software to perform bAIes simulations in "
 "this tutorial can be found [here](install.md)."
-msgstr ""
+msgstr "このチュートリアルの bAIes 計算に必要なソフトウェアの導入は、[こちら](install.md)にある。"
 
 #: NAVIGATION.md:16
 msgid "Resources"
@@ -63,7 +70,7 @@ msgid ""
 "To do this tutorial, we provide you with the scripts needed to generate the "
 "PLUMED input files, and the protocol to build and refine a protein complex "
 "system."
-msgstr ""
+msgstr "PLUMED 入力を作るスクリプトと、タンパク質複合体の構築・Refinement の Protocol を提供する。"
 
 #: NAVIGATION.md:19
 msgid ""
@@ -72,10 +79,12 @@ msgid ""
 "files all at once at a location where you desire to do this tutorial. Access"
 " the repository [here](https://github.com/COSBlab/bAIes-SM)."
 msgstr ""
+"必要なファイルは GitHub にある。作業する場所にリポジトリを clone "
+"し、まとめて取得することを勧める。[こちら](https://github.com/COSBlab/bAIes-SM)からアクセスできる。"
 
 #: NAVIGATION.md:22 NAVIGATION.md:46
 msgid "Tutorial"
-msgstr ""
+msgstr "チュートリアル"
 
 #: NAVIGATION.md:23
 msgid ""
@@ -86,12 +95,18 @@ msgid ""
 "as the crystal structure of the hERα LBD bound to the selective antagonist "
 "4-hydroxytamoxifen (OHT). We focus on the DES-LBD-peptide complex."
 msgstr ""
+"Human Estrogen Receptor（PDB 3ERD）を例に使う。この系には、Receptor（herα）の Ligand-binding "
+"Domain（LBD）、Diethylstilbestrol（DES）、Coactivator GRIP1 の NR Box II 由来の "
+"Peptide の複合体がある。また、Selective Antagonist の 4-Hydroxytamoxifen（OHT）と結合した hERα "
+"LBD の結晶構造もある。ここでは DES-LBD-Peptide Complex に注目する。"
 
 #: NAVIGATION.md:31
 msgid ""
 "<em>The entire protein complex and a close-up view of the binding pocket "
 "showing the protein molecular bonds, with the native ligand inside it.</em>"
 msgstr ""
+"<em>タンパク質複合体の全体と Binding Pocket の拡大図。タンパク質の Bonds と、Pocket 内の Native Ligand "
+"を示す。</em>"
 
 #: NAVIGATION.md:34
 msgid ""
@@ -100,6 +115,8 @@ msgid ""
 "by bAIes. After this, an optimal model is selected as a refined docking "
 "target from an ensemble of bAIes models."
 msgstr ""
+"タンパク質配列から始め、AlphaFold による構造予測、bAIes による Bayesian Structural Refinement "
+"へ進む。得られたモデルの Ensemble から、Refinement した Docking Target として最適なモデルを選ぶ。"
 
 #: NAVIGATION.md:37
 msgid "Flowchart"
@@ -114,6 +131,8 @@ msgid ""
 "useful during the exercise. (The tutorial can be accessed "
 "[here](https://github.com/COSBlab/bAIes-SM/tree/main/tutorial).)"
 msgstr ""
+"下のフローチャートは資料を参照する順序を示す。各ノードから資料を開き、太い黒線に沿って進めるとよい。破線でつながるものは、演習に役立つ補足資料である。チュートリアルは[こちら](https://github.com/COSBlab/bAIes-"
+"SM/tree/main/tutorial)にある。"
 
 #. mermaid node label
 #: NAVIGATION.md:46
@@ -135,4 +154,4 @@ msgstr "インストール手順"
 #. mermaid click tooltip
 #: NAVIGATION.md:51
 msgid "Tutorial to use bAIes to build refined protein targets for docking"
-msgstr ""
+msgstr "bAIes で Docking 用の標的タンパク質を Refinement するチュートリアル"

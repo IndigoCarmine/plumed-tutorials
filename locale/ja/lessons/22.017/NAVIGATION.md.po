@@ -9,7 +9,7 @@ msgstr ""
 
 #: NAVIGATION.md:1
 msgid "Single-structure and ensemble refinement with cryo-EM maps and EMMIVox"
-msgstr ""
+msgstr "cryo-EM Maps と EMMIVox による Single-structure／Ensemble Refinement"
 
 #: NAVIGATION.md:3
 msgid "Aims"
@@ -22,6 +22,9 @@ msgid ""
 "lesson was given as part of the PLUMED masterclass series in 2022. It "
 "includes:"
 msgstr ""
+"このチュートリアルでは、PLUMED、cryo-EM Maps、EMMIVox で Single-structure Refinement と "
+"Ensemble Refinement を行う方法を学ぶ。2022年の PLUMED Masterclass "
+"シリーズの一環として実施されたもので、次を含む。"
 
 #: NAVIGATION.md:8
 msgid ""
@@ -31,7 +34,7 @@ msgstr "扱う理論を解説する動画と、演習の解き方を示す2本�
 
 #: NAVIGATION.md:9
 msgid "Two tutorials that you should try to complete yourself."
-msgstr ""
+msgstr "自分で取り組む2つのチュートリアル。"
 
 #: NAVIGATION.md:11
 msgid "Overview of the theory"
@@ -39,7 +42,7 @@ msgstr "理論の概要"
 
 #: NAVIGATION.md:13
 msgid "The EMMIVox approach is described in the following publication:"
-msgstr ""
+msgstr "EMMIVox は、次の論文で説明されている。"
 
 #: NAVIGATION.md:15
 msgid ""
@@ -48,6 +51,10 @@ msgid ""
 "inference. PLoS Comput. Biol. 20 (2024) e1012180. doi: "
 "[10.1371/journal.pcbi.1012180](https://doi.org/10.1371/journal.pcbi.1012180)."
 msgstr ""
+"S. E. Hoff, F. E. Thomasen, K. Lindorff-Larsen, M. Bonomi. Accurate model "
+"and ensemble refinement using cryo-electron microscopy maps and Bayesian "
+"inference. PLoS Comput. Biol. 20 (2024) e1012180. doi: "
+"[10.1371/journal.pcbi.1012180](https://doi.org/10.1371/journal.pcbi.1012180)."
 
 #: NAVIGATION.md:18 NAVIGATION.md:63
 msgid "Installation instructions"
@@ -57,7 +64,7 @@ msgstr "インストール手順"
 msgid ""
 "Prerequisites and guide to install the software to perform EMMIVox "
 "simulations can be found [here](install.md)."
-msgstr ""
+msgstr "必要な前提条件とソフトウェアのインストールは、[こちら](install.md)にある。"
 
 #: NAVIGATION.md:21
 msgid "Resources"
@@ -69,21 +76,24 @@ msgid ""
 "[here](https://github.com/maxbonomi/EMMIVox-Plumed-Tutorials). You can clone"
 " this repository locally on your machine using the following command:"
 msgstr ""
+"必要なデータは[こちら](https://github.com/maxbonomi/EMMIVox-Plumed-"
+"Tutorials)にある。次のコマンドでリポジトリを自分のマシンに clone できる。"
 
 #: NAVIGATION.md:29
 msgid "This repository contains the following 2 directories:"
-msgstr ""
+msgstr "リポジトリには、次の2つのディレクトリがある。"
 
 #: NAVIGATION.md:30
 msgid ""
 "`scripts`: python scripts used for preprocessing and analysis of EMMIVox "
 "simulations"
-msgstr ""
+msgstr "`scripts`：EMMIVox の前処理と解析用の Python スクリプト。"
 
 #: NAVIGATION.md:31
 msgid ""
 "`tutorials`: complete tutorials for single-structure and ensemble refinement"
 msgstr ""
+"`tutorials`：Single-structure Refinement と Ensemble Refinement の完全なチュートリアル。"
 
 #: NAVIGATION.md:33
 msgid ""
@@ -94,6 +104,11 @@ msgid ""
 "system using the CHARMM36m force field in explicit TIP3P water, for a total "
 "of 40958 atoms. The reference is:"
 msgstr ""
+"対象は、Scheres グループが1.9 Angstrom で構造を決めた Tau Filament である（[PDB "
+"7P6A](https://www.rcsb.org/structure/7P6A)、[EMD "
+"13223](https://www.ebi.ac.uk/emdb/EMD-13223)）。5つの同一 Chains、計8335の Solute "
+"Atoms からなる。CHARMM36m Force Field と明示的な TIP3P Water "
+"を使い、総原子数40958で計算する。参照論文を示す。"
 
 #: NAVIGATION.md:37
 msgid ""
@@ -101,6 +116,9 @@ msgid ""
 "tauopathies. Nature 598, 359–363 "
 "(2021)](https://doi.org/10.1038/s41586-021-03911-7)"
 msgstr ""
+"[Shi, Y., Zhang, W., Yang, Y. et al. Structure-based classification of "
+"tauopathies. Nature 598, 359–363 "
+"(2021)](https://doi.org/10.1038/s41586-021-03911-7)"
 
 #: NAVIGATION.md:44
 msgid "Tutorial 1: Single-structure refinement with EMMIVox"
@@ -110,7 +128,7 @@ msgstr "チュートリアル1：EMMIVox による Single-structure Refinement"
 msgid ""
 "The first tutorial to perform single-structure refinement with EMMIVox can "
 "be accessed [here](01.md)."
-msgstr ""
+msgstr "EMMIVox の Single-structure Refinement を行う最初のチュートリアルは[こちら](01.md)にある。"
 
 #: NAVIGATION.md:47
 msgid "Tutorial 2: Ensemble refinement with EMMIVox"
@@ -120,7 +138,7 @@ msgstr "チュートリアル2：EMMIVox による Ensemble Refinement"
 msgid ""
 "The second tutorial to perform ensemble refinement with EMMIVox can be "
 "accessed [here](02.md)."
-msgstr ""
+msgstr "EMMIVox の Ensemble Refinement を行う2つ目のチュートリアルは[こちら](02.md)にある。"
 
 #: NAVIGATION.md:50
 msgid "Flowchart"
@@ -144,7 +162,7 @@ msgstr "PLUMED の構文"
 #. mermaid node label
 #: NAVIGATION.md:55
 msgid "Tutorial 1"
-msgstr ""
+msgstr "チュートリアル1"
 
 #. mermaid node label
 #: NAVIGATION.md:56
@@ -159,12 +177,12 @@ msgstr "講義 I"
 #. mermaid node label
 #: NAVIGATION.md:58
 msgid "Lecture notes"
-msgstr ""
+msgstr "講義ノート"
 
 #. mermaid node label
 #: NAVIGATION.md:60
 msgid "Tutorial 2"
-msgstr ""
+msgstr "チュートリアル2"
 
 #. mermaid node label
 #: NAVIGATION.md:61
@@ -176,7 +194,7 @@ msgstr "講義 II"
 msgid ""
 "This lesson teaches you the basic features of the PLUMED input syntax with a"
 " particular focus on PBCs and selection tools"
-msgstr ""
+msgstr "PBCs と選択ツールに重点を置き、PLUMED の入力構文の基本を学ぶレッスン。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:64
@@ -188,12 +206,12 @@ msgstr "2022年11月28日に PLUMED Masterclass シリーズの一環として�
 #. mermaid click tooltip
 #: NAVIGATION.md:65
 msgid "First tutorial to perform single-structure refinement with EMMIVox"
-msgstr ""
+msgstr "EMMIVox の Single-structure Refinement のチュートリアル1"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:66
 msgid "Second tutorial to perform ensemble refinement with EMMIVox"
-msgstr ""
+msgstr "EMMIVox の Ensemble Refinement のチュートリアル2"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:67
@@ -206,4 +224,4 @@ msgstr "2022年12月5日に PLUMED Masterclass シリーズの一環として行
 #. mermaid click tooltip
 #: NAVIGATION.md:68
 msgid "Slides of the theoretical lecture"
-msgstr ""
+msgstr "理論を説明する講義スライド"

@@ -9,4 +9,4 @@ msgstr ""
 
 #: scripts/README.md:1
 msgid "Repository of scripts"
-msgstr ""
+msgstr "スクリプトのリポジトリ"
