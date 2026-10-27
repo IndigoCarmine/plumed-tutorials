@@ -34,11 +34,11 @@ msgstr "この Masterclass を終えると、次のことができるように�
 
 #: PATHS.md:13
 msgid "Use the projection of a vector as a CV."
-msgstr ""
+msgstr "Vector 射影を CV として使う。"
 
 #: PATHS.md:14
 msgid "Use path collective variables."
-msgstr ""
+msgstr "Path Collective Variables を使う。"
 
 #: PATHS.md:16
 msgid "Resources"
@@ -102,18 +102,23 @@ msgid ""
 "we extract using the dimensionality reduction algorithms that were discussed"
 " in the previous exercise."
 msgstr ""
+"論文では、重要な Basin を区別する記述子（CV）と、実際の反応経路（Reaction "
+"Coordinate）を区別し、後者を前者の線形・非線形結合とすることがあります。Alanine Dipeptide の Path CV "
+"でこの考えを学び、前の低次元座標の解釈にもつなげます。"
 
 #: PATHS.md:43
 msgid ""
 "To remind you, the free energy surface as a function of the $\\phi$ and "
 "$\\psi$ angles for alanine dipeptide is shown below:"
-msgstr ""
+msgstr "Alanine Dipeptide の $\\phi$・$\\psi$ の FES を再掲します。"
 
 #: PATHS.md:45
 msgid ""
 "![The Free energy landscape of alanine dipeptide in Ramachandran angles in "
 "the CHARMM27 force field](figures/belfast-2-rama.png)"
 msgstr ""
+"![CHARMM27 の Ramachandran Angle 空間の Alanine Dipeptide "
+"自由エネルギー](figures/belfast-2-rama.png)"
 
 #: PATHS.md:47
 msgid ""
@@ -127,12 +132,14 @@ msgid ""
 " the shape of the free energy surface, we might suppose that this reaction "
 "coordinate looks something like the black line shown below:"
 msgstr ""
+"重要な2状態は C7eq・C7ax です。軸の Ramachandran Angle は CV で、両状態を区別できます。Reaction "
+"Coordinate は実際に C7ax から C7eq へ進む Path です。FES から次の黒線のように予想できます。"
 
 #: PATHS.md:52
 msgid ""
 "![Paths that connect the C7eq and C7ax "
 "configuration](figures/belfast-2-good-bad-path.png)"
-msgstr ""
+msgstr "![C7eq と C7ax を結ぶ Path](figures/belfast-2-good-bad-path.png)"
 
 #: PATHS.md:54
 msgid ""
@@ -144,16 +151,20 @@ msgid ""
 "learned in previous masterclasses to reproduce the figure above before "
 "continuing.__"
 msgstr ""
+"data の alanine-transformation.pdb は黒の Path 近くの構造系列です。以下は $\\phi$・$\\psi$ "
+"の変化です。__先に、以前学んだ方法で上の図を再現してください。__"
 
 #: PATHS.md:57
 msgid ""
 "![Changes in the Ramachandran angles as the protein transitions from the "
 "C7ax to C7eq state](figures/masterclass-21-6-rama-transition.png)"
 msgstr ""
+"![C7ax から C7eq への Ramachandran Angle の変化](figures/masterclass-21-6-rama-"
+"transition.png)"
 
 #: PATHS.md:59
 msgid "RMSD distances"
-msgstr ""
+msgstr "RMSD 距離"
 
 #: PATHS.md:61
 msgid ""
@@ -168,18 +179,20 @@ msgid ""
 " in the PLUMED input below that calculates the RMSD distances from the C7ax "
 "and C7eq configurations:"
 msgstr ""
+"安定構造が既知なら RMSD を Reaction Coordinate にしたくなります。重要構造が1つなら、それと他の自由エネルギー差の CV "
+"に使えます。2状態の場合はどうでしょうか？C7ax・C7eq への RMSD の入力を完成させてください。"
 
 #: PATHS.md:73
 msgid ""
 "You can run an MD simulation to monitor these distances using the python "
 "script below."
-msgstr ""
+msgstr "次の Python で MD を行い距離を監視できます。"
 
 #: PATHS.md:111
 msgid ""
 "I ran simulations at 300K and 1000K using the above script. When the "
 "simulations completed, I was able to construct the figures below:"
-msgstr ""
+msgstr "300 K と1000 K を実行すると、次が得られました。"
 
 #: PATHS.md:113
 msgid ""
@@ -189,6 +202,8 @@ msgid ""
 " the RMSD distances from the two reference "
 "states.](figures/masterclass-21-6-rmsd-distances.png)"
 msgstr ""
+"![黒は300 K（左）と1000 K（右）の MD。上は Ramachandran、下は2参照への "
+"RMSD](figures/masterclass-21-6-rmsd-distances.png)"
 
 #: PATHS.md:115
 msgid ""
@@ -198,6 +213,8 @@ msgid ""
 "the C7ax and C7eq states. __Try now to reproduce the above figure "
 "yourself.__"
 msgstr ""
+"黒は MD の RMSD、赤は alanine-transformation です。MD の全構造は C7ax・C7eq "
+"からかなり離れます。__自分で再現してください。__"
 
 #: PATHS.md:119
 msgid ""
@@ -209,16 +226,18 @@ msgid ""
 "these reference configurations and the configurations on the reference path "
 "in alanine-transformation.pdb."
 msgstr ""
+"300 K では C7eq を訪れず、RMSD でもわかります。ただし参照への距離は、参照と alanine-transformation.pdb の "
+"Path との距離よりかなり大きいことが多いです。"
 
 #: PATHS.md:123
 msgid "Using dot products to calculate CVs"
-msgstr ""
+msgstr "Dot Product による CV"
 
 #: PATHS.md:125
 msgid ""
 "Instead of calculating two distances, we might ask ourselves if the linear "
 "combination of $\\phi$ and $\\psi$ that is illustrated in the figure below:"
-msgstr ""
+msgstr "2距離の代わりに、下図の $\\phi$ と $\\psi$ の線形結合が、"
 
 #: PATHS.md:127
 msgid ""
@@ -228,12 +247,14 @@ msgid ""
 "two states of interest (black arrow) by using the dot product of the vectors"
 " shown here.](figures/marvel-2-pca-coordinates.png)"
 msgstr ""
+"![PCAVARS の仕組み。参照から現在状態（紫・橙）への Vector を、2状態間の黒 Vector に Dot Product "
+"で射影](figures/marvel-2-pca-coordinates.png)"
 
 #: PATHS.md:129
 msgid ""
 "gives a better description for the transition. We can define this CV as "
 "follows:"
-msgstr ""
+msgstr "遷移をよく表すか考えます。定義は、"
 
 #: PATHS.md:135
 msgid ""
@@ -243,6 +264,9 @@ msgid ""
 "should thus be able to see that we have arrived at the above expression by "
 "using our knowledge of the dot product between two vectors."
 msgstr ""
+"$(\\phi_1,\\psi_1)$ は $C_7eq$、$(\\phi_2,\\psi_2)$ は "
+"$C_7ax$、$(\\phi_3,\\psi_3)$ は瞬時 Configuration です。2 Vector の Dot Product "
+"から得た式です。"
 
 #: PATHS.md:140
 msgid ""
@@ -251,6 +275,8 @@ msgid ""
 "this CV.__ You should be able to get plots of the value of this CV as a "
 "function of step number that looks like the ones shown below:"
 msgstr ""
+"__この CV で alanine-transformation.pdb と前の MD を再解析してください。__ Step "
+"ごとの値は次のようになるはずです。"
 
 #: PATHS.md:142
 msgid ""
@@ -260,6 +286,8 @@ msgid ""
 " vector in the Ramachandran plane shown "
 "above.](figures/masterclass-21-6-pcavars-transition.png)"
 msgstr ""
+"![300 K（左）・1000 K（右）の黒点。上は Ramachandran、下は上記 Vector "
+"への射影](figures/masterclass-21-6-pcavars-transition.png)"
 
 #: PATHS.md:144
 msgid ""
@@ -268,17 +296,18 @@ msgid ""
 "the linear combination. You can't use the sort of linear algebra above with "
 "periodic variables, but it is OK for these illustrative purposes."
 msgstr ""
+"TORSION と COMBINE で実装し、Torsion の周期性を無視しました。本来周期変数にはこの線形代数を使えませんが、例示には十分です。"
 
 #: PATHS.md:146
 msgid ""
 "Notice that the first frame in alanine-transformation.pdb has the molecule "
 "in the $C_7ax$ configuration. The last frame has the molecule in the $C_7eq$"
 " state."
-msgstr ""
+msgstr "alanine-transformation.pdb の最初は $C_7ax$、最後は $C_7eq$ です。"
 
 #: PATHS.md:148
 msgid "PCA Collective Variables"
-msgstr ""
+msgstr "PCA Collective Variables"
 
 #: PATHS.md:150
 msgid ""
@@ -293,28 +322,31 @@ msgid ""
 "the instantaneous configuration of the atoms is $\\mathbf{x}^{(3)}$ we can "
 "use the following as a CV:"
 msgstr ""
+"2変数の線形結合は高次元にも拡張できます。$C_7eq$ と $C_7ax$ を結ぶ Vector "
+"に現在座標を射影します。原子座標空間でもよく、3$N$ 座標を $C_7eq$ で $\\mathbf{x}^{(1)}$、$C_7ax$ で "
+"$\\mathbf{x}^{(2)}$、瞬時値を $\\mathbf{x}^{(3)}$ とすれば、CV は、"
 
 #: PATHS.md:161
 msgid ""
 "as long as rotational and translational movement is removed before "
 "calculating the two displacement vectors above."
-msgstr ""
+msgstr "ただし変位 Vector を求める前に回転・並進を除きます。"
 
 #: PATHS.md:163
 msgid ""
 "We can also get some sense of how far the system has moved from this vector "
 "by computing:"
-msgstr ""
+msgstr "この Vector からのずれも、次で求められます。"
 
 #: PATHS.md:169
 msgid "which follows by applying Pythagoras theorem."
-msgstr ""
+msgstr "Pythagoras の定理によります。"
 
 #: PATHS.md:171
 msgid ""
 "You can calculate this collective variable using PLUMED by using the input "
 "below:"
-msgstr ""
+msgstr "PLUMED 入力は、"
 
 #: PATHS.md:179
 msgid ""
@@ -322,6 +354,7 @@ msgid ""
 "your MD simulations before continuing.__ The figure below shows the results "
 "that I obtained by analyzing the data using the PCAVARS command above."
 msgstr ""
+"__`alanine-transformation.pdb` と MD を再解析してから進んでください。__ PCAVARS の結果は次です。"
 
 #: PATHS.md:182
 msgid ""
@@ -331,16 +364,18 @@ msgid ""
 "C7eq states (left) and the perpendicular distance from this vector (right) "
 "and shown in the bottom panels.](figures/masterclass-21-6-pcavars.png)"
 msgstr ""
+"![300 K（左）・1000 K（右）の MD。上は Ramachandran、下は C7ax–C7eq の Vector "
+"射影（左）と垂直距離（右）](figures/masterclass-21-6-pcavars.png)"
 
 #: PATHS.md:184
 msgid ""
 "The figure above shows that this coordinate is good. We move quite far from "
 "this initial vector when we move to the C7ax state, however."
-msgstr ""
+msgstr "この座標はよい記述ですが、C7ax への移動時は初期 Vector からかなり離れます。"
 
 #: PATHS.md:186
 msgid "Two PCA Collective variables"
-msgstr ""
+msgstr "2つの PCA Collective Variables"
 
 #: PATHS.md:188
 msgid ""
@@ -349,7 +384,7 @@ msgid ""
 "the instantaneous coordinates in the plane that contains three reference "
 "configurations. You can calculate these collective variables using PLUMED by"
 " using the input below:"
-msgstr ""
+msgstr "1 Vector でなく、3参照構造の平面に現在座標を射影できます。入力は、"
 
 #: PATHS.md:197
 msgid ""
@@ -359,6 +394,8 @@ msgid ""
 "The figure below shows the results that I obtained by analyzing the data "
 "using the PCAVARS command above."
 msgstr ""
+"`pca2-reference.pdb` に3構造があり、2 Vector を定義します。__`alanine-transformation.pdb` "
+"と MD を再解析してください。__ 結果は、"
 
 #: PATHS.md:201
 msgid ""
@@ -370,10 +407,12 @@ msgid ""
 " used to define the reference "
 "configurations.](figures/masterclass-21-6-pcavars2.png)"
 msgstr ""
+"![300 K（左）・1000 K（右）の MD。上は Ramachandran、下は pca2-reference.pdb の Vector "
+"射影。上の緑は参照構造](figures/masterclass-21-6-pcavars2.png)"
 
 #: PATHS.md:203
 msgid "Path collective variables"
-msgstr ""
+msgstr "Path Collective Variables"
 
 #: PATHS.md:205
 msgid ""
@@ -381,29 +420,29 @@ msgid ""
 "ideas in the previous section and use curvilinear paths rather than linear "
 "paths. This trick is what is done with the PATH CVs that are illustrated in "
 "the figure below:"
-msgstr ""
+msgstr "複数 Vector の射影をさらに拡張し、直線でなく曲線を使うのが PATH CV です。"
 
 #: PATHS.md:207
 msgid ""
 "![The S variable can be thought as the length of the red segment, while the "
 "Z variable is the length of the green one](figures/belfast-2-ab-sz.png)"
-msgstr ""
+msgstr "![S は赤の長さ、Z は緑の長さと解釈できる](figures/belfast-2-ab-sz.png)"
 
 #: PATHS.md:209
 msgid ""
 "As you can see, there are two path collective variables, $S(X)$ measures "
 "your position on a path and is calculated using:"
-msgstr ""
+msgstr "2 CV があり、$S(X)$ は Path 上の位置を、次で求めます。"
 
 #: PATHS.md:215
 msgid "$Z(x)$, meanwhile, measures the distance from the path using:"
-msgstr ""
+msgstr "$Z(x)$ は Path からの距離で、"
 
 #: PATHS.md:221
 msgid ""
 "We can calculate these CVs using a filled-in version of the input that is "
 "shown below:"
-msgstr ""
+msgstr "次の空欄を埋めて計算します。"
 
 #: PATHS.md:229
 msgid ""
@@ -415,6 +454,8 @@ msgid ""
 "transition path that connects the C7eq and C7ax configurations and that the "
 "green dots follow this pathway:"
 msgstr ""
+"赤は Path の構造の $\\phi$・$\\psi$、黒は高温 Unbiased MD の $\\phi$・$\\psi$、緑は alanine-"
+"transformation.pdb です。赤が C7eq・C7ax を結ぶ遷移に沿い、緑も追従します。"
 
 #: PATHS.md:233
 msgid ""
@@ -422,6 +463,8 @@ msgid ""
 "plane. Black dots are the configurations visited at 300 K (left) and 1000 K "
 "(right)](figures/masterclass-21-6-path-angles.png)"
 msgstr ""
+"![Ramachandran 平面の Path。黒は300 K（左）・1000 K（右）](figures/masterclass-21-6-path-"
+"angles.png)"
 
 #: PATHS.md:235
 msgid ""
@@ -429,13 +472,13 @@ msgid ""
 "points in the above figure, we get the result shown on the right. The panel "
 "on the left shows the output from a 300 K simulation during which the C7eq "
 "configuration was not visited:"
-msgstr ""
+msgstr "上の黒・赤の Path CV は右の結果です。左は C7eq を訪れない300 K の結果です。"
 
 #: PATHS.md:238
 msgid ""
 "![An analysis of the path CV values visited during trajectories at 300 K and"
 " 1000 K.](figures/masterclass-21-6-path-path.png)"
-msgstr ""
+msgstr "![300 K・1000 K の Path CV](figures/masterclass-21-6-path-path.png)"
 
 #: PATHS.md:240
 msgid ""
@@ -445,10 +488,12 @@ msgid ""
 "between the two states. Furthermore, in defining this coordinate, we have "
 "used the positions of all the heavy atoms in the protein."
 msgstr ""
+"大部分で z が小さく、Reaction Coordinate を特定したように見えます。S で2状態間の進行度を表し、全 Heavy Atom "
+"の位置を使えています。"
 
 #: PATHS.md:243
 msgid "The isocommittor"
-msgstr ""
+msgstr "Isocommittor"
 
 #: PATHS.md:245
 msgid ""
@@ -460,6 +505,8 @@ msgid ""
 "path if we know that there are multiple pathways that connect the two "
 "states?"
 msgstr ""
+"Reaction Coordinate は2状態を結ぶ単一の構造列ではありません。常に複数 Path があるなら、単一の Reaction "
+"Coordinate を特定するのは不可能に見えます。どう考えればよいでしょうか？"
 
 #: PATHS.md:249
 msgid ""
@@ -470,6 +517,8 @@ msgid ""
 "between the two states of interest (the $C_7ax$ and $C_7eq$ configurations "
 "in our alanine dipeptide example)."
 msgstr ""
+"Z で参照 Path からのずれを見る方法に加え、Isocommittor Surface を考えられます。$C_7ax$ と $C_7eq$ の間に "
+"Saddle Point があると仮定します。"
 
 #: PATHS.md:253
 msgid ""
@@ -478,7 +527,7 @@ msgid ""
 "the maximum and move towards either the left or the right basin. If we are "
 "exactly at the saddle, 50% of the trajectories will fall to the right, and "
 "50% will fall to the left."
-msgstr ""
+msgstr "その上から始めると速やかに左右どちらかの Basin に落ちます。ちょうど Saddle なら各方向50%です。"
 
 #: PATHS.md:256
 msgid ""
@@ -492,6 +541,9 @@ msgid ""
 "of times a particular CV value was visited in a trajectory that visited the "
 "c7eq basin before it visited the c7ax basin."
 msgstr ""
+"Isocommittor で CV が Transition State Ensemble "
+"をよく特定するか評価できます。安定状態の領域を定義し、外側の構造から多数の MD を開始して最初に到達する Basin を調べます。次の図は、各 CV "
+"値を訪れた Trajectory のうち、C7ax より先に C7eq に達した割合です。"
 
 #: PATHS.md:261
 msgid ""
@@ -499,18 +551,19 @@ msgid ""
 "differents points on each of the CV "
 "ranges](figures/masterclass-21-6-committor.png)"
 msgstr ""
+"![各 CV 位置から C7ax より先に C7eq を訪れる確率](figures/masterclass-21-6-committor.png)"
 
 #: PATHS.md:263
 msgid ""
 "The PLUMED input that I used when making the figure above is a filled in "
 "version of the following:"
-msgstr ""
+msgstr "使った PLUMED 入力のひな形は、"
 
 #: PATHS.md:275
 msgid ""
 "I deployed the input above within the following python script that launches "
 "a large number of gromacs simulations:"
-msgstr ""
+msgstr "多数の GROMACS を起動する次の Python に組み込みました。"
 
 #: PATHS.md:304
 msgid ""
@@ -523,6 +576,8 @@ msgid ""
 "above by dividing by the total number of configurations that moves to C7eq "
 "first by the total number of configuration that visited a point."
 msgstr ""
+"C7eq で終わる CV は NumPy Array `bas_data` に保存します。これと全データから未正規化 Histogram を作り、各点で"
+" C7eq に先に達する数を総数で割って、図の条件付き確率を求めます。スクリプトは、"
 
 #: PATHS.md:331
 msgid ""
@@ -533,6 +588,8 @@ msgid ""
 "batches of simulations and calculated the mean and variance from these ten "
 "sets of samples."
 msgstr ""
+"このコードは Error Bar を求めません。__誤差付きの図を再現してください。__ 私は500実行の組を10回行い、組ごとの Histogram "
+"の平均・Variance を求めました。"
 
 #: PATHS.md:335
 msgid "Conclusions"
@@ -547,6 +604,8 @@ msgid ""
 "meanwhile, are the actual pathways that reactions proceed along. These "
 "reaction coordinates are found by probing the data we get from simulations."
 msgstr ""
+"この節は CV と Reaction Coordinate の違いを扱いました。CV は重要な状態を区別するよう研究者が設計し、Reaction "
+"Coordinate は実際の経路で、MD データから調べます。"
 
 #: PATHS.md:340
 msgid ""
@@ -565,3 +624,6 @@ msgid ""
 "thing is to develop an interesting question and to tell a good story about "
 "whatever you find out."
 msgstr ""
+"私はこの違いがそれほど重要とは思いません。試した全座標で C7eq・C7ax "
+"を判定できました。科学では問いによって結果に構造を与えます。ここでの問いは両 Basin の相対自由エネルギーで、そのため各 Basin "
+"の構造を定義します。区別は便宜的な想像上のものなので、変数を変えると状態の定義も答えも少し変わり得ます。問い方が違えば答えが違っても不思議ではありません。興味深い問いを立て、発見をよい物語として伝えることが重要です。"

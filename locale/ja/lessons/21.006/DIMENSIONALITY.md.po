@@ -30,11 +30,11 @@ msgstr "到達目標"
 
 #: DIMENSIONALITY.md:11
 msgid "Once this series of exercises is completed, users will be able to:"
-msgstr ""
+msgstr "この演習を終えると、次ができます。"
 
 #: DIMENSIONALITY.md:13
 msgid "Run dimensionality reduction algorithms with PLUMED"
-msgstr ""
+msgstr "PLUMED で Dimensionality Reduction を実行する。"
 
 #: DIMENSIONALITY.md:15
 msgid "Resources"
@@ -96,6 +96,10 @@ msgid ""
 "analyze this data and thus want to see if you can shed any light on the "
 "contents of the trajectory by using machine learning."
 msgstr ""
+"Chemiscope は Machine Learning で特に有用です。アルゴリズムは原理的に Trajectory から CV "
+"を学習できますが、意味を理解するには低次元空間への構造の射影を慎重に可視化する必要があります。ここでは traj.pdb に各種 "
+"Dimensionality Reduction を適用します。VMD で見ると短いタンパク質 Trajectory です。適切な CV "
+"が不明な場合に、Machine Learning が情報を与えるか試します。"
 
 #: DIMENSIONALITY.md:42
 msgid ""
@@ -106,16 +110,18 @@ msgid ""
 "machine learning algorithm. The following input illustrates how to complete "
 "this task using PLUMED."
 msgstr ""
+"PLUMED は通常1構造ずつ解析しますが、Machine Learning には複数の Configuration "
+"が必要です。まず後の解析用に構造を保存する方法を、次の入力で学びます。"
 
 #: DIMENSIONALITY.md:59
 msgid ""
 "__Copy the input above into a plumed file and fill in the blanks.__ You "
 "should then be able to run the command using:"
-msgstr ""
+msgstr "__上の入力を PLUMED ファイルに Copy して空欄を埋め、次で実行してください。__"
 
 #: DIMENSIONALITY.md:61
 msgid "Then, once all the blanks are filled in, run the command using:"
-msgstr ""
+msgstr "空欄を埋めたら、次で実行します。"
 
 #: DIMENSIONALITY.md:67
 msgid ""
@@ -126,13 +132,18 @@ msgid ""
 "doc/html/_o_u_t_p_u_t__a_n_a_l_y_s_i_s__d_a_t_a__t_o__c_o_l_v_a_r.html) and "
 "rerun the calculation.__"
 msgstr ""
+"CV 値も後の解析用に保存できます。__全30 Backbone Dihedral "
+"を保存し、[OUTPUT_ANALYSIS_DATA_TO_COLVAR](https://www.plumed.org/doc-"
+"master/user-"
+"doc/html/_o_u_t_p_u_t__a_n_a_l_y_s_i_s__d_a_t_a__t_o__c_o_l_v_a_r.html) "
+"で出力するよう変更して再実行してください。__"
 
 #: DIMENSIONALITY.md:70
 msgid ""
 "You can find more information on the dimensionality reduction algorithms "
 "that we are using in this section in [this "
 "paper](https://arxiv.org/abs/1907.04170)."
-msgstr ""
+msgstr "アルゴリズムの詳細は [この論文](https://arxiv.org/abs/1907.04170) にあります。"
 
 # Literal notation or identifier intentionally preserved.
 #: DIMENSIONALITY.md:72
@@ -145,37 +156,37 @@ msgid ""
 "reduction algorithm, lets now apply principal component analysis (PCA) upon "
 "our stored data. In principle component analysis, low dimensional "
 "projections for our trajectory are constructed by:"
-msgstr ""
+msgstr "保存データに Principal Component Analysis (PCA) を適用します。低次元射影は次の手順です。"
 
 #: DIMENSIONALITY.md:77
 msgid "Computing a covariance matrix from the trajectory data"
-msgstr ""
+msgstr "Trajectory から Covariance Matrix を計算する。"
 
 #: DIMENSIONALITY.md:78
 msgid "Diagonalizing the covariance matrix."
-msgstr ""
+msgstr "Matrix を対角化する。"
 
 #: DIMENSIONALITY.md:79
 msgid ""
 "Calculating the projection of each trajectory frame on a subset of the "
 "eigenvectors of the covariance matrix."
-msgstr ""
+msgstr "各 Frame を Covariance Matrix の一部の Eigenvector に射影する。"
 
 #: DIMENSIONALITY.md:81
 msgid ""
 "To perform PCA using PLUMED, we are going to use the following input with "
 "the blanks filled in:"
-msgstr ""
+msgstr "次の入力の空欄を埋めて PCA を行います。"
 
 #: DIMENSIONALITY.md:111
 msgid "To generate the projection, you run the command:"
-msgstr ""
+msgstr "次で射影を生成します。"
 
 #: DIMENSIONALITY.md:117
 msgid ""
 "You can generate a projection of the data above using chemiscope by using "
 "the following script:"
-msgstr ""
+msgstr "次のスクリプトで Chemiscope 表示を作れます。"
 
 #: DIMENSIONALITY.md:177
 msgid ""
@@ -183,26 +194,27 @@ msgid ""
 "construct figures like the one shown below. On the axes here, we have "
 "plotted the PCA coordinates. The points are then coloured according to the "
 "alpha-helical content."
-msgstr ""
+msgstr "出力を Chemiscope に読むと、PCA 座標を軸、Alpha-helix 含有量を色とした次の図を作れます。"
 
 #: DIMENSIONALITY.md:180
 msgid ""
 "![A representation of the PCA projection that was generated using "
 "chemiscope.](figures/masterclass-21-6-chemiscope-pca.png)"
-msgstr ""
+msgstr "![Chemiscope による PCA 射影](figures/masterclass-21-6-chemiscope-pca.png)"
 
 #: DIMENSIONALITY.md:182
 msgid ""
 "__See if you can use PLUMED and chemiscope to generate a figure similar to "
 "the one above.__ Try to experiment with the way the points are coloured. "
 "Look at the beta-sheet content as well."
-msgstr ""
+msgstr "__PLUMED と Chemiscope で同様の図を作ってください。__ 色を変え、Beta-sheet 含有量も調べてください。"
 
 # Literal notation or identifier intentionally preserved.
 #: DIMENSIONALITY.md:184
 msgid "MDS"
 msgstr "MDS"
 
+# 原文は非周期 CV に関する条件の記述が前後で矛盾している。翻訳では条件を独自に修正せず保持した。
 #: DIMENSIONALITY.md:186
 msgid ""
 "In the previous section, we performed PCA on the atomic positions directly. "
@@ -216,21 +228,23 @@ msgid ""
 "differently. In this alternative formulation, which is known as classical "
 "multidimensional scaling (MDS), we do the following:"
 msgstr ""
+"前節は原子位置の PCA でしたが、保存した高次元 CV Vector を入力にすることも、非周期 CV なら可能です。非周期 CV があると PCA "
+"Action では解析できません。別の定式化、Classical Multidimensional Scaling (MDS) では次を行います。"
 
 #: DIMENSIONALITY.md:191
 msgid "We calculate the matrix of distances between configurations"
-msgstr ""
+msgstr "Configuration 間距離の Matrix を求める。"
 
 #: DIMENSIONALITY.md:192
 msgid "We perform an operation known as centring the matrix."
-msgstr ""
+msgstr "Matrix を Centering する。"
 
 #: DIMENSIONALITY.md:193
 msgid ""
 "We diagonalize the centred matrix The eigenvectors multiplied by the "
 "corresponding eigenvalue's square root can then be used as a set of "
 "projections for our input points."
-msgstr ""
+msgstr "Centering 後の Matrix を対角化し、Eigenvector に対応する Eigenvalue の平方根を掛けて射影とする。"
 
 #: DIMENSIONALITY.md:196
 msgid ""
@@ -242,6 +256,8 @@ msgid ""
 "remaining points are then found by using a so-called out-of-sample "
 "procedure. This is what has been done in the following input:"
 msgstr ""
+"MDS は対角化する Matrix が PCA より大きくなり得るため、使用頻度が低めです。コストを避けるため Landmark "
+"の部分集合に適用し、残りを Out-of-sample で射影します。次の入力が例です。"
 
 #: DIMENSIONALITY.md:267
 msgid ""
@@ -255,6 +271,9 @@ msgid ""
 "using the PROJECT_POINTS action. Try to fill in the blanks in the input "
 "above and run this calculation now using the command:"
 msgstr ""
+"全 Torsion Angle を収集し、終了時に距離 Matrix を作り、Farthest Point Sampling で Landmark "
+"を選びます。その距離 Matrix を CLASSICAL_MDS で対角化して Landmark を射影し、PROJECT_POINTS "
+"で残りを射影します。空欄を埋め、次で実行してください。"
 
 #: DIMENSIONALITY.md:276
 msgid ""
@@ -262,24 +281,24 @@ msgid ""
 "using chemiscope by using a suitably modified version of the script from the"
 " previous exercise. The image below shows the MDS coordinates coloured "
 "according to the alpha-helical content."
-msgstr ""
+msgstr "前のスクリプトを調整し、Chemiscope で MDS 座標を Alpha-helix 含有量で着色できます。"
 
 #: DIMENSIONALITY.md:279
 msgid ""
 "![A representation of the MDS projection that was generated using "
 "chemiscope.](figures/masterclass-21-6-chemiscope-mds.png)"
-msgstr ""
+msgstr "![Chemiscope による MDS 射影](figures/masterclass-21-6-chemiscope-mds.png)"
 
 #: DIMENSIONALITY.md:281
 msgid ""
 "__Try to generate an image that looks like this one yourself by completing "
 "the input above and then using what you learned about generating chemiscope "
 "representations in the previous exercise.__"
-msgstr ""
+msgstr "__入力を完成させ、前の演習の方法で同様の図を作ってください。__"
 
 #: DIMENSIONALITY.md:283
 msgid "Sketch-map"
-msgstr ""
+msgstr "Sketch-map"
 
 #: DIMENSIONALITY.md:285
 msgid ""
@@ -293,6 +312,8 @@ msgid ""
 "strategies to construct a non-linear projection. The algorithm is known as "
 "sketch-map and input for sketch-map is provided below:"
 msgstr ""
+"PCA・MDS は線形ですが、非線形法には距離 Matrix の変換、Euclidean でなく Geodesic Distance の使用、Loss "
+"Function の変更などがあります。最後の戦略による Sketch-map を使います。入力は、"
 
 #: DIMENSIONALITY.md:357
 msgid ""
@@ -310,6 +331,9 @@ msgid ""
 "however. Try to fill in the blanks in the input above and run this "
 "calculation now using the command:"
 msgstr ""
+"全 Torsion を収集し距離を求め、Farthest Point Sampling で Landmark を選び、CLASSICAL_MDS "
+"の射影を初期値に Sketch-map Stress Function を最適化します。残りは PROJECT_POINTS ですが、SKETCHMAP"
+" Shortcut が管理します。空欄を埋め、次で実行してください。"
 
 #: DIMENSIONALITY.md:367
 msgid ""
@@ -317,18 +341,20 @@ msgid ""
 "generated using chemiscope by using the scripts from earlier exercises. My "
 "projection is shown in the figure below. Points are, once again, coloured "
 "following the alpha-helical content of the corresponding structure."
-msgstr ""
+msgstr "前のスクリプトで Chemiscope に表示します。私の結果では再び Alpha-helix 含有量で着色しています。"
 
 #: DIMENSIONALITY.md:370
 msgid ""
 "![A representation of the sketch-map projection that was generated using "
 "chemiscope.](figures/masterclass-21-6-chemiscope-smap.png)"
 msgstr ""
+"![Chemiscope による Sketch-map 射影](figures/masterclass-21-6-chemiscope-"
+"smap.png)"
 
 #: DIMENSIONALITY.md:372
 msgid ""
 "__Try to see if you can reproduce an image that looks like the one above__"
-msgstr ""
+msgstr "__同様の図を再現してください。__"
 
 #: DIMENSIONALITY.md:374
 msgid "Summary"
@@ -338,7 +364,7 @@ msgstr "まとめ"
 msgid ""
 "This exercise has shown you that running dimensionality reduction algorithms"
 " using PLUMED involves the following stages:"
-msgstr ""
+msgstr "PLUMED の Dimensionality Reduction は次の段階です。"
 
 #: DIMENSIONALITY.md:378
 msgid ""
@@ -346,6 +372,8 @@ msgid ""
 "[COLLECT_FRAMES](https://www.plumed.org/doc-master/user-"
 "doc/html/_c_o_l_l_e_c_t__f_r_a_m_e_s.html)."
 msgstr ""
+"[COLLECT_FRAMES](https://www.plumed.org/doc-master/user-"
+"doc/html/_c_o_l_l_e_c_t__f_r_a_m_e_s.html) でデータを集める。"
 
 #: DIMENSIONALITY.md:379
 msgid ""
@@ -353,14 +381,16 @@ msgid ""
 "algorithm](https://www.plumed.org/doc-master/user-"
 "doc/html/_analysis.html#landmarks)"
 msgstr ""
+"[Landmark アルゴリズム](https://www.plumed.org/doc-master/user-"
+"doc/html/_analysis.html#landmarks) で点を選ぶ。"
 
 #: DIMENSIONALITY.md:380
 msgid "A loss function is optimized to generate projections of the landmarks."
-msgstr ""
+msgstr "Loss Function を最適化し Landmark の射影を作る。"
 
 #: DIMENSIONALITY.md:381
 msgid "Projections of the non-landmark points are found"
-msgstr ""
+msgstr "残りの点を射影する。"
 
 #: DIMENSIONALITY.md:383
 msgid ""
@@ -373,10 +403,11 @@ msgid ""
 "problems using these methods, you can experiment with the various choices "
 "that can be made."
 msgstr ""
+"各段階で、収集データ、Landmark 選択、距離の直接使用・変換、Loss Function、最適化法などを選べます。研究では各選択を試せます。"
 
 #: DIMENSIONALITY.md:388
 msgid ""
 "__Generating a low-dimensional representation using these algorithms is not "
 "enough to publish a paper.__ We want to get some physical understanding from"
 " our simulation. Gaining this understanding is the hard part."
-msgstr ""
+msgstr "__低次元表示を作るだけでは論文にはなりません。__ 物理的理解を得ることが難しい部分です。"

@@ -30,11 +30,11 @@ msgstr "到達目標"
 
 #: INDISTINGUISHABILITY.md:11
 msgid "Once this series of exercise is completed, users will be able to:"
-msgstr ""
+msgstr "この演習を終えると、次ができます。"
 
 #: INDISTINGUISHABILITY.md:13
 msgid "Use Gibbs dividing surfaces to determine the extent of a phase."
-msgstr ""
+msgstr "Gibbs Dividing Surface で相の量を求める。"
 
 #: INDISTINGUISHABILITY.md:15
 msgid "Resources"
@@ -95,37 +95,40 @@ msgid ""
 "following input, once it is filled in will calculate some suitable order "
 "parameters for all the atoms in the system:"
 msgstr ""
+"Rare Event 法は Nucleation・結晶成長にも使われますが、全原子が区別不能なので CV 設計に課題があります。任意の原子から "
+"Nucleation が始まり、液体から固体への Path は多数あります。まず固体・液体の原子を区別する Order Parameter "
+"を特定します。次の入力を完成させると全原子の候補を計算できます。"
 
 #: INDISTINGUISHABILITY.md:53
 msgid ""
 "You can run a short MD simulation on Lennard-Jonesium to compute those order"
 " parameter by using the following input (in) file for simplemd:"
-msgstr ""
+msgstr "次の simplemd の in で短い Lennard-Jonesium MD を行い、Order Parameter を求めます。"
 
 #: INDISTINGUISHABILITY.md:68
 msgid ""
 "You can run this from a python notebook and read in the values of the order "
 "parameters by using the following script:"
-msgstr ""
+msgstr "Notebook から実行して値を読むスクリプトは、"
 
 #: INDISTINGUISHABILITY.md:104
 msgid ""
 "A visualization of the order parameters for all the atoms can then be "
 "produced using chemiscope, which allows you to see the value of all the "
 "individual atom order parameters."
-msgstr ""
+msgstr "Chemiscope で各原子の Order Parameter を可視化できます。"
 
 #: INDISTINGUISHABILITY.md:137
 msgid ""
 "__Put all the above together and see if you can produce a chemiscope "
 "representation like the one below__"
-msgstr ""
+msgstr "__上記を組み合わせ、次の表示を作ってください。__"
 
 #: INDISTINGUISHABILITY.md:139
 msgid ""
 "![A representation of a solid-liquid system that was generated using "
 "chemiscope](figures/masterclass-21-lj-chemiscope.png)"
-msgstr ""
+msgstr "![Chemiscope による固液系](figures/masterclass-21-lj-chemiscope.png)"
 
 #: INDISTINGUISHABILITY.md:141
 msgid ""
@@ -140,23 +143,27 @@ msgid ""
 "because we can get multiple sets of coordinates to analyze from each "
 "trajectory frame. The atoms are, after all, indistinguishable."
 msgstr ""
+"Chemiscope は固液の識別力の評価に有用です。FCCCUBIC やその変換値では、約半分が固体的、半分が液体的です。前の "
+"Dimensionality Reduction・Clustering で原子 Order Parameter "
+"を作ることもできます。原子が区別不能なので各 Frame から複数の座標集合を取り、解析データを容易に増やせます。"
 
 #: INDISTINGUISHABILITY.md:145
 msgid ""
 "Once we have identified an order parameter we can analyse the distribution "
 "of values that it takes by using an input like the one shown below:"
-msgstr ""
+msgstr "Order Parameter が決まったら、次で分布を解析します。"
 
 #: INDISTINGUISHABILITY.md:162
 msgid ""
 "The resulting distributions of order parameter values should look like this:"
-msgstr ""
+msgstr "分布は次のようになるはずです。"
 
 #: INDISTINGUISHABILITY.md:164
 msgid ""
 "![The distributions of the various order parameters in a simulation of the "
 "solid-liquid system.](figures/masterclass-21-6-order-params.png)"
 msgstr ""
+"![固液系の各 Order Parameter の分布](figures/masterclass-21-6-order-params.png)"
 
 #: INDISTINGUISHABILITY.md:166
 msgid ""
@@ -169,6 +176,8 @@ msgid ""
 "transforming the values above we have an order parameter that is one for "
 "atoms that are within the solid and zero otherwise."
 msgstr ""
+"__この図を再現してください。__ FCC Cubic は二峰性で、液体・固体にそれぞれ Peak があります。Coordination Number "
+"はそうではありません。変換後は固体原子で1、ほかで0になる Order Parameter が得られます。"
 
 #: INDISTINGUISHABILITY.md:169
 msgid ""
@@ -176,19 +185,19 @@ msgid ""
 "number of atoms that have an order parameter that is greater than some "
 "threshold. A better way to calculate the number of solid particles, however,"
 " is to proceed as follows:"
-msgstr ""
+msgstr "閾値超の原子数を固体数としたくなりますが、よりよい方法は次です。"
 
 #: INDISTINGUISHABILITY.md:172
 msgid ""
 "Run simulations of the solid and liquid under the same thermodynamic "
 "conditions."
-msgstr ""
+msgstr "同じ熱力学条件で固体と液体を実行する。"
 
 #: INDISTINGUISHABILITY.md:173
 msgid ""
 "Calculate the average values per atom value of the order parameter in these "
 "simulations of the solid $\\phi_s$ and liquid $\\phi_l$."
-msgstr ""
+msgstr "各相の1原子当たり平均 $\\phi_s$・$\\phi_l$ を求める。"
 
 #: INDISTINGUISHABILITY.md:174
 msgid ""
@@ -197,12 +206,14 @@ msgid ""
 "\\phi_s + n_l \\phi_l$, where $N$ is the total number of atoms. $\\Phi$, "
 "meanwhile, is given by:"
 msgstr ""
+"全原子数 $N$ とし、$N=n_s + n_l$、$\\Phi = n_s \\phi_s + n_l \\phi_l$ を解いて固体 $n_l$ "
+"と液体 $n_l$ の数を求めます。$\\Phi$ は、"
 
 #: INDISTINGUISHABILITY.md:180
 msgid ""
 "The sum runs over all the atoms and where $\\phi_i$ is the order parameter "
 "for the $i$th atom in the system."
-msgstr ""
+msgstr "和は全原子にわたり、$\\phi_i$ は $i$ 番目の Order Parameter です。"
 
 #: INDISTINGUISHABILITY.md:182
 msgid ""
@@ -210,6 +221,8 @@ msgid ""
 "additive. If we have a system that contains a aolid liquid interface we can "
 "express the value of any extensive quantity, $\\Psi$ using:"
 msgstr ""
+"$\\Phi$ が加法的な Extensive Quantity なので可能です。固液界面の系では、任意の Extensive Quantity "
+"$\\Psi$ を、"
 
 #: INDISTINGUISHABILITY.md:188
 msgid ""
@@ -220,6 +233,8 @@ msgid ""
 "by solving the simultaneous equations above, we assume that this excess term"
 " is zero."
 msgstr ""
+"$\\psi_s$、$\\psi_l$ は固液の1原子当たりの $\\psi$ 平均です。$\\psi_i$ は界面の $\\Psi$ "
+"への寄与、Surface Excess です。上の連立式で $n_s$ を求めるとき、これを0と仮定します。"
 
 #: INDISTINGUISHABILITY.md:190
 msgid ""
@@ -235,6 +250,8 @@ msgid ""
 "interface is in `interface.xyz`. The final result you get will look "
 "something like this:"
 msgstr ""
+"__固体・液体・界面を実行し、固液の Ensemble Average から、界面系の固体原子数の時間変化を描いてください。__ "
+"連立式を使います。GitHub の data に `solid.xyz`、`liquid.xyz`、`interface.xyz` があります。結果は、"
 
 #: INDISTINGUISHABILITY.md:192
 msgid ""
@@ -243,6 +260,8 @@ msgid ""
 "(red) and the sum of transformed fcc order parameters "
 "(green)](figures/masterclass-21-6-solid-liquid.png)"
 msgstr ""
+"![Surface Excess を0として求めた固体数。Coordination の和（黒）、FCC の和（赤）、変換 FCC "
+"の和（緑）](figures/masterclass-21-6-solid-liquid.png)"
 
 #: INDISTINGUISHABILITY.md:194
 msgid ""
@@ -250,11 +269,11 @@ msgid ""
 "the line is less noisy is connected to the fact that you have the clearest "
 "delineation between solid and liquid atoms when you use this order "
 "parameter."
-msgstr ""
+msgstr "緑が最も Noise が少ないのは、固液を最も明確に区別するためです。"
 
 #: INDISTINGUISHABILITY.md:196
 msgid ""
 "NB. We are running at constant volume because we are keeping things simple "
 "and using simplemd. If you are studying nucleation using these techniques, "
 "you should run at constant pressure."
-msgstr ""
+msgstr "注：simplemd で簡単にするため定積ですが、実際の Nucleation 研究は定圧で行ってください。"

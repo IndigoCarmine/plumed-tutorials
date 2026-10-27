@@ -26,32 +26,32 @@ msgstr ""
 
 #: WRAPUP.md:9
 msgid "Applying these ideas in your research"
-msgstr ""
+msgstr "研究への応用"
 
 #: WRAPUP.md:11
 msgid ""
 "The exercises in this lesson have introduced you to the following ideas:"
-msgstr ""
+msgstr "ここまで次を学びました。"
 
 #: WRAPUP.md:13
 msgid "Using chemiscope to visualize trajectories and collective variables."
-msgstr ""
+msgstr "Chemiscope で Trajectory・CV を可視化する。"
 
 #: WRAPUP.md:14
 msgid "Using dimensionality reduction algorithms"
-msgstr ""
+msgstr "Dimensionality Reduction を使う。"
 
 #: WRAPUP.md:15
 msgid "Using Path collective variables"
-msgstr ""
+msgstr "Path CV を使う。"
 
 #: WRAPUP.md:16
 msgid "Clustering trajectories"
-msgstr ""
+msgstr "Trajectory を Clustering する。"
 
 #: WRAPUP.md:17
 msgid "Dealing with indistinguishable atoms"
-msgstr ""
+msgstr "区別不能な原子を扱う。"
 
 #: WRAPUP.md:19
 msgid ""
@@ -65,27 +65,29 @@ msgid ""
 "research project. With this in mind, here are some examples of terrible "
 "research questions:"
 msgstr ""
+"Follow-up では研究への応用を考えます。まず手法で答えられる問いを立てます。__何を明らかにしたいか__ "
+"を明確にすると、研究を進めやすくなります。次は悪い問いの例です。"
 
 #: WRAPUP.md:24
 msgid ""
 "Understanding protein-ligand interactions using machine learning algorithms."
-msgstr ""
+msgstr "Machine Learning で Protein-Ligand 相互作用を理解する。"
 
 #: WRAPUP.md:25
 msgid "Understanding the mechanism via which limescale forms in pipes"
-msgstr ""
+msgstr "配管内の Limescale 形成を理解する。"
 
 #: WRAPUP.md:26
 msgid "Understanding protein folding using machine learning."
-msgstr ""
+msgstr "Machine Learning で Protein Folding を理解する。"
 
 #: WRAPUP.md:27
 msgid "Studying transport through membrane proteins."
-msgstr ""
+msgstr "Membrane Protein の輸送を研究する。"
 
 #: WRAPUP.md:28
 msgid "Understanding the catalytic mechanism of iron in ammonia formation."
-msgstr ""
+msgstr "Ammonia 形成での鉄の触媒機構を理解する。"
 
 #: WRAPUP.md:30
 msgid ""
@@ -95,35 +97,35 @@ msgid ""
 "consider the following alternative questions, which each have a clear goal. "
 "Each of the goals below maps on to one of the terrible research questions "
 "above:"
-msgstr ""
+msgstr "得るべき最終結果を指定せず、終了や成功が不明なため悪い問いです。次は対応する明確な目標です。"
 
 #: WRAPUP.md:32
 msgid "Calculate the free energy change when ligand A binds to protein B."
-msgstr ""
+msgstr "Ligand A が Protein B に結合する自由エネルギー変化を求める。"
 
 #: WRAPUP.md:33
 msgid ""
 "Calculate the free energy change when single calcium and carbonate ions bind"
 " to copper surfaces."
-msgstr ""
+msgstr "Calcium と Carbonate Ion が1つずつ銅表面に結合する自由エネルギー変化を求める。"
 
 #: WRAPUP.md:34
 msgid ""
 "Calculate the free energy change when protein A transitions to its folded "
 "state."
-msgstr ""
+msgstr "Protein A が Folded 状態になる自由エネルギー変化を求める。"
 
 #: WRAPUP.md:35
 msgid ""
 "Calculate the free energy change as a sodium ion moves through a sodium "
 "channel protein."
-msgstr ""
+msgstr "Sodium Ion が Sodium Channel を通る自由エネルギー変化を求める。"
 
 #: WRAPUP.md:36
 msgid ""
 "Calculate the free energy change when nitrogen, hydrogen and ammonia gas "
 "bind to iron surfaces."
-msgstr ""
+msgstr "Nitrogen・Hydrogen・Ammonia Gas が鉄表面に結合する自由エネルギー変化を求める。"
 
 #: WRAPUP.md:38
 msgid ""
@@ -134,13 +136,13 @@ msgid ""
 " questions is thus simply a matter of applying what you have learned. "
 "Notice, also, how for each of the questions above, it is clear what you can "
 "do in the first step:"
-msgstr ""
+msgstr "収束した自由エネルギー差という成功が明確です。以前、その推定と失敗例を学んだので応用できます。最初の手順も明確です。"
 
 #: WRAPUP.md:41
 msgid ""
 "Run a parallel tempering metadynamics simulation with the distance between "
 "the centres of mass of the protein and the ligand as a CV."
-msgstr ""
+msgstr "Protein と Ligand の COM 距離で Parallel-tempering Metadynamics を実行する。"
 
 #: WRAPUP.md:42
 msgid ""
@@ -150,13 +152,15 @@ msgid ""
 " CV. Run a metadynamics simulation using the distance from the protein's "
 "folded state as the collective variable."
 msgstr ""
+"Calcium Ion 1個の水溶液と銅 Slab を実行し、Ion と Slab COM 間の z 成分を CV にする。Protein の "
+"Folded 状態からの距離を CV にした Metadynamics を行う。"
 
 #: WRAPUP.md:44
 msgid ""
 "Run a metadynamics simulation of the sodium in the channel protein. Use the "
 "z position of the sodium relative to the centre of the channel protein as a "
 "CVs."
-msgstr ""
+msgstr "Channel 内 Sodium の、Protein 中心に対する z を CV にする。"
 
 #: WRAPUP.md:45
 msgid ""
@@ -164,7 +168,7 @@ msgid ""
 " box that is empty except for one nitrogen molecule. Use the z component of "
 "the vector connecting the centre of mass of the nitrogen and the centre of "
 "mass of the iron slab as the CV."
-msgstr ""
+msgstr "Nitrogen 1分子だけの Box と鉄 Slab を実行し、両 COM 間の z 成分を CV にする。"
 
 #: WRAPUP.md:47
 msgid ""
@@ -174,6 +178,8 @@ msgid ""
 "similar to refine your approach. This refining stage is where the experience"
 " of your supervisor should be invaluable."
 msgstr ""
+"目的の差が得られなくても Trajectory は得られます。それを Machine Learning "
+"などで解析して改善できます。その段階では指導者の経験が貴重です。"
 
 #: WRAPUP.md:50
 msgid ""
@@ -186,3 +192,5 @@ msgid ""
 "methods in your research as if you are not doing so, attending these "
 "masterclasses is pointless as you will never really apply these methods."
 msgstr ""
+"自分の研究で、問いと取り組み方を考えてください。壮大な課題でなく、方法がわかる単純なものにします。実行は不要で、Follow-up "
+"で議論する問いを考えてください。実際の研究に使うことを考えなければ、Masterclass で方法を学ぶ意味がなくなります。"
