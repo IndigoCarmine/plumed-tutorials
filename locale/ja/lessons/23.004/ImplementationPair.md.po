@@ -9,35 +9,37 @@ msgstr ""
 
 #: ImplementationPair.md:1
 msgid "Implement the pair coordination"
-msgstr ""
+msgstr "Pair Coordination の実装"
 
 #: ImplementationPair.md:3
 msgid ""
 "See the main [coordination implementation](Implementation.md), the code "
 "there is uses as a starting point for this variant."
-msgstr ""
+msgstr "[基本実装](Implementation.md) を基にします。"
 
 #: ImplementationPair.md:5
 msgid ""
 "This should be the easiest implementation: If each kernel will run only on a"
 " couple it could be written like this:"
-msgstr ""
+msgstr "最も簡単な実装として、各 Kernel が1 Pair のみ扱うなら、"
 
 #: ImplementationPair.md:69
 msgid ""
 "The efficiency of this approach is not high, because we lose time in "
 "spinning up `ncouples` of threads, each one that does a single small task, "
 "the coordination of a single pair."
-msgstr ""
+msgstr "`ncouples` 個の Thread の起動に時間がかかり、それぞれが1 Pair の小さな計算だけをするので、効率は高くありません。"
 
 #: ImplementationPair.md:71
 msgid ""
 "An attempt to make it quicker could be to slightly change the kernel with a "
 "for loop on some pairs."
-msgstr ""
+msgstr "複数 Pair の For Loop を Kernel に加えると高速化できるかもしれません。"
 
 #: ImplementationPair.md:134
 msgid ""
 "This kernel works on `couplesPerThread` per thread. The problem with this "
 "prototype is that nearly all the operations are done in the global memory."
 msgstr ""
+"各 Thread は `couplesPerThread` Pair を処理します。ただし、ほぼ全操作が Global Memory "
+"上という問題があります。"

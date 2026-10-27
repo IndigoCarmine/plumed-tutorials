@@ -9,14 +9,14 @@ msgstr ""
 
 #: ImplementationTwoGroups.md:1
 msgid "Premise"
-msgstr ""
+msgstr "前提"
 
 #: ImplementationTwoGroups.md:3
 msgid ""
 "We now try to change what we made in the [self-"
 "coordination](Implementation.md) and determine the coordination between two "
 "groups."
-msgstr ""
+msgstr "[Self-coordination](Implementation.md) を変更し、2 Group 間を計算します。"
 
 #: ImplementationTwoGroups.md:5
 msgid ""
@@ -27,16 +27,19 @@ msgid ""
 "main [plumed repository](https://github.com/plumed/plumed2) for a more "
 "accurate and performant code."
 msgstr ""
+"[前の章](Implementation.md) を読んでいる前提で、抽象的な疑似コードを示します。正確で高速なコードは、更新中の "
+"[リポジトリ](https://github.com/Iximiel/cudaOnPlumed) と [PLUMED "
+"本体](https://github.com/plumed/plumed2) を参照してください。"
 
 #: ImplementationTwoGroups.md:8
 msgid "Wait, and the derivatives?"
-msgstr ""
+msgstr "微分はどうするか"
 
 #: ImplementationTwoGroups.md:9
 msgid ""
 "First of all let's hastily rewrite the core kernel, stripped of the "
 "declarations"
-msgstr ""
+msgstr "宣言を除き、主要 Kernel を書き直します。"
 
 #: ImplementationTwoGroups.md:69
 msgid ""
@@ -44,40 +47,41 @@ msgid ""
 " atoms of 'GROUPB'. But this kernel solves a different problem: it loops on "
 "ALL the atoms and calculates the coordination between ALL of them."
 msgstr ""
+"目的は GROUPA の全原子と GROUPB の全原子の間の Coordination ですが、この Kernel は全原子間を計算してしまいます。"
 
 #: ImplementationTwoGroups.md:72
 msgid "How can we work around this?"
-msgstr ""
+msgstr "どう回避しますか？"
 
 #: ImplementationTwoGroups.md:74
 msgid ""
 "Let's start to acknowledge that we will need to have different specialized "
 "kernels (since branching within a kernel will generate a loss of "
 "performance)."
-msgstr ""
+msgstr "Kernel 内の分岐は性能を落とすため、別々の専用 Kernel が必要です。"
 
 #: ImplementationTwoGroups.md:76
 msgid "Then we change the signature of the new kernel:"
-msgstr ""
+msgstr "新しい Kernel の Signature を変えます。"
 
 #: ImplementationTwoGroups.md:87
 msgid "So that we pass the parameters of the two groups separately."
-msgstr ""
+msgstr "2 Group のパラメータを別々に渡します。"
 
 #: ImplementationTwoGroups.md:89
 msgid "we then make the first part of the kernel around this change ()"
-msgstr ""
+msgstr "変更に合わせて Kernel の先頭を作ります。()"
 
 #: ImplementationTwoGroups.md:108
 msgid ""
 "So now each atom of group A will ONLY interact with the atoms in group B, "
 "then we rewrote the core of the loop, discarding the \"triangular things\" "
 "of before:"
-msgstr ""
+msgstr "Group A の各原子は Group B のみと相互作用します。前の三角形部分を除き、Loop の中心を書き直します。"
 
 #: ImplementationTwoGroups.md:140
 msgid "And we end the kernel exactly like in the single group case:"
-msgstr ""
+msgstr "終わりは1 Group の場合と同じです。"
 
 #: ImplementationTwoGroups.md:158
 msgid ""
@@ -86,15 +90,17 @@ msgid ""
 "relative to one of the two groups. This affirmation is true only about the "
 "derivatives since coordination and virial are \"couple\" properties."
 msgstr ""
+"まだ不足があります。`i` は GROUPA なので、片方の微分・Coordination・Virial しか保存していないように見えます。ただし "
+"Coordination と Virial は Pair の量なので、問題は微分だけです。"
 
 #: ImplementationTwoGroups.md:161
 msgid ""
 "So, how do we solve this new problem of getting the derivatives of GROUPB?"
-msgstr ""
+msgstr "GROUPB の微分はどう求めますか？"
 
 #: ImplementationTwoGroups.md:163
 msgid "Calculationg the derivatives of the atoms B"
-msgstr ""
+msgstr "Group B 原子の微分計算"
 
 #: ImplementationTwoGroups.md:165
 msgid ""
@@ -106,6 +112,9 @@ msgid ""
 "values since we are traversing the \"matrix of couples\" along the \"group A"
 " axis\"."
 msgstr ""
+"A と同時に B の微分も計算できますが、最初の Kernel で `size`(groupA) * size(groupB)` 個の Float "
+"3つ組を余分に保存する必要があります。同じデータへの加算は Data Race を防ぐため並列計算を止める必要があり、Pair Matrix の A "
+"軸方向に進むので値の保存が必要です。"
 
 #: ImplementationTwoGroups.md:171
 msgid ""
@@ -116,6 +125,9 @@ msgid ""
 "memory on a GPU is usually scarce, is not a scalable option (with a group of"
 " 100000 atoms divide d in two would be 20GB)."
 msgstr ""
+"各次元（3次元）に `size(groupA) * size(groupB) * 8` Byte "
+"が必要です。10000原子を5000ずつにすると200000000 Byte、約200 MB です。二乗で増え、GPU Memory は限られるため "
+"Scalable ではありません。100000原子を半分ずつなら20 GB です。"
 
 #: ImplementationTwoGroups.md:176
 msgid ""
@@ -125,16 +137,18 @@ msgid ""
 "the same time complexity is an algorithm with the same time complexity) and "
 "does not use extra space."
 msgstr ""
+"最も簡単なのは、Group を入れ替えて同じ Loop を再実行し、微分だけ計算することです。同じ Time Complexity の計算を足しても "
+"Complexity は変わらず、追加領域も不要です。"
 
 #: ImplementationTwoGroups.md:233
 msgid "Remarks"
-msgstr ""
+msgstr "補足"
 
 #: ImplementationTwoGroups.md:234
 msgid ""
 "The problem of this approach is that if there is a great imbalance in "
 "numbers between the two groups, written as is does not scale efficiently."
-msgstr ""
+msgstr "Group 間の原子数が大きく異なる場合、この実装は効率が悪くなります。"
 
 #: ImplementationTwoGroups.md:237
 msgid ""
@@ -144,3 +158,5 @@ msgid ""
 "iterations. But this may be solved by trying to balance how much work each "
 "thread will need to do."
 msgstr ""
+"例えば A が1000原子、B が1個なら、最初は1000 Thread が1回ずつ、次は1 Thread が1000回処理します。各 Thread "
+"の負荷を均等にすれば改善できます。"

@@ -9,7 +9,7 @@ msgstr ""
 
 #: Helpers.md:1
 msgid "The CUDAHELPERS library"
-msgstr ""
+msgstr "CUDAHELPERS ライブラリ"
 
 #: Helpers.md:3
 msgid ""
@@ -18,20 +18,23 @@ msgid ""
 "interface between the [thrust](https://nvidia.github.io/cccl/thrust/) "
 "vectors and the PLMD::Vector and PLMD::Tensor classes."
 msgstr ""
+"[cub](https://nvidia.github.io/cccl/cub/) による Reduction "
+"と、[thrust](https://nvidia.github.io/cccl/thrust/) Vector と "
+"PLMD::Vector・PLMD::Tensor の Interface を含みます。"
 
 #: Helpers.md:8
 msgid "The helper library is a header-only library `cudaHelpers.cuh`."
-msgstr ""
+msgstr "Header-only の `cudaHelpers.cuh` です。"
 
 #: Helpers.md:10
 msgid ""
 "See the [coordination implementation](Implementation.md) for an example of "
 "how to use the code described here."
-msgstr ""
+msgstr "使用例は [Coordination の実装](Implementation.md) を参照してください。"
 
 #: Helpers.md:12
 msgid "The reduction interface"
-msgstr ""
+msgstr "Reduction Interface"
 
 #: Helpers.md:14
 msgid ""
@@ -41,18 +44,23 @@ msgid ""
 " I recommend trying to implement the reduction algorithm by hand before "
 "using cub, to have a better picture of the concept and of the algorithm."
 msgstr ""
+"初期版は "
+"[この資料](https://developer.download.nvidia.com/assets/cuda/files/reduction.pdf)"
+" に従う通常の CUDA C++ Reduction でした。概念とアルゴリズムを理解するため、cub を使う前に手動実装を試すことを推奨します。"
 
 #: Helpers.md:19
 msgid ""
 "The call to the reduction kernels is mediated by templated interface "
 "functions."
-msgstr ""
+msgstr "Template Interface 関数が Reduction Kernel の呼び出しを仲介します。"
 
 #: Helpers.md:44
 msgid ""
 "These interfaces ask for a `T*` instead of a `thrust::device_vector<T>` for "
 "flexibility, remember to pass a device pointer, not a CPU pointer."
 msgstr ""
+"柔軟性のため `thrust::device_vector<T>` ではなく `T*` を取ります。CPU Pointer ではなく Device "
+"Pointer を渡してください。"
 
 #: Helpers.md:47
 msgid ""
@@ -66,39 +74,43 @@ msgid ""
 "numbers and in that case we will use `dim3{N,9}`. In the case of a single "
 "array, the 1D version will enqueue a specialized 1D kernel"
 msgstr ""
+"`dim3` は CUDA Header の整数3つ組です。ここでは2つの数値で2次元 Kernel Grid を作ります。第1値は Group "
+"数で、Thread よりデータが多いと1超となり、結果に再 Reduction が必要です。第2値は同時処理する Array 数です。例えば "
+"Virial は連続値の9 Block なので `dim3{N,9}` を使います。単一 Array の1次元版は専用 Kernel を Queue "
+"に入れます。"
 
 #: Helpers.md:57
 msgid ""
 "These functions should be called in a driver that loops on them, for "
 "example:"
-msgstr ""
+msgstr "例えば次のように、Loop する Driver から呼びます。"
 
 #: Helpers.md:88
 msgid ""
 "this driver 'throws away' the input data (on the GPU) at each iteration, "
 "using the containing array as a container for the output of the next "
 "iteration, and using the output."
-msgstr ""
+msgstr "各反復で GPU の入力データを捨て、その Array を次の出力容器に再利用します。"
 
 #: Helpers.md:93
 msgid ""
 "These interfaces can be called without the stream and the kernels will be "
 "serially executed."
-msgstr ""
+msgstr "Stream なしでも呼べ、その場合 Kernel は逐次実行されます。"
 
 #: Helpers.md:96
 msgid "The reduction kernel"
-msgstr ""
+msgstr "Reduction Kernel"
 
 #: Helpers.md:98
 msgid ""
 "Here I am showing only the ND kernel, the 1D one is like this one, but with "
 "the `blockIdx.y * something` parts removed."
-msgstr ""
+msgstr "ここでは ND Kernel のみ示します。1次元版は `blockIdx.y * something` 部分を除いたものです。"
 
 #: Helpers.md:101
 msgid "The reduction kernels are assembled with _cub_ building blocks"
-msgstr ""
+msgstr "Reduction Kernel は _cub_ の部品で構成します。"
 
 #: Helpers.md:137
 msgid ""
@@ -107,22 +119,26 @@ msgid ""
 "of-bound elements. We need to use this because we usually do not have powers"
 " of 2 data elements to be reduced."
 msgstr ""
+"`cub::LoadDirectBlocked` の最後の2引数で、範囲外要素を0にする Overload "
+"を選びます。通常データ数が2の冪ではないため必要です。"
 
 #: Helpers.md:141
 msgid "The PLMD-thrust interface"
-msgstr ""
+msgstr "PLMD-thrust Interface"
 
 #: Helpers.md:143
 msgid ""
 "_cudaHelpers.cuh_ contains an interface between `thrust`, `cuda` and the "
 "`Tensor` and `Vector` class from `PLMD`."
 msgstr ""
+"_cudaHelpers.cuh_ は `thrust`、`cuda` と、`PLMD` の `Tensor`・`Vector` の Interface"
+" を含みます。"
 
 #: Helpers.md:146
 msgid ""
 "Both the `DataFrom` and the `DataTo` have an async and a non-async overload,"
 " depending on the presence of the `stream` variable on call."
-msgstr ""
+msgstr "`DataFrom` と `DataTo` は、呼び出し時の `stream` の有無で非同期・同期の Overload を選びます。"
 
 #: Helpers.md:161
 msgid ""
@@ -133,10 +149,12 @@ msgid ""
 "starting to convert an array that has not been completely transferred from "
 "the GPU"
 msgstr ""
+"`PLMD` は倍精度を格納します。引数が `thrust::device_vector<float>` の場合、一時的な `std::vector` "
+"で変換して GPU と転送します。この場合 `DataFrom` は Stream を無視し、転送未完了の Array の変換を防ぎます。"
 
 #: Helpers.md:167
 msgid "In the [advanced](Advanced.md) section we will use"
-msgstr ""
+msgstr "[高度な実装](Advanced.md) では次を使います。"
 
 #: Helpers.md:174
 msgid ""
@@ -144,3 +162,5 @@ msgid ""
 " a View to the GPU, there is no `From` version, since this is used to move "
 "the neighbour configuration, that it is read only."
 msgstr ""
+"前の Signature と同じですが、View から GPU に転送します。読み取り専用の Neighbor Configuration 用なので "
+"`From` 版はありません。"

@@ -9,17 +9,17 @@ msgstr ""
 
 #: Advanced.md:1
 msgid "Advanced implementation"
-msgstr ""
+msgstr "高度な実装"
 
 #: Advanced.md:3
 msgid ""
 "I am assuming that you have at least read the [base "
 "version](Implementation.md) of the implementation procedure."
-msgstr ""
+msgstr "実装手順の [基本版](Implementation.md) を少なくとも読んでいることを前提とします。"
 
 #: Advanced.md:5
 msgid "Here I will introduce a few much more advanced concepts:"
-msgstr ""
+msgstr "さらに高度な概念を紹介します。"
 
 #: Advanced.md:7
 msgid ""
@@ -27,14 +27,16 @@ msgid ""
 "plumed in the LinkCells class (you can get it with `\"#include "
 "\"plumed/tools/LinkCells.h\"`)"
 msgstr ""
+"Allen が説明し、PLUMED の LinkCells Class に実装された Link Cells アルゴリズム（`\"#include "
+"\"plumed/tools/LinkCells.h\"` で利用）。"
 
 #: Advanced.md:8
 msgid "What is the shared memory in Cuda"
-msgstr ""
+msgstr "CUDA の Shared Memory。"
 
 #: Advanced.md:10
 msgid "How does LinkCells work?"
-msgstr ""
+msgstr "LinkCells の仕組み"
 
 #: Advanced.md:12
 msgid ""
@@ -42,14 +44,16 @@ msgid ""
 " of neighbors will be shared by a group of atoms. In a few words: every _N_ "
 "steps, typically `N==1`, the following algorithm is run:"
 msgstr ""
+"`LinkCells` は `NeighborList` に似ていますが、原子群で Neighbor の一覧を共有します。_N_ Step ごと、通常は"
+" `N==1` で次を行います。"
 
 #: Advanced.md:15
 msgid "Divide the simulation box into cells"
-msgstr ""
+msgstr "Box を Cell に分割する。"
 
 #: Advanced.md:16
 msgid "Assign each atom to the cell in which it is contained"
-msgstr ""
+msgstr "各原子を、それが含まれる Cell に割り当てる。"
 
 #: Advanced.md:17
 msgid ""
@@ -58,12 +62,14 @@ msgid ""
 "10 11`), in 3D, the neighbor cells will be 26 -or fewer if the box is sliced"
 " into fewer boxes-"
 msgstr ""
+"各 Cell の Neighbor Cell（斜めも含む隣接 Cell）を決める。下図で `6` なら `1 2 3 5 7 9 10 "
+"11`。3次元では26個、分割数が少なければそれ以下になる。"
 
 #: Advanced.md:18
 msgid ""
 "Assign to each cell the _candidate neighbors_ atoms by merging the list of "
 "atoms of the central cell and the ones of the neighbors cells."
-msgstr ""
+msgstr "中心と隣接 Cell の原子一覧を統合し、各 Cell に _Candidate Neighbors_ を割り当てる。"
 
 #: Advanced.md:20
 msgid ""
@@ -71,21 +77,23 @@ msgid ""
 "_candidate neighbors_ that are the atoms contained in the e `1 2 3 5 6 7 9 "
 "10 11` cells."
 msgstr ""
+"下図の Cell `6` の全原子は、`1 2 3 5 6 7 9 10 11` 内の原子を _Candidate Neighbors_ "
+"として共有します。"
 
 #: Advanced.md:22
 msgid ""
 "In this way for collection of atoms assigned to a specific cell we will have"
 " a shared neighbors list. Thil will be used to make the GPU process less "
 "data and to save some memory."
-msgstr ""
+msgstr "各 Cell の原子群が Neighbor List を共有し、GPU の処理データと Memory を減らせます。"
 
 #: Advanced.md:25
 msgid "![](./grid.svg)"
-msgstr ""
+msgstr "![](./grid.svg)"
 
 #: Advanced.md:27
 msgid "Shared memory in Cuda"
-msgstr ""
+msgstr "CUDA の Shared Memory"
 
 #: Advanced.md:29
 msgid ""
@@ -94,6 +102,8 @@ msgid ""
 "cache for those kernels, so that accessing the data in the shared memory is "
 "significantly faster than accessing the data in the RAM of the GPU."
 msgstr ""
+"Shared Memory は Kernel の Group 内の Thread が共有する小さな Memory 領域です。Level 3 Cache "
+"のように働き、GPU RAM より大幅に高速にアクセスできます。"
 
 #: Advanced.md:31
 msgid ""
@@ -101,84 +111,84 @@ msgid ""
 "sparse way than you would access the standard RAM. This “massage” of the "
 "memory is a small tradeoff and usually ends up giving a huge advantage in "
 "speed."
-msgstr ""
+msgstr "通常の RAM より疎でないアクセスになるよう配置を工夫できます。小さな処理コストで、通常は大きな高速化が得られます。"
 
 #: Advanced.md:33
 msgid "Running the coordination with LinkCells"
-msgstr ""
+msgstr "LinkCells による Coordination の実行"
 
 #: Advanced.md:35
 msgid ""
 "Now I will explain a simplified version of the CudaCoordination "
 "implementation that will be shipped with PLUMED v2.11."
-msgstr ""
+msgstr "PLUMED v2.11 に含まれる CudaCoordination を簡略化して説明します。"
 
 #: Advanced.md:37
 msgid "We want to do a few things:"
-msgstr ""
+msgstr "次を行います。"
 
 #: Advanced.md:39
 msgid "On the CPU:"
-msgstr ""
+msgstr "CPU 上："
 
 #: Advanced.md:40
 msgid "We calculate the linkCells"
-msgstr ""
+msgstr "LinkCells を計算する。"
 
 #: Advanced.md:41
 msgid "We assign the addresses of the atoms to the various cells"
-msgstr ""
+msgstr "原子の Address を各 Cell に割り当てる。"
 
 #: Advanced.md:42
 msgid ""
 "We create the _candidate neighbors_ list for each cell and we store it on "
 "the CPU"
-msgstr ""
+msgstr "各 Cell の _Candidate Neighbors_ を作り、CPU に保存する。"
 
 #: Advanced.md:43
 msgid "We transfer all the data from CPU to GPU"
-msgstr ""
+msgstr "全データを GPU に転送する。"
 
 #: Advanced.md:44
 msgid ""
 "We instruct the GPU on the dimensions of the cells an of the _candidate "
 "neighbors_ lists"
-msgstr ""
+msgstr "Cell と _Candidate Neighbors_ の大きさを GPU に伝える。"
 
 #: Advanced.md:46
 msgid "On the GPU:"
-msgstr ""
+msgstr "GPU 上："
 
 #: Advanced.md:47
 msgid "We load the shared memory"
-msgstr ""
+msgstr "Shared Memory に読み込む。"
 
 #: Advanced.md:48
 msgid "We calculate the Coordination, \"as usual\""
-msgstr ""
+msgstr "通常どおり Coordination を計算する。"
 
 #: Advanced.md:49
 msgid "Back on the CPU:"
-msgstr ""
+msgstr "CPU に戻る："
 
 #: Advanced.md:50
 msgid ""
 "We collect and we reduce coordination and virial, as we did in the "
 "implementation example."
-msgstr ""
+msgstr "基本実装と同様に、Coordination と Virial を回収して Reduction する。"
 
 #: Advanced.md:52
 msgid "Declaring some helpers"
-msgstr ""
+msgstr "Helper の宣言"
 
 #: Advanced.md:54
 msgid ""
 "We declare the classes we will use to setup and calculate the LinkCells:"
-msgstr ""
+msgstr "LinkCells の設定・計算に使う Class を宣言します。"
 
 #: Advanced.md:61
 msgid "And we also setup the companion class:"
-msgstr ""
+msgstr "補助 Class も用意します。"
 
 #: Advanced.md:132
 msgid ""
@@ -186,19 +196,21 @@ msgid ""
 "calculation the coordination in a single array. All of this data will be "
 "passed to the GPU in with a single function call."
 msgstr ""
+"`cellSetup` は、Coordination に使う全 Cell Index を単一 Array にまとめる Class "
+"です。1回の関数呼び出しで GPU に渡します。"
 
 #: Advanced.md:134
 msgid ""
 "Below you will see a NL variable in a few places, it is defined like this:"
-msgstr ""
+msgstr "以下の NL 変数は次の定義です。"
 
 #: Advanced.md:143
 msgid "Setting up the list of _candidate neighbors_"
-msgstr ""
+msgstr "_Candidate Neighbors_ の設定"
 
 #: Advanced.md:145
 msgid "Note that here I removed all the MPI safeguard for clarity."
-msgstr ""
+msgstr "明確にするため、MPI の安全確認を省いています。"
 
 #: Advanced.md:147
 msgid ""
@@ -206,26 +218,28 @@ msgid ""
 "needs to run ONLY on a limited subset (1) of GPUs, so it is possible to run "
 "the \"memory preparation\" instructions only on the main process."
 msgstr ""
+"`LinkCells` は全 MPI Process で実行する必要がありますが、計算は通常、限られた GPU（1つ）だけで行うため、Memory "
+"準備は Main Process だけで行えます。"
 
 #: Advanced.md:158
 msgid "LinkCells needs the list of the indexes of the atoms:"
-msgstr ""
+msgstr "LinkCells には Atom Index の一覧が必要です。"
 
 #: Advanced.md:166
 msgid ""
 "We proceed with resetting the cells setup to update in which cell each atom "
 "is:"
-msgstr ""
+msgstr "Cell 設定を Reset し、各原子の所属 Cell を更新します。"
 
 #: Advanced.md:186
 msgid ""
 "And lastly we take the cells informations and we prepare the list of indexes"
 " to be tranferred on the GPU:"
-msgstr ""
+msgstr "最後に Cell 情報を取得し、GPU に転送する Index 一覧を作ります。"
 
 #: Advanced.md:208
 msgid "`updateCellist` has the following shape:"
-msgstr ""
+msgstr "`updateCellist` は次の形です。"
 
 #: Advanced.md:226
 msgid ""
@@ -233,6 +247,8 @@ msgid ""
 "cellSetup, the two lists `nat_[InCells/otherAtoms]` store how long are the "
 "rispective list of atoms (`atomsIncells` and `otherAtoms`)."
 msgstr ""
+"CellCollections から cellSetup にデータを抽出します。`nat_[InCells/otherAtoms]` "
+"は各原子一覧（`atomsIncells`、`otherAtoms`）の長さです。"
 
 #: Advanced.md:228
 msgid ""
@@ -241,43 +257,46 @@ msgid ""
 "`c_n_id_0,c_n_id_1,...,c_n_id_Nn` starting at position `n*(biggestCell or "
 "maxNNExpected)`"
 msgstr ""
+"`otherAtoms` と `atomsIncells` は、位置 `0` から "
+"`c_0_id_0,c_0_id_1,...,c_0_id_N0`、位置 `n*(biggestCell or maxNNExpected)` から "
+"`c_n_id_0,c_n_id_1,...,c_n_id_Nn` という配置です。"
 
 #: Advanced.md:231
 msgid ""
 "In this way, we only need to store the dimension of the sublist and not the "
 "starting positions, that can be calculated when needed, this makes the "
 "algorithm slighly easier to set up at a small cost in memory"
-msgstr ""
+msgstr "開始位置は計算できるので、Sublist の長さだけ保存すればよく、少しの Memory コストで設定が簡単になります。"
 
 #: Advanced.md:264
 msgid "Moving the data on the GPU, and calling the kernel"
-msgstr ""
+msgstr "GPU への転送と Kernel 呼び出し"
 
 #: Advanced.md:266
 msgid ""
 "Then we finally move the atomic neighbors data stored in "
 "`cellConfiguration_coord` on the GPU:"
-msgstr ""
+msgstr "`cellConfiguration_coord` の Neighbor データを GPU に移します。"
 
 #: Advanced.md:275
 msgid ""
 "We will pass the position of the data with the helper methods of `cellSetup`"
 " we defined [above](#declaring-some-helpers)"
-msgstr ""
+msgstr "[上記](#declaring-some-helpers) の `cellSetup` の Helper でデータ位置を渡します。"
 
 #: Advanced.md:286
 msgid "We can prepare for submitting the kernel:"
-msgstr ""
+msgstr "Kernel の投入を準備します。"
 
 #: Advanced.md:289
 msgid "We set the number of parallel group to the number of cells"
-msgstr ""
+msgstr "並列 Group 数を Cell 数にする。"
 
 #: Advanced.md:295
 msgid ""
 "Each single group will run with a number of threads equal to the number of "
 "atoms in the cell with more atoms"
-msgstr ""
+msgstr "各 Group の Thread 数を、最多原子 Cell の原子数にする。"
 
 #: Advanced.md:301
 msgid ""
@@ -285,85 +304,88 @@ msgid ""
 "based on the maximum allowed shared memory size. The `maxAtomsPerCell` has "
 "been preempively determined by interrogating the CUDA API about the kernel."
 msgstr ""
+"Shared Memory をデータの Chunk 単位で使います。最大容量から Tile Size を決めます。`maxAtomsPerCell` は"
+" CUDA API に Kernel 情報を問い合わせ、事前に求めています。"
 
 #: Advanced.md:309
 msgid ""
 "And finally we determine the size of the necessary shared memory, that it is"
 " proportional to the tile of _candidate neigbors_ atoms per iteration:"
-msgstr ""
+msgstr "反復ごとの _Candidate Neighbors_ の Tile に比例する、必要な Shared Memory 容量を決めます。"
 
 #: Advanced.md:316
 msgid "And finally we can submit the kernel:"
-msgstr ""
+msgstr "最後に Kernel を投入します。"
 
 #: Advanced.md:342
 msgid "The kernel"
-msgstr ""
+msgstr "Kernel"
 
 #: Advanced.md:344
 msgid ""
 "`calcType` is an helper class that hides the implementation details of the "
 "_dual_/_self_ calculation, the switching function and the pbcs."
 msgstr ""
+"`calcType` は、_Dual_/_Self_ 計算、Switching Function、PBC の詳細を隠す Helper Class です。"
 
 #: Advanced.md:365
 msgid "We setup the calculations:"
-msgstr ""
+msgstr "計算を準備します。"
 
 #: Advanced.md:367
 msgid ""
 "We identify the current cell by detemining the block we are running in "
 "(remember 1 cell = 1 block)"
-msgstr ""
+msgstr "実行中の Block から現在の Cell を特定する（1 Cell = 1 Block）。"
 
 #: Advanced.md:368
 msgid ""
 "We setup the shared memory from the allocated one (see [below](#appendix) "
 "for the Arena)"
-msgstr ""
+msgstr "確保した領域から Shared Memory を設定する（Arena は [後述](#appendix)）。"
 
 #: Advanced.md:369
 msgid ""
 "We understand if this thread will partecipate in the calculations or only in"
 " the memory loading"
-msgstr ""
+msgstr "この Thread が計算にも参加するか、Memory 読み込みだけかを判定する。"
 
 #: Advanced.md:370
 msgid ""
 "and from that we detemine which is the index of the atom on this thread"
-msgstr ""
+msgstr "それに基づき、この Thread の Atom Index を決める。"
 
 #: Advanced.md:371
 msgid ""
 "we setup some local memory (that should be allocated to register local to "
 "the thread)"
-msgstr ""
+msgstr "Local Memory を用意する（Thread の Register に置かれるはず）。"
 
 #: Advanced.md:402
 msgid "Then we start the true calculation:"
-msgstr ""
+msgstr "実際の計算を始めます。"
 
 #: Advanced.md:404
 msgid ""
 "All the thread in the group will collectively load part of the global memory"
 " into the shared memory"
-msgstr ""
+msgstr "Group の全 Thread で Global Memory の一部を Shared Memory に読み込む。"
 
 #: Advanced.md:405
 msgid ""
 "Then the active threads will loop on the shared memory to calculate "
 "coordination and derivatives"
-msgstr ""
+msgstr "Active Thread が Shared Memory を Loop し、Coordination と微分を計算する。"
 
 #: Advanced.md:406
 msgid ""
 "If the number of _candidate neighbors_ is not finished we go back to loading"
 " data into the shared memory"
-msgstr ""
+msgstr "_Candidate Neighbors_ が残っていれば、Shared Memory の読み込みに戻る。"
 
 #: Advanced.md:408
 msgid "We loop until we finished the _candidate neighbors_:"
-msgstr ""
+msgstr "全 _Candidate Neighbors_ が終わるまで繰り返します。"
 
 #: Advanced.md:414
 msgid ""
@@ -372,6 +394,8 @@ msgid ""
 " `tile_size` so that the effort of copying the the data is shared between "
 "all the threads in the group"
 msgstr ""
+"各反復で Global から Shared Memory に読み込みます。この最初の Loop では、各 Thread が `tile_size` "
+"の一部を担当し、Copy の負荷を Group 全体で分担します。"
 
 #: Advanced.md:431
 msgid ""
@@ -380,19 +404,21 @@ msgid ""
 "subsequent memory loading (to avoid changing the values while the active "
 "threads are still working on that data)."
 msgstr ""
+"Active Thread が読み込んだ _Candidate Neighbors_ を処理し、次の読み込み前に全 Thread "
+"が待ち合わせます。処理中の値の変更を防ぎます。"
 
 #: Advanced.md:455
 msgid ""
 "Finally we copy the result in the global array, like in the base example."
-msgstr ""
+msgstr "最後に基本例と同様、結果を Global Array に Copy します。"
 
 #: Advanced.md:477
 msgid "Appendix"
-msgstr ""
+msgstr "付録"
 
 #: Advanced.md:478
 msgid "Arena"
-msgstr ""
+msgstr "Arena"
 
 #: Advanced.md:479
 msgid ""
@@ -400,6 +426,8 @@ msgid ""
 "the shared memory data to specific types. The class is made up to not "
 "overlap the suballocation on each other."
 msgstr ""
+"`sharedArena` は Arena Allocator の考えで Shared Memory "
+"を各型に割り当て、部分的な確保が重ならないようにします。"
 
 #: Advanced.md:495
 msgid ""
@@ -408,7 +436,7 @@ msgid ""
 "finished its job. We are just using a toy version of the tecnique to treat "
 "subsequent chunks of \"generically\" allocated memory as if it of a certain "
 "type."
-msgstr ""
+msgstr "ここでは、既に確保済みで Kernel 終了後に自動解放される領域を使います。汎用的に確保した連続領域を特定の型として扱う、簡単な例です。"
 
 #: Advanced.md:497
 msgid ""
@@ -421,3 +449,5 @@ msgid ""
 " what you are asking doing with the initialization of the date and "
 "expecially in avoinding the reutilization of old pointers."
 msgstr ""
+"標準的な Arena Allocator はより複雑で、`malloc` と `free` の回数を減らします。大きな領域を1回確保し、Array "
+"や構造に分配して再利用するため、新たな確保・解放が不要になります。データの初期化と、古い Pointer の再利用を避けることに注意が必要です。"

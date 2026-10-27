@@ -25,6 +25,12 @@ msgid ""
 " and supports pbcs. These particulars are not useful in understanding the "
 "basis for a plumed implementation of a simple CV."
 msgstr ""
+"注：ここでは [リポジトリ](https://github.com/Iximiel/cudaOnPlumed) の例を簡略化しています。本計算には "
+"PLUMED 本体の "
+"[v2.10](https://github.com/plumed/plumed2/tree/v2.10/plugins/cudaCoord) "
+"または最新の "
+"[master](https://github.com/plumed/plumed2/tree/master/plugins/cudaCoord) "
+"を推奨します。C++17 が必要です。実装には型 Template と PBC 対応がありますが、簡単な CV の基礎理解には不要なため省きます。"
 
 #: Implementation.md:14
 msgid ""
@@ -36,10 +42,14 @@ msgid ""
 "repository](https://github.com/plumed/plumed2/tree/master/plugins/cudaCoord)"
 " for an up-to-date code."
 msgstr ""
+"以前読んだ方へ：NVIDIA [CCCL](https://github.com/NVIDIA/cccl) API "
+"を使うよう更新しました。変更は大規模ではありませんが、ページ更新に漏れがあるかもしれません。最新コードは常に [PLUMED "
+"本体](https://github.com/plumed/plumed2/tree/master/plugins/cudaCoord) "
+"を参照してください。"
 
 #: Implementation.md:21 Implementation.md:152
 msgid "The switching function"
-msgstr ""
+msgstr "Switching Function"
 
 #: Implementation.md:22
 msgid ""
@@ -48,12 +58,14 @@ msgid ""
 "$d_{ij}$ is the distances between atom $i$ and $j$, and $f(x)$ is a function"
 " that usually has the form"
 msgstr ""
+"Coordination は $\\frac{1}{2} \\sum_{i\\lt{}nat}^{i} \\sum_{j\\lt{}nat,j\\neq"
+" i}^{j} f(d_{ij})$ で計算します。$d_{ij}$ は原子 $i$ と $j$ の距離で、$f(x)$ は通常、"
 
 #: Implementation.md:35
 msgid ""
 "and $s(x)$ is a switching function that links smoothly 1 to 0 between $d_0$ "
 "and $d_{max}$"
-msgstr ""
+msgstr "$s(x)$ は $d_0$〜$d_{max}$ で1から0を滑らかにつなぐ Switching Function です。"
 
 #: Implementation.md:37
 msgid ""
@@ -61,6 +73,8 @@ msgid ""
 "implementation: $s(r)=\\frac{ 1 - \\left(\\frac{ r - d_0 }{ r_0 "
 "}\\right)^{n} }{ 1 - \\left(\\frac{ r - d_0 }{ r_0 }\\right)^{m} }$."
 msgstr ""
+"既定の PLUMED と同じ RATIONAL、$s(r)=\\frac{ 1 - \\left(\\frac{ r - d_0 }{ r_0 "
+"}\\right)^{n} }{ 1 - \\left(\\frac{ r - d_0 }{ r_0 }\\right)^{m} }$ を使います。"
 
 #: Implementation.md:40
 msgid ""
@@ -68,6 +82,8 @@ msgid ""
 "not use the parameter $d_0$, so $s(r)=\\frac{ 1 - \\left(\\frac{ r }{ r_0 "
 "}\\right)^{n} }{ 1 - \\left(\\frac{ r }{ r_0 }\\right)^{m} }$."
 msgstr ""
+"ただし簡単のため $d_0$ を使わず、$s(r)=\\frac{ 1 - \\left(\\frac{ r }{ r_0 }\\right)^{n} "
+"}{ 1 - \\left(\\frac{ r }{ r_0 }\\right)^{m} }$ とします。"
 
 #: Implementation.md:44
 msgid ""
@@ -76,33 +92,36 @@ msgid ""
 "$stretch=\\frac{1}{s(0)-s(d_{max})}$, $s(x)$ becomes "
 "$s^s(x)=s(x)*stretch+shift$"
 msgstr ""
+"標準実装と同じ Stretch パラメータがあり、$s(d_{max}) = shift "
+"$、$stretch=\\frac{1}{s(0)-s(d_{max})}$ なら、$s(x)$ は "
+"$s^s(x)=s(x)*stretch+shift$ になります。"
 
 #: Implementation.md:48
 msgid "The kernel and the \\_\\_device\\_\\_ functions"
-msgstr ""
+msgstr "Kernel と \\_\\_device\\_\\_ 関数"
 
 #: Implementation.md:49
 msgid "The coord kernel"
-msgstr ""
+msgstr "coord Kernel"
 
 #: Implementation.md:51
 msgid ""
 "In the following code snippets, the comments help read the flow of the code."
 " Here the code is presented in a simplified way, without templates for type "
 "and without the pbc calculations."
-msgstr ""
+msgstr "以下のコメントで流れを説明します。簡略化し、型 Template と PBC 計算を省いています。"
 
 #: Implementation.md:55
 msgid ""
 "The simplest kernel for calculating the coordination in a group of atoms is:"
-msgstr ""
+msgstr "原子群の Coordination を計算する最も単純な Kernel は、"
 
 #: Implementation.md:134
 msgid ""
 "You can view this kernel as the inner body of the nested for loop that can "
 "be used to write the most naive serial implementation of the coordination "
 "(the outer loop would run on the `i` variable)."
-msgstr ""
+msgstr "これは、単純な逐次実装の二重 For Loop の内側に相当します。外側は `i` で回ります。"
 
 #: Implementation.md:138
 msgid ""
@@ -111,6 +130,8 @@ msgid ""
 "used in this case, shared memory is shared between kernels within a group) "
 "or the variables, (the \"local memory\") declared within each kernel."
 msgstr ""
+"Kernel では Global Memory の使用を抑えます。Shared Memory（この例では未使用）や、Kernel "
+"内で宣言した変数（Local Memory）より大幅に遅いためです。Shared Memory は Group 内で共有されます。"
 
 #: Implementation.md:143
 msgid ""
@@ -119,6 +140,8 @@ msgid ""
 "end of the calculation. Using `mycoord += coord;` instead of `ncoordOut[i] "
 "+= coord;` within the loop will speed up the calculations."
 msgstr ""
+"Local 変数に蓄積し、最後だけ Global を更新します。Loop 内で `ncoordOut[i] += coord;` の代わりに "
+"`mycoord += coord;` を使うと高速化できます。"
 
 #: Implementation.md:148
 msgid ""
@@ -126,6 +149,8 @@ msgid ""
 "presented as a collection of 9 and 3 single declared values to use the "
 "registers of the kernels, here are declared as an array for clarity."
 msgstr ""
+"実装では Register を使うため `float myVirial[9];`、`float d[3];` "
+"を9個・3個の個別変数にしていますが、ここでは読みやすく Array にしました。"
 
 #: Implementation.md:154
 msgid ""
@@ -133,6 +158,7 @@ msgid ""
 " accept struct variables as inputs, making it simpler to pass parameters to "
 "functions:"
 msgstr ""
+"Switching パラメータは単純な Struct に格納します。Kernel は Struct を入力に取れ、パラメータを渡しやすくなります。"
 
 #: Implementation.md:167
 msgid ""
@@ -142,12 +168,15 @@ msgid ""
 "of the `PLMD::SwitchingFunction::calculateSqr` method as a `__device__` "
 "function:"
 msgstr ""
+"`calculateSqr` は距離の二乗を受け、$\\left(\\frac{ r }{ r_0 }\\right)$ を事前計算して "
+"Rational 関数に渡す Interface です。`PLMD::SwitchingFunction::calculateSqr` を "
+"`__device__` 関数に書き換えたものです。"
 
 #: Implementation.md:192
 msgid ""
 "Also `pcuda_Rational` is a rewrite to the method "
 "`PLMD::SwitchingFunction::do_rational` for the GPU:"
-msgstr ""
+msgstr "`pcuda_Rational` も `PLMD::SwitchingFunction::do_rational` の GPU 版です。"
 
 #: Implementation.md:220
 msgid ""
@@ -156,10 +185,13 @@ msgid ""
 "`__device__` functions. It is possible to enforce the behaviour with "
 "`__forceinline__` or `__inline_hint__`"
 msgstr ""
+"私の [理解](https://docs.nvidia.com/cuda/cuda-c-programming-"
+"guide/index.html#noinline-and-forceinline) では、Compiler は `__device__` を "
+"Inline 化する傾向があります。`__forceinline__` または `__inline_hint__` で強制できます。"
 
 #: Implementation.md:225
 msgid "Interfacing to cuda: invoking the kernel and the reductions"
-msgstr ""
+msgstr "CUDA Interface：Kernel と Reduction の呼び出し"
 
 #: Implementation.md:226
 msgid ""
@@ -167,20 +199,22 @@ msgid ""
 "[helpers](Helpers.md) page for details on the reduction and on how the CCCL "
 "interface."
 msgstr ""
+"この節は以前から大きく変わりました。Reduction と CCCL Interface の詳細は [Helper](Helpers.md) "
+"を参照してください。"
 
 #: Implementation.md:230
 msgid "Calling the kernel in the calculate() method"
-msgstr ""
+msgstr "calculate() からの Kernel 呼び出し"
 
 #: Implementation.md:232
 msgid "As in any other `PLMD::Action` we have a `calculate()` method."
-msgstr ""
+msgstr "ほかの `PLMD::Action` と同様、`calculate()` があります。"
 
 #: Implementation.md:234
 msgid ""
 "We start with getting the positions of the atoms, and we immediately load "
 "them into the GPU:"
-msgstr ""
+msgstr "原子位置を取得し、直ちに GPU に送ります。"
 
 #: Implementation.md:241
 msgid ""
@@ -190,48 +224,51 @@ msgid ""
 "using the async version of `plmdDataToGPU`, so we can set up other things on"
 " the CPU while the data is copied."
 msgstr ""
+"Action 構築時に原子数を初期化済みなので、`cudaPositions` や `cudaDerivatives` の Resize "
+"は不要です。安全のため `plmdDataToGPU` が実行します。非同期の `plmdDataToGPU` を使うので、Copy 中に CPU "
+"で準備できます。"
 
 #: Implementation.md:247
 msgid ""
 "Then we fetch the number of atoms and we prepare the memory and the number "
 "of groups for calling the kernel:"
-msgstr ""
+msgstr "原子数を取得し、Memory と Group 数を準備します。"
 
 #: Implementation.md:260
 msgid ""
 "`cudaCoordination` and `cudaVirial` are the outputs of the kernel and will "
 "need to be reduced after."
-msgstr ""
+msgstr "Kernel 出力の `cudaCoordination` と `cudaVirial` は後で Reduction が必要です。"
 
 #: Implementation.md:263
 msgid ""
 "the kernel is called with the `<<<>>>` syntax, between the three brackets we"
 " specify 2 to 4 information:"
-msgstr ""
+msgstr "`<<<>>>` 内に2〜4項目を指定して Kernel を呼びます。"
 
 #: Implementation.md:265
 msgid "the number of groups to use"
-msgstr ""
+msgstr "Group 数。"
 
 #: Implementation.md:266
 msgid "the number of threads per group"
-msgstr ""
+msgstr "Group ごとの Thread 数。"
 
 #: Implementation.md:267
 msgid "the eventual quantity of shared memory"
-msgstr ""
+msgstr "必要なら Shared Memory 容量。"
 
 #: Implementation.md:268
 msgid "the eventual stream to enqueue the kernel into"
-msgstr ""
+msgstr "必要なら Kernel を入れる Stream。"
 
 #: Implementation.md:270
 msgid "(specify the shared memory and the stream is optional):"
-msgstr ""
+msgstr "Shared Memory と Stream は任意です。"
 
 #: Implementation.md:281
 msgid "Moving the derivatives to the host RAM"
-msgstr ""
+msgstr "微分の Host RAM への転送"
 
 #: Implementation.md:283
 msgid ""
@@ -239,14 +276,16 @@ msgid ""
 "[kernel](#the-coord-kernel) has finished its calculations by calling "
 "`cudaDeviceSynchronize();`."
 msgstr ""
+"CPU RAM に戻す前に、`cudaDeviceSynchronize();` で [Kernel](#the-coord-kernel) "
+"の終了を確認します。"
 
 #: Implementation.md:286
 msgid "Then we enqueue an async copy of the derivatives."
-msgstr ""
+msgstr "微分の非同期 Copy を Queue に入れます。"
 
 #: Implementation.md:292
 msgid "Calling the reductions in the calculate() method"
-msgstr ""
+msgstr "calculate() からの Reduction 呼び出し"
 
 #: Implementation.md:294
 msgid ""
@@ -256,12 +295,14 @@ msgid ""
 "written using the building blocks of CCCL/cub. The reduction algorithm is "
 "recursively called by the following loop."
 msgstr ""
+"[Kernel](#the-coord-kernel) 後、各原子の Virial と Coordination を、CCCL/cub を使った "
+"_cudaHelpers.cuh_ で全系に集約します。次の Loop で Reduction を再帰的に呼びます。"
 
 #: Implementation.md:341
 msgid ""
 "The last iteration (where `nGroups == 1`) enqueue the async version of the "
 "GPU to CPU copies."
-msgstr ""
+msgstr "最後（`nGroups == 1`）に GPU から CPU への非同期 Copy を Queue に入れます。"
 
 #: Implementation.md:343
 msgid ""
@@ -271,6 +312,8 @@ msgid ""
 "do not move the memory, but should exchange the addresses and the data "
 "between the two variables."
 msgstr ""
+"前の出力が次の入力になるため、確保済み領域を次の出力に再利用するよう Swap します。Memory 自体は移動せず、変数間の Address "
+"とデータを交換します。"
 
 #: Implementation.md:348
 msgid ""
@@ -279,10 +322,12 @@ msgid ""
 "the cub manual): `[x0, x1, x2, ..., xn-2, xn-1, y0, y1, y2, ..., yn-2, yn-1,"
 " z0,... ]` and so on."
 msgstr ""
+"ND Reduction は、連結 Array（cub では Block 配置）を期待します：`[x0, x1, x2, ..., xn-2, "
+"xn-1, y0, y1, y2, ..., yn-2, yn-1, z0,... ]`。"
 
 #: Implementation.md:352
 msgid "Finalizing the results"
-msgstr ""
+msgstr "結果の確定"
 
 #: Implementation.md:354
 msgid ""
@@ -290,10 +335,11 @@ msgid ""
 "the standard procedure, again we use `cudaDeviceSynchronize();` to be sure "
 "that all the data have been moved to the CPU:"
 msgstr ""
+"集約後、通常の手順で PLUMED に渡します。再び `cudaDeviceSynchronize();` で CPU への転送完了を確認します。"
 
 #: Implementation.md:365
 msgid "Other implementations"
-msgstr ""
+msgstr "ほかの実装"
 
 #: Implementation.md:367
 msgid ""
@@ -301,3 +347,5 @@ msgid ""
 " [two groups](ImplementationTwoGroups) and the [pair](ImplementationPair) "
 "version"
 msgstr ""
+"[2 Group](ImplementationTwoGroups) と [Pair](ImplementationPair) の "
+"Coordination の説明もあります。"

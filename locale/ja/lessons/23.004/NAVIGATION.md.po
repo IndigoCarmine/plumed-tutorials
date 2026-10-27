@@ -9,7 +9,7 @@ msgstr ""
 
 #: NAVIGATION.md:1
 msgid "Rewriting the coordination for plumed in Cuda"
-msgstr ""
+msgstr "PLUMED の Coordination を CUDA で書き直す"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -19,6 +19,9 @@ msgid ""
 "[helper module](Helpers.md) with the reduction algorithm and a tool for "
 "easing memory management."
 msgstr ""
+"CUDA Compiler でビルドし、PLUMED に LOAD できる Plugin を作ります。[Coordination "
+"の実装](Implementation.md) と、Reduction・Memory 管理用の [Helper](Helpers.md) "
+"の2部分からなります。"
 
 #. mermaid node label
 #: NAVIGATION.md:13
@@ -28,34 +31,34 @@ msgstr "はじめに"
 #. mermaid node label
 #: NAVIGATION.md:16
 msgid "GROUPA,GROUPB"
-msgstr ""
+msgstr "GROUPA,GROUPB"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:28
 msgid "The introduction"
-msgstr ""
+msgstr "導入"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:29
 msgid "The coordination implementation"
-msgstr ""
+msgstr "Coordination の実装"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:30
 msgid "The coordination between two groups"
-msgstr ""
+msgstr "2 Group 間の Coordination"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:31
 msgid "The coordination in pairs"
-msgstr ""
+msgstr "Pair の Coordination"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:32
 msgid "A simple manual with the helper library"
-msgstr ""
+msgstr "Helper ライブラリの簡単なマニュアル"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:33
 msgid "Pushing the GPU"
-msgstr ""
+msgstr "GPU の性能を引き出す"
