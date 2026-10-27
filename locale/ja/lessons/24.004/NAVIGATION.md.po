@@ -20,6 +20,10 @@ msgid ""
 "later, in [this](https://doi.org/10.1021/acs.jctc.1c00649) paper we added "
 "some details (the RMSD restraining) which we will use in this tutorial."
 msgstr ""
+"Volume-based Metadynamics の設定・実行を学ぶ Tutorial です。Volume-based Metadynamics "
+"(VMetaD) の理論は [原著](https://doi.org/10.1021/acs.jpclett.9b01183) "
+"で説明しています。その後の [論文](https://doi.org/10.1021/acs.jctc.1c00649) で加えた RMSD "
+"Restraint も、ここで使います。"
 
 #: NAVIGATION.md:4
 msgid "This guide is divided in different sections"
@@ -27,7 +31,7 @@ msgstr "このガイドは、複数のセクションに分かれている。"
 
 #: NAVIGATION.md:6
 msgid "[Volume-based Metadynamics theory](theory.md)"
-msgstr ""
+msgstr "[Volume-based Metadynamics の理論](theory.md)"
 
 #: NAVIGATION.md:7
 msgid "A brief introduction to the rationale behind the use of VMetaD."
@@ -35,7 +39,7 @@ msgstr "VMetaD を用いる考え方の簡単な入門。"
 
 #: NAVIGATION.md:9
 msgid "[Case study: L99A T4 Lysozyme:Benzene](lysozyme_benzene.md)"
-msgstr ""
+msgstr "[Case Study：L99A T4 Lysozyme:Benzene](lysozyme_benzene.md)"
 
 #: NAVIGATION.md:10
 msgid ""
@@ -45,6 +49,9 @@ msgid ""
 "eGO (more details [here](https://doi.org/10.26434/chemrxiv-2024-jcmgc)) "
 "which can run on laptop/workstation at the timescales of interest."
 msgstr ""
+"Benzene と結合する小さな改変タンパク質を例に使います。HPC を必要とせず試せるよう、Laptop/Workstation "
+"で対象の時間スケールを計算できる簡略モデル multi-eGO を使います（詳細は "
+"[こちら](https://doi.org/10.26434/chemrxiv-2024-jcmgc)）。"
 
 #: NAVIGATION.md:12
 msgid "[Input files preparation](input.md)"
@@ -57,11 +64,13 @@ msgid ""
 "reference frame. We will also discuss all the PLUMED instructions to "
 "implement the method."
 msgstr ""
+"Restraint Potential の大きさから参照座標系を定める原子の選択まで、VMetaD の準備を説明します。実装に必要な PLUMED "
+"の全指示も扱います。"
 
 #: NAVIGATION.md:15
 msgid ""
 "[Post-processing, reweighting and entropic correction](postprocessing.md)"
-msgstr ""
+msgstr "[後処理・Reweighting・Entropy 補正](postprocessing.md)"
 
 #: NAVIGATION.md:16
 msgid ""
@@ -70,6 +79,8 @@ msgid ""
 "will also discuss how to compute the entropic correction due to the presence"
 " of the restraining potential."
 msgstr ""
+"最後に、適切な CV に自由エネルギー表面を Reweighting し、VMetaD の出力から結合自由エネルギー差を求めます。Restraint "
+"Potential による Entropy 補正の計算法も説明します。"
 
 #: NAVIGATION.md:18
 msgid ""
@@ -78,6 +89,9 @@ msgid ""
 "tutorial](https://www.plumed-"
 "tutorials.org/lessons/21/004/data/NAVIGATION.html) about it)."
 msgstr ""
+"___注：___ PLUMED の Metadynamics の理論と実践を知っていることを前提とします。未習の場合は [PLUMED "
+"Tutorial](https://www.plumed-"
+"tutorials.org/lessons/21/004/data/NAVIGATION.html) から始めるとよいでしょう。"
 
 #. mermaid node label
 #: NAVIGATION.md:23
@@ -92,7 +106,7 @@ msgstr "理論"
 #. mermaid node label
 #: NAVIGATION.md:24
 msgid "Metadynamics Tutorial"
-msgstr ""
+msgstr "Metadynamics Tutorial"
 
 #. mermaid node label
 #: NAVIGATION.md:25
@@ -112,18 +126,18 @@ msgstr "後処理"
 #. mermaid click tooltip
 #: NAVIGATION.md:29
 msgid "This lesson teaches you the basic features of the PLUMED input syntax"
-msgstr ""
+msgstr "PLUMED 入力構文の基本機能を学ぶ Lesson"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:30
 msgid ""
 "This lesson teaches you how to perform and analyze Metadynamics simulations"
-msgstr ""
+msgstr "Metadynamics の実行・解析を学ぶ Lesson"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:31
 msgid "Volume-based Metadynamics theory intro & overview"
-msgstr ""
+msgstr "Volume-based Metadynamics 理論の導入と概要"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:32

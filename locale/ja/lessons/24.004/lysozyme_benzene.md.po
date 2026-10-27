@@ -9,7 +9,7 @@ msgstr ""
 
 #: lysozyme_benzene.md:1
 msgid "L99A T4 Lysozyme:benzene complex"
-msgstr ""
+msgstr "L99A T4 Lysozyme:Benzene 複合体"
 
 #: lysozyme_benzene.md:3
 msgid ""
@@ -37,6 +37,13 @@ msgid ""
 "contributing significantly to advancements in the understanding of protein "
 "chemistry."
 msgstr ""
+"T4 L99A Lysozyme は、Escherichia coli に感染する Bacteriophage T4 由来の Lysozyme "
+"の改変体です。天然の T4 Lysozyme は多糖鎖の結合を加水分解し、細菌の細胞壁を壊します。L99A は99位の Leucine (L) を "
+"Alanine (A) に置換したもので、C-terminal Domain に Hydrophobic Cavity "
+"を作り、安定性と結合特性を大きく変えます。この Cavity は Benzene などの小さな Hydrophobic 分子を収容でき、Protein-"
+"Ligand 相互作用のモデルに適しています。実験・計算の Benchmark として、低分子の結合効果、さまざまな条件下の安定性、Molecular "
+"Recognition の原理の研究に広く使われます。計算では "
+"MD、Docking、自由エネルギー計算の検証モデルです。挙動がよくわかっていて予測可能なため、手法のテスト・改良に適し、タンパク質化学の理解に貢献しています。"
 
 #: lysozyme_benzene.md:11
 msgid ""
@@ -47,24 +54,28 @@ msgid ""
 " [this paper](https://doi.org/10.26434/chemrxiv-2024-jcmgc)). The advantages"
 " of multi-eGO rely in three main points"
 msgstr ""
+"PDB ID [1L84](https://www.rcsb.org/structure/1L84) に基づく構造を使います。Force Field は"
+" multi-eGO です。DES-Amber による All-atom MD で学習し、Bayesian Approach で生成した "
+"Structure-based Potential "
+"です（[詳細](https://doi.org/10.26434/chemrxiv-2024-jcmgc)）。主な利点は3つです。"
 
 #: lysozyme_benzene.md:13
 msgid ""
 "The possibility to use 5 fs time steps: multi-eGO implements a united-atom "
 "coarse-graining, which removes hydrogens;"
-msgstr ""
+msgstr "水素を除く United-atom Coarse-graining により、5 fs の Time Step を使える。"
 
 #: lysozyme_benzene.md:14
 msgid ""
 "Absence of coulombian interactions for electrostatics: in multi-eGO, all the"
 " non-bonded interactions are included in a Lennard-Jones potential;"
-msgstr ""
+msgstr "Coulomb 静電相互作用がなく、すべての Nonbonded 相互作用を Lennard-Jones Potential に含める。"
 
 #: lysozyme_benzene.md:15
 msgid ""
 "Implicit solvation: multi-eGO does not have an explicit solvent, resulting "
 "in ~10x less particles in the simulation box."
-msgstr ""
+msgstr "Implicit Solvation により、Explicit Solvent を使う場合より Box の粒子数が約1/10になる。"
 
 #: lysozyme_benzene.md:17
 msgid ""
@@ -72,6 +83,8 @@ msgid ""
 "same performances of a HPC machine on all-atom potentials, allowing us to "
 "run on a workstation the entire tutorial in around 24 h."
 msgstr ""
+"これにより、市販 Hardware で All-atom Potential の HPC と同等の性能に達し、Tutorial 全体を "
+"Workstation で約24時間で実行できます。"
 
 #: lysozyme_benzene.md:19
 msgid "[Back to VMetad home](NAVIGATION.md)"

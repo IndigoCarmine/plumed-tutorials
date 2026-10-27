@@ -9,7 +9,7 @@ msgstr ""
 
 #: postprocessing.md:1
 msgid "Post-processing and analysis"
-msgstr ""
+msgstr "後処理と解析"
 
 #: postprocessing.md:2
 msgid ""
@@ -20,10 +20,13 @@ msgid ""
 "[Metadynamics tutorial](https://www.plumed-"
 "tutorials.org/lessons/21/004/data/NAVIGATION.html)."
 msgstr ""
+"収束を確認し、Unfolding などの問題なく終了したと仮定します。収束、誤差計算、Metadynamics の技術的詳細は "
+"[Metadynamics Tutorial](https://www.plumed-"
+"tutorials.org/lessons/21/004/data/NAVIGATION.html) に譲ります。"
 
 #: postprocessing.md:4
 msgid "Reweighting"
-msgstr ""
+msgstr "Reweighting"
 
 #: postprocessing.md:5
 msgid ""
@@ -33,12 +36,14 @@ msgid ""
 "the number of contacts $c$. We thus prepare step-by-step a reweighting "
 "script (you can find it in the GitHub folder, called `reweight.dat`)."
 msgstr ""
+"終了後、適切な Collective Variables に自由エネルギー地形を Reweighting します。前述の原点からの距離 $\\rho$ "
+"と Contact 数 $c$ を使います。GitHub にある `reweight.dat` を順に作ります。"
 
 #: postprocessing.md:7
 msgid ""
 "We begin from the reading of the relevant data files (refer to the "
 "`plumed.dat` file if you do not remember what is contained in them):"
-msgstr ""
+msgstr "まず必要なデータを読み込みます。内容は `plumed.dat` を参照してください。"
 
 #: postprocessing.md:14
 msgid ""
@@ -48,30 +53,33 @@ msgid ""
 "(almost negligible) contribution of the RMSD restraining, obtaining the "
 "final weights for the histogram"
 msgstr ""
+"[Tiwary-Parrinello Estimator](https://doi.org/10.1021/jp504920s) で "
+"Metadynamics Potential を Reweighting し、同時に、ほぼ無視できる RMSD Restraint の寄与を除いて "
+"Histogram の最終的な重みを得ます。"
 
 #: postprocessing.md:24
 msgid ""
 "Having the weights, we can compute the histogram, considering the data from "
 "200 ns to 1 µs to ignore the out-of-equilibrium portion of the simulation:"
-msgstr ""
+msgstr "非平衡な初期部分を除くため、200 ns〜1 µs のデータで Weighted Histogram を求めます。"
 
 #: postprocessing.md:46
 msgid "This histogram can be converted to a free energy landscape"
-msgstr ""
+msgstr "Histogram を自由エネルギー地形に変換します。"
 
 #: postprocessing.md:70
 msgid "and finally printed"
-msgstr ""
+msgstr "最後に出力します。"
 
 #: postprocessing.md:96
 msgid ""
 "From this data we can plot the 2D free energy landscape reweighted on "
 "$\\rho$ and $c$:"
-msgstr ""
+msgstr "このデータから、$\\rho$ と $c$ に Reweighting した2次元自由エネルギー地形を描けます。"
 
 #: postprocessing.md:104
 msgid "∆G calculation"
-msgstr ""
+msgstr "∆G の計算"
 
 #: postprocessing.md:105
 msgid ""
@@ -81,16 +89,18 @@ msgid ""
 "the basins and it returns the free energy difference. For my run, we defined"
 " the two minima and obtained this result:"
 msgstr ""
+"GitHub の `deltaG.py` は、2 Basin の自由エネルギー差を求める簡単な Python スクリプトです。Reweighting "
+"済み FES の Path と、各 Basin の x・y の最小・最大を渡すと差を返します。この実行では2つの極小を定義し、次の結果を得ました。"
 
 #: postprocessing.md:110
 msgid ""
 "We now have $\\Delta G_{\\text{MetaD}}$, the last step is the calculation of"
 " the entropic correction."
-msgstr ""
+msgstr "$\\Delta G_{\\text{MetaD}}$ が求まったので、最後に Entropy 補正を計算します。"
 
 #: postprocessing.md:112
 msgid "Entropic correction calculation"
-msgstr ""
+msgstr "Entropy 補正の計算"
 
 #: postprocessing.md:113
 msgid ""
@@ -99,26 +109,28 @@ msgid ""
 "console and select all the atom that are within 2.8 nm from the center of "
 "mass we computed in the previous step of the tutorial:"
 msgstr ""
+"球内のタンパク質体積を求めます。再び VMD で構造を読み込み、Tk Console で、前に求めた Center of Mass から2.8 nm "
+"以内の全原子を選びます。"
 
 #: postprocessing.md:117
 msgid "having set up this selection, we can write an output PDB file."
-msgstr ""
+msgstr "選択を PDB に出力します。"
 
 #: postprocessing.md:121
 msgid ""
 "Having this file, we can use `gmx sasa` to have an estimate of the volume of"
 " these atoms:"
-msgstr ""
+msgstr "このファイルを `gmx sasa` に渡し、原子群の体積を推定します。"
 
 #: postprocessing.md:125
 msgid "obtaining a volume of 27.294 nm$^3$."
-msgstr ""
+msgstr "27.294 nm$^3$ が得られます。"
 
 #: postprocessing.md:127
 msgid ""
 "Putting this value and $\\rho_{\\text{s}}=2.8$ nm in the formula we get the "
 "entropic correction"
-msgstr ""
+msgstr "この値と $\\rho_{\\text{s}}=2.8$ nm を式に入れ、Entropy 補正を得ます。"
 
 #: postprocessing.md:136
 msgid ""
@@ -127,6 +139,9 @@ msgid ""
 "$-5.2$ kcal/mol obtained by Morton _et al._ in [this "
 "work](https://doi.org/10.1021/bi00027a006)."
 msgstr ""
+"最終的な結合自由エネルギーは $\\Delta G^{0}=-(3.53+2.18)$ kcal/mol $= -5.71$ kcal/mol "
+"です。Morton らの [研究](https://doi.org/10.1021/bi00027a006) の実験値 $-5.2$ kcal/mol "
+"に近い値です。"
 
 #: postprocessing.md:138
 msgid "[Back to VMetad home](NAVIGATION.md)"

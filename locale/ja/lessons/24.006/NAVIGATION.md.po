@@ -149,7 +149,7 @@ msgstr "モデル系"
 #. mermaid node label
 #: NAVIGATION.md:33
 msgid "Inputs"
-msgstr ""
+msgstr "入力"
 
 #. mermaid node label
 #: NAVIGATION.md:34

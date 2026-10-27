@@ -20,6 +20,10 @@ msgid ""
 "later, in [this](https://doi.org/10.1021/acs.jctc.1c00649) paper we added "
 "some details (the RMSD restraining) which we will use in this tutorial."
 msgstr ""
+"Volume-based Metadynamics の設定・実行を学ぶ Tutorial です。Volume-based Metadynamics "
+"(VMetaD) の理論は [原著](https://doi.org/10.1021/acs.jpclett.9b01183) "
+"で説明しています。その後の [論文](https://doi.org/10.1021/acs.jctc.1c00649) で加えた RMSD "
+"Restraint も、ここで使います。"
 
 #: README.md:4
 msgid "This guide is divided in different sections"
@@ -27,7 +31,7 @@ msgstr "このガイドは、複数のセクションに分かれている。"
 
 #: README.md:6
 msgid "Volume-based Metadynamics theory"
-msgstr ""
+msgstr "Volume-based Metadynamics の理論"
 
 #: README.md:7
 msgid "A brief introduction to the rationale behind the use of VMetaD."
@@ -45,6 +49,9 @@ msgid ""
 "eGO (more details [here](https://doi.org/10.26434/chemrxiv-2024-jcmgc)) "
 "which can run on laptop/workstation at the timescales of interest."
 msgstr ""
+"Benzene と結合する小さな改変タンパク質を例に使います。HPC を必要とせず試せるよう、Laptop/Workstation "
+"で対象の時間スケールを計算できる簡略モデル multi-eGO を使います（詳細は "
+"[こちら](https://doi.org/10.26434/chemrxiv-2024-jcmgc)）。"
 
 #: README.md:12
 msgid "Input files preparation"
@@ -57,6 +64,8 @@ msgid ""
 "reference frame. We will also discuss all the PLUMED instructions to "
 "implement the method."
 msgstr ""
+"Restraint Potential の大きさから参照座標系を定める原子の選択まで、VMetaD の準備を説明します。実装に必要な PLUMED "
+"の全指示も扱います。"
 
 #: README.md:15
 msgid "Post-processing, reweighting and entropic correction"
@@ -69,6 +78,8 @@ msgid ""
 "will also discuss how to compute the entropic correction due to the presence"
 " of the restraining potential."
 msgstr ""
+"最後に、適切な CV に自由エネルギー表面を Reweighting し、VMetaD の出力から結合自由エネルギー差を求めます。Restraint "
+"Potential による Entropy 補正の計算法も説明します。"
 
 #: README.md:18
 msgid ""
@@ -77,3 +88,6 @@ msgid ""
 "tutorial](https://www.plumed-"
 "tutorials.org/lessons/21/004/data/NAVIGATION.html) about it)."
 msgstr ""
+"___注：___ PLUMED の Metadynamics の理論と実践を知っていることを前提とします。未習の場合は [PLUMED "
+"Tutorial](https://www.plumed-"
+"tutorials.org/lessons/21/004/data/NAVIGATION.html) から始めるとよいでしょう。"

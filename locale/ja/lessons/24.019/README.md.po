@@ -160,7 +160,7 @@ msgstr ""
 #. mermaid click tooltip
 #: README.md:47
 msgid "Introduction to the tutorial"
-msgstr ""
+msgstr "Tutorial の導入"
 
 #. mermaid click tooltip
 #: README.md:48

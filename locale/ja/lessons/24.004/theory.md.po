@@ -9,7 +9,7 @@ msgstr ""
 
 #: theory.md:1
 msgid "Volume-based Metadynamics intro and theory"
-msgstr ""
+msgstr "Volume-based Metadynamics の導入と理論"
 
 #: theory.md:3
 msgid ""
@@ -20,6 +20,9 @@ msgid ""
 "significant effort has been dedicated to identifying CVs, often based on "
 "human intuition and/or data-driven techniques."
 msgstr ""
+"Metadynamics では、対象現象の遅い自由度を十分に記述する適切な Collective Variable (CV) "
+"の選択が重要です。Protein-Ligand、一般には Host-Guest の結合では、直感やデータに基づく技術により CV "
+"の特定に多くの努力が払われてきました。"
 
 #: theory.md:5
 msgid ""
@@ -29,6 +32,8 @@ msgid ""
 " pathways quickly and reliably, and this approach is tailored to that "
 "objective."
 msgstr ""
+"VMetaD は選択を単純化し、Host が定める参照座標系での Ligand の Center of Mass の3次元座標を CV "
+"とします。すべての結合・解離経路を速く確実に見つけるという目的に適した方法です。"
 
 #: theory.md:7
 msgid ""
@@ -48,6 +53,13 @@ msgid ""
 "potential and parabolic coordinates as CVs. In the case of the sphere, we "
 "have the restraining potential defined as"
 msgstr ""
+"問題は、非結合状態を埋めて Recrossing を可能にする時間です。大きな Box "
+"では、好都合な結合を観測するまでが長すぎて実用になりません。そのため通常 Host の Center of Mass を中心に Restraint "
+"Potential を置き、空間を制限して Guest "
+"が効率よく出入りできるようにします。形は問題や既知情報に依存します。[原著](https://doi.org/10.1021/acs.jpclett.9b01183)"
+" とこの Tutorial では球形 Restraint と球座標 CV "
+"を使い、[後続研究](https://doi.org/10.1021/acs.jctc.1c00649) では放物線 Potential "
+"と放物線座標を使いました。球では、Restraint Potential は次のとおりです。"
 
 #: theory.md:18
 msgid ""
@@ -55,6 +67,8 @@ msgid ""
 "center of mass from the center of the restraining sphere, and "
 "$\\rho_{\\text{s}}$ is the radius of the restraining sphere."
 msgstr ""
+"$k$ は Harmonic Constant、$\\rho(t)$ は Guest の Center of Mass "
+"と球の中心との距離、$\\rho_{\\text{s}}$ は球の半径です。"
 
 #: theory.md:20
 msgid ""
@@ -69,6 +83,9 @@ msgid ""
 "CVs that allow better identification and discrimination of both the bound "
 "and unbound states."
 msgstr ""
+"十分な時間があれば、この設定だけですべての結合・解離経路を得られます。さらに VMetaD は履歴依存 Potential "
+"を作るため、収束すれば結合・非結合状態の自由エネルギー差、すなわち結合自由エネルギーも求められます。結合状態の体積は明確と仮定し、非結合状態を十分に特定することが重要です。収束した地形を"
+" Reweighting し、両状態をよりよく識別する新しい CV に射影します。"
 
 #: theory.md:22
 msgid ""
@@ -79,6 +96,8 @@ msgid ""
 "compatible with its experimental evaluation. In general, the free energy "
 "difference in standard condition is given by"
 msgstr ""
+"最後に、Restraint Potential による無視できない Entropy 寄与を考慮し、_In silico_ の ∆G "
+"を実験と比較可能にします。一般に Ligand 濃度が標準と異なるすべてのシミュレーションで必要です。標準状態の自由エネルギー差は、"
 
 #: theory.md:29
 msgid ""
@@ -86,6 +105,8 @@ msgid ""
 " binding constant, $C^{0} = (1660 \\text{Å}^{3})^{-1}$ is the standard "
 "concentration. In the context of our _in silico_ approach, this is equal to"
 msgstr ""
+"$R$ は気体定数、$T$ は温度、$K_{b}$ は結合定数、$C^{0} = (1660 \\text{Å}^{3})^{-1}$ "
+"は標準濃度です。この _In silico_ 法では、次と等価です。"
 
 #: theory.md:35
 msgid ""
@@ -95,10 +116,13 @@ msgid ""
 " $V_{\\text{host}}$ is the portion of the host included in the restraining "
 "potential. This, in case of a spherical potential, results in"
 msgstr ""
+"$\\Delta G_{\\text{MetaD}}$ は VMetaD の自由エネルギー差、$V^{0}$ は $C^{0}$ "
+"の逆数、$V_{\\text{restr}}$ は Restraint 内の体積、$V_{\\text{host}}$ はその中の Host "
+"の体積です。球形の場合は、"
 
 #: theory.md:41
 msgid "where $\\rho_{\\text{s}}$ is the radius of the restraining sphere."
-msgstr ""
+msgstr "$\\rho_{\\text{s}}$ は Restraint の球の半径です。"
 
 #: theory.md:43
 msgid "[Back to VMetad home](NAVIGATION.md)"
