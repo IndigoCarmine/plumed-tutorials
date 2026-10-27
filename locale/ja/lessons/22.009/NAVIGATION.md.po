@@ -12,6 +12,8 @@ msgid ""
 "Masterclass 22.09: Using path collective variables to find reaction "
 "mechanisms in complex free energy landscapes"
 msgstr ""
+"Masterclass 22.09：Path Collective Variables を用いて複雑な自由エネルギー地形上の Reaction "
+"Mechanisms を探索する"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -43,7 +45,7 @@ msgstr ""
 
 #: NAVIGATION.md:11
 msgid "This lesson was the eigth masterclass in the 2022 series."
-msgstr ""
+msgstr "このレッスンは、2022年シリーズの第8回 Masterclass である。"
 
 #. mermaid node label
 #: NAVIGATION.md:15
@@ -85,7 +87,7 @@ msgstr "PLUMED の構文の基本を紹介する過去のチュートリアル"
 msgid ""
 "A lecture that was given on June 6th 2022 as part of the plumed masterclass "
 "series that introduces you to the exercises in this lesson"
-msgstr ""
+msgstr "2022年6月6日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習を紹介する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:23
@@ -102,7 +104,7 @@ msgstr "取り組む演習の手順"
 msgid ""
 "A lecture that was given on June 13th 2022 as part of the plumed masterclass"
 " series that goes through the solutions to the exercises in the lesson"
-msgstr ""
+msgstr "2022年6月13日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習の解答を解説する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:26

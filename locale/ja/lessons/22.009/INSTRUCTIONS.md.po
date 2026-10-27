@@ -12,6 +12,8 @@ msgid ""
 "PLUMED Masterclass 22.9: Using path collective variables to find reaction "
 "mechanisms in complex free energy landscapes"
 msgstr ""
+"PLUMED Masterclass 22.9：Path Collective Variables を用いて複雑な自由エネルギー地形上の "
+"Reaction Mechanisms を探索する"
 
 #: INSTRUCTIONS.md:3
 msgid "Origin"

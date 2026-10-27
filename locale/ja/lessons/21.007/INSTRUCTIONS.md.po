@@ -9,7 +9,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:1
 msgid "PLUMED Masterclass 21.7: Optimizing PLUMED performances"
-msgstr ""
+msgstr "PLUMED Masterclass 21.7：PLUMED の性能最適化"
 
 #: INSTRUCTIONS.md:3
 msgid "Origin"

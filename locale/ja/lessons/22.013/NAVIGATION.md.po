@@ -13,6 +13,8 @@ msgid ""
 "proteins as a collective variable, and the application of PLUMED for "
 "implicit solvent simulations"
 msgstr ""
+"Masterclass 22.13：SASA モジュール — タンパク質の Solvent Accessible Surface Area を "
+"Collective Variable として用いる方法と、Implicit Solvent シミュレーションへの PLUMED の応用"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -40,7 +42,7 @@ msgstr ""
 
 #: NAVIGATION.md:10
 msgid "This lesson was the thirteenth masterclass in the 2022 series."
-msgstr ""
+msgstr "このレッスンは、2022年シリーズの第13回 Masterclass である。"
 
 #. mermaid node label
 #: NAVIGATION.md:14
@@ -144,7 +146,7 @@ msgstr ""
 msgid ""
 "A lecture that was given on September 19st 2022 as part of the plumed "
 "masterclass series that introduces you to the exercises in this lesson"
-msgstr ""
+msgstr "2022年9月19日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習を紹介する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:31
@@ -157,4 +159,4 @@ msgid ""
 "A lecture that was given on September 26th 2022 as part of the plumed "
 "masterclass series that goes through the solutions to the exercises in the "
 "lesson"
-msgstr ""
+msgstr "2022年9月26日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習の解答を解説する講義"

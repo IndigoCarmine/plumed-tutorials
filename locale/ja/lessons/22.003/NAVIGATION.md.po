@@ -43,7 +43,7 @@ msgstr ""
 
 #: NAVIGATION.md:11
 msgid "This lesson was the third masterclass in the 2022 series."
-msgstr ""
+msgstr "このレッスンは、2022年シリーズの第3回 Masterclass である。"
 
 #. mermaid node label
 #: NAVIGATION.md:15
@@ -105,7 +105,7 @@ msgstr ""
 msgid ""
 "A lecture that was given on February 28th 2022 as part of the plumed "
 "masterclass series that introduces you to the exercises in this lesson"
-msgstr ""
+msgstr "2022年2月28日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習を紹介する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:27
@@ -141,7 +141,7 @@ msgstr ""
 msgid ""
 "A lecture that was given on March 7th 2022 as part of the plumed masterclass"
 " series that goes through the solutions to the exercises in the lesson"
-msgstr ""
+msgstr "2022年3月7日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習の解答を解説する講義"
 
 #: NAVIGATION.md:35
 msgid "References"

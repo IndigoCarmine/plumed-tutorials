@@ -10,7 +10,7 @@ msgstr ""
 #: INSTRUCTIONS.md:1
 msgid ""
 "Masterclass 22.10: Hamiltonian replica exchange with PLUMED and GROMACS"
-msgstr ""
+msgstr "Masterclass 22.10：PLUMED と GROMACS による Hamiltonian Replica Exchange"
 
 #: INSTRUCTIONS.md:3
 msgid "Origin"

@@ -9,7 +9,7 @@ msgstr ""
 
 #: NAVIGATION.md:1
 msgid "PLUMED Masterclass 21.2: Statistical errors in MD"
-msgstr ""
+msgstr "PLUMED Masterclass 21.2：MD における統計誤差"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -110,7 +110,7 @@ msgstr ""
 msgid ""
 "A lecture that was given on February 1st 2021 as part of the plumed "
 "masterclass series that introduces you to the exercises in this lesson"
-msgstr ""
+msgstr "2021年2月1日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習を紹介する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:27
@@ -139,7 +139,7 @@ msgid ""
 "A lecture that was given on February 8th 2021 as part of the plumed "
 "masterclass series that goes through the solutions to the exercises in the "
 "lesson"
-msgstr ""
+msgstr "2021年2月8日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習の解答を解説する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:31

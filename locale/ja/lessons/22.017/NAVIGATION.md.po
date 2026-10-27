@@ -183,7 +183,7 @@ msgstr ""
 msgid ""
 "A lecture that was given on November 28th 2022 as part of the PLUMED "
 "masterclass series that introduces you to the exercises in this lesson"
-msgstr ""
+msgstr "2022年11月28日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習を紹介する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:65
@@ -201,7 +201,7 @@ msgid ""
 "A lecture that was given on December 5th 2022 as part of the PLUMED "
 "masterclass series that goes through the solutions to the exercises in the "
 "lesson"
-msgstr ""
+msgstr "2022年12月5日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習の解答を解説する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:68

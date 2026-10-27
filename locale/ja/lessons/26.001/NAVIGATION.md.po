@@ -95,7 +95,7 @@ msgstr "PLUMED Masterclass 21.1：PLUMED の構文と解析"
 #. mermaid click tooltip
 #: NAVIGATION.md:23
 msgid "PLUMED Masterclass 21.2: Statistical errors in MD"
-msgstr ""
+msgstr "PLUMED Masterclass 21.2：MD における統計誤差"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:24

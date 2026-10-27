@@ -12,6 +12,7 @@ msgid ""
 "PLUMED Masterclass 22.8: Modelling Concentration-driven processes with "
 "PLUMED"
 msgstr ""
+"PLUMED Masterclass 22.8：PLUMED による Concentration-driven Processes のモデル化"
 
 #: INSTRUCTIONS.md:5
 msgid "Origin"

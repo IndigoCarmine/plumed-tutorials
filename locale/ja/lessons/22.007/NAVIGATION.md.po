@@ -12,6 +12,8 @@ msgid ""
 "Masterclass 22.07: Learning and enhancing fluctuations along information "
 "bottleneck for automated enhanced sampling"
 msgstr ""
+"Masterclass 22.07：Enhanced Sampling の自動化に向けた Information Bottleneck "
+"に沿うゆらぎの学習と増強"
 
 #: NAVIGATION.md:4
 msgid ""
@@ -40,7 +42,7 @@ msgstr ""
 
 #: NAVIGATION.md:11
 msgid "This lesson was the seventh masterclass in the 2022 series."
-msgstr ""
+msgstr "このレッスンは、2022年シリーズの第7回 Masterclass である。"
 
 #. mermaid node label
 #: NAVIGATION.md:16
@@ -104,7 +106,7 @@ msgstr ""
 msgid ""
 "A lecture that was given on May 9th 2022 as part of the plumed masterclass "
 "series that introduces you to the exercises in this lesson"
-msgstr ""
+msgstr "2022年5月9日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習を紹介する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:29
@@ -118,7 +120,7 @@ msgstr ""
 msgid ""
 "A lecture that was given on May 16th 2022 as part of the plumed masterclass "
 "series that goes through the solutions to the exercises in the lesson"
-msgstr ""
+msgstr "2022年5月16日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習の解答を解説する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:31

@@ -9,7 +9,7 @@ msgstr ""
 
 #: NAVIGATION.md:1
 msgid "Masterclass 22.15: Mechanical pulling + FISST module"
-msgstr ""
+msgstr "Masterclass 22.15：Mechanical Pulling と FISST モジュール"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -37,7 +37,7 @@ msgstr ""
 
 #: NAVIGATION.md:10
 msgid "This lesson was the fifteenth masterclass in the 2022 series."
-msgstr ""
+msgstr "このレッスンは、2022年シリーズの第15回 Masterclass である。"
 
 #: NAVIGATION.md:12
 msgid ""
@@ -97,7 +97,7 @@ msgstr ""
 msgid ""
 "A lecture that was given on October 17th 2022 as part of the plumed "
 "masterclass series that introduces you to the exercises in this lesson"
-msgstr ""
+msgstr "2022年10月17日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習を紹介する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:26
@@ -112,6 +112,8 @@ msgid ""
 "processes, and then goes through the solutions to the exercises in the "
 "lesson"
 msgstr ""
+"2022年10月24日に PLUMED Masterclass シリーズの一環として行われた、Mechanobiological Processes "
+"のモデル化の背景を説明し、このレッスンの演習の解答を解説する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:28

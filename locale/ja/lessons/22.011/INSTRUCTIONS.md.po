@@ -9,7 +9,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:1
 msgid "PLUMED Masterclass 22.11: Variationally Enhanced Sampling"
-msgstr ""
+msgstr "PLUMED Masterclass 22.11：Variationally Enhanced Sampling"
 
 #: INSTRUCTIONS.md:3
 msgid "Author"

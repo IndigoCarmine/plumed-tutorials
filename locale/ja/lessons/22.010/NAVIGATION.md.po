@@ -10,7 +10,7 @@ msgstr ""
 #: NAVIGATION.md:1
 msgid ""
 "Masterclass 22.10: Hamiltonian replica exchange with PLUMED and GROMACS"
-msgstr ""
+msgstr "Masterclass 22.10：PLUMED と GROMACS による Hamiltonian Replica Exchange"
 
 #: NAVIGATION.md:3
 msgid ""
@@ -46,7 +46,7 @@ msgstr ""
 
 #: NAVIGATION.md:11
 msgid "This lesson was the first masterclass in the 2021 series."
-msgstr ""
+msgstr "このレッスンは、2021年シリーズの第1回 Masterclass である。"
 
 #. mermaid node label
 #: NAVIGATION.md:15
@@ -103,7 +103,7 @@ msgstr ""
 msgid ""
 "A lecture that was given on June 21st 2022 as part of the plumed masterclass"
 " series that introduces you to the exercises in this lesson"
-msgstr ""
+msgstr "2022年6月21日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習を紹介する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:26
@@ -120,7 +120,7 @@ msgstr "演習の手順"
 msgid ""
 "A lecture that was given on June 27th 2022 as part of the plumed masterclass"
 " series that goes through the solutions to the exercises in the lesson"
-msgstr ""
+msgstr "2022年6月27日に PLUMED Masterclass シリーズの一環として行われた、このレッスンの演習の解答を解説する講義"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:29
