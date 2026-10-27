@@ -9,7 +9,7 @@ msgstr ""
 
 #: Modals/enablerpath.md:2
 msgid "--enable-rpath option"
-msgstr ""
+msgstr "--enable-rpath オプション"
 
 #: Modals/enablerpath.md:20
 msgid ""

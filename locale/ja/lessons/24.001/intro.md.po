@@ -9,7 +9,7 @@ msgstr ""
 
 #: intro.md:1
 msgid "hySAS intro & overview"
-msgstr ""
+msgstr "hySAS の入門と概要"
 
 #: intro.md:3
 msgid ""

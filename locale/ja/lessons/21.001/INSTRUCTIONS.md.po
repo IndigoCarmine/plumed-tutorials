@@ -17,7 +17,7 @@ msgstr "作成について"
 
 #: INSTRUCTIONS.md:5
 msgid "This masterclass was authored by Max Bonomi on January 18, 2021"
-msgstr ""
+msgstr "この Masterclass は、2021年1月18日に Max Bonomi によって作成された。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:36
 msgid "First, make sure conda is installed by typing:"
-msgstr ""
+msgstr "まず、次を入力して conda がインストールされていることを確認する。"
 
 #: INSTRUCTIONS.md:42
 msgid ""
@@ -130,7 +130,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:56
 msgid "and activate it with:"
-msgstr ""
+msgstr "次のコマンドで有効化する。"
 
 #: INSTRUCTIONS.md:62
 msgid ""
@@ -359,11 +359,11 @@ msgstr ""
 
 #: INSTRUCTIONS.md:170
 msgid "run the PLUMED driver utility;"
-msgstr ""
+msgstr "PLUMED の driver ユーティリティを実行する。"
 
 #: INSTRUCTIONS.md:171
 msgid "visualize the output with the aid of a Jupyter notebook."
-msgstr ""
+msgstr "Jupyter Notebook を使って出力を可視化する。"
 
 #: INSTRUCTIONS.md:173
 msgid ""
@@ -380,7 +380,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:181
 msgid "Let's now prepare a PLUMED input file to calculate:"
-msgstr ""
+msgstr "次の量を計算するための PLUMED 入力ファイルを準備する。"
 
 #: INSTRUCTIONS.md:182
 msgid ""

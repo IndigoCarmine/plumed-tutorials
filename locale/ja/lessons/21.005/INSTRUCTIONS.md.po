@@ -17,7 +17,7 @@ msgstr "作成について"
 
 #: INSTRUCTIONS.md:5
 msgid "This masterclass was authored by Giovanni Bussi on March 15, 2021"
-msgstr ""
+msgstr "この Masterclass は、2021年3月15日に Giovanni Bussi によって作成された。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"
@@ -339,7 +339,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:168
 msgid "Now answer the following questions:"
-msgstr ""
+msgstr "次の問いに答えてほしい。"
 
 #: INSTRUCTIONS.md:169
 msgid "Is the population different in the four runs?"

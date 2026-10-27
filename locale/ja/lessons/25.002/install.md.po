@@ -9,11 +9,11 @@ msgstr ""
 
 #: install.md:1
 msgid "Hardware requirements"
-msgstr ""
+msgstr "必要なハードウェア"
 
 #: install.md:3
 msgid "To complete this tutorial you need:"
-msgstr ""
+msgstr "このチュートリアルには、次が必要である。"
 
 #: install.md:5
 msgid "A workstation with a multi-core CPU (6-8 cores should be enough);"
@@ -32,11 +32,11 @@ msgstr ""
 
 #: install.md:9
 msgid "Software requirements"
-msgstr ""
+msgstr "必要なソフトウェア"
 
 #: install.md:11
 msgid "Make sure you have installed:"
-msgstr ""
+msgstr "次がインストールされていることを確認する。"
 
 #: install.md:13
 msgid "A modern C++ compiler that supports OpenMP parallelization and C++17."
@@ -44,7 +44,7 @@ msgstr ""
 
 #: install.md:14
 msgid "MPI library/compilers for multi-replica ensemble simulations."
-msgstr ""
+msgstr "Multi-replica Ensemble シミュレーション用の MPI ライブラリ・コンパイラ。"
 
 #: install.md:15
 msgid ""
@@ -87,7 +87,7 @@ msgstr ""
 
 #: install.md:22
 msgid "Setting up the Conda environment for pre/post-processing scripts"
-msgstr ""
+msgstr "前処理・後処理スクリプト用の Conda 環境の設定"
 
 #: install.md:24
 msgid ""
@@ -132,11 +132,11 @@ msgstr ""
 
 #: install.md:41
 msgid "PLUMED installation"
-msgstr ""
+msgstr "PLUMED のインストール"
 
 #: install.md:43
 msgid "1. Getting PLUMED"
-msgstr ""
+msgstr "1. PLUMED の入手"
 
 #: install.md:45
 msgid ""
@@ -150,7 +150,7 @@ msgstr "`git clone https://github.com/plumed/plumed2.git`"
 
 #: install.md:49
 msgid "or downloading the following zip archive:"
-msgstr ""
+msgstr "または、次の ZIP アーカイブをダウンロードする。"
 
 #: install.md:51
 msgid "`wget https://github.com/plumed/plumed2/archive/refs/heads/master.zip`"
@@ -159,7 +159,7 @@ msgstr ""
 
 #: install.md:53
 msgid "2. Configuring and compiling PLUMED"
-msgstr ""
+msgstr "2. PLUMED の構成設定とコンパイル"
 
 #: install.md:55
 msgid ""
@@ -174,7 +174,7 @@ msgstr "`./configure --enable-libtorch`"
 
 #: install.md:60
 msgid "GROMACS installation"
-msgstr ""
+msgstr "GROMACS のインストール"
 
 #: install.md:62
 msgid ""

@@ -56,7 +56,7 @@ msgstr ""
 
 #: NAVIGATION.md:15
 msgid "Guidelines and tips for preparing the input files."
-msgstr ""
+msgstr "入力ファイルを準備するための指針とヒント。"
 
 #: NAVIGATION.md:17
 msgid "[Compiling PLUMED with ARRAYFIRE Support](arrayfire.md)"
@@ -71,7 +71,7 @@ msgstr ""
 #. mermaid node label
 #: NAVIGATION.md:22 NAVIGATION.md:29
 msgid "hySAS intro & overview"
-msgstr ""
+msgstr "hySAS の入門と概要"
 
 #. mermaid node label
 #: NAVIGATION.md:23
@@ -107,7 +107,7 @@ msgstr ""
 #. mermaid click tooltip
 #: NAVIGATION.md:32
 msgid "Preparing the input files"
-msgstr ""
+msgstr "入力ファイルの準備"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:33

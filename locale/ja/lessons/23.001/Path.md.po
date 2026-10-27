@@ -7,9 +7,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+# Method name, software identifier or literal command intentionally preserved.
 #: Path.md:1
 msgid "Paths"
-msgstr ""
+msgstr "Paths"
 
 #: Path.md:3
 msgid ""

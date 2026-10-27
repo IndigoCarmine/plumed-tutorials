@@ -9,4 +9,4 @@ msgstr ""
 
 #: Modals/enablempi.md:2
 msgid "--enable-mpi option"
-msgstr ""
+msgstr "--enable-mpi オプション"

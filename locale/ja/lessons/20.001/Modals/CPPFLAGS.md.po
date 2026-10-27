@@ -9,4 +9,4 @@ msgstr ""
 
 #: Modals/CPPFLAGS.md:2
 msgid "CPPFLAGS Environment Variable"
-msgstr ""
+msgstr "環境変数 CPPFLAGS"

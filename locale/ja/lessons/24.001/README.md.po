@@ -57,7 +57,7 @@ msgstr ""
 
 #: README.md:14
 msgid "Guidelines and tips for preparing the input files."
-msgstr ""
+msgstr "入力ファイルを準備するための指針とヒント。"
 
 #: README.md:16
 msgid "Compiling PLUMED with ARRAYFIRE Support"

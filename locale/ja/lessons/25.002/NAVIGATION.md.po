@@ -103,7 +103,7 @@ msgstr ""
 
 #: NAVIGATION.md:37
 msgid "Flowchart"
-msgstr ""
+msgstr "フローチャート"
 
 #: NAVIGATION.md:38
 msgid ""
@@ -130,7 +130,7 @@ msgstr "PBCs と選択ツールを中心に学ぶ、PLUMED の入力構文の基
 #. mermaid click tooltip
 #: NAVIGATION.md:50
 msgid "Installation instructions"
-msgstr ""
+msgstr "インストール手順"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:51

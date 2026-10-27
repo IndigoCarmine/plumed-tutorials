@@ -25,11 +25,12 @@ msgstr ""
 
 #: inputs-ala2/README.md:6
 msgid "**useful commands:**"
-msgstr ""
+msgstr "**便利なコマンド：**"
 
+# Method name, software identifier or literal command intentionally preserved.
 #: inputs-ala2/README.md:8
 msgid "gmx_mpi grompp -f md.mdp -p topol.top -c config.gro -o input.tpr"
-msgstr ""
+msgstr "gmx_mpi grompp -f md.mdp -p topol.top -c config.gro -o input.tpr"
 
 #: inputs-ala2/README.md:10
 msgid ""

@@ -72,7 +72,7 @@ msgstr ""
 
 #: installation_old.md:52
 msgid "Configuring PLUMED"
-msgstr ""
+msgstr "PLUMED の構成設定"
 
 #: installation_old.md:54
 msgid ""
@@ -490,7 +490,7 @@ msgstr ""
 
 #: installation_old.md:356
 msgid "Compiling PLUMED"
-msgstr ""
+msgstr "PLUMED のコンパイル"
 
 #: installation_old.md:358
 msgid "Once configured, PLUMED can be compiled using the following command:"

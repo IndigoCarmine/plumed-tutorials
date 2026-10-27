@@ -9,4 +9,4 @@ msgstr ""
 
 #: Modals/disablelibsearch.md:2
 msgid "--disable-libsearch option"
-msgstr ""
+msgstr "--disable-libsearch オプション"

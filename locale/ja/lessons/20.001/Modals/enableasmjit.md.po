@@ -9,7 +9,7 @@ msgstr ""
 
 #: Modals/enableasmjit.md:2
 msgid "--enable-asmjit option"
-msgstr ""
+msgstr "--enable-asmjit オプション"
 
 #: Modals/enableasmjit.md:11
 msgid ""

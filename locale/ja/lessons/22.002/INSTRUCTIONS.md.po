@@ -17,7 +17,7 @@ msgstr "作成について"
 
 #: INSTRUCTIONS.md:5
 msgid "This masterclass was authored by Vojtech Spiwok on February 14, 2022"
-msgstr ""
+msgstr "この Masterclass は、2022年2月14日に Vojtech Spiwok によって作成された。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"

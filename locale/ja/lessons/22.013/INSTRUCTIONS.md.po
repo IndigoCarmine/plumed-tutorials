@@ -19,7 +19,7 @@ msgstr "作成について"
 
 #: INSTRUCTIONS.md:5
 msgid "This masterclass was authored by Andrea Arsiccio on September 12, 2022"
-msgstr ""
+msgstr "この Masterclass は、2022年9月12日に Andrea Arsiccio によって作成された。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"
@@ -108,7 +108,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:42
 msgid "Summary of theory"
-msgstr ""
+msgstr "理論のまとめ"
 
 #: INSTRUCTIONS.md:44
 msgid ""
@@ -747,7 +747,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:358
 msgid "Final thoughts"
-msgstr ""
+msgstr "最後に"
 
 #: INSTRUCTIONS.md:360
 msgid ""

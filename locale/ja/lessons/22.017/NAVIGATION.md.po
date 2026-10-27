@@ -51,7 +51,7 @@ msgstr ""
 
 #: NAVIGATION.md:18 NAVIGATION.md:63
 msgid "Installation instructions"
-msgstr ""
+msgstr "インストール手順"
 
 #: NAVIGATION.md:19
 msgid ""
@@ -104,7 +104,7 @@ msgstr ""
 
 #: NAVIGATION.md:44
 msgid "Tutorial 1: Single-structure refinement with EMMIVox"
-msgstr ""
+msgstr "チュートリアル1：EMMIVox による Single-structure Refinement"
 
 #: NAVIGATION.md:45
 msgid ""
@@ -114,7 +114,7 @@ msgstr ""
 
 #: NAVIGATION.md:47
 msgid "Tutorial 2: Ensemble refinement with EMMIVox"
-msgstr ""
+msgstr "チュートリアル2：EMMIVox による Ensemble Refinement"
 
 #: NAVIGATION.md:48
 msgid ""
@@ -124,7 +124,7 @@ msgstr ""
 
 #: NAVIGATION.md:50
 msgid "Flowchart"
-msgstr ""
+msgstr "フローチャート"
 
 #: NAVIGATION.md:51
 msgid ""

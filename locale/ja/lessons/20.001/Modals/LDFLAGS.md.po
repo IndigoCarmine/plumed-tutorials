@@ -9,4 +9,4 @@ msgstr ""
 
 #: Modals/LDFLAGS.md:2
 msgid "LDFLAGS Environment Variable"
-msgstr ""
+msgstr "環境変数 LDFLAGS"

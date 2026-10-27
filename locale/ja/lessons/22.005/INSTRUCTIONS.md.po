@@ -18,7 +18,7 @@ msgstr "作成について"
 
 #: INSTRUCTIONS.md:5
 msgid "This masterclass was authored by Luigi Bonati on March 28, 2022"
-msgstr ""
+msgstr "この Masterclass は、2022年3月28日に Luigi Bonati によって作成された。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"
@@ -36,7 +36,7 @@ msgstr "到達目標"
 
 #: INSTRUCTIONS.md:13
 msgid "Once this Masterclass is completed, you will know how to:"
-msgstr ""
+msgstr "この Masterclass を終えると、次のことができるようになる。"
 
 #: INSTRUCTIONS.md:15
 msgid "Design data-driven CVs in Python using Pytorch"
@@ -123,7 +123,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:38
 msgid "Software and data"
-msgstr ""
+msgstr "ソフトウェアとデータ"
 
 #: INSTRUCTIONS.md:40
 msgid ""

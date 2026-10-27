@@ -19,7 +19,7 @@ msgstr "作成について"
 
 #: INSTRUCTIONS.md:5
 msgid "This masterclass was authored by Glen M. Hocky on October 17, 2022"
-msgstr ""
+msgstr "この Masterclass は、2022年10月17日に Glen M. Hocky によって作成された。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"
@@ -154,9 +154,10 @@ msgid ""
 "RESTRAINT bias."
 msgstr ""
 
+# Method name, software identifier or literal command intentionally preserved.
 #: INSTRUCTIONS.md:66
 msgid "Steered MD"
-msgstr ""
+msgstr "Steered MD"
 
 #: INSTRUCTIONS.md:68
 msgid ""

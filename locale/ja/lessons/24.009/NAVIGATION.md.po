@@ -58,7 +58,7 @@ msgstr ""
 #. mermaid node label
 #: NAVIGATION.md:11
 msgid "PLUMED Syntax"
-msgstr ""
+msgstr "PLUMED の構文"
 
 #. mermaid node label
 #: NAVIGATION.md:11

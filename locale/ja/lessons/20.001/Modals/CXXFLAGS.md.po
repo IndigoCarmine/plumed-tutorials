@@ -9,7 +9,7 @@ msgstr ""
 
 #: Modals/CXXFLAGS.md:2
 msgid "CXXFLAGS Environment Variable"
-msgstr ""
+msgstr "環境変数 CXXFLAGS"
 
 #: Modals/CXXFLAGS.md:5
 msgid ""

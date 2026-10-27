@@ -9,7 +9,7 @@ msgstr ""
 
 #: 01_mace_intro.md:1
 msgid "Machine-learned potentials for atomistic simulations"
-msgstr ""
+msgstr "Atomistic Simulations のための Machine-learned Potentials"
 
 #: 01_mace_intro.md:3
 msgid ""
@@ -23,6 +23,12 @@ msgid ""
 "to machine learning potentials for atomistic "
 "simulations](https://arxiv.org/abs/2410.00626)"
 msgstr ""
+"過去20年の間に、Atomistic Systems のシミュレーション手法は大きく変わった。Machine-learned "
+"Potentials（MLPs）により、従来法の計算コストのごく一部で、Force と Energy を *ab-initio* "
+"水準の精度で予測できるようになった。これまで First-principles Simulation "
+"では扱えなかった規模や複雑さの系にも到達できる。MLP の主な発展と成果の概要は、最近の入門 Review [Introduction to "
+"machine learning potentials for atomistic "
+"simulations](https://arxiv.org/abs/2410.00626) にまとめられている。"
 
 #: 01_mace_intro.md:5
 msgid ""
@@ -34,6 +40,11 @@ msgid ""
 "environments to accurately reproduce reference *ab initio* energies and "
 "forces."
 msgstr ""
+"MLP 開発の最前線にあるのが Multi Atomic Cluster Expansion（MACE）フレームワーク "
+"[1](https://arxiv.org/abs/2206.07697) である。2022年に開発されたこのモデルは、Atomic Cluster "
+"Expansion と呼ばれる、完全な High-body-order Polynomial Basis を Message-passing "
+"Tensor Network と組み合わせている。この Architecture は Semi-local Chemical Environments "
+"の学習可能な表現を与え、参照する *ab initio* の Energies と Forces を精密に再現する。"
 
 #: 01_mace_intro.md:7
 msgid ""
@@ -44,3 +55,6 @@ msgid ""
 "tutorials](https://mace-"
 "docs.readthedocs.io/en/latest/examples/tutorials.html)."
 msgstr ""
+"このチュートリアルでは、リポジトリに付属する学習済みの MACE モデルを使う。このモデルは気相の炭酸を記述でき、GGA 水準の DFT "
+"参照データで学習している。自身の対象系に対して MACE モデルを学習する方法の詳細は、[MACE tutorials](https://mace-"
+"docs.readthedocs.io/en/latest/examples/tutorials.html) を参照してほしい。"

@@ -9,7 +9,7 @@ msgstr ""
 
 #: Modals/enableexternallapack.md:2
 msgid "--enable-external-lapack option"
-msgstr ""
+msgstr "--enable-external-lapack オプション"
 
 #: Modals/enableexternallapack.md:25
 msgid ""

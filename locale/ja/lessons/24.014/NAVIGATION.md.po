@@ -102,7 +102,7 @@ msgstr ""
 #. mermaid node label
 #: NAVIGATION.md:27
 msgid "Case study"
-msgstr ""
+msgstr "適用事例"
 
 #. mermaid node label
 #: NAVIGATION.md:28 NAVIGATION.md:30

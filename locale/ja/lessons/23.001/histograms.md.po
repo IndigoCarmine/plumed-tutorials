@@ -7,9 +7,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+# Method name, software identifier or literal command intentionally preserved.
 #: histograms.md:1
 msgid "Histograms"
-msgstr ""
+msgstr "Histograms"
 
 #: histograms.md:3
 msgid ""
@@ -195,7 +196,7 @@ msgstr ""
 
 #: histograms.md:153
 msgid "Spatial averages"
-msgstr ""
+msgstr "Spatial Averages"
 
 #: histograms.md:155
 msgid ""

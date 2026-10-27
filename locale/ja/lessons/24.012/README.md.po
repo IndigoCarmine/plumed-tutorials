@@ -12,9 +12,11 @@ msgid ""
 "Files and instructions needed for running the PLUMED tutorial: 'Exploring "
 "Free Energy Surfaces with MACE-PLUMED Metadynamics'."
 msgstr ""
+"PLUMED チュートリアル「Exploring Free Energy Surfaces with MACE-PLUMED "
+"Metadynamics」の実行に必要なファイルと手順。"
 
 #: README.md:3
 msgid ""
 "Instructions provided in `.md` files. Resources for tutorial provided in "
 "`resources`."
-msgstr ""
+msgstr "手順は `.md` ファイルにあり、チュートリアルの資料は `resources` にある。"

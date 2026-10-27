@@ -20,6 +20,9 @@ msgid ""
 "conformations carbonic acid can adopt and establish which are the most "
 "stable."
 msgstr ""
+"このチュートリアルでは、近年開発された MACE Potential と PLUMED を連携させ、2次元 Metadynamics による "
+"Enhanced Sampling シミュレーションを実行する方法を学ぶ。対象は気相の炭酸分子（H2CO3）である。炭酸が取りうるさまざまな "
+"Conformations を調べ、どれが最も安定かを求める。"
 
 #: NAVIGATION.md:5
 msgid ""
@@ -29,40 +32,43 @@ msgid ""
 "orientation, giving rise to three conformers, cis-cis, cis-trans, and trans-"
 "trans as shown below."
 msgstr ""
+"炭酸は、海洋酸性化や Bicarbonate Buffer System などに関係する、二酸化炭素の Solvation Chemistry "
+"で重要である。炭酸には末端の OH Groups が2つあり、それぞれ Cis または Trans の向きを取れる。そのため、下に示す Cis-"
+"Cis、Cis-Trans、Trans-Trans の3つの Conformers が生じる。"
 
 #: NAVIGATION.md:10
 msgid "In this tutorial, we will cover:"
-msgstr ""
+msgstr "このチュートリアルでは、次を扱う。"
 
 #: NAVIGATION.md:11
 msgid "Navigating the MACE-LAMMPS-PLUMED interface."
-msgstr ""
+msgstr "MACE-LAMMPS-PLUMED インターフェースの使い方。"
 
 #: NAVIGATION.md:12
 msgid "Setting up your work environment."
-msgstr ""
+msgstr "作業環境の設定。"
 
 #: NAVIGATION.md:13
 msgid "Running simple MD simulations using a MACE potential."
-msgstr ""
+msgstr "MACE Potential を用いた簡単な MD シミュレーションの実行。"
 
 #: NAVIGATION.md:14
 msgid "Performing metadynamics using two collective variables."
-msgstr ""
+msgstr "2つの Collective Variables を用いた Metadynamics の実行。"
 
 #: NAVIGATION.md:17
 msgid "By the end of this tutorial you should:"
-msgstr ""
+msgstr "このチュートリアルを終えると、次のことができるようになる。"
 
 #: NAVIGATION.md:18
 msgid "Know how to run simple MD powered by MACE potentials."
-msgstr ""
+msgstr "MACE Potentials を用いた簡単な MD の実行方法を理解する。"
 
 #: NAVIGATION.md:19
 msgid ""
 "Integrate MACE with PLUMED to enable the accurate determination of free "
 "energy surfaces."
-msgstr ""
+msgstr "MACE と PLUMED を連携させ、自由エネルギー面を精密に求める。"
 
 #: NAVIGATION.md:21
 msgid ""
@@ -70,10 +76,12 @@ msgid ""
 "found on Github. **Clone the following directory to your local machine**: "
 "https://github.com/water-ice-group/plumed_tutorial_mace.git"
 msgstr ""
+"演習に必要なデータとファイルは GitHub にある。**次のディレクトリを自分のマシンに clone "
+"する**：https://github.com/water-ice-group/plumed_tutorial_mace.git"
 
 #: NAVIGATION.md:23
 msgid "This tutorial is organized as follows:"
-msgstr ""
+msgstr "このチュートリアルは、次の構成になっている。"
 
 #. mermaid node label
 #: NAVIGATION.md:27
@@ -83,46 +91,46 @@ msgstr "Metadynamics"
 #. mermaid node label
 #: NAVIGATION.md:27 NAVIGATION.md:28
 msgid "Setting up your environment"
-msgstr ""
+msgstr "環境の設定"
 
 #. mermaid node label
 #: NAVIGATION.md:28
 msgid "Introduction to MACE"
-msgstr ""
+msgstr "MACE の入門"
 
 #. mermaid node label
 #: NAVIGATION.md:29
 msgid "Running Free MD"
-msgstr ""
+msgstr "通常の MD の実行"
 
 #. mermaid node label
 #: NAVIGATION.md:30
 msgid "Running Metadynamics"
-msgstr ""
+msgstr "Metadynamics の実行"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:31
 msgid "Masterclass on Metadynamics"
-msgstr ""
+msgstr "Metadynamics の Masterclass"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:32
 msgid ""
 "Learn about the MACE potential for performing accurate and efficient "
 "molecular dynamics simulations"
-msgstr ""
+msgstr "精密で効率的な MD シミュレーションを行うための MACE Potential について学ぶ。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:33
 msgid "Understand how to set up the MACE-ASE-PLUMED interface."
-msgstr ""
+msgstr "MACE-ASE-PLUMED インターフェースの設定方法を理解する。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:34
 msgid "Run simple MD using MACE and ASE."
-msgstr ""
+msgstr "MACE と ASE を使って簡単な MD を実行する。"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:35
 msgid "Perform metadynamics using MACE to examine conformational stability."
-msgstr ""
+msgstr "MACE による Metadynamics を実行して、構造の安定性を調べる。"

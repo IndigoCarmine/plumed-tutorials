@@ -55,7 +55,7 @@ msgstr ""
 #. mermaid node label
 #: NAVIGATION.md:18
 msgid "syntax"
-msgstr ""
+msgstr "構文"
 
 #. mermaid node label
 #: NAVIGATION.md:18

@@ -332,7 +332,7 @@ msgstr ""
 
 #: DIMENSIONALITY.md:374
 msgid "Summary"
-msgstr ""
+msgstr "まとめ"
 
 #: DIMENSIONALITY.md:376
 msgid ""

@@ -9,7 +9,7 @@ msgstr ""
 
 #: Modals/standaloneexecutable.md:2
 msgid "--standalone-executable option"
-msgstr ""
+msgstr "--standalone-executable オプション"
 
 #: Modals/standaloneexecutable.md:9
 msgid ""

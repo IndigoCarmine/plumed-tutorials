@@ -17,7 +17,7 @@ msgstr "作成について"
 
 #: INSTRUCTIONS.md:5
 msgid "This masterclass was authored by Max Bonomi on March 1, 2021."
-msgstr ""
+msgstr "この Masterclass は、2021年3月1日に Max Bonomi によって作成された。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"
@@ -252,15 +252,15 @@ msgstr ""
 
 #: INSTRUCTIONS.md:82
 msgid "run the PLUMED driver utility;"
-msgstr ""
+msgstr "PLUMED の driver ユーティリティを実行する。"
 
 #: INSTRUCTIONS.md:83
 msgid "visualize the output with the aid of a Jupyter notebook."
-msgstr ""
+msgstr "Jupyter Notebook を使って出力を可視化する。"
 
 #: INSTRUCTIONS.md:85
 msgid "Let's now prepare a PLUMED input file to calculate:"
-msgstr ""
+msgstr "次の量を計算するための PLUMED 入力ファイルを準備する。"
 
 #: INSTRUCTIONS.md:86
 msgid "the value of the backbone dihedral $\\phi$;"
@@ -864,7 +864,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:377
 msgid "Please keep in mind that:"
-msgstr ""
+msgstr "次の点に注意してほしい。"
 
 #: INSTRUCTIONS.md:379
 msgid ""

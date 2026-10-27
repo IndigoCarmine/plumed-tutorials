@@ -9,7 +9,7 @@ msgstr ""
 
 #: Perf.md:1
 msgid "Flamegraph with perf from plumed benchmark"
-msgstr ""
+msgstr "plumed benchmark の perf による Flamegraph"
 
 #: Perf.md:3
 msgid ""

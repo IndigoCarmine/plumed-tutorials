@@ -7,9 +7,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+# Method name, software identifier or literal command intentionally preserved.
 #: NAVIGATION.md:1
 msgid "VMetaD-tutorial"
-msgstr ""
+msgstr "VMetaD-tutorial"
 
 #: NAVIGATION.md:2
 msgid ""
@@ -22,7 +23,7 @@ msgstr ""
 
 #: NAVIGATION.md:4
 msgid "This guide is divided in different sections"
-msgstr ""
+msgstr "このガイドは、複数のセクションに分かれている。"
 
 #: NAVIGATION.md:6
 msgid "[Volume-based Metadynamics theory](theory.md)"
@@ -30,7 +31,7 @@ msgstr ""
 
 #: NAVIGATION.md:7
 msgid "A brief introduction to the rationale behind the use of VMetaD."
-msgstr ""
+msgstr "VMetaD を用いる考え方の簡単な入門。"
 
 #: NAVIGATION.md:9
 msgid "[Case study: L99A T4 Lysozyme:Benzene](lysozyme_benzene.md)"
@@ -96,7 +97,7 @@ msgstr ""
 #. mermaid node label
 #: NAVIGATION.md:25
 msgid "Case study"
-msgstr ""
+msgstr "適用事例"
 
 #. mermaid node label
 #: NAVIGATION.md:26
@@ -127,7 +128,7 @@ msgstr ""
 #. mermaid click tooltip
 #: NAVIGATION.md:32
 msgid "Case study: L99A T4 Lysozyme:Benzene"
-msgstr ""
+msgstr "適用事例：L99A T4 Lysozyme:Benzene"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:33
@@ -137,4 +138,4 @@ msgstr "入力ファイルの準備"
 #. mermaid click tooltip
 #: NAVIGATION.md:34
 msgid "Post-processing, reweighting and entropic correction"
-msgstr ""
+msgstr "後処理、Reweighting、Entropic Correction"

@@ -62,7 +62,7 @@ msgstr ""
 #. mermaid node label
 #: NAVIGATION.md:19
 msgid "Flamegraph with perf from plumed benchmark"
-msgstr ""
+msgstr "plumed benchmark の perf による Flamegraph"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:22

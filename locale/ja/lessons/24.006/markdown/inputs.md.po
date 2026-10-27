@@ -74,7 +74,7 @@ msgstr ""
 
 #: markdown/inputs.md:31
 msgid "or"
-msgstr ""
+msgstr "または"
 
 #: markdown/inputs.md:37
 msgid ""

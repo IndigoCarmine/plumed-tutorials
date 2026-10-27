@@ -63,7 +63,7 @@ msgstr "参考文献2"
 #. mermaid node label
 #: NAVIGATION.md:17
 msgid "ref3"
-msgstr ""
+msgstr "参考文献3"
 
 #. mermaid node label
 #: NAVIGATION.md:18
@@ -117,4 +117,4 @@ msgstr "2022年7月25日に PLUMED Masterclass シリーズの一環として行
 #. mermaid click tooltip
 #: NAVIGATION.md:27
 msgid "A python notebook where the answers to the exericses are discussed"
-msgstr ""
+msgstr "演習の解答を説明する Python Notebook"

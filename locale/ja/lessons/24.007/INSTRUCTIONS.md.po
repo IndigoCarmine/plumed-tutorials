@@ -20,6 +20,7 @@ msgid ""
 "This masterclass was authored by Jiangbo Wu and Gregory A. Voth on September"
 " 10, 2024"
 msgstr ""
+"この Masterclass は、2024年9月10日に Jiangbo Wu and Gregory A. Voth によって作成された。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"
@@ -125,7 +126,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:31
 msgid "Software and data"
-msgstr ""
+msgstr "ソフトウェアとデータ"
 
 #: INSTRUCTIONS.md:33
 msgid ""

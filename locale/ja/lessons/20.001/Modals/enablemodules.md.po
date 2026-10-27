@@ -9,4 +9,4 @@ msgstr ""
 
 #: Modals/enablemodules.md:2
 msgid "--enable-modules option"
-msgstr ""
+msgstr "--enable-modules オプション"

@@ -181,7 +181,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:65
 msgid "or"
-msgstr ""
+msgstr "または"
 
 #: INSTRUCTIONS.md:69
 msgid ""
@@ -551,7 +551,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:156
 msgid "Simulation"
-msgstr ""
+msgstr "シミュレーション"
 
 #: INSTRUCTIONS.md:158
 msgid ""

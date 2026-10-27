@@ -234,7 +234,7 @@ msgstr ""
 
 #: INSTRUCTIONS1.md:205
 msgid "Summary"
-msgstr ""
+msgstr "まとめ"
 
 #: INSTRUCTIONS1.md:207
 msgid ""

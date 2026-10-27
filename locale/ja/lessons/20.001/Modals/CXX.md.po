@@ -9,7 +9,7 @@ msgstr ""
 
 #: Modals/CXX.md:2
 msgid "CXX Environment Variable"
-msgstr ""
+msgstr "環境変数 CXX"
 
 #: Modals/CXX.md:18
 msgid ""
@@ -17,17 +17,20 @@ msgid ""
 "(or later versions) should be sufficient:"
 msgstr ""
 
+# Compiler name and version intentionally preserved.
 #: Modals/CXX.md:20
 msgid "gcc 4.8.1"
-msgstr ""
+msgstr "gcc 4.8.1"
 
+# Compiler name and version intentionally preserved.
 #: Modals/CXX.md:21
 msgid "clang 3.3"
-msgstr ""
+msgstr "clang 3.3"
 
+# Compiler name and version intentionally preserved.
 #: Modals/CXX.md:22
 msgid "intel 15"
-msgstr ""
+msgstr "intel 15"
 
 #: Modals/CXX.md:32
 msgid ""

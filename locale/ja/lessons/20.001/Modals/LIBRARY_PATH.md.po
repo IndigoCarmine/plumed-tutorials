@@ -9,4 +9,4 @@ msgstr ""
 
 #: Modals/LIBRARY_PATH.md:2
 msgid "LIBRARY_PATH envrionmental variable"
-msgstr ""
+msgstr "環境変数 LIBRARY_PATH"

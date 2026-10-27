@@ -9,4 +9,4 @@ msgstr ""
 
 #: Modals/PYTHON_BIN.md:2
 msgid "PYTHON_BIN Environment Variable"
-msgstr ""
+msgstr "環境変数 PYTHON_BIN"

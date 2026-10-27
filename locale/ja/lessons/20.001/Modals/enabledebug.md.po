@@ -9,4 +9,4 @@ msgstr ""
 
 #: Modals/enabledebug.md:2
 msgid "--enable-debug option"
-msgstr ""
+msgstr "--enable-debug オプション"

@@ -9,4 +9,4 @@ msgstr ""
 
 #: Modals/STATIC_LIBS.md:2
 msgid "STATIC_LIBS Environment Variable"
-msgstr ""
+msgstr "環境変数 STATIC_LIBS"

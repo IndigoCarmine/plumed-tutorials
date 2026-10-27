@@ -7,9 +7,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+# Method name, software identifier or literal command intentionally preserved.
 #: README.md:1
 msgid "VMetaD-tutorial"
-msgstr ""
+msgstr "VMetaD-tutorial"
 
 #: README.md:2
 msgid ""
@@ -22,7 +23,7 @@ msgstr ""
 
 #: README.md:4
 msgid "This guide is divided in different sections"
-msgstr ""
+msgstr "このガイドは、複数のセクションに分かれている。"
 
 #: README.md:6
 msgid "Volume-based Metadynamics theory"
@@ -30,11 +31,11 @@ msgstr ""
 
 #: README.md:7
 msgid "A brief introduction to the rationale behind the use of VMetaD."
-msgstr ""
+msgstr "VMetaD を用いる考え方の簡単な入門。"
 
 #: README.md:9
 msgid "Case study: L99A T4 Lysozyme:Benzene"
-msgstr ""
+msgstr "適用事例：L99A T4 Lysozyme:Benzene"
 
 #: README.md:10
 msgid ""
@@ -59,7 +60,7 @@ msgstr ""
 
 #: README.md:15
 msgid "Post-processing, reweighting and entropic correction"
-msgstr ""
+msgstr "後処理、Reweighting、Entropic Correction"
 
 #: README.md:16
 msgid ""

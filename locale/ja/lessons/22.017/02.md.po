@@ -9,7 +9,7 @@ msgstr ""
 
 #: 02.md:1
 msgid "Tutorial 2: Ensemble refinement with EMMIVox"
-msgstr ""
+msgstr "チュートリアル2：EMMIVox による Ensemble Refinement"
 
 #: 02.md:3
 msgid ""

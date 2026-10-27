@@ -9,4 +9,4 @@ msgstr ""
 
 #: Modals/prefix.md:2
 msgid "--prefix option"
-msgstr ""
+msgstr "--prefix オプション"

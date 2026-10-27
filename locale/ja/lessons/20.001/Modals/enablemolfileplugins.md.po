@@ -9,7 +9,7 @@ msgstr ""
 
 #: Modals/enablemolfileplugins.md:2
 msgid "--enable-molfile-plugins option"
-msgstr ""
+msgstr "--enable-molfile-plugins オプション"
 
 #: Modals/enablemolfileplugins.md:8
 msgid ""

@@ -148,7 +148,7 @@ msgstr ""
 
 #: averaging.md:97
 msgid "Spatial averages"
-msgstr ""
+msgstr "Spatial Averages"
 
 #: averaging.md:99
 msgid ""

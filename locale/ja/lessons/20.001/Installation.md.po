@@ -124,7 +124,7 @@ msgstr ""
 #: Installation.md:158 Installation.md:290 Installation.md:366
 #: Installation.md:420 Installation.md:636
 msgid "Configuring PLUMED"
-msgstr ""
+msgstr "PLUMED の構成設定"
 
 #: Installation.md:165
 msgid ""
@@ -134,7 +134,7 @@ msgstr ""
 
 #: Installation.md:196
 msgid "Setting up your environment"
-msgstr ""
+msgstr "環境の設定"
 
 #: Installation.md:200
 msgid ""
@@ -339,7 +339,7 @@ msgstr ""
 
 #: Installation.md:463
 msgid "Installing PLUMED with conda"
-msgstr ""
+msgstr "conda による PLUMED のインストール"
 
 #: Installation.md:464
 msgid ""
@@ -365,7 +365,7 @@ msgstr ""
 
 #: Installation.md:489
 msgid "Compiling PLUMED"
-msgstr ""
+msgstr "PLUMED のコンパイル"
 
 #: Installation.md:490
 msgid ""
@@ -455,7 +455,7 @@ msgstr ""
 
 #: Installation.md:656
 msgid "--standalone-executable option"
-msgstr ""
+msgstr "--standalone-executable オプション"
 
 #: Installation.md:663
 msgid ""
@@ -477,11 +477,11 @@ msgstr ""
 
 #: Installation.md:683
 msgid "--prefix option"
-msgstr ""
+msgstr "--prefix オプション"
 
 #: Installation.md:705
 msgid "--enable-rpath option"
-msgstr ""
+msgstr "--enable-rpath オプション"
 
 #: Installation.md:723
 msgid ""
@@ -497,11 +497,11 @@ msgstr ""
 
 #: Installation.md:736
 msgid "--enable-mpi option"
-msgstr ""
+msgstr "--enable-mpi オプション"
 
 #: Installation.md:755
 msgid "--enable-molfile-plugins option"
-msgstr ""
+msgstr "--enable-molfile-plugins オプション"
 
 #: Installation.md:761
 msgid ""
@@ -535,11 +535,11 @@ msgstr ""
 
 #: Installation.md:781
 msgid "--enable-modules option"
-msgstr ""
+msgstr "--enable-modules オプション"
 
 #: Installation.md:796
 msgid "--enable-external-lapack option"
-msgstr ""
+msgstr "--enable-external-lapack オプション"
 
 #: Installation.md:819
 msgid ""
@@ -550,11 +550,11 @@ msgstr ""
 
 #: Installation.md:847
 msgid "--enable-debug option"
-msgstr ""
+msgstr "--enable-debug オプション"
 
 #: Installation.md:859
 msgid "--enable-asmjit option"
-msgstr ""
+msgstr "--enable-asmjit オプション"
 
 #: Installation.md:868
 msgid ""
@@ -565,31 +565,31 @@ msgstr ""
 
 #: Installation.md:876
 msgid "--disable-libsearch option"
-msgstr ""
+msgstr "--disable-libsearch オプション"
 
 #: Installation.md:894
 msgid "STATIC_LIBS Environment Variable"
-msgstr ""
+msgstr "環境変数 STATIC_LIBS"
 
 #: Installation.md:905
 msgid "PYTHON_BIN Environment Variable"
-msgstr ""
+msgstr "環境変数 PYTHON_BIN"
 
 #: Installation.md:916
 msgid "LIBS Environment Variable"
-msgstr ""
+msgstr "環境変数 LIBS"
 
 #: Installation.md:940
 msgid "LIBRARY_PATH envrionmental variable"
-msgstr ""
+msgstr "環境変数 LIBRARY_PATH"
 
 #: Installation.md:951
 msgid "LDFLAGS Environment Variable"
-msgstr ""
+msgstr "環境変数 LDFLAGS"
 
 #: Installation.md:970
 msgid "CXXFLAGS Environment Variable"
-msgstr ""
+msgstr "環境変数 CXXFLAGS"
 
 #: Installation.md:973
 msgid ""
@@ -599,7 +599,7 @@ msgstr ""
 
 #: Installation.md:979
 msgid "CXX Environment Variable"
-msgstr ""
+msgstr "環境変数 CXX"
 
 #: Installation.md:995
 msgid ""
@@ -607,17 +607,20 @@ msgid ""
 "(or later versions) should be sufficient:"
 msgstr ""
 
+# Compiler name and version intentionally preserved.
 #: Installation.md:997
 msgid "gcc 4.8.1"
-msgstr ""
+msgstr "gcc 4.8.1"
 
+# Compiler name and version intentionally preserved.
 #: Installation.md:998
 msgid "clang 3.3"
-msgstr ""
+msgstr "clang 3.3"
 
+# Compiler name and version intentionally preserved.
 #: Installation.md:999
 msgid "intel 15"
-msgstr ""
+msgstr "intel 15"
 
 #: Installation.md:1009
 msgid ""
@@ -628,8 +631,8 @@ msgstr ""
 
 #: Installation.md:1015
 msgid "CPPFLAGS Environment Variable"
-msgstr ""
+msgstr "環境変数 CPPFLAGS"
 
 #: Installation.md:1033
 msgid "CC Environment Variable"
-msgstr ""
+msgstr "環境変数 CC"

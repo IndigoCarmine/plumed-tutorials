@@ -7,9 +7,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+# Method name, software identifier or literal command intentionally preserved.
 #: INSTRUCTIONS.md:1
 msgid "PLUMED Masterclass 22.12"
-msgstr ""
+msgstr "PLUMED Masterclass 22.12"
 
 #: INSTRUCTIONS.md:2
 msgid ""
@@ -19,11 +20,11 @@ msgstr ""
 
 #: INSTRUCTIONS.md:4
 msgid "Author: Pablo Piaggi"
-msgstr ""
+msgstr "著者：Pablo Piaggi"
 
 #: INSTRUCTIONS.md:6
 msgid "Date: July 18, 2022"
-msgstr ""
+msgstr "日付：2022年7月18日"
 
 #: INSTRUCTIONS.md:8
 msgid "Aims"
@@ -64,19 +65,19 @@ msgstr ""
 
 #: INSTRUCTIONS.md:18
 msgid "Learn how to perform **thermodynamic integration** along isobars"
-msgstr ""
+msgstr "Isobars に沿って **Thermodynamic Integration** を行う方法を学ぶ。"
 
 #: INSTRUCTIONS.md:19
 msgid "Understand the importance of finite size effects"
-msgstr ""
+msgstr "Finite-size Effects の重要性を理解する。"
 
 #: INSTRUCTIONS.md:20
 msgid "Understand the advantages and limitations of each method"
-msgstr ""
+msgstr "各手法の利点と限界を理解する。"
 
 #: INSTRUCTIONS.md:21
 msgid "Understand how these methods complement each other"
-msgstr ""
+msgstr "これらの手法が互いにどう補い合うかを理解する。"
 
 #: INSTRUCTIONS.md:23
 msgid "Prerequisites"
@@ -127,7 +128,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:46
 msgid "Summary of theory"
-msgstr ""
+msgstr "理論のまとめ"
 
 #: INSTRUCTIONS.md:48
 msgid ""
@@ -206,7 +207,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:88
 msgid "The system: Sodium as the alanine dipeptide of solids"
-msgstr ""
+msgstr "対象系：固体における Alanine Dipeptide に相当する Sodium"
 
 #: INSTRUCTIONS.md:90
 msgid ""
@@ -345,7 +346,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:194
 msgid "Exercise 2: Bulk interconversion"
-msgstr ""
+msgstr "演習2：Bulk Interconversion"
 
 #: INSTRUCTIONS.md:200
 msgid ""
@@ -400,7 +401,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:236
 msgid "The input for OPES is very simple,"
-msgstr ""
+msgstr "OPES の入力は非常に単純である。"
 
 #: INSTRUCTIONS.md:240
 msgid ""
@@ -509,7 +510,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:313
 msgid "Exercise 3: Biased coexistence"
-msgstr ""
+msgstr "演習3：Biased Coexistence"
 
 #: INSTRUCTIONS.md:319
 msgid ""
@@ -542,7 +543,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:332
 msgid "Create a bcc crystal and equilibrate it in NPT"
-msgstr ""
+msgstr "BCC Crystal を作成し、NPT で Equilibration する。"
 
 #: INSTRUCTIONS.md:333
 msgid ""
@@ -564,7 +565,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:336
 msgid "Production run with a bias potential in the NPzT ensemble"
-msgstr ""
+msgstr "NPzT Ensemble で BiasPotential を用いて本計算を行う。"
 
 #: INSTRUCTIONS.md:338
 msgid ""
@@ -579,7 +580,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:351
 msgid "Run the simulation at 400 K using the command,"
-msgstr ""
+msgstr "次のコマンドを使い、400 K でシミュレーションを実行する。"
 
 #: INSTRUCTIONS.md:355
 msgid ""
@@ -621,7 +622,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:384
 msgid "and is in column 13 of the COLVAR file."
-msgstr ""
+msgstr "また、COLVAR ファイルの13列目に記録されている。"
 
 #: INSTRUCTIONS.md:386
 msgid ""
@@ -631,7 +632,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:389
 msgid "Exercise 4: Thermodynamic integration along isobars"
-msgstr ""
+msgstr "演習4：Isobars に沿う Thermodynamic Integration"
 
 #: INSTRUCTIONS.md:391
 msgid ""
@@ -647,7 +648,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:399
 msgid "The method relies on the following thermodynamic identity,"
-msgstr ""
+msgstr "この手法は、次の Thermodynamic Identity に基づく。"
 
 #: INSTRUCTIONS.md:403
 msgid ""
@@ -681,7 +682,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:419
 msgid "Final thoughts"
-msgstr ""
+msgstr "最後に"
 
 #: INSTRUCTIONS.md:421
 msgid ""

@@ -9,7 +9,7 @@ msgstr ""
 
 #: conda.md:1
 msgid "Installing PLUMED with conda"
-msgstr ""
+msgstr "conda による PLUMED のインストール"
 
 #: conda.md:3
 msgid ""
@@ -65,7 +65,7 @@ msgstr ""
 
 #: conda.md:36
 msgid "First, make sure conda is installed by typing:"
-msgstr ""
+msgstr "まず、次を入力して conda がインストールされていることを確認する。"
 
 #: conda.md:40
 msgid ""
@@ -81,7 +81,7 @@ msgstr ""
 
 #: conda.md:53
 msgid "and activate it with:"
-msgstr ""
+msgstr "次のコマンドで有効化する。"
 
 #: conda.md:58
 msgid ""

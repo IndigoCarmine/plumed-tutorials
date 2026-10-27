@@ -28,7 +28,7 @@ msgstr ""
 
 #: namd.md:8
 msgid "Patching options"
-msgstr ""
+msgstr "パッチ適用のオプション"
 
 #: namd.md:9
 msgid ""

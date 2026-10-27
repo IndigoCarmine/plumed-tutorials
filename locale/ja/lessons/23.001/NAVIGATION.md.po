@@ -143,10 +143,11 @@ msgstr ""
 msgid "Averaging"
 msgstr ""
 
+# Method name, software identifier or literal command intentionally preserved.
 #. mermaid node label
 #: NAVIGATION.md:47
 msgid "Histograms"
-msgstr ""
+msgstr "Histograms"
 
 # Literal notation or identifier intentionally preserved.
 #. mermaid node label
@@ -154,10 +155,11 @@ msgstr ""
 msgid "RMSD"
 msgstr "RMSD"
 
+# Method name, software identifier or literal command intentionally preserved.
 #. mermaid node label
 #: NAVIGATION.md:49
 msgid "Paths"
-msgstr ""
+msgstr "Paths"
 
 #. mermaid click tooltip
 #: NAVIGATION.md:51

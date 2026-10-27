@@ -24,7 +24,7 @@ msgstr ""
 
 #: INSTALL.md:8
 msgid "or"
-msgstr ""
+msgstr "または"
 
 #: INSTALL.md:13
 msgid "Third-party applications"

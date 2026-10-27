@@ -18,7 +18,7 @@ msgstr "作成について"
 #: INSTRUCTIONS.md:5
 msgid ""
 "This masterclass was authored by Michele Invernizzi on February 28, 2022"
-msgstr ""
+msgstr "この Masterclass は、2022年2月28日に Michele Invernizzi によって作成された。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"

@@ -112,7 +112,7 @@ msgstr ""
 
 #: input.md:135
 msgid "Simulation"
-msgstr ""
+msgstr "シミュレーション"
 
 #: input.md:137
 msgid "We are ready to run the simulation."

@@ -9,4 +9,4 @@ msgstr ""
 
 #: Modals/CC.md:2
 msgid "CC Environment Variable"
-msgstr ""
+msgstr "環境変数 CC"

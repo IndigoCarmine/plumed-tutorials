@@ -28,7 +28,7 @@ msgstr ""
 
 #: qespresso.md:8
 msgid "Patching options"
-msgstr ""
+msgstr "パッチ適用のオプション"
 
 #: qespresso.md:9
 msgid ""

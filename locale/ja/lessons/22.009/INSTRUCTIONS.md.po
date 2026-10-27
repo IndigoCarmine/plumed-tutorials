@@ -86,7 +86,7 @@ msgstr "前提条件"
 msgid ""
 "We assume that you are familiar with PLUMED. However, the 2021 PLUMED "
 "Masterclass is a great place to start if you are not."
-msgstr ""
+msgstr "PLUMED に習熟していることを前提とする。初めての場合は、2021年の PLUMED Masterclass がよい出発点になる。"
 
 #: INSTRUCTIONS.md:34
 msgid "Setting up the software"
@@ -349,7 +349,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:237
 msgid "Model system"
-msgstr ""
+msgstr "モデル系"
 
 #: INSTRUCTIONS.md:239
 msgid ""
@@ -421,7 +421,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:279
 msgid "Exercise 1"
-msgstr ""
+msgstr "演習1"
 
 #: INSTRUCTIONS.md:281
 msgid ""
@@ -454,7 +454,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:301
 msgid "Exercise 2"
-msgstr ""
+msgstr "演習2"
 
 #: INSTRUCTIONS.md:303
 msgid ""
@@ -526,7 +526,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:349
 msgid "Exercise 3"
-msgstr ""
+msgstr "演習3"
 
 #: INSTRUCTIONS.md:351
 msgid ""
@@ -564,7 +564,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:370
 msgid "Exercise 4"
-msgstr ""
+msgstr "演習4"
 
 #: INSTRUCTIONS.md:372
 msgid ""
@@ -625,7 +625,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:407
 msgid "Exercise 5"
-msgstr ""
+msgstr "演習5"
 
 #: INSTRUCTIONS.md:409
 msgid ""

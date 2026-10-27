@@ -9,4 +9,4 @@ msgstr ""
 
 #: README.md:1
 msgid "PINES Plumed Tutorial"
-msgstr ""
+msgstr "PINES の PLUMED チュートリアル"

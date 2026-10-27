@@ -146,9 +146,10 @@ msgid ""
 "RESTRAINT bias."
 msgstr ""
 
+# Method name, software identifier or literal command intentionally preserved.
 #: INSTRUCTIONS.md:62
 msgid "Steered MD"
-msgstr ""
+msgstr "Steered MD"
 
 #: INSTRUCTIONS.md:64
 msgid ""

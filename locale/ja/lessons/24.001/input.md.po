@@ -9,7 +9,7 @@ msgstr ""
 
 #: input.md:1
 msgid "Preparing the input files"
-msgstr ""
+msgstr "入力ファイルの準備"
 
 #: input.md:2
 msgid ""

@@ -19,7 +19,7 @@ msgstr "作成について"
 msgid ""
 "This masterclass was authored by Giovanni Bussi and Max Bonomi on April 21, "
 "2021"
-msgstr ""
+msgstr "この Masterclass は、2021年4月21日に Giovanni Bussi and Max Bonomi によって作成された。"
 
 #: INSTRUCTIONS.md:7
 msgid "Aims"
@@ -474,7 +474,7 @@ msgstr ""
 
 #: INSTRUCTIONS.md:252
 msgid "Please keep in mind that:"
-msgstr ""
+msgstr "次の点に注意してほしい。"
 
 #: INSTRUCTIONS.md:253
 msgid ""

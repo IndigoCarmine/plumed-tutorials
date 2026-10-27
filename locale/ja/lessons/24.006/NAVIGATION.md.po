@@ -144,7 +144,7 @@ msgstr "理論"
 #. mermaid node label
 #: NAVIGATION.md:32
 msgid "Model system"
-msgstr ""
+msgstr "モデル系"
 
 #. mermaid node label
 #: NAVIGATION.md:33
